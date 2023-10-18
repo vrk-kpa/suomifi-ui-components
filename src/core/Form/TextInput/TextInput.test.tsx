@@ -80,13 +80,9 @@ describe('props', () => {
       expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
     });
 
-    it('should have margin prop overwritten from wrapperProps', () => {
+    it('should have margin prop overwritten by style prop', () => {
       const { container } = render(
-        <TextInput
-          labelText=""
-          margin="xs"
-          wrapperProps={{ style: { margin: 2 } }}
-        />,
+        <TextInput labelText="" margin="xs" style={{ margin: 2 }} />,
       );
       expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
     });

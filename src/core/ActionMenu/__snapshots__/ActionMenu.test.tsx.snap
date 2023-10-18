@@ -665,8 +665,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -1431,8 +1429,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -2197,8 +2193,6 @@ exports[`No borders variant should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -2964,8 +2958,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -3731,8 +3723,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"

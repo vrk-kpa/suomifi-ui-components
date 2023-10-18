@@ -13,20 +13,21 @@ const dropdownProps = {
   id: 'test-id',
 };
 
-const TestDropdown = (props: DropdownProps, testId?: string) => (
-  <Dropdown {...props} wrapperProps={{ 'data-testid': testId || '' }}>
+const TestDropdown = (props: DropdownProps) => (
+  <Dropdown {...props}>
     <DropdownItem value={'item-1'}>Item 1</DropdownItem>
     <DropdownItem value={'item-2'}>Item 2</DropdownItem>
   </Dropdown>
 );
 
-const TestNestedDropdown = (props: DropdownProps, testId?: string) => (
-  <Dropdown {...props} wrapperProps={{ 'data-testid': testId || '' }}>
+const TestNestedDropdown = (props: DropdownProps) => (
+  <Dropdown {...props}>
     {[1, 2, 3].map((item) => (
       <DropdownItem
         value={`dropdown-item-${item}`}
         disabled={item === 3}
         key={item}
+        data-testid="pena"
       >
         {`Dropdown Item ${item}`}
       </DropdownItem>
@@ -36,12 +37,12 @@ const TestNestedDropdown = (props: DropdownProps, testId?: string) => (
 );
 
 describe('Basic dropdown', () => {
-  const BasicDropdown = TestDropdown(dropdownProps, 'dropdown-test-id');
+  const BasicDropdown = TestDropdown(dropdownProps);
 
   it('should have provided ids', async () => {
-    const { findByTestId } = render(BasicDropdown);
-    const dropdown = await findByTestId('dropdown-test-id');
-    const label = await dropdown.getElementsByTagName('label')[0];
+    const { baseElement } = render(BasicDropdown);
+    const dropdown = baseElement.querySelector('.fi-dropdown');
+    const label = dropdown?.getElementsByTagName('label')[0];
     expect(dropdown).toHaveAttribute('id', 'test-id');
     expect(label).toHaveAttribute('id', 'test-id-label');
   });
@@ -89,14 +90,12 @@ describe('Dropdown with hidden label', () => {
     ...dropdownProps,
     labelMode: 'hidden',
   };
-  const DropdownWithHiddenLabel = TestDropdown(
-    hiddenProps,
-    'dropdown-hidden-label-test-id',
-  );
+  const DropdownWithHiddenLabel = TestDropdown(hiddenProps);
 
   it('should have hidden label', async () => {
     const { findByText } = render(DropdownWithHiddenLabel);
     const label = await findByText('Dropdown test');
+    console.log(label);
     expect(label).toHaveClass('fi-visually-hidden');
   });
 
@@ -322,29 +321,26 @@ describe('margin', () => {
       ...dropdownProps,
       margin: 'xs',
     };
-    const { getByTestId } = render(TestDropdown(props, 'margin-test'));
-    const div = getByTestId('margin-test');
+    const { baseElement } = render(TestDropdown(props));
+    const div = baseElement.querySelector('.fi-dropdown');
     expect(div).toHaveAttribute('style', 'margin: 10px;');
   });
 
-  it('should have margin style overwritten from wrapperProps', () => {
+  it('should have margin style overwritten by style prop', () => {
     const props: DropdownProps = {
       ...dropdownProps,
       margin: 'xs',
-      wrapperProps: {
-        'data-testid': 'margin-test',
-        style: {
-          margin: 2,
-        },
+      style: {
+        margin: 2,
       },
     };
-    const { getByTestId } = render(
+    const { baseElement } = render(
       <Dropdown {...props}>
         <DropdownItem value={'item-1'}>Item 1</DropdownItem>
         <DropdownItem value={'item-2'}>Item 2</DropdownItem>
       </Dropdown>,
     );
-    const div = getByTestId('margin-test');
+    const div = baseElement.querySelector('.fi-dropdown');
     expect(div).toHaveAttribute('style', 'margin: 2px;');
   });
 });

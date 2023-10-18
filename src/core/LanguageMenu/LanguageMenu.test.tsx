@@ -100,23 +100,20 @@ describe('props', () => {
   });
 
   describe('className', () => {
-    it('shoud have className in wrapper element', () => {
-      const { getByTestId } = render(
+    it('shoud have base className and given className in wrapper element', () => {
+      const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
-          wrapperProps: {
-            'data-testid': 'classname-test',
-          },
           className: 'lm-test',
         }),
       );
-      const button = getByTestId('classname-test');
-      expect(button).toHaveClass('lm-test');
+      expect(container.firstChild).toHaveClass('fi-language-menu');
+      expect(container.firstChild).toHaveClass('lm-test');
     });
   });
 
   describe('menuClassName', () => {
-    it('shoud have className in wrapper element', () => {
+    it('shoud have className in popover wrapper element', () => {
       const { baseElement } = render(
         TestLanguageMenu({
           ...languageMenuProps,
@@ -139,39 +136,15 @@ describe('props', () => {
       expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
     });
 
-    it('should have margin prop overwritten from wrapperProps', () => {
+    it('should have margin prop overwritten by style prop', () => {
       const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
           margin: 'xs',
-          wrapperProps: { style: { margin: 2 } },
+          style: { margin: 2 },
         }),
       );
       expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
-    });
-  });
-
-  describe('wrapperProps', () => {
-    it('should have wrapperProps id', () => {
-      const { baseElement } = render(
-        TestLanguageMenu({
-          ...languageMenuProps,
-          wrapperProps: { id: 'wrapper-id' },
-        }),
-      );
-      const wrapperDiv = baseElement.querySelector('#wrapper-id');
-      expect(wrapperDiv).toBeTruthy();
-    });
-
-    it('should have wrapperProps data-testid', () => {
-      const { getByTestId } = render(
-        TestLanguageMenu({
-          ...languageMenuProps,
-          wrapperProps: { 'data-testid': 'language-menu-test-id' },
-        }),
-      );
-      const wrapperDiv = getByTestId('language-menu-test-id');
-      expect(wrapperDiv).toBeTruthy();
     });
   });
 });

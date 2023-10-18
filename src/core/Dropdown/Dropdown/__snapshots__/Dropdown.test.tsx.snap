@@ -577,7 +577,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--open fi-dropdown--italicize"
-      data-testid="dropdown-test-id"
       id="test-id"
     >
       <div
@@ -1272,7 +1271,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--open"
-      data-testid=""
       id="test-id"
     >
       <div
@@ -1960,7 +1958,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--open fi-dropdown--italicize"
-      data-testid=""
       id="test-id"
     >
       <div
@@ -2482,7 +2479,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--italicize"
-      data-testid="dropdown-hidden-label-test-id"
       id="test-id"
     >
       <div

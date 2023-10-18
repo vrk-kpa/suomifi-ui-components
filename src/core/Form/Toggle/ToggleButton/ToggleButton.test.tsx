@@ -67,9 +67,9 @@ describe('margin', () => {
     expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
   });
 
-  it('should have margin prop overwritten from toggleWrapperProps', () => {
+  it('should have margin prop overwritten by style prop', () => {
     const { container } = render(
-      <ToggleButton margin="xs" toggleWrapperProps={{ style: { margin: 2 } }}>
+      <ToggleButton margin="xs" style={{ margin: 2 }}>
         Test
       </ToggleButton>,
     );

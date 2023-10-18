@@ -11,10 +11,7 @@ import {
 describe('Basic expander', () => {
   const TestExpanderWithProps = (titleProps: ExpanderTitleButtonProps) => (
     <Expander className="expander-test">
-      <ExpanderTitleButton
-        {...titleProps}
-        {...{ 'data-testid': 'expander-title' }}
-      />
+      <ExpanderTitleButton {...titleProps} data-testid="expander-title" />
       <ExpanderContent>Test expander content</ExpanderContent>
     </Expander>
   );
