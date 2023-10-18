@@ -83,7 +83,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
       'aria-labelledby': ariaLabelledBy,
       checked,
       defaultChecked: dissMissDefaultChecked,
-      toggleWrapperProps,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -100,8 +100,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
             [toggleClassNames.disabled]: !!disabled,
           },
         )}
-        {...toggleWrapperProps}
-        style={{ ...marginStyle, ...toggleWrapperProps?.style }}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlLabel className={toggleClassNames.label} htmlFor={id}>
           <HtmlInput

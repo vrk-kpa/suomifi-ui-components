@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { HtmlSpanProps } from '../../../../reset/HtmlSpan/HtmlSpan';
 
 export const baseClassName = 'fi-toggle';
 
@@ -30,8 +29,4 @@ export interface ToggleBaseProps {
    * HTML id attribute. If no id is specified, one will be generated
    */
   id?: string;
-  /**
-   * Props passed to the wrapping span element
-   */
-  toggleWrapperProps?: HtmlSpanProps;
 }

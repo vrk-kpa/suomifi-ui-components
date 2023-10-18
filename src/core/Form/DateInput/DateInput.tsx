@@ -16,10 +16,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
-import {
-  HTMLAttributesIncludingDataAttributes,
-  forkRefs,
-} from '../../../utils/common/common';
+import { forkRefs } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
@@ -164,11 +161,6 @@ export interface DateInputProps
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** DateInput container div class name for custom styling. */
   className?: string;
-  /** DateInput wrapping div element props */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
   /** Disable input usage */
   disabled?: boolean;
   /** Callback fired when input is clicked. */
@@ -217,7 +209,6 @@ const BaseDateInput = (props: DateInputProps) => {
     labelMode,
     onChange: propOnChange,
     onDatePickerButtonBlur,
-    wrapperProps,
     optionalText,
     status,
     statusText,
@@ -241,6 +232,7 @@ const BaseDateInput = (props: DateInputProps) => {
     maxDate = moveYears(lastDayOfMonth(new Date()), 10),
     initialDate,
     tooltipComponent,
+    style,
     ...rest
   } = props;
   const [marginProps, passProps] = separateMarginProps(rest);
@@ -353,7 +345,6 @@ const BaseDateInput = (props: DateInputProps) => {
 
   return (
     <HtmlDiv
-      {...wrapperProps}
       className={classnames(baseClassName, className, {
         [dateInputClassNames.disabled]: !!passProps.disabled,
         [dateInputClassNames.error]: status === 'error',
@@ -361,7 +352,7 @@ const BaseDateInput = (props: DateInputProps) => {
         [dateInputClassNames.fullWidth]: fullWidth,
         [dateInputClassNames.hasPicker]: datePickerEnabled,
       })}
-      style={{ ...marginStyle, ...wrapperProps?.style }}
+      style={{ ...marginStyle, ...style }}
     >
       <HtmlDiv className={dateInputClassNames.styleWrapper}>
         <Label

@@ -1,7 +1,7 @@
 import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
+import { HtmlDiv, HtmlButton, HtmlSpan, HtmlDivProps } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   spacingStyles,
@@ -17,9 +17,7 @@ const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
 
-interface PartialExpanderGroupProps
-  extends HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    MarginProps {
+interface PartialExpanderGroupProps extends HtmlDivProps, MarginProps {
   /** Expanders (and optionally other ReactNodes) */
   children: ReactNode;
   /** 'Open all' button text for screen readers, hides `OpenAllText` for screen readers if provided */
@@ -30,7 +28,7 @@ interface PartialExpanderGroupProps
   className?: string;
   /** Props passed to the Open/Close all button */
   toggleAllButtonProps?: Omit<
-    HtmlButtonProps,
+    HTMLAttributesIncludingDataAttributes<HTMLButtonElement>,
     | 'onClick'
     | 'onMouseDown'
     | 'onMouseUp'

@@ -18,8 +18,7 @@ import {
   LanguageMenuPopover,
   InitialActiveDescendant,
 } from './LanguageMenuPopover/LanguageMenuPopover';
-import { HtmlButton, HtmlDiv } from '../../reset';
-import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
+import { HtmlButton, HtmlButtonProps, HtmlDiv } from '../../reset';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { baseStyles } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps } from './LanguageMenuItem/LanguageMenuItem';
@@ -41,7 +40,7 @@ export type MenuContent =
   | Array<ReactElement<LanguageMenuItemProps>>
   | ReactElement<LanguageMenuItemProps>;
 
-export interface LanguageMenuProps extends MarginProps {
+export interface LanguageMenuProps extends MarginProps, HtmlButtonProps {
   /** Text content for the menu button */
   buttonText: string;
   /**
@@ -68,21 +67,13 @@ export interface LanguageMenuProps extends MarginProps {
   onClose?: () => void;
   /** Callback fired when menu closes */
   onOpen?: () => void;
-  /**
-   * Props which are placed on the outermost div of the component.
-   * Can be used, for example, for style
-   */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
 }
 
 const BaseLanguageMenu = (props: LanguageMenuProps) => {
   const {
     className,
     menuClassName,
-    wrapperProps,
+    style,
     id,
     forwardedRef,
     buttonText,
@@ -153,9 +144,8 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
 
   return (
     <HtmlDiv
-      {...wrapperProps}
       className={classnames(baseClassName, className)}
-      style={{ ...marginStyle, ...wrapperProps?.style }}
+      style={{ ...marginStyle, ...style }}
     >
       <HtmlButton
         id={buttonId}
@@ -169,7 +159,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
         })}
         onClick={handleButtonClick}
         onKeyDown={handleKeyDown}
-        onBlur={(event) => {
+        onBlur={(event: React.FocusEvent<HTMLButtonElement>) => {
           if (onBlur) {
             onBlur(event);
           }

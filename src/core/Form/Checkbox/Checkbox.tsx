@@ -101,6 +101,7 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   value?: string;
   /** Ref is passed to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Properties for the wrapping div element */
 }
 
 export interface CheckboxProps
