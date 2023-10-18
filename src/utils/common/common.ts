@@ -105,8 +105,9 @@ export const autocompleteTimeString = (timeStr: string): string | null => {
 };
 
 /**
- * The following interface allows data-* attributes.
- * The basic React.HTMLAttributes interface throws errors when trying to do something like
+ * The following interface allows data-* attributes in places where props are defined outside JSX.
+ * Typescript allows non-javascript props by default, but only inside JSX.
+ * E.g. The basic React.HTMLAttributes interface throws errors when trying to do something like
  * <Component wrapperProps={{ 'data-testid': 'something' }}
  * Solution inspired by: https://github.com/microsoft/TypeScript/issues/28960
  */
