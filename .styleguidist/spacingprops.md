@@ -77,6 +77,7 @@ The following components support margin props
 - Text
 - Textarea
 - TextInput
+- TimeInput
 - Toast
 - ToggleButton
 - ToggleInput

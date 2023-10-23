@@ -4,4 +4,5 @@ export {
   getOwnerDocument,
   escapeStringRegexp,
   forkRefs,
+  autocompleteTimeString,
 } from './common';

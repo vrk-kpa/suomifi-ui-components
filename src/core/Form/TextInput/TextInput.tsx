@@ -99,12 +99,12 @@ interface BaseTextInputProps
   labelMode?: LabelMode;
   /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Hint text to be shown below the component */
+  /** Hint text to be shown below the component's label */
   hintText?: string;
   /**
    * `'default'` | `'error'`
    *
-   * Status of the component. Error state creates a red border around the Checkbox.
+   * Status of the component. Error state creates a red border around the input.
    * Always use a descriptive `statusText` with an error status.
    * @default default
    */

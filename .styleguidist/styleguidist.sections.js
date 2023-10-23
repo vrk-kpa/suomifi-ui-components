@@ -16,6 +16,7 @@ const singularComponents = [
   'Notification',
   'Toast',
   ['Form', 'TextInput'],
+  ['Form', 'TimeInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
   ['Form', 'DateInput'],

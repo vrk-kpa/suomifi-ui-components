@@ -37,6 +37,8 @@ export {
   CheckboxGroupProps,
   TextInput,
   TextInputProps,
+  TimeInput,
+  TimeInputProps,
   ToggleInput,
   ToggleInputProps,
   ToggleButton,
@@ -154,6 +156,7 @@ export {
   SpacingProp,
 } from './core/theme';
 export { getLogger, setLogger, Logger } from './utils/log/logger';
+export { autocompleteTimeString } from './utils/common';
 export {
   suomifiDesignTokens,
   DesignTokens,
