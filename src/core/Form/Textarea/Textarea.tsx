@@ -13,12 +13,7 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import {
-  HtmlTextarea,
-  HtmlTextareaProps,
-  HtmlDiv,
-  HtmlDivProps,
-} from '../../../reset';
+import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
 import { forkRefs } from '../../../utils/common/common';
 import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
@@ -120,8 +115,6 @@ interface BaseTextareaProps
   name?: string;
   /** Sets the component's width to 100% of its parent */
   fullWidth?: boolean;
-  /** Props passed to the outermost div element of the component */
-  containerProps?: Omit<HtmlDivProps, 'className'>;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
   /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
@@ -148,7 +141,7 @@ const BaseTextarea = (props: TextareaProps) => {
     optionalText,
     'aria-describedby': ariaDescribedBy,
     fullWidth,
-    containerProps,
+    style,
     forwardedRef,
     statusTextAriaLiveMode = 'assertive',
     tooltipComponent,
@@ -219,13 +212,12 @@ const BaseTextarea = (props: TextareaProps) => {
 
   return (
     <HtmlDiv
-      {...containerProps}
       className={classnames(baseClassName, className, {
         [textareaClassNames.disabled]: !!disabled,
         [textareaClassNames.error]: status === 'error' && !disabled,
         [textareaClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...containerProps?.style }}
+      style={{ ...marginStyle, ...style }}
     >
       <Label
         htmlFor={id}

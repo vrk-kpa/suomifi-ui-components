@@ -285,11 +285,7 @@ describe('props', () => {
 
     it('should have margin prop overwritten from containerProps', () => {
       const { container } = render(
-        <Textarea
-          labelText=""
-          margin="xs"
-          containerProps={{ style: { margin: 2 } }}
-        />,
+        <Textarea labelText="" margin="xs" style={{ margin: 2 }} />,
       );
       expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
     });
@@ -298,10 +294,7 @@ describe('props', () => {
   describe('containerProps', () => {
     it('has the given props on the container', () => {
       const { container } = render(
-        <Textarea
-          labelText="label"
-          containerProps={{ style: { width: '100px' } }}
-        />,
+        <Textarea labelText="label" style={{ width: '100px' }} />,
       );
       expect(container.firstChild).toHaveAttribute('style', 'width: 100px;');
     });
