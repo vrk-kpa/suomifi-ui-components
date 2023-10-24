@@ -130,9 +130,9 @@ import {
 
 <ExpanderGroup
   openAllText="Open all"
-  ariaOpenAllText="Open all expanders"
+  ariaOpenAllText="Open all sections"
   closeAllText="Close all"
-  ariaCloseAllText="Close all expanders"
+  ariaCloseAllText="Close all sections"
 >
   <Expander>
     <ExpanderTitleButton>
@@ -231,9 +231,9 @@ import {
 
 <ExpanderGroup
   openAllText="Open all"
-  ariaOpenAllText="Open all expanders"
+  ariaOpenAllText="Open all sections"
   closeAllText="Close all"
-  ariaCloseAllText="Close all expanders"
+  ariaCloseAllText="Close all sections"
   showToggleAllButton={false}
 >
   <Expander>
