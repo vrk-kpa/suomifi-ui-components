@@ -20,9 +20,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &--small-screen {
       padding-top: ${theme.spacing.m};
-      padding-left: ${theme.spacing.m};
+      padding-left: ${theme.spacing.s};
       padding-bottom: 50px;
-      padding-right: ${theme.spacing.m};
+      padding-right: ${theme.spacing.s};
     }
   }
 `;
