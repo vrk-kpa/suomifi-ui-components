@@ -55,6 +55,7 @@ class BaseAlert extends Component<AlertProps> {
       closeText,
       onCloseButtonClick,
       smallScreen,
+      forwardedRef,
       closeButtonProps = {},
       ...passProps
     } = this.props;
@@ -73,6 +74,7 @@ class BaseAlert extends Component<AlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
+        ref={forwardedRef}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
           {status === 'warning' && (

@@ -47,6 +47,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
       children,
       smallScreen,
       id,
+      forwardedRef,
       ...passProps
     } = this.props;
 
@@ -58,6 +59,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [inlineAlertClassNames.smallScreen]: !!smallScreen,
         })}
+        ref={forwardedRef}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
           {status === 'warning' && (
