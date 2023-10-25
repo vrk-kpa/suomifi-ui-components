@@ -234,9 +234,9 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 }
 
 .c2.fi-modal_footer--small-screen .fi-modal_footer_content {
-  padding-right: 5px;
+  padding-right: 0;
   padding-bottom: 15px;
-  padding-left: 20px;
+  padding-left: 15px;
 }
 
 .c2.fi-modal_footer--small-screen .fi-modal_footer_content > * {
