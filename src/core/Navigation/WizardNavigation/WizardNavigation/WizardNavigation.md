@@ -42,11 +42,11 @@ const Comp = (props) => {
 };
 
 <div style={{ width: '350px' }}>
-  <WizardNavigation heading="Steps" aria-label="Main">
+  <WizardNavigation heading="Steps" aria-label="Steps">
     <WizardNavigationItem status="completed">
       <RouterLink
         href="https://suomi.fi"
-        aria-label="Step 1 - Parties. This step is completed"
+        aria-label="1. Parties. This step is completed"
       >
         1. Parties
       </RouterLink>
@@ -93,7 +93,7 @@ const Comp = (props) => {
 <div style={{ width: '300px' }}>
   <WizardNavigation
     heading="Steps"
-    aria-label="Main"
+    aria-label="Steps"
     variant="smallScreen"
     initiallyExpanded={false}
   >
