@@ -64,4 +64,18 @@ describe('margin', () => {
     );
     expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
   });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <WizardNavigation
+        aria-label=""
+        heading=""
+        margin="xs"
+        style={{ margin: 2 }}
+      >
+        <WizardNavigationItem status="current">Test</WizardNavigationItem>
+      </WizardNavigation>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 22px;');
+  });
 });

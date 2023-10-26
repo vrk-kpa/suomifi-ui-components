@@ -183,4 +183,13 @@ describe('props', () => {
       expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
     });
   });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <Checkbox margin="xs" style={{ margin: 2 }}>
+        Text
+      </Checkbox>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
 });

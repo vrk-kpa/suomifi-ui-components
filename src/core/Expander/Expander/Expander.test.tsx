@@ -142,4 +142,13 @@ describe('margin prop', () => {
     const div = getByTestId('expander-test');
     expect(div).toHaveAttribute('style', 'margin: 10px;');
   });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <Expander data-testid="expander-test" margin="l" style={{ margin: 2 }}>
+        <ExpanderContent>Test expander content</ExpanderContent>
+      </Expander>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
 });

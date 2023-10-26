@@ -652,4 +652,19 @@ describe('margin', () => {
     );
     expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
   });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <SingleSelect
+        labelText=""
+        clearButtonLabel=""
+        items={[]}
+        noItemsText=""
+        ariaOptionsAvailableText=""
+        margin="xs"
+        style={{ margin: 2 }}
+      />,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
 });

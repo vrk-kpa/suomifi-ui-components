@@ -149,4 +149,13 @@ describe('margin', () => {
     const { container } = render(<RadioButton value="value" margin="xs" />);
     expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
   });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <RadioButton value="value" margin="xs" style={{ margin: 2 }}>
+        Text
+      </RadioButton>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
 });
