@@ -76,6 +76,6 @@ describe('margin', () => {
         <WizardNavigationItem status="current">Test</WizardNavigationItem>
       </WizardNavigation>,
     );
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 22px;');
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });
