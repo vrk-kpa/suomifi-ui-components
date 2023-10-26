@@ -451,6 +451,24 @@ describe('margin prop', () => {
   });
 });
 
+it('should have margin style overridden by style prop', async () => {
+  const { getByTestId } = render(
+    <ExpanderGroup
+      openAllText="Open all"
+      ariaOpenAllText="Open all expanders"
+      closeAllText="Close all"
+      ariaCloseAllText="Close all expanders"
+      data-testid="expander-group"
+      margin="xs"
+      style={{ margin: 2 }}
+    >
+      <Expander>Test</Expander>
+    </ExpanderGroup>,
+  );
+  const div = getByTestId('expander-group');
+  expect(div).toHaveAttribute('style', 'margin: 2px;');
+});
+
 test(
   'should not have basic accessibility issues',
   axeTest(

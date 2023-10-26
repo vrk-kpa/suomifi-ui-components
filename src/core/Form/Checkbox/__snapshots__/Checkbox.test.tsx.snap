@@ -286,12 +286,12 @@ exports[`props children has matching snapshot 1`] = `
   <input
     aria-invalid="false"
     class="c2 fi-checkbox_input"
+    data-testid="regular_id"
     id="test"
     type="checkbox"
   />
   <label
     class="c3 fi-checkbox_label"
-    data-testid="regular_id"
     for="test"
   >
     Regular

@@ -60,6 +60,7 @@ class DefaultChip extends Component<ChipProps> {
       forwardedRef,
       disabled = false,
       'aria-disabled': ariaDisabled = false,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -88,7 +89,7 @@ class DefaultChip extends Component<ChipProps> {
         {...onClickProp}
         forwardedRef={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         {!!removable && (

@@ -28,7 +28,7 @@ class BaseTooltipToggleButton extends Component<
   TooltipToggleButtonProps & InnerRef & { className?: string }
 > {
   render() {
-    const { className, 'aria-label': ariaLabel, ...rest } = this.props;
+    const { className, 'aria-label': ariaLabel, style, ...rest } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
 
@@ -37,7 +37,7 @@ class BaseTooltipToggleButton extends Component<
         className={classnames(className, tooltipClassNames.toggleButton)}
         aria-label={ariaLabel}
         {...passProps}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...marginStyle, ...style }}
       >
         <IconInfoFilled className={tooltipClassNames.toggleButtonIcon} />
       </HtmlButton>

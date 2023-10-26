@@ -19,10 +19,7 @@ import {
 } from '../../theme/utils/spacing';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import {
-  HTMLAttributesIncludingDataAttributes,
-  forkRefs,
-} from '../../../utils/common/common';
+import { forkRefs } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Label, LabelMode } from '../Label/Label';
@@ -78,11 +75,6 @@ interface BaseTextInputProps
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** CSS class for custom styles */
   className?: string;
-  /** Props passed to the outermost div element of the component */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
   /** Disables the input */
   disabled?: boolean;
   /** Callback fired on input click */
@@ -153,7 +145,7 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
     labelText,
     labelMode,
     onChange: propOnChange,
-    wrapperProps,
+    style,
     optionalText,
     status,
     statusText,
@@ -221,7 +213,6 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
   const statusTextId = `${id}-statusText`;
   return (
     <HtmlDiv
-      {...wrapperProps}
       className={classnames(baseClassName, className, {
         [textInputClassNames.disabled]: !!passProps.disabled,
         [textInputClassNames.icon]: !!icon,
@@ -229,7 +220,7 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
         [textInputClassNames.success]: status === 'success',
         [textInputClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...wrapperProps?.style }}
+      style={{ ...marginStyle, ...style }}
     >
       <HtmlSpan className={textInputClassNames.styleWrapper}>
         <Label

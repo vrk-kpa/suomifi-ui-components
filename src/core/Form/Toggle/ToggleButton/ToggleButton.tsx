@@ -73,7 +73,7 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
       'aria-labelledby': ariaLabelledBy,
       checked,
       defaultChecked,
-      toggleWrapperProps,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -91,8 +91,7 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
           },
           toggleClassNames.label,
         )}
-        {...toggleWrapperProps}
-        style={{ ...marginStyle, ...toggleWrapperProps?.style }}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlButton
           {...passProps}

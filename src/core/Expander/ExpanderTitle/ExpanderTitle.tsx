@@ -1,18 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import {
-  HtmlDiv,
-  HtmlButton,
-  HtmlButtonProps,
-  HtmlDivProps,
-  HtmlSpan,
-} from '../../../reset';
+import { HtmlDiv, HtmlButton, HtmlDivProps, HtmlSpan } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 import { IconChevronDown } from 'suomifi-icons';
+import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const baseClassName = 'fi-expander_title';
 const titleOpenClassName = `${baseClassName}--open`;
@@ -33,7 +28,7 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
   toggleButtonAriaDescribedBy: string;
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
-    HtmlButtonProps,
+    HTMLAttributesIncludingDataAttributes<HTMLButtonElement>,
     | 'onClick'
     | 'onMouseDown'
     | 'onMouseUp'

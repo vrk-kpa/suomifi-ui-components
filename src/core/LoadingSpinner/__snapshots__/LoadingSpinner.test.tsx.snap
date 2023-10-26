@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot should match snapshot 1`] = `
+exports[`props snapshot should match snapshot 1`] = `
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;

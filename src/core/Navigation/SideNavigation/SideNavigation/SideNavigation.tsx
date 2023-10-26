@@ -2,6 +2,7 @@ import React, { forwardRef, ReactNode, useState, ReactElement } from 'react';
 import {
   HtmlButton,
   HtmlDiv,
+  HtmlDivProps,
   HtmlNav,
   HtmlSpan,
   HtmlUl,
@@ -18,7 +19,7 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { IconChevronDown, IconChevronUp } from 'suomifi-icons';
 
-export interface SideNavigationProps extends MarginProps {
+export interface SideNavigationProps extends MarginProps, HtmlDivProps {
   /** Use `<SideNavigationItem>` components as children */
   children: ReactNode;
   /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless */
@@ -62,9 +63,10 @@ const BaseSideNavigation = ({
   icon,
   className,
   forwardedRef,
+  style,
   ...rest
 }: SideNavigationProps) => {
-  const [marginProps] = separateMarginProps(rest);
+  const [marginProps, passProps] = separateMarginProps(rest);
   const marginStyle = spacingStyles(marginProps);
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
@@ -76,7 +78,8 @@ const BaseSideNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
-      style={marginStyle}
+      style={{ ...marginStyle, ...style }}
+      {...passProps}
     >
       {variant === 'smallScreen' ? (
         <HtmlButton

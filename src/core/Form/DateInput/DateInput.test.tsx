@@ -841,29 +841,18 @@ describe('props', () => {
 
   describe('margin', () => {
     it('has margin style from margin prop', () => {
-      const { getByTestId } = render(
-        <DateInput
-          wrapperProps={{ 'data-testid': 'wrapper' }}
-          labelText="Date"
-          margin="xs"
-        />,
+      const { baseElement } = render(
+        <DateInput labelText="Date" margin="xs" />,
       );
-      const div = getByTestId('wrapper');
+      const div = baseElement.querySelector('.fi-date-input');
       expect(div).toHaveAttribute('style', 'margin: 10px;');
     });
 
-    it('has margin style overwritten from wrapperProps', () => {
-      const { getByTestId } = render(
-        <DateInput
-          wrapperProps={{
-            'data-testid': 'wrapper',
-            style: { margin: 2 },
-          }}
-          labelText="Date"
-          margin="xs"
-        />,
+    it('has margin style overwritten by style prop', () => {
+      const { baseElement } = render(
+        <DateInput style={{ margin: 2 }} labelText="Date" margin="xs" />,
       );
-      const div = getByTestId('wrapper');
+      const div = baseElement.querySelector('.fi-date-input');
       expect(div).toHaveAttribute('style', 'margin: 2px;');
     });
   });

@@ -17,7 +17,6 @@ import {
 } from '../../theme/utils/spacing';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
-import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { HtmlSpan, HtmlSpanProps, HtmlDivWithRef } from '../../../reset';
 import { TooltipProps } from '../../Tooltip/Tooltip';
@@ -42,11 +41,6 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'>, MarginProps {
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Props placed to the outermost div of the component. Can be used, for example, for testing with data-testid. */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'as' | 'className'
-  >;
   /** Renders the wrapping element as another HTML element
    *
    * @default 'label'
@@ -78,7 +72,7 @@ const StyledLabel = styled(
     contentClassName,
     theme,
     labelMode = 'visible',
-    wrapperProps,
+    style,
     children,
     asProp = 'label',
     optionalText,
@@ -106,11 +100,10 @@ const StyledLabel = styled(
     return (
       <HtmlDivWithRef
         className={classnames(className, baseClassName)}
-        {...wrapperProps}
         forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
           setWrapperRef(ref)
         }
-        style={{ ...marginStyle, ...wrapperProps?.style }}
+        style={{ ...marginStyle, ...style }}
       >
         {labelMode === 'hidden' ? (
           <VisuallyHidden as={asProp} {...passProps}>

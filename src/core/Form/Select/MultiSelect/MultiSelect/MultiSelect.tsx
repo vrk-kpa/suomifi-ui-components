@@ -7,7 +7,7 @@ import {
   separateMarginProps,
   MarginProps,
 } from '../../../../theme/utils/spacing';
-import { HtmlDiv } from '../../../../../reset';
+import { HtmlDiv, HtmlDivProps } from '../../../../../reset';
 import { getOwnerDocument } from '../../../../../utils/common';
 import { HTMLAttributesIncludingDataAttributes } from '../../../../../utils/common/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
@@ -218,6 +218,7 @@ export type MultiSelectProps<T> = InternalMultiSelectProps<
   AriaOptionChipRemovedProps &
   AriaSelectedAmountProps &
   MarginProps &
+  HtmlDivProps &
   LoadingProps;
 
 interface MultiSelectState<T extends MultiSelectData> {
@@ -647,6 +648,7 @@ class BaseMultiSelect<T> extends Component<
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -673,7 +675,7 @@ class BaseMultiSelect<T> extends Component<
             [multiSelectClassNames.open]: showPopover,
             [multiSelectClassNames.error]: status === 'error',
           })}
-          style={marginStyle}
+          style={{ ...marginStyle, ...style }}
         >
           <HtmlDiv
             className={classnames(multiSelectClassNames.content_wrapper, {})}

@@ -16,7 +16,6 @@ import {
   MarginProps,
 } from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
   HtmlInput,
@@ -53,11 +52,6 @@ export interface SearchInputProps
     > {
   /** CSS class for custom styles */
   className?: string;
-  /** Props passed to the wrapping div of the component */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
   /** Label text */
   labelText: ReactNode;
   /**
@@ -152,7 +146,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       clearButtonLabel,
       searchButtonLabel,
       searchButtonProps,
-      wrapperProps,
+      style,
       onChange: propOnChange,
       onSearch: propOnSearch,
       children,
@@ -231,13 +225,12 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
     return (
       <HtmlDiv
-        {...wrapperProps}
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
-        style={{ ...marginStyle, ...wrapperProps?.style }}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
           <Label

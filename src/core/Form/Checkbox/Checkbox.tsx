@@ -11,7 +11,7 @@ import {
   separateMarginProps,
   MarginProps,
 } from '../../theme/utils/spacing';
-import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
+import { HtmlLabel, HtmlDiv, HtmlInput, HtmlInputProps } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
@@ -101,9 +101,13 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   value?: string;
   /** Ref is passed to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Properties for the wrapping div element */
 }
 
-export interface CheckboxProps extends InternalCheckboxProps, MarginProps {
+export interface CheckboxProps
+  extends InternalCheckboxProps,
+    MarginProps,
+    Omit<HtmlInputProps, 'onClick' | 'value'> {
   /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }
@@ -156,6 +160,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       forwardedRef,
       onClick,
       variant,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -194,7 +199,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
             [checkboxClassNames.disabled]: !!disabled,
           },
         )}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlInput
           type="checkbox"
@@ -214,12 +219,9 @@ class BaseCheckbox extends Component<CheckboxProps> {
           name={name}
           forwardedRef={forwardedRef}
           {...(value ? { value } : {})}
-        />
-        <HtmlLabel
-          htmlFor={id}
-          className={checkboxClassNames.label}
           {...passProps}
-        >
+        />
+        <HtmlLabel htmlFor={id} className={checkboxClassNames.label}>
           {!!checkedState && (
             <IconCheck
               className={classnames(iconBaseClassName, {

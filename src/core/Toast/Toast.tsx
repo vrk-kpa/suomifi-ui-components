@@ -10,10 +10,10 @@ import {
 } from '../theme/utils/spacing';
 import { IconCheckCircle } from 'suomifi-icons';
 import { Heading } from '../Heading/Heading';
-import { HtmlDiv, HtmlDivWithRef } from '../../reset';
+import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 
-export interface ToastProps extends MarginProps {
+export interface ToastProps extends MarginProps, HtmlDivWithRefProps {
   /** Sets aria-live mode for the Toast text content and label.
    * @default 'polite'
    */
@@ -51,6 +51,7 @@ class BaseToast extends Component<ToastProps> {
       headingText,
       headingVariant = 'h2',
       id,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -60,7 +61,7 @@ class BaseToast extends Component<ToastProps> {
         className={classnames(baseClassName, className)}
         as="section"
         {...passProps}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlDiv className={toastClassNames.styleWrapper}>
           <HtmlDiv className={toastClassNames.iconWrapper}>

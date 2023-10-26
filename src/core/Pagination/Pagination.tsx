@@ -9,7 +9,7 @@ import {
   MarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Pagination.baseStyles';
-import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
+import { HtmlSpan, HtmlNav, HtmlDiv, HtmlNavProps } from '../../reset';
 import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
@@ -87,6 +87,7 @@ interface InternalPaginationProps {
 
 export type PaginationProps = ShowInputProps &
   InternalPaginationProps &
+  HtmlNavProps &
   MarginProps;
 
 const baseClassName = 'fi-pagination';
@@ -163,6 +164,7 @@ class BasePagination extends Component<PaginationProps> {
       pageInputProps,
       smallScreen,
       id,
+      style,
       ...rest
     } = this.props;
 
@@ -176,7 +178,7 @@ class BasePagination extends Component<PaginationProps> {
         className={classnames(baseClassName, className, {
           [paginationClassNames.smallScreen]: !!smallScreen,
         })}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>

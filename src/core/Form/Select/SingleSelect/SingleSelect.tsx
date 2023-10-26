@@ -1,7 +1,7 @@
 import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../../reset';
+import { HtmlDiv, HtmlDivProps } from '../../../../reset';
 import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
 import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
@@ -161,6 +161,7 @@ type AllowItemAdditionProps =
 export type SingleSelectProps<T> = InternalSingleSelectProps<
   T & SingleSelectData
 > &
+  HtmlDivProps &
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
   MarginProps &
@@ -532,6 +533,7 @@ class BaseSingleSelect<T> extends Component<
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -551,7 +553,7 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.open]: showPopover,
           [singleSelectClassNames.error]: status === 'error',
         })}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (
