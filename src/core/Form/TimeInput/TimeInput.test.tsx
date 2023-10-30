@@ -93,11 +93,7 @@ describe('props', () => {
 
     it('should have margin prop overwritten from wrapperProps', () => {
       const { container } = render(
-        <TimeInput
-          labelText=""
-          margin="xs"
-          wrapperProps={{ style: { margin: 2 } }}
-        />,
+        <TimeInput labelText="" margin="xs" style={{ margin: 2 }} />,
       );
       expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
     });
