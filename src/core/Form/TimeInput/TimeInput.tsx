@@ -12,11 +12,7 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import {
-  HTMLAttributesIncludingDataAttributes,
-  autocompleteTimeString,
-  forkRefs,
-} from '../../../utils/common/common';
+import { autocompleteTimeString, forkRefs } from '../../../utils/common/common';
 import {
   spacingStyles,
   separateMarginProps,
@@ -48,11 +44,6 @@ export interface TimeInputProps
     Omit<HtmlInputProps, 'type' | 'onChange' | 'onBlur' | 'defaultValue'> {
   /** CSS class for custom styles */
   className?: string;
-  /** Props passed to the outermost div element of the component */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
   /** Disables the input */
   disabled?: boolean;
   /** Callback fired on input click */
@@ -111,7 +102,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
     visualPlaceholder,
     onChange: propOnChange,
     onBlur: propOnBlur,
-    wrapperProps,
+    style,
     optionalText,
     status,
     statusText,
@@ -153,13 +144,12 @@ const BaseTimeInput = (props: TimeInputProps) => {
   const statusTextId = `${id}-statusText`;
   return (
     <HtmlDiv
-      {...wrapperProps}
       className={classnames(baseClassName, className, {
         [timeInputClassNames.disabled]: !!passProps.disabled,
         [timeInputClassNames.error]: status === 'error',
         [timeInputClassNames.success]: status === 'success',
       })}
-      style={{ ...marginStyle, ...wrapperProps?.style }}
+      style={{ ...marginStyle, ...style }}
     >
       <HtmlSpan className={timeInputClassNames.styleWrapper}>
         <Label
