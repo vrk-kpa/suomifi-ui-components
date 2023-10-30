@@ -270,9 +270,9 @@ exports[`Basic modal should match snapshot 1`] = `
 
 .c2.fi-modal_content--small-screen {
   padding-top: 20px;
-  padding-left: 20px;
+  padding-left: 15px;
   padding-bottom: 50px;
-  padding-right: 20px;
+  padding-right: 15px;
 }
 
 .c6 {
@@ -606,9 +606,9 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c7.fi-modal_footer--small-screen .fi-modal_footer_content {
-  padding-right: 5px;
+  padding-right: 0;
   padding-bottom: 15px;
-  padding-left: 20px;
+  padding-left: 15px;
 }
 
 .c7.fi-modal_footer--small-screen .fi-modal_footer_content > * {
