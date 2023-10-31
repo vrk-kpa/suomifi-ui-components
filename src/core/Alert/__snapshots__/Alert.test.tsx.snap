@@ -380,7 +380,7 @@ exports[`props children should match snapshot 1`] = `
         class="c4 fi-alert_close-button"
         type="button"
       >
-        CLOSE
+        Close
         <svg
           aria-hidden="true"
           class="fi-icon c5"
