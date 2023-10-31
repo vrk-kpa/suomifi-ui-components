@@ -130,7 +130,7 @@ class BaseAlert extends Component<AlertProps> {
             {...getConditionalAriaProp('aria-label', [closeText])}
             {...closeButtonPassProps}
           >
-            {!smallScreen ? closeText.toUpperCase() : ''}
+            {!smallScreen ? closeText : ''}
             <IconClose />
           </HtmlButton>
         </HtmlDiv>
