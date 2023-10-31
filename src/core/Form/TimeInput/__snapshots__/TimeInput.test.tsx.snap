@@ -175,7 +175,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -219,7 +219,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -383,7 +383,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -634,7 +634,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -678,7 +678,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -842,7 +842,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -1078,7 +1078,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c5 {
@@ -1143,7 +1143,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1307,7 +1307,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -1554,7 +1554,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -1598,7 +1598,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1762,7 +1762,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;

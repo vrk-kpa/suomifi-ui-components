@@ -175,7 +175,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -242,7 +242,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea .fi-textarea_character-counter.fi-textarea_character-counter--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -359,7 +359,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea.fi-textarea--error .fi-textarea_textarea {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-textarea--full-width {

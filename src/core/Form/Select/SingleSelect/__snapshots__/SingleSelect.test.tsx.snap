@@ -317,7 +317,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c14.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c2 {
@@ -479,7 +479,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c2.fi-filter-input--error .fi-filter-input_input {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 

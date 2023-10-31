@@ -175,7 +175,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -388,11 +388,11 @@ exports[`snapshots match date input error status with statustext 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -653,7 +653,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -866,11 +866,11 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -1137,7 +1137,7 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -1350,11 +1350,11 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -1606,7 +1606,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -1819,11 +1819,11 @@ exports[`snapshots match date input minimal implementation 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -2068,7 +2068,7 @@ exports[`snapshots match date input optional text 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -2281,11 +2281,11 @@ exports[`snapshots match date input optional text 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -2535,7 +2535,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -2748,11 +2748,11 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -3505,7 +3505,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c12 {
@@ -3643,7 +3643,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
@@ -3758,7 +3758,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c10.fi-date-picker {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
 }
 
 .c10 .fi-date-picker_bottom-container {
@@ -3846,7 +3846,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   max-height: 100%;
   overscroll-behavior: contain;
   background-color: hsl(0,0%,100%);
-  border-top: 1px solid hsl(0,0%,58%);
+  border-top: 1px solid hsl(0,0%,42%);
   border-radius: 10px 10px 0 0;
   position: absolute;
   bottom: 0;
@@ -3879,8 +3879,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-top: 1px solid hsl(0,0%,58%);
-  border-left: 1px solid hsl(0,0%,58%);
+  border-top: 1px solid hsl(0,0%,42%);
+  border-left: 1px solid hsl(0,0%,42%);
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
@@ -3888,8 +3888,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
-  border-bottom: 1px solid hsl(0,0%,58%);
-  border-right: 1px solid hsl(0,0%,58%);
+  border-bottom: 1px solid hsl(0,0%,42%);
+  border-right: 1px solid hsl(0,0%,42%);
 }
 
 .c1 {
@@ -4102,11 +4102,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
@@ -5693,7 +5693,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c12 {
@@ -5831,7 +5831,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
@@ -5946,7 +5946,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c10.fi-date-picker {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
 }
 
 .c10 .fi-date-picker_bottom-container {
@@ -6034,7 +6034,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   max-height: 100%;
   overscroll-behavior: contain;
   background-color: hsl(0,0%,100%);
-  border-top: 1px solid hsl(0,0%,58%);
+  border-top: 1px solid hsl(0,0%,42%);
   border-radius: 10px 10px 0 0;
   position: absolute;
   bottom: 0;
@@ -6067,8 +6067,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-top: 1px solid hsl(0,0%,58%);
-  border-left: 1px solid hsl(0,0%,58%);
+  border-top: 1px solid hsl(0,0%,42%);
+  border-left: 1px solid hsl(0,0%,42%);
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
@@ -6076,8 +6076,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
-  border-bottom: 1px solid hsl(0,0%,58%);
-  border-right: 1px solid hsl(0,0%,58%);
+  border-bottom: 1px solid hsl(0,0%,42%);
+  border-right: 1px solid hsl(0,0%,42%);
 }
 
 .c1 {
@@ -6290,11 +6290,11 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,43%);
   border-left: 1px solid hsl(212,63%,45%);
   border-radius: 0 2px 2px 0;
 }
