@@ -2,17 +2,12 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconClose, IconError, IconInfo } from 'suomifi-icons';
-import {
-  HtmlDiv,
-  HtmlDivWithRef,
-  HtmlButton,
-  HtmlButtonProps,
-  HtmlDivWithRefProps,
-} from '../../reset';
+import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
+import { Button, ButtonProps } from '../Button/Button';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
   spacingStyles,
@@ -58,7 +53,7 @@ export interface NotificationProps extends HtmlDivWithRefProps, MarginProps {
   /** Callback fired on close button click */
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
-  closeButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
+  closeButtonProps?: Omit<ButtonProps, 'onClick'>;
   /** Toggles small screen styling */
   smallScreen?: boolean;
   /** Label for the notification region for screen reader users.
@@ -152,7 +147,8 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               </HtmlDiv>
             </HtmlDiv>
           </HtmlDiv>
-          <HtmlButton
+          <Button
+            variant="secondaryNoBorder"
             className={classnames(
               notificationClassNames.closeButton,
               customCloseButtonClassName,
@@ -166,10 +162,10 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             ])}
             onClick={onCloseButtonClick}
             {...closeButtonPassProps}
+            iconRight={<IconClose />}
           >
             {!smallScreen ? closeText : ''}
-            <IconClose />
-          </HtmlButton>
+          </Button>
         </HtmlDiv>
         {actionElements && (
           <HtmlDiv className={notificationClassNames.actionElementWrapper}>
