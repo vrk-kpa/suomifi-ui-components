@@ -20,7 +20,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     flex-direction: column;
     justify-content: space-between;
     & .fi-notification_style-wrapper {
-      padding: 0 32px 10px 40px;
+      padding: 0 10px 10px 40px;
       display: flex;
       align-items: flex-start;
       overflow: hidden;
@@ -62,22 +62,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-notification_close-button {
-      ${font(theme)('bodyTextSmall')}
       height: 40px;
-      display: inline-block;
-      padding: 7px;
-      margin-top: 11px;
+      padding: 7px ${theme.spacing.insetL};
+      margin-top: 6px;
       border: 1px solid transparent;
-      border-radius: ${theme.radiuses.basic};
       white-space: nowrap;
-      text-transform: uppercase;
-
-      & .fi-icon {
-        width: 14px;
-        height: 14px;
-        margin-left: ${theme.spacing.xxs};
-        transform: translateY(0.1em);
-      }
+      color: ${theme.colors.highlightBase};
 
       &:focus-visible {
         outline: 0;
@@ -88,19 +78,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           ${theme.focuses.highContrastFocus} /* For high contrast mode */
         }
       }
-      &:active {
-        background: ${theme.gradients.whiteBaseToDepthLight1};
-      }
-      &:hover {
-        border-color: ${theme.colors.blackBase};
-      }
     }
 
     /* Status variant styles */
     &--neutral {
-      border-top: 4px solid ${theme.colors.accentSecondary};
+      border-top: 4px solid ${theme.colors.infoBase};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.accentSecondary};
+        fill: ${theme.colors.infoBase};
       }
     }
     &--error {
@@ -121,8 +105,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       & .fi-notification_close-button {
         margin: 3px;
+        padding: 3px 5px 3px 4px;
+
         & .fi-icon {
           margin-right: ${theme.spacing.xxs};
+          font-size: 16px;
         }
       }
       & .fi-notification_style-wrapper {
