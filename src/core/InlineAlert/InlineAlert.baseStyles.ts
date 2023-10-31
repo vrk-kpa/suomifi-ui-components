@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
+import { transparentize } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-inline-alert {
@@ -9,7 +10,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 100%;
     padding: 5px 0px 4px 0px;
     border: 1px solid;
-    border-left-width: 4px;
 
     & .fi-inline-alert_style-wrapper {
       display: flex;
@@ -44,8 +44,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &.fi-inline-alert--neutral {
-      background-color: ${theme.colors.accentSecondaryLight1};
-      border-color: ${theme.colors.accentSecondary};
+      background-color: ${theme.colors.infoLight1};
+      border-color: ${transparentize(0.8, theme.colors.infoBase)};
+      border-left: 4px solid ${theme.colors.infoBase};
 
       & .fi-inline-alert_text-content-wrapper {
         padding-left: ${theme.spacing.m};
@@ -54,22 +55,24 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-inline-alert--error {
       background-color: ${theme.colors.alertLight1};
-      border-color: ${theme.colors.alertBase};
+      border-color: ${transparentize(0.8, theme.colors.alertBase)};
+      border-left: 4px solid ${theme.colors.alertBase};
 
       & .fi-inline-alert_icon--error {
         & .fi-icon-base-fill {
-          fill: ${theme.colors.alertBase};
+          fill: ${theme.colors.blackBase};
         }
       }
     }
 
     &.fi-inline-alert--warning {
       background-color: ${theme.colors.warningLight1};
-      border-color: ${theme.colors.accentBase};
+      border-color: ${transparentize(0.8, theme.colors.warningBase)};
+      border-left: 4px solid ${theme.colors.warningBase};
 
       & .fi-inline-alert_icon--warning {
         & .fi-icon-base-fill {
-          fill: ${theme.colors.accentBase};
+          fill: ${theme.colors.blackBase};
         }
       }
     }
