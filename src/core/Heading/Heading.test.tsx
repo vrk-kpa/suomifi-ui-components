@@ -34,7 +34,7 @@ describe('Heading with props', () => {
   it('should have given color', () => {
     const { getByText } = render(<TestHeading color="alertBase" />);
     expect(getByText('Test Heading')).toHaveStyle({
-      color: 'rgb(50, 195, 195)',
+      color: 'rgb(45, 174, 174)',
     });
   });
 });
