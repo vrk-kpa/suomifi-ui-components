@@ -4,6 +4,7 @@ import React, {
   useState,
   useRef,
   ReactElement,
+  ReactNode,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -41,8 +42,8 @@ export type MenuContent =
   | ReactElement<LanguageMenuItemProps>;
 
 export interface LanguageMenuProps extends MarginProps, HtmlButtonProps {
-  /** Text content for the menu button */
-  buttonText: string;
+  /** Content for the menu button. Should indicate the currently selected language */
+  buttonText: ReactNode;
   /**
    * LanguageMenu should have a descriptive aria-label. Aria-label should also inform what language is selected.
    * For example "Select language, selected language: English". Aria-label is for assistive technologies and overrides buttonText for
