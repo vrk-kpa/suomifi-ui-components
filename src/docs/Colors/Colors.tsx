@@ -37,6 +37,8 @@ const {
   successBase,
   successSecondary,
   warningBase,
+  infoBase,
+  infoLight1,
   alertBase,
   alertLight1,
   successDark1,
@@ -81,6 +83,8 @@ export const colorTokens = {
     accentTertiary,
   },
   trafficlights: {
+    infoBase,
+    infoLight1,
     successBase,
     successSecondary,
     warningBase,
