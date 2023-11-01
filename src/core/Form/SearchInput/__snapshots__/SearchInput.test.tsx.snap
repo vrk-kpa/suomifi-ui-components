@@ -210,7 +210,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c4.fi-label .fi-label_label-span {
@@ -585,12 +585,12 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1.fi-search-input--error .fi-search-input_input-element-container {
-  border: 1px solid hsl(3,59%,48%);
+  border: 1px solid hsl(3,59%,43%);
   border-right: 0;
 }
 
 .c1.fi-search-input--error .fi-search-input_button-search {
-  border: 1px solid hsl(3,59%,48%);
+  border: 1px solid hsl(3,59%,43%);
   border-left: 0;
 }
 
