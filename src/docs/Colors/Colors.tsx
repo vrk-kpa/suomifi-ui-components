@@ -122,7 +122,11 @@ const StyledFigure = styled.figure`
 
 const ColorFigure = (props: ColorProps & SuomifiThemeProp) => {
   const { color, keyName } = props;
-  const hslaAsHex = hslaToHex(color);
+  // Brand color is hardcoded in these docs due to HSL conversion producing
+  // a hex which differs slightly from the value DVV defined as
+  // their brand color initially. It is reasonable to display the original value
+  // #003479 to avoid confusion.
+  const hslaAsHex = keyName !== 'brandBase' ? hslaToHex(color) : '#003479';
 
   return (
     <StyledFigure
