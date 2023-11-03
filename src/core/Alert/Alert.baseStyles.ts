@@ -82,7 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--neutral {
           & .fi-icon-base-fill {
-            fill: ${theme.colors.accentSecondary};
+            fill: ${theme.colors.blackBase};
           }
         }
       }
