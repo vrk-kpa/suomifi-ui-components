@@ -5,7 +5,7 @@ import { math } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
-  width: 290px;
+  max-width: 290px;
 
   & .fi-time-input_character-counter {
     ${font(theme)('bodyTextSmall')};
