@@ -192,7 +192,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  width: 290px;
+  max-width: 290px;
 }
 
 .c1 .fi-time-input_character-counter {
@@ -651,7 +651,7 @@ exports[`snapshots match hidden label 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  width: 290px;
+  max-width: 290px;
 }
 
 .c1 .fi-time-input_character-counter {
@@ -1116,7 +1116,7 @@ exports[`snapshots match hint text 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  width: 290px;
+  max-width: 290px;
 }
 
 .c1 .fi-time-input_character-counter {
@@ -1571,7 +1571,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  width: 290px;
+  max-width: 290px;
 }
 
 .c1 .fi-time-input_character-counter {
