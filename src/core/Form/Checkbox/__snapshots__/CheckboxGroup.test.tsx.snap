@@ -328,10 +328,20 @@ exports[`default, with only required props should match snapshot 1`] = `
   top: 9px;
 }
 
-.c7:focus-within .fi-checkbox_label::before {
+.c7:focus-within .fi-checkbox_label::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: 4px;
+  left: -1px;
   border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   outline: 2px solid transparent;
 }
 
@@ -384,10 +394,11 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c7.fi-checkbox--checked .fi-checkbox_label::before {
   border-color: hsl(212,63%,45%);
+  background-color: hsl(212,63%,45%);
 }
 
 .c7.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: hsl(0,0%,100%);
 }
 
 .c7.fi-checkbox--error .fi-checkbox_label::before {

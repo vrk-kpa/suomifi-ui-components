@@ -8,9 +8,10 @@ const checkedStyles = (theme: SuomifiTheme) => css`
     & .fi-checkbox_label {
       &::before {
         border-color: ${theme.colors.highlightBase};
+        background-color: ${theme.colors.highlightBase};
       }
       & > .fi-checkbox_icon .fi-icon-base-fill {
-        fill: ${theme.colors.highlightBase};
+        fill: ${theme.colors.whiteBase};
       }
     }
   }
@@ -117,8 +118,21 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &:focus-within {
     & .fi-checkbox_label {
-      &::before {
-        ${theme.focuses.boxShadowFocus}
+      /* Modified version of theme.focuses.absoluteFocus */
+      &::after {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        top: 4px;
+        left: -1px;
+        border-radius: 2px;
+        background-color: transparent;
+        border: 0px solid ${theme.colors.whiteBase};
+        box-sizing: border-box;
+        box-shadow: 0 0 0 2px ${theme.colors.accentSecondary};
+        z-index: 9999;
+        width: 20px;
+        height: 20px;
         outline: 2px solid transparent; /* For high contrast mode */
       }
     }

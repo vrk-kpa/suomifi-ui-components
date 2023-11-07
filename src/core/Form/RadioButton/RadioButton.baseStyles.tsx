@@ -108,9 +108,22 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       &:focus {
         + .fi-radio-button_icon_wrapper {
-          ${theme.focuses.boxShadowFocus}
-          border-radius: 50%;
-          ${theme.focuses.highContrastFocus}
+          &::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            top: -1px;
+            left: -1px;
+            background-color: transparent;
+            border: 0px solid ${theme.colors.whiteBase};
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px ${theme.colors.accentSecondary};
+            z-index: 9999;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            outline: 2px solid transparent; /* For high contrast mode */
+          }
         }
       }
       &:focus:not(:focus-visible) {
