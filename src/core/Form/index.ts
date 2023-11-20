@@ -28,3 +28,4 @@ export { Label, LabelProps } from './Label/Label';
 export { StatusText, StatusTextProps } from './StatusText/StatusText';
 export { HintText, HintTextProps } from './HintText/HintText';
 export { DateInput, DateInputProps, DatePickerTextProps } from './DateInput';
+export { characterCounterProps } from './types';
