@@ -65,6 +65,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
       textVisibility = 'visible',
       variant = 'normal',
       status = 'loading',
+      forwardedRef,
       ...passProps
     } = this.props;
 
@@ -79,6 +80,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
         })}
         as="section"
         id={id}
+        ref={forwardedRef}
         {...passProps}
       >
         {status === 'loading' && (
