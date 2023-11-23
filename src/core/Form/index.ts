@@ -29,3 +29,8 @@ export { StatusText, StatusTextProps } from './StatusText/StatusText';
 export { HintText, HintTextProps } from './HintText/HintText';
 export { DateInput, DateInputProps, DatePickerTextProps } from './DateInput';
 export { characterCounterProps } from './types';
+export {
+  ErrorSummary,
+  ErrorSummaryProps,
+  ErrorSummaryItemProps,
+} from './ErrorSummary/ErrorSummary';
