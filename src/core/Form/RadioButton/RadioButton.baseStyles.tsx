@@ -34,6 +34,7 @@ const largeStyles = () => css`
     & .fi-radio-button_hintText {
       padding-left: 40px;
     }
+
     & .fi-radio-button_input {
       top: 2px;
       left: 2px;
@@ -49,7 +50,18 @@ const largeStyles = () => css`
           width: 30px;
         }
       }
+      &:focus {
+        + .fi-radio-button_icon_wrapper {
+          &::after {
+            width: 32px;
+            height: 32px;
+            top: -1px;
+            left: -1px;
+          }
+        }
+      }
     }
+
     & .fi-radio-button_label {
       padding-left: 40px;
       line-height: 34px;
