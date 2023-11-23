@@ -14,6 +14,29 @@ const checkedStyles = (theme: SuomifiTheme) => css`
         fill: ${theme.colors.whiteBase};
       }
     }
+    &.fi-checkbox--disabled {
+      & .fi-checkbox_label {
+        &::before {
+          border-color: ${theme.colors.depthLight1};
+          background-color: ${theme.colors.depthLight1};
+        }
+        & > .fi-checkbox_icon .fi-icon-base-fill {
+          fill: ${theme.colors.depthLight3};
+        }
+      }
+    }
+    &.fi-checkbox--error {
+      & .fi-checkbox_label {
+        &::before {
+          border-color: ${theme.colors.alertBase};
+          background-color: ${theme.colors.alertBase};
+          border-width: 2px;
+        }
+        & > .fi-checkbox_icon .fi-icon-base-fill {
+          fill: ${theme.colors.whiteBase};
+        }
+      }
+    }
   }
 `;
 
@@ -28,7 +51,7 @@ const disabledStyles = (theme: SuomifiTheme) => css`
         border-width: 1px;
       }
       & > .fi-checkbox_icon .fi-icon-base-fill {
-        fill: ${theme.colors.depthLight1};
+        fill: ${theme.colors.depthLight3};
       }
     }
     &.fi-checkbox--large {
@@ -79,6 +102,19 @@ const largeVariantStyles = (theme: SuomifiTheme) => css`
     }
     & .fi-hint-text {
       padding-left: ${theme.spacing.xxl};
+    }
+
+    &:focus-within {
+      & .fi-checkbox_label {
+        /* Modified version of theme.focuses.absoluteFocus */
+        &::after {
+          ${theme.focuses.absoluteFocus};
+          width: 32px;
+          height: 32px;
+          top: -1px;
+          left: -1px;
+        }
+      }
     }
   }
 `;
