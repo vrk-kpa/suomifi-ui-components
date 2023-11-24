@@ -106,9 +106,7 @@ const largeVariantStyles = (theme: SuomifiTheme) => css`
 
     &:focus-within {
       & .fi-checkbox_label {
-        /* Modified version of theme.focuses.absoluteFocus */
         &::after {
-          ${theme.focuses.absoluteFocus};
           width: 32px;
           height: 32px;
           top: -1px;
