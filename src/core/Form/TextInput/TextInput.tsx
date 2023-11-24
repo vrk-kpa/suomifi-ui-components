@@ -25,7 +25,11 @@ import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
-import { InputStatus, StatusTextCommonProps } from '../types';
+import {
+  characterCounterProps,
+  InputStatus,
+  StatusTextCommonProps,
+} from '../types';
 import { baseStyles } from './TextInput.baseStyles';
 
 const baseClassName = 'fi-text-input';
@@ -47,27 +51,6 @@ export const textInputClassNames = {
 };
 
 type TextInputValue = string | number | undefined;
-
-type characterCounterProps =
-  | {
-      characterLimit?: never;
-      ariaCharactersRemainingText?: never;
-      ariaCharactersExceededText?: never;
-    }
-  | {
-      /** Maximun amount of characters allowed in the input.
-       * Using this prop adds a visible character counter to the bottom right corner of the input.
-       */
-      characterLimit?: number;
-      /** Returns a text which screen readers read to indicate how many characters can still be written to the input.
-       * Required with `characterLimit`
-       */
-      ariaCharactersRemainingText: (amount: number) => string;
-      /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
-       * Required with `characterLimit`
-       */
-      ariaCharactersExceededText: (amount: number) => string;
-    };
 
 interface BaseTextInputProps
   extends StatusTextCommonProps,
@@ -124,7 +107,7 @@ interface BaseTextInputProps
 
 export type TextInputProps = characterCounterProps & BaseTextInputProps;
 
-const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
+const BaseTextInput = (props: TextInputProps) => {
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
   const [typingTimer, setTypingTimer] = useState<ReturnType<

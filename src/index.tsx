@@ -66,6 +66,7 @@ export {
   DateInput,
   DateInputProps,
   DatePickerTextProps,
+  characterCounterProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export {
