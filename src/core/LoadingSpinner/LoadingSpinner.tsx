@@ -71,6 +71,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
       variant = 'normal',
       status = 'loading',
       style,
+      forwardedRef,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -87,6 +88,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
         })}
         as="section"
         id={id}
+        ref={forwardedRef}
         {...passProps}
         style={{ ...marginStyle, ...style }}
       >
