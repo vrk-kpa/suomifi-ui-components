@@ -392,12 +392,38 @@ exports[`default, with only required props should match snapshot 1`] = `
   padding-left: 40px;
 }
 
+.c7.fi-checkbox--large:focus-within .fi-checkbox_label::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
+}
+
 .c7.fi-checkbox--checked .fi-checkbox_label::before {
   border-color: hsl(212,63%,45%);
   background-color: hsl(212,63%,45%);
 }
 
 .c7.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c7.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label::before {
+  border-color: hsl(202,7%,80%);
+  background-color: hsl(202,7%,80%);
+}
+
+.c7.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,97%);
+}
+
+.c7.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label::before {
+  border-color: hsl(3,59%,43%);
+  background-color: hsl(3,59%,43%);
+  border-width: 2px;
+}
+
+.c7.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
   fill: hsl(0,0%,100%);
 }
 
@@ -422,7 +448,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,80%);
+  fill: hsl(202,7%,97%);
 }
 
 .c7.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {
