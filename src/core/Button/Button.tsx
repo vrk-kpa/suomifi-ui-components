@@ -63,6 +63,7 @@ export interface ButtonProps
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}_icon`;
+const iconMarginClassName = `${baseClassName}_icon--margin`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
@@ -105,11 +106,21 @@ class BaseButton extends Component<ButtonProps> {
         })}
         style={{ ...marginStyle, ...style }}
       >
-        <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
+        {!!icon && (
+          <HtmlSpan
+            className={classnames(iconClassName, {
+              [iconMarginClassName]: !!children,
+            })}
+          >
+            {icon}
+          </HtmlSpan>
+        )}
         {children}
-        <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
-          {!!iconRight && iconRight}
-        </HtmlSpan>
+        {!!iconRight && (
+          <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
+            {iconRight}
+          </HtmlSpan>
+        )}
       </HtmlButton>
     );
   }

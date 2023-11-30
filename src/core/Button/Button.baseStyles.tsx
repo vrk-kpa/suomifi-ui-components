@@ -150,13 +150,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   ${secondaryLightStyles(theme)}
   
-  & > .fi-button_icon > .fi-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: ${theme.spacing.insetM};
-    vertical-align: middle;
-    transform: translateY(-0.1em);
+  & > .fi-button_icon {
+    & > .fi-icon {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      transform: translateY(-0.1em);
+    }
+    &.fi-button_icon--margin {
+      margin-right: ${theme.spacing.insetM};
+    }
   }
+
   & > .fi-button_icon--right > .fi-icon {
     margin-right: 0;
     margin-left: ${theme.spacing.insetM};
