@@ -63,7 +63,7 @@ export interface ButtonProps
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}_icon`;
-const iconMarginClassName = `${baseClassName}_icon--margin`;
+const iconStandaloneClassName = `${baseClassName}--icon-only`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
@@ -103,18 +103,11 @@ class BaseButton extends Component<ButtonProps> {
             variant === 'secondaryNoBorder',
           [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
+          [iconStandaloneClassName]: !!icon && !children,
         })}
         style={{ ...marginStyle, ...style }}
       >
-        {!!icon && (
-          <HtmlSpan
-            className={classnames(iconClassName, {
-              [iconMarginClassName]: !!children,
-            })}
-          >
-            {icon}
-          </HtmlSpan>
-        )}
+        {!!icon && <HtmlSpan className={iconClassName}>{icon}</HtmlSpan>}
         {children}
         {!!iconRight && (
           <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
