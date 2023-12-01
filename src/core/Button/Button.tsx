@@ -17,7 +17,25 @@ export type ButtonVariant =
   | 'secondaryNoBorder'
   | 'secondaryLight';
 
-export interface ButtonProps
+type ForcedAccessibleNameProps =
+  | {
+      /**
+       * Button element content
+       */
+      children?: never;
+      /**
+       * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
+       * If the button has a visible label, make sure the aria-label includes the visible text.
+       * Alternatively you can define an `aria-labelledby`.
+       */
+      'aria-label': string;
+    }
+  | {
+      children: ReactNode;
+      'aria-label'?: string;
+    };
+
+interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'>,
     MarginProps {
   /**
@@ -26,16 +44,6 @@ export interface ButtonProps
    * @default default
    */
   variant?: ButtonVariant;
-  /**
-   * Button element content
-   */
-  children?: ReactNode;
-  /**
-   * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
-   * If the button has a visible label, make sure the aria-label includes the visible text.
-   * Alternatively you can define an `aria-labelledby`.
-   */
-  'aria-label'?: string;
   /** Disables the button */
   disabled?: boolean;
   /** Soft disables the button to allow tab-focus. Disables onClick() functionality */
@@ -59,6 +67,8 @@ export interface ButtonProps
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
+
+export type ButtonProps = InternalButtonProps & ForcedAccessibleNameProps;
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
