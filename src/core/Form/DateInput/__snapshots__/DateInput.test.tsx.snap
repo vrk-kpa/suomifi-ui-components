@@ -3292,6 +3292,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin-left: 8px;
 }
 
+.c13.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -4323,9 +4335,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             tabindex="0"
             type="button"
           >
-            <span
-              class="c4 fi-button_icon"
-            />
             <svg
               aria-hidden="true"
               class="fi-icon c14 fi-date-selectors_month-button_icon"
@@ -4342,9 +4351,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 fill-rule="evenodd"
               />
             </svg>
-            <span
-              class="c4 fi-button_icon fi-button_icon--right"
-            />
           </button>
           <button
             aria-disabled="false"
@@ -4353,9 +4359,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             tabindex="0"
             type="button"
           >
-            <span
-              class="c4 fi-button_icon"
-            />
             <svg
               aria-hidden="true"
               class="fi-icon c15 fi-date-selectors_month-button_icon"
@@ -4372,9 +4375,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 fill-rule="evenodd"
               />
             </svg>
-            <span
-              class="c4 fi-button_icon fi-button_icon--right"
-            />
           </button>
         </div>
       </div>
@@ -4994,13 +4994,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           tabindex="0"
           type="button"
         >
-          <span
-            class="c4 fi-button_icon"
-          />
           Sulje
-          <span
-            class="c4 fi-button_icon fi-button_icon--right"
-          />
         </button>
       </div>
     </div>
@@ -5478,6 +5472,18 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c13 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
+}
+
+.c13.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
 }
 
 .c13.fi-button--disabled > .fi-button_icon {
@@ -6520,9 +6526,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               tabindex="0"
               type="button"
             >
-              <span
-                class="c4 fi-button_icon"
-              />
               <svg
                 aria-hidden="true"
                 class="fi-icon c14 fi-date-selectors_month-button_icon"
@@ -6539,9 +6542,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-              <span
-                class="c4 fi-button_icon fi-button_icon--right"
-              />
             </button>
             <button
               aria-disabled="false"
@@ -6550,9 +6550,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               tabindex="0"
               type="button"
             >
-              <span
-                class="c4 fi-button_icon"
-              />
               <svg
                 aria-hidden="true"
                 class="fi-icon c15 fi-date-selectors_month-button_icon"
@@ -6569,9 +6566,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-              <span
-                class="c4 fi-button_icon fi-button_icon--right"
-              />
             </button>
           </div>
         </div>
@@ -7191,13 +7185,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             tabindex="0"
             type="button"
           >
-            <span
-              class="c4 fi-button_icon"
-            />
             Sulje
-            <span
-              class="c4 fi-button_icon fi-button_icon--right"
-            />
           </button>
         </div>
       </div>

@@ -462,6 +462,18 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c3.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -494,13 +506,9 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button--icon-only {
+.c1 .fi-action-menu_button {
   min-width: 40px;
-  padding: 10px;
-}
-
-.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
-  margin-left: 0;
+  padding: 10px 12px;
 }
 
 .c8 {
@@ -671,15 +679,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="menu"
+        aria-label="am-test"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
         type="button"
       >
-        <span
-          class="c4 fi-button_icon"
-        />
         Actions
         <span
           class="c4 fi-button_icon fi-button_icon--right"
@@ -1226,6 +1232,18 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c3.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -1258,13 +1276,9 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button--icon-only {
+.c1 .fi-action-menu_button {
   min-width: 40px;
-  padding: 10px;
-}
-
-.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
-  margin-left: 0;
+  padding: 10px 12px;
 }
 
 .c8 {
@@ -1435,15 +1449,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         aria-disabled="true"
         aria-expanded="false"
         aria-haspopup="menu"
+        aria-label="am-test"
         class="c2 fi-button c3 fi-action-menu_button fi-button--disabled fi-button--secondary"
         disabled=""
         id="test-id"
         name="am-test-name"
         type="button"
       >
-        <span
-          class="c4 fi-button_icon"
-        />
         Actions
         <span
           class="c4 fi-button_icon fi-button_icon--right"
@@ -1990,6 +2002,18 @@ exports[`No borders variant should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c3.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -2022,13 +2046,9 @@ exports[`No borders variant should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button--icon-only {
+.c1 .fi-action-menu_button {
   min-width: 40px;
-  padding: 10px;
-}
-
-.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
-  margin-left: 0;
+  padding: 10px 12px;
 }
 
 .c8 {
@@ -2206,9 +2226,6 @@ exports[`No borders variant should match snapshot 1`] = `
         tabindex="0"
         type="button"
       >
-        <span
-          class="c4 fi-button_icon"
-        />
         Actions
         <span
           class="c4 fi-button_icon fi-button_icon--right"
@@ -2755,6 +2772,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c3.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -2787,13 +2816,9 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button--icon-only {
+.c1 .fi-action-menu_button {
   min-width: 40px;
-  padding: 10px;
-}
-
-.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
-  margin-left: 0;
+  padding: 10px 12px;
 }
 
 .c8 {
@@ -2964,15 +2989,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="menu"
+        aria-label="am-test"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
         type="button"
       >
-        <span
-          class="c4 fi-button_icon"
-        />
         Actions
         <span
           class="c4 fi-button_icon fi-button_icon--right"
@@ -3520,6 +3543,18 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   margin-left: 8px;
 }
 
+.c3.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c3.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -3552,13 +3587,9 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button--icon-only {
+.c1 .fi-action-menu_button {
   min-width: 40px;
-  padding: 10px;
-}
-
-.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
-  margin-left: 0;
+  padding: 10px 12px;
 }
 
 .c8 {
@@ -3729,15 +3760,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="menu"
+        aria-label="am-test"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
         type="button"
       >
-        <span
-          class="c4 fi-button_icon"
-        />
         Actions
         <span
           class="c4 fi-button_icon fi-button_icon--right"

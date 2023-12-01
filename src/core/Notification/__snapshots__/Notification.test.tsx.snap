@@ -697,6 +697,18 @@ exports[`props children should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c7.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c7.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c7.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c7.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -976,9 +988,6 @@ exports[`props children should match snapshot 1`] = `
         tabindex="0"
         type="button"
       >
-        <span
-          class="c8 fi-button_icon"
-        />
         Close
         <span
           class="c8 fi-button_icon fi-button_icon--right"
