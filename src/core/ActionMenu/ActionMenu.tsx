@@ -177,9 +177,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         aria-haspopup="menu"
         forwardedRef={openButtonRef}
         fullWidth={fullWidth}
-        className={classnames(actionMenuClassNames.button, {
-          [actionMenuClassNames.iconOnly]: !buttonText || buttonText.length < 1,
-        })}
+        className={actionMenuClassNames.button}
         onClick={handleButtonClick}
         onKeyDown={handleKeyDown}
         onBlur={(event) => {
