@@ -113,7 +113,7 @@ class BaseButton extends Component<ButtonProps> {
             variant === 'secondaryNoBorder',
           [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
-          [iconStandaloneClassName]: !!icon && !children,
+          [iconStandaloneClassName]: (!!icon || !!iconRight) && !children,
         })}
         style={{ ...marginStyle, ...style }}
       >

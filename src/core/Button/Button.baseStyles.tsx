@@ -164,9 +164,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   &.fi-button--icon-only {
-    padding: ${theme.spacing.insetS} 11px;
+    padding: ${theme.spacing.insetS} 12px;
     & > .fi-button_icon > .fi-icon {
       margin-right: 0;
+    }
+    & > .fi-button_icon--right > .fi-icon {
+      margin-left: 0;
     }
   }
 
