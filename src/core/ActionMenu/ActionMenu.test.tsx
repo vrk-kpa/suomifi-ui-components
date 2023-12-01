@@ -10,6 +10,7 @@ const actionMenuProps: ActionMenuProps = {
   name: 'am-test-name',
   className: 'am-test',
   id: 'test-id',
+  'aria-label': 'am-test',
 };
 
 const TestActionMenu = (props: ActionMenuProps) => (
