@@ -1,4 +1,4 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
@@ -57,11 +57,11 @@ interface InternalButtonProps
   /**
    * Icon from suomifi-icons
    */
-  icon?: ReactNode;
+  icon?: ReactElement;
   /**
    * Icon from suomifi-icons to be placed on the right side
    */
-  iconRight?: ReactNode;
+  iconRight?: ReactElement;
   /** Callback fired on button click */
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
