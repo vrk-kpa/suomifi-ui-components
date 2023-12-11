@@ -62,6 +62,33 @@ describe('props', () => {
     });
   });
 
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(
+        <SearchInput
+          labelText=""
+          clearButtonLabel=""
+          searchButtonLabel=""
+          margin="xs"
+        />,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop overwritten by style prop', () => {
+      const { container } = render(
+        <SearchInput
+          labelText=""
+          clearButtonLabel=""
+          searchButtonLabel=""
+          margin="xs"
+          style={{ margin: 2 }}
+        />,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
+
   describe('onBlur', () => {
     test('should notice when leaving area', () => {
       const mockOnBlur = jest.fn();

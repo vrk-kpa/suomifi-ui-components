@@ -87,3 +87,5 @@ import { StaticChip } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+Chip component supports [margin props](./#/Spacing/Margin%20props) for spacing.

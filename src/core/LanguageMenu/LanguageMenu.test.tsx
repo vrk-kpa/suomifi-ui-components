@@ -100,23 +100,20 @@ describe('props', () => {
   });
 
   describe('className', () => {
-    it('shoud have className in wrapper element', () => {
-      const { getByTestId } = render(
+    it('shoud have base className and given className in wrapper element', () => {
+      const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
-          wrapperProps: {
-            'data-testid': 'classname-test',
-          },
           className: 'lm-test',
         }),
       );
-      const button = getByTestId('classname-test');
-      expect(button).toHaveClass('lm-test');
+      expect(container.firstChild).toHaveClass('fi-language-menu');
+      expect(container.firstChild).toHaveClass('lm-test');
     });
   });
 
   describe('menuClassName', () => {
-    it('shoud have className in wrapper element', () => {
+    it('shoud have className in popover wrapper element', () => {
       const { baseElement } = render(
         TestLanguageMenu({
           ...languageMenuProps,
@@ -128,27 +125,26 @@ describe('props', () => {
     });
   });
 
-  describe('wrapperProps', () => {
-    it('should have wrapperProps id', () => {
-      const { baseElement } = render(
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
-          wrapperProps: { id: 'wrapper-id' },
+          margin: 'xs',
         }),
       );
-      const wrapperDiv = baseElement.querySelector('#wrapper-id');
-      expect(wrapperDiv).toBeTruthy();
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
     });
 
-    it('should have wrapperProps data-testid', () => {
-      const { getByTestId } = render(
+    it('should have margin prop overwritten by style prop', () => {
+      const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
-          wrapperProps: { 'data-testid': 'language-menu-test-id' },
+          margin: 'xs',
+          style: { margin: 2 },
         }),
       );
-      const wrapperDiv = getByTestId('language-menu-test-id');
-      expect(wrapperDiv).toBeTruthy();
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
     });
   });
 });

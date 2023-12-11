@@ -76,3 +76,23 @@ test(
   'should not have basic accessibility issues',
   axeTest(TestServiceNavigation),
 );
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <ServiceNavigation aria-label="" margin="xs">
+        <ServiceNavigationItem>Test</ServiceNavigationItem>
+      </ServiceNavigation>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <ServiceNavigation aria-label="" margin="xs" style={{ margin: 2 }}>
+        <ServiceNavigationItem>Test</ServiceNavigationItem>
+      </ServiceNavigation>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});

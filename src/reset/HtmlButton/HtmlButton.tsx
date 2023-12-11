@@ -11,7 +11,6 @@ export interface HtmlButtonProps
    * @default button
    */
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  'data-testid'?: string;
   forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 

@@ -182,7 +182,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c3.fi-link-list-item .fi-link-list-item_icon .fi-icon .fi-icon-base-fill {
-  fill: hsl(23,82%,51%);
+  fill: hsl(23,82%,50%);
 }
 
 .c1.fi-link-list {

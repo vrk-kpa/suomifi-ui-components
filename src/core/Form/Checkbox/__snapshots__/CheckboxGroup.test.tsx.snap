@@ -220,7 +220,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c10.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c4.fi-label .fi-label_label-span {
@@ -391,12 +391,12 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7.fi-checkbox--error .fi-checkbox_label::before {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
 .c7.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(3,59%,48%);
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-checkbox--disabled .fi-checkbox_label {

@@ -35,9 +35,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &--small-screen {
       & .fi-modal_footer_content {
-        padding-right: ${theme.spacing.xxs};
+        padding-right: 0;
         padding-bottom: ${theme.spacing.s};
-        padding-left: ${theme.spacing.m};
+        padding-left: ${theme.spacing.s};
         & > * {
           display: block;
           width: calc(100% - ${theme.spacing.s});

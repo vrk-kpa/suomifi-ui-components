@@ -154,4 +154,27 @@ describe('props', () => {
       );
     });
   });
+
+  describe('margin', () => {
+    const Group = (
+      <CheckboxGroup data-testid="group" labelText="Test" margin="xs">
+        {CheckboxChilds}
+      </CheckboxGroup>
+    );
+
+    it('should have margin style from margin prop', () => {
+      const { getByTestId } = render(Group);
+      const div = getByTestId('group');
+      expect(div).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin style overridden by style prop', async () => {
+      const { container } = render(
+        <CheckboxGroup labelText="Test" margin="xs" style={{ margin: 2 }}>
+          {CheckboxChilds}
+        </CheckboxGroup>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });

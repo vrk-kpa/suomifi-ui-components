@@ -13,19 +13,23 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import {
-  HtmlTextarea,
-  HtmlTextareaProps,
-  HtmlDiv,
-  HtmlDivProps,
-} from '../../../reset';
+import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
 import { forkRefs } from '../../../utils/common/common';
 import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus, StatusTextCommonProps } from '../types';
+import {
+  characterCounterProps,
+  InputStatus,
+  StatusTextCommonProps,
+} from '../types';
 import { baseStyles } from './Textarea.baseStyles';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
@@ -45,29 +49,9 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-type characterCounterProps =
-  | {
-      characterLimit?: never;
-      ariaCharactersRemainingText?: never;
-      ariaCharactersExceededText?: never;
-    }
-  | {
-      /** Maximun amount of characters allowed in the textarea.
-       * Using this prop adds a visible character counter to the bottom right corner of the textarea.
-       */
-      characterLimit?: number;
-      /** Returns a text which screen readers read to indicate how many characters can still be written to the textarea.
-       * Required with `characterLimit`
-       */
-      ariaCharactersRemainingText: (amount: number) => string;
-      /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
-       * Required with `characterLimit`
-       */
-      ariaCharactersExceededText: (amount: number) => string;
-    };
-
 interface BaseTextareaProps
   extends StatusTextCommonProps,
+    MarginProps,
     Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
   /** CSS class for custom styles */
   className?: string;
@@ -114,8 +98,6 @@ interface BaseTextareaProps
   name?: string;
   /** Sets the component's width to 100% of its parent */
   fullWidth?: boolean;
-  /** Props passed to the outermost div element of the component */
-  containerProps?: Omit<HtmlDivProps, 'className'>;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
   /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
@@ -142,16 +124,17 @@ const BaseTextarea = (props: TextareaProps) => {
     optionalText,
     'aria-describedby': ariaDescribedBy,
     fullWidth,
-    containerProps,
+    style,
     forwardedRef,
     statusTextAriaLiveMode = 'assertive',
     tooltipComponent,
     characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
-    ...passProps
+    ...rest
   } = props;
-
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
   const [typingTimer, setTypingTimer] = useState<ReturnType<
@@ -212,12 +195,12 @@ const BaseTextarea = (props: TextareaProps) => {
 
   return (
     <HtmlDiv
-      {...containerProps}
       className={classnames(baseClassName, className, {
         [textareaClassNames.disabled]: !!disabled,
         [textareaClassNames.error]: status === 'error' && !disabled,
         [textareaClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...style }}
     >
       <Label
         htmlFor={id}

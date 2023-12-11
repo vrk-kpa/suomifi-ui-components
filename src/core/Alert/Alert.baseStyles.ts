@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
+import { transparentize } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-alert {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
     width: 100%;
-    border: 1px solid;
 
     & .fi-alert_style-wrapper {
       display: flex;
@@ -77,36 +77,35 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     /** Status variant styles */
     &.fi-alert--neutral {
-      background-color: ${theme.colors.accentSecondaryLight1};
-      border-color: ${theme.colors.accentSecondary};
+      background-color: ${theme.colors.infoLight1};
+      border-bottom: 1px solid ${transparentize(0.8, theme.colors.infoBase)};
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--neutral {
           & .fi-icon-base-fill {
-            fill: ${theme.colors.accentSecondary};
+            fill: ${theme.colors.blackBase};
           }
         }
       }
     }
 
     &.fi-alert--error {
-      background-color: ${theme.colors.alertLight1};
-      border-color: ${theme.colors.alertBase};
+      background-color: ${theme.colors.alertBase};
+      color: ${theme.colors.whiteBase};
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--error {
           & .fi-icon-base-fill {
-            fill: ${theme.colors.alertBase};
+            fill: ${theme.colors.whiteBase};
           }
         }
       }
     }
 
     &.fi-alert--warning {
-      background-color: ${theme.colors.warningLight1};
-      border-color: ${theme.colors.accentBase};
+      background-color: ${theme.colors.warningBase};
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--warning {
           & .fi-icon-base-fill {
-            fill: ${theme.colors.accentBase};
+            fill: ${theme.colors.blackBase};
           }
         }
       }

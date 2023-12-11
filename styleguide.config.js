@@ -2,8 +2,15 @@ const path = require('path');
 const packagejson = require('./package.json');
 
 // Filter props from styleguidist that don't have description in interface or are from react typings
-const propFilter = (prop) => {
+const propFilter = (prop, parent) => {
   if (prop.description.length === 0) {
+    return false;
+  }
+  // Remove margin props from props table expect for Block component
+  if (
+    ['margin', 'mx', 'my', 'mt', 'mr', 'mb', 'ml'].includes(prop.name) &&
+    parent?.name !== 'Block'
+  ) {
     return false;
   }
   if (prop.parent == null) {

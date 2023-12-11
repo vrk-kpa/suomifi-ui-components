@@ -10,16 +10,20 @@ import React, {
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
-import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { HtmlSpan, HtmlSpanProps, HtmlDivWithRef } from '../../../reset';
 import { TooltipProps } from '../../Tooltip/Tooltip';
 
 export type LabelMode = 'hidden' | 'visible';
 
-export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
+export interface LabelProps extends Omit<HtmlSpanProps, 'as'>, MarginProps {
   /** HTML id attribute */
   id?: string;
   /** CSS class for custom styles. Placed on the outermost div of the component. */
@@ -37,11 +41,6 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Props placed to the outermost div of the component. Can be used, for example, for testing with data-testid. */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'as' | 'className'
-  >;
   /** Renders the wrapping element as another HTML element
    *
    * @default 'label'
@@ -73,14 +72,16 @@ const StyledLabel = styled(
     contentClassName,
     theme,
     labelMode = 'visible',
-    wrapperProps,
+    style,
     children,
     asProp = 'label',
     optionalText,
     tooltipComponent: tooltipComponentProp,
     forceTooltipRerender = false,
-    ...passProps
+    ...rest
   }: LabelProps & SuomifiThemeProp) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
@@ -99,10 +100,10 @@ const StyledLabel = styled(
     return (
       <HtmlDivWithRef
         className={classnames(className, baseClassName)}
-        {...wrapperProps}
         forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
           setWrapperRef(ref)
         }
+        style={{ ...marginStyle, ...style }}
       >
         {labelMode === 'hidden' ? (
           <VisuallyHidden as={asProp} {...passProps}>

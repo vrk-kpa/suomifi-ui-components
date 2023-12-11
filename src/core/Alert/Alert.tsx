@@ -11,6 +11,11 @@ import {
 import { AutoId } from '../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './Alert.baseStyles';
 import { IconClose, IconError, IconInfo, IconWarning } from 'suomifi-icons';
 
@@ -24,7 +29,7 @@ const alertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface AlertProps extends HtmlDivWithRefProps {
+export interface AlertProps extends HtmlDivWithRefProps, MarginProps {
   /** Style variant. Affects color and icon.
    * @default 'neutral'
    */
@@ -57,8 +62,10 @@ class BaseAlert extends Component<AlertProps> {
       smallScreen,
       forwardedRef,
       closeButtonProps = {},
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     const {
       className: customCloseButtonClassName,
@@ -74,6 +81,7 @@ class BaseAlert extends Component<AlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
+        style={{ ...marginStyle, ...passProps?.style }}
         ref={forwardedRef}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
@@ -122,7 +130,7 @@ class BaseAlert extends Component<AlertProps> {
             {...getConditionalAriaProp('aria-label', [closeText])}
             {...closeButtonPassProps}
           >
-            {!smallScreen ? closeText.toUpperCase() : ''}
+            {!smallScreen ? closeText : ''}
             <IconClose />
           </HtmlButton>
         </HtmlDiv>

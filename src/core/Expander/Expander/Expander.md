@@ -43,14 +43,12 @@ import {
     Assistance with financial problems
   </ExpanderTitleButton>
   <ExpanderContent>
-    <Paragraph marginBottomSpacing="l">
+    <Paragraph mb="l">
       If your company is experiencing financial or payment
       difficulties, please contact the Yrittäjän talousapu counselling
       service.
     </Paragraph>
-    <Paragraph marginBottomSpacing="l">
-      Telephone Service 0295 024 882
-    </Paragraph>
+    <Paragraph mb="l">Telephone Service 0295 024 882</Paragraph>
     <Paragraph>Monday - Friday 9.00–16.15</Paragraph>
   </ExpanderContent>
 </Expander>;
@@ -73,14 +71,12 @@ import {
     Assistance with financial problems
   </ExpanderTitleButton>
   <ExpanderContent>
-    <Paragraph marginBottomSpacing="l">
+    <Paragraph mb="l">
       If your company is experiencing financial or payment
       difficulties, please contact the Yrittäjän talousapu counselling
       service.
     </Paragraph>
-    <Paragraph marginBottomSpacing="l">
-      Telephone Service 0295 024 882
-    </Paragraph>
+    <Paragraph mb="l">Telephone Service 0295 024 882</Paragraph>
     <Paragraph>Monday - Friday 9.00–16.15</Paragraph>
   </ExpanderContent>
 </Expander>;
@@ -103,14 +99,12 @@ import {
     Assistance with financial problems
   </ExpanderTitleButton>
   <ExpanderContent>
-    <Paragraph marginBottomSpacing="l">
+    <Paragraph mb="l">
       If your company is experiencing financial or payment
       difficulties, please contact the Yrittäjän talousapu counselling
       service.
     </Paragraph>
-    <Paragraph marginBottomSpacing="l">
-      Telephone Service 0295 024 882
-    </Paragraph>
+    <Paragraph mb="l">Telephone Service 0295 024 882</Paragraph>
     <Paragraph>Monday - Friday 9.00–16.15</Paragraph>
   </ExpanderContent>
 </Expander>;
@@ -136,19 +130,19 @@ import {
 
 <ExpanderGroup
   openAllText="Open all"
-  ariaOpenAllText="Open all expanders"
+  ariaOpenAllText="Open all sections"
   closeAllText="Close all"
-  ariaCloseAllText="Close all expanders"
+  ariaCloseAllText="Close all sections"
 >
   <Expander>
     <ExpanderTitleButton>
       Can I manage my own devices?
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         You can manage the devices you use:
       </Paragraph>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         <Text variant="bold">In the Suomi.fi application</Text>
         <ul>
           <li>Settings: Login and Security</li>
@@ -175,7 +169,7 @@ import {
       Is the application secure?
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         Suomi.fi Messages is a secure way to communicate with
         organisations that use the service.
         <ul>
@@ -208,7 +202,7 @@ import {
       Errors in the Suomi.fi mobile application
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         If the application does not work on your mobile device for
         some reason, you can also read your messages via a browser
       </Paragraph>
@@ -237,9 +231,9 @@ import {
 
 <ExpanderGroup
   openAllText="Open all"
-  ariaOpenAllText="Open all expanders"
+  ariaOpenAllText="Open all sections"
   closeAllText="Close all"
-  ariaCloseAllText="Close all expanders"
+  ariaCloseAllText="Close all sections"
   showToggleAllButton={false}
 >
   <Expander>
@@ -247,10 +241,10 @@ import {
       Can I manage my own devices?
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         You can manage the devices you use:
       </Paragraph>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         <Text variant="bold">In the Suomi.fi application</Text>
         <ul>
           <li>Settings: Login and Security</li>
@@ -277,7 +271,7 @@ import {
       Is the application secure?
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         Suomi.fi Messages is a secure way to communicate with
         organisations that use the service.
         <ul>
@@ -310,7 +304,7 @@ import {
       Errors in the Suomi.fi mobile application
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph marginBottomSpacing="l">
+      <Paragraph mb="l">
         If the application does not work on your mobile device for
         some reason, you can also read your messages via a browser
       </Paragraph>
@@ -358,10 +352,10 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
         Can I manage my own devices?
       </ExpanderTitleButton>
       <ExpanderContent>
-        <Paragraph marginBottomSpacing="l">
+        <Paragraph mb="l">
           You can manage the devices you use:
         </Paragraph>
-        <Paragraph marginBottomSpacing="l">
+        <Paragraph mb="l">
           <Text variant="bold">In the Suomi.fi application</Text>
           <ul>
             <li>Settings: Login and Security</li>
@@ -389,7 +383,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
         Is the application secure?
       </ExpanderTitleButton>
       <ExpanderContent>
-        <Paragraph marginBottomSpacing="l">
+        <Paragraph mb="l">
           Suomi.fi Messages is a secure way to communicate with
           organisations that use the service.
           <ul>
@@ -422,7 +416,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
         Errors in the Suomi.fi mobile application
       </ExpanderTitleButton>
       <ExpanderContent>
-        <Paragraph marginBottomSpacing="l">
+        <Paragraph mb="l">
           If the application does not work on your mobile device for
           some reason, you can also read your messages via a browser
         </Paragraph>
@@ -440,7 +434,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
 
 If you need to have interactive elements in the Expander title, use `<ExpanderTitle>` instead of `<ExpanderTitleButton>`.
 
-ExpanderTitle creates a smaller toggle button to the right side of the Expander. Generally `ariaOpenText`/`ariaCloseText` props should have the same value, because state is already communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology.
+ExpanderTitle creates a smaller toggle button to the right side of the Expander. For screen readers, it is recommended to provide a descriptive label for the button using `toggleButtonAriaLabel`. State is communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology. Screenreader reads `toggleButtonAriaLabel` and `toggleButtonAriaDescribedBy` together.
 
 ```jsx
 import {
@@ -453,14 +447,13 @@ import {
 
 <Expander>
   <ExpanderTitle
-    ariaOpenText="Additional information"
-    ariaCloseText="Additional information"
+    toggleButtonAriaLabel="Additional information"
     toggleButtonAriaDescribedBy="checkbox-id"
   >
     <Checkbox id="checkbox-id">Guardianship</Checkbox>
   </ExpanderTitle>
   <ExpanderContent>
-    <Paragraph marginBottomSpacing="l">
+    <Paragraph mb="l">
       Guardianship means the management of other persons’ finances and
       looking after their interests when they are no longer able to do
       it. Choose guardianship if the matters of a person close to you
@@ -475,3 +468,5 @@ import {
 ```
 
 ### Props & methods
+
+Expander component supports [margin props](./#/Spacing/Margin%20props) for spacing.

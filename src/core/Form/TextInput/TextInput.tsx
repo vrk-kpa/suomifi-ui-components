@@ -12,18 +12,24 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import {
-  HTMLAttributesIncludingDataAttributes,
-  forkRefs,
-} from '../../../utils/common/common';
+import { forkRefs } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
-import { InputStatus, StatusTextCommonProps } from '../types';
+import {
+  characterCounterProps,
+  InputStatus,
+  StatusTextCommonProps,
+} from '../types';
 import { baseStyles } from './TextInput.baseStyles';
 
 const baseClassName = 'fi-text-input';
@@ -46,37 +52,12 @@ export const textInputClassNames = {
 
 type TextInputValue = string | number | undefined;
 
-type characterCounterProps =
-  | {
-      characterLimit?: never;
-      ariaCharactersRemainingText?: never;
-      ariaCharactersExceededText?: never;
-    }
-  | {
-      /** Maximun amount of characters allowed in the input.
-       * Using this prop adds a visible character counter to the bottom right corner of the input.
-       */
-      characterLimit?: number;
-      /** Returns a text which screen readers read to indicate how many characters can still be written to the input.
-       * Required with `characterLimit`
-       */
-      ariaCharactersRemainingText: (amount: number) => string;
-      /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
-       * Required with `characterLimit`
-       */
-      ariaCharactersExceededText: (amount: number) => string;
-    };
-
 interface BaseTextInputProps
   extends StatusTextCommonProps,
+    MarginProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** CSS class for custom styles */
   className?: string;
-  /** Props passed to the outermost div element of the component */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
   /** Disables the input */
   disabled?: boolean;
   /** Callback fired on input click */
@@ -93,12 +74,12 @@ interface BaseTextInputProps
   labelMode?: LabelMode;
   /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Hint text to be shown below the component */
+  /** Hint text to be shown below the component's label */
   hintText?: string;
   /**
    * `'default'` | `'error'`
    *
-   * Status of the component. Error state creates a red border around the Checkbox.
+   * Status of the component. Error state creates a red border around the input.
    * Always use a descriptive `statusText` with an error status.
    * @default default
    */
@@ -126,7 +107,7 @@ interface BaseTextInputProps
 
 export type TextInputProps = characterCounterProps & BaseTextInputProps;
 
-const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
+const BaseTextInput = (props: TextInputProps) => {
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
   const [typingTimer, setTypingTimer] = useState<ReturnType<
@@ -147,7 +128,7 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
     labelText,
     labelMode,
     onChange: propOnChange,
-    wrapperProps,
+    style,
     optionalText,
     status,
     statusText,
@@ -165,8 +146,10 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
     characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
-    ...passProps
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   useEffect(() => {
     if (characterLimit !== undefined && inputRef.current?.value.length) {
@@ -213,7 +196,6 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
   const statusTextId = `${id}-statusText`;
   return (
     <HtmlDiv
-      {...wrapperProps}
       className={classnames(baseClassName, className, {
         [textInputClassNames.disabled]: !!passProps.disabled,
         [textInputClassNames.icon]: !!icon,
@@ -221,6 +203,7 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
         [textInputClassNames.success]: status === 'success',
         [textInputClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...style }}
     >
       <HtmlSpan className={textInputClassNames.styleWrapper}>
         <Label

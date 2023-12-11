@@ -36,3 +36,5 @@ import { Toast } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+Toast component supports [margin props](./#/Spacing/Margin%20props) for spacing.

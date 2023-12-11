@@ -4,16 +4,23 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlSpan, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
+import {
+  HtmlSpan,
+  HtmlDiv,
+  HtmlInput,
+  HtmlButton,
+  HtmlButtonProps,
+} from '../../../reset';
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  forkRefs,
-  getOwnerDocument,
-  HTMLAttributesIncludingDataAttributes,
-} from '../../../utils/common/common';
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
+import { forkRefs, getOwnerDocument } from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
 import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
 import { HintText } from '../../Form/HintText/HintText';
@@ -87,7 +94,10 @@ interface DropdownState {
   preventListScrolling: boolean;
 }
 
-export interface DropdownProps extends StatusTextCommonProps {
+export interface DropdownProps
+  extends StatusTextCommonProps,
+    MarginProps,
+    Omit<HtmlButtonProps, 'onChange'> {
   /**
    * HTML id attribute
    * If no id is specified, one will be generated automatically
@@ -154,14 +164,6 @@ export interface DropdownProps extends StatusTextCommonProps {
   fullWidth?: boolean;
   /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
-  /**
-   * Props which are placed at the outermost div of the component.
-   * Can be used, for example, for style
-   */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
 }
 
 class BaseDropdown extends Component<DropdownProps> {
@@ -487,9 +489,11 @@ class BaseDropdown extends Component<DropdownProps> {
       portal = true,
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
-      wrapperProps,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     if (React.Children.count(children) < 1) {
       getLogger().warn(`Dropdown '${labelText}' does not contain items`);
@@ -532,7 +536,7 @@ class BaseDropdown extends Component<DropdownProps> {
           [dropdownClassNames.fullWidth]: fullWidth,
         })}
         id={id}
-        {...wrapperProps}
+        style={{ ...marginStyle, ...style }}
       >
         <Label
           id={labelId}

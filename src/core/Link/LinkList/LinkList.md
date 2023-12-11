@@ -55,3 +55,5 @@ import {
 ```
 
 ### Props & methods
+
+LinkList component supports [margin props](./#/Spacing/Margin%20props) for spacing.

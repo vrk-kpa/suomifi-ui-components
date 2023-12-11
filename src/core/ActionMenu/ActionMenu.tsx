@@ -13,9 +13,13 @@ import {
   ActionMenuPopover,
   InitialActiveDescendant,
 } from './ActionMenuPopover';
-import { Button, ButtonVariant } from '../Button/Button';
+import { Button, ButtonProps, ButtonVariant } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
-import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './ActionMenu.baseStyles';
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
@@ -36,7 +40,7 @@ export type MenuContent =
   | ReactElement<ActionMenuItemProps>
   | ReactElement<ActionMenuDividerProps>;
 
-export interface ActionMenuProps {
+export interface ActionMenuProps extends MarginProps, ButtonProps {
   /** Text content for the menu button */
   buttonText?: string;
   /**
@@ -79,20 +83,11 @@ export interface ActionMenuProps {
   onClose?: () => void;
   /** Callback fired when menu closes */
   onOpen?: () => void;
-  /**
-   * Props which are placed at the outermost div of the component.
-   * Can be used, for example, for style
-   */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
 }
 
 const BaseActionMenu = (props: ActionMenuProps) => {
   const {
     className,
-    wrapperProps,
     id,
     fullWidth,
     forwardedRef,
@@ -103,8 +98,11 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     onClose,
     onBlur,
     menuClassName,
-    ...passProps
+    style,
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
@@ -164,10 +162,10 @@ const BaseActionMenu = (props: ActionMenuProps) => {
 
   return (
     <HtmlDiv
-      {...wrapperProps}
       className={classnames(baseClassName, className, {
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...style }}
     >
       <Button
         id={buttonId}

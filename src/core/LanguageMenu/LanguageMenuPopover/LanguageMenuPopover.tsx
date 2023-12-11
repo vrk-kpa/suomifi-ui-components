@@ -59,21 +59,7 @@ const defaultProviderValue: LanguageMenuProviderState = {
 const { Provider: LanguageMenuProvider, Consumer: LanguageMenuConsumer } =
   React.createContext(defaultProviderValue);
 
-/* From Popover.tsx */
-const sameWidth: any = {
-  name: 'sameWidth',
-  enabled: true,
-  phase: 'beforeWrite',
-  requires: ['computeStyles'],
-  /* eslint-disable no-param-reassign */
-  fn({ state }: { state: any }) {
-    state.styles.popper.width = `${state.rects.reference.width}px`;
-  },
-  effect({ state }: { state: any }) {
-    state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
-  },
-};
-
+/* eslint-disable no-param-reassign */
 const scrollItemList = (
   elementId: string,
   wrapperRef: React.RefObject<HTMLDivElement>,
@@ -246,7 +232,6 @@ export const BaseLanguageMenuPopover = (
         padding: 5,
       },
     },
-    sameWidth,
   ];
 
   const { styles, attributes } = usePopper(

@@ -34,8 +34,28 @@ describe('Heading with props', () => {
   it('should have given color', () => {
     const { getByText } = render(<TestHeading color="alertBase" />);
     expect(getByText('Test Heading')).toHaveStyle({
-      color: 'rgb(50, 195, 195)',
+      color: 'rgb(45, 174, 174)',
     });
+  });
+});
+
+describe('Margin prop', () => {
+  it('should have margin style from margin prop', () => {
+    const { getByText } = render(
+      <Heading variant="h1" margin="xs">
+        Test
+      </Heading>,
+    );
+    expect(getByText('Test')).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from style prop', () => {
+    const { getByText } = render(
+      <Heading variant="h1" margin="xs" style={{ margin: 2 }}>
+        Test
+      </Heading>,
+    );
+    expect(getByText('Test')).toHaveAttribute('style', 'margin: 2px;');
   });
 });
 

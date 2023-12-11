@@ -1,13 +1,18 @@
 import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../../reset';
+import { HtmlDiv, HtmlDivProps } from '../../../../reset';
 import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
 import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { LoadingSpinner } from '../../../LoadingSpinner/LoadingSpinner';
 import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
@@ -156,8 +161,10 @@ type AllowItemAdditionProps =
 export type SingleSelectProps<T> = InternalSingleSelectProps<
   T & SingleSelectData
 > &
+  HtmlDivProps &
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
+  MarginProps &
   LoadingProps;
 
 interface SingleSelectState<T extends SingleSelectData> {
@@ -225,10 +232,18 @@ class BaseSingleSelect<T> extends Component<
 
     if (selectedItemChanged || propItems !== prevState.initialItems) {
       const resolvedSelectedItem =
-        'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
+        'selectedItem' in nextProps
+          ? selectedItem
+          : propItems.find(
+              (item) =>
+                item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+            );
       const resolvedInputValue = selectedItemChanged
         ? selectedItem?.labelText || ''
-        : prevState.filterInputValue;
+        : propItems.find(
+            (item) =>
+              item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+          )?.labelText || '';
 
       return {
         selectedItem: resolvedSelectedItem,
@@ -518,8 +533,11 @@ class BaseSingleSelect<T> extends Component<
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
@@ -535,6 +553,7 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.open]: showPopover,
           [singleSelectClassNames.error]: status === 'error',
         })}
+        style={{ ...marginStyle, ...style }}
       >
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (

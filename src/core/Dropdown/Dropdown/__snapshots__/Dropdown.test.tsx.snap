@@ -323,7 +323,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -461,7 +461,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
@@ -577,7 +577,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--open fi-dropdown--italicize"
-      data-testid="dropdown-test-id"
       id="test-id"
     >
       <div
@@ -994,7 +993,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -1132,7 +1131,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
@@ -1272,7 +1271,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--open"
-      data-testid=""
       id="test-id"
     >
       <div
@@ -1706,7 +1704,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -1844,7 +1842,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
@@ -1960,7 +1958,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--open fi-dropdown--italicize"
-      data-testid=""
       id="test-id"
     >
       <div
@@ -2294,7 +2291,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c8.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -2432,7 +2429,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
@@ -2482,7 +2479,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   <div>
     <div
       class="c0 c1 dropdown-test fi-dropdown fi-dropdown--italicize"
-      data-testid="dropdown-hidden-label-test-id"
       id="test-id"
     >
       <div

@@ -16,6 +16,7 @@ const singularComponents = [
   'Notification',
   'Toast',
   ['Form', 'TextInput'],
+  ['Form', 'TimeInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
   ['Form', 'DateInput'],
@@ -40,13 +41,12 @@ const getComponents = (arr) =>
         })
       : getComponent({ name: component }),
   );
-const getComponentWithVariants = (component) => (variants) =>
-  [
-    getComponent({ name: component }),
-    ...variants.map((variant) =>
-      getComponent({ underName: component, name: variant }),
-    ),
-  ];
+const getComponentWithVariants = (component) => (variants) => [
+  getComponent({ name: component }),
+  ...variants.map((variant) =>
+    getComponent({ underName: component, name: variant }),
+  ),
+];
 
 const getVersions = () => {
   const href = process.env.BASE_PATH || './';
@@ -72,6 +72,12 @@ module.exports = {
       sectiondepth: 0,
     },
     {
+      name: 'Accessibility',
+      content: './.styleguidist/accessibility.md',
+      sections: [() => {}],
+      sectiondepth: 0,
+    },    
+    {
       name: 'Foundations',
       content: './.styleguidist/foundations.md',
       sections: [
@@ -90,6 +96,16 @@ module.exports = {
         {
           name: 'Spacing',
           content: './.styleguidist/spacing.md',
+          sections: [
+            {
+              name: 'Margin props',
+              content: './.styleguidist/spacingprops.md',
+            },
+            {
+              name: 'Tokens',
+              content: './.styleguidist/spacingtokens.md',
+            },
+          ],
         },
         {
           name: 'Theme',

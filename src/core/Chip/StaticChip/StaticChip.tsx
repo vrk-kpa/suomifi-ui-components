@@ -9,9 +9,15 @@ import {
 } from '../BaseChip/BaseChip';
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 
 export interface StaticChipProps
   extends BaseChipProps,
+    MarginProps,
     Omit<HtmlSpanProps, 'children'> {
   /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLSpanElement>;
@@ -19,7 +25,9 @@ export interface StaticChipProps
 
 class BaseChip extends Component<StaticChipProps> {
   render() {
-    const { className, children, disabled = false, ...passProps } = this.props;
+    const { className, children, disabled = false, ...rest } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     return (
       <HtmlSpan
@@ -27,6 +35,7 @@ class BaseChip extends Component<StaticChipProps> {
           [chipClassNames.disabled]: !!disabled,
         })}
         {...passProps}
+        style={{ ...marginStyle, ...passProps?.style }}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
       </HtmlSpan>

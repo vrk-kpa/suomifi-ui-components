@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot should match snapshot 1`] = `
+exports[`props snapshot should match snapshot 1`] = `
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -148,7 +148,7 @@ exports[`snapshot should match snapshot 1`] = `
 }
 
 .c1.fi-loadingSpinner.fi-loadingSpinner--failed .fi-icon-base-fill {
-  fill: hsl(3,59%,48%);
+  fill: hsl(3,59%,43%);
 }
 
 @media (prefers-reduced-motion) {

@@ -5,12 +5,17 @@ import { getConditionalAriaProp } from '../../../utils/aria';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-breadcrumb';
 const listClassName = `${baseClassName}_list`;
 const itemClassName = `${baseClassName}_item`;
 
-export interface BreadcrumbProps extends HtmlNavProps {
+export interface BreadcrumbProps extends HtmlNavProps, MarginProps {
   /** Labels the breadcrumb for screen reader users */
   'aria-label': string;
   /** CSS class for custom styles */
@@ -28,9 +33,16 @@ const breadcrumbItems = (children: ReactNode) =>
 
 class BaseBreadcrumb extends Component<BreadcrumbProps & SuomifiThemeProp> {
   render() {
-    const { className, theme, children, ...passProps } = this.props;
+    const { className, theme, children, ...rest } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
+
     return (
-      <HtmlNav {...passProps} className={classnames(baseClassName, className)}>
+      <HtmlNav
+        {...passProps}
+        className={classnames(baseClassName, className)}
+        style={{ ...marginStyle, ...passProps?.style }}
+      >
         <HtmlOl className={listClassName}>{breadcrumbItems(children)}</HtmlOl>
       </HtmlNav>
     );

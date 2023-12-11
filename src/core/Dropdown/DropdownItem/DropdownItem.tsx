@@ -9,10 +9,10 @@ import {
 } from '../Dropdown/Dropdown';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlLi } from '../../../reset';
+import { HtmlLi, HtmlLiProps } from '../../../reset';
 import { getOwnerDocument } from '../../../utils/common';
 
-export interface DropdownItemProps {
+export interface DropdownItemProps extends HtmlLiProps {
   /** Item value */
   value: string;
   /** Item content */

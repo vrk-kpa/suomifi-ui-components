@@ -62,3 +62,5 @@ import { InlineAlert } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+InlineAlert component supports [margin props](./#/Spacing/Margin%20props) for spacing.

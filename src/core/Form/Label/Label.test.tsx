@@ -64,12 +64,19 @@ describe('props', () => {
     });
   });
 
-  describe('wrapperProps', () => {
-    it('has the given props', () => {
+  describe('margin', () => {
+    it('has margin style from margin prop', () => {
+      const { container } = render(<Label margin="xs">Test text</Label>);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('has margin prop overwritten by style prop', () => {
       const { container } = render(
-        <Label wrapperProps={{ style: { fontSize: 26 } }}> Test text</Label>,
+        <Label margin="xs" style={{ margin: 2 }}>
+          Test text
+        </Label>,
       );
-      expect(container.firstChild).toHaveAttribute('style', 'font-size: 26px;');
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
     });
   });
 

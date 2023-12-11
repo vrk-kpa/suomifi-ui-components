@@ -4,6 +4,11 @@ import { default as styled } from 'styled-components';
 import { IconClose } from 'suomifi-icons';
 import { getLogger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import {
   BaseChipProps,
@@ -21,6 +26,7 @@ const chipButtonClassNames = {
 
 export interface ChipProps
   extends BaseChipProps,
+    MarginProps,
     Omit<
       HtmlButtonProps,
       'forwardedRef' | 'disabled' | 'onClick' | 'children' | 'as'
@@ -54,8 +60,11 @@ class DefaultChip extends Component<ChipProps> {
       forwardedRef,
       disabled = false,
       'aria-disabled': ariaDisabled = false,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
@@ -80,6 +89,7 @@ class DefaultChip extends Component<ChipProps> {
         {...onClickProp}
         forwardedRef={forwardedRef}
         {...passProps}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         {!!removable && (

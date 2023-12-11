@@ -1,11 +1,12 @@
 import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
+import { HtmlDiv, HtmlButton, HtmlSpan, HtmlDivProps } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 import { IconChevronDown } from 'suomifi-icons';
+import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const baseClassName = 'fi-expander_title-button';
 const titleOpenClassName = `${baseClassName}--open`;
@@ -13,7 +14,7 @@ const titleButtonClassName = `${baseClassName}_button`;
 const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
-export interface ExpanderTitleButtonProps {
+export interface ExpanderTitleButtonProps extends HtmlDivProps {
   /** CSS class for custom styles */
   className?: string;
   /** Title for Expander */
@@ -22,7 +23,7 @@ export interface ExpanderTitleButtonProps {
   asHeading?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
-    HtmlButtonProps,
+    HTMLAttributesIncludingDataAttributes<HTMLButtonElement>,
     | 'onClick'
     | 'onMouseDown'
     | 'onMouseUp'

@@ -11,10 +11,7 @@ import {
 describe('Basic expander', () => {
   const TestExpanderWithProps = (titleProps: ExpanderTitleButtonProps) => (
     <Expander className="expander-test">
-      <ExpanderTitleButton
-        {...titleProps}
-        {...{ 'data-testid': 'expander-title' }}
-      />
+      <ExpanderTitleButton {...titleProps} data-testid="expander-title" />
       <ExpanderContent>Test expander content</ExpanderContent>
     </Expander>
   );
@@ -132,5 +129,26 @@ describe('open', () => {
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     const div = getByTestId('expander-title-id');
     expect(div).toHaveClass('fi-expander_title-button--open');
+  });
+});
+
+describe('margin prop', () => {
+  it('should have margin style from margin prop', () => {
+    const { getByTestId } = render(
+      <Expander data-testid="expander-test" margin="xs">
+        <ExpanderContent>Test expander content</ExpanderContent>
+      </Expander>,
+    );
+    const div = getByTestId('expander-test');
+    expect(div).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <Expander data-testid="expander-test" margin="l" style={{ margin: 2 }}>
+        <ExpanderContent>Test expander content</ExpanderContent>
+      </Expander>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });

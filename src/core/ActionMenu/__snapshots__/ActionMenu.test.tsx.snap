@@ -160,7 +160,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -210,7 +210,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,58%);
+  border-bottom-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -229,7 +229,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,58%);
+  border-top-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -665,8 +665,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -736,8 +734,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -926,7 +924,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -976,7 +974,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,58%);
+  border-bottom-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -995,7 +993,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,58%);
+  border-top-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -1431,8 +1429,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -1502,8 +1498,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -1692,7 +1688,7 @@ exports[`No borders variant should match snapshot 1`] = `
 .c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1742,7 +1738,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,58%);
+  border-bottom-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -1761,7 +1757,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,58%);
+  border-top-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -2197,8 +2193,6 @@ exports[`No borders variant should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -2269,8 +2263,8 @@ exports[`No borders variant should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -2459,7 +2453,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -2509,7 +2503,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,58%);
+  border-bottom-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -2528,7 +2522,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,58%);
+  border-top-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -2964,8 +2958,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -3035,8 +3027,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -3226,7 +3218,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,58%);
+  border: 1px solid hsl(0,0%,42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -3276,7 +3268,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,58%);
+  border-bottom-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -3295,7 +3287,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,58%);
+  border-top-color: hsl(0,0%,42%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -3731,8 +3723,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   <div>
     <div
       class="c0 fi-action-menu c1 am-test"
-      data-testid="action-menu-test-id"
-      id="wrapper-id"
     >
       <button
         aria-controls="test-id-menu"
@@ -3802,8 +3792,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"

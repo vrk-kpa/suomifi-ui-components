@@ -35,6 +35,28 @@ it('should still have the correct styles applied when rendered as something othe
   expect(container.firstChild).toHaveClass('fi-link--router');
 });
 
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <RouterLink href="/" margin="xs">
+        Link
+      </RouterLink>,
+    );
+    const link = container.querySelector('a');
+    expect(link).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from style prop', () => {
+    const { container } = render(
+      <RouterLink href="/" margin="xs" style={{ margin: 2 }}>
+        Link
+      </RouterLink>,
+    );
+    const link = container.querySelector('a');
+    expect(link).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
 test('should not have underline by default', () => {
   const { container } = render(TestRouterLink);
   expect(container.firstChild).not.toHaveClass('fi-link--initial-underline');

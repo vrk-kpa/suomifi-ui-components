@@ -4,17 +4,22 @@ import React, {
   useState,
   useRef,
   ReactElement,
+  ReactNode,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
+import {
   LanguageMenuPopover,
   InitialActiveDescendant,
 } from './LanguageMenuPopover/LanguageMenuPopover';
-import { HtmlButton, HtmlDiv } from '../../reset';
-import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
+import { HtmlButton, HtmlButtonProps, HtmlDiv } from '../../reset';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { baseStyles } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps } from './LanguageMenuItem/LanguageMenuItem';
@@ -36,9 +41,9 @@ export type MenuContent =
   | Array<ReactElement<LanguageMenuItemProps>>
   | ReactElement<LanguageMenuItemProps>;
 
-export interface LanguageMenuProps {
-  /** Text content for the menu button */
-  buttonText: string;
+export interface LanguageMenuProps extends MarginProps, HtmlButtonProps {
+  /** Content for the menu button. Should indicate the currently selected language */
+  buttonText: ReactNode;
   /**
    * LanguageMenu should have a descriptive aria-label. Aria-label should also inform what language is selected.
    * For example "Select language, selected language: English". Aria-label is for assistive technologies and overrides buttonText for
@@ -63,21 +68,13 @@ export interface LanguageMenuProps {
   onClose?: () => void;
   /** Callback fired when menu closes */
   onOpen?: () => void;
-  /**
-   * Props which are placed on the outermost div of the component.
-   * Can be used, for example, for style
-   */
-  wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-    'className'
-  >;
 }
 
 const BaseLanguageMenu = (props: LanguageMenuProps) => {
   const {
     className,
     menuClassName,
-    wrapperProps,
+    style,
     id,
     forwardedRef,
     buttonText,
@@ -86,9 +83,10 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     onClose,
     onBlur,
     'aria-label': ariaLabel,
-    ...passProps
+    ...rest
   } = props;
-
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
@@ -146,7 +144,10 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
   };
 
   return (
-    <HtmlDiv {...wrapperProps} className={classnames(baseClassName, className)}>
+    <HtmlDiv
+      className={classnames(baseClassName, className)}
+      style={{ ...marginStyle, ...style }}
+    >
       <HtmlButton
         id={buttonId}
         aria-expanded={ariaExpanded}
@@ -159,7 +160,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
         })}
         onClick={handleButtonClick}
         onKeyDown={handleKeyDown}
-        onBlur={(event) => {
+        onBlur={(event: React.FocusEvent<HTMLButtonElement>) => {
           if (onBlur) {
             onBlur(event);
           }

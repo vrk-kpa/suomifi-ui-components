@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { padding } from '../../theme/utils';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
@@ -39,7 +38,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     animation: fi-expander_content-anim ${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction} 1 forwards;
     &:not(.fi-expander_content--no-padding) {
-      ${padding(theme)('xs', 'm', 'm', 'm')}
+      padding: ${theme.spacing.xs} ${theme.spacing.m} ${theme.spacing.m};
     }
   }
   @keyframes fi-expander_content-anim {

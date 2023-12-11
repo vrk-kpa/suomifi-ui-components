@@ -62,7 +62,7 @@ Quisque non sapien sem.`;
       <ModalTitle>Modal example</ModalTitle>
       <Paragraph>
         {Array.apply(null, { length: 10 }).map((e, i) => (
-          <Paragraph marginBottomSpacing="l" key={i}>
+          <Paragraph mb="l" key={i}>
             <Text>{text}</Text>
           </Paragraph>
         ))}
@@ -127,7 +127,7 @@ Quisque non sapien sem.`;
       <ModalTitle>Modal example</ModalTitle>
       <Paragraph>
         {Array.apply(null, { length: 10 }).map((e, i) => (
-          <Paragraph marginBottomSpacing="l" key={i}>
+          <Paragraph mb="l" key={i}>
             <Text>{text}</Text>
           </Paragraph>
         ))}

@@ -4,8 +4,14 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
+import {
   HtmlDiv,
   HtmlDivWithRef,
+  HtmlDivWithRefProps,
   HtmlFieldSet,
   HtmlLegend,
 } from '../../../reset';
@@ -28,7 +34,7 @@ const checkboxGroupClassNames = {
 
 type CheckboxGroupStatus = Exclude<InputStatus, 'success'>;
 
-export interface CheckboxGroupProps {
+export interface CheckboxGroupProps extends MarginProps, HtmlDivWithRefProps {
   /** CSS class for custom styles */
   className?: string;
   /** Use Checkbox components as children */
@@ -89,8 +95,11 @@ class BaseCheckboxGroup extends Component<
       groupStatus = 'default',
       groupStatusText,
       tooltipComponent,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     const statusTextId = !!groupStatusText ? `${id}-statusText` : undefined;
 
@@ -99,6 +108,7 @@ class BaseCheckboxGroup extends Component<
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlFieldSet>
           <HtmlLegend className={checkboxGroupClassNames.legend}>

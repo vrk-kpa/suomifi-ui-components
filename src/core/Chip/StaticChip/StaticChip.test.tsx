@@ -58,4 +58,20 @@ describe('classnames', () => {
     const { container } = render(staticChip);
     expect(container.firstChild).not.toHaveClass('fi-chip--button');
   });
+
+  describe('margin prop', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<StaticChip margin="xs">Test</StaticChip>);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop style overwritten from style', () => {
+      const { container } = render(
+        <StaticChip margin="xs" style={{ margin: 2 }}>
+          Test
+        </StaticChip>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });

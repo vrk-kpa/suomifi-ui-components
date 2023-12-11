@@ -299,7 +299,7 @@ import React from 'react';
 
 You can use the `fullWidth` prop to make the input take all available horizontal space.
 
-You can use `wrapperProps` to set inline styles for the input.
+You can use the `style` property to set inline styles for the input.
 
 ```js
 import { DateInput, Button } from 'suomifi-ui-components';
@@ -317,7 +317,7 @@ import { DateInput, Button } from 'suomifi-ui-components';
     hintText="Use format D.M.YYYY"
     datePickerEnabled
     language="en"
-    wrapperProps={{ style: { width: '200px' } }}
+    style={{ width: '200px' }}
   />
 </>;
 ```
@@ -378,3 +378,5 @@ const labelText = 'Beginning date';
 ```
 
 ### Props & methods
+
+DateInput component supports [margin props](./#/Spacing/Margin%20props) for spacing.

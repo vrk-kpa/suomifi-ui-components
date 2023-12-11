@@ -2,8 +2,14 @@ import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
+import {
   HtmlDiv,
   HtmlDivWithRef,
+  HtmlDivWithRefProps,
   HtmlFieldSet,
   HtmlLegend,
 } from '../../../reset';
@@ -21,7 +27,9 @@ const radioButtonGroupClassNames = {
   container: `${baseClassName}_container`,
 };
 
-export interface RadioButtonGroupProps {
+export interface RadioButtonGroupProps
+  extends MarginProps,
+    Omit<HtmlDivWithRefProps, 'onChange'> {
   /** CSS class for custom styles */
   className?: string;
   /** Use `<RadioButton>` components as children */
@@ -111,14 +119,18 @@ class BaseRadioButtonGroup extends Component<
       defaultValue,
       onChange,
       tooltipComponent,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlFieldSet>
           <HtmlLegend className={radioButtonGroupClassNames.legend}>

@@ -191,6 +191,22 @@ describe('callbacks', () => {
       expect(mockOnBlur).toBeCalledTimes(1);
     });
   });
+
+  describe('onDatePickerButtonBlur', () => {
+    it('calls onBlur when date picker button is blurred', () => {
+      const mockOnBlur = jest.fn();
+      const { getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          onDatePickerButtonBlur={mockOnBlur}
+        />,
+      );
+      fireEvent.focus(getByRole('button'));
+      fireEvent.blur(getByRole('button'));
+      expect(mockOnBlur).toBeCalledTimes(1);
+    });
+  });
 });
 
 describe('props', () => {
@@ -820,6 +836,24 @@ describe('props', () => {
           'something',
         );
       });
+    });
+  });
+
+  describe('margin', () => {
+    it('has margin style from margin prop', () => {
+      const { baseElement } = render(
+        <DateInput labelText="Date" margin="xs" />,
+      );
+      const div = baseElement.querySelector('.fi-date-input');
+      expect(div).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('has margin style overwritten by style prop', () => {
+      const { baseElement } = render(
+        <DateInput style={{ margin: 2 }} labelText="Date" margin="xs" />,
+      );
+      const div = baseElement.querySelector('.fi-date-input');
+      expect(div).toHaveAttribute('style', 'margin: 2px;');
     });
   });
 });

@@ -50,3 +50,5 @@ import { Heading } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+Heading component supports [margin props](./#/Spacing/Margin%20props) for spacing.

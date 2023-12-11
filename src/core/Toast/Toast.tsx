@@ -3,12 +3,17 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { IconCheckCircle } from 'suomifi-icons';
 import { Heading } from '../Heading/Heading';
-import { HtmlDiv, HtmlDivWithRef } from '../../reset';
+import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 
-export interface ToastProps {
+export interface ToastProps extends MarginProps, HtmlDivWithRefProps {
   /** Sets aria-live mode for the Toast text content and label.
    * @default 'polite'
    */
@@ -46,13 +51,17 @@ class BaseToast extends Component<ToastProps> {
       headingText,
       headingVariant = 'h2',
       id,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         as="section"
         {...passProps}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlDiv className={toastClassNames.styleWrapper}>
           <HtmlDiv className={toastClassNames.iconWrapper}>

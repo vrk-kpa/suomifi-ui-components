@@ -32,6 +32,22 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('custom-style');
     });
   });
+
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { getByText } = render(<HintText margin="xs">Test</HintText>);
+      expect(getByText('Test')).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop overwritten from style prop', () => {
+      const { getByText } = render(
+        <HintText margin="xs" style={{ margin: 2 }}>
+          Test
+        </HintText>,
+      );
+      expect(getByText('Test')).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });
 
 test(

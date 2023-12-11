@@ -6,27 +6,27 @@
 
 For testing: [React-testing-library](https://github.com/kentcdodds/react-testing-library) run by [Jest](https://github.com/facebook/jest) with [ts-jest](https://github.com/kulshekhar/ts-jest) (code coverage with built-in [Istanbul](https://github.com/istanbuljs)). Code style with [Prettier](https://github.com/prettier/prettier).
 
-After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then, you can run several commands:
+After cloning suomifi-ui-components, run `npm install` to fetch its dependencies. Then, you can run several commands:
 
-1. `yarn start` runs Styleguidist for displaying components stories.
+1. `npm run start` runs Styleguidist for displaying components stories.
 
-2. `yarn test` runs written tests.
+2. `npm run test` runs written tests.
 
-3. `yarn lint` checks TypeScript code for readability, maintainability, and functionality errors.
+3. `npm run lint` checks TypeScript code for readability, maintainability, and functionality errors.
 
-4. `yarn prettier:check` checks the code style.
+4. `npm run prettier:check` checks the code style.
 
-5. `yarn prettier` write the code style fixes to all src-files.
+5. `npm run prettier` write the code style fixes to all src-files.
 
-6. `yarn validate` runs the complete test suite.
+6. `npm run validate` runs the complete test suite.
 
-7. `yarn build` compiles TypeScript code to the dist directory.
+7. `npm run build` compiles TypeScript code to the dist directory.
 
-8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
+8. `npm run styleguide:build` compiles static version of Styleguide to the styleguide directory.
 
-9. `yarn bundle-analyzer` shows analyzation of bundle size.
+9. `npm run bundle-analyzer` shows analyzation of bundle size.
 
-❗️After you pull changes from the repo, remember to run `yarn` to make sure that you have all the needed dependencies installed on your setup.
+❗️After you pull changes from the repo, remember to run `npm install` to make sure that you have all the needed dependencies installed on your setup.
 
 ## Source
 

@@ -10,10 +10,6 @@ const actionMenuProps: ActionMenuProps = {
   name: 'am-test-name',
   className: 'am-test',
   id: 'test-id',
-  wrapperProps: {
-    id: 'wrapper-id',
-    'data-testid': 'action-menu-test-id',
-  },
 };
 
 const TestActionMenu = (props: ActionMenuProps) => (
@@ -29,10 +25,7 @@ describe('Basic ActionMenu', () => {
   const BasicActionMenu = TestActionMenu(actionMenuProps);
 
   it('should have provided ids', async () => {
-    const { findByRole, findByTestId } = render(BasicActionMenu);
-    const wrapperDiv = await findByTestId('action-menu-test-id');
-    expect(wrapperDiv).toBeTruthy();
-    expect(wrapperDiv).toHaveAttribute('id', 'wrapper-id');
+    const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
     expect(button).toHaveAttribute('id', 'test-id');
     expect(button).toHaveAttribute('name', 'am-test-name');
@@ -84,6 +77,27 @@ describe('No borders variant', () => {
   it('should match snapshot', async () => {
     const { baseElement } = render(BorderlessActionMenu);
     expect(baseElement).toMatchSnapshot();
+  });
+});
+
+describe('Margin prop', () => {
+  it('should have margin style from margin prop', async () => {
+    const { container } = render(
+      TestActionMenu({ ...actionMenuProps, margin: 'xs' }),
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overridden by style prop', async () => {
+    const modProps: ActionMenuProps = {
+      ...actionMenuProps,
+      margin: 'xs',
+      style: {
+        margin: 2,
+      },
+    };
+    const { container } = render(TestActionMenu(modProps));
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });
 

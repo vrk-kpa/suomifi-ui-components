@@ -1,6 +1,7 @@
 .DS_Store
 *.log
 0-stage
+yarn.lock
 
 # build output
 dist
@@ -14,7 +15,6 @@ styleguide
 
 # dependencies
 node_modules
-package-lock.json
 
 # editors
 .idea

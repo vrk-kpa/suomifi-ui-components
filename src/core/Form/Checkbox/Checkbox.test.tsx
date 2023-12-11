@@ -93,16 +93,18 @@ describe('props', () => {
   describe('children', () => {
     it('has the given children and it changes on prop change', () => {
       const { getByTestId, rerender } = render(RegularTestCheckbox);
-      expect(getByTestId('regular_id').textContent).toBe('Regular');
+      expect(getByTestId('regular_id').nextElementSibling?.textContent).toBe(
+        'Regular',
+      );
 
       rerender(
         <BaseCheckbox data-testid="regular_id_changed">
           Regular changed
         </BaseCheckbox>,
       );
-      expect(getByTestId('regular_id_changed').textContent).toBe(
-        'Regular changed',
-      );
+      expect(
+        getByTestId('regular_id_changed').nextElementSibling?.textContent,
+      ).toBe('Regular changed');
     });
 
     it('has matching snapshot', () => {
@@ -173,5 +175,21 @@ describe('props', () => {
       );
       expect(container.firstChild).toHaveClass('custom-style');
     });
+  });
+
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<Checkbox margin="xs">Text</Checkbox>);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+  });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <Checkbox margin="xs" style={{ margin: 2 }}>
+        Text
+      </Checkbox>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });

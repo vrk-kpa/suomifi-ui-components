@@ -65,3 +65,5 @@ const [error, setError] = useState(true);
 ```
 
 ### Props & Methods
+
+StatusText component supports [margin props](./#/Spacing/Margin%20props) for spacing.

@@ -810,3 +810,37 @@ describe('listItemProps', () => {
     expect(option).toHaveAttribute('data-test-id', 'apple');
   });
 });
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <MultiSelect
+        labelText="Test"
+        items={[]}
+        noItemsText="No items"
+        ariaSelectedAmountText=""
+        ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
+        margin="xs"
+      />,
+    );
+
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(
+      <MultiSelect
+        labelText="Test"
+        items={[]}
+        noItemsText="No items"
+        ariaSelectedAmountText=""
+        ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
+        margin="xs"
+        style={{ margin: 2 }}
+      />,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});

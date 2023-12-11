@@ -141,7 +141,7 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c5.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
+  color: hsl(3,59%,43%);
 }
 
 .c1 {
@@ -253,12 +253,12 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c1.fi-checkbox--error .fi-checkbox_label::before {
-  border-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,43%);
   border-width: 2px;
 }
 
 .c1.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(3,59%,48%);
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-checkbox--disabled .fi-checkbox_label {
@@ -286,12 +286,12 @@ exports[`props children has matching snapshot 1`] = `
   <input
     aria-invalid="false"
     class="c2 fi-checkbox_input"
+    data-testid="regular_id"
     id="test"
     type="checkbox"
   />
   <label
     class="c3 fi-checkbox_label"
-    data-testid="regular_id"
     for="test"
   >
     Regular

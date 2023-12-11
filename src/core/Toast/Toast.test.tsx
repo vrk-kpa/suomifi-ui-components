@@ -61,6 +61,7 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('custom-class');
     });
   });
+
   describe('ariaLiveMode', () => {
     const ToastWithDefaultAriaLiveMode = <Toast id="testId">Testcontent</Toast>;
     const ToastWithAriaLiveModeOff = (
@@ -82,6 +83,18 @@ describe('props', () => {
         'off',
       );
     });
+  });
+});
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(<Toast margin="xs" />);
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overridden by style prop', async () => {
+    const { container } = render(<Toast margin="xs" style={{ margin: 2 }} />);
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });
 

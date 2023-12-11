@@ -1,36 +1,34 @@
 import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
+import { HtmlDiv, HtmlButton, HtmlSpan, HtmlDivProps } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
+import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
-export interface ExpanderGroupProps {
+
+interface PartialExpanderGroupProps extends HtmlDivProps, MarginProps {
   /** Expanders (and optionally other ReactNodes) */
   children: ReactNode;
-  /** 'Open all' button text */
-  openAllText: string;
-  /** 'Close all' button text */
-  closeAllText: string;
   /** 'Open all' button text for screen readers, hides `OpenAllText` for screen readers if provided */
   ariaOpenAllText?: string;
   /** 'Close all' button text for screen readers, hides `CloseAllText` for screen readers if provided */
   ariaCloseAllText?: string;
   /** CSS class for custom styles */
   className?: string;
-  /**
-   * Shows Open/Close all button
-   * @default true
-   */
-  showToggleAllButton?: boolean;
   /** Props passed to the Open/Close all button */
   toggleAllButtonProps?: Omit<
-    HtmlButtonProps,
+    HTMLAttributesIncludingDataAttributes<HTMLButtonElement>,
     | 'onClick'
     | 'onMouseDown'
     | 'onMouseUp'
@@ -41,6 +39,26 @@ export interface ExpanderGroupProps {
   /** Ref is forwarded to the Open/Close all button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLButtonElement>;
 }
+
+type ToggleAllProps =
+  | {
+      openAllText?: string;
+      closeAllText?: string;
+      showToggleAllButton?: false | never;
+    }
+  | {
+      /** 'Open all' button text. Required when `showToggleAllButton` is true. */
+      openAllText: string;
+      /** 'Close all' button text. Required when `showToggleAllButton` is true. */
+      closeAllText: string;
+      /**
+       * Shows Open/Close all button
+       * @default true
+       */
+      showToggleAllButton: true;
+    };
+
+export type ExpanderGroupProps = PartialExpanderGroupProps & ToggleAllProps;
 
 interface ExpanderOpenStates {
   [key: string]: boolean;
@@ -148,8 +166,11 @@ class BaseExpanderGroup extends Component<
       showToggleAllButton = true,
       toggleAllButtonProps,
       forwardedRef,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const { expanderGroupOpenState, allOpen } = this.state;
     return (
       <HtmlDiv
@@ -157,6 +178,7 @@ class BaseExpanderGroup extends Component<
         className={classnames(className, baseClassName, {
           [openClassName]: this.openExpanderCount > 0,
         })}
+        style={{ ...marginStyle, ...style }}
       >
         {!!showToggleAllButton && (
           <HtmlButton

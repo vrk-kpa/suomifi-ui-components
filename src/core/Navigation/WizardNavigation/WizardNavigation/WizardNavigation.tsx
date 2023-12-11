@@ -2,12 +2,23 @@ import React, { forwardRef, ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
 import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
-import { HtmlButton, HtmlDiv, HtmlNav, HtmlUl } from '../../../../reset';
+import {
+  HtmlButton,
+  HtmlDiv,
+  HtmlDivProps,
+  HtmlNav,
+  HtmlUl,
+} from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './WizardNavigation.baseStyles';
 
-export interface WizardNavigationProps {
+export interface WizardNavigationProps extends MarginProps, HtmlDivProps {
   /** Use `<WizardNavigationItem>` components as children */
   children: ReactNode;
   /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless. */
@@ -47,7 +58,11 @@ const BaseWizardNavigation = ({
   heading,
   className,
   forwardedRef,
+  style,
+  ...rest
 }: WizardNavigationProps) => {
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -59,6 +74,8 @@ const BaseWizardNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
+      style={{ ...marginStyle, ...style }}
+      {...passProps}
     >
       {variant === 'smallScreen' ? (
         <HtmlButton
