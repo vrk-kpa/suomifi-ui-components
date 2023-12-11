@@ -32,6 +32,12 @@ export const notificationClassNames = {
 
 export type CloseButtonProps =
   | {
+      closeButton: false;
+      closeText?: string;
+      onCloseButtonClick?: () => void;
+      closeButtonProps?: Omit<ButtonProps, 'onClick'>;
+    }
+  | {
       /** Show or hide close button
        * @default true
        */
@@ -45,12 +51,6 @@ export type CloseButtonProps =
       /** Callback fired on close button click */
       onCloseButtonClick?: () => void;
       /** Custom props passed to the close button */
-      closeButtonProps?: Omit<ButtonProps, 'onClick'>;
-    }
-  | {
-      closeButton: false;
-      closeText?: string;
-      onCloseButtonClick?: () => void;
       closeButtonProps?: Omit<ButtonProps, 'onClick'>;
     };
 
