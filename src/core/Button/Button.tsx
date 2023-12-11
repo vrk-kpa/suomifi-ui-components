@@ -19,6 +19,10 @@ export type ButtonVariant =
 
 type ForcedAccessibleNameProps =
   | {
+      children: ReactNode;
+      'aria-label'?: string;
+    }
+  | {
       /**
        * Button element content
        */
@@ -29,10 +33,6 @@ type ForcedAccessibleNameProps =
        * Alternatively you can define an `aria-labelledby`.
        */
       'aria-label': string;
-    }
-  | {
-      children: ReactNode;
-      'aria-label'?: string;
     };
 
 interface InternalButtonProps
