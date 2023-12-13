@@ -26,11 +26,13 @@ To install the component library
 npm install suomifi-ui-components
 ```
 
-Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css.
+Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css:
 
 ```css
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap');
+@import url('https://designsystem.suomi.fi/fonts/source-sans-pro.css');
 ```
+
+If you wish to include fonts locally in your own bundle, you can download the `.woff2` files by following the paths in the CSS file above.
 
 ### Peer dependencies
 
