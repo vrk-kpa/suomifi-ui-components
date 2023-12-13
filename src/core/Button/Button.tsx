@@ -17,7 +17,7 @@ export type ButtonVariant =
   | 'secondaryNoBorder'
   | 'secondaryLight';
 
-type ForcedAccessibleNameProps =
+export type ForcedAccessibleNameProps =
   | {
       children: ReactNode;
       'aria-label'?: string;

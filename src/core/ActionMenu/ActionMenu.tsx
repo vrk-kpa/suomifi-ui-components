@@ -13,7 +13,12 @@ import {
   ActionMenuPopover,
   InitialActiveDescendant,
 } from './ActionMenuPopover';
-import { Button, ButtonProps, ButtonVariant } from '../Button/Button';
+import {
+  Button,
+  ButtonProps,
+  ButtonVariant,
+  ForcedAccessibleNameProps,
+} from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import {
   spacingStyles,
@@ -41,7 +46,7 @@ export type MenuContent =
   | ReactElement<ActionMenuDividerProps>;
 
 export type ActionMenuProps = MarginProps &
-  ButtonProps & {
+  Omit<ButtonProps, keyof ForcedAccessibleNameProps> & {
     /** Text content for the menu button */
     buttonText?: string;
     /**
