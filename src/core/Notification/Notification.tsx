@@ -32,7 +32,7 @@ export const notificationClassNames = {
 
 export type CloseButtonProps =
   | {
-      closeButton: false;
+      showCloseButton: false;
       closeText?: string;
       onCloseButtonClick?: () => void;
       closeButtonProps?: Omit<ButtonProps, 'onClick'>;
@@ -41,7 +41,7 @@ export type CloseButtonProps =
       /** Show or hide close button
        * @default true
        */
-      closeButton?: true;
+      showCloseButton?: true;
       /**
        * Text to label the close button.
        * Is visible and as `aria-label` in regular size and only used as `aria-label` in small screen variant.
@@ -99,7 +99,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       headingVariant = 'h2',
       style,
       regionAriaLabel,
-      closeButton = true,
+      showCloseButton = true,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -165,7 +165,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               </HtmlDiv>
             </HtmlDiv>
           </HtmlDiv>
-          {closeButton && (
+          {showCloseButton && (
             <Button
               variant="secondaryNoBorder"
               className={classnames(
