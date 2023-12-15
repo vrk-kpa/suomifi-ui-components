@@ -84,16 +84,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &--level-1 {
       &.fi-side-navigation-item--selected {
         > span > .fi-link--router {
-          text-transform: uppercase;
           color: ${theme.colors.whiteBase};
           font-weight: 600;
           background: ${theme.colors.highlightBase};
           border-radius: ${theme.radiuses.modal};
         }
-      }
-
-      > span > .fi-link--router {
-        text-transform: uppercase;
       }
     }
 

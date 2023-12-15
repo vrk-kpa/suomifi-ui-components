@@ -32,7 +32,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.blackBase};
       display: flex;
       padding: ${theme.spacing.xs} ${theme.spacing.m};
-      text-transform: uppercase;
       flex: 1;
       cursor: pointer;
       background: inherit;
@@ -94,7 +93,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         display: flex;
         padding: ${theme.spacing.xs} ${theme.spacing.l};
         padding-left: calc(${theme.spacing.m} - 4px);
-        text-transform: uppercase;
         flex: 1;
 
         &:hover,

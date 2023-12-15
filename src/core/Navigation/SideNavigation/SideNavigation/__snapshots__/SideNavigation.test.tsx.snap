@@ -476,15 +476,10 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c7.fi-side-navigation-item--level-1.fi-side-navigation-item--selected > span > .fi-link--router {
-  text-transform: uppercase;
   color: hsl(0,0%,100%);
   font-weight: 600;
   background: hsl(212,63%,45%);
   border-radius: 4px;
-}
-
-.c7.fi-side-navigation-item--level-1 > span > .fi-link--router {
-  text-transform: uppercase;
 }
 
 .c7.fi-side-navigation-item--level-2.fi-side-navigation-item--selected > span > .fi-link--router {
