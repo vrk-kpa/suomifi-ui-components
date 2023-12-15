@@ -54,35 +54,6 @@ exports[`Button variant default should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -304,6 +275,18 @@ exports[`Button variant default should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c1.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c1.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -314,13 +297,7 @@ exports[`Button variant default should match snapshot 1`] = `
   tabindex="0"
   type="button"
 >
-  <span
-    class="c2 fi-button_icon"
-  />
   Button
-  <span
-    class="c2 fi-button_icon fi-button_icon--right"
-  />
 </button>
 `;
 
@@ -378,35 +355,6 @@ exports[`Button variant inverted should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -628,6 +576,18 @@ exports[`Button variant inverted should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c1.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c1.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -638,13 +598,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
   tabindex="0"
   type="button"
 >
-  <span
-    class="c2 fi-button_icon"
-  />
   Inverted button
-  <span
-    class="c2 fi-button_icon fi-button_icon--right"
-  />
 </button>
 `;
 
@@ -702,35 +656,6 @@ exports[`Button variant link match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -952,6 +877,18 @@ exports[`Button variant link match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c1.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c1.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -962,13 +899,7 @@ exports[`Button variant link match snapshot 1`] = `
   tabindex="0"
   type="button"
 >
-  <span
-    class="c2 fi-button_icon"
-  />
   Secondary light button
-  <span
-    class="c2 fi-button_icon fi-button_icon--right"
-  />
 </button>
 `;
 
@@ -1026,35 +957,6 @@ exports[`Button variant secondary should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -1276,6 +1178,18 @@ exports[`Button variant secondary should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c1.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c1.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -1286,13 +1200,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
   tabindex="0"
   type="button"
 >
-  <span
-    class="c2 fi-button_icon"
-  />
   Secondary button
-  <span
-    class="c2 fi-button_icon fi-button_icon--right"
-  />
 </button>
 `;
 
@@ -1350,35 +1258,6 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -1600,6 +1479,18 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c1.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c1.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c1.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -1610,12 +1501,6 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   tabindex="0"
   type="button"
 >
-  <span
-    class="c2 fi-button_icon"
-  />
   secondaryNoBorder button
-  <span
-    class="c2 fi-button_icon fi-button_icon--right"
-  />
 </button>
 `;

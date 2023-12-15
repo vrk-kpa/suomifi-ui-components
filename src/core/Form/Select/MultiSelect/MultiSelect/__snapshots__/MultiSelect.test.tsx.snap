@@ -1079,6 +1079,18 @@ exports[`has matching snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c15.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c15.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c15.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c15.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -1424,9 +1436,6 @@ exports[`has matching snapshot 1`] = `
             </svg>
           </span>
           Remove all selections
-          <span
-            class="c5 fi-button_icon fi-button_icon--right"
-          />
         </button>
       </div>
     </div>

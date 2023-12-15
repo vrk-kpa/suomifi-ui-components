@@ -1,4 +1,4 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
@@ -17,7 +17,25 @@ export type ButtonVariant =
   | 'secondaryNoBorder'
   | 'secondaryLight';
 
-export interface ButtonProps
+export type ForcedAccessibleNameProps =
+  | {
+      children: ReactNode;
+      'aria-label'?: string;
+    }
+  | {
+      /**
+       * Button element content
+       */
+      children?: never;
+      /**
+       * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
+       * If the button has a visible label, make sure the aria-label includes the visible text.
+       * Alternatively you can define an `aria-labelledby`.
+       */
+      'aria-label': string;
+    };
+
+interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'>,
     MarginProps {
   /**
@@ -26,16 +44,6 @@ export interface ButtonProps
    * @default default
    */
   variant?: ButtonVariant;
-  /**
-   * Button element content
-   */
-  children?: ReactNode;
-  /**
-   * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
-   * If the button has a visible label, make sure the aria-label includes the visible text.
-   * Alternatively you can define an `aria-labelledby`.
-   */
-  'aria-label'?: string;
   /** Disables the button */
   disabled?: boolean;
   /** Soft disables the button to allow tab-focus. Disables onClick() functionality */
@@ -49,20 +57,23 @@ export interface ButtonProps
   /**
    * Icon from suomifi-icons
    */
-  icon?: ReactNode;
+  icon?: ReactElement;
   /**
    * Icon from suomifi-icons to be placed on the right side
    */
-  iconRight?: ReactNode;
+  iconRight?: ReactElement;
   /** Callback fired on button click */
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
+export type ButtonProps = InternalButtonProps & ForcedAccessibleNameProps;
+
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}_icon`;
+const iconStandaloneClassName = `${baseClassName}--icon-only`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
@@ -102,14 +113,17 @@ class BaseButton extends Component<ButtonProps> {
             variant === 'secondaryNoBorder',
           [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
+          [iconStandaloneClassName]: (!!icon || !!iconRight) && !children,
         })}
         style={{ ...marginStyle, ...style }}
       >
-        <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
+        {!!icon && <HtmlSpan className={iconClassName}>{icon}</HtmlSpan>}
         {children}
-        <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
-          {!!iconRight && iconRight}
-        </HtmlSpan>
+        {!!iconRight && (
+          <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
+            {iconRight}
+          </HtmlSpan>
+        )}
       </HtmlButton>
     );
   }

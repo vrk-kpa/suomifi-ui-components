@@ -20,7 +20,11 @@ export {
 } from './core/Notification/Notification';
 export { Toast, ToastProps } from './core/Toast/Toast';
 export { Block, BlockProps } from './core/Block/Block';
-export { Button, ButtonProps } from './core/Button/Button';
+export {
+  Button,
+  ButtonProps,
+  ForcedAccessibleNameProps,
+} from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';

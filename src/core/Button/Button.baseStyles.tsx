@@ -157,9 +157,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     vertical-align: middle;
     transform: translateY(-0.1em);
   }
+
   & > .fi-button_icon--right > .fi-icon {
     margin-right: 0;
     margin-left: ${theme.spacing.insetM};
+  }
+
+  &.fi-button--icon-only {
+    padding: ${theme.spacing.insetS} 12px;
+    & > .fi-button_icon > .fi-icon {
+      margin-right: 0;
+    }
+    & > .fi-button_icon--right > .fi-icon {
+      margin-left: 0;
+    }
   }
 
   &.fi-button--disabled > .fi-button_icon {

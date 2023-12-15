@@ -792,6 +792,18 @@ exports[`snapshot should have matching default structure 1`] = `
   margin-left: 8px;
 }
 
+.c6.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c6.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c6.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c6.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
@@ -934,7 +946,7 @@ exports[`snapshot should have matching default structure 1`] = `
       <button
         aria-disabled="true"
         aria-label="Previous page"
-        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
+        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--disabled fi-button--secondary fi-button--icon-only"
         disabled=""
         id="1-previous-button"
         type="button"
@@ -959,9 +971,6 @@ exports[`snapshot should have matching default structure 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="c3 fi-button_icon fi-button_icon--right"
-        />
       </button>
       <span
         class="c3 fi-pagination_page-numbers"
@@ -971,7 +980,7 @@ exports[`snapshot should have matching default structure 1`] = `
       <button
         aria-disabled="false"
         aria-label="Next page"
-        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--secondary"
+        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--secondary fi-button--icon-only"
         id="1-next-button"
         tabindex="0"
         type="button"
@@ -996,9 +1005,6 @@ exports[`snapshot should have matching default structure 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="c3 fi-button_icon fi-button_icon--right"
-        />
       </button>
     </div>
     <div
