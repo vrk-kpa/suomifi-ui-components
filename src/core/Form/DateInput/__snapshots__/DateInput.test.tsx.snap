@@ -4438,7 +4438,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <button
                 aria-current="date"
-                aria-disabled="false"
                 aria-label="1 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4459,7 +4458,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="2 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4476,7 +4474,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="3 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4493,7 +4490,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="4 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4510,7 +4506,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="5 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4529,7 +4524,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="6 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4546,7 +4540,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="7 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4563,7 +4556,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="8 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4580,7 +4572,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="9 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4597,7 +4588,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="10 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4614,7 +4604,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="11 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4631,7 +4620,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="12 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4650,7 +4638,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="13 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4667,7 +4654,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="14 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4684,8 +4670,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="15 keskiviikko Tammikuu 2020"
+                aria-selected="true"
                 class="c6 fi-month-day_button fi-month-day_button--selected"
                 type="button"
               >
@@ -4700,7 +4686,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="16 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4717,7 +4702,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="17 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4734,7 +4718,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="18 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4751,7 +4734,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="19 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4770,7 +4752,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="20 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4787,7 +4768,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="21 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4804,7 +4784,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="22 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4821,7 +4800,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="23 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4838,7 +4816,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="24 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4855,7 +4832,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="25 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4872,7 +4848,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="26 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4891,7 +4866,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="27 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4908,7 +4882,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="28 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4925,7 +4898,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="29 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4942,7 +4914,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="30 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4959,7 +4930,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="31 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -6629,7 +6599,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <button
                   aria-current="date"
-                  aria-disabled="false"
                   aria-label="1 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6650,7 +6619,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="2 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6667,7 +6635,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="3 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6684,7 +6651,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="4 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6701,7 +6667,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="5 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6720,7 +6685,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="6 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6737,7 +6701,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="7 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6754,7 +6717,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="8 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6771,7 +6733,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="9 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6788,7 +6749,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="10 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6805,7 +6765,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="11 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6822,7 +6781,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="12 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6841,7 +6799,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="13 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6858,7 +6815,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="14 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6875,8 +6831,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="15 keskiviikko Tammikuu 2020"
+                  aria-selected="true"
                   class="c6 fi-month-day_button fi-month-day_button--selected"
                   type="button"
                 >
@@ -6891,7 +6847,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="16 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6908,7 +6863,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="17 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6925,7 +6879,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="18 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6942,7 +6895,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="19 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6961,7 +6913,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="20 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6978,7 +6929,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="21 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6995,7 +6945,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="22 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7012,7 +6961,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="23 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7029,7 +6977,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="24 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7046,7 +6993,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="25 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7063,7 +7009,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="26 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7082,7 +7027,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="27 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7099,7 +7043,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="28 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7116,7 +7059,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="29 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7133,7 +7075,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="30 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7150,7 +7091,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="31 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
