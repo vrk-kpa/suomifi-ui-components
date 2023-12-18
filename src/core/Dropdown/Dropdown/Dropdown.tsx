@@ -699,6 +699,7 @@ const DropdownInner = <T extends string = string>(
   );
 };
 
+// Not directly exporting the DropdownInner as styleguidist was not showing props then.
 export const Dropdown = React.forwardRef(DropdownInner) as <
   T extends string = string,
 >(
