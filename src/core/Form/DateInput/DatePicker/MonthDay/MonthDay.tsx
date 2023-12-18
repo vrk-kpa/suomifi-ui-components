@@ -90,7 +90,9 @@ export const BaseMonthDay = (props: MonthDayProps) => {
           aria-current={date.current ? 'date' : undefined}
           aria-label={cellDateAriaLabel(date.date, texts)}
           {...(isDisabledByFn() ? { 'aria-disabled': true } : {})}
-          {...(isSelectedDate() ? { 'aria-selected': true } : {})}
+          {...(isSelectedDate()
+            ? { 'aria-selected': true, role: 'option' }
+            : {})}
           className={classnames(monthDayClassNames.button, {
             [monthDayClassNames.buttonSelected]: isSelectedDate(),
             [monthDayClassNames.buttonDisabled]: isDisabledByFn(),
