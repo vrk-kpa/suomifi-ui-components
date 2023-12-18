@@ -218,7 +218,7 @@ exports[`children should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -545,7 +545,7 @@ exports[`className should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -872,7 +872,7 @@ exports[`disabled should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1221,7 +1221,7 @@ exports[`hintText should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1555,7 +1555,7 @@ exports[`id should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1882,7 +1882,7 @@ exports[`name should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -2210,7 +2210,7 @@ exports[`value should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -2537,7 +2537,7 @@ exports[`variant should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 

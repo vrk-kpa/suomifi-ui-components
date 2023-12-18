@@ -388,7 +388,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1009,7 +1009,7 @@ exports[`props className should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1630,7 +1630,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -2273,7 +2273,7 @@ exports[`props hintText should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -2899,7 +2899,7 @@ exports[`props id should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -3520,7 +3520,7 @@ exports[`props label should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -4153,7 +4153,7 @@ exports[`props labelMode should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -4774,7 +4774,7 @@ exports[`props name should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -5395,7 +5395,7 @@ exports[`props value should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
