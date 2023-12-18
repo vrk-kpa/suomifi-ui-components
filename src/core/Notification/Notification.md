@@ -8,6 +8,7 @@ Examples:
 - [Heading levels](./#/Components/Notification?id=heading-levels)
 - [Action elements](./#/Components/Notification?id=action-elements)
 - [Error status](./#/Components/Notification?id=error-status)
+- [Without close button](./#/Components/Notification?id=without-close-button)
 - [Small screen](./#/Components/Notification?id=small-screen)
 
 <div style="margin-bottom: 40px">
@@ -101,6 +102,22 @@ showNotification && (
     document
   </Notification>
 );
+```
+
+### Without close button
+
+In some cases, like when the notification is the sole content on the page, the notification may be rendered as a non-interactive version by disabling the close button. This can be done via the `showCloseButton` prop.
+
+```js
+import { Notification } from 'suomifi-ui-components';
+
+<Notification
+  showCloseButton={false}
+  headingText="Content not found"
+  status="error"
+>
+  The resource you were looking for could not be found.
+</Notification>;
 ```
 
 ### Small screen
