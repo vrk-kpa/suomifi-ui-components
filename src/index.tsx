@@ -17,6 +17,7 @@ export { InlineAlert, InlineAlertProps } from './core/InlineAlert/InlineAlert';
 export {
   Notification,
   NotificationProps,
+  CloseButtonProps,
 } from './core/Notification/Notification';
 export { Toast, ToastProps } from './core/Toast/Toast';
 export { Block, BlockProps } from './core/Block/Block';

@@ -30,37 +30,54 @@ export const notificationClassNames = {
   actionElementWrapper: `${baseClassName}_action-element-wrapper`,
 };
 
-export interface NotificationProps extends HtmlDivWithRefProps, MarginProps {
-  /** Style variant. Affects color and icon used.
-   * @default 'neutral'
-   */
-  status?: 'neutral' | 'error';
-  /** Heading for the Notification */
-  headingText?: string;
-  /** Main content of the Notification */
-  children?: ReactNode;
-  /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
-  actionElements?: ReactNode;
-  /** Heading variant for Notification.
-   * @default 'h2'
-   */
-  headingVariant?: Exclude<hLevels, 'h1'>;
-  /**
-   * Text to label the close button.
-   * Is visible and as `aria-label` in regular size and only used as `aria-label` in small screen variant
-   */
-  closeText: string;
-  /** Callback fired on close button click */
-  onCloseButtonClick?: () => void;
-  /** Custom props passed to the close button */
-  closeButtonProps?: Omit<ButtonProps, 'onClick'>;
-  /** Toggles small screen styling */
-  smallScreen?: boolean;
-  /** Label for the notification region for screen reader users.
-   * If one is not provided, `headingText` or finally notification content will be used as the label.
-   */
-  regionAriaLabel?: string;
-}
+export type CloseButtonProps =
+  | {
+      showCloseButton: false;
+      closeText?: string;
+      onCloseButtonClick?: () => void;
+      closeButtonProps?: Omit<ButtonProps, 'onClick'>;
+    }
+  | {
+      /** Show or hide close button
+       * @default true
+       */
+      showCloseButton?: true;
+      /**
+       * Text to label the close button.
+       * Is visible and as `aria-label` in regular size and only used as `aria-label` in small screen variant.
+       * Required when clear button is shown.
+       */
+      closeText: string;
+      /** Callback fired on close button click */
+      onCloseButtonClick?: () => void;
+      /** Custom props passed to the close button */
+      closeButtonProps?: Omit<ButtonProps, 'onClick'>;
+    };
+
+export type NotificationProps = HtmlDivWithRefProps &
+  MarginProps &
+  CloseButtonProps & {
+    /** Style variant. Affects color and icon used.
+     * @default 'neutral'
+     */
+    status?: 'neutral' | 'error';
+    /** Heading for the Notification */
+    headingText?: string;
+    /** Main content of the Notification */
+    children?: ReactNode;
+    /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
+    actionElements?: ReactNode;
+    /** Heading variant for Notification.
+     * @default 'h2'
+     */
+    headingVariant?: Exclude<hLevels, 'h1'>;
+    /** Toggles small screen styling */
+    smallScreen?: boolean;
+    /** Label for the notification region for screen reader users.
+     * If one is not provided, `headingText` or finally notification content will be used as the label.
+     */
+    regionAriaLabel?: string;
+  };
 
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
@@ -82,6 +99,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       headingVariant = 'h2',
       style,
       regionAriaLabel,
+      showCloseButton = true,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -147,25 +165,27 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               </HtmlDiv>
             </HtmlDiv>
           </HtmlDiv>
-          <Button
-            variant="secondaryNoBorder"
-            className={classnames(
-              notificationClassNames.closeButton,
-              customCloseButtonClassName,
-            )}
-            {...getConditionalAriaProp('aria-label', [
-              closeButtonPropsAriaLabel ||
-                (smallScreen ? closeText : undefined),
-            ])}
-            {...getConditionalAriaProp('aria-describedby', [
-              closeButtonPropsAriaDescribedBy,
-            ])}
-            onClick={onCloseButtonClick}
-            {...closeButtonPassProps}
-            iconRight={<IconClose />}
-          >
-            {!smallScreen ? closeText : ''}
-          </Button>
+          {showCloseButton && (
+            <Button
+              variant="secondaryNoBorder"
+              className={classnames(
+                notificationClassNames.closeButton,
+                customCloseButtonClassName,
+              )}
+              {...getConditionalAriaProp('aria-label', [
+                closeButtonPropsAriaLabel ||
+                  (smallScreen ? closeText : undefined),
+              ])}
+              {...getConditionalAriaProp('aria-describedby', [
+                closeButtonPropsAriaDescribedBy,
+              ])}
+              onClick={onCloseButtonClick}
+              {...closeButtonPassProps}
+              iconRight={<IconClose />}
+            >
+              {!smallScreen ? closeText : ''}
+            </Button>
+          )}
         </HtmlDiv>
         {actionElements && (
           <HtmlDiv className={notificationClassNames.actionElementWrapper}>

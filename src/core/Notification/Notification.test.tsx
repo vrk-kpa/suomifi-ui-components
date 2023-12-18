@@ -100,6 +100,15 @@ describe('props', () => {
     });
   });
 
+  describe('showCloseButton', () => {
+    it('should hide the close button when applied', () => {
+      const { queryByRole } = render(
+        <Notification showCloseButton={false}>Test</Notification>,
+      );
+      expect(queryByRole('button')).not.toBeInTheDocument();
+    });
+  });
+
   describe('closeButtonProps', () => {
     const NotificationWithButtonProps = (
       <Notification
