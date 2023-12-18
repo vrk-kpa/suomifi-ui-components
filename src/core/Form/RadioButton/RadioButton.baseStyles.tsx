@@ -140,7 +140,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       &:focus:not(:focus-visible) {
         + .fi-radio-button_icon_wrapper {
-          box-shadow: none;
+          &::after {
+            box-shadow: none;
+          }
         }
       }
     }
