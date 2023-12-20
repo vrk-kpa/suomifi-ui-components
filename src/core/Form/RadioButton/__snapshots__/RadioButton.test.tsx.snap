@@ -201,15 +201,24 @@ exports[`children should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -253,6 +262,13 @@ exports[`children should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -512,15 +528,24 @@ exports[`className should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -564,6 +589,13 @@ exports[`className should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -823,15 +855,24 @@ exports[`disabled should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -875,6 +916,13 @@ exports[`disabled should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -1156,15 +1204,24 @@ exports[`hintText should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1208,6 +1265,13 @@ exports[`hintText should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -1474,15 +1538,24 @@ exports[`id should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1526,6 +1599,13 @@ exports[`id should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -1785,15 +1865,24 @@ exports[`name should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -1837,6 +1926,13 @@ exports[`name should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -2097,15 +2193,24 @@ exports[`value should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -2149,6 +2254,13 @@ exports[`value should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
@@ -2408,15 +2520,24 @@ exports[`variant should match snapshot 1`] = `
   stroke: hsl(212,63%,45%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  border-radius: 2px;
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+.c1.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
@@ -2460,6 +2581,13 @@ exports[`variant should match snapshot 1`] = `
 .c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
+}
+
+.c1.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
 }
 
 .c1.fi-radio-button--large .fi-radio-button_label {
