@@ -13,5 +13,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &.fi-status-text--error {
       color: ${theme.colors.alertBase};
     }
+    & .fi-icon {
+      vertical-align: middle;
+      transform: translateY(-0.1em);
+      margin-right: ${theme.spacing.xxs};
+    }
   }
 `;
