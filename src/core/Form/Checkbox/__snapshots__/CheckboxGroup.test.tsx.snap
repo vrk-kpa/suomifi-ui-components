@@ -223,6 +223,14 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c10.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;

@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshots match date input error status with statustext 1`] = `
+.c7 {
+  vertical-align: baseline;
+}
+
+.c7.fi-icon {
+  display: inline-block;
+}
+
+.c7 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c7 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -176,6 +200,14 @@ exports[`snapshots match date input error status with statustext 1`] = `
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -458,6 +490,22 @@ exports[`snapshots match date input error status with statustext 1`] = `
           class="c4 c6 fi-date-input_statusText--has-content fi-status-text fi-status-text--error"
           id="7-statusText"
         >
+          <svg
+            aria-hidden="true"
+            class="fi-icon c7"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm.71 17.29c-.38-.37-1.05-.37-1.42 0-.181.19-.29.44-.29.71 0 .26.109.52.29.71.189.18.45.29.71.29.26 0 .52-.11.71-.29.18-.19.29-.45.29-.71 0-.27-.11-.52-.29-.71ZM12 5a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1Z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
           Error
         </span>
       </div>
@@ -654,6 +702,14 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 
 .c7.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -1140,6 +1196,14 @@ exports[`snapshots match date input hint text 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1609,6 +1673,14 @@ exports[`snapshots match date input minimal implementation 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2071,6 +2143,14 @@ exports[`snapshots match date input optional text 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2361,6 +2441,30 @@ exports[`snapshots match date input optional text 1`] = `
 `;
 
 exports[`snapshots match date input success status with statustext 1`] = `
+.c7 {
+  vertical-align: baseline;
+}
+
+.c7.fi-icon {
+  display: inline-block;
+}
+
+.c7 .fi-icon-base-fill {
+  fill: hsl(166,90%,34%);
+}
+
+.c7 .fi-icon-base-stroke {
+  stroke: hsl(166,90%,34%);
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2536,6 +2640,14 @@ exports[`snapshots match date input success status with statustext 1`] = `
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -2817,6 +2929,22 @@ exports[`snapshots match date input success status with statustext 1`] = `
           class="c4 c6 fi-date-input_statusText--has-content fi-status-text"
           id="6-statusText"
         >
+          <svg
+            aria-hidden="true"
+            class="fi-icon c7"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm5.65 8.24a1 1 0 0 0-1.41.11l-5.296 6.18-2.237-2.237a1 1 0 1 0-1.414 1.414l3 3a1 1 0 0 0 1.466-.056l6-7a1 1 0 0 0-.108-1.41Z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
           Success
         </span>
       </div>
@@ -3528,6 +3656,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c9.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c9.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c12 {
@@ -5720,6 +5856,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c9.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c9.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c12 {

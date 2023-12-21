@@ -178,6 +178,14 @@ exports[`snapshot default structure should match snapshot 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;

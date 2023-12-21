@@ -272,6 +272,102 @@ exports[`has matching snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
+}
+
+.c10 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c10 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c21 {
+  vertical-align: baseline;
+}
+
+.c21.fi-icon {
+  display: inline-block;
+}
+
+.c21 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c21 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c21.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c21.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c14 {
+  vertical-align: baseline;
+}
+
+.c14.fi-icon {
+  display: inline-block;
+}
+
+.c14 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c14 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c14.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c14.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c16 {
+  vertical-align: baseline;
+}
+
+.c16.fi-icon {
+  display: inline-block;
+}
+
+.c16 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c16 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c16.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c16.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c11 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -297,6 +393,14 @@ exports[`has matching snapshot 1`] = `
 
 .c11.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c2 {
@@ -532,102 +636,6 @@ exports[`has matching snapshot 1`] = `
   max-height: inherit;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-icon {
-  display: inline-block;
-}
-
-.c10 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c10 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c21 {
-  vertical-align: baseline;
-}
-
-.c21.fi-icon {
-  display: inline-block;
-}
-
-.c21 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c21 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c21.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c21.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c14 {
-  vertical-align: baseline;
-}
-
-.c14.fi-icon {
-  display: inline-block;
-}
-
-.c14 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c14 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c14.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c14.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c16 {
-  vertical-align: baseline;
-}
-
-.c16.fi-icon {
-  display: inline-block;
-}
-
-.c16 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c16 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c16.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c16.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c20 {

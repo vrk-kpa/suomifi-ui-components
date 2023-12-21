@@ -311,6 +311,14 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c14.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c11.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1088,7 +1096,9 @@ exports[`snapshot should have matching default structure 1`] = `
             aria-live="assertive"
             class="c3 c14 fi-page-input_statusText--has-content fi-status-text"
             id="1-pageInput-statusText"
-          />
+          >
+            
+          </span>
         </span>
       </div>
     </div>
