@@ -23,6 +23,10 @@ Examples:
   [Props & methods](./#/Components/TextInput?id=props--methods)
 </div>
 
+### Accessibility Notes
+
+- Success/error states are not distinguishable without colour.
+
 ### Basic use
 
 Provide a descriptive `labelText` for the input

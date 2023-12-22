@@ -20,6 +20,12 @@ Examples:
   [Props & methods](./#/Components/SingleSelect?id=props--methods)
 </div>
 
+### Accessibility notes
+
+- Options are not read out by VoiceOver on macOS when using Safari and when navigating options using up/down arrow keys. Options remain accessible using regular VO+arrow key combinations.
+- The selected state of an option is not read out by JAWS with either Chrome or Firefox or macOS VoiceOver with Safari.
+- Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
+
 ### Basic use
 
 - Provide a descriptive `labelText` for the component

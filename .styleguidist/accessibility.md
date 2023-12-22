@@ -18,13 +18,13 @@ Using the Suomi.fi component library does not automatically make your project ac
 
 ## Known issues
 
-* **MultiSelect** and **SingleSelect**: Options are not read out by VoiceOver on macOS when using Safari and when navigating options using up/down arrow keys. Options remain accessible using regular VO+arrow key combinations.
-* **MultiSelect** and **SingleSelect**: The selected state of an option is not read out by JAWS with either Chrome or Firefox or macOS VoiceOver with Safari.
-* ** MultiSelect**, **SingleSelect** and **DropDown**: Browsing the options of the opened listbox in VoiceOver on iOS require using touch navigation.
-* **Textarea** and **TextInput**: Success/error states are not distinguishable without colour.
-* **Breadcrumb**: Height does not adjust when text wraps, e.g. when text is resized 200%.
-* **Dropdown**: Height does not adjust when only text is resized 200%.
-* **DateInput**: Disabled dates are not distuinguishable from non-disabled ones in Windows High Contrast mode.
+- **MultiSelect** and **SingleSelect**: Options are not read out by VoiceOver on macOS when using Safari and when navigating options using up/down arrow keys. Options remain accessible using regular VO+arrow key combinations.
+- **MultiSelect** and **SingleSelect**: The selected state of an option is not read out by JAWS with either Chrome or Firefox or macOS VoiceOver with Safari.
+- **MultiSelect**, **SingleSelect** and **DropDown**: Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
+- **Textarea** and **TextInput**: Success/error states are not distinguishable without colour.
+- **Breadcrumb**: Height does not adjust when text wraps, e.g. when text is resized 200%.
+- **Dropdown**: Height does not adjust when only text is resized 200%.
+- **DateInput**: Disabled dates are not distuinguishable from non-disabled ones in Windows High Contrast mode.
 
 ## Our accessibility checklist
 

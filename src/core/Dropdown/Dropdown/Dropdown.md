@@ -22,6 +22,11 @@ Examples:
   [Props & methods (DropdownItem)](./#/Components/Dropdown?id=dropdownitem)
 </div>
 
+### Accessibility notes
+
+- Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
+- Height does not adjust when only text is resized 200%.
+
 ### Basic use
 
 Use `<DropdownItem>` components to compose list.

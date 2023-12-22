@@ -11,6 +11,10 @@ Examples:
   [Props & methods (BreadcrumbLink)](./#/Components/Breadcrumb?id=breadcrumblink)
 </div>
 
+### Accessibility Notes
+
+- Height does not adjust when text wraps, e.g. when text is resized 200%.
+
 ### Basic use
 
 Use an `aria-label` to describe the purpose of the Breadcrumb element and distinguish it from other navigation landmarks on the same page.
