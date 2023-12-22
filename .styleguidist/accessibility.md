@@ -46,6 +46,7 @@ This checklist reflects the current features of the component library. It is not
 
 * All functionality can be accessed with keyboard
 * Keyboard focus is clearly visible
+* The element in focus is visible when it receives keyboard focus.
 * The keyboard focus order within a component is logical
 * Focusing a component or its sub-component does not cause a change of context.
 * Component has no single-character shortcuts.
@@ -54,11 +55,13 @@ This checklist reflects the current features of the component library. It is not
 
 * Focusing or hovering a component or its sub-component does not cause a change of context.
 * No actions are performed using the pointer down-event, unless it is native functionality defined by the user-agent.
+* Any actions that use a dragging movement can also be performed using a single pointer without dragging.
+* Target sizes fulfill WCAG 2.5.8 Target Size (Minimum) requirement 24 x 24 px.
 
 ### Adaptability
 
 * Text resizing to 200% does not cause loss of information or overlapping content. **Must** support full-page zoom. **Should** support text-only zoom. 
-* Changing text settings according to WCAG *4.12 does not cause loss of information or overlap.
+* Changing text settings according to WCAG 1.4.12 does not cause loss of information or overlap.
 * Zooming to 400% in a 1280px wide window does not cause horizontal scrolling, loss or overlap of information.
 * Content is not limited to a specific device orientation.
 
