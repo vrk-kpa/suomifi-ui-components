@@ -4,6 +4,11 @@ If there are a lot of options in the list, consider using the filterable <a href
 
 If there are only 2-3 options, consider using the <a href="./#/Components/RadioButton">RadioButton</a> component instead.
 
+### Accessibility notes
+
+- Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
+- Height does not adjust when only text is resized 200%.
+
 Examples:
 
 - [Basic use](./#/Components/Dropdown?id=basic-use)
@@ -21,11 +26,6 @@ Examples:
 <div style="margin-bottom: 40px">
   [Props & methods (DropdownItem)](./#/Components/Dropdown?id=dropdownitem)
 </div>
-
-### Accessibility notes
-
-- Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
-- Height does not adjust when only text is resized 200%.
 
 ### Basic use
 

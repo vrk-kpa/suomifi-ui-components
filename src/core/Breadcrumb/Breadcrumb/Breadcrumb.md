@@ -1,5 +1,9 @@
 The `<Breadcrumb>` component is used to let the user know their current location in a web service. It is rendered as an HTML `nav` element.
 
+### Accessibility Notes
+
+- Height does not adjust when text wraps, e.g. when text is resized 200%.
+
 Examples:
 
 - [Basic use](./#/Components/Breadcrumb?id=basic-use)
@@ -10,10 +14,6 @@ Examples:
 <div style="margin-bottom: 40px">
   [Props & methods (BreadcrumbLink)](./#/Components/Breadcrumb?id=breadcrumblink)
 </div>
-
-### Accessibility Notes
-
-- Height does not adjust when text wraps, e.g. when text is resized 200%.
 
 ### Basic use
 

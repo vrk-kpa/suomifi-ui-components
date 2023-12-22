@@ -2,6 +2,10 @@
 
 The component's width should match the preferred length of the user input.
 
+### Accessibility Notes
+
+- Success/error states are not distinguishable without colour.
+
 Examples:
 
 - [Basic use](./#/Components/TextInput?id=basic-use)
@@ -22,10 +26,6 @@ Examples:
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/TextInput?id=props--methods)
 </div>
-
-### Accessibility Notes
-
-- Success/error states are not distinguishable without colour.
 
 ### Basic use
 
