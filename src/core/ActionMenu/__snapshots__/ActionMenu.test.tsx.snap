@@ -508,11 +508,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  min-width: 40px;
-  padding: 10px 11px;
-}
-
 .c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -682,7 +677,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="am-test"
-        class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
+        class="c2 fi-button c3 fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
@@ -1280,11 +1275,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  min-width: 40px;
-  padding: 10px 11px;
-}
-
 .c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1454,7 +1444,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="am-test"
-        class="c2 fi-button c3 fi-action-menu_button fi-button--disabled fi-button--secondary"
+        class="c2 fi-button c3 fi-button--disabled fi-button--secondary"
         disabled=""
         id="test-id"
         name="am-test-name"
@@ -2052,11 +2042,6 @@ exports[`No borders variant should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  min-width: 40px;
-  padding: 10px 11px;
-}
-
 .c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2226,7 +2211,7 @@ exports[`No borders variant should match snapshot 1`] = `
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="ActionMenuTest"
-        class="c2 fi-button c3 fi-action-menu_button fi-button--secondary-noborder"
+        class="c2 fi-button c3 fi-button--secondary-noborder"
         id="test-id"
         name="am-test-name"
         tabindex="0"
@@ -2824,11 +2809,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  min-width: 40px;
-  padding: 10px 11px;
-}
-
 .c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2998,7 +2978,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         aria-expanded="true"
         aria-haspopup="menu"
         aria-label="am-test"
-        class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
+        class="c2 fi-button c3 fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
@@ -3597,11 +3577,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  min-width: 40px;
-  padding: 10px 11px;
-}
-
 .c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -3771,7 +3746,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         aria-expanded="true"
         aria-haspopup="menu"
         aria-label="am-test"
-        class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
+        class="c2 fi-button c3 fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
