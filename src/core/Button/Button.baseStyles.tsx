@@ -66,7 +66,12 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
   &.fi-button--secondary-noborder {
     ${secondary(theme)}
     border: none;
+    padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
     background-color: transparent;
+
+    &.fi-button--icon-only {
+      padding: ${theme.spacing.insetS} 12px;
+    }
   }
 `;
 
@@ -75,7 +80,12 @@ const secondaryLightStyles = (theme: SuomifiTheme) => css`
     color: ${theme.colors.highlightBase};
     ${secondary(theme)}
     background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
+    padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
     border: none;
+
+    &.fi-button--icon-only {
+      padding: ${theme.spacing.insetS} 12px;
+    }
 
     &:hover {
       background: ${theme.gradients.highlightLight4ToDepthSecondary};
@@ -97,7 +107,7 @@ const secondaryLightStyles = (theme: SuomifiTheme) => css`
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${button(theme)}
-  padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
+  padding: 9px ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
   background: ${theme.gradients.highlightBaseToHighlightDark1};
@@ -164,7 +174,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   &.fi-button--icon-only {
-    padding: ${theme.spacing.insetS} 12px;
+    padding: ${theme.spacing.insetS} 11px;
     & > .fi-button_icon > .fi-icon {
       margin-right: 0;
     }

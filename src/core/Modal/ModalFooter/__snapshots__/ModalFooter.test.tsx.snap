@@ -233,7 +233,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 9px 20px;
   min-height: 40px;
   color: hsl(0,0%,100%);
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
@@ -354,6 +354,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
+  padding: 10px 20px;
   background-color: transparent;
 }
 
@@ -376,6 +377,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c4.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c4.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -384,6 +389,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  padding: 10px 20px;
   border: none;
 }
 
@@ -404,6 +410,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c4.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c4.fi-button--secondary-light:hover {
@@ -438,7 +448,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 }
 
 .c4.fi-button--icon-only {
-  padding: 6px 12px;
+  padding: 6px 11px;
 }
 
 .c4.fi-button--icon-only > .fi-button_icon > .fi-icon {

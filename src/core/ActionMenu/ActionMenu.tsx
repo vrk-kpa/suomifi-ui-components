@@ -34,8 +34,6 @@ const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
-  button: `${baseClassName}_button`,
-  iconOnly: `${baseClassName}_button--icon-only`,
 };
 
 export type MenuContent =
@@ -182,7 +180,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         aria-haspopup="menu"
         forwardedRef={openButtonRef}
         fullWidth={fullWidth}
-        className={actionMenuClassNames.button}
         onClick={handleButtonClick}
         onKeyDown={handleKeyDown}
         onBlur={(event) => {
@@ -215,7 +212,7 @@ const StyledActionMenu = styled(
     <BaseActionMenu {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${() => baseStyles()}
 `;
 
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(
