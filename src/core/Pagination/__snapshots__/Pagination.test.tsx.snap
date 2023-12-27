@@ -732,6 +732,10 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c6.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c6.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -761,6 +765,10 @@ exports[`snapshot should have matching default structure 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c6.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c6.fi-button--secondary-light:hover {

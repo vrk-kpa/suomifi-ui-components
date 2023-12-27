@@ -3232,6 +3232,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c13.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -3261,6 +3265,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c13.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c13.fi-button--secondary-light:hover {
@@ -5416,6 +5424,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c13.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -5445,6 +5457,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c13.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c13.fi-button--secondary-light:hover {

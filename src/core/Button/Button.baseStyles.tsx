@@ -68,6 +68,10 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
     border: none;
     padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
     background-color: transparent;
+
+    &.fi-button--icon-only {
+      padding: ${theme.spacing.insetS} 12px;
+    }
   }
 `;
 
@@ -78,6 +82,10 @@ const secondaryLightStyles = (theme: SuomifiTheme) => css`
     background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
     padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
     border: none;
+
+    &.fi-button--icon-only {
+      padding: ${theme.spacing.insetS} 12px;
+    }
 
     &:hover {
       background: ${theme.gradients.highlightLight4ToDepthSecondary};

@@ -402,6 +402,10 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c3.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c3.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -431,6 +435,10 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c3.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c3.fi-button--secondary-light:hover {
@@ -1169,6 +1177,10 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c3.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c3.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -1198,6 +1210,10 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c3.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c3.fi-button--secondary-light:hover {
@@ -1936,6 +1952,10 @@ exports[`No borders variant should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c3.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c3.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -1965,6 +1985,10 @@ exports[`No borders variant should match snapshot 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c3.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c3.fi-button--secondary-light:hover {
@@ -2703,6 +2727,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c3.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c3.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -2732,6 +2760,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c3.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c3.fi-button--secondary-light:hover {
@@ -3471,6 +3503,10 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c3.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c3.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -3500,6 +3536,10 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   background: none;
   background-color: hsl(212,63%,98%);
   border-color: hsl(202,7%,67%);
+}
+
+.c3.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
 }
 
 .c3.fi-button--secondary-light:hover {
