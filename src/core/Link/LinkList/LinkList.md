@@ -14,7 +14,7 @@ Examples:
 ### Basic use
 
 - Use a descriptive heading or a label with the list.
-- Link the heading/label to the list via the `ariaDescribedBy` prop.
+- Link the heading/label to the list via the `ariaLabelledBy` prop.
 - Use the right heading level semantically and use the `<Heading>` component's `as` prop for changing the styling if needed.
 - Wrap each child in `LinkListItem` component to get the correct styling.
 - `<LinkListItem>` supports `<Link>`, `<ExternalLink>` and `<RouterLink>` as its children.
@@ -33,7 +33,7 @@ import {
   <Heading variant="h4" as="h3" id="heading">
     More on the topic
   </Heading>
-  <LinkList ariaDescribedBy="heading">
+  <LinkList ariaLabelledBy="heading">
     <LinkListItem>
       <Link href="#">Granting mandates as a person</Link>
     </LinkListItem>
