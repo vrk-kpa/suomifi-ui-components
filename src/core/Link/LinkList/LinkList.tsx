@@ -18,7 +18,7 @@ export interface LinkListProps extends HtmlUlProps, MarginProps {
   /** Ref is forwarded to the list element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLUListElement>;
   /** Id of the heading or label of the list */
-  ariaDescribedBy: string;
+  ariaLabelledBy: string;
   /** Sets smaller font size for the list elements */
   smallScreen?: boolean;
 }
@@ -29,7 +29,7 @@ const StyledLinkList = styled(
     theme,
     children,
     smallScreen,
-    ariaDescribedBy,
+    ariaLabelledBy,
     forwardedRef,
     ...rest
   }: LinkListProps & SuomifiThemeProp) => {
@@ -42,7 +42,7 @@ const StyledLinkList = styled(
         className={classnames(className, LinkListClassName, {
           [SmallScreenClassName]: smallScreen,
         })}
-        {...getConditionalAriaProp('aria-describedby', [ariaDescribedBy])}
+        {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
         style={{ ...marginStyle, ...passProps?.style }}
       >
         {children}
