@@ -9,7 +9,7 @@ import { Link } from '../Link/Link';
 const TestLinkList = (
   <>
     <h1 id="a">Heading</h1>
-    <LinkList ariaDescribedBy="a">
+    <LinkList ariaLabelledBy="a">
       <LinkListItem data-testid="test-link">
         <Link href="/">Link</Link>
       </LinkListItem>
@@ -37,13 +37,13 @@ describe('Simple link list with one item', () => {
 
 describe('Margin prop', () => {
   it('should have margin style from margin prop', () => {
-    const { container } = render(<LinkList ariaDescribedBy="" margin="xs" />);
+    const { container } = render(<LinkList ariaLabelledBy="" margin="xs" />);
     expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
   });
 
   it('should have margin prop overwritten from style prop', () => {
     const { container } = render(
-      <LinkList ariaDescribedBy="" margin="xs" style={{ margin: 2 }} />,
+      <LinkList ariaLabelledBy="" margin="xs" style={{ margin: 2 }} />,
     );
     expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });

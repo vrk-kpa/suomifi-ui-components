@@ -302,7 +302,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
       Heading
     </h1>
     <ul
-      aria-describedby="a"
+      aria-labelledby="a"
       class="c0 c1 fi-link-list"
     >
       <li
