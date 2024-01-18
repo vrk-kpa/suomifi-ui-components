@@ -103,8 +103,6 @@ const cssSelector = {
   mr: 'margin-right',
   mb: 'margin-bottom',
   ml: 'margin-left',
-  mx: '',
-  my: '',
 };
 
 const getSpacingStyle = (
@@ -148,7 +146,7 @@ const getCSSMargin = (
     case 'mx':
       return `margin-right: ${amount}; margin-left: ${amount};`;
     case 'my':
-      return `margin-right: ${amount}; margin-left: ${amount};`;
+      return `margin-top: ${amount}; margin-bottom: ${amount};`;
     default:
       return `${[cssSelector[key]]}: ${amount};`;
   }
