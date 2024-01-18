@@ -199,8 +199,6 @@ const BaseTextInput = (props: InternalTextInputProps) => {
 
   const definedRef = forwardedRef || null;
 
-  const globalMarginStyle = spacingStyles(globalMargins?.textInput);
-
   const hintTextId = `${id}-hintText`;
   const statusTextId = `${id}-statusText`;
   return (
@@ -212,7 +210,7 @@ const BaseTextInput = (props: InternalTextInputProps) => {
         [textInputClassNames.success]: status === 'success',
         [textInputClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...globalMarginStyle, ...marginStyle, ...style }}
+      style={{ ...marginStyle, ...style }}
     >
       <HtmlSpan className={textInputClassNames.styleWrapper}>
         <Label
@@ -283,11 +281,14 @@ const BaseTextInput = (props: InternalTextInputProps) => {
 };
 
 const StyledTextInput = styled(
-  ({ theme, ...passProps }: TextInputProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    ...passProps
+  }: TextInputProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
     <BaseTextInput {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.textInput)}
 `;
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
