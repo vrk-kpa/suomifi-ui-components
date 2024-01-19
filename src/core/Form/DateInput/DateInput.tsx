@@ -12,7 +12,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconCalendar } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
@@ -49,6 +53,7 @@ import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-date-input';
@@ -477,31 +482,40 @@ const BaseDateInput = (props: DateInputProps) => {
 };
 
 const StyledDateInput = styled(
-  ({ theme, ...passProps }: DateInputProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: DateInputProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
     <BaseDateInput {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.dateInput)}
 `;
 
 const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   (props: DateInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledDateInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledDateInput
+                    theme={suomifiTheme}
+                    id={id}
+                    forwardedRef={ref}
+                    globalMargins={margins}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
