@@ -2,11 +2,16 @@ import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { baseStyles } from './HintText.baseStyles';
 
@@ -26,10 +31,11 @@ export interface HintTextProps extends HtmlSpanProps, MarginProps {
 const StyledHintText = styled(
   ({
     className,
+    globalMargins,
     theme,
     children,
     ...rest
-  }: HintTextProps & SuomifiThemeProp) => {
+  }: HintTextProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
     return (
@@ -43,7 +49,7 @@ const StyledHintText = styled(
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.hintText)}
 `;
 
 const HintText = forwardRef(
@@ -53,17 +59,22 @@ const HintText = forwardRef(
       return null;
     }
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledHintText
-            forwardedRef={ref}
-            theme={suomifiTheme}
-            {...passProps}
-          >
-            {children}
-          </StyledHintText>
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledHintText
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                globalMargins={margins}
+                {...passProps}
+              >
+                {children}
+              </StyledHintText>
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
