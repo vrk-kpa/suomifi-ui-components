@@ -2,11 +2,16 @@ import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   HtmlDiv,
@@ -154,28 +159,41 @@ class BaseCheckboxGroup extends Component<
   }
 }
 
-const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledCheckboxGroup = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: CheckboxGroupProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseCheckboxGroup {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins.checkboxGroup)}
 `;
 
 const CheckboxGroup = forwardRef(
   (props: CheckboxGroupProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledCheckboxGroup
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledCheckboxGroup
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

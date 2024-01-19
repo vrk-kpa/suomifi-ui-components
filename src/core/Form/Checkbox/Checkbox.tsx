@@ -5,11 +5,16 @@ import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlLabel, HtmlDiv, HtmlInput, HtmlInputProps } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
@@ -236,36 +241,45 @@ class BaseCheckbox extends Component<CheckboxProps> {
 }
 
 const StyledCheckbox = styled(
-  ({ theme, ...passProps }: InternalCheckboxProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: InternalCheckboxProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseCheckbox {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.checkbox)}
 `;
 
 const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, status: propStatus, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <CheckboxGroupConsumer>
-                {({ status: groupStatus }) => (
-                  <StyledCheckbox
-                    theme={suomifiTheme}
-                    id={id}
-                    forwardedRef={ref}
-                    status={!!propStatus ? propStatus : groupStatus}
-                    {...passProps}
-                  />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <CheckboxGroupConsumer>
+                    {({ status: groupStatus }) => (
+                      <StyledCheckbox
+                        theme={suomifiTheme}
+                        id={id}
+                        forwardedRef={ref}
+                        globalMargins={margins}
+                        status={!!propStatus ? propStatus : groupStatus}
+                        {...passProps}
+                      />
+                    )}
+                  </CheckboxGroupConsumer>
                 )}
-              </CheckboxGroupConsumer>
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
