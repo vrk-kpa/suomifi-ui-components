@@ -98,6 +98,11 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   defaultSelectedItem?: T & SingleSelectData;
   /** Callback fired when filter changes */
   onChange?: (value: string) => void;
+  /**
+   * Callback fired when filter changes. This function does not use debounce.
+   * Intended use cases are, for example, to set the `loading` prop
+   */
+  onChangeWithoutDebounce?: (value: string) => void;
   /** Callback fired on inpur blur */
   onBlur?: () => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
@@ -239,11 +244,13 @@ class BaseSingleSelect<T> extends Component<
                 item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
             );
       const resolvedInputValue = selectedItemChanged
-        ? selectedItem?.labelText || ''
+        ? selectedItem !== null
+          ? selectedItem?.labelText || prevState.filterInputValue
+          : ''
         : propItems.find(
             (item) =>
               item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
-          )?.labelText || '';
+          )?.labelText || prevState.filterInputValue;
 
       return {
         selectedItem: resolvedSelectedItem,
@@ -515,6 +522,7 @@ class BaseSingleSelect<T> extends Component<
       noItemsText,
       defaultSelectedItem,
       onChange: propOnChange,
+      onChangeWithoutDebounce,
       onBlur,
       debounce,
       loading,
@@ -612,6 +620,9 @@ class BaseSingleSelect<T> extends Component<
               onChange={(value: string) => {
                 if (propOnChange) {
                   debouncer(propOnChange, value);
+                }
+                if (onChangeWithoutDebounce) {
+                  onChangeWithoutDebounce(value);
                 }
                 this.handleOnChange(value);
               }}

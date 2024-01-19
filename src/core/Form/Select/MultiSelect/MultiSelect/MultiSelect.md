@@ -609,7 +609,9 @@ const countries = [
 
 The example below simulates a data fetch operation from a backend.
 
-Use the `loading` and `loadingText` props to enable a loading spinner. This can be done in the `onChange()` function, which runs when the user types into the filter text input.
+Use the `loading` and `loadingText` props to enable a loading spinner for MultiSelect. This can be done in the `onChangeWithoutDebounce()` function, which runs immediately when the user types into the filter text input.
+
+The backend data fetch operation can be performed in the `onChange()` function, which uses a `debounce` time so that the request is made only after the user has stopped typing for a set amount of time.
 
 ```js
 import { useState } from 'react';
@@ -617,7 +619,7 @@ import { MultiSelect } from 'suomifi-ui-components';
 
 const [loading, setLoading] = useState(false);
 const [countries, setCountries] = useState([]);
-const countriesFromBackend = [
+const allCountries = [
   {
     labelText: 'Switzerland',
     uniqueItemId: 'sw2435626'
@@ -656,27 +658,15 @@ const countriesFromBackend = [
   }
 ];
 
-const runLoader = () => {
-  let progress = 0;
-  setLoading(true);
+const simulateBackendCall = (searchStr) => {
   setCountries([]);
-  const id = setInterval(frame, 100);
-  function frame() {
-    if (progress >= 10) {
-      clearInterval(id);
-      setCountries(countriesFromBackend);
-      setLoading(false);
-      progress = 0;
-    } else {
-      progress = progress + 1;
-    }
-  }
-};
-
-const startup = (event) => {
-  if (!loading) {
-    runLoader();
-  }
+  setTimeout(() => {
+    const matchingCountries = allCountries.filter((c) =>
+      c.labelText.toLowerCase().includes(searchStr.toLowerCase())
+    );
+    setCountries(matchingCountries);
+    setLoading(false);
+  }, 1000);
 };
 
 <MultiSelect
@@ -693,7 +683,13 @@ const startup = (event) => {
   ariaOptionChipRemovedText="removed"
   loading={loading}
   loadingText="Loading data"
-  onChange={startup}
+  debounce={1000}
+  onChange={simulateBackendCall}
+  onChangeWithoutDebounce={() => {
+    if (!loading) {
+      setLoading(true);
+    }
+  }}
 />;
 ```
 
