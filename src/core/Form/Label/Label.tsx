@@ -9,11 +9,16 @@ import React, {
 } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
@@ -75,11 +80,12 @@ const StyledLabel = styled(
     style,
     children,
     asProp = 'label',
+    globalMargins,
     optionalText,
     tooltipComponent: tooltipComponentProp,
     forceTooltipRerender = false,
     ...rest
-  }: LabelProps & SuomifiThemeProp) => {
+  }: LabelProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
     const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
@@ -136,13 +142,23 @@ const StyledLabel = styled(
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.label)}
 `;
 
 const Label = (props: LabelProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledLabel theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+  <SpacingConsumer>
+    {({ margins }) => (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledLabel
+            globalMargins={margins}
+            theme={suomifiTheme}
+            {...props}
+          />
+        )}
+      </SuomifiThemeConsumer>
+    )}
+  </SpacingConsumer>
 );
 
 Label.displayName = 'Label';
