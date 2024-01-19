@@ -16,6 +16,8 @@ export type SpacingWithoutInsetProp =
   | 'xxxxl'
   | '0';
 
+export type GlobalMarginProps = { globalMargins: GlobalMargins };
+
 const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
   if (val === '0') return '0';
   return !!val ? theme.spacing[val] : '';
@@ -57,9 +59,13 @@ export interface MarginProps {
 export type GlobalMargins = {
   all?: MarginProps;
   button?: MarginProps;
-  textInput?: MarginProps;
   checkbox?: MarginProps;
+  checkboxGroup?: MarginProps;
+  dateInput?: MarginProps;
+  hintText?: MarginProps;
+  label?: MarginProps;
   multiSelect?: MarginProps;
+  textInput?: MarginProps;
 };
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
