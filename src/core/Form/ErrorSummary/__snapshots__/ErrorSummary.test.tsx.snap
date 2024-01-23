@@ -1,0 +1,1367 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots match minimal implementation 1`] = `
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c6:hover,
+.c6:active,
+.c6:focus,
+.c6:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  vertical-align: baseline;
+}
+
+.c3.fi-icon {
+  display: inline-block;
+}
+
+.c3 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c3 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c5 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,13%);
+}
+
+.c5.fi-heading--h1hero {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 300;
+}
+
+.c5.fi-heading--h2 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h6 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h1hero {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h2 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h6 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c7 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c7.fi-link {
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link:hover,
+.c7.fi-link:active,
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link:focus {
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
+  outline: 3px solid transparent;
+}
+
+.c7.fi-link:hover,
+.c7.fi-link:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link:visited {
+  color: hsl(284,36%,45%);
+}
+
+.c7.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:focus,
+.c7.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:hover,
+.c7.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--small {
+  font-size: 16px;
+}
+
+.c1.fi-error-summary {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100%;
+  padding: 5px 0px 4px 0px;
+  border: 1px solid;
+  background-color: hsl(0,59%,96%);
+  border-color: rgba(174,51,45,0.2);
+  border-left: 4px solid hsl(3,59%,43%);
+}
+
+.c1.fi-error-summary .fi-error-summary_style-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c1.fi-error-summary .fi-error-summary_icon {
+  margin-left: 20px;
+  margin-top: 16px;
+  min-height: 24px;
+  min-width: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.c1.fi-error-summary .fi-error-summary_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,13%);
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 15px;
+  margin: 15px 0;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading:focus {
+  outline: 0;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_content {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_content ul {
+  margin: 0;
+  padding: 0;
+}
+
+.c1.fi-error-summary.fi-error-summary--small-screen .fi-error-summary_icon {
+  margin-left: 15px;
+}
+
+.c1.fi-error-summary.fi-error-summary--small-screen .fi-error-summary_text-content-wrapper {
+  padding: 0 10px 0 10px;
+}
+
+<body>
+  <div>
+    <section
+      class="c0 fi-error-summary c1"
+    >
+      <div
+        class="c2 fi-error-summary_style-wrapper"
+      >
+        <svg
+          aria-hidden="true"
+          class="fi-icon c3 fi-error-summary_icon"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="fi-icon-base-fill"
+            d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm.71 15.29c.18.19.29.44.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29-.26 0-.521-.11-.71-.29-.181-.19-.29-.45-.29-.71 0-.27.109-.52.29-.71.37-.37 1.04-.37 1.42 0ZM12 5a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1Z"
+            fill="#222"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <div
+          class="c2 fi-error-summary_text-content-wrapper"
+          id="1"
+        >
+          <h3
+            class="c4 fi-heading c5 fi-error-summary_heading fi-heading--h3"
+            tabindex="0"
+          >
+            There are errors in the form
+          </h3>
+          <div
+            class="c2 fi-error-summary_content"
+          >
+            <ul>
+              <li>
+                <a
+                  class="c6 fi-link c7"
+                  href="input1"
+                >
+                  Error 1
+                </a>
+              </li>
+              <li>
+                <a
+                  class="c6 fi-link c7"
+                  href="input2"
+                >
+                  Error 2
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+`;
+
+exports[`snapshots match smallScreen styles 1`] = `
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c6:hover,
+.c6:active,
+.c6:focus,
+.c6:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  vertical-align: baseline;
+}
+
+.c3.fi-icon {
+  display: inline-block;
+}
+
+.c3 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c3 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c5 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,13%);
+}
+
+.c5.fi-heading--h1hero {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 300;
+}
+
+.c5.fi-heading--h2 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--h6 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h1hero {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h2 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c5.fi-heading--small-screen.fi-heading--h6 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.c7 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c7.fi-link {
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link:hover,
+.c7.fi-link:active,
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link:focus {
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
+  outline: 3px solid transparent;
+}
+
+.c7.fi-link:hover,
+.c7.fi-link:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link:visited {
+  color: hsl(284,36%,45%);
+}
+
+.c7.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:focus,
+.c7.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:hover,
+.c7.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--small {
+  font-size: 16px;
+}
+
+.c1.fi-error-summary {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100%;
+  padding: 5px 0px 4px 0px;
+  border: 1px solid;
+  background-color: hsl(0,59%,96%);
+  border-color: rgba(174,51,45,0.2);
+  border-left: 4px solid hsl(3,59%,43%);
+}
+
+.c1.fi-error-summary .fi-error-summary_style-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c1.fi-error-summary .fi-error-summary_icon {
+  margin-left: 20px;
+  margin-top: 16px;
+  min-height: 24px;
+  min-width: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.c1.fi-error-summary .fi-error-summary_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,13%);
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 15px;
+  margin: 15px 0;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading:focus {
+  outline: 0;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_content {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_content ul {
+  margin: 0;
+  padding: 0;
+}
+
+.c1.fi-error-summary.fi-error-summary--small-screen .fi-error-summary_icon {
+  margin-left: 15px;
+}
+
+.c1.fi-error-summary.fi-error-summary--small-screen .fi-error-summary_text-content-wrapper {
+  padding: 0 10px 0 10px;
+}
+
+<body>
+  <div>
+    <section
+      class="c0 fi-error-summary c1 fi-error-summary--small-screen"
+    >
+      <div
+        class="c2 fi-error-summary_style-wrapper"
+      >
+        <svg
+          aria-hidden="true"
+          class="fi-icon c3 fi-error-summary_icon"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="fi-icon-base-fill"
+            d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm.71 15.29c.18.19.29.44.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29-.26 0-.521-.11-.71-.29-.181-.19-.29-.45-.29-.71 0-.27.109-.52.29-.71.37-.37 1.04-.37 1.42 0ZM12 5a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1Z"
+            fill="#222"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <div
+          class="c2 fi-error-summary_text-content-wrapper"
+          id="3"
+        >
+          <h3
+            class="c4 fi-heading c5 fi-error-summary_heading fi-heading--h3"
+            tabindex="0"
+          >
+            There are errors in the form
+          </h3>
+          <div
+            class="c2 fi-error-summary_content"
+          >
+            <ul>
+              <li>
+                <a
+                  class="c6 fi-link c7"
+                  href="input1"
+                >
+                  Error 1
+                </a>
+              </li>
+              <li>
+                <a
+                  class="c6 fi-link c7"
+                  href="input2"
+                >
+                  Error 2
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+`;

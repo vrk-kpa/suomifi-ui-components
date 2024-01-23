@@ -18,7 +18,6 @@ import {
 } from 'suomifi-ui-components';
 import { useState, useRef, useEffect } from 'react';
 
-const [errorItems, setErrorItems] = useState([]);
 const [firstNameErrorMessage, setFirstNameErrorMessage] =
   useState('');
 const [lastNameErrorMessage, setLastNameErrorMessage] = useState('');
