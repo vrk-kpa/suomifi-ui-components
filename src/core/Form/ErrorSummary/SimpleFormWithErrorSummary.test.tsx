@@ -6,7 +6,7 @@ import {
   Block,
   ErrorSummaryItemProps,
 } from '../../../index';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 
 const SimpleFormWithErrorSummary: React.FC = () => {
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState('');
@@ -102,6 +102,7 @@ const SimpleFormWithErrorSummary: React.FC = () => {
       <TextInput
         labelText="First name"
         id="first-name"
+        data-testid="first-name"
         status={firstNameErrorMessage !== '' ? 'error' : 'default'}
         statusText={firstNameErrorMessage}
         statusTextAriaLiveMode="off"
@@ -119,6 +120,7 @@ const SimpleFormWithErrorSummary: React.FC = () => {
       <TextInput
         labelText="Last name"
         id="last-name"
+        data-testid="last-name"
         status={lastNameErrorMessage !== '' ? 'error' : 'default'}
         statusText={lastNameErrorMessage}
         statusTextAriaLiveMode="off"
@@ -136,6 +138,7 @@ const SimpleFormWithErrorSummary: React.FC = () => {
       <TextInput
         labelText="Email address"
         id="email-address"
+        data-testid="email-address"
         status={emailAddressErrorMessage !== '' ? 'error' : 'default'}
         statusText={emailAddressErrorMessage}
         statusTextAriaLiveMode="off"
@@ -156,16 +159,18 @@ const SimpleFormWithErrorSummary: React.FC = () => {
 };
 
 describe('funcionality', () => {
-  it('should render ErrorSummary and focus on the heading when empty inputs are submitted', () => {
+  it('should render ErrorSummary and focus on the heading when invalid inputs are submitted', async () => {
     const { getByText, getAllByText } = render(<SimpleFormWithErrorSummary />);
     const submitButton = getByText('Submit');
     submitButton.click();
     expect(
       getByText('The following problems were found in the form'),
     ).toBeInTheDocument();
-    expect(
-      getByText('The following problems were found in the form'),
-    ).toHaveFocus();
+    await waitFor(() => {
+      expect(
+        getByText('The following problems were found in the form'),
+      ).toHaveFocus();
+    });
 
     // ErrorSummary items and the corresponding inputs' statusText should have the same text
     expect(getAllByText('First name is a required field')).toHaveLength(2);
