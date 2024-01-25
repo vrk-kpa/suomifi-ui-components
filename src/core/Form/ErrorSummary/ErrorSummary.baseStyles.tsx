@@ -29,7 +29,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       width: 24px;
 
       & .fi-icon-base-fill {
-        fill: ${theme.colors.blackBase};
+        fill: ${theme.colors.alertBase};
       }
     }
 

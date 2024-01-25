@@ -2,7 +2,7 @@ import React, { MouseEvent, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivProps, hLevels } from '../../../reset';
-import { IconError } from 'suomifi-icons';
+import { IconErrorFilled } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
@@ -24,12 +24,25 @@ const inlineAlertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface ErrorSummaryItemProps {
+interface BasicErrorSummaryItemProps {
   /** Visible text of the error item */
   text: string;
-  /** HTML id of an input element. The error corresponds to this input */
-  inputId: string;
 }
+
+type InputReferenceProps =
+  | {
+      /** HTML id of an input element. The error corresponds to this input. Provide either this or `inputRef`. */
+      inputId: string;
+      /** Ref pointing to an input element. The error corresponds to this input. Provide either this or `inputId` */
+      inputRef?: never;
+    }
+  | {
+      inputId?: never;
+      inputRef: React.RefObject<HTMLElement>;
+    };
+
+export type ErrorSummaryItemProps = BasicErrorSummaryItemProps &
+  InputReferenceProps;
 
 export interface ErrorSummaryProps extends HtmlDivProps, MarginProps {
   /**
@@ -69,13 +82,18 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
 
   const focusInput = (
     event: MouseEvent<HTMLAnchorElement>,
-    elementId: string,
+    errorItem: ErrorSummaryItemProps,
   ) => {
     // Prevents the normal browser behavior when clicking on an anchor
     event.preventDefault();
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.focus();
+
+    if (errorItem.inputRef && errorItem.inputRef.current) {
+      errorItem.inputRef.current.focus();
+    } else if (errorItem.inputId && errorItem.inputId !== '') {
+      const element = document.getElementById(errorItem.inputId);
+      if (element) {
+        element.focus();
+      }
     }
   };
 
@@ -90,7 +108,7 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
       ref={forwardedRef}
     >
       <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
-        <IconError className={classnames(inlineAlertClassNames.icon)} />
+        <IconErrorFilled className={classnames(inlineAlertClassNames.icon)} />
 
         <HtmlDiv className={inlineAlertClassNames.textContentWrapper} id={id}>
           <Heading
@@ -105,11 +123,11 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
             {items && (
               <ul>
                 {items.map((item) => (
-                  <li key={item.inputId}>
+                  <li key={item.text}>
                     <Link
-                      href={item.inputId}
+                      href={item.inputId || '#'}
                       onClick={(event) => {
-                        focusInput(event, item.inputId);
+                        focusInput(event, item);
                       }}
                     >
                       {item.text}
