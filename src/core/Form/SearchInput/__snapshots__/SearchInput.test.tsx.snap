@@ -186,63 +186,6 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
-.c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,13%);
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c11.fi-status-text {
-  display: block;
-}
-
-.c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
-}
-
-.c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  display: inline-block;
-  vertical-align: middle;
-  color: hsl(0,0%,13%);
-}
-
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c4.fi-label .fi-label_label-span .fi-tooltip {
-  margin-left: 6px;
-}
-
 .c9 {
   vertical-align: baseline;
 }
@@ -289,6 +232,71 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c10.fi-icon--cursor-pointer * {
   cursor: inherit;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
+.c4.fi-label .fi-label_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
+  color: hsl(0,0%,13%);
+}
+
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-label .fi-label_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c7 {

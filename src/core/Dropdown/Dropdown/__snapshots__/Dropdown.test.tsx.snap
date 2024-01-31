@@ -326,6 +326,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   width: 290px;
 }
@@ -969,6 +977,30 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   overflow-x: hidden;
 }
 
+.c12 {
+  vertical-align: baseline;
+}
+
+.c12.fi-icon {
+  display: inline-block;
+}
+
+.c12 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c12 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c12.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c12.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -994,6 +1026,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 
 .c7.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -1175,30 +1215,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c12 {
-  vertical-align: baseline;
-}
-
-.c12.fi-icon {
-  display: inline-block;
-}
-
-.c12 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c12 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c12.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c12.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c11.fi-dropdown_item {
@@ -1705,6 +1721,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 
 .c7.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -2292,6 +2316,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 
 .c8.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c8.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
