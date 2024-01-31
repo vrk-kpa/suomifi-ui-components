@@ -13,12 +13,6 @@ const SimpleFormWithErrorSummary: React.FC = () => {
   const [lastNameErrorMessage, setLastNameErrorMessage] = useState('');
   const [emailAddressErrorMessage, setEmailAddressErrorMessage] = useState('');
 
-  // These are used to store the value which produced errors so we can
-  // remove error state from inputs on blur if the value has changed
-  const [invalidFirstNameValue, setInvalidFirstNameValue] = useState('');
-  const [invalidLastNameValue, setInvalidLastNameValue] = useState('');
-  const [invalidEmailAddressValue, setInvalidEmailAddressValue] = useState('');
-
   const [errorSummaryItems, setErrorSummaryItems] = useState<
     Array<ErrorSummaryItemProps>
   >([]);
@@ -107,15 +101,6 @@ const SimpleFormWithErrorSummary: React.FC = () => {
         statusText={firstNameErrorMessage}
         statusTextAriaLiveMode="off"
         ref={firstNameInputRef}
-        onBlur={() => {
-          if (
-            firstNameErrorMessage !== '' &&
-            firstNameInputRef.current?.value !== invalidFirstNameValue
-          ) {
-            setFirstNameErrorMessage('');
-            setInvalidFirstNameValue('');
-          }
-        }}
       />
       <TextInput
         labelText="Last name"
@@ -125,15 +110,6 @@ const SimpleFormWithErrorSummary: React.FC = () => {
         statusText={lastNameErrorMessage}
         statusTextAriaLiveMode="off"
         ref={lastNameInputRef}
-        onBlur={() => {
-          if (
-            lastNameErrorMessage !== '' &&
-            lastNameInputRef.current?.value !== invalidLastNameValue
-          ) {
-            setLastNameErrorMessage('');
-            setInvalidLastNameValue('');
-          }
-        }}
       />
       <TextInput
         labelText="Email address"
@@ -143,15 +119,6 @@ const SimpleFormWithErrorSummary: React.FC = () => {
         statusText={emailAddressErrorMessage}
         statusTextAriaLiveMode="off"
         ref={emailAddressInputRef}
-        onBlur={() => {
-          if (
-            emailAddressErrorMessage !== '' &&
-            emailAddressInputRef.current?.value !== invalidEmailAddressValue
-          ) {
-            setEmailAddressErrorMessage('');
-            setInvalidEmailAddressValue('');
-          }
-        }}
       />
       <Button onClick={validateForm}>Submit</Button>
     </Block>

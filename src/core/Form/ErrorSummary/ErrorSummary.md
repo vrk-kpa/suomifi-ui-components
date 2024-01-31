@@ -25,14 +25,6 @@ const [lastNameErrorMessage, setLastNameErrorMessage] = useState('');
 const [emailAddressErrorMessage, setEmailAddressErrorMessage] =
   useState('');
 
-// These are used to store the value which produced errors so we can
-// remove error state from inputs on blur if the value has changed
-const [invalidFirstNameValue, setInvalidFirstNameValue] =
-  useState('');
-const [invalidLastNameValue, setInvalidLastNameValue] = useState('');
-const [invalidEmailAddressValue, setInvalidEmailAddressValue] =
-  useState('');
-
 const [errorSummaryItems, setErrorSummaryItems] = useState([]);
 
 const errorSummaryHeadingRef = useRef(null);
@@ -123,15 +115,6 @@ const validateForm = () => {
     statusText={firstNameErrorMessage}
     statusTextAriaLiveMode="off"
     ref={firstNameInputRef}
-    onBlur={() => {
-      if (
-        firstNameErrorMessage !== '' &&
-        firstNameInputRef.current.value !== invalidFirstNameValue
-      ) {
-        setFirstNameErrorMessage('');
-        setInvalidFirstNameValue('');
-      }
-    }}
     mb="l"
   />
   <TextInput
@@ -141,15 +124,6 @@ const validateForm = () => {
     statusText={lastNameErrorMessage}
     statusTextAriaLiveMode="off"
     ref={lastNameInputRef}
-    onBlur={() => {
-      if (
-        lastNameErrorMessage !== '' &&
-        lastNameInputRef.current.value !== invalidLastNameValue
-      ) {
-        setLastNameErrorMessage('');
-        setInvalidLastNameValue('');
-      }
-    }}
     mb="l"
   />
   <TextInput
@@ -159,16 +133,6 @@ const validateForm = () => {
     statusText={emailAddressErrorMessage}
     statusTextAriaLiveMode="off"
     ref={emailAddressInputRef}
-    onBlur={() => {
-      if (
-        emailAddressErrorMessage !== '' &&
-        emailAddressInputRef.current.value !==
-          invalidEmailAddressValue
-      ) {
-        setEmailAddressErrorMessage('');
-        setInvalidEmailAddressValue('');
-      }
-    }}
     mb="l"
   />
   <Button onClick={validateForm}>Submit</Button>
