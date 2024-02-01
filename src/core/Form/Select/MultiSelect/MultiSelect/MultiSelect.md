@@ -91,28 +91,6 @@ const countries = [
     ariaOptionsAvailableText="options available"
     ariaOptionChipRemovedText="removed"
   />
-  <SpacingProvider
-    margins={{
-      all: {mt: 'xxxl'}
-      textInput: { mt: 's', ml: 'l' },
-      button: { margin: 'l' }
-    }}
-  >
-    <MultiSelect
-      labelText="Visited countries"
-      hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
-      items={countries}
-      chipListVisible={true}
-      ariaChipActionLabel="Remove"
-      removeAllButtonLabel="Remove all selections"
-      visualPlaceholder="Choose visited countries"
-      noItemsText="No items"
-      defaultSelectedItems={defaultSelectedTools}
-      ariaSelectedAmountText="countries selected"
-      ariaOptionsAvailableText="options available"
-      ariaOptionChipRemovedText="removed"
-    />
-  </SpacingProvider>
 </>;
 ```
 
