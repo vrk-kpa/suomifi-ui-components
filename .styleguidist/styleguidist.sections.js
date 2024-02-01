@@ -76,7 +76,7 @@ module.exports = {
       content: './.styleguidist/accessibility.md',
       sections: [() => {}],
       sectiondepth: 0,
-    },    
+    },
     {
       name: 'Foundations',
       content: './.styleguidist/foundations.md',
@@ -104,6 +104,10 @@ module.exports = {
             {
               name: 'Tokens',
               content: './.styleguidist/spacingtokens.md',
+            },
+            {
+              name: 'Global spacing',
+              content: './.styleguidist/spacingprovider.md',
             },
           ],
         },
