@@ -65,6 +65,8 @@ export type GlobalMargins = {
   hintText?: MarginProps;
   label?: MarginProps;
   multiSelect?: MarginProps;
+  radioButton?: MarginProps;
+  radioButtonGroup?: MarginProps;
   textInput?: MarginProps;
 };
 
