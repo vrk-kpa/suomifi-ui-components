@@ -9,11 +9,16 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
@@ -309,28 +314,40 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   }
 }
 
-const StyledSearchInput = styled(BaseSearchInput)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledSearchInput = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: SearchInputProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseSearchInput {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.searchInput)}
 `;
 
 const SearchInput = forwardRef(
   (props: SearchInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledSearchInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledSearchInput
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
