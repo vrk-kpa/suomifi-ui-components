@@ -1245,7 +1245,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c1 .fi-multiselect_removeAllButton {
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
 
 @media (forced-colors:active) {
