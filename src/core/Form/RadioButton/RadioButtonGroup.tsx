@@ -1,10 +1,15 @@
 import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   HtmlDiv,
@@ -165,28 +170,41 @@ class BaseRadioButtonGroup extends Component<
   }
 }
 
-const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledRadioButtonGroup = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: RadioButtonGroupProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseRadioButtonGroup {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.radioButtonGroup)}
 `;
 
 const RadioButtonGroup = forwardRef(
   (props: RadioButtonGroupProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledRadioButtonGroup
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledRadioButtonGroup
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

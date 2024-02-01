@@ -10,11 +10,16 @@ import {
 } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
+import {
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HintText } from '../HintText/HintText';
@@ -176,49 +181,60 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 }
 
 const StyledRadioButton = styled(
-  ({ theme, ...passProps }: RadioButtonProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: RadioButtonProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseRadioButton {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.radioButton)}
 `;
 
 const RadioButton = forwardRef(
   (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, onChange, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <RadioButtonGroupConsumer>
-                {({ onRadioButtonChange, selectedValue, name }) => (
-                  <StyledRadioButton
-                    theme={suomifiTheme}
-                    id={id}
-                    forwardedRef={ref}
-                    {...passProps}
-                    {...(!!onRadioButtonChange
-                      ? {
-                          checked: selectedValue === passProps.value,
-                          name,
-                        }
-                      : {})}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      if (!!onRadioButtonChange) {
-                        onRadioButtonChange(event.target.value);
-                      }
-                      if (!!onChange) {
-                        onChange(event);
-                      }
-                    }}
-                  />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <RadioButtonGroupConsumer>
+                    {({ onRadioButtonChange, selectedValue, name }) => (
+                      <StyledRadioButton
+                        theme={suomifiTheme}
+                        id={id}
+                        forwardedRef={ref}
+                        globalMargins={margins}
+                        {...passProps}
+                        {...(!!onRadioButtonChange
+                          ? {
+                              checked: selectedValue === passProps.value,
+                              name,
+                            }
+                          : {})}
+                        onChange={(
+                          event: React.ChangeEvent<HTMLInputElement>,
+                        ) => {
+                          if (!!onRadioButtonChange) {
+                            onRadioButtonChange(event.target.value);
+                          }
+                          if (!!onChange) {
+                            onChange(event);
+                          }
+                        }}
+                      />
+                    )}
+                  </RadioButtonGroupConsumer>
                 )}
-              </RadioButtonGroupConsumer>
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
