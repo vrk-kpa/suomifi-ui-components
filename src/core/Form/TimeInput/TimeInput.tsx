@@ -9,7 +9,11 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { autocompleteTimeString, forkRefs } from '../../../utils/common/common';
@@ -17,6 +21,7 @@ import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { Label, LabelMode } from '../Label/Label';
@@ -212,31 +217,40 @@ const BaseTimeInput = (props: TimeInputProps) => {
 };
 
 const StyledTimeInput = styled(
-  ({ theme, ...passProps }: TimeInputProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: TimeInputProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseTimeInput {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.timeInput)}
 `;
 
 const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
   (props: TimeInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledTimeInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledTimeInput
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

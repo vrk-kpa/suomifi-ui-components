@@ -58,17 +58,30 @@ export interface MarginProps {
 
 export type GlobalMargins = {
   all?: MarginProps;
+  alert?: MarginProps;
+  actionMenu?: MarginProps;
+  block?: MarginProps;
   button?: MarginProps;
+  breadcrumb?: MarginProps;
   checkbox?: MarginProps;
   checkboxGroup?: MarginProps;
+  chip?: MarginProps;
   dateInput?: MarginProps;
+  dropdown?: MarginProps;
   hintText?: MarginProps;
   label?: MarginProps;
   multiSelect?: MarginProps;
   radioButton?: MarginProps;
   radioButtonGroup?: MarginProps;
   searchInput?: MarginProps;
+  singleSelect?: MarginProps;
+  staticChip?: MarginProps;
+  statusText?: MarginProps;
+  textarea?: MarginProps;
   textInput?: MarginProps;
+  timeInput?: MarginProps;
+  toggleInput?: MarginProps;
+  toggleButton?: MarginProps;
 };
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
