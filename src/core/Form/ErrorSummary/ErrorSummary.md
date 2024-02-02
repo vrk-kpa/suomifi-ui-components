@@ -1,4 +1,4 @@
-Use the `<ErrorSummary>` component to display form errors in a centralized manner.
+Use the `<ErrorSummary>` component to display form validation errors in a centralized manner.
 
 Examples:
 
@@ -9,6 +9,28 @@ Examples:
 </div>
 
 ### Basic use
+
+This example follows a pattern called static form validation. Static validation means that the form is only validated (and re-validated) upon submit.
+
+- Run any validation logic on the form when pressing the submit button
+- If there are any errors, display the ErrorSummary component as well as the individual input errors using the `statusText` props of the inputs
+- When ErrorSummary appears, move the browser's focus to its heading using a ref which you have placed to the `headingRef` prop
+- Clicking on an ErrorSummaryItem link moves the browser's focus to an element of your choice. This should typically be the corresponding input element
+
+ErrorSummary's `items` prop takes in an array of objects in the following format:
+
+```jsx static
+type ErrorSummaryItemProps = {
+  /** Visible text of the error item */
+  text: string;
+  /** HTML id of an element, typically the corresponding input element. Provide either this or inputRef */
+  inputId?: string;
+  /** Ref pointing to an element, typically the corresponding input element. Provide either this or inputId */
+  inputRef?: React.RefObject<HTMLElement>;
+}
+```
+
+Either `inputId` or `inputRef` is used to set focus on an element after an ErrorSummaryItem has been clicked.
 
 ```js
 import {
@@ -91,7 +113,8 @@ const validateForm = () => {
     lastNameError !== '' ||
     emailAddressError !== ''
   ) {
-    // Timeout is used to make sure ErrorSummary component has had time to render before
+    // Timeout is used to make sure ErrorSummary component has had
+    // time to render before focusing on the heading
     setTimeout(() => {
       errorSummaryHeadingRef.current.focus();
     }, 100);
