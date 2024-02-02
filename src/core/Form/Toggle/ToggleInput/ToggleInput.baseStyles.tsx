@@ -7,9 +7,11 @@ import {
   iconHeight,
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
+import { MarginProps, getCssMargins } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   ${toggleBaseStyles(theme)}
+  ${getCssMargins(margins)};
   &.fi-toggle--input {
     &:focus-within {
       outline: 0;
