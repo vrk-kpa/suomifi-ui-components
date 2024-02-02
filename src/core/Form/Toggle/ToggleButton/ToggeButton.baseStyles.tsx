@@ -4,9 +4,11 @@ import {
   toggleBaseStyles,
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
+import { MarginProps, getCssMargins } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   ${toggleBaseStyles(theme)}
+  ${getCssMargins(margins)};
   &.fi-toggle--disabled > button {
     cursor: not-allowed;
   }
