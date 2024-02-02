@@ -2,9 +2,11 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element, containerIEFocus, font } from '../../theme/reset';
 import { math } from 'polished';
+import { MarginProps, getCssMargins } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   ${font(theme)('bodyText')}
+  ${getCssMargins(margins)}
   max-width: 290px;
 
   & .fi-time-input_character-counter {
