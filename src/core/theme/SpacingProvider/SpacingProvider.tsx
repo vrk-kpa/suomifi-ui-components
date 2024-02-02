@@ -14,11 +14,13 @@ export interface SpacingProviderProps {
 export const SpacingProvider = (props: SpacingProviderProps) => {
   const spacingContext = useContext(SpacingContext);
 
+  const mergedMargins = { ...spacingContext.margins, ...props.margins };
+
   const globalMargins = useMemo(
     () => ({
-      margins: props.margins,
+      margins: mergedMargins,
     }),
-    [props.margins, spacingContext.margins],
+    [mergedMargins, spacingContext.margins],
   );
 
   if (!props.children) {
