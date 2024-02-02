@@ -3,11 +3,16 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   ExpanderGroupConsumer,
@@ -191,8 +196,13 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
   }
 }
 
-const StyledExpander = styled(BaseExpander)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledExpander = styled(
+  (props: BaseExpanderProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { globalMargins, ...passProps } = props;
+    return <BaseExpander {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.expander)}
 `;
 
 interface ExpanderState {
@@ -203,25 +213,30 @@ const Expander = forwardRef(
   (props: ExpanderProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <ExpanderGroupConsumer>
-                {(consumer) => (
-                  <StyledExpander
-                    theme={suomifiTheme}
-                    id={id}
-                    forwardedRef={ref}
-                    {...passProps}
-                    consumer={consumer}
-                  />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <ExpanderGroupConsumer>
+                    {(consumer) => (
+                      <StyledExpander
+                        theme={suomifiTheme}
+                        globalMargins={margins}
+                        id={id}
+                        forwardedRef={ref}
+                        {...passProps}
+                        consumer={consumer}
+                      />
+                    )}
+                  </ExpanderGroupConsumer>
                 )}
-              </ExpanderGroupConsumer>
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
