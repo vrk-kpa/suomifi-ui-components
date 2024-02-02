@@ -5,11 +5,13 @@ import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,
   SuomifiTheme,
+  SpacingConsumer,
 } from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus, AriaLiveMode } from '../types';
@@ -63,13 +65,14 @@ const getIcon = (status: InputStatus | undefined, theme: SuomifiTheme) => {
 const StyledStatusText = styled(
   ({
     className,
+    globalMargins,
     children,
     disabled,
     status,
     theme,
     ariaLiveMode = 'polite',
     ...rest
-  }: StatusTextProps & SuomifiThemeProp) => {
+  }: StatusTextProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
     const ariaLiveProp = !disabled
@@ -92,24 +95,29 @@ const StyledStatusText = styled(
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.statusText)}
 `;
 
 const StatusText = forwardRef<HTMLSpanElement, StatusTextProps>(
   (props: StatusTextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { children, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledStatusText
-            forwardedRef={ref}
-            theme={suomifiTheme}
-            {...passProps}
-          >
-            {children}
-          </StyledStatusText>
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledStatusText
+                forwardedRef={ref}
+                globalMargins={margins}
+                theme={suomifiTheme}
+                {...passProps}
+              >
+                {children}
+              </StyledStatusText>
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

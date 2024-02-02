@@ -12,7 +12,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
 import { forkRefs } from '../../../utils/common/common';
 import { Label } from '../Label/Label';
@@ -29,6 +33,7 @@ import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-textarea';
@@ -268,31 +273,40 @@ const BaseTextarea = (props: TextareaProps) => {
 };
 
 const StyledTextarea = styled(
-  ({ theme, ...passProps }: TextareaProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: TextareaProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseTextarea {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.textarea)}
 `;
 
 const Textarea = forwardRef(
   (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledTextarea
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledTextarea
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
