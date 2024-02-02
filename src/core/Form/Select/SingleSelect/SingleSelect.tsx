@@ -7,11 +7,16 @@ import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../../../theme/utils/spacing';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { LoadingSpinner } from '../../../LoadingSpinner/LoadingSpinner';
@@ -783,8 +788,17 @@ class BaseSingleSelect<T> extends Component<
   }
 }
 
-const StyledSingleSelect = styled(BaseSingleSelect)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledSingleSelect = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: SingleSelectProps<SingleSelectData> &
+    SuomifiThemeProp & { globalMargins?: GlobalMargins }) => (
+    <BaseSingleSelect {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.singleSelect)}
 `;
 
 function SingleSelectInner<T>(
@@ -793,20 +807,25 @@ function SingleSelectInner<T>(
 ) {
   const { id: propId, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledSingleSelect
-              theme={suomifiTheme}
-              id={id}
-              forwardedRef={ref}
-              {...passProps}
-            />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <AutoId id={propId}>
+              {(id) => (
+                <StyledSingleSelect
+                  theme={suomifiTheme}
+                  id={id}
+                  globalMargins={margins}
+                  forwardedRef={ref}
+                  {...passProps}
+                />
+              )}
+            </AutoId>
           )}
-        </AutoId>
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 }
 

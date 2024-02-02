@@ -14,11 +14,16 @@ import {
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { forkRefs, getOwnerDocument } from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
@@ -707,10 +712,13 @@ class BaseDropdown<T extends string = string> extends Component<
 const StyledDropdown = styled(
   <T extends string = string>({
     theme,
+    globalMargins,
     ...passProps
-  }: DropdownProps<T> & SuomifiThemeProp) => <BaseDropdown {...passProps} />,
+  }: DropdownProps<T> & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseDropdown {...passProps} />
+  ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.dropdown)}
 `;
 
 const DropdownInner = <T extends string = string>(
@@ -719,20 +727,25 @@ const DropdownInner = <T extends string = string>(
 ) => {
   const { id: propId, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledDropdown
-              theme={suomifiTheme}
-              id={id}
-              forwardedRef={ref}
-              {...passProps}
-            />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <AutoId id={propId}>
+              {(id) => (
+                <StyledDropdown
+                  theme={suomifiTheme}
+                  globalMargins={margins}
+                  id={id}
+                  forwardedRef={ref}
+                  {...passProps}
+                />
+              )}
+            </AutoId>
           )}
-        </AutoId>
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 };
 
