@@ -8,6 +8,7 @@ import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import {
@@ -16,7 +17,11 @@ import {
   chipClassNames,
 } from '../BaseChip/BaseChip';
 import { baseStyles } from './Chip.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 
 const chipButtonClassNames = {
   removable: `${baseClassName}--removable`,
@@ -109,22 +114,35 @@ class DefaultChip extends Component<ChipProps> {
 }
 
 const StyledChip = styled(
-  ({ theme, ...passProps }: ChipProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: ChipProps & SuomifiThemeProp & GlobalMarginProps) => (
     <DefaultChip {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.chip)}
 `;
 
 const Chip = forwardRef(
   (props: ChipProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledChip theme={suomifiTheme} forwardedRef={ref} {...passProps} />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledChip
+                theme={suomifiTheme}
+                globalMargins={margins}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
