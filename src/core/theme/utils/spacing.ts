@@ -68,6 +68,8 @@ export type GlobalMargins = {
   chip?: MarginProps;
   dateInput?: MarginProps;
   dropdown?: MarginProps;
+  expander?: MarginProps;
+  expanderGroup?: MarginProps;
   hintText?: MarginProps;
   label?: MarginProps;
   multiSelect?: MarginProps;

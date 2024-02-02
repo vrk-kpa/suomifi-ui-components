@@ -2,11 +2,16 @@ import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlSpan, HtmlDivProps } from '../../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
@@ -215,21 +220,32 @@ class BaseExpanderGroup extends Component<
   }
 }
 
-const StyledExpanderGroup = styled(BaseExpanderGroup)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledExpanderGroup = styled(
+  (props: ExpanderGroupProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { globalMargins, ...passProps } = props;
+    return <BaseExpanderGroup {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.expanderGroup)}
 `;
 
 const ExpanderGroup = forwardRef(
   (props: ExpanderGroupProps, ref: React.Ref<HTMLButtonElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledExpanderGroup
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledExpanderGroup
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
