@@ -3,11 +3,16 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconChevronRight } from 'suomifi-icons';
 import { LinkStyles } from '../Link/Link.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlA } from '../../../reset';
 import {
@@ -27,11 +32,12 @@ const StyledLink = styled(
     className,
     smallScreen,
     theme,
+    globalMargins,
     variant = 'default',
     children,
     underline = 'hover',
     ...rest
-  }: LinkProps & SuomifiThemeProp) => {
+  }: LinkProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
     return (
@@ -56,16 +62,25 @@ const StyledLink = styled(
     );
   },
 )`
-  ${({ theme }) => LinkStyles(theme)}
+  ${({ theme, globalMargins }) => LinkStyles(theme, globalMargins?.link)}
 `;
 
 const Link = forwardRef(
   (props: LinkProps, ref: React.Ref<HTMLAnchorElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledLink
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

@@ -2,11 +2,16 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { LinkListStyles } from './LinkList.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlUlProps, HtmlUlWithRef } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -30,9 +35,10 @@ const StyledLinkList = styled(
     children,
     smallScreen,
     ariaLabelledBy,
+    globalMargins,
     forwardedRef,
     ...rest
-  }: LinkListProps & SuomifiThemeProp) => {
+  }: LinkListProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
     return (
@@ -50,16 +56,26 @@ const StyledLinkList = styled(
     );
   },
 )`
-  ${({ theme }) => LinkListStyles(theme)}
+  ${({ theme, globalMargins }) =>
+    LinkListStyles(theme, globalMargins?.linkList)}
 `;
 
 const LinkList = forwardRef(
   (props: LinkListProps, ref: React.Ref<HTMLUListElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledLinkList theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledLinkList
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
