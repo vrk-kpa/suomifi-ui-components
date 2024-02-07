@@ -9,11 +9,16 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import {
   LanguageMenuPopover,
@@ -191,31 +196,41 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
 };
 
 const StyledLanguageMenu = styled(
-  ({ theme, ...passProps }: LanguageMenuProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: LanguageMenuProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseLanguageMenu {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.languageMenu)}
 `;
 
 const LanguageMenu = forwardRef<HTMLButtonElement, LanguageMenuProps>(
   (props: LanguageMenuProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledLanguageMenu
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledLanguageMenu
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    id={id}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
