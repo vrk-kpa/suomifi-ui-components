@@ -1,11 +1,16 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { IconChevronRight, IconLinkExternal } from 'suomifi-icons';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
@@ -88,25 +93,31 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
 }
 
 const StyledExternalLink = styled(
-  (props: ExternalLinkProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ExternalLinkProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseExternalLink theme={theme} {...passProps} />;
   },
 )`
-  ${({ theme }) => ExternalLinkStyles(theme)}
+  ${({ theme, globalMargins }) =>
+    ExternalLinkStyles(theme, globalMargins?.externalLink)}
 `;
 
 const ExternalLink = forwardRef(
   (props: ExternalLinkProps, ref: React.Ref<HTMLAnchorElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledExternalLink
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledExternalLink
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

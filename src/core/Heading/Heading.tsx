@@ -3,11 +3,17 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
 import { getLogger } from '../../utils/log';
-import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  ColorProp,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';
@@ -51,12 +57,13 @@ const StyledHeading = styled(
   ({
     smallScreen,
     className,
+    globalMargins,
     theme,
     variant,
     color,
     asProp,
     ...rest
-  }: InternalHeadingProps) => {
+  }: InternalHeadingProps & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
     return (
@@ -76,7 +83,7 @@ const StyledHeading = styled(
     );
   },
 )`
-  ${(props) => baseStyles(props)}
+  ${(props) => baseStyles(props, props.globalMargins?.heading)}
 `;
 
 const Heading = forwardRef(
@@ -89,17 +96,22 @@ const Heading = forwardRef(
       return null;
     }
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledHeading
-            theme={suomifiTheme}
-            forwardedRef={ref}
-            asProp={as}
-            {...passProps}
-            variant={variant}
-          />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledHeading
+                theme={suomifiTheme}
+                globalMargins={margins}
+                forwardedRef={ref}
+                asProp={as}
+                {...passProps}
+                variant={variant}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
