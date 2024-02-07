@@ -76,6 +76,8 @@ export type GlobalMargins = {
   inlineAlert?: MarginProps;
   label?: MarginProps;
   languageMenu?: MarginProps;
+  link?: MarginProps;
+  linkList?: MarginProps;
   multiSelect?: MarginProps;
   radioButton?: MarginProps;
   radioButtonGroup?: MarginProps;
