@@ -2,13 +2,15 @@ import { css } from 'styled-components';
 import { SuomifiThemeProp } from '../theme';
 import { element, font } from '../theme/reset';
 import { HeadingProps } from './Heading';
+import { MarginProps, getCssMargins } from '../theme/utils/spacing';
 
-export const baseStyles = ({
-  color,
-  theme,
-}: HeadingProps & SuomifiThemeProp) => css`
+export const baseStyles = (
+  { color, theme }: HeadingProps & SuomifiThemeProp,
+  margins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
+  ${getCssMargins(margins)}
   color: ${!!color && color in theme.colors
     ? theme.colors[color]
     : theme.colors.blackBase};
