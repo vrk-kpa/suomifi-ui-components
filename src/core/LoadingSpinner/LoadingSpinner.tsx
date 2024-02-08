@@ -2,11 +2,16 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './LoadingSpinner.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../reset';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
@@ -112,26 +117,32 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
   }
 }
 const StyledLoadingSpinner = styled(
-  (props: LoadingSpinnerProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: LoadingSpinnerProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseLoadingSpinner {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.loadingSpinner)};
 `;
 const LoadingSpinner = forwardRef(
   (props: LoadingSpinnerProps, ref: React.Ref<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledLoadingSpinner
-            forwardedRef={ref}
-            theme={suomifiTheme}
-            {...passProps}
-          />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledLoadingSpinner
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                globalMargins={margins}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
