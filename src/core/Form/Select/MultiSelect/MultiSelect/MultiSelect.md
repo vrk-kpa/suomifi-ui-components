@@ -619,6 +619,9 @@ import { MultiSelect } from 'suomifi-ui-components';
 
 const [loading, setLoading] = useState(false);
 const [countries, setCountries] = useState([]);
+const [backendSimulationTimeout, setBackendSimulationTimeout] =
+  useState(null);
+
 const allCountries = [
   {
     labelText: 'Switzerland',
@@ -660,13 +663,18 @@ const allCountries = [
 
 const simulateBackendCall = (searchStr) => {
   setCountries([]);
-  setTimeout(() => {
+  if (backendSimulationTimeout) {
+    clearTimeout(backendSimulationTimeout);
+  }
+  const backendSimulationTimeoutScoped = setTimeout(() => {
     const matchingCountries = allCountries.filter((c) =>
       c.labelText.toLowerCase().includes(searchStr.toLowerCase())
     );
     setCountries(matchingCountries);
     setLoading(false);
+    setBackendSimulationTimeout(null);
   }, 1000);
+  setBackendSimulationTimeout(backendSimulationTimeoutScoped);
 };
 
 <MultiSelect
