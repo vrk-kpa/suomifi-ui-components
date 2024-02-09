@@ -79,7 +79,7 @@ const Block = forwardRef((props: BlockProps, ref: React.Ref<any>) => (
         {({ suomifiTheme }) => (
           <StyledBlock
             theme={suomifiTheme}
-            globalMargin={margins}
+            globalMargins={margins}
             forwardedRef={ref}
             {...props}
           />
