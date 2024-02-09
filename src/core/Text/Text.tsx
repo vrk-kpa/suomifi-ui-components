@@ -1,11 +1,17 @@
 import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
+import {
+  ColorProp,
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Text.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../reset';
@@ -31,11 +37,12 @@ const StyledText = styled(
   ({
     variant = 'body',
     smallScreen,
+    globalMargins,
     className,
     theme,
     color,
     ...rest
-  }: TextProps & SuomifiThemeProp) => {
+  }: TextProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
 
@@ -54,6 +61,7 @@ const StyledText = styled(
       />
     );
   },
+  // Component specific margins extracted within styles to minimize changes to surrounding code
 )`
   ${(props) => baseStyles(props)}
 `;
@@ -62,11 +70,20 @@ const Text = forwardRef<HTMLSpanElement, TextProps>(
   (props: TextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledText theme={suomifiTheme} forwardedRef={ref} {...passProps} />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledText
+                theme={suomifiTheme}
+                globalMargins={margins}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

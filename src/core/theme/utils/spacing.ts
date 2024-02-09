@@ -91,11 +91,13 @@ export type GlobalMargins = {
   singleSelect?: MarginProps;
   staticChip?: MarginProps;
   statusText?: MarginProps;
+  text?: MarginProps;
   textarea?: MarginProps;
   textInput?: MarginProps;
   timeInput?: MarginProps;
   toggleInput?: MarginProps;
   toggleButton?: MarginProps;
+  wizardNavigation?: MarginProps;
 };
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
