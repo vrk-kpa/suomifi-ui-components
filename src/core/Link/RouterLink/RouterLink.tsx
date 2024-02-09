@@ -3,11 +3,16 @@ import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { IconChevronRight } from 'suomifi-icons';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   baseClassName,
@@ -116,6 +121,7 @@ const PolymorphicLink = <C extends React.ElementType>(
 ) => {
   const {
     asComponent,
+    globalMargins, // destructured out here to make typescript happy on styled level
     children,
     className,
     smallScreen,
@@ -165,19 +171,36 @@ const PolymorphicLink = <C extends React.ElementType>(
   );
 };
 
-const StyledRouterLink = styled(PolymorphicLink)`
-  ${({ theme }) => RouterLinkStyles(theme)}
+const StyledRouterLink = styled(
+  <C extends React.ElementType>(
+    props: RouterLinkProps<C> & SuomifiThemeProp & GlobalMarginProps,
+  ) => {
+    const { ...passProps } = props;
+    return <PolymorphicLink {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins }) =>
+    RouterLinkStyles(theme, globalMargins?.routerLink)}
 `;
 
 const RouterLinkInner = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
   ref?: PolymorphicRef<C>,
 ) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledRouterLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+  <SpacingConsumer>
+    {({ margins }) => (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledRouterLink
+            theme={suomifiTheme}
+            globalMargins={margins}
+            forwardedRef={ref}
+            {...props}
+          />
+        )}
+      </SuomifiThemeConsumer>
     )}
-  </SuomifiThemeConsumer>
+  </SpacingConsumer>
 );
 
 // Type assertion is needed to set the function signature with generic type C.

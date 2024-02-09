@@ -2,11 +2,16 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconArrowLeft, IconArrowRight } from 'suomifi-icons';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv, HtmlNavProps } from '../../reset';
@@ -235,31 +240,38 @@ class BasePagination extends Component<PaginationProps> {
   }
 }
 
-const StyledPagination = styled((props: PaginationProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <BasePagination {...passProps} />;
-})`
-  ${({ theme }) => baseStyles(theme)}
+const StyledPagination = styled(
+  (props: PaginationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
+    return <BasePagination {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.pagination)}
 `;
 
 const Pagination = forwardRef(
   (props: PaginationProps, ref: React.RefObject<HTMLElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledPagination
-                id={id}
-                theme={suomifiTheme}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledPagination
+                    id={id}
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

@@ -1,9 +1,12 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { font } from '../../theme/reset';
 import { baseStyles } from '../BaseLink/BaseLink.baseStyles';
+import { MarginProps, getCssMargins } from '../../theme/utils/spacing';
 
-export const RouterLinkStyles = (theme: SuomifiTheme) => css`
+export const RouterLinkStyles = (
+  theme: SuomifiTheme,
+  margins?: MarginProps,
+) => css`
+  ${getCssMargins(margins)}
   ${baseStyles(theme)}
-  ${font(theme)('bodyText')}
 `;
