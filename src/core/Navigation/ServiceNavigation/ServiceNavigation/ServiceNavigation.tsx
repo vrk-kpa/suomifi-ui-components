@@ -9,11 +9,16 @@ import {
 } from '../../../../reset';
 import styled from 'styled-components';
 import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './ServiceNavigation.baseStyles';
@@ -107,25 +112,31 @@ const BaseServiceNavigation = ({
 };
 
 const StyledServiceNavigation = styled(
-  (props: ServiceNavigationProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ServiceNavigationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseServiceNavigation {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.serviceNavigation)}
 `;
 
 const ServiceNavigation = forwardRef(
   (props: ServiceNavigationProps, ref: React.Ref<HTMLElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledServiceNavigation
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledServiceNavigation
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
