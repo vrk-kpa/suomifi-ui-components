@@ -9,11 +9,16 @@ import {
   HtmlNav,
   HtmlUl,
 } from '../../../../reset';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './WizardNavigation.baseStyles';
@@ -107,25 +112,31 @@ const BaseWizardNavigation = ({
 };
 
 const StyledWizardNavigation = styled(
-  (props: WizardNavigationProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: WizardNavigationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseWizardNavigation {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.wizardNavigation)}
 `;
 
 const WizardNavigation = forwardRef(
   (props: WizardNavigationProps, ref: React.Ref<HTMLElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledWizardNavigation
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledWizardNavigation
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
