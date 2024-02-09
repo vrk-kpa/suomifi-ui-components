@@ -8,11 +8,16 @@ import {
   HtmlUl,
 } from '../../../../reset';
 import styled from 'styled-components';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { baseStyles } from './SideNavigation.baseStyles';
 import classnames from 'classnames';
@@ -117,25 +122,31 @@ const BaseSideNavigation = ({
 };
 
 const StyledSideNavigation = styled(
-  (props: SideNavigationProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: SideNavigationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseSideNavigation {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) =>
+    baseStyles(theme, globalMargins?.sideNavigation)}
 `;
 
 const SideNavigation = forwardRef(
   (props: SideNavigationProps, ref: React.Ref<HTMLElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledSideNavigation
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledSideNavigation
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
