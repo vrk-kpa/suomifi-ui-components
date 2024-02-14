@@ -95,8 +95,10 @@ export type GlobalMargins = {
   textarea?: MarginProps;
   textInput?: MarginProps;
   timeInput?: MarginProps;
+  toast?: MarginProps;
   toggleInput?: MarginProps;
   toggleButton?: MarginProps;
+  tooltip?: MarginProps;
   wizardNavigation?: MarginProps;
 };
 

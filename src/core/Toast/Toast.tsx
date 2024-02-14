@@ -2,11 +2,16 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { IconCheckCircle } from 'suomifi-icons';
 import { Heading } from '../Heading/Heading';
@@ -88,22 +93,33 @@ class BaseToast extends Component<ToastProps> {
     );
   }
 }
-const StyledToast = styled((props: ToastProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <BaseToast {...passProps} />;
-})`
-  ${({ theme }) => baseStyles(theme)};
+const StyledToast = styled(
+  (props: ToastProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
+    return <BaseToast {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins.toast)};
 `;
 
 const Toast = forwardRef(
   (props: ToastProps, ref: React.Ref<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledToast forwardedRef={ref} theme={suomifiTheme} {...passProps} />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledToast
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                globalMargins={margins}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
