@@ -72,6 +72,9 @@ export {
   DateInputProps,
   DatePickerTextProps,
   characterCounterProps,
+  ErrorSummary,
+  ErrorSummaryProps,
+  ErrorSummaryItemProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export {
