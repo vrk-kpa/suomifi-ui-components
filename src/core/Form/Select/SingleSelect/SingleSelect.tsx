@@ -166,7 +166,7 @@ type AllowItemAdditionProps =
 export type SingleSelectProps<T> = InternalSingleSelectProps<
   T & SingleSelectData
 > &
-  HtmlDivProps &
+  Omit<HtmlDivProps, 'onChange' | 'onBlur'> &
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
   MarginProps &

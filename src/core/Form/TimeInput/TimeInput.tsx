@@ -41,7 +41,10 @@ export const timeInputClassNames = {
 export interface TimeInputProps
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlInputProps, 'type' | 'onChange' | 'onBlur' | 'defaultValue'> {
+    Omit<
+      HtmlInputProps,
+      'type' | 'onChange' | 'onBlur' | 'defaultValue' | 'onClick'
+    > {
   /** CSS class for custom styles */
   className?: string;
   /** Disables the input */
