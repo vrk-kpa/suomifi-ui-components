@@ -158,7 +158,7 @@ export interface DateInputProps
   extends DatePickerProps,
     MarginProps,
     StatusTextCommonProps,
-    Omit<HtmlInputProps, 'type' | 'onChange'> {
+    Omit<HtmlInputProps, 'type' | 'onChange' | 'onClick' | 'onBlur'> {
   /** DateInput container div class name for custom styling. */
   className?: string;
   /** Disable input usage */
