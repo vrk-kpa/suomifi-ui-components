@@ -243,14 +243,20 @@ class BaseSingleSelect<T> extends Component<
               (item) =>
                 item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
             );
-      const resolvedInputValue = selectedItemChanged
-        ? selectedItem !== null
-          ? selectedItem?.labelText || prevState.filterInputValue
-          : ''
-        : propItems.find(
-            (item) =>
-              item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
-          )?.labelText || prevState.filterInputValue;
+      let resolvedInputValue = prevState.filterInputValue;
+      if (selectedItemChanged) {
+        resolvedInputValue = selectedItem
+          ? selectedItem.labelText || prevState.filterInputValue
+          : '';
+      } else {
+        const matchingItem = propItems.find(
+          (item) => item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+        );
+        if (matchingItem) {
+          resolvedInputValue =
+            matchingItem.labelText || prevState.filterInputValue;
+        }
+      }
 
       return {
         selectedItem: resolvedSelectedItem,
