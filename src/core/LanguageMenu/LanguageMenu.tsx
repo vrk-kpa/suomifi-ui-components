@@ -41,7 +41,9 @@ export type MenuContent =
   | Array<ReactElement<LanguageMenuItemProps>>
   | ReactElement<LanguageMenuItemProps>;
 
-export interface LanguageMenuProps extends MarginProps, HtmlButtonProps {
+export interface LanguageMenuProps
+  extends MarginProps,
+    Omit<HtmlButtonProps, 'onBlur'> {
   /** Content for the menu button. Should indicate the currently selected language */
   buttonText: ReactNode;
   /**

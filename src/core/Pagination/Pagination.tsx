@@ -87,7 +87,7 @@ interface InternalPaginationProps {
 
 export type PaginationProps = ShowInputProps &
   InternalPaginationProps &
-  HtmlNavProps &
+  Omit<HtmlNavProps, 'onChange'> &
   MarginProps;
 
 const baseClassName = 'fi-pagination';
