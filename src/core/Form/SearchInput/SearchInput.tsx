@@ -45,6 +45,8 @@ export interface SearchInputProps
       | 'type'
       | 'disabled'
       | 'onChange'
+      | 'onBlur'
+      | 'onSearch'
       | 'children'
       | 'onClick'
       | 'value'

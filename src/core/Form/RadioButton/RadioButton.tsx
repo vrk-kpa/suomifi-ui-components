@@ -35,7 +35,9 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadioButtonProps extends MarginProps, HtmlInputProps {
+export interface RadioButtonProps
+  extends MarginProps,
+    Omit<HtmlInputProps, 'onChange'> {
   /** CSS class for custom styles */
   className?: string;
   /** RadioButton text content (label) */

@@ -55,7 +55,7 @@ type TextInputValue = string | number | undefined;
 interface BaseTextInputProps
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlInputProps, 'type' | 'onChange'> {
+    Omit<HtmlInputProps, 'type' | 'onChange' | 'onClick' | 'onBlur'> {
   /** CSS class for custom styles */
   className?: string;
   /** Disables the input */
