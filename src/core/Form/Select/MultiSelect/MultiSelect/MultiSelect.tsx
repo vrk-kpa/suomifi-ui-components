@@ -223,7 +223,7 @@ export type MultiSelectProps<T> = InternalMultiSelectProps<
   AriaOptionChipRemovedProps &
   AriaSelectedAmountProps &
   MarginProps &
-  HtmlDivProps &
+  Omit<HtmlDivProps, 'onChange' | 'onBlur'> &
   LoadingProps;
 
 interface MultiSelectState<T extends MultiSelectData> {

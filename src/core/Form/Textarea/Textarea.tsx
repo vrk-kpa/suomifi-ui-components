@@ -52,7 +52,10 @@ type TextareaStatus = Exclude<InputStatus, 'success'>;
 interface BaseTextareaProps
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
+    Omit<
+      HtmlTextareaProps,
+      'placeholder' | 'forwardedRef' | 'onChange' | 'onBlur'
+    > {
   /** CSS class for custom styles */
   className?: string;
   /** Disables the input */
