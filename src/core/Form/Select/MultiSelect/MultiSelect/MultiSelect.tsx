@@ -158,6 +158,11 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   defaultSelectedItems?: Array<T & MultiSelectData>;
   /** Callback fired when filter changes */
   onChange?: (value: string) => void;
+  /**
+   * Callback fired when filter changes. This function does not use debounce.
+   * Intended use cases are, for example, to set the `loading` prop
+   */
+  onChangeWithoutDebounce?: (value: string) => void;
   /** Callback fired on input blur */
   onBlur?: () => void;
   /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
@@ -628,6 +633,7 @@ class BaseMultiSelect<T> extends Component<
       noItemsText,
       defaultSelectedItems,
       onChange: propOnChange,
+      onChangeWithoutDebounce,
       debounce,
       status,
       statusText,
@@ -728,6 +734,9 @@ class BaseMultiSelect<T> extends Component<
                   onChange={(value: string) => {
                     if (propOnChange) {
                       debouncer(propOnChange, value);
+                    }
+                    if (onChangeWithoutDebounce) {
+                      onChangeWithoutDebounce(value);
                     }
                     this.setState({
                       filterInputValue: value,
