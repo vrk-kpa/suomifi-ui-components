@@ -1,104 +1,125 @@
-Spacing provider is a wrapper component that allows giving its children margin rules to follow.
+Spacing provider is a wrapper component that allows giving its children margin rules to follow. You can specify the rules per component, and all components of the given type will follow the margin rules.
+
+The margin values can be given using the desired spacing token.
+
+### Basic example
 
 ```js
 import {
-  ActionMenu,
-  Alert,
-  ActionMenuItem,
   SpacingProvider,
+  TextInput,
+  Button
+} from 'suomifi-ui-components';
+
+<SpacingProvider
+  margins={{
+    textInput: { margin: 's' },
+    button: { mb: 'm', ml: 's' }
+  }}
+>
+  <div style={{ border: '1px dotted blue' }}>
+    <TextInput labelText="First name" />
+    <TextInput labelText="Last name" />
+    <Button>Submit</Button>
+  </div>
+</SpacingProvider>;
+```
+
+### Overriding global margins
+
+The global margins given via the provider are set as low specificity css styles, and can thus be easily overridden where needed. Override can be made using one of these options:
+
+- CSS styles using class selectors
+- Styled-component with margin specified
+- An inner `SpacingProvider` wrapper
+
+In the example below all the buttons are inside a spacing provider with margins rules for buttons, but some of them have their styles overridden using the above methods.
+
+```js
+import {
+  SpacingProvider,
+  TextInput,
+  Button,
+  Paragraph
+} from 'suomifi-ui-components';
+import { default as styled } from 'styled-components';
+
+const StyledButton = styled(Button)`
+  margin: 0;
+`;
+
+<div
+  style={{
+    border: '1px dotted blue',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    width: '100%'
+  }}
+>
+  <SpacingProvider
+    margins={{
+      button: { margin: 'm' }
+    }}
+  >
+    <Button>Button with global margins</Button>
+    <SpacingProvider margins={{ button: {} }}>
+      <Button>Margins overridden with nested provider</Button>
+    </SpacingProvider>
+    <Button>Button with global margins</Button>
+    <StyledButton>
+      Margins overridden using styled-components
+    </StyledButton>
+  </SpacingProvider>
+</div>;
+```
+
+### An example form
+
+With the provider developers can generate a margin ruleset once for a specific use case e.g. a form. The ruleset along with the `SpacingProvider` component can then be used to quickly create layouts in similar cases.
+
+```js
+import {
   Button,
   TextInput,
   Textarea,
-  SingleSelect,
-  StatusText,
-  TimeInput,
-  ToggleInput,
-  ToggleButton
+  Checkbox,
+  Paragraph,
+  Heading,
+  SpacingProvider
 } from 'suomifi-ui-components';
 
-const countries = [
-  {
-    labelText: 'Switzerland',
-    uniqueItemId: 'sw2435626'
-  },
-  {
-    labelText: 'France',
-    uniqueItemId: 'fr9823523'
-  },
-  {
-    labelText: 'Spain',
-    uniqueItemId: 'sp908293482'
-  }
-];
-
-<div>
+<div
+  style={{
+    border: '1px dotted blue',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  }}
+>
   <SpacingProvider
     margins={{
-      alert: { my: 'l' },
-      all: { ml: 'xl' },
-      button: { ml: 'xl', mb: 'm' },
-      textInput: { mb: 'm' },
-      singleSelect: { ml: 'xxl' },
-      statusText: { mt: 'xl' },
-      textarea: { ml: 'xxl' },
-      toggleInput: { ml: 'xxxl' },
-      toggleButton: { ml: 'xl' },
-      actionMenu: { mt: 'l' }
+      all: { margin: 'xl' },
+      button: { mb: 'xs' }
+      // textInput: { mb: 'm' },
+      // textarea: { mb: 'm' },
+      // heading: { my: 'm' },
+      // paragraph: { mb: 'm' }
     }}
   >
-    <Alert
-      closeText="Close"
-      onCloseButtonClick={() => setShowAlert(false)}
-    >
-      You are using a beta version of the service. It might contain
-      some bugs or glitches.
-    </Alert>
-    <Button>Testinappi</Button>
+    <Heading variant="h2">Feedback</Heading>
+    <Paragraph>Please tell us how we did.</Paragraph>
     <TextInput
       onBlur={(event) => console.log(event.target.value)}
-      labelText="TextInput with visible label"
-      statusText="Tietoa statuksesta"
+      labelText="Name"
     />
     <TextInput
+      type="email"
       onBlur={(event) => console.log(event.target.value)}
-      labelText="TextInput with visible label"
+      labelText="Email"
     />
-    <SpacingProvider margins={{ singleSelect: { ml: 'xs' } }}>
-      <SingleSelect
-        labelText="Country of residence"
-        hintText="Select your current country of residence. You can filter options by typing in the field."
-        clearButtonLabel="Clear selection"
-        items={countries}
-        visualPlaceholder="Choose country"
-        noItemsText="No items"
-        ariaOptionsAvailableTextFunction={(amount) =>
-          amount === 1 ? 'option available' : 'options available'
-        }
-      />
-    </SpacingProvider>
-    <Textarea labelText="Tekstikenttä" />
-    <TimeInput labelText="Opening time" />
-    <StatusText>Statusta</StatusText>
-    <ToggleButton onClick={(checked) => console.log(checked)}>
-      Airplane mode
-    </ToggleButton>
-    <ToggleInput onClick={(checked) => console.log(checked)}>
-      Another airplane mode (ToggleInput)
-    </ToggleInput>
-    <ActionMenu buttonText="Actions">
-      <ActionMenuItem onClick={() => console.log('Copy')}>
-        Copy
-      </ActionMenuItem>
-      <ActionMenuItem onClick={() => console.log('Edit')}>
-        Edit
-      </ActionMenuItem>
-      <ActionMenuItem onClick={() => console.log('Move')}>
-        Move
-      </ActionMenuItem>
-      <ActionMenuItem onClick={() => console.log('Remove')}>
-        Remove
-      </ActionMenuItem>
-    </ActionMenu>
+    <Textarea labelText="Your message" />
+    <Button>Submit</Button>
   </SpacingProvider>
 </div>;
 ```
