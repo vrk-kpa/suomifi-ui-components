@@ -5,8 +5,14 @@ import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
-import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  ColorProp,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import { baseStyles } from './Paragraph.baseStyles';
 import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
 
@@ -20,7 +26,13 @@ export interface ParagraphProps extends HtmlPProps, MarginProps {
 }
 
 const StyledParagraph = styled(
-  ({ className, theme, style, ...rest }: ParagraphProps & SuomifiThemeProp) => {
+  ({
+    className,
+    theme,
+    style,
+    globalMargins,
+    ...rest
+  }: ParagraphProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
 
@@ -33,16 +45,25 @@ const StyledParagraph = styled(
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.paragraph)}
 `;
 
 const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
   (props, ref) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledParagraph theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledParagraph
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
