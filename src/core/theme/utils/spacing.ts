@@ -16,6 +16,8 @@ export type SpacingWithoutInsetProp =
   | 'xxxxl'
   | '0';
 
+export type GlobalMarginProps = { globalMargins: GlobalMargins };
+
 const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
   if (val === '0') return '0';
   return !!val ? theme.spacing[val] : '';
@@ -54,13 +56,72 @@ export interface MarginProps {
   my?: SpacingWithoutInsetProp;
 }
 
+export type GlobalMargins = {
+  all?: MarginProps;
+  alert?: MarginProps;
+  actionMenu?: MarginProps;
+  block?: MarginProps;
+  button?: MarginProps;
+  breadcrumb?: MarginProps;
+  checkbox?: MarginProps;
+  checkboxGroup?: MarginProps;
+  chip?: MarginProps;
+  dateInput?: MarginProps;
+  dropdown?: MarginProps;
+  expander?: MarginProps;
+  expanderGroup?: MarginProps;
+  externalLink?: MarginProps;
+  heading?: MarginProps;
+  hintText?: MarginProps;
+  inlineAlert?: MarginProps;
+  label?: MarginProps;
+  languageMenu?: MarginProps;
+  link?: MarginProps;
+  linkList?: MarginProps;
+  loadingSpinner?: MarginProps;
+  multiSelect?: MarginProps;
+  notification?: MarginProps;
+  pagination?: MarginProps;
+  radioButton?: MarginProps;
+  radioButtonGroup?: MarginProps;
+  routerLink?: MarginProps;
+  searchInput?: MarginProps;
+  serviceNavigation?: MarginProps;
+  sideNavigation?: MarginProps;
+  singleSelect?: MarginProps;
+  staticChip?: MarginProps;
+  statusText?: MarginProps;
+  text?: MarginProps;
+  textarea?: MarginProps;
+  textInput?: MarginProps;
+  timeInput?: MarginProps;
+  toast?: MarginProps;
+  toggleInput?: MarginProps;
+  toggleButton?: MarginProps;
+  tooltip?: MarginProps;
+  wizardNavigation?: MarginProps;
+};
+
 export interface SpacingProps extends PaddingProps, MarginProps {}
 
-export const spacingStyles = (props: SpacingProps) => {
+export const spacingStyles = (props: SpacingProps | undefined) => {
+  if (!props) return;
   const array = Object.entries(props).map(([key, value]) =>
     getSpacingStyle(defaultSuomifiTheme, key as keyof SpacingProps, value),
   );
   return Object.assign({}, ...array);
+};
+
+export const getCssSpacing = (props: SpacingProps | undefined): string => {
+  if (!props) return '';
+
+  const cssStyles = Object.entries(props)
+    .map(([key, value]) =>
+      getCSSSpacing(defaultSuomifiTheme, key as keyof SpacingProps, value),
+    )
+    .join('');
+
+  return cssStyles;
 };
 
 const inlineStyle = {
@@ -74,6 +135,19 @@ const inlineStyle = {
   pr: 'paddingRight',
   pb: 'paddingBottom',
   pl: 'paddingLeft',
+};
+
+const cssSelector = {
+  margin: 'margin',
+  mt: 'margin-top',
+  mr: 'margin-right',
+  mb: 'margin-bottom',
+  ml: 'margin-left',
+  padding: 'padding',
+  pt: 'padding-top',
+  pr: 'padding-right',
+  pb: 'padding-bottom',
+  pl: 'padding-left',
 };
 
 const getSpacingStyle = (
@@ -104,6 +178,26 @@ const getSpacingStyle = (
       return { [inlineStyle[key]]: `${amount}` };
     default:
       return '';
+  }
+};
+
+const getCSSSpacing = (
+  theme: SuomifiTheme,
+  key: keyof SpacingProps,
+  value: SpacingProp,
+) => {
+  const amount = spaceVal(theme)(value);
+  switch (key) {
+    case 'mx':
+      return `margin-right: ${amount}; margin-left: ${amount};`;
+    case 'my':
+      return `margin-top: ${amount}; margin-bottom: ${amount};`;
+    case 'px':
+      return `padding-right: ${amount}; padding-left: ${amount};`;
+    case 'py':
+      return `padding-top: ${amount}; padding-bottom: ${amount};`;
+    default:
+      return `${[cssSelector[key]]}: ${amount};`;
   }
 };
 

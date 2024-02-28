@@ -38,6 +38,9 @@ import { Block } from 'suomifi-ui-components';
   >
     Block with indepedent paddings on each side
   </Block>
+  <Block mt="xl" padding="s" style={{ border: '1px solid red' }}>
+    Block with top margin and small padding
+  </Block>
 </>;
 ```
 
