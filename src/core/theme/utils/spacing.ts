@@ -16,8 +16,6 @@ export type SpacingWithoutInsetProp =
   | 'xxxxl'
   | '0';
 
-export type GlobalMarginProps = { globalMargins: GlobalMargins };
-
 const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
   if (val === '0') return '0';
   return !!val ? theme.spacing[val] : '';
@@ -56,52 +54,6 @@ export interface MarginProps {
   my?: SpacingWithoutInsetProp;
 }
 
-export type GlobalMargins = {
-  all?: MarginProps;
-  alert?: MarginProps;
-  actionMenu?: MarginProps;
-  block?: MarginProps;
-  button?: MarginProps;
-  breadcrumb?: MarginProps;
-  checkbox?: MarginProps;
-  checkboxGroup?: MarginProps;
-  chip?: MarginProps;
-  dateInput?: MarginProps;
-  dropdown?: MarginProps;
-  expander?: MarginProps;
-  expanderGroup?: MarginProps;
-  externalLink?: MarginProps;
-  heading?: MarginProps;
-  hintText?: MarginProps;
-  inlineAlert?: MarginProps;
-  label?: MarginProps;
-  languageMenu?: MarginProps;
-  link?: MarginProps;
-  linkList?: MarginProps;
-  loadingSpinner?: MarginProps;
-  multiSelect?: MarginProps;
-  notification?: MarginProps;
-  pagination?: MarginProps;
-  radioButton?: MarginProps;
-  radioButtonGroup?: MarginProps;
-  routerLink?: MarginProps;
-  searchInput?: MarginProps;
-  serviceNavigation?: MarginProps;
-  sideNavigation?: MarginProps;
-  singleSelect?: MarginProps;
-  staticChip?: MarginProps;
-  statusText?: MarginProps;
-  text?: MarginProps;
-  textarea?: MarginProps;
-  textInput?: MarginProps;
-  timeInput?: MarginProps;
-  toast?: MarginProps;
-  toggleInput?: MarginProps;
-  toggleButton?: MarginProps;
-  tooltip?: MarginProps;
-  wizardNavigation?: MarginProps;
-};
-
 export interface SpacingProps extends PaddingProps, MarginProps {}
 
 export const spacingStyles = (props: SpacingProps | undefined) => {
@@ -112,7 +64,7 @@ export const spacingStyles = (props: SpacingProps | undefined) => {
   return Object.assign({}, ...array);
 };
 
-export const getCssSpacing = (props: SpacingProps | undefined): string => {
+export const buildSpacingCSS = (props: SpacingProps | undefined): string => {
   if (!props) return '';
 
   const cssStyles = Object.entries(props)

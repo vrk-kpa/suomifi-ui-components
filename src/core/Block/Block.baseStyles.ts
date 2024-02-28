@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { BlockVariant } from './Block';
-import { SpacingProps, getCssSpacing } from '../theme/utils/spacing';
+import { SpacingProps, buildSpacingCSS } from '../theme/utils/spacing';
 
 export const baseStyles = (
   theme: SuomifiTheme,
@@ -12,5 +12,5 @@ export const baseStyles = (
   ${element(theme)}
   ${font(theme)('bodyText')}
   ${!!variant && variant === 'span' ? 'display: inline-block' : ''}
-  ${getCssSpacing(spacingProps)}
+  ${buildSpacingCSS(spacingProps)}
 `;
