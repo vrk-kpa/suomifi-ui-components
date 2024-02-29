@@ -63,7 +63,7 @@ const StyledButton = styled(Button)`
     }}
   >
     <Button>Button with global margins</Button>
-    <SpacingProvider margins={{ button: {} }}>
+    <SpacingProvider margins={{ button: { margin: 0 } }}>
       <Button>Margins overridden with nested provider</Button>
     </SpacingProvider>
     <Button>Button with global margins</Button>
@@ -99,12 +99,8 @@ import {
 >
   <SpacingProvider
     margins={{
-      all: { margin: 'xl' },
-      button: { mb: 'xs' }
-      // textInput: { mb: 'm' },
-      // textarea: { mb: 'm' },
-      // heading: { my: 'm' },
-      // paragraph: { mb: 'm' }
+      all: { mb: 'xs' },
+      button: { mb: 'xxs' }
     }}
   >
     <Heading variant="h2">Feedback</Heading>
