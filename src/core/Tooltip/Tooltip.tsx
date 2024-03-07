@@ -152,6 +152,7 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
       toggleButtonClassName,
       contentClassName,
       forwardedRef,
+      anchorElement,
       className,
       ...passProps
     } = this.props;
