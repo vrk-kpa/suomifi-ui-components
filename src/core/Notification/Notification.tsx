@@ -7,7 +7,7 @@ import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { Button, ButtonProps } from '../Button/Button';
+import { Button, ButtonProps, LoadingProps } from '../Button/Button';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
   spacingStyles,
@@ -35,7 +35,7 @@ export type CloseButtonProps =
       showCloseButton: false;
       closeText?: string;
       onCloseButtonClick?: () => void;
-      closeButtonProps?: Omit<ButtonProps, 'onClick'>;
+      closeButtonProps?: Omit<ButtonProps, 'onClick' | keyof LoadingProps>;
     }
   | {
       /** Show or hide close button

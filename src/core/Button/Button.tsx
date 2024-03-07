@@ -9,6 +9,8 @@ import {
   separateMarginProps,
   MarginProps,
 } from '../theme/utils/spacing';
+import { IconPreloader } from 'suomifi-icons';
+import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 
 export type ButtonVariant =
   | 'default'
@@ -33,6 +35,20 @@ export type ForcedAccessibleNameProps =
        * Alternatively you can define an `aria-labelledby`.
        */
       'aria-label': string;
+    };
+
+export type LoadingProps =
+  | {
+      loading?: false | never;
+      ariaLoadingText?: never;
+    }
+  | {
+      /** Shows the animated icon indicating a loading state
+       * @default false
+       */
+      loading?: true;
+      /** Text for assistive technology to indicate loading state. Required with `loading` */
+      ariaLoadingText: string;
     };
 
 interface InternalButtonProps
@@ -68,7 +84,9 @@ interface InternalButtonProps
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
-export type ButtonProps = InternalButtonProps & ForcedAccessibleNameProps;
+export type ButtonProps = InternalButtonProps &
+  ForcedAccessibleNameProps &
+  LoadingProps;
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -76,6 +94,9 @@ const iconClassName = `${baseClassName}_icon`;
 const iconStandaloneClassName = `${baseClassName}--icon-only`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
+const loadingButtonClassName = `${baseClassName}--loading`;
+const loadingButtonIconOnlyClassName = `${baseClassName}--loading-icon-only`;
+const loadingIconClassName = `${baseClassName}_loading-icon`;
 
 class BaseButton extends Component<ButtonProps> {
   render() {
@@ -83,9 +104,11 @@ class BaseButton extends Component<ButtonProps> {
       fullWidth,
       variant = 'default',
       className,
-      disabled = false,
+      loading,
+      ariaLoadingText,
+      disabled,
       onClick,
-      'aria-disabled': ariaDisabled = false,
+      'aria-disabled': ariaDisabled = loading || false,
       icon,
       iconRight,
       forwardedRef,
@@ -95,36 +118,46 @@ class BaseButton extends Component<ButtonProps> {
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
-    const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
+    const onClickProp = !!disabled || !!ariaDisabled ? null : { onClick };
 
     return (
-      <HtmlButton
-        {...passProps}
-        {...onClickProp}
-        {...(!!disabled ? {} : { tabIndex: 0 })}
-        aria-disabled={!!ariaDisabled || !!disabled}
-        forwardedRef={forwardedRef}
-        disabled={!!disabled}
-        className={classnames(baseClassName, className, {
-          [disabledClassName]: !!disabled || !!ariaDisabled,
-          [`${baseClassName}--inverted`]: variant === 'inverted',
-          [`${baseClassName}--secondary`]: variant === 'secondary',
-          [`${baseClassName}--secondary-noborder`]:
-            variant === 'secondaryNoBorder',
-          [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
-          [fullWidthClassName]: fullWidth,
-          [iconStandaloneClassName]: (!!icon || !!iconRight) && !children,
-        })}
-        style={{ ...marginStyle, ...style }}
-      >
-        {!!icon && <HtmlSpan className={iconClassName}>{icon}</HtmlSpan>}
-        {children}
-        {!!iconRight && (
-          <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
-            {iconRight}
-          </HtmlSpan>
-        )}
-      </HtmlButton>
+      <>
+        <VisuallyHidden aria-live="polite">
+          {loading && ariaLoadingText}
+        </VisuallyHidden>
+        <HtmlButton
+          {...passProps}
+          {...onClickProp}
+          {...(!!disabled ? {} : { tabIndex: 0 })}
+          aria-disabled={!!ariaDisabled || !!disabled}
+          forwardedRef={forwardedRef}
+          disabled={!!disabled}
+          className={classnames(baseClassName, className, {
+            [disabledClassName]: !!disabled || !!ariaDisabled,
+            [`${baseClassName}--inverted`]: variant === 'inverted',
+            [`${baseClassName}--secondary`]: variant === 'secondary',
+            [`${baseClassName}--secondary-noborder`]:
+              variant === 'secondaryNoBorder',
+            [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
+            [fullWidthClassName]: fullWidth,
+            [iconStandaloneClassName]: (!!icon || !!iconRight) && !children,
+            [loadingButtonClassName]: loading,
+            [loadingButtonIconOnlyClassName]: loading && !children,
+          })}
+          style={{ ...marginStyle, ...style }}
+        >
+          {loading && <IconPreloader className={loadingIconClassName} />}
+          {!!icon && !loading && (
+            <HtmlSpan className={iconClassName}>{icon}</HtmlSpan>
+          )}
+          {children}
+          {!!iconRight && !loading && (
+            <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
+              {iconRight}
+            </HtmlSpan>
+          )}
+        </HtmlButton>
+      </>
     );
   }
 }

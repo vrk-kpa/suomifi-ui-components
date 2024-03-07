@@ -5,6 +5,7 @@ import { font, element } from '../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyTextSmall')}
+  line-height: 1;
   &.fi-loadingSpinner {
     display: block;
     text-align: center;

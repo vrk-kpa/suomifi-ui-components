@@ -98,4 +98,35 @@ describe('Button variant', () => {
       expect(button).toHaveAttribute('style', 'margin: 2px;');
     });
   });
+
+  describe('Loading spinner', () => {
+    it('should display a loading spinner when loading prop is used', () => {
+      const { container } = render(
+        <Button loading ariaLoadingText="Loading">
+          Test button
+        </Button>,
+      );
+      const spinner = container.querySelector('svg');
+      expect(spinner).toBeInTheDocument();
+    });
+    it('should render a visually hidden aria-live text when loading prop is used', async () => {
+      const { container, rerender } = render(<Button>Test button</Button>);
+      const visuallyHiddenElement = container.querySelector(
+        '.fi-visually-hidden',
+      );
+      expect(visuallyHiddenElement).toBeEmptyDOMElement();
+
+      rerender(
+        <Button loading ariaLoadingText="Loading">
+          Test button
+        </Button>,
+      );
+      const visuallyHiddenElementWithLoadingState = container.querySelector(
+        '.fi-visually-hidden',
+      );
+      expect(visuallyHiddenElementWithLoadingState).toHaveTextContent(
+        'Loading',
+      );
+    });
+  });
 });

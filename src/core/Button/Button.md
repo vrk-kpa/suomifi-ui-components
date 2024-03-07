@@ -11,6 +11,7 @@ Examples:
 - [Secondary button](./#/Components/Button?id=secondary-button)
 - [Light secondary button](./#/Components/Button?id=light-secondary-button)
 - [Inverted button](./#/Components/Button?id=inverted-button)
+- [Loading state](./#/Components/Button?id=loading-state)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/Button?id=props--methods)
@@ -129,6 +130,25 @@ import {
 >
   <Button variant="inverted">Open</Button>
 </Block>;
+```
+
+### Loading state
+
+Use the `loading` prop to display a loading spinner in the Button. Also provide a `ariaLoadingText` for screen readers.
+
+```jsx
+import { Button } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [loading, setLoading] = useState(false);
+
+<Button
+  onClick={() => setLoading(true)}
+  loading={loading}
+  ariaLoadingText="Loading"
+>
+  Submit
+</Button>;
 ```
 
 ### Props & methods
