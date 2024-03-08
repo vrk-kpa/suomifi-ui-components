@@ -56,11 +56,24 @@ export interface MarginProps {
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
 
-export const spacingStyles = (props: SpacingProps) => {
+export const spacingStyles = (props: SpacingProps | undefined) => {
+  if (!props) return;
   const array = Object.entries(props).map(([key, value]) =>
     getSpacingStyle(defaultSuomifiTheme, key as keyof SpacingProps, value),
   );
   return Object.assign({}, ...array);
+};
+
+export const buildSpacingCSS = (props: SpacingProps | undefined): string => {
+  if (!props) return '';
+
+  const cssStyles = Object.entries(props)
+    .map(([key, value]) =>
+      getCSSSpacing(defaultSuomifiTheme, key as keyof SpacingProps, value),
+    )
+    .join('');
+
+  return cssStyles;
 };
 
 const inlineStyle = {
@@ -74,6 +87,19 @@ const inlineStyle = {
   pr: 'paddingRight',
   pb: 'paddingBottom',
   pl: 'paddingLeft',
+};
+
+const cssSelector = {
+  margin: 'margin',
+  mt: 'margin-top',
+  mr: 'margin-right',
+  mb: 'margin-bottom',
+  ml: 'margin-left',
+  padding: 'padding',
+  pt: 'padding-top',
+  pr: 'padding-right',
+  pb: 'padding-bottom',
+  pl: 'padding-left',
 };
 
 const getSpacingStyle = (
@@ -104,6 +130,26 @@ const getSpacingStyle = (
       return { [inlineStyle[key]]: `${amount}` };
     default:
       return '';
+  }
+};
+
+const getCSSSpacing = (
+  theme: SuomifiTheme,
+  key: keyof SpacingProps,
+  value: SpacingProp,
+) => {
+  const amount = spaceVal(theme)(value);
+  switch (key) {
+    case 'mx':
+      return `margin-right: ${amount}; margin-left: ${amount};`;
+    case 'my':
+      return `margin-top: ${amount}; margin-bottom: ${amount};`;
+    case 'px':
+      return `padding-right: ${amount}; padding-left: ${amount};`;
+    case 'py':
+      return `padding-top: ${amount}; padding-bottom: ${amount};`;
+    default:
+      return `${[cssSelector[key]]}: ${amount};`;
   }
 };
 
