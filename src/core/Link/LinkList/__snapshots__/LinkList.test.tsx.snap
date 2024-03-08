@@ -10,11 +10,11 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c5 .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: currentColor;
 }
 
 .c5 .fi-icon-base-stroke {
-  stroke: hsl(212,63%,45%);
+  stroke: currentColor;
 }
 
 .c5.fi-icon--cursor-pointer {
