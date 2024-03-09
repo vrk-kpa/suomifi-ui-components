@@ -2,6 +2,12 @@ The `<MultiSelect>` component is used to select multiple items from a list of op
 
 If you need to select only one option, use the [SingleSelect](./#/Components/SingleSelect) component instead.
 
+### Accessibility notes
+
+- Options are not read out by VoiceOver on macOS when using Safari and when navigating options using up/down arrow keys. Options remain accessible using regular VO+arrow key combinations.
+- The selected state of an option is not read out by JAWS with either Chrome or Firefox or macOS VoiceOver with Safari.
+- Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
+
 Examples:
 
 - [Basic use](./#/Components/MultiSelect?id=basic-use)
