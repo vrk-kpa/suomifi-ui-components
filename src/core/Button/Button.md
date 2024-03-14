@@ -136,7 +136,7 @@ import {
 
 Use the `loading` prop to display a loading spinner in the Button. Also provide a `ariaLoadingText` for screen readers.
 
-When the loading event ends successfully, it is recommended to display a `<Toast>` if there is no apparent change to the current page, or alternatively move the browser's focus to a newly appeared element.
+When the loading event ends successfully, it is recommended to use a `<Toast>` or similar notification if there is no apparent change to the current page, or alternatively move the browser's focus to a newly appeared element.
 
 ```jsx
 import { Button, Toast } from 'suomifi-ui-components';
