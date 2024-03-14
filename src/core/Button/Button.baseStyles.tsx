@@ -54,6 +54,12 @@ const secondary = (theme: SuomifiTheme) => css`
     background-color: ${theme.colors.highlightLight4};
     border-color: ${theme.colors.depthBase};
   }
+
+  .fi-button_loading-icon {
+    .fi-icon-component-brand-fill {
+      fill: ${theme.colors.depthBase};
+    }
+  }
 `;
 
 const secondaryStyles = (theme: SuomifiTheme) => css`
@@ -71,6 +77,12 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
 
     &.fi-button--icon-only {
       padding: ${theme.spacing.insetS} 12px;
+    }
+
+    .fi-button_loading-icon {
+      .fi-icon-component-brand-fill {
+        fill: ${theme.colors.depthBase};
+      }
     }
   }
 `;
@@ -101,6 +113,12 @@ const secondaryLightStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.depthBase};
       background: none;
       background-color: ${theme.colors.depthLight3};
+    }
+
+    .fi-button_loading-icon {
+      .fi-icon-component-brand-fill {
+        fill: ${theme.colors.depthBase};
+      }
     }
   }
 `;
@@ -185,5 +203,44 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-button--disabled > .fi-button_icon {
     cursor: not-allowed;
+  }
+
+  .fi-button_loading-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: ${theme.spacing.insetM};
+    animation: rotation 1.5s infinite linear;
+
+    .fi-icon-component-brand-fill {
+      fill: ${theme.colors.whiteBase};
+    }
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  @media (prefers-reduced-motion) {
+    &.fi-loadingSpinner.fi-loadingSpinner--loading {
+      .fi-loadingSpinner_icon {
+        animation: rotation 10s infinite linear;
+      }
+    }
+  }
+
+  &.fi-button--loading {
+    display: flex;
+    align-items: center;
+  }
+
+  &.fi-button--loading-icon-only {
+    .fi-button_loading-icon {
+      margin-right: 0;
+    }
   }
 `;

@@ -3199,6 +3199,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c13 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -3330,6 +3342,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -3360,8 +3376,16 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-noborder.fi-button--icon-only {
   padding: 6px 12px;
+}
+
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c13.fi-button--secondary-light {
@@ -3395,6 +3419,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-light.fi-button--icon-only {
   padding: 6px 12px;
 }
@@ -3413,6 +3441,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c13 > .fi-button_icon > .fi-icon {
@@ -3444,6 +3476,34 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c13 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c13 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c13.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c17.fi-month-day {
@@ -3587,18 +3647,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   text-align: center;
   min-width: 36px;
   height: 38px;
-}
-
-.c7 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
 }
 
 .c3.fi-label .fi-label_label-span {
@@ -4289,6 +4337,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-radius: 2px 0 0 2px;
 }
 
+@media (prefers-reduced-motion) {
+  .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
+}
+
 <body>
   <div>
     <div
@@ -4474,6 +4529,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <div
           class="c0 fi-date-selectors_buttons"
         >
+          <span
+            aria-live="polite"
+            class="c4 c7 fi-visually-hidden"
+          />
           <button
             aria-disabled="false"
             aria-label="Edellinen kuukausi Joulukuu"
@@ -4498,6 +4557,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
               />
             </svg>
           </button>
+          <span
+            aria-live="polite"
+            class="c4 c7 fi-visually-hidden"
+          />
           <button
             aria-disabled="false"
             aria-label="Seuraava kuukausi Helmikuu"
@@ -5134,6 +5197,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
       <div
         class="c0 fi-date-picker_bottom-container"
       >
+        <span
+          aria-live="polite"
+          class="c4 c7 fi-visually-hidden"
+        />
         <button
           aria-disabled="false"
           class="c6 fi-button c13 fi-button--secondary-noborder"
@@ -5399,6 +5466,18 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c13 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -5530,6 +5609,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -5560,8 +5643,16 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-noborder.fi-button--icon-only {
   padding: 6px 12px;
+}
+
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c13.fi-button--secondary-light {
@@ -5595,6 +5686,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-light.fi-button--icon-only {
   padding: 6px 12px;
 }
@@ -5613,6 +5708,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c13 > .fi-button_icon > .fi-icon {
@@ -5644,6 +5743,34 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c13 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c13 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c13.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c17.fi-month-day {
@@ -5787,18 +5914,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   text-align: center;
   min-width: 36px;
   height: 38px;
-}
-
-.c7 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
 }
 
 .c3.fi-label .fi-label_label-span {
@@ -6489,6 +6604,13 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-radius: 2px 0 0 2px;
 }
 
+@media (prefers-reduced-motion) {
+  .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
+}
+
 <body>
   <div>
     <div
@@ -6683,6 +6805,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
           <div
             class="c0 fi-date-selectors_buttons"
           >
+            <span
+              aria-live="polite"
+              class="c4 c7 fi-visually-hidden"
+            />
             <button
               aria-disabled="false"
               aria-label="Edellinen kuukausi Joulukuu"
@@ -6707,6 +6833,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 />
               </svg>
             </button>
+            <span
+              aria-live="polite"
+              class="c4 c7 fi-visually-hidden"
+            />
             <button
               aria-disabled="false"
               aria-label="Seuraava kuukausi Helmikuu"
@@ -7343,6 +7473,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         <div
           class="c0 fi-date-picker_bottom-container"
         >
+          <span
+            aria-live="polite"
+            class="c4 c7 fi-visually-hidden"
+          />
           <button
             aria-disabled="false"
             class="c6 fi-button c13 fi-button--secondary-noborder"

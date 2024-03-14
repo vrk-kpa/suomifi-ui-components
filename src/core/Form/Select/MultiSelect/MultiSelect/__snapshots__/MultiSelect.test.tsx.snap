@@ -997,6 +997,10 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c15.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c15.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -1027,8 +1031,16 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c15.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c15.fi-button--secondary-noborder.fi-button--icon-only {
   padding: 6px 12px;
+}
+
+.c15.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c15.fi-button--secondary-light {
@@ -1062,6 +1074,10 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c15.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c15.fi-button--secondary-light.fi-button--icon-only {
   padding: 6px 12px;
 }
@@ -1080,6 +1096,10 @@ exports[`has matching snapshot 1`] = `
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c15.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c15 > .fi-button_icon > .fi-icon {
@@ -1111,6 +1131,34 @@ exports[`has matching snapshot 1`] = `
 
 .c15.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c15 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c15 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c15.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c8 {
@@ -1229,6 +1277,13 @@ exports[`has matching snapshot 1`] = `
 @media (forced-colors:active) {
   .c20.fi-select-item:hover {
     background-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .c15.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
   }
 }
 
@@ -1427,6 +1482,10 @@ exports[`has matching snapshot 1`] = `
             </button>
           </div>
         </div>
+        <span
+          aria-live="polite"
+          class="c5 c9 fi-visually-hidden"
+        />
         <button
           aria-disabled="false"
           class="c7 fi-button c15 fi-multiselect_removeAllButton fi-button--secondary-light"

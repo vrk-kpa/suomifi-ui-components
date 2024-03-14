@@ -18,6 +18,7 @@ import {
   ButtonProps,
   ButtonVariant,
   ForcedAccessibleNameProps,
+  LoadingProps,
 } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import {
@@ -44,7 +45,7 @@ export type MenuContent =
   | ReactElement<ActionMenuDividerProps>;
 
 export type ActionMenuProps = MarginProps &
-  Omit<ButtonProps, keyof ForcedAccessibleNameProps> & {
+  Omit<ButtonProps, keyof ForcedAccessibleNameProps | keyof LoadingProps> & {
     /** Text content for the menu button */
     buttonText?: string;
     /**
