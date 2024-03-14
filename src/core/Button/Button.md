@@ -136,19 +136,46 @@ import {
 
 Use the `loading` prop to display a loading spinner in the Button. Also provide a `ariaLoadingText` for screen readers.
 
+When the loading event ends successfully, it is recommended to display a `<Toast>` if there is no apparent change to the current page, or alternatively move the browser's focus to a newly appeared element.
+
 ```jsx
-import { Button } from 'suomifi-ui-components';
+import { Button, Toast } from 'suomifi-ui-components';
 import { useState } from 'react';
 
 const [loading, setLoading] = useState(false);
+const [showToast, setShowToast] = useState(false);
 
-<Button
-  onClick={() => setLoading(true)}
-  loading={loading}
-  ariaLoadingText="Loading"
->
-  Submit
-</Button>;
+const simulateSubmit = () => {
+  setLoading(true);
+  setTimeout(() => {
+    setLoading(false);
+    flashToast();
+  }, 2000);
+};
+
+const flashToast = () => {
+  setShowToast(true);
+  setTimeout(() => {
+    setShowToast(false);
+  }, 5000);
+};
+
+const toastContainer = (
+  <div style={{ position: 'fixed', top: '20px', right: '20px' }}>
+    <Toast>Form submitted successfully</Toast>
+  </div>
+);
+
+<>
+  {showToast && toastContainer}
+  <Button
+    onClick={simulateSubmit}
+    loading={loading}
+    ariaLoadingText="Loading"
+  >
+    Submit
+  </Button>
+</>;
 ```
 
 ### Props & methods
