@@ -30,14 +30,7 @@ const checkboxClassNames = {
   error: `${baseClassName}--error`,
   checked: `${baseClassName}--checked`,
   large: `${baseClassName}--large`,
-};
-
-const iconBaseClassName = 'fi-checkbox_icon';
-
-const iconClassnames = {
-  disabled: `${iconBaseClassName}--disabled`,
-  checked: `${iconBaseClassName}--checked`,
-  error: `${iconBaseClassName}--error`,
+  icon: `${baseClassName}_icon`,
 };
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
@@ -222,15 +215,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           {...passProps}
         />
         <HtmlLabel htmlFor={id} className={checkboxClassNames.label}>
-          {!!checkedState && (
-            <IconCheck
-              className={classnames(iconBaseClassName, {
-                [iconClassnames.checked]: checkedState,
-                [iconClassnames.error]: status === 'error' && !disabled,
-                [iconClassnames.disabled]: !!disabled,
-              })}
-            />
-          )}
+          {!!checkedState && <IconCheck className={checkboxClassNames.icon} />}
           {children}
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>
