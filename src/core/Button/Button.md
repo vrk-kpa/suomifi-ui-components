@@ -167,7 +167,7 @@ const toastContainer = (
 );
 
 <>
-  {showToast && toastContainer}
+  <div aria-live="polite">{showToast && toastContainer}</div>
   <Button
     onClick={simulateSubmit}
     loading={loading}
