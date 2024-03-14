@@ -246,7 +246,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .c1.fi-textarea .fi-textarea_character-counter.fi-textarea_character-counter--error {
@@ -295,6 +295,10 @@ exports[`snapshot default structure should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
+}
+
+.c1.fi-textarea .fi-label {
+  margin-bottom: 10px;
 }
 
 .c1.fi-textarea .fi-textarea_textarea {
