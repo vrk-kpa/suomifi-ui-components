@@ -194,7 +194,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           baseClassName,
           {
             [checkboxClassNames.error]: status === 'error' && !disabled,
-            [checkboxClassNames.checked]: checkedState && !disabled,
+            [checkboxClassNames.checked]: checkedState,
             [checkboxClassNames.large]: variant === 'large',
             [checkboxClassNames.disabled]: !!disabled,
           },
@@ -225,7 +225,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           {!!checkedState && (
             <IconCheck
               className={classnames(iconBaseClassName, {
-                [iconClassnames.checked]: checkedState && !disabled,
+                [iconClassnames.checked]: checkedState,
                 [iconClassnames.error]: status === 'error' && !disabled,
                 [iconClassnames.disabled]: !!disabled,
               })}
