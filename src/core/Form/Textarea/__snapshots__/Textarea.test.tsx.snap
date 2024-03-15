@@ -272,10 +272,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   margin-top: 5px;
 }
 
-.c1.fi-textarea .fi-textarea_textarea-element-container {
-  margin-top: 10px;
-}
-
 .c1.fi-textarea .fi-textarea_textarea-element-container:focus-within {
   outline: 3px solid transparent;
   position: relative;
@@ -298,6 +294,10 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea .fi-label {
+  margin-bottom: 10px;
+}
+
+.c1.fi-textarea .fi-hint-text {
   margin-bottom: 10px;
 }
 

@@ -38,7 +38,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-textarea_textarea-element-container {
-      margin-top: ${theme.spacing.insetL};
       &:focus-within {
         ${theme.focuses.highContrastFocus} /* For high contrast mode */
         position: relative;
@@ -50,6 +49,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-label {
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    & .fi-hint-text {
       margin-bottom: ${theme.spacing.xs};
     }
 
