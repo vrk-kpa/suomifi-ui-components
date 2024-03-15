@@ -4,7 +4,11 @@ export {
   ToggleButton,
   ToggleButtonProps,
 } from './Toggle';
-export { TextInput, TextInputProps } from './TextInput/TextInput';
+export {
+  TextInput,
+  TextInputProps,
+  TextInputValue,
+} from './TextInput/TextInput';
 export { TimeInput, TimeInputProps } from './TimeInput/TimeInput';
 export { SearchInput, SearchInputProps } from './SearchInput/SearchInput';
 export { Checkbox, CheckboxProps } from './Checkbox/Checkbox';

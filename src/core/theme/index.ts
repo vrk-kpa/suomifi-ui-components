@@ -18,3 +18,9 @@ export {
   SpacingProp,
   GradientProp,
 } from './SuomifiTheme/SuomifiTheme';
+export {
+  MarginProps,
+  PaddingProps,
+  SpacingProps,
+  SpacingWithoutInsetProp,
+} from './utils/spacing';
