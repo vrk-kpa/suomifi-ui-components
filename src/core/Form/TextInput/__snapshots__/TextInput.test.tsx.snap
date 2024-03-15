@@ -211,20 +211,8 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
   width: 290px;
+  line-height: 0;
 }
 
 .c1 .fi-text-input_character-counter {
@@ -247,7 +235,7 @@ exports[`snapshots match error status with statustext 1`] = `
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .c1 .fi-text-input_character-counter.fi-text-input_character-counter--error {
@@ -697,20 +685,8 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
   width: 290px;
+  line-height: 0;
 }
 
 .c1 .fi-text-input_character-counter {
@@ -733,7 +709,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .c1 .fi-text-input_character-counter.fi-text-input_character-counter--error {
@@ -1152,20 +1128,8 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
   width: 290px;
+  line-height: 0;
 }
 
 .c1 .fi-text-input_character-counter {
@@ -1188,7 +1152,7 @@ exports[`snapshots match minimal implementation 1`] = `
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .c1 .fi-text-input_character-counter.fi-text-input_character-counter--error {

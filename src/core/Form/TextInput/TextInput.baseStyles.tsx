@@ -4,8 +4,8 @@ import { input, containerIEFocus, font } from '../../theme/reset';
 import { math } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  ${font(theme)('bodyText')}
   width: 290px;
+  line-height: 0;
 
   & .fi-text-input_character-counter {
     ${font(theme)('bodyTextSmall')};
@@ -13,7 +13,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     font-size: 14px;
     line-height: 20px;
     flex: none;
-    margin-top: 4px;
+    margin-top: ${theme.spacing.xxs};
 
     &.fi-text-input_character-counter--error {
       color: ${theme.colors.alertBase};
