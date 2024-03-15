@@ -42,6 +42,7 @@ export {
   CheckboxGroupProps,
   TextInput,
   TextInputProps,
+  TextInputValue,
   TimeInput,
   TimeInputProps,
   ToggleInput,
@@ -163,6 +164,10 @@ export {
   ColorProp,
   TypographyProp,
   SpacingProp,
+  MarginProps,
+  PaddingProps,
+  SpacingProps,
+  SpacingWithoutInsetProp,
 } from './core/theme';
 export { getLogger, setLogger, Logger } from './utils/log/logger';
 export { autocompleteTimeString } from './utils/common';

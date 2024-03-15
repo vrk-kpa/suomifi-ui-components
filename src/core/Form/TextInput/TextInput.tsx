@@ -50,7 +50,7 @@ export const textInputClassNames = {
   characterCounterError: `${baseClassName}_character-counter--error`,
 };
 
-type TextInputValue = string | number | undefined;
+export type TextInputValue = string | number | undefined;
 
 interface BaseTextInputProps
   extends StatusTextCommonProps,
