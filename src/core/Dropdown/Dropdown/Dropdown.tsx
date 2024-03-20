@@ -213,11 +213,32 @@ class BaseDropdown<T extends string = string> extends Component<
     prevState: DropdownState<U>,
   ) {
     const { value } = nextProps;
-    if ('value' in nextProps && value !== prevState.selectedValue) {
+    if (
+      // Handle selected value parsing with controlled state and changed value
+      'value' in nextProps &&
+      value !== prevState.selectedValue
+    ) {
       return {
         selectedValue: value,
         selectedValueNode: BaseDropdown.getSelectedValueNode(
           value,
+          nextProps.children,
+        ),
+      };
+    }
+    // Case language change. Make sure selectedValueNode gets updated with new text from children
+    if (
+      prevState.selectedValue &&
+      nextProps.children &&
+      BaseDropdown.valueExistsInChildren(
+        prevState.selectedValue,
+        nextProps.children,
+      )
+    ) {
+      return {
+        selectedValue: prevState.selectedValue,
+        selectedValueNode: BaseDropdown.getSelectedValueNode(
+          prevState.selectedValue,
           nextProps.children,
         ),
       };
@@ -249,6 +270,22 @@ class BaseDropdown<T extends string = string> extends Component<
     } else {
       return children.props.children;
     }
+  }
+
+  static valueExistsInChildren<U extends string>(
+    value: string,
+    children:
+      | Array<
+          | ReactElement<DropdownItemProps<U>>
+          | Array<ReactElement<DropdownItemProps<U>>>
+        >
+      | ReactElement<DropdownItemProps<U>>,
+  ) {
+    if (Array.isArray(children)) {
+      const flatChildren = children.flat();
+      return flatChildren.some((child) => child.props.value === value);
+    }
+    return children.props.value === value;
   }
 
   componentDidMount(): void {
