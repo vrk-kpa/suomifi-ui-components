@@ -86,7 +86,7 @@ const StyledStatusText = styled(
         aria-atomic="true"
         style={{ ...marginStyle, ...passProps?.style }}
       >
-        {getIcon(status, theme)}
+        {!!children && getIcon(status, theme)}
         {children}
       </HtmlSpan>
     );
