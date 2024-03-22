@@ -106,7 +106,7 @@ type AriaSelectedAmountProps =
 
 type LoadingProps =
   | {
-      loading?: false | never;
+      loading?: false;
       loadingText?: string;
     }
   | {
@@ -198,7 +198,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
 
 type AllowItemAdditionProps =
   | {
-      allowItemAddition?: false | never;
+      allowItemAddition?: false;
       itemAdditionHelpText?: never;
       noItemsText: string;
     }

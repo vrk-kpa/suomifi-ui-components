@@ -154,6 +154,8 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
       forwardedRef,
       anchorElement,
       className,
+      onToggleButtonClick,
+      onCloseButtonClick,
       ...passProps
     } = this.props;
     const open = 'open' in this.props ? propsOpen : this.state.open;

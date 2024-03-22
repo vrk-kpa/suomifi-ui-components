@@ -12,9 +12,10 @@ export interface VisuallyHiddenProps extends HtmlSpanProps {
 
 const baseClassName = 'fi-visually-hidden';
 
-const StyledVisuallyHidden = styled((props: VisuallyHiddenProps) => (
-  <HtmlSpan {...props} />
-))`
+const StyledVisuallyHidden = styled((props: VisuallyHiddenProps) => {
+  const { forwardedRef, ...passProps } = props;
+  return <HtmlSpan forwardedRef={forwardedRef} {...passProps} />;
+})`
   position: absolute;
   clip: rect(0 0 0 0);
   height: 1px;
