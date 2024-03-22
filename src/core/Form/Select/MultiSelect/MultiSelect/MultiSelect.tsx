@@ -198,7 +198,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
 
 type AllowItemAdditionProps =
   | {
-      allowItemAddition?: false | never;
+      allowItemAddition?: false;
       itemAdditionHelpText?: never;
       noItemsText: string;
     }
