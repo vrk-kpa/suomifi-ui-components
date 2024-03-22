@@ -132,7 +132,7 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
 
 type LoadingProps =
   | {
-      loading?: false | never;
+      loading?: false;
       loadingText?: string;
     }
   | {
@@ -146,7 +146,7 @@ type LoadingProps =
 
 type AllowItemAdditionProps =
   | {
-      allowItemAddition?: false | never;
+      allowItemAddition?: false;
       itemAdditionHelpText?: never;
       noItemsText: string;
     }

@@ -106,7 +106,7 @@ type AriaSelectedAmountProps =
 
 type LoadingProps =
   | {
-      loading?: false | never;
+      loading?: false;
       loadingText?: string;
     }
   | {

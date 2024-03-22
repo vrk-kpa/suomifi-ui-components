@@ -39,7 +39,7 @@ export type ForcedAccessibleNameProps =
 
 export type LoadingProps =
   | {
-      loading?: false | never;
+      loading?: false;
       ariaLoadingText?: never;
     }
   | {
