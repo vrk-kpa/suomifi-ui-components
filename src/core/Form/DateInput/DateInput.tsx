@@ -74,6 +74,10 @@ export interface DatePickerProps {
    */
   datePickerEnabled?: boolean;
   /**
+   * A custom class for styling the date picker
+   */
+  datePickerClassName?: string;
+  /**
    * Enables small screen version of calendar
    * @default false
    */
@@ -223,6 +227,7 @@ const BaseDateInput = (props: DateInputProps) => {
     defaultValue,
     value,
     datePickerEnabled = false,
+    datePickerClassName,
     smallScreen = false,
     datePickerTexts = undefined,
     language = defaultLanguage,
@@ -435,6 +440,7 @@ const BaseDateInput = (props: DateInputProps) => {
                 minDate={minDate}
                 maxDate={maxDate}
                 smallScreen={smallScreen}
+                datePickerClassName={datePickerClassName}
               />
             </HtmlDiv>
           )}

@@ -76,6 +76,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     minDate,
     maxDate,
     smallScreen,
+    datePickerClassName: customClassName,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -466,6 +467,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const dialogClasses = [
     className,
     baseClassName,
+    customClassName,
     {
       [datePickerClassNames.hidden]: !isOpen,
     },
