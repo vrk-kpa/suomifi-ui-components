@@ -321,6 +321,10 @@ exports[`props children has matching snapshot 1`] = `
   fill: hsl(202,7%,97%);
 }
 
+.c1.fi-checkbox--disabled .fi-hint-text {
+  color: hsl(202,7%,67%);
+}
+
 .c1.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {
   border-width: 2px;
 }

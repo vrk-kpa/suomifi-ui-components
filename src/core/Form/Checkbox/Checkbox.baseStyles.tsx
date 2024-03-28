@@ -54,6 +54,9 @@ const disabledStyles = (theme: SuomifiTheme) => css`
         fill: ${theme.colors.depthLight3};
       }
     }
+    & .fi-hint-text {
+      color: ${theme.colors.depthBase};
+    }
     &.fi-checkbox--large {
       & .fi-checkbox_label::before {
         border-width: 2px;
