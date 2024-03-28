@@ -17,7 +17,13 @@ import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { forkRefs } from '../../../utils/common/common';
-import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
+import {
+  HtmlInputProps,
+  HtmlDiv,
+  HtmlInput,
+  HtmlButton,
+  HtmlDivProps,
+} from '../../../reset';
 import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
@@ -76,7 +82,10 @@ export interface DatePickerProps {
   /**
    * A custom class for styling the date picker
    */
-  datePickerClassName?: string;
+  datePickerProps?: Omit<
+    HtmlDivProps,
+    'onChange' | 'style' | 'aria-hidden' | 'ref'
+  >;
   /**
    * Enables small screen version of calendar
    * @default false
@@ -227,7 +236,7 @@ const BaseDateInput = (props: DateInputProps) => {
     defaultValue,
     value,
     datePickerEnabled = false,
-    datePickerClassName,
+    datePickerProps: customDatePickerProps,
     smallScreen = false,
     datePickerTexts = undefined,
     language = defaultLanguage,
@@ -440,7 +449,7 @@ const BaseDateInput = (props: DateInputProps) => {
                 minDate={minDate}
                 maxDate={maxDate}
                 smallScreen={smallScreen}
-                datePickerClassName={datePickerClassName}
+                userProps={customDatePickerProps}
               />
             </HtmlDiv>
           )}

@@ -5,7 +5,7 @@ import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
-import { HtmlDiv, HtmlDivWithRef } from '../../../../reset';
+import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../../../reset';
 import { DatePickerProps } from '../DateInput';
 import { InternalDatePickerTextProps } from '../datePickerTexts';
 import { baseStyles } from './DatePicker.baseStyles';
@@ -60,6 +60,8 @@ export interface InternalDatePickerProps
   minDate: Date;
   /** Maximum date user can select from date picker. */
   maxDate: Date;
+  /** Custom props given to the datepicker component */
+  userProps?: Omit<HtmlDivProps, 'onChange' | 'style' | 'aria-hidden' | 'ref'>;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
@@ -76,7 +78,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     minDate,
     maxDate,
     smallScreen,
-    datePickerClassName: customClassName,
+    userProps = {},
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -464,6 +466,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     </HtmlDiv>
   );
 
+  const { className: customClassName, ...passProps } = userProps;
+
   const dialogClasses = [
     className,
     baseClassName,
@@ -480,6 +484,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       className={classnames(...dialogClasses)}
       style={styles.popper}
       forwardedRef={setDialogElement}
+      {...passProps}
     >
       {application}
       <div
@@ -512,6 +517,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         onPointerLeave={handlePointerUp}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        {...passProps}
       >
         <HtmlDivWithRef
           className={datePickerClassNames.slideIndicatorWrapper}
