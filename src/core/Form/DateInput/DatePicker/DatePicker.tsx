@@ -5,7 +5,7 @@ import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
-import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../../../reset';
+import { HtmlDiv, HtmlDivWithRef } from '../../../../reset';
 import { DatePickerProps } from '../DateInput';
 import { InternalDatePickerTextProps } from '../datePickerTexts';
 import { baseStyles } from './DatePicker.baseStyles';
@@ -23,6 +23,7 @@ import {
   moveMonths,
 } from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
+import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const baseClassName = 'fi-date-picker';
 
@@ -61,7 +62,10 @@ export interface InternalDatePickerProps
   /** Maximum date user can select from date picker. */
   maxDate: Date;
   /** Custom props given to the datepicker component */
-  userProps?: Omit<HtmlDivProps, 'onChange' | 'style' | 'aria-hidden' | 'ref'>;
+  userProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'onChange' | 'style' | 'aria-hidden' | 'ref'
+  >;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {

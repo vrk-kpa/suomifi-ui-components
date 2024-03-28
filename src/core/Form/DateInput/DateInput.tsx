@@ -16,14 +16,11 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
-import { forkRefs } from '../../../utils/common/common';
 import {
-  HtmlInputProps,
-  HtmlDiv,
-  HtmlInput,
-  HtmlButton,
-  HtmlDivProps,
-} from '../../../reset';
+  HTMLAttributesIncludingDataAttributes,
+  forkRefs,
+} from '../../../utils/common/common';
+import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
@@ -83,7 +80,7 @@ export interface DatePickerProps {
    * A custom class for styling the date picker
    */
   datePickerProps?: Omit<
-    HtmlDivProps,
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'onChange' | 'style' | 'aria-hidden' | 'ref'
   >;
   /**
