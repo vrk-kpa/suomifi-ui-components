@@ -16,7 +16,10 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
-import { forkRefs } from '../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  forkRefs,
+} from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
@@ -73,6 +76,13 @@ export interface DatePickerProps {
    * @default false
    */
   datePickerEnabled?: boolean;
+  /**
+   * A custom class for styling the date picker
+   */
+  datePickerProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'onChange' | 'style' | 'aria-hidden' | 'ref'
+  >;
   /**
    * Enables small screen version of calendar
    * @default false
@@ -223,6 +233,7 @@ const BaseDateInput = (props: DateInputProps) => {
     defaultValue,
     value,
     datePickerEnabled = false,
+    datePickerProps: customDatePickerProps,
     smallScreen = false,
     datePickerTexts = undefined,
     language = defaultLanguage,
@@ -435,6 +446,7 @@ const BaseDateInput = (props: DateInputProps) => {
                 minDate={minDate}
                 maxDate={maxDate}
                 smallScreen={smallScreen}
+                userProps={customDatePickerProps}
               />
             </HtmlDiv>
           )}
