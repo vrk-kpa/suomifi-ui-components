@@ -513,7 +513,7 @@ describe('props', () => {
         );
         expect(dateButton).toHaveAttribute(
           'aria-label',
-          '15 lauantai Elokuu 2020',
+          '15 lauantai Elokuu 2020 Valittu päivä',
         );
       });
 
@@ -767,7 +767,7 @@ describe('props', () => {
         );
         expect(dateButton).toHaveAttribute(
           'aria-label',
-          '1 perjantai Toukokuu 2020',
+          '1 perjantai Toukokuu 2020 Valittu päivä',
         );
       });
 
@@ -781,7 +781,7 @@ describe('props', () => {
         );
         expect(dateButton).toHaveAttribute(
           'aria-label',
-          '1 perjantai Toukokuu 2020',
+          '1 perjantai Toukokuu 2020 Valittu päivä',
         );
         expect(dateButton).toHaveFocus();
       });
@@ -832,7 +832,7 @@ describe('props', () => {
           );
           expect(dateButton).toHaveAttribute(
             'aria-label',
-            '31 perjantai Tammikuu 2020',
+            '31 perjantai Tammikuu 2020 Valittu päivä',
           );
         });
 
@@ -850,7 +850,7 @@ describe('props', () => {
           );
           expect(dateButton).toHaveAttribute(
             'aria-label',
-            '31 perjantai Tammikuu 2020',
+            '31 perjantai Tammikuu 2020 Valittu päivä',
           );
           expect(dateButton).toHaveFocus();
         });

@@ -4879,10 +4879,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-label="15 keskiviikko Tammikuu 2020"
-                aria-selected="true"
+                aria-label="15 keskiviikko Tammikuu 2020 Valittu päivä"
                 class="c6 fi-month-day_button fi-month-day_button--selected"
-                role="option"
                 type="button"
               >
                 <span
@@ -7126,10 +7124,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-label="15 keskiviikko Tammikuu 2020"
-                  aria-selected="true"
+                  aria-label="15 keskiviikko Tammikuu 2020 Valittu päivä"
                   class="c6 fi-month-day_button fi-month-day_button--selected"
-                  role="option"
                   type="button"
                 >
                   <span
