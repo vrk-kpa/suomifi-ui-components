@@ -12,7 +12,7 @@ import { getOwnerDocument } from '../../../../../utils/common';
 import { HTMLAttributesIncludingDataAttributes } from '../../../../../utils/common/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
-import { Popover } from '../../../../Popover/Popover';
+import { Popover, PopoverConsumer } from '../../../../Popover/Popover';
 import {
   FilterInput,
   FilterInputStatus,
@@ -772,82 +772,89 @@ class BaseMultiSelect<T> extends Component<
                   }
                 }}
               >
-                <SelectItemList
-                  id={popoverItemListId}
-                  ref={this.popoverListRef}
-                  focusedDescendantId={ariaActiveDescendant}
-                  aria-multiselectable="true"
-                  {...listProps}
-                >
-                  <HtmlDiv>
-                    {!loading &&
-                      filteredItemsWithChecked.length > 0 &&
-                      filteredItemsWithChecked.map((item) => {
-                        const isCurrentlySelected =
-                          item.uniqueItemId === focusedDescendantId;
-                        return (
-                          <SelectItem
-                            hasKeyboardFocus={isCurrentlySelected}
-                            key={`${item.uniqueItemId}_${item.checked}`}
-                            id={`${id}-${item.uniqueItemId}`}
-                            checked={item.checked}
-                            disabled={item.disabled}
-                            onClick={() => {
-                              this.handleItemSelection(item);
-                            }}
-                            hightlightQuery={this.filterInputRef.current?.value}
-                            {...item.listItemProps}
-                          >
-                            {item.labelText}
-                          </SelectItem>
-                        );
-                      })}
+                <PopoverConsumer>
+                  {(consumer) => (
+                    <SelectItemList
+                      id={popoverItemListId}
+                      ref={this.popoverListRef}
+                      focusedDescendantId={ariaActiveDescendant}
+                      aria-multiselectable="true"
+                      {...listProps}
+                    >
+                      <HtmlDiv>
+                        {!loading &&
+                          filteredItemsWithChecked.length > 0 &&
+                          filteredItemsWithChecked.map((item) => {
+                            const isCurrentlySelected =
+                              item.uniqueItemId === focusedDescendantId;
+                            return (
+                              <SelectItem
+                                hasKeyboardFocus={isCurrentlySelected}
+                                key={`${item.uniqueItemId}_${item.checked}`}
+                                id={`${id}-${item.uniqueItemId}`}
+                                checked={item.checked}
+                                disabled={item.disabled}
+                                onClick={() => {
+                                  this.handleItemSelection(item);
+                                  consumer.updatePopover();
+                                }}
+                                hightlightQuery={
+                                  this.filterInputRef.current?.value
+                                }
+                                {...item.listItemProps}
+                              >
+                                {item.labelText}
+                              </SelectItem>
+                            );
+                          })}
 
-                    {!loading &&
-                      filteredItemsWithChecked.length === 0 &&
-                      !allowItemAddition && (
-                        <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
-                      )}
+                        {!loading &&
+                          filteredItemsWithChecked.length === 0 &&
+                          !allowItemAddition && (
+                            <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                          )}
 
-                    {!loading &&
-                      filterInputValue !== '' &&
-                      !this.inputValueInItems() &&
-                      allowItemAddition && (
-                        <SelectItemAddition
-                          hintText={itemAdditionHelpText}
-                          hasKeyboardFocus={
-                            filterInputValue === focusedDescendantId
-                          }
-                          id={`${id}-${filterInputValue.toLowerCase()}`}
-                          onClick={() => {
-                            // @ts-expect-error: Cannot create an object which implements unknown generic type T
-                            const item: T & MultiSelectData = {
-                              labelText: filterInputValue,
-                              uniqueItemId: filterInputValue.toLowerCase(),
-                            };
-                            this.handleItemSelection(item);
-                            this.setState({
-                              focusedDescendantId:
-                                filterInputValue.toLowerCase(),
-                            });
-                          }}
-                        >
-                          {filterInputValue}
-                        </SelectItemAddition>
-                      )}
+                        {!loading &&
+                          filterInputValue !== '' &&
+                          !this.inputValueInItems() &&
+                          allowItemAddition && (
+                            <SelectItemAddition
+                              hintText={itemAdditionHelpText}
+                              hasKeyboardFocus={
+                                filterInputValue === focusedDescendantId
+                              }
+                              id={`${id}-${filterInputValue.toLowerCase()}`}
+                              onClick={() => {
+                                // @ts-expect-error: Cannot create an object which implements unknown generic type T
+                                const item: T & MultiSelectData = {
+                                  labelText: filterInputValue,
+                                  uniqueItemId: filterInputValue.toLowerCase(),
+                                };
+                                this.handleItemSelection(item);
+                                this.setState({
+                                  focusedDescendantId:
+                                    filterInputValue.toLowerCase(),
+                                });
+                              }}
+                            >
+                              {filterInputValue}
+                            </SelectItemAddition>
+                          )}
 
-                    {loading && (
-                      <SelectEmptyItem className="loading">
-                        <LoadingSpinner
-                          status="loading"
-                          variant="small"
-                          textAlign="right"
-                          text={loadingText}
-                        />
-                      </SelectEmptyItem>
-                    )}
-                  </HtmlDiv>
-                </SelectItemList>
+                        {loading && (
+                          <SelectEmptyItem className="loading">
+                            <LoadingSpinner
+                              status="loading"
+                              variant="small"
+                              textAlign="right"
+                              text={loadingText}
+                            />
+                          </SelectEmptyItem>
+                        )}
+                      </HtmlDiv>
+                    </SelectItemList>
+                  )}
+                </PopoverConsumer>
               </Popover>
             )}
             {chipListVisible && (
