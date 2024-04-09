@@ -42,6 +42,19 @@ const sameWidth: any = {
   },
 };
 
+export interface PopoverProviderState {
+  updatePopover: () => void;
+}
+
+const defaultProviderValue: PopoverProviderState = {
+  updatePopover: () => null,
+};
+
+const { Provider, Consumer: PopoverConsumer } =
+  React.createContext(defaultProviderValue);
+
+export { PopoverConsumer };
+
 export const Popover = (props: PopoverProps) => {
   const {
     portalStyleProps = {},
@@ -61,7 +74,7 @@ export const Popover = (props: PopoverProps) => {
 
   const portalRef = useRef<HTMLDivElement>(null);
 
-  const { styles } = usePopper(sourceRef.current, popperElement, {
+  const { update, styles } = usePopper(sourceRef.current, popperElement, {
     modifiers: [
       {
         name: 'flip',
@@ -112,7 +125,13 @@ export const Popover = (props: PopoverProps) => {
             role="presentation"
           >
             <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-              {children}
+              <Provider
+                value={{
+                  updatePopover: () => update?.(),
+                }}
+              >
+                {children}
+              </Provider>
             </HtmlDivWithRef>
           </div>,
           mountNode,
@@ -128,7 +147,13 @@ export const Popover = (props: PopoverProps) => {
       role="presentation"
     >
       <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-        {children}
+        <Provider
+          value={{
+            updatePopover: () => update?.(),
+          }}
+        >
+          {children}
+        </Provider>
       </HtmlDivWithRef>
     </div>
   );
