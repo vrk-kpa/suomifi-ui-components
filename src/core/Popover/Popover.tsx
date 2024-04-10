@@ -50,7 +50,7 @@ const defaultProviderValue: PopoverProviderState = {
   updatePopover: () => null,
 };
 
-const { Provider, Consumer: PopoverConsumer } =
+const { Provider: PopoverProvider, Consumer: PopoverConsumer } =
   React.createContext(defaultProviderValue);
 
 export { PopoverConsumer };
@@ -125,13 +125,13 @@ export const Popover = (props: PopoverProps) => {
             role="presentation"
           >
             <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-              <Provider
+              <PopoverProvider
                 value={{
                   updatePopover: () => update?.(),
                 }}
               >
                 {children}
-              </Provider>
+              </PopoverProvider>
             </HtmlDivWithRef>
           </div>,
           mountNode,
@@ -147,13 +147,13 @@ export const Popover = (props: PopoverProps) => {
       role="presentation"
     >
       <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-        <Provider
+        <PopoverProvider
           value={{
             updatePopover: () => update?.(),
           }}
         >
           {children}
-        </Provider>
+        </PopoverProvider>
       </HtmlDivWithRef>
     </div>
   );
