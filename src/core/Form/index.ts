@@ -38,3 +38,8 @@ export {
   ErrorSummaryProps,
   ErrorSummaryItemProps,
 } from './ErrorSummary/ErrorSummary';
+export { Dropdown, DropdownProps } from './Dropdown/Dropdown/Dropdown';
+export {
+  DropdownItem,
+  DropdownItemProps,
+} from './Dropdown/DropdownItem/DropdownItem';

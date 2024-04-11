@@ -8,9 +8,9 @@ import {
   DropdownProviderState,
 } from '../Dropdown/Dropdown';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlLi, HtmlLiProps } from '../../../reset';
-import { getOwnerDocument } from '../../../utils/common';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
+import { HtmlLi, HtmlLiProps } from '../../../../reset';
+import { getOwnerDocument } from '../../../../utils/common';
 
 export interface DropdownItemProps<T extends string = string>
   extends HtmlLiProps {

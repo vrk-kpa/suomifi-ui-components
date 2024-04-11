@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { IconChevronLeft, IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlDiv } from '../../../../../reset';
-import { Dropdown, DropdownItem } from '../../../../Dropdown';
+import { Dropdown, DropdownItem } from '../../../Dropdown';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
 import { baseStyles } from './DateSelectors.baseStyles';
 import { Button } from '../../../../Button/Button';

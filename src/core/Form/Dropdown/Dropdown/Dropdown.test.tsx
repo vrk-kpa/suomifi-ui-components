@@ -3,7 +3,7 @@ import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
-import { axeTest } from '../../../utils/test';
+import { axeTest } from '../../../../utils/test';
 
 const dropdownProps = {
   labelText: 'Dropdown test',

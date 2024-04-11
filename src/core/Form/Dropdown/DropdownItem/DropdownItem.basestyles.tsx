@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../theme';
-import { element } from '../../theme/reset';
+import { SuomifiTheme } from '../../../theme';
+import { element } from '../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown_item {

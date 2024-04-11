@@ -1,39 +1,39 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { getConditionalAriaProp } from '../../../utils/aria';
-import { getLogger } from '../../../utils/log';
-import { AutoId } from '../../utils/AutoId/AutoId';
+import { getConditionalAriaProp } from '../../../../utils/aria';
+import { getLogger } from '../../../../utils/log';
+import { AutoId } from '../../../utils/AutoId/AutoId';
 import {
   HtmlSpan,
   HtmlDiv,
   HtmlInput,
   HtmlButton,
   HtmlButtonProps,
-} from '../../../reset';
-import { Label, LabelMode } from '../../Form/Label/Label';
+} from '../../../../reset';
+import { Label, LabelMode } from '../../Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,
   SpacingConsumer,
-} from '../../theme';
+} from '../../../theme';
 import {
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
-} from '../../theme/utils/spacing';
+} from '../../../theme/utils/spacing';
 import {
   filterDuplicateKeys,
   forkRefs,
   getOwnerDocument,
-} from '../../../utils/common/common';
-import { Popover } from '../../../core/Popover/Popover';
-import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
-import { HintText } from '../../Form/HintText/HintText';
-import { StatusText } from '../../Form/StatusText/StatusText';
-import { StatusTextCommonProps } from '../../Form/types';
+} from '../../../../utils/common/common';
+import { Popover } from '../../../../core/Popover/Popover';
+import { SelectItemList } from '../../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
+import { HintText } from '../../../Form/HintText/HintText';
+import { StatusText } from '../../../Form/StatusText/StatusText';
+import { StatusTextCommonProps } from '../../../Form/types';
 
 const baseClassName = 'fi-dropdown';
 
