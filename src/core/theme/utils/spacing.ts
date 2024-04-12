@@ -113,12 +113,20 @@ export const spacingStyles = (props: SpacingProps | undefined) => {
   return Object.assign({}, ...array);
 };
 
-export const buildSpacingCSS = (props: SpacingProps | undefined): string => {
-  if (!props) return '';
+export const buildSpacingCSS = (
+  spacing: SpacingProps | undefined,
+  important?: boolean,
+): string => {
+  if (!spacing) return '';
 
-  const cssStyles = Object.entries(props)
+  const cssStyles = Object.entries(spacing)
     .map(([key, value]) =>
-      getCSSSpacing(defaultSuomifiTheme, key as keyof SpacingProps, value),
+      getCSSSpacing(
+        defaultSuomifiTheme,
+        key as keyof SpacingProps,
+        value,
+        important,
+      ),
     )
     .join('');
 
@@ -186,19 +194,21 @@ const getCSSSpacing = (
   theme: SuomifiTheme,
   key: keyof SpacingProps,
   value: SpacingProp,
+  important: boolean = false,
 ) => {
   const amount = spaceVal(theme)(value);
+  const importantValue = important ? '!important' : '';
   switch (key) {
     case 'mx':
-      return `margin-right: ${amount}; margin-left: ${amount};`;
+      return `margin-right: ${amount} ${importantValue}; margin-left: ${amount} ${importantValue};`;
     case 'my':
-      return `margin-top: ${amount}; margin-bottom: ${amount};`;
+      return `margin-top: ${amount} ${importantValue}; margin-bottom: ${amount} ${importantValue};`;
     case 'px':
-      return `padding-right: ${amount}; padding-left: ${amount};`;
+      return `padding-right: ${amount} ${importantValue}; padding-left: ${amount} ${importantValue};`;
     case 'py':
-      return `padding-top: ${amount}; padding-bottom: ${amount};`;
+      return `padding-top: ${amount} ${importantValue}; padding-bottom: ${amount} ${importantValue};`;
     default:
-      return `${[cssSelector[key]]}: ${amount};`;
+      return `${cssSelector[key]}: ${amount} ${importantValue};`;
   }
 };
 

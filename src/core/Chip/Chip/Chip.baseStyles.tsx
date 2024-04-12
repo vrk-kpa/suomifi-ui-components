@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { baseChipBaseStyles } from '../BaseChip/BaseChip.baseStyles';
-import { MarginProps, getCssMargins } from '../../theme/utils/spacing';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   ${baseChipBaseStyles(theme)}
-  ${getCssMargins(margins)}
+  ${buildSpacingCSS(margins)}
   &.fi-chip--button {
     cursor: pointer;
     &:hover {

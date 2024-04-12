@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { SuomifiThemeProp } from '../theme';
 import { element, font } from '../theme/reset';
 import { TextProps } from './Text';
-import { GlobalMarginProps, getCssMargins } from '../theme/utils/spacing';
+import { GlobalMarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
 export const baseStyles = ({
   theme,
@@ -11,7 +11,7 @@ export const baseStyles = ({
 }: TextProps & SuomifiThemeProp & GlobalMarginProps) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  ${getCssMargins(globalMargins?.text)} 
+  ${buildSpacingCSS(globalMargins?.text)} 
   color: ${!!color ? theme.colors[color] : theme.colors.blackBase};
 
   &.fi-text {

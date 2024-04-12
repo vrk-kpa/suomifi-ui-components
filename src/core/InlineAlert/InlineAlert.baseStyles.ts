@@ -2,13 +2,13 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { transparentize } from 'polished';
-import { MarginProps, getCssMargins } from '../theme/utils/spacing';
+import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
 export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   &.fi-inline-alert {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
-    ${getCssMargins(margins)}
+    ${buildSpacingCSS(margins)}
     width: 100%;
     padding: 5px 0px 4px 0px;
     border: 1px solid;

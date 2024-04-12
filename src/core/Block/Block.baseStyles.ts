@@ -7,10 +7,10 @@ import { SpacingProps, buildSpacingCSS } from '../theme/utils/spacing';
 export const baseStyles = (
   theme: SuomifiTheme,
   variant?: BlockVariant,
-  spacingProps?: SpacingProps,
+  margins?: SpacingProps,
 ) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   ${!!variant && variant === 'span' ? 'display: inline-block' : ''}
-  ${buildSpacingCSS(spacingProps)}
+  ${buildSpacingCSS(margins)};
 `;

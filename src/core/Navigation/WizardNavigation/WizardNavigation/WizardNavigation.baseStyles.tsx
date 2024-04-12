@@ -1,10 +1,10 @@
 import { font } from '../../../theme/reset';
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
-import { MarginProps, getCssMargins } from '../../../theme/utils/spacing';
+import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
 export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
-  ${getCssMargins(margins)}
+  ${buildSpacingCSS(margins)}
   &.fi-wizard-navigation {
     .fi-wizard-navigation_heading {
       margin-left: ${theme.spacing.m};

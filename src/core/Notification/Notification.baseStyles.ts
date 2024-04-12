@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { font, element } from '../theme/reset';
-import { MarginProps, getCssMargins } from '../theme/utils/spacing';
+import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
 export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   ${element(theme)}
   ${font(theme)('bodyTextSmall')}
-  ${getCssMargins(margins)}
+  ${buildSpacingCSS(margins)}
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
