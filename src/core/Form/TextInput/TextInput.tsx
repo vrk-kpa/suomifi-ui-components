@@ -13,7 +13,6 @@ import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMargins,
@@ -21,7 +20,7 @@ import {
 import { SpacingConsumer } from '../../theme/SpacingProvider/SpacingProvider';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { forkRefs } from '../../../utils/common/common';
+import { forkRefs, filterDuplicateKeys } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Label, LabelMode } from '../Label/Label';
@@ -155,8 +154,7 @@ const BaseTextInput = (props: InternalTextInputProps) => {
     ariaCharactersExceededText,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   useEffect(() => {
     if (characterLimit !== undefined && inputRef.current?.value.length) {
@@ -210,7 +208,7 @@ const BaseTextInput = (props: InternalTextInputProps) => {
         [textInputClassNames.success]: status === 'success',
         [textInputClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <HtmlSpan className={textInputClassNames.styleWrapper}>
         <Label
@@ -288,7 +286,14 @@ const StyledTextInput = styled(
     <BaseTextInput {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.textInput)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.textInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
