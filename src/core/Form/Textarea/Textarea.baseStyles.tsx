@@ -3,10 +3,15 @@ import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  margins?: MarginProps,
+  importantMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  ${buildSpacingCSS(margins)};
+  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(importantMargins, true)};
   color: ${theme.colors.blackBase};
   width: 290px;
 
