@@ -12,7 +12,7 @@ export const baseStyles = (
   ${font(theme)('bodyText')}
   width: 290px;
   ${buildSpacingCSS(margins)}
-  ${buildSpacingCSS(importantMargins)}
+  ${buildSpacingCSS(importantMargins, true)}
 
   & .fi-text-input_character-counter {
     ${font(theme)('bodyTextSmall')};
