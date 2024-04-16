@@ -8,14 +8,16 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
-import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  filterDuplicateKeys,
+} from '../../../utils/common/common';
 
 const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
@@ -174,8 +176,7 @@ class BaseExpanderGroup extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
     const { expanderGroupOpenState, allOpen } = this.state;
     return (
       <HtmlDiv
@@ -183,7 +184,7 @@ class BaseExpanderGroup extends Component<
         className={classnames(className, baseClassName, {
           [openClassName]: this.openExpanderCount > 0,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         {!!showToggleAllButton && (
           <HtmlButton
@@ -226,8 +227,14 @@ const StyledExpanderGroup = styled(
     return <BaseExpanderGroup {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.expanderGroup)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.expanderGroup,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ExpanderGroup = forwardRef(

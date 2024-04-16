@@ -15,7 +15,6 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -29,6 +28,7 @@ import { getConditionalAriaProp } from '../../utils/aria';
 import { baseStyles } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps } from './LanguageMenuItem/LanguageMenuItem';
 import { IconChevronUp, IconChevronDown } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-language-menu';
 export const languageMenuClassNames = {
@@ -92,8 +92,8 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     'aria-label': ariaLabel,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
@@ -151,10 +151,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
   };
 
   return (
-    <HtmlDiv
-      className={classnames(baseClassName, className)}
-      style={{ ...marginStyle, ...style }}
-    >
+    <HtmlDiv className={classnames(baseClassName, className)} style={style}>
       <HtmlButton
         id={buttonId}
         aria-expanded={ariaExpanded}
@@ -204,8 +201,14 @@ const StyledLanguageMenu = styled(
     <BaseLanguageMenu {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.languageMenu)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.languageMenu,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const LanguageMenu = forwardRef<HTMLButtonElement, LanguageMenuProps>(

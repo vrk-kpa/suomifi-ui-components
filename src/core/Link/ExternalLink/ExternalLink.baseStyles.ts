@@ -5,10 +5,12 @@ import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const ExternalLinkStyles = (
   theme: SuomifiTheme,
-  margins?: MarginProps,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
 ) => css`
   ${baseStyles(theme)}
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   & .fi-link_icon {
     margin: 0;
     padding-left: ${theme.spacing.insetXs};

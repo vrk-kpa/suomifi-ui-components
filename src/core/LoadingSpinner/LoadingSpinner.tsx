@@ -8,7 +8,6 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -20,6 +19,7 @@ import {
   IconErrorFilled,
   IconPreloader,
 } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps extends MarginProps, HtmlDivProps {
@@ -79,8 +79,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
       forwardedRef,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlDivWithRef
@@ -95,7 +94,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
         id={id}
         ref={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         {status === 'loading' && (
           <IconPreloader className={loadingSpinnerClassNames.icon} />
@@ -122,8 +121,14 @@ const StyledLoadingSpinner = styled(
     return <BaseLoadingSpinner {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.loadingSpinner)};
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.loadingSpinner,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 const LoadingSpinner = forwardRef(
   (props: LoadingSpinnerProps, ref: React.Ref<HTMLDivElement>) => {

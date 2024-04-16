@@ -5,8 +5,10 @@ import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const staticChipBaseStyles = (
   theme: SuomifiTheme,
-  margins?: MarginProps,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
 ) => css`
   ${baseChipBaseStyles(theme)}
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
 `;

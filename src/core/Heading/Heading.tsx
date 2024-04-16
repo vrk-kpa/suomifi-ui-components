@@ -10,13 +10,13 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;
@@ -64,8 +64,8 @@ const StyledHeading = styled(
     asProp,
     ...rest
   }: InternalHeadingProps & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlH
         {...passProps}
@@ -78,12 +78,19 @@ const StyledHeading = styled(
           },
         )}
         as={!!asProp ? asProp : getSemanticVariant(variant)}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       />
     );
   },
 )`
-  ${(props) => baseStyles(props, props.globalMargins?.heading)}
+  ${({ theme, color, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return baseStyles(theme, color, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Heading = forwardRef(

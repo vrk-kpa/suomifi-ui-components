@@ -14,12 +14,12 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Notification.baseStyles';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export const baseClassName = 'fi-notification';
 export const notificationClassNames = {
@@ -107,8 +107,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       showCloseButton = true,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const {
       className: customCloseButtonClassName,
@@ -132,7 +131,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             [notificationClassNames.smallScreen]: !!smallScreen,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlDiv className={notificationClassNames.styleWrapper} style={style}>
           <HtmlDiv className={notificationClassNames.iconWrapper}>
@@ -210,8 +209,14 @@ const StyledNotification = styled(
     return <BaseNotification {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.notification)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.notification,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Notification = forwardRef(

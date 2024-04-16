@@ -22,6 +22,7 @@ import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import {
   HTMLAttributesIncludingDataAttributes,
+  filterDuplicateKeys,
   forkRefs,
 } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
@@ -50,7 +51,6 @@ import {
   cellDateAriaLabel,
 } from './dateUtils';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMargins,
@@ -259,8 +259,7 @@ const BaseDateInput = (props: DateInputProps) => {
     style,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   const hintTextId = `${id}-hintText`;
 
@@ -376,7 +375,7 @@ const BaseDateInput = (props: DateInputProps) => {
         [dateInputClassNames.fullWidth]: fullWidth,
         [dateInputClassNames.hasPicker]: datePickerEnabled,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <HtmlDiv className={dateInputClassNames.styleWrapper}>
         <Label
@@ -490,7 +489,14 @@ const StyledDateInput = styled(
     <BaseDateInput {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.dateInput)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.dateInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const DateInput = forwardRef<HTMLInputElement, DateInputProps>(

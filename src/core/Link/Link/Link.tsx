@@ -9,7 +9,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -20,6 +19,7 @@ import {
   baseClassName,
   linkClassNames,
 } from '../BaseLink/BaseLink';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 export interface LinkProps extends BaseLinkProps, MarginProps {
   /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
@@ -38,8 +38,8 @@ const StyledLink = styled(
     underline = 'hover',
     ...rest
   }: LinkProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlA
         {...passProps}
@@ -49,7 +49,7 @@ const StyledLink = styled(
           [linkClassNames.small]: smallScreen,
         })}
         as={asProp}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight
@@ -62,7 +62,14 @@ const StyledLink = styled(
     );
   },
 )`
-  ${({ theme, globalMargins }) => LinkStyles(theme, globalMargins?.link)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return LinkStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Link = forwardRef(

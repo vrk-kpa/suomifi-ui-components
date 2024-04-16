@@ -16,7 +16,6 @@ import {
   SuomifiThemeProp,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -26,6 +25,7 @@ import { HintText } from '../HintText/HintText';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 import { IconRadioButton, IconRadioButtonLarge } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
@@ -117,8 +117,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     if (!children) {
       getLogger().error(
@@ -143,7 +142,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
             [radioButtonClassNames.checked]: checked,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlInput
           className={radioButtonClassNames.input}
@@ -189,7 +188,14 @@ const StyledRadioButton = styled(
     <BaseRadioButton {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.radioButton)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.radioButton,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const RadioButton = forwardRef(

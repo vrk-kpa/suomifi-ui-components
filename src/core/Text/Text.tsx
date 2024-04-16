@@ -8,13 +8,13 @@ import {
   SuomifiThemeProp,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Text.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../reset';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
@@ -43,8 +43,7 @@ const StyledText = styled(
     color,
     ...rest
   }: TextProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlSpan
@@ -57,13 +56,20 @@ const StyledText = styled(
             [smallScreenClassName]: smallScreen,
           },
         )}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       />
     );
   },
   // Component specific margins extracted within styles to minimize changes to surrounding code
 )`
-  ${(props) => baseStyles(props)}
+  ${({ theme, color, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return baseStyles(theme, color, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Text = forwardRef<HTMLSpanElement, TextProps>(

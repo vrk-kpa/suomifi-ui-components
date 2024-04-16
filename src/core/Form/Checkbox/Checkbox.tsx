@@ -11,7 +11,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -22,6 +21,7 @@ import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
 import { baseStyles } from './Checkbox.baseStyles';
 import { IconCheck } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-checkbox';
 
@@ -161,8 +161,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const { checkedState } = this.state;
 
@@ -197,7 +196,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
             [checkboxClassNames.disabled]: !!disabled,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlInput
           type="checkbox"
@@ -245,11 +244,19 @@ const StyledCheckbox = styled(
     theme,
     globalMargins,
     ...passProps
-  }: InternalCheckboxProps & SuomifiThemeProp & GlobalMarginProps) => (
-    <BaseCheckbox {...passProps} />
-  ),
+  }: InternalCheckboxProps &
+    SuomifiThemeProp &
+    GlobalMarginProps &
+    MarginProps) => <BaseCheckbox {...passProps} />,
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.checkbox)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.checkbox,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Checkbox = forwardRef(

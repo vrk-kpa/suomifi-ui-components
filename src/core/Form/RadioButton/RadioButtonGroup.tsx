@@ -6,7 +6,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -24,6 +23,7 @@ import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import classnames from 'classnames';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-radio-button-group';
 const radioButtonGroupClassNames = {
@@ -127,15 +127,14 @@ class BaseRadioButtonGroup extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlFieldSet>
           <HtmlLegend className={radioButtonGroupClassNames.legend}>
@@ -178,8 +177,14 @@ const StyledRadioButtonGroup = styled(
     <BaseRadioButtonGroup {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.radioButtonGroup)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.radioButtonGroup,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const RadioButtonGroup = forwardRef(

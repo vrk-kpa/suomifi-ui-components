@@ -8,7 +8,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -28,6 +27,7 @@ import { CheckboxProps } from './Checkbox';
 import { baseStyles } from './CheckboxGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
@@ -103,8 +103,7 @@ class BaseCheckboxGroup extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const statusTextId = !!groupStatusText ? `${id}-statusText` : undefined;
 
@@ -113,7 +112,7 @@ class BaseCheckboxGroup extends Component<
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlFieldSet>
           <HtmlLegend className={checkboxGroupClassNames.legend}>
@@ -167,8 +166,14 @@ const StyledCheckboxGroup = styled(
     <BaseCheckboxGroup {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins.checkboxGroup)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.checkboxGroup,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const CheckboxGroup = forwardRef(

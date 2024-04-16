@@ -15,7 +15,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -25,6 +24,7 @@ import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { HtmlSpan, HtmlSpanProps, HtmlDivWithRef } from '../../../reset';
 import { TooltipProps } from '../../Tooltip/Tooltip';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 export type LabelMode = 'hidden' | 'visible';
 
@@ -86,8 +86,8 @@ const StyledLabel = styled(
     forceTooltipRerender = false,
     ...rest
   }: LabelProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
@@ -109,7 +109,7 @@ const StyledLabel = styled(
         forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
           setWrapperRef(ref)
         }
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         {labelMode === 'hidden' ? (
           <VisuallyHidden as={asProp} {...passProps}>
@@ -142,7 +142,14 @@ const StyledLabel = styled(
     );
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.label)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.label,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Label = (props: LabelProps) => (

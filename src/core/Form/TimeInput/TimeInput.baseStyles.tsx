@@ -4,9 +4,14 @@ import { element, containerIEFocus, font } from '../../theme/reset';
 import { math } from 'polished';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   max-width: 290px;
 
   & .fi-time-input_character-counter {

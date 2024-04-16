@@ -7,14 +7,16 @@ import {
   SpacingConsumer,
 } from '../../../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMargins,
 } from '../../../../theme/utils/spacing';
 import { HtmlDiv, HtmlDivProps } from '../../../../../reset';
 import { getOwnerDocument } from '../../../../../utils/common';
-import { HTMLAttributesIncludingDataAttributes } from '../../../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  filterDuplicateKeys,
+} from '../../../../../utils/common/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
 import { Popover, PopoverConsumer } from '../../../../Popover/Popover';
@@ -665,8 +667,7 @@ class BaseMultiSelect<T> extends Component<
       fullWidth,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const filteredItemsWithChecked: (T & MultiSelectData & CheckedProp)[] =
       filteredItems.map((item) => ({
@@ -690,7 +691,7 @@ class BaseMultiSelect<T> extends Component<
             [multiSelectClassNames.error]: status === 'error',
             [`${baseClassName}--full-width`]: fullWidth,
           })}
-          style={{ ...marginStyle, ...style }}
+          style={style}
         >
           <HtmlDiv
             className={classnames(multiSelectClassNames.content_wrapper, {})}
@@ -979,7 +980,14 @@ const StyledMultiSelect = styled(
     <BaseMultiSelect {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.multiSelect)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins?.multiSelect,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 function MultiSelectInner<T>(

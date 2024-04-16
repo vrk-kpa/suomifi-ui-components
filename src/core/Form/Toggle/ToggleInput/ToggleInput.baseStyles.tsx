@@ -9,9 +9,14 @@ import {
 } from '../ToggleBase/Toggle.baseStyles';
 import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${toggleBaseStyles(theme)}
-  ${buildSpacingCSS(margins)};
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
   &.fi-toggle--input {
     &:focus-within {
       outline: 0;

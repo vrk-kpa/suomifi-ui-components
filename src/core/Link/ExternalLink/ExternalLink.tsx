@@ -7,7 +7,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -21,6 +20,7 @@ import {
   baseClassName,
   linkClassNames,
 } from '../BaseLink/BaseLink';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const iconClassName = 'fi-link_icon';
 const externalClassName = 'fi-link--external';
@@ -63,8 +63,8 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
       underline = 'hover',
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlA
         {...passProps}
@@ -76,7 +76,7 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight
@@ -98,8 +98,14 @@ const StyledExternalLink = styled(
     return <BaseExternalLink theme={theme} {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    ExternalLinkStyles(theme, globalMargins?.externalLink)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.externalLink,
+      marginProps,
+    );
+    return ExternalLinkStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ExternalLink = forwardRef(

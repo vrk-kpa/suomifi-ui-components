@@ -6,13 +6,14 @@ import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const baseStyles = (
   theme: SuomifiTheme,
-  margins?: MarginProps,
-  importantMargins?: MarginProps,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
 ) => css`
   ${font(theme)('bodyText')}
   width: 290px;
-  ${buildSpacingCSS(margins)}
-  ${buildSpacingCSS(importantMargins, true)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  line-height: 0;
 
   & .fi-text-input_character-counter {
     ${font(theme)('bodyTextSmall')};

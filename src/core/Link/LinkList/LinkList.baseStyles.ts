@@ -5,9 +5,11 @@ import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const LinkListStyles = (
   theme: SuomifiTheme,
-  margins?: MarginProps,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
 ) => css`
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   &.fi-link-list {
     padding: 0;
     margin: 5px 0 0 0;

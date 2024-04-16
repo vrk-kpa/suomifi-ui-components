@@ -3,7 +3,10 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../../reset';
 import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
-import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  filterDuplicateKeys,
+} from '../../../../utils/common/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
@@ -13,10 +16,9 @@ import {
   SuomifiThemeProp,
 } from '../../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
-  GlobalMargins,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { LoadingSpinner } from '../../../LoadingSpinner/LoadingSpinner';
@@ -559,8 +561,7 @@ class BaseSingleSelect<T> extends Component<
       fullWidth,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
@@ -577,7 +578,7 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.error]: status === 'error',
           [singleSelectClassNames.fullWidth]: fullWidth,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (
@@ -793,12 +794,17 @@ const StyledSingleSelect = styled(
     globalMargins,
     ...passProps
   }: SingleSelectProps<SingleSelectData> &
-    SuomifiThemeProp & { globalMargins?: GlobalMargins }) => (
-    <BaseSingleSelect {...passProps} />
-  ),
+    SuomifiThemeProp &
+    GlobalMarginProps) => <BaseSingleSelect {...passProps} />,
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.singleSelect)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.singleSelect,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 function SingleSelectInner<T>(

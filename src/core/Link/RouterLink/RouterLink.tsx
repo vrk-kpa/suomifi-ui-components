@@ -9,7 +9,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -21,6 +20,7 @@ import {
 } from '../BaseLink/BaseLink';
 import classnames from 'classnames';
 import { HtmlA } from '../../../reset';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 //
 // Source: https://www.benmvp.com/blog/polymorphic-react-components-typescript/
@@ -131,8 +131,8 @@ const PolymorphicLink = <C extends React.ElementType>(
     forwardedRef,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const Component = asComponent || HtmlA;
 
   const classNames = classnames(baseClassName, routerLinkClassName, className, {
@@ -148,7 +148,7 @@ const PolymorphicLink = <C extends React.ElementType>(
         className={classNames}
         ref={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight color={theme.colors.accentBase} />
@@ -164,7 +164,7 @@ const PolymorphicLink = <C extends React.ElementType>(
       className={classNames}
       forwardedRef={forwardedRef}
       {...passProps}
-      style={{ ...marginStyle, ...passProps?.style }}
+      style={{ ...passProps?.style }}
     >
       {children}
     </Component>
@@ -179,8 +179,14 @@ const StyledRouterLink = styled(
     return <PolymorphicLink {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    RouterLinkStyles(theme, globalMargins?.routerLink)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.routerLink,
+      marginProps,
+    );
+    return RouterLinkStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const RouterLinkInner = <C extends React.ElementType = 'a'>(

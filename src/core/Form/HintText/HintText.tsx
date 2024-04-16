@@ -8,12 +8,12 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { baseStyles } from './HintText.baseStyles';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-hint-text';
 
@@ -36,20 +36,27 @@ const StyledHintText = styled(
     children,
     ...rest
   }: HintTextProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlSpan
         {...passProps}
         className={classnames(className, baseClassName, {})}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {children}
       </HtmlSpan>
     );
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.hintText)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.hintText,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const HintText = forwardRef(

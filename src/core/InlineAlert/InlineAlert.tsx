@@ -10,12 +10,12 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './InlineAlert.baseStyles';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-inline-alert';
 const inlineAlertClassNames = {
@@ -60,8 +60,8 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
       forwardedRef,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlDivWithRef
         as="section"
@@ -70,7 +70,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [inlineAlertClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
         ref={forwardedRef}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
@@ -115,7 +115,14 @@ const StyledInlineAlert = styled(
     return <BaseInlineAlert {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.inlineAlert)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.inlineAlert,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const InlineAlert = forwardRef<HTMLDivElement, InlineAlertProps>(

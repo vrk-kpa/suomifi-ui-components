@@ -26,7 +26,6 @@ import {
 } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -35,6 +34,7 @@ import { baseStyles } from './ActionMenu.baseStyles';
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
 import { IconOptionsVertical } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
@@ -111,8 +111,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     style,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
@@ -175,7 +174,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       className={classnames(baseClassName, className, {
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <Button
         id={buttonId}
@@ -222,7 +221,14 @@ const StyledActionMenu = styled(
     <BaseActionMenu {...passProps} />
   ),
 )`
-  ${({ globalMargins }) => baseStyles(globalMargins?.actionMenu)}
+  ${({ globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.actionMenu,
+      marginProps,
+    );
+    return baseStyles(cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(

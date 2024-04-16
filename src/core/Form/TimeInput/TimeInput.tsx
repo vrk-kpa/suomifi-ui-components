@@ -16,9 +16,12 @@ import {
 } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { autocompleteTimeString, forkRefs } from '../../../utils/common/common';
 import {
-  spacingStyles,
+  autocompleteTimeString,
+  filterDuplicateKeys,
+  forkRefs,
+} from '../../../utils/common/common';
+import {
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -125,8 +128,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
     tooltipComponent,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   const [inputValue, setInputValue] = useState(defaultValue || '');
 
@@ -157,7 +159,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
         [timeInputClassNames.error]: status === 'error',
         [timeInputClassNames.success]: status === 'success',
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <HtmlSpan className={timeInputClassNames.styleWrapper}>
         <Label
@@ -225,7 +227,14 @@ const StyledTimeInput = styled(
     <BaseTimeInput {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.timeInput)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.timeInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(

@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -33,14 +32,13 @@ const StyledParagraph = styled(
     globalMargins,
     ...rest
   }: ParagraphProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlP
         className={classnames(baseClassName, className)}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       />
     );
   },

@@ -15,7 +15,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -37,6 +36,7 @@ import { IconSearch } from 'suomifi-icons';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 type SearchInputValue = string | number | undefined;
 
@@ -169,8 +169,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       statusTextAriaLiveMode = 'assertive',
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const statusTextId = `${id}-statusText`;
 
     const conditionalSetState = (newValue: SearchInputValue) => {
@@ -237,7 +237,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
           <Label
@@ -322,7 +322,14 @@ const StyledSearchInput = styled(
     <BaseSearchInput {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.searchInput)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.searchInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const SearchInput = forwardRef(

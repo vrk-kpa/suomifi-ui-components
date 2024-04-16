@@ -4,11 +4,16 @@ import { element, font } from '../theme/reset';
 import { transparentize } from 'polished';
 import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   &.fi-alert {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
-    ${buildSpacingCSS(margins)};
+    ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
     width: 100%;
 
     & .fi-alert_style-wrapper {

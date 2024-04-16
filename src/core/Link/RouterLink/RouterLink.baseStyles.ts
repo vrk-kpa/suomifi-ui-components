@@ -5,8 +5,10 @@ import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const RouterLinkStyles = (
   theme: SuomifiTheme,
-  margins?: MarginProps,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
 ) => css`
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   ${baseStyles(theme)}
 `;

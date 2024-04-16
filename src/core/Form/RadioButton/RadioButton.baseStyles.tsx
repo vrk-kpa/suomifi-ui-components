@@ -70,11 +70,16 @@ const largeStyles = () => css`
   }
 `;
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   position: relative;
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
 
   &.fi-radio-button {
     & .fi-radio-button_hintText {

@@ -8,13 +8,13 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlUlProps, HtmlUlWithRef } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const LinkListClassName = 'fi-link-list';
 const SmallScreenClassName = 'fi-link-list--small';
@@ -39,8 +39,8 @@ const StyledLinkList = styled(
     forwardedRef,
     ...rest
   }: LinkListProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlUlWithRef
         ref={forwardedRef}
@@ -49,15 +49,21 @@ const StyledLinkList = styled(
           [SmallScreenClassName]: smallScreen,
         })}
         {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {children}
       </HtmlUlWithRef>
     );
   },
 )`
-  ${({ theme, globalMargins }) =>
-    LinkListStyles(theme, globalMargins?.linkList)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.linkList,
+      marginProps,
+    );
+    return LinkListStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const LinkList = forwardRef(

@@ -15,7 +15,6 @@ import {
   SuomifiThemeProp,
 } from '../../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -23,6 +22,7 @@ import {
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 export interface ServiceNavigationProps extends MarginProps, HtmlDivProps {
   /** Use `<ServiceNavigationItem>` components as children */
@@ -67,8 +67,8 @@ const BaseServiceNavigation = ({
   style,
   ...rest
 }: ServiceNavigationProps) => {
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -80,7 +80,7 @@ const BaseServiceNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
       {...passProps}
     >
       {variant === 'smallScreen' && (
@@ -117,8 +117,14 @@ const StyledServiceNavigation = styled(
     return <BaseServiceNavigation {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.serviceNavigation)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.serviceNavigation,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ServiceNavigation = forwardRef(

@@ -124,9 +124,14 @@ const secondaryLightStyles = (theme: SuomifiTheme) => css`
   }
 `;
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${button(theme)}
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   padding: 9px ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};

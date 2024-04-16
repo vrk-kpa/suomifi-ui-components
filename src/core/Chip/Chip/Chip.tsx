@@ -5,7 +5,6 @@ import { IconClose } from 'suomifi-icons';
 import { getLogger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -22,6 +21,7 @@ import {
   SuomifiThemeConsumer,
   SpacingConsumer,
 } from '../../theme';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const chipButtonClassNames = {
   removable: `${baseClassName}--removable`,
@@ -68,8 +68,7 @@ class DefaultChip extends Component<ChipProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
@@ -94,7 +93,7 @@ class DefaultChip extends Component<ChipProps> {
         {...onClickProp}
         forwardedRef={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         {!!removable && (
@@ -122,7 +121,14 @@ const StyledChip = styled(
     <DefaultChip {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.chip)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.chip,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Chip = forwardRef(

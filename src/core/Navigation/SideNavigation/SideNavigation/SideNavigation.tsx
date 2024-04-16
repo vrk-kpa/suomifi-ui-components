@@ -14,7 +14,6 @@ import {
   SuomifiThemeProp,
 } from '../../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -23,6 +22,7 @@ import { baseStyles } from './SideNavigation.baseStyles';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { IconChevronDown, IconChevronUp } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 export interface SideNavigationProps extends MarginProps, HtmlDivProps {
   /** Use `<SideNavigationItem>` components as children */
@@ -71,8 +71,8 @@ const BaseSideNavigation = ({
   style,
   ...rest
 }: SideNavigationProps) => {
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -83,7 +83,7 @@ const BaseSideNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
       {...passProps}
     >
       {variant === 'smallScreen' ? (
@@ -127,8 +127,14 @@ const StyledSideNavigation = styled(
     return <BaseSideNavigation {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.sideNavigation)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.sideNavigation,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const SideNavigation = forwardRef(

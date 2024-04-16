@@ -3,10 +3,15 @@ import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
   width: 290px;
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
 
   &.fi-multiselect {
     & .fi-filter-input_input-element-container {

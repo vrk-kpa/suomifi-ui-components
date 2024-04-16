@@ -8,7 +8,6 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -17,6 +16,7 @@ import { IconCheckCircle } from 'suomifi-icons';
 import { Heading } from '../Heading/Heading';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export interface ToastProps extends MarginProps, HtmlDivWithRefProps {
   /** Sets aria-live mode for the Toast text content and label.
@@ -59,14 +59,14 @@ class BaseToast extends Component<ToastProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         as="section"
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlDiv className={toastClassNames.styleWrapper}>
           <HtmlDiv className={toastClassNames.iconWrapper}>
@@ -99,7 +99,14 @@ const StyledToast = styled(
     return <BaseToast {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins.toast)};
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.toast,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Toast = forwardRef(

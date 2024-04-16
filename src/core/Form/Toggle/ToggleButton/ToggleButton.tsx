@@ -14,7 +14,6 @@ import {
   SpacingConsumer,
 } from '../../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -81,8 +80,8 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const { toggleState } = this.state;
 
     return (
@@ -96,7 +95,7 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
           },
           toggleClassNames.label,
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlButton
           {...passProps}

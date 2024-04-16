@@ -8,7 +8,6 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -17,6 +16,7 @@ import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
 import { IconErrorFilled, IconCheckCircleFilled } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
@@ -73,8 +73,8 @@ const StyledStatusText = styled(
     ariaLiveMode = 'polite',
     ...rest
   }: StatusTextProps & SuomifiThemeProp & GlobalMarginProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const ariaLiveProp = !disabled
       ? { 'aria-live': ariaLiveMode }
       : { 'aria-live': 'off' };
@@ -87,7 +87,7 @@ const StyledStatusText = styled(
           [statusTextClassNames.error]: status === 'error',
         })}
         aria-atomic="true"
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {!!children && getIcon(status, theme)}
         {children}
@@ -95,7 +95,14 @@ const StyledStatusText = styled(
     );
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.statusText)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.statusText,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const StatusText = forwardRef<HTMLSpanElement, StatusTextProps>(

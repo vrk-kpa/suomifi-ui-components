@@ -10,11 +10,11 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-breadcrumb';
 const listClassName = `${baseClassName}_list`;
@@ -39,14 +39,13 @@ const breadcrumbItems = (children: ReactNode) =>
 class BaseBreadcrumb extends Component<BreadcrumbProps> {
   render() {
     const { className, children, ...rest } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlNav
         {...passProps}
         className={classnames(baseClassName, className)}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         <HtmlOl className={listClassName}>{breadcrumbItems(children)}</HtmlOl>
       </HtmlNav>
@@ -63,7 +62,14 @@ const StyledBreadcrumb = styled(
     <BaseBreadcrumb {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.breadcrumb)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.breadcrumb,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Breadcrumb = (props: BreadcrumbProps) => {

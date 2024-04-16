@@ -20,12 +20,15 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
-import { forkRefs, getOwnerDocument } from '../../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  forkRefs,
+  getOwnerDocument,
+} from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
 import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
 import { HintText } from '../../Form/HintText/HintText';
@@ -538,8 +541,7 @@ class BaseDropdown<T extends string = string> extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     if (React.Children.count(children) < 1) {
       getLogger().warn(`Dropdown '${labelText}' does not contain items`);
@@ -582,7 +584,7 @@ class BaseDropdown<T extends string = string> extends Component<
           [dropdownClassNames.fullWidth]: fullWidth,
         })}
         id={id}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <Label
           id={labelId}
@@ -718,7 +720,14 @@ const StyledDropdown = styled(
     <BaseDropdown {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.dropdown)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.dropdown,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const DropdownInner = <T extends string = string>(

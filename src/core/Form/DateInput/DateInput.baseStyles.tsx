@@ -3,10 +3,15 @@ import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
   width: 150px;
-  ${buildSpacingCSS(margins)};
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
 
   &.fi-date-input--full-width {
     width: 100%;

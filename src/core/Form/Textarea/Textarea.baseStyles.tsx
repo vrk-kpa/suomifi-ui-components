@@ -5,13 +5,13 @@ import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const baseStyles = (
   theme: SuomifiTheme,
-  margins?: MarginProps,
-  importantMargins?: MarginProps,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
 ) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  ${buildSpacingCSS(margins)}
-  ${buildSpacingCSS(importantMargins, true)};
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
   color: ${theme.colors.blackBase};
   width: 290px;
 

@@ -121,10 +121,15 @@ const largeVariantStyles = (theme: SuomifiTheme) => css`
   }
 `;
 
-export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyTextSmall')}
-  ${buildSpacingCSS(margins)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   
   & .fi-checkbox_label {
     position: relative;

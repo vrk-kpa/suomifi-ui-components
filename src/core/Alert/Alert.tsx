@@ -16,13 +16,13 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Alert.baseStyles';
 import { IconClose, IconError, IconInfo, IconWarning } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-alert';
 const alertClassNames = {
@@ -69,8 +69,7 @@ class BaseAlert extends Component<AlertProps> {
       closeButtonProps = {},
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const {
       className: customCloseButtonClassName,
@@ -86,7 +85,7 @@ class BaseAlert extends Component<AlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
         ref={forwardedRef}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
@@ -150,7 +149,14 @@ const StyledAlert = styled(
     return <BaseAlert {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.alert)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.alert,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Alert = forwardRef(

@@ -8,7 +8,6 @@ import {
   SpacingConsumer,
 } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -19,6 +18,7 @@ import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { AutoId } from '../utils/AutoId/AutoId';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export interface PageInputProps {
   /** Page input action button label for screen readers  */
@@ -173,8 +173,8 @@ class BasePagination extends Component<PaginationProps> {
       ...rest
     } = this.props;
 
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const pageInputId = `${id}-pageInput`;
 
     return (
@@ -183,7 +183,7 @@ class BasePagination extends Component<PaginationProps> {
         className={classnames(baseClassName, className, {
           [paginationClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>
@@ -246,7 +246,14 @@ const StyledPagination = styled(
     return <BasePagination {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.pagination)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.pagination,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Pagination = forwardRef(

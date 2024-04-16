@@ -8,7 +8,6 @@ import {
   SpacingConsumer,
 } from '../../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
@@ -24,6 +23,7 @@ import {
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { baseStyles } from './ToggleInput.baseStyles';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -91,8 +91,8 @@ class BaseToggleInput extends Component<ToggleInputProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const { toggleState } = this.state;
 
     return (
@@ -105,7 +105,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
             [toggleClassNames.disabled]: !!disabled,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlLabel className={toggleClassNames.label} htmlFor={id}>
           <HtmlInput
@@ -131,12 +131,19 @@ class BaseToggleInput extends Component<ToggleInputProps> {
 }
 
 const StyledToggleInput = styled(
-  (props: ToggleBaseProps & SuomifiThemeProp & GlobalMarginProps) => {
+  (props: ToggleInputProps & SuomifiThemeProp & GlobalMarginProps) => {
     const { theme, globalMargins, ...passProps } = props;
     return <BaseToggleInput {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.toggleInput)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.toggleButton,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ToggleInput = forwardRef(

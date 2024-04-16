@@ -14,11 +14,11 @@ import {
   SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 export interface StaticChipProps
   extends BaseChipProps,
@@ -31,8 +31,7 @@ export interface StaticChipProps
 class BaseChip extends Component<StaticChipProps> {
   render() {
     const { className, children, disabled = false, ...rest } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlSpan
@@ -40,7 +39,7 @@ class BaseChip extends Component<StaticChipProps> {
           [chipClassNames.disabled]: !!disabled,
         })}
         {...passProps}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
       </HtmlSpan>
@@ -57,8 +56,14 @@ const StyledChip = styled(
     <BaseChip {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins }) =>
-    staticChipBaseStyles(theme, globalMargins?.staticChip)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.staticChip,
+      marginProps,
+    );
+    return staticChipBaseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const StaticChip = forwardRef(
