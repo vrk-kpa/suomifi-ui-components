@@ -9,7 +9,6 @@ export const baseStyles = (
   globalMargins?: MarginProps,
   propMargins?: MarginProps,
 ) => css`
-  ${font(theme)('bodyText')}
   width: 290px;
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
