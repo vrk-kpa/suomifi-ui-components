@@ -140,7 +140,7 @@ describe('margin prop', () => {
       </Expander>,
     );
     const div = getByTestId('expander-test');
-    expect(div).toHaveAttribute('style', 'margin: 10px;');
+    expect(div).toHaveStyle('margin: 10px');
   });
 
   it('should have margin style overridden by style prop', async () => {

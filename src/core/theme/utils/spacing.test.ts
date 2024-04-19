@@ -1,7 +1,7 @@
 import {
+  spacingStyles,
   MarginProps,
   SpacingProps,
-  spacingStyles,
   separateMarginProps,
   separateMarginAndPaddingProps,
 } from './spacing';

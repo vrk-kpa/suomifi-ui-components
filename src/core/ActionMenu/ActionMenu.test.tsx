@@ -86,7 +86,7 @@ describe('Margin prop', () => {
     const { container } = render(
       TestActionMenu({ ...actionMenuProps, margin: 'xs' }),
     );
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    expect(container.firstChild).toHaveStyle('margin: 10px');
   });
 
   it('should have margin style overridden by style prop', async () => {

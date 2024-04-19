@@ -875,7 +875,7 @@ describe('props', () => {
           <DateInput labelText="Date" margin="xs" />,
         );
         const div = baseElement.querySelector('.fi-date-input');
-        expect(div).toHaveAttribute('style', 'margin: 10px;');
+        expect(div).toHaveStyle('margin: 10px');
       });
 
       it('has margin style overwritten by style prop', () => {
