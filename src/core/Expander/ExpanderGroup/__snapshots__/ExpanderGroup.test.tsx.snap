@@ -515,7 +515,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   class="c0 c1 fi-expander-group"
 >
   <button
-    aria-expanded="false"
     class="c2 fi-expander-group_all-button"
     type="button"
   >

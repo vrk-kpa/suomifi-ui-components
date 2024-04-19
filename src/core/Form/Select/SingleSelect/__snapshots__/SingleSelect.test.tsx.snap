@@ -293,6 +293,78 @@ exports[`has matching snapshot 1`] = `
   display: block;
 }
 
+.c13 {
+  vertical-align: baseline;
+}
+
+.c13.fi-icon {
+  display: inline-block;
+}
+
+.c13 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c13 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c13.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c13.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c19 {
+  vertical-align: baseline;
+}
+
+.c19.fi-icon {
+  display: inline-block;
+}
+
+.c19 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c19 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c19.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c19.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c11 {
+  vertical-align: baseline;
+}
+
+.c11.fi-icon {
+  display: inline-block;
+}
+
+.c11 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c11 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c11.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c11.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c14 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -318,6 +390,14 @@ exports[`has matching snapshot 1`] = `
 
 .c14.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c14.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c2 {
@@ -514,78 +594,6 @@ exports[`has matching snapshot 1`] = `
 
 .c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label .fi-label_label-span {
   margin-bottom: 0;
-}
-
-.c13 {
-  vertical-align: baseline;
-}
-
-.c13.fi-icon {
-  display: inline-block;
-}
-
-.c13 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c13 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c13.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c13.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c19 {
-  vertical-align: baseline;
-}
-
-.c19.fi-icon {
-  display: inline-block;
-}
-
-.c19 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c19 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c19.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c19.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c11 {
-  vertical-align: baseline;
-}
-
-.c11.fi-icon {
-  display: inline-block;
-}
-
-.c11 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c11 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c11.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c11.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c9 {

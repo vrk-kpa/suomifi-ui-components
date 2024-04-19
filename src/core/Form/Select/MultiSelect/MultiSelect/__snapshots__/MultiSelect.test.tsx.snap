@@ -272,6 +272,102 @@ exports[`has matching snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
+}
+
+.c10 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c10 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c21 {
+  vertical-align: baseline;
+}
+
+.c21.fi-icon {
+  display: inline-block;
+}
+
+.c21 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c21 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c21.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c21.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c14 {
+  vertical-align: baseline;
+}
+
+.c14.fi-icon {
+  display: inline-block;
+}
+
+.c14 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c14 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c14.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c14.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c16 {
+  vertical-align: baseline;
+}
+
+.c16.fi-icon {
+  display: inline-block;
+}
+
+.c16 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c16 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c16.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c16.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c11 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -297,6 +393,14 @@ exports[`has matching snapshot 1`] = `
 
 .c11.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c2 {
@@ -532,102 +636,6 @@ exports[`has matching snapshot 1`] = `
   max-height: inherit;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-icon {
-  display: inline-block;
-}
-
-.c10 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c10 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c21 {
-  vertical-align: baseline;
-}
-
-.c21.fi-icon {
-  display: inline-block;
-}
-
-.c21 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c21 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c21.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c21.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c14 {
-  vertical-align: baseline;
-}
-
-.c14.fi-icon {
-  display: inline-block;
-}
-
-.c14 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c14 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c14.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c14.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c16 {
-  vertical-align: baseline;
-}
-
-.c16.fi-icon {
-  display: inline-block;
-}
-
-.c16 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c16 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c16.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c16.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c20 {
@@ -875,7 +883,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 9px 20px;
   min-height: 40px;
   color: hsl(0,0%,100%);
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
@@ -989,6 +997,10 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c15.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c15.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -996,6 +1008,7 @@ exports[`has matching snapshot 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
+  padding: 10px 20px;
   background-color: transparent;
 }
 
@@ -1018,6 +1031,18 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c15.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c15.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c15.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c15.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -1026,6 +1051,7 @@ exports[`has matching snapshot 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  padding: 10px 20px;
   border: none;
 }
 
@@ -1048,6 +1074,14 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c15.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c15.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c15.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
@@ -1062,6 +1096,10 @@ exports[`has matching snapshot 1`] = `
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c15.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c15 > .fi-button_icon > .fi-icon {
@@ -1079,8 +1117,48 @@ exports[`has matching snapshot 1`] = `
   margin-left: 8px;
 }
 
+.c15.fi-button--icon-only {
+  padding: 6px 11px;
+}
+
+.c15.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c15.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c15.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c15 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c15 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c15.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c8 {
@@ -1199,6 +1277,13 @@ exports[`has matching snapshot 1`] = `
 @media (forced-colors:active) {
   .c20.fi-select-item:hover {
     background-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .c15.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
   }
 }
 
@@ -1397,6 +1482,10 @@ exports[`has matching snapshot 1`] = `
             </button>
           </div>
         </div>
+        <span
+          aria-live="polite"
+          class="c5 c9 fi-visually-hidden"
+        />
         <button
           aria-disabled="false"
           class="c7 fi-button c15 fi-multiselect_removeAllButton fi-button--secondary-light"
@@ -1424,9 +1513,6 @@ exports[`has matching snapshot 1`] = `
             </svg>
           </span>
           Remove all selections
-          <span
-            class="c5 fi-button_icon fi-button_icon--right"
-          />
         </button>
       </div>
     </div>

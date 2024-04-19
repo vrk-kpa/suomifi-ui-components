@@ -144,6 +144,14 @@ exports[`props children has matching snapshot 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c5.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -190,10 +198,20 @@ exports[`props children has matching snapshot 1`] = `
   top: 9px;
 }
 
-.c1:focus-within .fi-checkbox_label::before {
+.c1:focus-within .fi-checkbox_label::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: 4px;
+  left: -1px;
   border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
   outline: 2px solid transparent;
 }
 
@@ -244,12 +262,39 @@ exports[`props children has matching snapshot 1`] = `
   padding-left: 40px;
 }
 
+.c1.fi-checkbox--large:focus-within .fi-checkbox_label::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
+}
+
 .c1.fi-checkbox--checked .fi-checkbox_label::before {
   border-color: hsl(212,63%,45%);
+  background-color: hsl(212,63%,45%);
 }
 
 .c1.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: hsl(0,0%,100%);
+}
+
+.c1.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label::before {
+  border-color: hsl(202,7%,80%);
+  background-color: hsl(202,7%,80%);
+}
+
+.c1.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,97%);
+}
+
+.c1.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label::before {
+  border-color: hsl(3,59%,43%);
+  background-color: hsl(3,59%,43%);
+  border-width: 2px;
+}
+
+.c1.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-checkbox--error .fi-checkbox_label::before {
@@ -273,7 +318,11 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c1.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,80%);
+  fill: hsl(202,7%,97%);
+}
+
+.c1.fi-checkbox--disabled .fi-hint-text {
+  color: hsl(202,7%,67%);
 }
 
 .c1.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {

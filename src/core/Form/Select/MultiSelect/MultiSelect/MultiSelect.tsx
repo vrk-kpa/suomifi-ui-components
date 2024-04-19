@@ -12,7 +12,7 @@ import { getOwnerDocument } from '../../../../../utils/common';
 import { HTMLAttributesIncludingDataAttributes } from '../../../../../utils/common/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
-import { Popover } from '../../../../Popover/Popover';
+import { Popover, PopoverConsumer } from '../../../../Popover/Popover';
 import {
   FilterInput,
   FilterInputStatus,
@@ -106,7 +106,7 @@ type AriaSelectedAmountProps =
 
 type LoadingProps =
   | {
-      loading?: false | never;
+      loading?: false;
       loadingText?: string;
     }
   | {
@@ -158,6 +158,11 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   defaultSelectedItems?: Array<T & MultiSelectData>;
   /** Callback fired when filter changes */
   onChange?: (value: string) => void;
+  /**
+   * Callback fired when filter changes. This function does not use debounce.
+   * Intended use cases are, for example, to set the `loading` prop
+   */
+  onChangeWithoutDebounce?: (value: string) => void;
   /** Callback fired on input blur */
   onBlur?: () => void;
   /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
@@ -193,7 +198,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
 
 type AllowItemAdditionProps =
   | {
-      allowItemAddition?: false | never;
+      allowItemAddition?: false;
       itemAdditionHelpText?: never;
       noItemsText: string;
     }
@@ -628,6 +633,7 @@ class BaseMultiSelect<T> extends Component<
       noItemsText,
       defaultSelectedItems,
       onChange: propOnChange,
+      onChangeWithoutDebounce,
       debounce,
       status,
       statusText,
@@ -729,6 +735,9 @@ class BaseMultiSelect<T> extends Component<
                     if (propOnChange) {
                       debouncer(propOnChange, value);
                     }
+                    if (onChangeWithoutDebounce) {
+                      onChangeWithoutDebounce(value);
+                    }
                     this.setState({
                       filterInputValue: value,
                       showPopover: true,
@@ -763,82 +772,89 @@ class BaseMultiSelect<T> extends Component<
                   }
                 }}
               >
-                <SelectItemList
-                  id={popoverItemListId}
-                  ref={this.popoverListRef}
-                  focusedDescendantId={ariaActiveDescendant}
-                  aria-multiselectable="true"
-                  {...listProps}
-                >
-                  <HtmlDiv>
-                    {!loading &&
-                      filteredItemsWithChecked.length > 0 &&
-                      filteredItemsWithChecked.map((item) => {
-                        const isCurrentlySelected =
-                          item.uniqueItemId === focusedDescendantId;
-                        return (
-                          <SelectItem
-                            hasKeyboardFocus={isCurrentlySelected}
-                            key={`${item.uniqueItemId}_${item.checked}`}
-                            id={`${id}-${item.uniqueItemId}`}
-                            checked={item.checked}
-                            disabled={item.disabled}
-                            onClick={() => {
-                              this.handleItemSelection(item);
-                            }}
-                            hightlightQuery={this.filterInputRef.current?.value}
-                            {...item.listItemProps}
-                          >
-                            {item.labelText}
-                          </SelectItem>
-                        );
-                      })}
+                <PopoverConsumer>
+                  {(consumer) => (
+                    <SelectItemList
+                      id={popoverItemListId}
+                      ref={this.popoverListRef}
+                      focusedDescendantId={ariaActiveDescendant}
+                      aria-multiselectable="true"
+                      {...listProps}
+                    >
+                      <HtmlDiv>
+                        {!loading &&
+                          filteredItemsWithChecked.length > 0 &&
+                          filteredItemsWithChecked.map((item) => {
+                            const isCurrentlySelected =
+                              item.uniqueItemId === focusedDescendantId;
+                            return (
+                              <SelectItem
+                                hasKeyboardFocus={isCurrentlySelected}
+                                key={`${item.uniqueItemId}_${item.checked}`}
+                                id={`${id}-${item.uniqueItemId}`}
+                                checked={item.checked}
+                                disabled={item.disabled}
+                                onClick={() => {
+                                  this.handleItemSelection(item);
+                                  consumer.updatePopover();
+                                }}
+                                hightlightQuery={
+                                  this.filterInputRef.current?.value
+                                }
+                                {...item.listItemProps}
+                              >
+                                {item.labelText}
+                              </SelectItem>
+                            );
+                          })}
 
-                    {!loading &&
-                      filteredItemsWithChecked.length === 0 &&
-                      !allowItemAddition && (
-                        <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
-                      )}
+                        {!loading &&
+                          filteredItemsWithChecked.length === 0 &&
+                          !allowItemAddition && (
+                            <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                          )}
 
-                    {!loading &&
-                      filterInputValue !== '' &&
-                      !this.inputValueInItems() &&
-                      allowItemAddition && (
-                        <SelectItemAddition
-                          hintText={itemAdditionHelpText}
-                          hasKeyboardFocus={
-                            filterInputValue === focusedDescendantId
-                          }
-                          id={`${id}-${filterInputValue.toLowerCase()}`}
-                          onClick={() => {
-                            // @ts-expect-error: Cannot create an object which implements unknown generic type T
-                            const item: T & MultiSelectData = {
-                              labelText: filterInputValue,
-                              uniqueItemId: filterInputValue.toLowerCase(),
-                            };
-                            this.handleItemSelection(item);
-                            this.setState({
-                              focusedDescendantId:
-                                filterInputValue.toLowerCase(),
-                            });
-                          }}
-                        >
-                          {filterInputValue}
-                        </SelectItemAddition>
-                      )}
+                        {!loading &&
+                          filterInputValue !== '' &&
+                          !this.inputValueInItems() &&
+                          allowItemAddition && (
+                            <SelectItemAddition
+                              hintText={itemAdditionHelpText}
+                              hasKeyboardFocus={
+                                filterInputValue === focusedDescendantId
+                              }
+                              id={`${id}-${filterInputValue.toLowerCase()}`}
+                              onClick={() => {
+                                // @ts-expect-error: Cannot create an object which implements unknown generic type T
+                                const item: T & MultiSelectData = {
+                                  labelText: filterInputValue,
+                                  uniqueItemId: filterInputValue.toLowerCase(),
+                                };
+                                this.handleItemSelection(item);
+                                this.setState({
+                                  focusedDescendantId:
+                                    filterInputValue.toLowerCase(),
+                                });
+                              }}
+                            >
+                              {filterInputValue}
+                            </SelectItemAddition>
+                          )}
 
-                    {loading && (
-                      <SelectEmptyItem className="loading">
-                        <LoadingSpinner
-                          status="loading"
-                          variant="small"
-                          textAlign="right"
-                          text={loadingText}
-                        />
-                      </SelectEmptyItem>
-                    )}
-                  </HtmlDiv>
-                </SelectItemList>
+                        {loading && (
+                          <SelectEmptyItem className="loading">
+                            <LoadingSpinner
+                              status="loading"
+                              variant="small"
+                              textAlign="right"
+                              text={loadingText}
+                            />
+                          </SelectEmptyItem>
+                        )}
+                      </HtmlDiv>
+                    </SelectItemList>
+                  )}
+                </PopoverConsumer>
               </Popover>
             )}
             {chipListVisible && (

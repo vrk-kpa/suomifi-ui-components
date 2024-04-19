@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import {
   SpacingProps,
   separateMarginAndPaddingProps,
-  spacingStyles,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
 import { HtmlDivWithNativeRef, HtmlDivProps } from '../../reset';
@@ -37,9 +36,9 @@ export interface BlockProps extends HtmlDivProps, SpacingProps {
 
 class SemanticBlock extends Component<BlockProps> {
   render() {
-    const { className, variant, style, forwardedRef, ...rest } = this.props;
-    const [spacingProps, passProps] = separateMarginAndPaddingProps(rest);
-    const spacingStyle = spacingStyles(spacingProps);
+    const { className, variant, forwardedRef, ...rest } = this.props;
+
+    const [_, passProps] = separateMarginAndPaddingProps(rest);
 
     const ComponentVariant =
       !variant || variant === 'default' ? HtmlDivWithNativeRef : variant;
@@ -51,17 +50,21 @@ class SemanticBlock extends Component<BlockProps> {
         className={classnames(baseClassName, className, {
           [`${baseClassName}--${variant}`]: !!variant,
         })}
-        style={{ ...spacingStyle, ...style }}
       />
     );
   }
 }
 
-const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
-  const { theme, variant, ...passProps } = props;
-  return <SemanticBlock variant={variant} {...passProps} />;
-})`
-  ${({ theme, variant }) => baseStyles(theme, variant)}
+const StyledBlock = styled(
+  ({ theme, variant, ...passProps }: BlockProps & SuomifiThemeProp) => (
+    <SemanticBlock variant={variant} {...passProps} />
+  ),
+)`
+  ${(props) => {
+    const { theme, variant, ...rest } = props;
+    const [spacingProps] = separateMarginAndPaddingProps(rest);
+    return baseStyles(theme, variant, spacingProps);
+  }}
 `;
 
 const Block = forwardRef((props: BlockProps, ref: React.Ref<any>) => (

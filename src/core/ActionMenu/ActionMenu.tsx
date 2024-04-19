@@ -13,7 +13,13 @@ import {
   ActionMenuPopover,
   InitialActiveDescendant,
 } from './ActionMenuPopover';
-import { Button, ButtonProps, ButtonVariant } from '../Button/Button';
+import {
+  Button,
+  ButtonProps,
+  ButtonVariant,
+  ForcedAccessibleNameProps,
+  LoadingProps,
+} from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import {
   spacingStyles,
@@ -29,8 +35,6 @@ const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
-  button: `${baseClassName}_button`,
-  iconOnly: `${baseClassName}_button--icon-only`,
 };
 
 export type MenuContent =
@@ -40,50 +44,51 @@ export type MenuContent =
   | ReactElement<ActionMenuItemProps>
   | ReactElement<ActionMenuDividerProps>;
 
-export interface ActionMenuProps extends MarginProps, ButtonProps {
-  /** Text content for the menu button */
-  buttonText?: string;
-  /**
-   * `'default'` | `'inverted'` | `'secondary'` | `'secondaryLight'`| `'secondaryNoBorder'`
-   *
-   * Variant for the menu button:
-   * @default secondary
-   */
-  buttonVariant?: ButtonVariant;
-  /**
-   * Define a label if `buttonText` does not indicate the menu button purpose.
-   * In cases where the button has a visible label, make sure the visible text is included in the aria-label.
-   * Alternatively you can define `aria-labelledby` with a label element's id.
-   */
-  'aria-label'?: string;
-  /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children?: MenuContent;
-  /** CSS class for custom styles */
-  className?: string;
-  /** Menu container div CSS class for custom styles. Can be used to modify menu "popover" z-index. */
-  menuClassName?: string;
-  /** Disables the menu button */
-  disabled?: boolean;
-  /** Ref is forwarded to the underlying button element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLButtonElement>;
-  /** Sets component's width to 100% of its parent */
-  fullWidth?: boolean;
-  /**
-   * HTML id attribute.
-   * If no id is specified, one will be generated automatically
-   */
-  id?: string;
-  /** Name used for the menu button */
-  name?: string;
-  /** Callback fired on button onBlur
-   * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
-   */
-  onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
-  /** Callback fired when menu opens */
-  onClose?: () => void;
-  /** Callback fired when menu closes */
-  onOpen?: () => void;
-}
+export type ActionMenuProps = MarginProps &
+  Omit<ButtonProps, keyof ForcedAccessibleNameProps | keyof LoadingProps> & {
+    /** Text content for the menu button */
+    buttonText?: string;
+    /**
+     * `'default'` | `'inverted'` | `'secondary'` | `'secondaryLight'`| `'secondaryNoBorder'`
+     *
+     * Variant for the menu button:
+     * @default secondary
+     */
+    buttonVariant?: ButtonVariant;
+    /**
+     * Define a label if `buttonText` does not indicate the menu button purpose.
+     * In cases where the button has a visible label, make sure the visible text is included in the aria-label.
+     * Alternatively you can define `aria-labelledby` with a label element's id.
+     */
+    'aria-label'?: string;
+    /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
+    children?: MenuContent;
+    /** CSS class for custom styles */
+    className?: string;
+    /** Menu container div CSS class for custom styles. Can be used to modify menu "popover" z-index. */
+    menuClassName?: string;
+    /** Disables the menu button */
+    disabled?: boolean;
+    /** Ref is forwarded to the underlying button element. Alternative for React `ref` attribute. */
+    forwardedRef?: React.RefObject<HTMLButtonElement>;
+    /** Sets component's width to 100% of its parent */
+    fullWidth?: boolean;
+    /**
+     * HTML id attribute.
+     * If no id is specified, one will be generated automatically
+     */
+    id?: string;
+    /** Name used for the menu button */
+    name?: string;
+    /** Callback fired on button onBlur
+     * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
+     */
+    onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
+    /** Callback fired when menu opens */
+    onClose?: () => void;
+    /** Callback fired when menu closes */
+    onOpen?: () => void;
+  };
 
 const BaseActionMenu = (props: ActionMenuProps) => {
   const {
@@ -176,9 +181,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         aria-haspopup="menu"
         forwardedRef={openButtonRef}
         fullWidth={fullWidth}
-        className={classnames(actionMenuClassNames.button, {
-          [actionMenuClassNames.iconOnly]: !buttonText || buttonText.length < 1,
-        })}
         onClick={handleButtonClick}
         onKeyDown={handleKeyDown}
         onBlur={(event) => {
@@ -211,7 +213,7 @@ const StyledActionMenu = styled(
     <BaseActionMenu {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${() => baseStyles()}
 `;
 
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(

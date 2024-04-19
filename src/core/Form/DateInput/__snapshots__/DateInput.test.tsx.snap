@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshots match date input error status with statustext 1`] = `
+.c7 {
+  vertical-align: baseline;
+}
+
+.c7.fi-icon {
+  display: inline-block;
+}
+
+.c7 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c7 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -176,6 +200,14 @@ exports[`snapshots match date input error status with statustext 1`] = `
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -458,6 +490,22 @@ exports[`snapshots match date input error status with statustext 1`] = `
           class="c4 c6 fi-date-input_statusText--has-content fi-status-text fi-status-text--error"
           id="7-statusText"
         >
+          <svg
+            aria-hidden="true"
+            class="fi-icon c7"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm.71 17.29c-.38-.37-1.05-.37-1.42 0-.181.19-.29.44-.29.71 0 .26.109.52.29.71.189.18.45.29.71.29.26 0 .52-.11.71-.29.18-.19.29-.45.29-.71 0-.27-.11-.52-.29-.71ZM12 5a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1Z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
           Error
         </span>
       </div>
@@ -654,6 +702,14 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 
 .c7.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -1140,6 +1196,14 @@ exports[`snapshots match date input hint text 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c7.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1609,6 +1673,14 @@ exports[`snapshots match date input minimal implementation 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2071,6 +2143,14 @@ exports[`snapshots match date input optional text 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2361,6 +2441,30 @@ exports[`snapshots match date input optional text 1`] = `
 `;
 
 exports[`snapshots match date input success status with statustext 1`] = `
+.c7 {
+  vertical-align: baseline;
+}
+
+.c7.fi-icon {
+  display: inline-block;
+}
+
+.c7 .fi-icon-base-fill {
+  fill: hsl(166,90%,34%);
+}
+
+.c7 .fi-icon-base-stroke {
+  stroke: hsl(166,90%,34%);
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2536,6 +2640,14 @@ exports[`snapshots match date input success status with statustext 1`] = `
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c6.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c1 {
@@ -2817,6 +2929,22 @@ exports[`snapshots match date input success status with statustext 1`] = `
           class="c4 c6 fi-date-input_statusText--has-content fi-status-text"
           id="6-statusText"
         >
+          <svg
+            aria-hidden="true"
+            class="fi-icon c7"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm5.65 8.24a1 1 0 0 0-1.41.11l-5.296 6.18-2.237-2.237a1 1 0 1 0-1.414 1.414l3 3a1 1 0 0 0 1.466-.056l6-7a1 1 0 0 0-.108-1.41Z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
           Success
         </span>
       </div>
@@ -3071,6 +3199,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c13 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -3088,7 +3228,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 9px 20px;
   min-height: 40px;
   color: hsl(0,0%,100%);
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
@@ -3202,6 +3342,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -3209,6 +3353,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
+  padding: 10px 20px;
   background-color: transparent;
 }
 
@@ -3231,6 +3376,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c13.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -3239,6 +3396,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  padding: 10px 20px;
   border: none;
 }
 
@@ -3261,6 +3419,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c13.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c13.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
@@ -3275,6 +3441,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c13 > .fi-button_icon > .fi-icon {
@@ -3292,8 +3462,48 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin-left: 8px;
 }
 
+.c13.fi-button--icon-only {
+  padding: 6px 11px;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c13 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c13 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c13.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c17.fi-month-day {
@@ -3439,18 +3649,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   height: 38px;
 }
 
-.c7 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
 .c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -3506,6 +3704,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c9.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c9.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c12 {
@@ -4131,6 +4337,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-radius: 2px 0 0 2px;
 }
 
+@media (prefers-reduced-motion) {
+  .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
+}
+
 <body>
   <div>
     <div
@@ -4316,6 +4529,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <div
           class="c0 fi-date-selectors_buttons"
         >
+          <span
+            aria-live="polite"
+            class="c4 c7 fi-visually-hidden"
+          />
           <button
             aria-disabled="false"
             aria-label="Edellinen kuukausi Joulukuu"
@@ -4323,9 +4540,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             tabindex="0"
             type="button"
           >
-            <span
-              class="c4 fi-button_icon"
-            />
             <svg
               aria-hidden="true"
               class="fi-icon c14 fi-date-selectors_month-button_icon"
@@ -4342,10 +4556,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 fill-rule="evenodd"
               />
             </svg>
-            <span
-              class="c4 fi-button_icon fi-button_icon--right"
-            />
           </button>
+          <span
+            aria-live="polite"
+            class="c4 c7 fi-visually-hidden"
+          />
           <button
             aria-disabled="false"
             aria-label="Seuraava kuukausi Helmikuu"
@@ -4353,9 +4568,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             tabindex="0"
             type="button"
           >
-            <span
-              class="c4 fi-button_icon"
-            />
             <svg
               aria-hidden="true"
               class="fi-icon c15 fi-date-selectors_month-button_icon"
@@ -4372,9 +4584,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 fill-rule="evenodd"
               />
             </svg>
-            <span
-              class="c4 fi-button_icon fi-button_icon--right"
-            />
           </button>
         </div>
       </div>
@@ -4438,7 +4647,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <button
                 aria-current="date"
-                aria-disabled="false"
                 aria-label="1 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4459,7 +4667,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="2 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4476,7 +4683,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="3 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4493,7 +4699,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="4 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4510,7 +4715,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="5 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4529,7 +4733,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="6 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4546,7 +4749,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="7 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4563,7 +4765,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="8 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4580,7 +4781,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="9 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4597,7 +4797,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="10 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4614,7 +4813,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="11 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4631,7 +4829,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="12 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4650,7 +4847,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="13 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4667,7 +4863,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="14 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4684,8 +4879,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
-                aria-label="15 keskiviikko Tammikuu 2020"
+                aria-label="15 keskiviikko Tammikuu 2020 Valittu päivä"
                 class="c6 fi-month-day_button fi-month-day_button--selected"
                 type="button"
               >
@@ -4700,7 +4894,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="16 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4717,7 +4910,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="17 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4734,7 +4926,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="18 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4751,7 +4942,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="19 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4770,7 +4960,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="20 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4787,7 +4976,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="21 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4804,7 +4992,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="22 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4821,7 +5008,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="23 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4838,7 +5024,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="24 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4855,7 +5040,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="25 lauantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4872,7 +5056,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="26 sunnuntai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4891,7 +5074,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="27 maanantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4908,7 +5090,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="28 tiistai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4925,7 +5106,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="29 keskiviikko Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4942,7 +5122,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="30 torstai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4959,7 +5138,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c17 fi-month-day"
             >
               <button
-                aria-disabled="false"
                 aria-label="31 perjantai Tammikuu 2020"
                 class="c6 fi-month-day_button"
                 tabindex="-1"
@@ -4988,19 +5166,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
       <div
         class="c0 fi-date-picker_bottom-container"
       >
+        <span
+          aria-live="polite"
+          class="c4 c7 fi-visually-hidden"
+        />
         <button
           aria-disabled="false"
           class="c6 fi-button c13 fi-button--secondary-noborder"
           tabindex="0"
           type="button"
         >
-          <span
-            class="c4 fi-button_icon"
-          />
           Sulje
-          <span
-            class="c4 fi-button_icon fi-button_icon--right"
-          />
         </button>
       </div>
     </div>
@@ -5259,6 +5435,18 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c13 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -5276,7 +5464,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 9px 20px;
   min-height: 40px;
   color: hsl(0,0%,100%);
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
@@ -5390,6 +5578,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -5397,6 +5589,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
+  padding: 10px 20px;
   background-color: transparent;
 }
 
@@ -5419,6 +5612,18 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c13.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c13.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -5427,6 +5632,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  padding: 10px 20px;
   border: none;
 }
 
@@ -5449,6 +5655,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c13.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c13.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
@@ -5463,6 +5677,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c13 > .fi-button_icon > .fi-icon {
@@ -5480,8 +5698,48 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   margin-left: 8px;
 }
 
+.c13.fi-button--icon-only {
+  padding: 6px 11px;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c13.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c13 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c13 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c13.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c13.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c17.fi-month-day {
@@ -5627,18 +5885,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   height: 38px;
 }
 
-.c7 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
 .c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -5694,6 +5940,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c9.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,43%);
+}
+
+.c9.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
 }
 
 .c12 {
@@ -6319,6 +6573,13 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-radius: 2px 0 0 2px;
 }
 
+@media (prefers-reduced-motion) {
+  .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
+}
+
 <body>
   <div>
     <div
@@ -6513,6 +6774,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
           <div
             class="c0 fi-date-selectors_buttons"
           >
+            <span
+              aria-live="polite"
+              class="c4 c7 fi-visually-hidden"
+            />
             <button
               aria-disabled="false"
               aria-label="Edellinen kuukausi Joulukuu"
@@ -6520,9 +6785,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               tabindex="0"
               type="button"
             >
-              <span
-                class="c4 fi-button_icon"
-              />
               <svg
                 aria-hidden="true"
                 class="fi-icon c14 fi-date-selectors_month-button_icon"
@@ -6539,10 +6801,11 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-              <span
-                class="c4 fi-button_icon fi-button_icon--right"
-              />
             </button>
+            <span
+              aria-live="polite"
+              class="c4 c7 fi-visually-hidden"
+            />
             <button
               aria-disabled="false"
               aria-label="Seuraava kuukausi Helmikuu"
@@ -6550,9 +6813,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               tabindex="0"
               type="button"
             >
-              <span
-                class="c4 fi-button_icon"
-              />
               <svg
                 aria-hidden="true"
                 class="fi-icon c15 fi-date-selectors_month-button_icon"
@@ -6569,9 +6829,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-              <span
-                class="c4 fi-button_icon fi-button_icon--right"
-              />
             </button>
           </div>
         </div>
@@ -6635,7 +6892,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <button
                   aria-current="date"
-                  aria-disabled="false"
                   aria-label="1 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6656,7 +6912,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="2 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6673,7 +6928,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="3 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6690,7 +6944,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="4 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6707,7 +6960,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="5 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6726,7 +6978,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="6 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6743,7 +6994,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="7 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6760,7 +7010,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="8 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6777,7 +7026,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="9 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6794,7 +7042,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="10 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6811,7 +7058,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="11 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6828,7 +7074,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="12 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6847,7 +7092,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="13 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6864,7 +7108,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="14 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6881,8 +7124,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
-                  aria-label="15 keskiviikko Tammikuu 2020"
+                  aria-label="15 keskiviikko Tammikuu 2020 Valittu päivä"
                   class="c6 fi-month-day_button fi-month-day_button--selected"
                   type="button"
                 >
@@ -6897,7 +7139,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="16 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6914,7 +7155,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="17 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6931,7 +7171,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="18 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6948,7 +7187,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="19 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6967,7 +7205,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="20 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -6984,7 +7221,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="21 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7001,7 +7237,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="22 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7018,7 +7253,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="23 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7035,7 +7269,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="24 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7052,7 +7285,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="25 lauantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7069,7 +7301,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="26 sunnuntai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7088,7 +7319,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="27 maanantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7105,7 +7335,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="28 tiistai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7122,7 +7351,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="29 keskiviikko Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7139,7 +7367,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="30 torstai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7156,7 +7383,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c17 fi-month-day"
               >
                 <button
-                  aria-disabled="false"
                   aria-label="31 perjantai Tammikuu 2020"
                   class="c6 fi-month-day_button"
                   tabindex="-1"
@@ -7185,19 +7411,17 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         <div
           class="c0 fi-date-picker_bottom-container"
         >
+          <span
+            aria-live="polite"
+            class="c4 c7 fi-visually-hidden"
+          />
           <button
             aria-disabled="false"
             class="c6 fi-button c13 fi-button--secondary-noborder"
             tabindex="0"
             type="button"
           >
-            <span
-              class="c4 fi-button_icon"
-            />
             Sulje
-            <span
-              class="c4 fi-button_icon fi-button_icon--right"
-            />
           </button>
         </div>
       </div>

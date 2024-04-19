@@ -34,6 +34,7 @@ const largeStyles = () => css`
     & .fi-radio-button_hintText {
       padding-left: 40px;
     }
+
     & .fi-radio-button_input {
       top: 2px;
       left: 2px;
@@ -49,7 +50,18 @@ const largeStyles = () => css`
           width: 30px;
         }
       }
+      &:focus {
+        + .fi-radio-button_icon_wrapper {
+          &::after {
+            width: 32px;
+            height: 32px;
+            top: -1px;
+            left: -1px;
+          }
+        }
+      }
     }
+
     & .fi-radio-button_label {
       padding-left: 40px;
       line-height: 34px;
@@ -108,14 +120,29 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       &:focus {
         + .fi-radio-button_icon_wrapper {
-          ${theme.focuses.boxShadowFocus}
-          border-radius: 50%;
-          ${theme.focuses.highContrastFocus}
+          &::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            top: -1px;
+            left: -1px;
+            background-color: transparent;
+            border: 0px solid ${theme.colors.whiteBase};
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px ${theme.colors.accentSecondary};
+            z-index: 9999;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            outline: 2px solid transparent; /* For high contrast mode */
+          }
         }
       }
       &:focus:not(:focus-visible) {
         + .fi-radio-button_icon_wrapper {
-          box-shadow: none;
+          &::after {
+            box-shadow: none;
+          }
         }
       }
     }

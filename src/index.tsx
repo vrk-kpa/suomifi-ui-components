@@ -17,10 +17,15 @@ export { InlineAlert, InlineAlertProps } from './core/InlineAlert/InlineAlert';
 export {
   Notification,
   NotificationProps,
+  CloseButtonProps,
 } from './core/Notification/Notification';
 export { Toast, ToastProps } from './core/Toast/Toast';
 export { Block, BlockProps } from './core/Block/Block';
-export { Button, ButtonProps } from './core/Button/Button';
+export {
+  Button,
+  ButtonProps,
+  ForcedAccessibleNameProps,
+} from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
@@ -37,6 +42,7 @@ export {
   CheckboxGroupProps,
   TextInput,
   TextInputProps,
+  TextInputValue,
   TimeInput,
   TimeInputProps,
   ToggleInput,
@@ -67,6 +73,9 @@ export {
   DateInputProps,
   DatePickerTextProps,
   characterCounterProps,
+  ErrorSummary,
+  ErrorSummaryProps,
+  ErrorSummaryItemProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export {
@@ -155,6 +164,10 @@ export {
   ColorProp,
   TypographyProp,
   SpacingProp,
+  MarginProps,
+  PaddingProps,
+  SpacingProps,
+  SpacingWithoutInsetProp,
 } from './core/theme';
 export { getLogger, setLogger, Logger } from './utils/log/logger';
 export { autocompleteTimeString } from './utils/common';

@@ -11,6 +11,7 @@ Examples:
 - [Secondary button](./#/Components/Button?id=secondary-button)
 - [Light secondary button](./#/Components/Button?id=light-secondary-button)
 - [Inverted button](./#/Components/Button?id=inverted-button)
+- [Loading state](./#/Components/Button?id=loading-state)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/Button?id=props--methods)
@@ -129,6 +130,52 @@ import {
 >
   <Button variant="inverted">Open</Button>
 </Block>;
+```
+
+### Loading state
+
+Use the `loading` prop to display a loading spinner in the Button. Also provide a `ariaLoadingText` for screen readers.
+
+When the loading event ends successfully, it is recommended to use a `<Toast>` or similar notification if there is no apparent change to the current page, or alternatively move the browser's focus to a newly appeared element.
+
+```jsx
+import { Button, Toast } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [loading, setLoading] = useState(false);
+const [showToast, setShowToast] = useState(false);
+
+const simulateSubmit = () => {
+  setLoading(true);
+  setTimeout(() => {
+    setLoading(false);
+    flashToast();
+  }, 2000);
+};
+
+const flashToast = () => {
+  setShowToast(true);
+  setTimeout(() => {
+    setShowToast(false);
+  }, 5000);
+};
+
+const toastContainer = (
+  <div style={{ position: 'fixed', top: '20px', right: '20px' }}>
+    <Toast>Form submitted successfully</Toast>
+  </div>
+);
+
+<>
+  <div aria-live="polite">{showToast && toastContainer}</div>
+  <Button
+    onClick={simulateSubmit}
+    loading={loading}
+    ariaLoadingText="Loading"
+  >
+    Submit
+  </Button>
+</>;
 ```
 
 ### Props & methods

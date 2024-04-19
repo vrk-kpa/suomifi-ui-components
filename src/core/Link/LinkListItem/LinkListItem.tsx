@@ -38,11 +38,7 @@ const StyledLinkListItem = styled(
   }: LinkListItemProps & SuomifiThemeProp) => (
     <HtmlLi {...passProps} className={classnames(baseClassName, className)}>
       <HtmlSpan className={listLinkClassNames.icon}>
-        {!!icon ? (
-          icon
-        ) : (
-          <IconChevronRight color={theme.colors.highlightBase} />
-        )}
+        {!!icon ? icon : <IconChevronRight />}
       </HtmlSpan>
       {children}
     </HtmlLi>

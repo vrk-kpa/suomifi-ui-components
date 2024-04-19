@@ -23,6 +23,7 @@ import {
   moveMonths,
 } from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
+import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const baseClassName = 'fi-date-picker';
 
@@ -60,6 +61,11 @@ export interface InternalDatePickerProps
   minDate: Date;
   /** Maximum date user can select from date picker. */
   maxDate: Date;
+  /** Custom props given to the datepicker component */
+  userProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'onChange' | 'style' | 'aria-hidden' | 'ref'
+  >;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
@@ -76,6 +82,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     minDate,
     maxDate,
     smallScreen,
+    userProps = {},
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -463,9 +470,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     </HtmlDiv>
   );
 
+  const { className: customClassName, ...passProps } = userProps;
+
   const dialogClasses = [
     className,
     baseClassName,
+    customClassName,
     {
       [datePickerClassNames.hidden]: !isOpen,
     },
@@ -478,6 +488,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       className={classnames(...dialogClasses)}
       style={styles.popper}
       forwardedRef={setDialogElement}
+      {...passProps}
     >
       {application}
       <div
@@ -510,6 +521,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         onPointerLeave={handlePointerUp}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        {...passProps}
       >
         <HtmlDivWithRef
           className={datePickerClassNames.slideIndicatorWrapper}

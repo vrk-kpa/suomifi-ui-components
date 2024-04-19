@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ReactElement, forwardRef } from 'react';
+import React, { Component, ReactNode, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -46,13 +46,13 @@ export const dropdownClassNames = {
   fullWidth: `${baseClassName}--full-width`,
 };
 
-export interface DropdownProviderState {
+export interface DropdownProviderState<T extends string = string> {
   /** Callback for communicating DropdownItem click to parent  */
-  onItemClick: (itemValue: string) => void;
+  onItemClick: (itemValue: T) => void;
   /** Currently selected DropdownItem */
-  selectedDropdownValue: string | undefined | null;
+  selectedDropdownValue: T | undefined | null;
   /** Currently focused DropdownItem */
-  focusedItemValue: string | null | undefined;
+  focusedItemValue: T | null | undefined;
   /** ID of the Dropdown component.
    * Used in DropdownItem to create a derived ID for each item
    */
@@ -64,7 +64,7 @@ export interface DropdownProviderState {
    */
   onItemTabPress: () => void;
   /** Callback for communicating DropdownItem mouse over to parent  */
-  onItemMouseOver: (itemValue: string) => void;
+  onItemMouseOver: (itemValue: T) => void;
 }
 
 const defaultProviderValue: DropdownProviderState = {
@@ -80,8 +80,8 @@ const defaultProviderValue: DropdownProviderState = {
 const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
   React.createContext(defaultProviderValue);
 
-interface DropdownState {
-  selectedValue: string | undefined | null;
+interface DropdownState<T> {
+  selectedValue: T | undefined | null;
   selectedValueNode: ReactNode | undefined | null;
   ariaExpanded: boolean;
   showPopover: boolean;
@@ -94,7 +94,7 @@ interface DropdownState {
   preventListScrolling: boolean;
 }
 
-export interface DropdownProps
+export interface DropdownProps<T extends string = string>
   extends StatusTextCommonProps,
     MarginProps,
     Omit<HtmlButtonProps, 'onChange'> {
@@ -106,9 +106,9 @@ export interface DropdownProps
   /** HTML name attribute. */
   name?: string;
   /** Sets a default, initially selected value for non controlled Dropdown */
-  defaultValue?: string;
+  defaultValue?: T;
   /** Controlled selected value, overrides `defaultValue` if provided. */
-  value?: string;
+  value?: T;
   /** Label for the Dropdown component. */
   labelText: ReactNode;
   /** Hint text to be shown below the label */
@@ -146,11 +146,12 @@ export interface DropdownProps
   /** Use `<DropdownItem>` components as children */
   children?:
     | Array<
-        ReactElement<DropdownItemProps> | Array<ReactElement<DropdownItemProps>>
+        | ReactElement<DropdownItemProps<T>>
+        | Array<ReactElement<DropdownItemProps<T>>>
       >
-    | ReactElement<DropdownItemProps>;
+    | ReactElement<DropdownItemProps<T>>;
   /** Callback that fires when the Dropdown value changes. */
-  onChange?(value: string): void;
+  onChange?(value: T): void;
   /** Callback that fires on blur */
   onBlur?: () => void;
   /** Tooltip component for the Dropdown's label */
@@ -166,8 +167,10 @@ export interface DropdownProps
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
-class BaseDropdown extends Component<DropdownProps> {
-  state: DropdownState = {
+class BaseDropdown<T extends string = string> extends Component<
+  DropdownProps<T>
+> {
+  state: DropdownState<T> = {
     selectedValue:
       'value' in this.props
         ? this.props.value
@@ -199,18 +202,22 @@ class BaseDropdown extends Component<DropdownProps> {
 
   componentIsMounted: boolean;
 
-  constructor(props: DropdownProps) {
+  constructor(props: DropdownProps<T>) {
     super(props);
     this.buttonRef = React.createRef();
     this.popoverRef = React.createRef();
   }
 
-  static getDerivedStateFromProps(
-    nextProps: DropdownProps,
-    prevState: DropdownState,
+  static getDerivedStateFromProps<U extends string>(
+    nextProps: DropdownProps<U>,
+    prevState: DropdownState<U>,
   ) {
     const { value } = nextProps;
-    if ('value' in nextProps && value !== prevState.selectedValue) {
+    if (
+      // Handle selected value parsing with controlled state and changed value
+      'value' in nextProps &&
+      value !== prevState.selectedValue
+    ) {
       return {
         selectedValue: value,
         selectedValueNode: BaseDropdown.getSelectedValueNode(
@@ -219,17 +226,34 @@ class BaseDropdown extends Component<DropdownProps> {
         ),
       };
     }
+    // Case language change. Make sure selectedValueNode gets updated with new text from children
+    if (
+      prevState.selectedValue &&
+      nextProps.children &&
+      BaseDropdown.valueExistsInChildren(
+        prevState.selectedValue,
+        nextProps.children,
+      )
+    ) {
+      return {
+        selectedValue: prevState.selectedValue,
+        selectedValueNode: BaseDropdown.getSelectedValueNode(
+          prevState.selectedValue,
+          nextProps.children,
+        ),
+      };
+    }
     return null;
   }
 
-  static getSelectedValueNode(
+  static getSelectedValueNode<U extends string>(
     selectedValue: string | undefined,
     children:
       | Array<
-          | ReactElement<DropdownItemProps>
-          | Array<ReactElement<DropdownItemProps>>
+          | ReactElement<DropdownItemProps<U>>
+          | Array<ReactElement<DropdownItemProps<U>>>
         >
-      | ReactElement<DropdownItemProps>
+      | ReactElement<DropdownItemProps<U>>
       | undefined,
   ): ReactNode | undefined {
     if (selectedValue === undefined || children === undefined) return undefined;
@@ -248,6 +272,22 @@ class BaseDropdown extends Component<DropdownProps> {
     }
   }
 
+  static valueExistsInChildren<U extends string>(
+    value: string,
+    children:
+      | Array<
+          | ReactElement<DropdownItemProps<U>>
+          | Array<ReactElement<DropdownItemProps<U>>>
+        >
+      | ReactElement<DropdownItemProps<U>>,
+  ) {
+    if (Array.isArray(children)) {
+      const flatChildren = children.flat();
+      return flatChildren.some((child) => child.props.value === value);
+    }
+    return children.props.value === value;
+  }
+
   componentDidMount(): void {
     this.componentIsMounted = true;
   }
@@ -263,7 +303,7 @@ class BaseDropdown extends Component<DropdownProps> {
     );
   }
 
-  private handleItemSelection(itemValue: string) {
+  private handleItemSelection(itemValue: T) {
     if (!!this.props.onChange) {
       this.props.onChange(itemValue);
     }
@@ -288,8 +328,8 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 
   private handleSpaceAndEnter = (
-    popoverItems: Array<ReactElement<DropdownItemProps>>,
-    getNextItem: () => ReactElement<DropdownItemProps>,
+    popoverItems: Array<ReactElement<DropdownItemProps<T>>>,
+    getNextItem: () => ReactElement<DropdownItemProps<T>>,
   ) => {
     const { focusedDescendantId, showPopover } = this.state;
     if (!showPopover) {
@@ -321,7 +361,8 @@ class BaseDropdown extends Component<DropdownProps> {
       ? [this.props.children]
       : undefined;
     if (!items) return;
-    const popoverItems: Array<ReactElement<DropdownItemProps>> = items.flat();
+    const popoverItems: Array<ReactElement<DropdownItemProps<T>>> =
+      items.flat();
     const index = !!focusedDescendantId
       ? popoverItems.findIndex(
           (item) => item?.props.value === focusedDescendantId,
@@ -625,7 +666,7 @@ class BaseDropdown extends Component<DropdownProps> {
             >
               <DropdownProvider
                 value={{
-                  onItemClick: (itemValue) =>
+                  onItemClick: (itemValue: T) =>
                     this.handleItemSelection(itemValue),
                   selectedDropdownValue: selectedValue,
                   id,
@@ -664,34 +705,44 @@ class BaseDropdown extends Component<DropdownProps> {
 }
 
 const StyledDropdown = styled(
-  ({ theme, ...passProps }: DropdownProps & SuomifiThemeProp) => (
-    <BaseDropdown {...passProps} />
-  ),
+  <T extends string = string>({
+    theme,
+    ...passProps
+  }: DropdownProps<T> & SuomifiThemeProp) => <BaseDropdown {...passProps} />,
 )`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const Dropdown = forwardRef(
-  (props: DropdownProps, ref: React.RefObject<HTMLButtonElement>) => {
-    const { id: propId, ...passProps } = props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledDropdown
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  },
-);
+const DropdownInner = <T extends string = string>(
+  props: DropdownProps<T>,
+  ref: React.RefObject<HTMLButtonElement>,
+) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledDropdown
+              theme={suomifiTheme}
+              id={id}
+              forwardedRef={ref}
+              {...passProps}
+            />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
 
-Dropdown.displayName = 'Dropdown';
-export { Dropdown, DropdownProvider, DropdownConsumer };
+// Not directly exporting the DropdownInner as styleguidist was not showing props then.
+export const Dropdown = React.forwardRef(DropdownInner) as <
+  T extends string = string,
+>(
+  props: DropdownProps<T>,
+  ref: React.RefObject<HTMLButtonElement>,
+) => ReturnType<typeof DropdownInner>;
+
+DropdownInner.displayName = 'Dropdown';
+export { DropdownProvider, DropdownConsumer };

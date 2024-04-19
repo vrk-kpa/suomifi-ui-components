@@ -311,6 +311,14 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(3,59%,43%);
 }
 
+.c14.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c11.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -588,7 +596,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 9px 20px;
   min-height: 40px;
   color: hsl(0,0%,100%);
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
@@ -702,6 +710,10 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c6.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c6.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
@@ -709,6 +721,7 @@ exports[`snapshot should have matching default structure 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
+  padding: 10px 20px;
   background-color: transparent;
 }
 
@@ -731,6 +744,18 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c6.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c6.fi-button--secondary-noborder.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
+.c6.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c6.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
@@ -739,6 +764,7 @@ exports[`snapshot should have matching default structure 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  padding: 10px 20px;
   border: none;
 }
 
@@ -761,6 +787,14 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
+.c6.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
+}
+
+.c6.fi-button--secondary-light.fi-button--icon-only {
+  padding: 6px 12px;
+}
+
 .c6.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
@@ -775,6 +809,10 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
+}
+
+.c6.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c6 > .fi-button_icon > .fi-icon {
@@ -792,8 +830,48 @@ exports[`snapshot should have matching default structure 1`] = `
   margin-left: 8px;
 }
 
+.c6.fi-button--icon-only {
+  padding: 6px 11px;
+}
+
+.c6.fi-button--icon-only > .fi-button_icon > .fi-icon {
+  margin-right: 0;
+}
+
+.c6.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+  margin-left: 0;
+}
+
 .c6.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c6 .fi-button_loading-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c6 .fi-button_loading-icon .fi-icon-component-brand-fill {
+  fill: hsl(0,0%,100%);
+}
+
+.c6.fi-button--loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6.fi-button--loading-icon-only .fi-button_loading-icon {
+  margin-right: 0;
 }
 
 .c1 {
@@ -912,6 +990,13 @@ exports[`snapshot should have matching default structure 1`] = `
   }
 }
 
+@media (prefers-reduced-motion) {
+  .c6.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
+}
+
 <nav
   aria-label="my component here"
   class="c0 fi-pagination c1"
@@ -931,10 +1016,14 @@ exports[`snapshot should have matching default structure 1`] = `
       >
         Page 1 of 6
       </span>
+      <span
+        aria-live="polite"
+        class="c3 c4 fi-visually-hidden"
+      />
       <button
         aria-disabled="true"
         aria-label="Previous page"
-        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
+        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--disabled fi-button--secondary fi-button--icon-only"
         disabled=""
         id="1-previous-button"
         type="button"
@@ -959,19 +1048,20 @@ exports[`snapshot should have matching default structure 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="c3 fi-button_icon fi-button_icon--right"
-        />
       </button>
       <span
         class="c3 fi-pagination_page-numbers"
       >
         Page 1 / 6
       </span>
+      <span
+        aria-live="polite"
+        class="c3 c4 fi-visually-hidden"
+      />
       <button
         aria-disabled="false"
         aria-label="Next page"
-        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--secondary"
+        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--secondary fi-button--icon-only"
         id="1-next-button"
         tabindex="0"
         type="button"
@@ -996,9 +1086,6 @@ exports[`snapshot should have matching default structure 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="c3 fi-button_icon fi-button_icon--right"
-        />
       </button>
     </div>
     <div
@@ -1072,7 +1159,9 @@ exports[`snapshot should have matching default structure 1`] = `
             aria-live="assertive"
             class="c3 c14 fi-page-input_statusText--has-content fi-status-text"
             id="1-pageInput-statusText"
-          />
+          >
+            
+          </span>
         </span>
       </div>
     </div>

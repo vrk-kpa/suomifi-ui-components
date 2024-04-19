@@ -47,6 +47,24 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
+.c2 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 60px;
+}
+
 <div
   data-testid="test-block"
 >
@@ -56,8 +74,7 @@ exports[`calling render with the same component on the same container does not r
     Hey this is test
   </div>
   <div
-    class="c0 fi-block c1"
-    style="padding: 60px;"
+    class="c0 fi-block c2"
   >
     Hey this is test lead
   </div>

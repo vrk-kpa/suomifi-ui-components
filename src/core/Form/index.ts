@@ -4,7 +4,11 @@ export {
   ToggleButton,
   ToggleButtonProps,
 } from './Toggle';
-export { TextInput, TextInputProps } from './TextInput/TextInput';
+export {
+  TextInput,
+  TextInputProps,
+  TextInputValue,
+} from './TextInput/TextInput';
 export { TimeInput, TimeInputProps } from './TimeInput/TimeInput';
 export { SearchInput, SearchInputProps } from './SearchInput/SearchInput';
 export { Checkbox, CheckboxProps } from './Checkbox/Checkbox';
@@ -29,3 +33,8 @@ export { StatusText, StatusTextProps } from './StatusText/StatusText';
 export { HintText, HintTextProps } from './HintText/HintText';
 export { DateInput, DateInputProps, DatePickerTextProps } from './DateInput';
 export { characterCounterProps } from './types';
+export {
+  ErrorSummary,
+  ErrorSummaryProps,
+  ErrorSummaryItemProps,
+} from './ErrorSummary/ErrorSummary';

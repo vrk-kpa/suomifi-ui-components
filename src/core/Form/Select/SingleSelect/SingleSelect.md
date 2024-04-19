@@ -507,7 +507,9 @@ const countries = [
 
 The example below simulates a data fetch operation from a backend.
 
-Use the `loading` and `loadingText` props to enable a loading spinner. This can be done in the `onChange()` function, which runs when the user types into the filter text input.
+Use the `loading` and `loadingText` props to enable a loading spinner for SingleSelect. This can be done in the `onChangeWithoutDebounce()` function, which runs immediately when the user types into the filter text input.
+
+The backend data fetch operation can be performed in the `onChange()` function, which uses a `debounce` time so that the request is made only after the user has stopped typing for a set amount of time.
 
 ```js
 import { useState } from 'react';
@@ -515,7 +517,10 @@ import { SingleSelect } from 'suomifi-ui-components';
 
 const [loading, setLoading] = useState(false);
 const [countries, setCountries] = useState([]);
-const countriesFromBackend = [
+const [backendSimulationTimeout, setBackendSimulationTimeout] =
+  useState(null);
+
+const allCountries = [
   {
     labelText: 'Switzerland',
     uniqueItemId: 'sw2435626'
@@ -554,27 +559,20 @@ const countriesFromBackend = [
   }
 ];
 
-const runLoader = () => {
-  let progress = 0;
-  setLoading(true);
+const simulateBackendCall = (searchStr) => {
   setCountries([]);
-  const id = setInterval(frame, 100);
-  function frame() {
-    if (progress >= 10) {
-      clearInterval(id);
-      setCountries(countriesFromBackend);
-      setLoading(false);
-      progress = 0;
-    } else {
-      progress = progress + 1;
-    }
+  if (backendSimulationTimeout) {
+    clearTimeout(backendSimulationTimeout);
   }
-};
-
-const startup = (event) => {
-  if (!loading) {
-    runLoader();
-  }
+  const backendSimulationTimeoutScoped = setTimeout(() => {
+    const matchingCountries = allCountries.filter((c) =>
+      c.labelText.toLowerCase().includes(searchStr.toLowerCase())
+    );
+    setCountries(matchingCountries);
+    setLoading(false);
+    setBackendSimulationTimeout(null);
+  }, 1000);
+  setBackendSimulationTimeout(backendSimulationTimeoutScoped);
 };
 
 <SingleSelect
@@ -587,9 +585,15 @@ const startup = (event) => {
   ariaOptionsAvailableTextFunction={(amount) =>
     amount === 1 ? 'option available' : 'options available'
   }
+  debounce={1000}
   loading={loading}
   loadingText="Loading data"
-  onChange={startup}
+  onChange={simulateBackendCall}
+  onChangeWithoutDebounce={() => {
+    if (!loading) {
+      setLoading(true);
+    }
+  }}
 />;
 ```
 

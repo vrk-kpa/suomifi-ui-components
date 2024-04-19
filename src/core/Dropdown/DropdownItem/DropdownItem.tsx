@@ -12,9 +12,10 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLi, HtmlLiProps } from '../../../reset';
 import { getOwnerDocument } from '../../../utils/common';
 
-export interface DropdownItemProps extends HtmlLiProps {
+export interface DropdownItemProps<T extends string = string>
+  extends HtmlLiProps {
   /** Item value */
-  value: string;
+  value: T;
   /** Item content */
   children: ReactNode;
   /** CSS class for custom styles */
@@ -25,8 +26,9 @@ export interface DropdownItemProps extends HtmlLiProps {
   disabled?: boolean;
 }
 
-interface BaseDropdownItemProps extends DropdownItemProps {
-  consumer: DropdownProviderState;
+interface BaseDropdownItemProps<T extends string = string>
+  extends DropdownItemProps<T> {
+  consumer: DropdownProviderState<T>;
 }
 
 const dropdownItemClassNames = {
@@ -37,7 +39,9 @@ const dropdownItemClassNames = {
   icon: `${dropdownClassNames.item}_icon`,
 };
 
-const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
+const BaseDropdownItem = <T extends string>(
+  props: BaseDropdownItemProps<T> & SuomifiThemeProp,
+) => {
   const {
     children,
     className,
@@ -105,7 +109,9 @@ const StyledDropdownItem = styled(BaseDropdownItem)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const DropdownItem = (props: DropdownItemProps) => (
+const DropdownItem = <T extends string = string>(
+  props: DropdownItemProps<T>,
+) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
       <DropdownConsumer>

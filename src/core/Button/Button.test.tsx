@@ -83,17 +83,50 @@ describe('Button variant', () => {
 
   describe('Margin prop', () => {
     it('should have margin style from margin prop', () => {
-      const { container } = render(<Button margin="xs" />);
+      const { container } = render(<Button margin="xs">Test button</Button>);
       const button = container.querySelector('button');
       expect(button).toHaveAttribute('style', 'margin: 10px;');
     });
 
     it('should have margin prop style overwritten from style', () => {
       const { container } = render(
-        <Button margin="xs" style={{ margin: 2 }} />,
+        <Button margin="xs" style={{ margin: 2 }}>
+          Test button
+        </Button>,
       );
       const button = container.querySelector('button');
       expect(button).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
+
+  describe('Loading spinner', () => {
+    it('should display a loading spinner when loading prop is used', () => {
+      const { container } = render(
+        <Button loading ariaLoadingText="Loading">
+          Test button
+        </Button>,
+      );
+      const spinner = container.querySelector('svg');
+      expect(spinner).toBeInTheDocument();
+    });
+    it('should render a visually hidden aria-live text when loading prop is used', async () => {
+      const { container, rerender } = render(<Button>Test button</Button>);
+      const visuallyHiddenElement = container.querySelector(
+        '.fi-visually-hidden',
+      );
+      expect(visuallyHiddenElement).toBeEmptyDOMElement();
+
+      rerender(
+        <Button loading ariaLoadingText="Loading">
+          Test button
+        </Button>,
+      );
+      const visuallyHiddenElementWithLoadingState = container.querySelector(
+        '.fi-visually-hidden',
+      );
+      expect(visuallyHiddenElementWithLoadingState).toHaveTextContent(
+        'Loading',
+      );
     });
   });
 });

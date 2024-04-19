@@ -1,7 +1,11 @@
 import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SuomifiTheme,
+} from '../../theme';
 import {
   spacingStyles,
   separateMarginProps,
@@ -10,6 +14,7 @@ import {
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
+import { IconErrorFilled, IconCheckCircleFilled } from 'suomifi-icons';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
@@ -42,6 +47,19 @@ export interface StatusTextProps extends HtmlSpanProps, MarginProps {
   forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
+const getIcon = (status: InputStatus | undefined, theme: SuomifiTheme) => {
+  if (status === undefined || status === 'default') return null;
+  if (status === 'error') return <IconErrorFilled aria-hidden="true" />;
+  if (status === 'success') {
+    return (
+      <IconCheckCircleFilled
+        aria-hidden="true"
+        color={theme.colors.successBase}
+      />
+    );
+  }
+};
+
 const StyledStatusText = styled(
   ({
     className,
@@ -68,6 +86,7 @@ const StyledStatusText = styled(
         aria-atomic="true"
         style={{ ...marginStyle, ...passProps?.style }}
       >
+        {!!children && getIcon(status, theme)}
         {children}
       </HtmlSpan>
     );

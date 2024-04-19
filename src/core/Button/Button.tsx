@@ -1,4 +1,4 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
@@ -9,6 +9,8 @@ import {
   separateMarginProps,
   MarginProps,
 } from '../theme/utils/spacing';
+import { IconPreloader } from 'suomifi-icons';
+import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 
 export type ButtonVariant =
   | 'default'
@@ -17,7 +19,39 @@ export type ButtonVariant =
   | 'secondaryNoBorder'
   | 'secondaryLight';
 
-export interface ButtonProps
+export type ForcedAccessibleNameProps =
+  | {
+      children: ReactNode;
+      'aria-label'?: string;
+    }
+  | {
+      /**
+       * Button element content
+       */
+      children?: never;
+      /**
+       * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
+       * If the button has a visible label, make sure the aria-label includes the visible text.
+       * Alternatively you can define an `aria-labelledby`.
+       */
+      'aria-label': string;
+    };
+
+export type LoadingProps =
+  | {
+      loading?: false;
+      ariaLoadingText?: never;
+    }
+  | {
+      /** Shows the animated icon indicating a loading state
+       * @default false
+       */
+      loading?: true;
+      /** Text for assistive technology to indicate loading state. Required with `loading` */
+      ariaLoadingText: string;
+    };
+
+interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'>,
     MarginProps {
   /**
@@ -26,16 +60,6 @@ export interface ButtonProps
    * @default default
    */
   variant?: ButtonVariant;
-  /**
-   * Button element content
-   */
-  children?: ReactNode;
-  /**
-   * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
-   * If the button has a visible label, make sure the aria-label includes the visible text.
-   * Alternatively you can define an `aria-labelledby`.
-   */
-  'aria-label'?: string;
   /** Disables the button */
   disabled?: boolean;
   /** Soft disables the button to allow tab-focus. Disables onClick() functionality */
@@ -49,22 +73,30 @@ export interface ButtonProps
   /**
    * Icon from suomifi-icons
    */
-  icon?: ReactNode;
+  icon?: ReactElement;
   /**
    * Icon from suomifi-icons to be placed on the right side
    */
-  iconRight?: ReactNode;
+  iconRight?: ReactElement;
   /** Callback fired on button click */
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
+export type ButtonProps = InternalButtonProps &
+  ForcedAccessibleNameProps &
+  LoadingProps;
+
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}_icon`;
+const iconStandaloneClassName = `${baseClassName}--icon-only`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
+const loadingButtonClassName = `${baseClassName}--loading`;
+const loadingButtonIconOnlyClassName = `${baseClassName}--loading-icon-only`;
+const loadingIconClassName = `${baseClassName}_loading-icon`;
 
 class BaseButton extends Component<ButtonProps> {
   render() {
@@ -72,9 +104,11 @@ class BaseButton extends Component<ButtonProps> {
       fullWidth,
       variant = 'default',
       className,
-      disabled = false,
+      loading,
+      ariaLoadingText,
+      disabled,
       onClick,
-      'aria-disabled': ariaDisabled = false,
+      'aria-disabled': ariaDisabled = loading || false,
       icon,
       iconRight,
       forwardedRef,
@@ -84,33 +118,46 @@ class BaseButton extends Component<ButtonProps> {
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
     const marginStyle = spacingStyles(marginProps);
-    const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
+    const onClickProp = !!disabled || !!ariaDisabled ? null : { onClick };
 
     return (
-      <HtmlButton
-        {...passProps}
-        {...onClickProp}
-        {...(!!disabled ? {} : { tabIndex: 0 })}
-        aria-disabled={!!ariaDisabled || !!disabled}
-        forwardedRef={forwardedRef}
-        disabled={!!disabled}
-        className={classnames(baseClassName, className, {
-          [disabledClassName]: !!disabled || !!ariaDisabled,
-          [`${baseClassName}--inverted`]: variant === 'inverted',
-          [`${baseClassName}--secondary`]: variant === 'secondary',
-          [`${baseClassName}--secondary-noborder`]:
-            variant === 'secondaryNoBorder',
-          [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
-          [fullWidthClassName]: fullWidth,
-        })}
-        style={{ ...marginStyle, ...style }}
-      >
-        <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
-        {children}
-        <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
-          {!!iconRight && iconRight}
-        </HtmlSpan>
-      </HtmlButton>
+      <>
+        <VisuallyHidden aria-live="polite">
+          {loading && ariaLoadingText}
+        </VisuallyHidden>
+        <HtmlButton
+          {...passProps}
+          {...onClickProp}
+          {...(!!disabled ? {} : { tabIndex: 0 })}
+          aria-disabled={!!ariaDisabled || !!disabled}
+          forwardedRef={forwardedRef}
+          disabled={!!disabled}
+          className={classnames(baseClassName, className, {
+            [disabledClassName]: !!disabled || !!ariaDisabled,
+            [`${baseClassName}--inverted`]: variant === 'inverted',
+            [`${baseClassName}--secondary`]: variant === 'secondary',
+            [`${baseClassName}--secondary-noborder`]:
+              variant === 'secondaryNoBorder',
+            [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
+            [fullWidthClassName]: fullWidth,
+            [iconStandaloneClassName]: (!!icon || !!iconRight) && !children,
+            [loadingButtonClassName]: loading,
+            [loadingButtonIconOnlyClassName]: loading && !children,
+          })}
+          style={{ ...marginStyle, ...style }}
+        >
+          {loading && <IconPreloader className={loadingIconClassName} />}
+          {!!icon && !loading && (
+            <HtmlSpan className={iconClassName}>{icon}</HtmlSpan>
+          )}
+          {children}
+          {!!iconRight && !loading && (
+            <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
+              {iconRight}
+            </HtmlSpan>
+          )}
+        </HtmlButton>
+      </>
     );
   }
 }

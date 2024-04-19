@@ -25,6 +25,7 @@ const singularComponents = [
   ['Form', 'StatusText'],
   ['Form/Select/MultiSelect/', 'MultiSelect'],
   ['Form/Select', 'SingleSelect'],
+  ['Form', 'ErrorSummary'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -76,7 +77,7 @@ module.exports = {
       content: './.styleguidist/accessibility.md',
       sections: [() => {}],
       sectiondepth: 0,
-    },    
+    },
     {
       name: 'Foundations',
       content: './.styleguidist/foundations.md',
