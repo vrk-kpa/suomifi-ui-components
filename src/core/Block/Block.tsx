@@ -5,7 +5,6 @@ import {
   GlobalMarginProps,
   SpacingProps,
   separateMarginAndPaddingProps,
-  separateMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
 import { HtmlDivWithNativeRef, HtmlDivProps } from '../../reset';
@@ -73,12 +72,12 @@ const StyledBlock = styled(
   ),
 )`
   ${({ theme, globalMargins, variant, ...rest }) => {
-    const [marginProps, _passProps] = separateMarginProps(rest);
+    const [spacingProps, _passProps] = separateMarginAndPaddingProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
       globalMargins.textInput,
-      marginProps,
+      spacingProps,
     );
-    return baseStyles(theme, variant, cleanedGlobalMargins, marginProps);
+    return baseStyles(theme, variant, cleanedGlobalMargins, spacingProps);
   }}
 `;
 

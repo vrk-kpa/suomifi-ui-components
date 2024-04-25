@@ -8,11 +8,11 @@ export const baseStyles = (
   theme: SuomifiTheme,
   variant?: BlockVariant,
   globalMargins?: SpacingProps,
-  propMargins?: SpacingProps,
+  propSpacing?: SpacingProps,
 ) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   ${!!variant && variant === 'span' ? 'display: inline-block' : ''}
   ${buildSpacingCSS(globalMargins)};
-  ${buildSpacingCSS(propMargins)};
+  ${buildSpacingCSS(propSpacing)};
 `;
