@@ -14,6 +14,7 @@ import {
 } from '../theme';
 import { baseStyles } from './Paragraph.baseStyles';
 import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-paragraph';
 
@@ -43,7 +44,14 @@ const StyledParagraph = styled(
     );
   },
 )`
-  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.paragraph)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.paragraph,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(

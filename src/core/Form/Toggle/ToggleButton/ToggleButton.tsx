@@ -18,6 +18,7 @@ import {
   MarginProps,
   GlobalMarginProps,
 } from '../../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -118,13 +119,19 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
 }
 
 const StyledToggleButton = styled(
-  (props: ToggleBaseProps & SuomifiThemeProp & GlobalMarginProps) => {
+  (props: ToggleButtonProps & SuomifiThemeProp & GlobalMarginProps) => {
     const { theme, globalMargins, ...passProps } = props;
     return <BaseToggleButton {...passProps} />;
   },
 )`
-  ${({ theme, globalMargins }) =>
-    baseStyles(theme, globalMargins?.toggleButton)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.toggleButton,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ToggleButton = forwardRef(
