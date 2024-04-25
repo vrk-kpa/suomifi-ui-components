@@ -114,7 +114,7 @@ export const spacingStyles = (props: SpacingProps | undefined) => {
 };
 
 export const buildSpacingCSS = (
-  spacing: SpacingProps | undefined,
+  spacing?: SpacingProps,
   important?: boolean,
 ): string => {
   if (!spacing) return '';
