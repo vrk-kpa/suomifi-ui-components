@@ -1,6 +1,11 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { input, containerIEFocus, font } from '../../theme/reset';
+import {
+  input,
+  containerIEFocus,
+  font,
+  fixInternalMargins,
+} from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const baseStyles = (
@@ -12,6 +17,7 @@ export const baseStyles = (
   width: 150px;
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)};
+  ${fixInternalMargins()}
 
   &.fi-date-input--full-width {
     width: 100%;
