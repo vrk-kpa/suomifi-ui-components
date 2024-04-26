@@ -36,9 +36,7 @@ export const baseStyles = (
         height: 40px;
         display: inline-block;
         padding: 7px;
-        margin-top: 7px;
-        margin-right: ${theme.spacing.xs};
-        margin-bottom: ${theme.spacing.insetM};
+        margin: 7px ${theme.spacing.xs} ${theme.spacing.insetM} 0;
         border: 1px solid transparent;
         border-radius: ${theme.radiuses.basic};
         white-space: nowrap;
