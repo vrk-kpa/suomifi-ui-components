@@ -76,7 +76,6 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
-        style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight
