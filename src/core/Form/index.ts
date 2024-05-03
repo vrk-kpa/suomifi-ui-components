@@ -43,3 +43,4 @@ export {
   DropdownItem,
   DropdownItemProps,
 } from './Dropdown/DropdownItem/DropdownItem';
+export { FileInput, FileInputProps } from './FileInput/FileInput';
