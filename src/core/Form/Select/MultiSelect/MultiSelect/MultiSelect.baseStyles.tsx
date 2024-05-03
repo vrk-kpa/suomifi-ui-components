@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../../theme';
-import { font } from '../../../../theme/reset';
+import { fixInternalMargins, font } from '../../../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../../../theme/utils/spacing';
 
 export const baseStyles = (
@@ -12,6 +12,8 @@ export const baseStyles = (
   width: 290px;
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
+
 
   &.fi-multiselect {
     & .fi-filter-input_input-element-container {

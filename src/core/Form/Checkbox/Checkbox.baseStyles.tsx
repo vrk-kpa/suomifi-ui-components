@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, font } from '../../theme/reset';
+import { element, fixInternalMargins, font } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 /* stylelint-disable no-descending-specificity */
@@ -130,6 +130,7 @@ export const baseStyles = (
   ${font(theme)('bodyTextSmall')}
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   
   & .fi-checkbox_label {
     position: relative;

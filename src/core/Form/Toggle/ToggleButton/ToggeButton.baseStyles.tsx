@@ -28,5 +28,8 @@ export const baseStyles = (
         }
       }
     }
+    & .fi-text {
+      margin: 0;
+    }
   }
 `;

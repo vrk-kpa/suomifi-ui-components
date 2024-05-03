@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, input } from '../../theme/reset';
+import { element, fixInternalMargins, input } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const baseStyles = (
@@ -11,6 +11,7 @@ export const baseStyles = (
   width: 290px;
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   .fi-dropdown_item-list {
     padding-top: 0;
   }

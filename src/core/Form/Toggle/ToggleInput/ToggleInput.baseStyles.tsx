@@ -28,6 +28,9 @@ export const baseStyles = (
         }
       }
     }
+    & .fi-text {
+      margin: 0;
+    }
   }
 
   & .fi-toggle_input-element {

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, font } from '../../theme/reset';
+import { element, fixInternalMargins, font } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 export const baseStyles = (
@@ -12,6 +12,7 @@ export const baseStyles = (
   ${font(theme)('bodyText')}
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)};
+  ${fixInternalMargins()}
   color: ${theme.colors.blackBase};
   width: 290px;
 

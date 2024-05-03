@@ -1,6 +1,11 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, containerIEFocus, font } from '../../theme/reset';
+import {
+  element,
+  containerIEFocus,
+  font,
+  fixInternalMargins,
+} from '../../theme/reset';
 import { math } from 'polished';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
@@ -12,6 +17,7 @@ export const baseStyles = (
   ${font(theme)('bodyText')}
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   max-width: 290px;
 
   & .fi-time-input_character-counter {

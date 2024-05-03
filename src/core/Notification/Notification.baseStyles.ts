@@ -55,13 +55,13 @@ export const baseStyles = (
     }
     & .fi-notification_heading {
       ${font(theme)('bodySemiBold')}
+      margin: 0;
       margin-bottom: ${theme.spacing.xxs};
     }
     & .fi-notification_action-element-wrapper {
       padding: 20px 26px 19px 84px;
       & .fi-button {
-        margin-top: ${theme.spacing.xs};
-        margin-right: ${theme.spacing.s};
+        margin: ${theme.spacing.xs} ${theme.spacing.s} 0 0;
       }
       & .fi-button:first-child {
         margin-top: 0;
@@ -71,6 +71,7 @@ export const baseStyles = (
     & .fi-notification_close-button {
       height: 40px;
       padding: 7px ${theme.spacing.insetL};
+      margin: 0;
       margin-top: 6px;
       border: 1px solid transparent;
       white-space: nowrap;
