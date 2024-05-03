@@ -56,7 +56,6 @@ const StyledText = styled(
             [smallScreenClassName]: smallScreen,
           },
         )}
-        style={{ ...passProps?.style }}
       />
     );
   },
