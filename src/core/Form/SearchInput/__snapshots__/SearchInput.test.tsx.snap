@@ -378,6 +378,12 @@ exports[`snapshot should have matching default structure 1`] = `
   width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-search-input_wrapper {
   width: 100%;
   min-width: 105px;

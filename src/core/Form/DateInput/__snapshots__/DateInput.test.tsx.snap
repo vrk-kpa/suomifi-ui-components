@@ -227,6 +227,12 @@ exports[`snapshots match date input error status with statustext 1`] = `
   width: 150px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-date-input--full-width {
   width: 100%;
 }
@@ -729,6 +735,12 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   width: 150px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-date-input--full-width {
   width: 100%;
 }
@@ -1221,6 +1233,12 @@ exports[`snapshots match date input hint text 1`] = `
   width: 150px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-date-input--full-width {
   width: 100%;
 }
@@ -1698,6 +1716,12 @@ exports[`snapshots match date input minimal implementation 1`] = `
   width: 150px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-date-input--full-width {
   width: 100%;
 }
@@ -2166,6 +2190,12 @@ exports[`snapshots match date input optional text 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 150px;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
 }
 
 .c1.fi-date-input--full-width {
@@ -2665,6 +2695,12 @@ exports[`snapshots match date input success status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 150px;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
 }
 
 .c1.fi-date-input--full-width {
@@ -3718,6 +3754,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   width: 290px;
 }
 
+.c12 .fi-label,
+.c12 .fi-hint-text,
+.c12 .fi-status-text {
+  margin: 0;
+}
+
 .c12 .fi-dropdown_item-list {
   padding-top: 0;
 }
@@ -3907,6 +3949,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c11 .fi-date-selectors_year-select {
+  margin: 0;
   margin-right: 10px;
   width: 0px;
 }
@@ -3916,6 +3959,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c11 .fi-date-selectors_month-select {
+  margin: 0;
   margin-right: 5px;
   width: 0px;
 }
@@ -3961,10 +4005,20 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 400;
 }
 
+.c10 .fi-label,
+.c10 .fi-hint-text,
+.c10 .fi-status-text {
+  margin: 0;
+}
+
 .c10.fi-date-picker {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,42%);
+}
+
+.c10.fi-date-picker .fi-button {
+  margin: 0;
 }
 
 .c10 .fi-date-picker_bottom-container {
@@ -4113,6 +4167,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   line-height: 1.5;
   font-weight: 400;
   width: 150px;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
 }
 
 .c1.fi-date-input--full-width {
@@ -5960,6 +6020,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   width: 290px;
 }
 
+.c12 .fi-label,
+.c12 .fi-hint-text,
+.c12 .fi-status-text {
+  margin: 0;
+}
+
 .c12 .fi-dropdown_item-list {
   padding-top: 0;
 }
@@ -6149,6 +6215,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c11 .fi-date-selectors_year-select {
+  margin: 0;
   margin-right: 10px;
   width: 0px;
 }
@@ -6158,6 +6225,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c11 .fi-date-selectors_month-select {
+  margin: 0;
   margin-right: 5px;
   width: 0px;
 }
@@ -6203,10 +6271,20 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font-weight: 400;
 }
 
+.c10 .fi-label,
+.c10 .fi-hint-text,
+.c10 .fi-status-text {
+  margin: 0;
+}
+
 .c10.fi-date-picker {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,42%);
+}
+
+.c10.fi-date-picker .fi-button {
+  margin: 0;
 }
 
 .c10 .fi-date-picker_bottom-container {
@@ -6355,6 +6433,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 150px;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
 }
 
 .c1.fi-date-input--full-width {

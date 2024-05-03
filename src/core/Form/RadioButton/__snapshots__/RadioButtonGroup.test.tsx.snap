@@ -243,6 +243,12 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -272,6 +278,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -864,6 +871,12 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -893,6 +906,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -1485,6 +1499,12 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -1514,6 +1534,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -2128,6 +2149,12 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -2157,6 +2184,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -2754,6 +2782,12 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -2783,6 +2817,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -3375,6 +3410,12 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -3404,6 +3445,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -4008,6 +4050,12 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -4037,6 +4085,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -4629,6 +4678,12 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -4658,6 +4713,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 
@@ -5250,6 +5306,12 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_legend {
   margin-bottom: 10px;
 }
@@ -5279,6 +5341,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
   margin-bottom: 10px;
 }
 

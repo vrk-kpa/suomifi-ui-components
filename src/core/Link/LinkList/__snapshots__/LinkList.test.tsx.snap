@@ -257,6 +257,10 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   fill: hsl(23,82%,50%);
 }
 
+.c3.fi-link-list-item .fi-link {
+  margin: 0;
+}
+
 .c1.fi-link-list {
   padding: 0;
   margin: 5px 0 0 0;

@@ -310,6 +310,7 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link:hover,

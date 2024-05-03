@@ -307,6 +307,12 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c7 .fi-label,
+.c7 .fi-hint-text,
+.c7 .fi-status-text {
+  margin: 0;
+}
+
 .c7 .fi-checkbox_label {
   position: relative;
   display: block;
