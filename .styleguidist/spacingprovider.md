@@ -8,8 +8,16 @@ The margin values can be given using the desired spacing token.
 import {
   SpacingProvider,
   TextInput,
-  Button
+  Button,
+  WizardNavigation,
+  WizardNavigationItem,
+  RouterLink
 } from 'suomifi-ui-components';
+
+const Comp = (props) => {
+  const { children, ...passProps } = props;
+  return <div {...passProps}>{props.children}</div>;
+};
 
 <SpacingProvider
   margins={{
