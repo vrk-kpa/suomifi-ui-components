@@ -40,6 +40,9 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
       &:active {
         background: ${theme.colors.depthBase};
       }
+      @media screen and (forced-colors: active) {
+        color: GrayText;
+      }
     }
   }
 `;

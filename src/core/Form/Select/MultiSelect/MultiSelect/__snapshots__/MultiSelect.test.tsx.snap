@@ -1286,6 +1286,12 @@ exports[`has matching snapshot 1`] = `
   }
 }
 
+@media screen and (forced-colors:active) {
+  .c13.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
+}
+
 @media (prefers-reduced-motion) {
   .c15.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
     -webkit-animation: rotation 10s infinite linear;
