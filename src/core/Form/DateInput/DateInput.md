@@ -94,6 +94,21 @@ import { DateInput } from 'suomifi-ui-components';
 />;
 ```
 
+### Date picker position
+
+Use `datePickerPosition` prop to change the position of the date picker popover in relation to the calendar button. The date picker will also automatically adjust its position, both vertically and horizontally, based on available space.
+
+```js
+import { DateInput } from 'suomifi-ui-components';
+
+<DateInput
+  labelText="Beginning date"
+  hintText="Use format D.M.YYYY"
+  datePickerEnabled
+  datePickerPosition="center"
+/>;
+```
+
 ### MinDate & maxDate
 
 Use the `minDate` and `maxDate` props to control the available dates in the date picker calendar.

@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv, HtmlDivWithRef } from '../../../../reset';
-import { DatePickerProps } from '../DateInput';
+import { DatePickerProps, datePickerAlignment } from '../DateInput';
 import { InternalDatePickerTextProps } from '../datePickerTexts';
 import { baseStyles } from './DatePicker.baseStyles';
 import { Button } from '../../../Button/Button';
@@ -66,6 +66,7 @@ export interface InternalDatePickerProps
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'onChange' | 'style' | 'aria-hidden' | 'ref'
   >;
+  position: datePickerAlignment;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
@@ -305,6 +306,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     return null;
   };
 
+  const datePickerOffset =
+    props.position === 'right' ? 322 : props.position === 'center' ? 160 : 0;
+
   const { styles, attributes } = usePopper(
     openButtonRef.current,
     dialogElement,
@@ -318,7 +322,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         {
           name: 'offset',
           options: {
-            offset: [0, 10],
+            offset: [datePickerOffset, 10],
           },
         },
         {
