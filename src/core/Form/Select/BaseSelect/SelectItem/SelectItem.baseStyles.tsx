@@ -15,6 +15,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-select-item--query_highlight {
       background-color: transparent;
       font-weight: bold;
+
+      @media (forced-colors: active) {
+        background-color: Highlight;
+      }
     }
 
     & .fi-select-item_icon {
