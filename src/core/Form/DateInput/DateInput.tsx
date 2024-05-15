@@ -87,7 +87,6 @@ export interface DatePickerProps {
   >;
   /**
    * Alignment of the date picker relative to the date picker button.
-   * e.g. 'left' aligns the left edge of the date picker with the left edge of the button.
    * @default 'left'
    */
   datePickerPosition?: datePickerAlignment;
