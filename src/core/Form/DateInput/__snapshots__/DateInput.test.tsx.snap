@@ -4344,6 +4344,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   }
 }
 
+@media screen and (forced-colors:active) {
+  .c17 [aria-disabled='true'] {
+    color: GrayText;
+  }
+}
+
 <body>
   <div>
     <div
@@ -6577,6 +6583,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
     -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
+  }
+}
+
+@media screen and (forced-colors:active) {
+  .c17 [aria-disabled='true'] {
+    color: GrayText;
   }
 }
 

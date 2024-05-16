@@ -1245,6 +1245,12 @@ exports[`has matching snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
+  .c20.fi-select-item .fi-select-item--query_highlight {
+    background-color: Highlight;
+  }
+}
+
+@media (forced-colors:active) {
   .c20.fi-select-item--hasKeyboardFocus {
     background-color: Highlight;
   }
@@ -1277,6 +1283,12 @@ exports[`has matching snapshot 1`] = `
 @media (forced-colors:active) {
   .c20.fi-select-item:hover {
     background-color: Highlight;
+  }
+}
+
+@media screen and (forced-colors:active) {
+  .c13.fi-chip--disabled.fi-chip {
+    color: GrayText;
   }
 }
 

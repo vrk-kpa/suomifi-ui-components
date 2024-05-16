@@ -613,6 +613,15 @@ exports[`snapshot should have matching default structure 1`] = `
   pointer-events: all;
 }
 
+.c1.fi-search-input--not-empty .fi-search-input_button-clear {
+  -webkit-clip: auto;
+  clip: auto;
+  overflow: visible;
+  height: 20px;
+  width: 20px;
+  margin: 10px;
+}
+
 .c1.fi-search-input--not-empty .fi-search-input_button-search {
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
 }
@@ -649,13 +658,10 @@ exports[`snapshot should have matching default structure 1`] = `
   fill: hsl(0,0%,100%);
 }
 
-.c1.fi-search-input--not-empty .fi-search-input_button-clear {
-  -webkit-clip: auto;
-  clip: auto;
-  overflow: visible;
-  height: 20px;
-  width: 20px;
-  margin: 10px;
+@media (forced-colors:active) {
+  .c1.fi-search-input--not-empty .fi-search-input_button-clear .fi-icon-base-fill {
+    fill: ButtonText;
+  }
 }
 
 @media (forced-colors:active) {

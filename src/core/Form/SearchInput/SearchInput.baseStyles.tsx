@@ -163,6 +163,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       pointer-events: all;
     }
 
+    & .fi-search-input_button-clear {
+      clip: auto;
+      overflow: visible;
+      height: 20px;
+      width: 20px;
+      margin: 10px;
+
+      & .fi-icon-base-fill {
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
+      }
+    }
+
     & .fi-search-input_button-search {
       background: ${theme.gradients.highlightBaseToHighlightDark1};
 
@@ -191,13 +205,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           fill: ButtonText;
         }
       }
-    }
-    & .fi-search-input_button-clear {
-      clip: auto;
-      overflow: visible;
-      height: 20px;
-      width: 20px;
-      margin: 10px;
     }
   }
 `;

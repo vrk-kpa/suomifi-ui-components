@@ -188,6 +188,12 @@ exports[`children should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
+@media screen and (forced-colors:active) {
+  .c1.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
+}
+
 <div>
   <button
     aria-disabled="false"
@@ -395,6 +401,12 @@ exports[`classnames should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
+@media screen and (forced-colors:active) {
+  .c1.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
+}
+
 <div>
   <button
     aria-disabled="false"
@@ -596,6 +608,12 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip--removable.fi-chip--disabled .fi-chip--icon {
   cursor: not-allowed;
+}
+
+@media screen and (forced-colors:active) {
+  .c1.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
 }
 
 <div>
