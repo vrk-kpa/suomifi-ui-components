@@ -86,7 +86,7 @@ export interface DatePickerProps {
     'onChange' | 'style' | 'aria-hidden' | 'ref'
   >;
   /**
-   * Alignment of the date picker relative to the date picker button.
+   * Alignment of the date picker relative to the date picker button. Possible values are 'center', 'left' and 'right'.
    * @default 'left'
    */
   datePickerPosition?: datePickerAlignment;

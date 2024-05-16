@@ -6,6 +6,7 @@ Examples:
 - [Default value](./#/Components/DateInput?id=default-value)
 - [Controlled value](./#/Components/DateInput?id=controlled-value)
 - [Date picker](./#/Components/DateInput?id=date-picker)
+- [Date picker position](./#/Components/DateInput?id=date-picker-position)
 - [MinDate & maxDate](./#/Components/DateInput?id=mindate--maxdate)
 - [Validation](./#/Components/DateInput?id=validation)
 - [Initial focused date in date picker](./#/Components/DateInput?id=initial-focused-date-in-date-picker)
