@@ -97,7 +97,7 @@ import { DateInput } from 'suomifi-ui-components';
 
 ### Date picker position
 
-Use `datePickerPosition` prop to change the position of the date picker popover in relation to the calendar button. The date picker will also automatically adjust its position, both vertically and horizontally, based on available space.
+Use `datePickerPosition` prop to change the position of the date picker popover in relation to the calendar button. The date picker will also automatically adjust its position, both vertically and horizontally, based on available space. The possible values are `left`, `right` and `center` with `left` being the default.
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
