@@ -71,6 +71,8 @@ export const dateInputClassNames = {
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
+export type datePickerAlignment = 'center' | 'left' | 'right';
+
 export interface DatePickerProps {
   /** Enables date picker for date input.
    * @default false
@@ -83,6 +85,11 @@ export interface DatePickerProps {
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'onChange' | 'style' | 'aria-hidden' | 'ref'
   >;
+  /**
+   * Alignment of the date picker relative to the date picker button. Possible values are 'center', 'left' and 'right'.
+   * @default 'left'
+   */
+  datePickerPosition?: datePickerAlignment;
   /**
    * Enables small screen version of calendar
    * @default false
@@ -234,6 +241,7 @@ const BaseDateInput = (props: DateInputProps) => {
     value,
     datePickerEnabled = false,
     datePickerProps: customDatePickerProps,
+    datePickerPosition = 'left',
     smallScreen = false,
     datePickerTexts = undefined,
     language = defaultLanguage,
@@ -447,6 +455,7 @@ const BaseDateInput = (props: DateInputProps) => {
                 maxDate={maxDate}
                 smallScreen={smallScreen}
                 userProps={customDatePickerProps}
+                position={datePickerPosition}
               />
             </HtmlDiv>
           )}
