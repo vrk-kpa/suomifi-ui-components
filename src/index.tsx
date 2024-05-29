@@ -26,6 +26,7 @@ export {
   ButtonProps,
   ForcedAccessibleNameProps,
 } from './core/Button/Button';
+export { Details, DetailsProps } from './core/Details/Details';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';

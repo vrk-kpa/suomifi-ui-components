@@ -1,10 +1,4 @@
-import React, {
-  Component,
-  forwardRef,
-  HTMLProps,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Details.baseStyles';
@@ -14,80 +8,63 @@ import {
   separateMarginProps,
   MarginProps,
 } from '../theme/utils/spacing';
+import {
+  HtmlDetails,
+  HtmlDetailsProps,
+} from '../../reset/HtmlDetails/HtmlDetails';
+import { HtmlDiv } from '../../reset';
 
-interface InternalDetailsProps
-  extends Omit<HTMLProps<HTMLDetailsElement>, 'title'>,
-    MarginProps {
-  /** Disables the button */
+interface InternalDetailsProps extends HtmlDetailsProps, MarginProps {
+  /** Disables the details element */
   disabled?: boolean;
-  /** Soft disables the button to allow tab-focus. Disables onClick() functionality */
-  'aria-disabled'?: boolean;
   /** CSS class for custom styles */
   className?: string;
-  /**
-   * Sets width to fill all available space
-   */
-  fullWidth?: boolean;
-  /**
-   * Icon from suomifi-icons
-   */
-  icon?: ReactElement;
-  /**
-   * Icon from suomifi-icons to be placed on the right side
-   */
-  iconRight?: ReactElement;
-  /** Callback fired on button click */
+  children: ReactNode;
+  /** Callback fired on summary element click */
   onClick?: (event: React.MouseEvent) => void;
-  /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
+  /** Ref object is passed to the details element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDetailsElement>;
-  title?: ReactNode;
+  /** Label for the component. Will be used as content in the summary element */
+  summaryLabel?: ReactNode;
+  /** Open status of the component for controlled state */
+  open?: boolean;
 }
 
 export type DetailsProps = InternalDetailsProps;
 
 const baseClassName = 'fi-details';
 const disabledClassName = `${baseClassName}--disabled`;
-const fullWidthClassName = `${baseClassName}--fullwidth`;
+const summaryClassName = `${baseClassName}_summary`;
+const contentClassName = `${baseClassName}_content`;
 
-class BaseDetails extends Component<DetailsProps> {
-  render() {
-    const {
-      fullWidth,
-      className,
-      disabled,
-      onClick,
-      icon,
-      iconRight,
-      forwardedRef,
-      children,
-      style,
-      title,
-      ...rest
-    } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+const BaseDetails: React.FC<DetailsProps> = ({
+  className,
+  disabled,
+  children,
+  style,
+  summaryLabel,
+  ...rest
+}) => {
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
-    return (
-      <details
-        {...passProps}
-        {...(!!disabled ? {} : { tabIndex: 0 })}
-        ref={forwardedRef}
-        className={classnames(baseClassName, className, {
-          [disabledClassName]: !!disabled,
-          [fullWidthClassName]: fullWidth,
-        })}
-        style={{ ...marginStyle, ...style }}
-      >
-        <summary>{title}</summary>
-        {children}
-      </details>
-    );
-  }
-}
+  return (
+    <HtmlDetails
+      {...passProps}
+      className={classnames(baseClassName, className, {
+        [disabledClassName]: !!disabled,
+      })}
+      style={{ ...marginStyle, ...style }}
+    >
+      <summary className={summaryClassName}>{summaryLabel}</summary>
+      <HtmlDiv className={contentClassName}>{children}</HtmlDiv>
+    </HtmlDetails>
+  );
+};
 
 const StyledDetails = styled(
-  ({ theme, ...passProps }: DetailsProps & SuomifiThemeProp) => (
-    <BaseDetails {...passProps} />
+  ({ theme, forwardedRef, ...passProps }: DetailsProps & SuomifiThemeProp) => (
+    <BaseDetails {...passProps} forwardedRef={forwardedRef} />
   ),
 )`
   ${({ theme }) => baseStyles(theme)}
