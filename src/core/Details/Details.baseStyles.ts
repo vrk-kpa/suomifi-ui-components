@@ -11,7 +11,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.highlightBase};
       ${font(theme)('bodyTextSmall')}
 
-      &:focus {
+      &:focus-visible {
         position: relative;
         ${theme.focuses.highContrastFocus} /* For high contrast mode */
 
