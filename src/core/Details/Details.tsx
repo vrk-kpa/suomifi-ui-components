@@ -25,7 +25,7 @@ interface InternalDetailsProps extends HtmlDetailsProps, MarginProps {
   /** Ref object is passed to the details element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDetailsElement>;
   /** Label for the component. Will be used as content in the summary element */
-  summaryLabel?: ReactNode;
+  summaryLabel: ReactNode;
   /** Open status of the component for controlled state */
   open?: boolean;
 }
