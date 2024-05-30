@@ -15,8 +15,6 @@ import {
 import { HtmlDiv } from '../../reset';
 
 interface InternalDetailsProps extends HtmlDetailsProps, MarginProps {
-  /** Disables the details element */
-  disabled?: boolean;
   /** CSS class for custom styles */
   className?: string;
   children: ReactNode;
@@ -33,13 +31,11 @@ interface InternalDetailsProps extends HtmlDetailsProps, MarginProps {
 export type DetailsProps = InternalDetailsProps;
 
 const baseClassName = 'fi-details';
-const disabledClassName = `${baseClassName}--disabled`;
 const summaryClassName = `${baseClassName}_summary`;
 const contentClassName = `${baseClassName}_content`;
 
 const BaseDetails: React.FC<DetailsProps> = ({
   className,
-  disabled,
   children,
   style,
   summaryLabel,
@@ -51,9 +47,7 @@ const BaseDetails: React.FC<DetailsProps> = ({
   return (
     <HtmlDetails
       {...passProps}
-      className={classnames(baseClassName, className, {
-        [disabledClassName]: !!disabled,
-      })}
+      className={classnames(baseClassName, className)}
       style={{ ...marginStyle, ...style }}
     >
       <summary className={summaryClassName}>{summaryLabel}</summary>

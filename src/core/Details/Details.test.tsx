@@ -39,17 +39,6 @@ describe('props', () => {
       expect(paragraph).toBeInTheDocument();
     });
   });
-  describe('disabled', () => {
-    it('has disabled class when disabled', () => {
-      const { container } = render(
-        <Details summaryLabel="More information on benefits" disabled>
-          More information
-        </Details>,
-      );
-      const details = container.querySelector('.fi-details');
-      expect(details).toHaveClass('fi-details--disabled');
-    });
-  });
   describe('className', () => {
     it('has given class', () => {
       const { container } = render(
