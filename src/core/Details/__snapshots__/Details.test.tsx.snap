@@ -100,12 +100,12 @@ exports[`snapshot matches snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1.fi-details .fi-details_summary:focus {
+.c1.fi-details .fi-details_summary:focus-visible {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-details .fi-details_summary:focus::after {
+.c1.fi-details .fi-details_summary:focus-visible::after {
   content: '';
   position: absolute;
   pointer-events: none;
