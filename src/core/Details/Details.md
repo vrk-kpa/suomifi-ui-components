@@ -46,6 +46,25 @@ const DetailsContent = () => (
 </Details>;
 ```
 
+### Controlled open state
+
+The open state of the component can be controlled via the `open` prop
+
+```js
+import { Details } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [openState, setOpenState] = useState(false);
+
+<Details
+  open={openState}
+  onClick={() => setOpenState(!openState)}
+  summaryLabel="Details"
+>
+  Here's some more info on the subject!
+</Details>;
+```
+
 ### Props & methods
 
 Toast component supports [margin props](./#/Spacing/Margin%20props) for spacing.
