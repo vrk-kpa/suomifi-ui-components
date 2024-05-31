@@ -13,6 +13,7 @@ Examples:
 - [Disabled](./#/Components/MultiSelect?id=disabled)
 - [Formatting accessibility texts](./#/Components/MultiSelect?id=formatting-accessibility-texts)
 - [Loading indicator](./#/Components/MultiSelect?id=loading-indicator)
+- [Full width](./#/Components/MultiSelect?id=full-width)
 - [Tooltip](./#/Components/MultiSelect?id=tooltip)
 
 <div style="margin-bottom: 40px">
@@ -698,6 +699,68 @@ const simulateBackendCall = (searchStr) => {
       setLoading(true);
     }
   }}
+/>;
+```
+
+### Full width
+
+You can make the component span the entire width of the parent by using the `fullWidth` prop
+
+```js
+import { MultiSelect } from 'suomifi-ui-components';
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+<MultiSelect
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+  fullWidth
 />;
 ```
 

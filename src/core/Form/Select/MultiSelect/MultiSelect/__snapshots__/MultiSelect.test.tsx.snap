@@ -1229,6 +1229,10 @@ exports[`has matching snapshot 1`] = `
   padding-right: 36px;
 }
 
+.c1.fi-multiselect--full-width {
+  width: 100%;
+}
+
 .c1 .fi-multiselect_content_wrapper {
   display: inline-block;
   width: 100%;

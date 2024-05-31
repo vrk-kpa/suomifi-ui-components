@@ -854,6 +854,10 @@ exports[`has matching snapshot 1`] = `
   padding-right: 73px;
 }
 
+.c1.fi-single-select--full-width {
+  width: 100%;
+}
+
 .c1.fi-single-select--open .fi-filter-input_input {
   border-bottom: 0;
   border-bottom-left-radius: 0;
