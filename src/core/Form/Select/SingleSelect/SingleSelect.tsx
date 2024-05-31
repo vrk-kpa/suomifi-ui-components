@@ -31,6 +31,7 @@ const singleSelectClassNames = {
   open: `${baseClassName}--open`,
   error: `${baseClassName}--error`,
   queryHighlight: `${baseClassName}-item--query_highlight`,
+  fullWidth: `${baseClassName}--full-width`,
 };
 
 export interface SingleSelectData {
@@ -128,6 +129,8 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Props passed to the unordered list element inside the popover. For example data-attributes */
   listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
+  /** Sets component's width to 100% of its parent */
+  fullWidth?: boolean;
 }
 
 type LoadingProps =
@@ -548,6 +551,7 @@ class BaseSingleSelect<T> extends Component<
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
       style,
+      fullWidth,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -566,6 +570,7 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.valueSelected]: !!selectedItem,
           [singleSelectClassNames.open]: showPopover,
           [singleSelectClassNames.error]: status === 'error',
+          [singleSelectClassNames.fullWidth]: fullWidth,
         })}
         style={{ ...marginStyle, ...style }}
       >

@@ -16,6 +16,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding-right: 73px;
       }
     }
+
+    &--full-width {
+      width: 100%;
+    }
   }
 
   &.fi-single-select--open {
