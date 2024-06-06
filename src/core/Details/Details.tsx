@@ -14,7 +14,7 @@ import {
 } from '../../reset/HtmlDetails/HtmlDetails';
 import { HtmlDiv } from '../../reset';
 
-interface InternalDetailsProps extends HtmlDetailsProps, MarginProps {
+export interface DetailsProps extends HtmlDetailsProps, MarginProps {
   /** CSS class for custom styles */
   className?: string;
   children: ReactNode;
@@ -27,8 +27,6 @@ interface InternalDetailsProps extends HtmlDetailsProps, MarginProps {
   /** Open status of the component for controlled state */
   open?: boolean;
 }
-
-export type DetailsProps = InternalDetailsProps;
 
 const baseClassName = 'fi-details';
 const summaryClassName = `${baseClassName}_summary`;
