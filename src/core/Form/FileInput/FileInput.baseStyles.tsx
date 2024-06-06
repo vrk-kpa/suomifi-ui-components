@@ -5,7 +5,8 @@ import { button, element, font } from '../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-file-input {
     ${element(theme)}
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     line-height: 0;
 
     /* stylelint-disable no-descending-specificity */
@@ -13,13 +14,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-file-input--full-width {
       width: 100%;
+      max-width: none;
     }
 
     &.fi-file-input--error {
       .fi-file-input_input-outer-wrapper {
         .fi-file-input_drag-area {
-          border: 1px dashed ${theme.colors.alertBase};
+          border: 2px dashed ${theme.colors.alertBase};
         }
+      }
+      .fi-file-input_single-file-container {
+        border: 2px dashed ${theme.colors.alertBase};
       }
     }
 
@@ -35,6 +40,69 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-top: ${theme.spacing.xxs};
     }
 
+    .fi-file-input_single-file-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+      background: ${theme.colors.whiteBase};
+      padding: ${theme.spacing.insetXxl};
+    }
+
+    .fi-file-input_multi-file-container {
+      margin-top: ${theme.spacing.insetXl};
+
+      .fi-file-input_file-item {
+        padding: ${theme.spacing.xxs};
+      }
+    }
+
+    .fi-file-input_file-item {
+      display: flex;
+      justify-content: space-between;
+      .fi-file-input_file-info {
+        display: flex;
+        align-items: center;
+        gap: ${theme.spacing.insetL};
+        flex-shrink: 1;
+
+        .fi-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .fi-file-input_file-name {
+          overflow-wrap: break-word;
+          flex-grow: 1;
+          flex-shrink: 1;
+          font-size: 16px;
+
+          &:not(.is-link) {
+            &:focus {
+              position: relative;
+              outline: 0;
+              &:after {
+                ${theme.focuses.absoluteFocus}
+              }
+            }
+          }
+        }
+
+        .fi-file-input_file-size {
+          color: ${theme.colors.blackLight1};
+          flex-grow: 1;
+          flex-shrink: 1;
+        }
+      }
+
+      .fi-file-input_remove-file-button {
+        flex-shrink: 0;
+      }
+    }
+
     .fi-file-input_input-outer-wrapper {
       .fi-file-input_drag-area {
         width: 100%;
@@ -45,6 +113,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         &.highlight {
           background: ${theme.colors.highlightLight2};
+        }
+
+        &.fi-file-input_drag-area--has-file {
+          border: 1px solid ${theme.colors.depthLight2};
         }
 
         .fi-file-input_input-wrapper {
@@ -65,13 +137,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
             opacity: 0;
             z-index: -9999;
 
-            &:focus {
-              + label {
-                position: relative;
-                ${theme.focuses.highContrastFocus} /* For high contrast mode */
+            &:not(.fi-file-input_label--hidden-under-file) {
+              &:focus {
+                + label {
+                  position: relative;
+                  ${theme.focuses
+                    .highContrastFocus} /* For high contrast mode */
 
                 &:after {
-                  ${theme.focuses.absoluteFocus}
+                    ${theme.focuses.absoluteFocus}
+                  }
                 }
               }
             }
@@ -82,13 +157,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
             ${button(theme)}
             padding: 9px ${theme.spacing.insetXxl};
             min-height: 40px;
-            color: ${theme.colors.whiteBase};
-            background: ${theme.gradients.highlightBaseToHighlightDark1};
-            border-radius: ${theme.radiuses.basic};
-            text-align: center;
-            text-shadow: ${theme.shadows.invertTextShadow};
+            color: ${theme.colors.highlightBase};
+            background: none;
+            background-color: ${theme.colors.whiteBase};
+            border: 1px solid ${theme.colors.highlightBase};
+            text-shadow: none;
             cursor: pointer;
-            border: 1px solid transparent; /* For high contrast mode */
 
             &:hover {
               background: ${theme.gradients.whiteBaseToDepthLight2};
@@ -99,17 +173,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
               background-color: ${theme.colors.depthLight2};
             }
           }
-        }
-
-        .fi-file-input_single-file-container {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          width: 100%;
-          height: 100%;
-          background: ${theme.colors.whiteBase};
         }
       }
     }

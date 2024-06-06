@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useState,
   ChangeEvent,
+  createRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -25,24 +26,32 @@ import { getConditionalAriaProp } from '../../../utils/aria';
 import { HtmlInput, HtmlInputProps, HtmlLabel } from '../../../reset';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
-import { FileInputFileList } from './FileInputFileList/FileInputFileList';
+import { FileItem } from './FileItem';
 
 const baseClassName = 'fi-file-input';
-const fileInputClassNames = {
+export const fileInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   inputOuterWrapper: `${baseClassName}_input-outer-wrapper`,
   dragArea: `${baseClassName}_drag-area`,
   dragTextContainer: `${baseClassName}_drag-text-container`,
   singleFileContainer: `${baseClassName}_single-file-container`,
+  multiFileContainer: `${baseClassName}_multi-file-container`,
   inputWrapper: `${baseClassName}_input-wrapper`,
   inputElement: `${baseClassName}_input-element`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
   labelIsVisible: `${baseClassName}_label--visible`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
+  hiddenUnderFile: `${baseClassName}_label--hidden-under-file`,
+  dragAreaHasFile: `${baseClassName}_drag-area--has-file`,
+  fileItem: `${baseClassName}_file-item`,
+  fileInfo: `${baseClassName}_file-info`,
+  fileName: `${baseClassName}_file-name`,
+  fileSize: `${baseClassName}_file-size`,
+  removeFileButton: `${baseClassName}_remove-file-button`,
 };
 
-export interface FileInputProps
+interface BaseFileInputProps
   extends StatusTextCommonProps,
     MarginProps,
     Omit<HtmlInputProps, 'type' | 'onChange' | 'onClick' | 'onBlur'> {
@@ -58,16 +67,18 @@ export interface FileInputProps
   inputButtonText: ReactNode;
   /** Text to show inside the file drag area */
   dragAreaText: ReactNode;
-  /** Allow multiple files to the input. When true, renders a separate list of files below the input
-   * @default false
-   */
-  multiFile?: boolean;
+  /** Text to show in the button which removes a file from the input */
+  removeFileText: ReactNode;
+  /** Allow preview of files */
+  filePreview?: boolean;
+  /** Text for assistive technology to be prepended to added file names. E.g. "Added file: " */
+  addedFileAriaText: string;
   /** Callback fired on input click */
   onClick?: () => void;
   /** Callback fired on input change */
   onChange?: (value: FileList) => void;
   /** Callback fired on input blur */
-  onBlur?: (event: FocusEvent) => void;
+  onBlur?: () => void;
   /** Hint text to be shown below the component's label. Should be used to give file format instructions */
   hintText?: string;
   /**
@@ -99,6 +110,28 @@ export interface FileInputProps
   tooltipComponent?: ReactElement;
 }
 
+type MultiFileProps =
+  | {
+      multiFile?: false;
+      multiFileListHeadingText?: string;
+    }
+  | {
+      /** Allow multiple files in the input
+       * @default false
+       */
+      multiFile?: true;
+      /** Text to show above the file listing. Required with `multiFile` */
+      multiFileListHeadingText: string;
+    };
+
+export type FileInputProps = BaseFileInputProps & MultiFileProps;
+
+export interface FileItemRefs {
+  id: string;
+  fileNameRef: React.RefObject<HTMLAnchorElement | HTMLDivElement>;
+  fileSizeElementId: string;
+}
+
 const BaseFileInput = (props: FileInputProps) => {
   const {
     className,
@@ -106,8 +139,14 @@ const BaseFileInput = (props: FileInputProps) => {
     labelMode,
     inputButtonText,
     dragAreaText,
+    removeFileText,
     multiFile = false,
+    multiFileListHeadingText,
+    filePreview = false,
+    addedFileAriaText,
     onChange: propOnChange,
+    onClick: propOnClick,
+    onBlur: propOnBlur,
     style,
     optionalText,
     status,
@@ -128,12 +167,30 @@ const BaseFileInput = (props: FileInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [files, setFiles] = useState<FileList | null>(null);
+  const [fileItemRefs, setFileItemRefs] = useState<FileItemRefs[]>([]);
 
+  const labelId = `${id}-label`;
   const hintTextId = `${id}-hintText`;
   const statusTextId = `${id}-statusText`;
 
   // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
   const definedRef = forwardedRef || null;
+
+  const buildFileItemRefs = (fileList: FileList) => {
+    const newFileItemRefs = [];
+    for (let index = 0; index < fileList.length; index += 1) {
+      const file = fileList[index];
+      const fnRef = filePreview
+        ? createRef<HTMLAnchorElement>()
+        : createRef<HTMLDivElement>();
+      newFileItemRefs.push({
+        id: `${id}-${file.name.replace(/\s/g, '')}`,
+        fileNameRef: fnRef,
+        fileSizeElementId: `${id}-${file.name.replace(/\s/g, '')}-fileSize`,
+      });
+    }
+    return newFileItemRefs;
+  };
 
   const dragEnterEventHandler = (e: DragEvent) => {
     e.preventDefault();
@@ -157,7 +214,10 @@ const BaseFileInput = (props: FileInputProps) => {
     const dt = e.dataTransfer;
     const filesFromInput = dt?.files;
     if (filesFromInput && inputRef.current?.files) {
-      inputRef.current.files = filesFromInput;
+      addNewFiles(filesFromInput, true);
+    }
+    if (propOnChange) {
+      propOnChange(filesFromInput || new FileList());
     }
   };
 
@@ -196,6 +256,77 @@ const BaseFileInput = (props: FileInputProps) => {
     };
   }, []);
 
+  const addNewFiles = (
+    filesToAdd: FileList,
+    setInputFileListProgrammatically = false,
+  ) => {
+    if (multiFile && files) {
+      const previousAndNewFiles = Array.from(files).concat(
+        Array.from(filesToAdd || []),
+      );
+      const newFileList = new DataTransfer();
+      previousAndNewFiles.forEach((file) => {
+        newFileList.items.add(file);
+      });
+      const newFileItemRefs = buildFileItemRefs(newFileList.files);
+      setFileItemRefs(newFileItemRefs);
+      setFiles(newFileList.files);
+      if (setInputFileListProgrammatically && inputRef.current?.files) {
+        inputRef.current.files = newFileList.files;
+      }
+    } else {
+      const newFileItemRefs = buildFileItemRefs(filesToAdd || new FileList());
+      setFileItemRefs(newFileItemRefs);
+      setFiles(filesToAdd || new FileList());
+      setTimeout(() => {
+        newFileItemRefs[0].fileNameRef.current?.focus();
+      }, 100);
+      if (setInputFileListProgrammatically && inputRef.current?.files) {
+        inputRef.current.files = filesToAdd;
+      }
+    }
+  };
+
+  const removeFile = (file: File) => {
+    const filesArray = Array.from(files || []);
+    const indexOfRemovedFile = filesArray.indexOf(file);
+
+    // Handle focus
+    if (!multiFile || filesArray.length === 1) {
+      inputRef.current?.focus();
+    } // Else, if the removed file was the last item, set focus to the previous one
+    else if (indexOfRemovedFile === filesArray.length - 1) {
+      fileItemRefs[indexOfRemovedFile - 1].fileNameRef.current?.focus();
+      // Else  set focus to the next file
+    } else {
+      fileItemRefs[indexOfRemovedFile + 1].fileNameRef.current?.focus();
+    }
+
+    // Create a new FileList excluding the removed file
+    if (indexOfRemovedFile !== -1) {
+      filesArray.splice(indexOfRemovedFile, 1);
+    }
+    const newFileList = new DataTransfer();
+    filesArray.forEach((f) => {
+      newFileList.items.add(f);
+    });
+    if (inputRef.current) {
+      inputRef.current.files = newFileList.files;
+    }
+    setFiles(newFileList.files);
+
+    // Also remove the file item refs
+    const fileItemRefsIndex = fileItemRefs.findIndex(
+      (ref) => ref.id === `${id}-${file.name}`,
+    );
+    if (fileItemRefsIndex !== -1) {
+      setFileItemRefs(fileItemRefs.splice(fileItemRefsIndex, 1));
+    }
+    if (propOnChange) {
+      propOnChange(newFileList.files);
+    }
+  };
+
   return (
     <HtmlDiv
       className={classnames(baseClassName, className, {
@@ -207,6 +338,7 @@ const BaseFileInput = (props: FileInputProps) => {
       {...passProps}
     >
       <Label
+        id={labelId}
         labelMode={labelMode}
         optionalText={optionalText}
         className={classnames({
@@ -220,22 +352,33 @@ const BaseFileInput = (props: FileInputProps) => {
       <HintText id={hintTextId}>{hintText}</HintText>
       <HtmlDiv className={fileInputClassNames.inputOuterWrapper}>
         <HtmlDivWithRef
-          className={fileInputClassNames.dragArea}
+          className={classnames(fileInputClassNames.dragArea, {
+            [fileInputClassNames.dragAreaHasFile]:
+              !multiFile && files && files.length > 0,
+          })}
           forwardedRef={dragAreaRef}
         >
           <HtmlDiv className={fileInputClassNames.inputWrapper}>
             <HtmlInput
               id={id}
-              className={fileInputClassNames.inputElement}
+              className={classnames(fileInputClassNames.inputElement, {
+                [fileInputClassNames.hiddenUnderFile]:
+                  !multiFile && files && files.length > 0,
+              })}
               type="file"
+              multiple={multiFile}
               forwardedRef={forkRefs(inputRef, definedRef)}
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                addNewFiles(event.target.files || new FileList());
                 if (propOnChange && event.target.files) {
                   propOnChange(event.target.files);
                 }
-                setFiles(event.target.files);
               }}
+              tabIndex={!multiFile && files && files.length > 0 ? -1 : 0}
+              onClick={propOnClick}
+              onBlur={propOnBlur}
               {...getConditionalAriaProp('aria-describedby', [
+                labelId,
                 statusText ? statusTextId : undefined,
                 hintText ? hintTextId : undefined,
                 ariaDescribedBy,
@@ -246,13 +389,18 @@ const BaseFileInput = (props: FileInputProps) => {
               {dragAreaText}
             </HtmlDiv>
           </HtmlDiv>
-          {!multiFile &&
-            inputRef.current?.files &&
-            inputRef.current?.files.length > 0 && (
-              <HtmlDiv className={fileInputClassNames.singleFileContainer}>
-                <pre>Hassusjee</pre>
-              </HtmlDiv>
-            )}
+          {!multiFile && files && files.length === 1 && (
+            <HtmlDiv className={fileInputClassNames.singleFileContainer}>
+              <FileItem
+                file={files[0]}
+                filePreview={filePreview}
+                fileItemRefs={fileItemRefs[0]}
+                addedFileAriaText={addedFileAriaText}
+                removeFileText={removeFileText}
+                removeFile={removeFile}
+              />
+            </HtmlDiv>
+          )}
         </HtmlDivWithRef>
         <StatusText
           id={statusTextId}
@@ -265,7 +413,24 @@ const BaseFileInput = (props: FileInputProps) => {
           {statusText}
         </StatusText>
       </HtmlDiv>
-      {multiFile && files && <FileInputFileList files={files} />}
+      {multiFile && files && files.length > 0 && (
+        <HtmlDiv className={fileInputClassNames.multiFileContainer}>
+          <Label mb="xxs">
+            {`${multiFileListHeadingText} (${files.length})`}
+          </Label>
+          {Array.from(files).map((file, index) => (
+            <FileItem
+              key={`${file.name}${new Date().getTime}`}
+              file={file}
+              filePreview={filePreview}
+              fileItemRefs={fileItemRefs[index]}
+              addedFileAriaText={addedFileAriaText}
+              removeFileText={removeFileText}
+              removeFile={removeFile}
+            />
+          ))}
+        </HtmlDiv>
+      )}
     </HtmlDiv>
   );
 };
