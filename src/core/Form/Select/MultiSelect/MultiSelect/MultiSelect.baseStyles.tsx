@@ -13,6 +13,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-filter-input_input {
       padding-right: 36px;
     }
+    &--full-width {
+      width: 100%;
+    }
   }
 
   & .fi-multiselect_content_wrapper {

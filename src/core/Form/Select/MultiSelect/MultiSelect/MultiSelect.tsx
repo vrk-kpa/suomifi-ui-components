@@ -32,6 +32,7 @@ const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
   open: `${baseClassName}--open`,
   error: `${baseClassName}--error`,
+  fullWidth: `${baseClassName}--full-width`,
   content_wrapper: `${baseClassName}_content_wrapper`,
   removeAllButton: `${baseClassName}_removeAllButton`,
 };
@@ -194,6 +195,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Props passed to unordered list element inside the popover. For example data-attributes */
   listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
+  /** Sets component's width to 100% of its parent */
+  fullWidth?: boolean;
 }
 
 type AllowItemAdditionProps =
@@ -655,6 +658,7 @@ class BaseMultiSelect<T> extends Component<
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
       style,
+      fullWidth,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -680,6 +684,7 @@ class BaseMultiSelect<T> extends Component<
           className={classnames(baseClassName, className, {
             [multiSelectClassNames.open]: showPopover,
             [multiSelectClassNames.error]: status === 'error',
+            [`${baseClassName}--full-width`]: fullWidth,
           })}
           style={{ ...marginStyle, ...style }}
         >

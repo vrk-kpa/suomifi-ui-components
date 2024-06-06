@@ -393,6 +393,24 @@ describe('status', () => {
   });
 });
 
+describe('fullWidth', () => {
+  it('should have full width classname', () => {
+    const { container } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={[]}
+        noItemsText="No items"
+        visualPlaceholder="Select item"
+        fullWidth={true}
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    expect(container.firstChild).toHaveClass('fi-single-select--full-width');
+    expect(container.firstChild).toHaveStyle('width: 100%;');
+  });
+});
+
 describe('disabled', () => {
   it('should not be interactive while disabled', async () => {
     const { getByRole, getAllByRole } = render(
