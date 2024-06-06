@@ -40,6 +40,7 @@ The global margins given via the provider are set as low specificity css styles,
 - CSS styles using class selectors
 - Styled-component with margin specified
 - An inner `SpacingProvider` wrapper
+- Component-specific margin props
 
 In the example below all the buttons are inside a spacing provider with margins rules for buttons, but some of them have their styles overridden using the above methods.
 
@@ -78,6 +79,8 @@ const StyledButton = styled(Button)`
     <StyledButton>
       Margins overridden using styled-components
     </StyledButton>
+    <Button>Button with global margins</Button>
+    <Button margin="0">Margins overridden with margin prop</Button>
   </SpacingProvider>
 </div>;
 ```
