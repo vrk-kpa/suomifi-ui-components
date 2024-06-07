@@ -1,10 +1,19 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../../theme';
-import { font } from '../../../../theme/reset';
+import { fixInternalMargins, font } from '../../../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
   width: 290px;
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
+
 
   &.fi-multiselect {
     & .fi-filter-input_input-element-container {
@@ -32,6 +41,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-multiselect_removeAllButton {
-    margin-top: 10px;
+    margin: 10px 0 0 0;
   }
 `;

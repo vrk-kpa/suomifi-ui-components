@@ -891,6 +891,12 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-pagination .fi-pagination_style-wrapper {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -915,6 +921,7 @@ exports[`snapshot should have matching default structure 1`] = `
   width: 40px;
   padding-left: 0;
   padding-right: 0;
+  margin: 0;
 }
 
 .c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button > .fi-button_icon > .fi-icon {

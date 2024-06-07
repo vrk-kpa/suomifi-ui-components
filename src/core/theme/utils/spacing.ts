@@ -16,6 +16,8 @@ export type SpacingWithoutInsetProp =
   | 'xxxxl'
   | '0';
 
+export type GlobalMarginProps = { globalMargins: GlobalMargins };
+
 const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
   if (val === '0') return '0';
   return !!val ? theme.spacing[val] : '';
@@ -54,6 +56,53 @@ export interface MarginProps {
   my?: SpacingWithoutInsetProp;
 }
 
+export type GlobalMargins = {
+  all?: MarginProps;
+  alert?: MarginProps;
+  actionMenu?: MarginProps;
+  block?: MarginProps;
+  button?: MarginProps;
+  breadcrumb?: MarginProps;
+  checkbox?: MarginProps;
+  checkboxGroup?: MarginProps;
+  chip?: MarginProps;
+  dateInput?: MarginProps;
+  dropdown?: MarginProps;
+  expander?: MarginProps;
+  expanderGroup?: MarginProps;
+  externalLink?: MarginProps;
+  heading?: MarginProps;
+  hintText?: MarginProps;
+  inlineAlert?: MarginProps;
+  label?: MarginProps;
+  languageMenu?: MarginProps;
+  link?: MarginProps;
+  linkList?: MarginProps;
+  loadingSpinner?: MarginProps;
+  multiSelect?: MarginProps;
+  notification?: MarginProps;
+  pagination?: MarginProps;
+  paragraph?: MarginProps;
+  radioButton?: MarginProps;
+  radioButtonGroup?: MarginProps;
+  routerLink?: MarginProps;
+  searchInput?: MarginProps;
+  serviceNavigation?: MarginProps;
+  sideNavigation?: MarginProps;
+  singleSelect?: MarginProps;
+  staticChip?: MarginProps;
+  statusText?: MarginProps;
+  text?: MarginProps;
+  textarea?: MarginProps;
+  textInput?: MarginProps;
+  timeInput?: MarginProps;
+  toast?: MarginProps;
+  toggleInput?: MarginProps;
+  toggleButton?: MarginProps;
+  tooltip?: MarginProps;
+  wizardNavigation?: MarginProps;
+};
+
 export interface SpacingProps extends PaddingProps, MarginProps {}
 
 export const spacingStyles = (props: SpacingProps | undefined) => {
@@ -64,12 +113,20 @@ export const spacingStyles = (props: SpacingProps | undefined) => {
   return Object.assign({}, ...array);
 };
 
-export const buildSpacingCSS = (props: SpacingProps | undefined): string => {
-  if (!props) return '';
+export const buildSpacingCSS = (
+  spacing?: SpacingProps,
+  important?: boolean,
+): string => {
+  if (!spacing) return '';
 
-  const cssStyles = Object.entries(props)
+  const cssStyles = Object.entries(spacing)
     .map(([key, value]) =>
-      getCSSSpacing(defaultSuomifiTheme, key as keyof SpacingProps, value),
+      getCSSSpacing(
+        defaultSuomifiTheme,
+        key as keyof SpacingProps,
+        value,
+        important,
+      ),
     )
     .join('');
 
@@ -137,19 +194,21 @@ const getCSSSpacing = (
   theme: SuomifiTheme,
   key: keyof SpacingProps,
   value: SpacingProp,
+  important: boolean = false,
 ) => {
   const amount = spaceVal(theme)(value);
+  const importantValue = important ? '!important' : '';
   switch (key) {
     case 'mx':
-      return `margin-right: ${amount}; margin-left: ${amount};`;
+      return `margin-right: ${amount} ${importantValue}; margin-left: ${amount} ${importantValue};`;
     case 'my':
-      return `margin-top: ${amount}; margin-bottom: ${amount};`;
+      return `margin-top: ${amount} ${importantValue}; margin-bottom: ${amount} ${importantValue};`;
     case 'px':
-      return `padding-right: ${amount}; padding-left: ${amount};`;
+      return `padding-right: ${amount} ${importantValue}; padding-left: ${amount} ${importantValue};`;
     case 'py':
-      return `padding-top: ${amount}; padding-bottom: ${amount};`;
+      return `padding-top: ${amount} ${importantValue}; padding-bottom: ${amount} ${importantValue};`;
     default:
-      return `${[cssSelector[key]]}: ${amount};`;
+      return `${cssSelector[key]}: ${amount} ${importantValue};`;
   }
 };
 

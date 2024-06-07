@@ -13,13 +13,14 @@ import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../../theme/utils/spacing';
+import { SpacingConsumer } from '../../theme/SpacingProvider/SpacingProvider';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { forkRefs } from '../../../utils/common/common';
+import { forkRefs, filterDuplicateKeys } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Label, LabelMode } from '../Label/Label';
@@ -107,7 +108,11 @@ interface BaseTextInputProps
 
 export type TextInputProps = characterCounterProps & BaseTextInputProps;
 
-const BaseTextInput = (props: TextInputProps) => {
+type InternalTextInputProps = TextInputProps & {
+  globalMargins?: GlobalMargins;
+};
+
+const BaseTextInput = (props: InternalTextInputProps) => {
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
   const [typingTimer, setTypingTimer] = useState<ReturnType<
@@ -139,6 +144,7 @@ const BaseTextInput = (props: TextInputProps) => {
     fullWidth,
     icon,
     forwardedRef,
+    globalMargins,
     debounce,
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
@@ -148,8 +154,7 @@ const BaseTextInput = (props: TextInputProps) => {
     ariaCharactersExceededText,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   useEffect(() => {
     if (characterLimit !== undefined && inputRef.current?.value.length) {
@@ -203,7 +208,7 @@ const BaseTextInput = (props: TextInputProps) => {
         [textInputClassNames.success]: status === 'success',
         [textInputClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <HtmlSpan className={textInputClassNames.styleWrapper}>
         <Label
@@ -274,31 +279,46 @@ const BaseTextInput = (props: TextInputProps) => {
 };
 
 const StyledTextInput = styled(
-  ({ theme, ...passProps }: TextInputProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    ...passProps
+  }: TextInputProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
     <BaseTextInput {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.textInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledTextInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledTextInput
+                    theme={suomifiTheme}
+                    id={id}
+                    forwardedRef={ref}
+                    globalMargins={margins}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

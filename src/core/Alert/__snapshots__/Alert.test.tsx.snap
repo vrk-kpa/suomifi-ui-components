@@ -217,9 +217,7 @@ exports[`props children should match snapshot 1`] = `
   height: 40px;
   display: inline-block;
   padding: 7px;
-  margin-top: 7px;
-  margin-right: 10px;
-  margin-bottom: 8px;
+  margin: 7px 10px 8px 0;
   border: 1px solid transparent;
   border-radius: 2px;
   white-space: nowrap;

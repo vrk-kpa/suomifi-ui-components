@@ -2,11 +2,15 @@ import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   HtmlDiv,
@@ -23,6 +27,7 @@ import { CheckboxProps } from './Checkbox';
 import { baseStyles } from './CheckboxGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
@@ -98,8 +103,7 @@ class BaseCheckboxGroup extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const statusTextId = !!groupStatusText ? `${id}-statusText` : undefined;
 
@@ -108,7 +112,7 @@ class BaseCheckboxGroup extends Component<
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlFieldSet>
           <HtmlLegend className={checkboxGroupClassNames.legend}>
@@ -154,28 +158,47 @@ class BaseCheckboxGroup extends Component<
   }
 }
 
-const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledCheckboxGroup = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: CheckboxGroupProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseCheckboxGroup {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.checkboxGroup,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const CheckboxGroup = forwardRef(
   (props: CheckboxGroupProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledCheckboxGroup
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledCheckboxGroup
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

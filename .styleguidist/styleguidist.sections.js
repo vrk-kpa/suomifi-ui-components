@@ -107,6 +107,10 @@ module.exports = {
               name: 'Tokens',
               content: './.styleguidist/spacingtokens.md',
             },
+            {
+              name: 'Global spacing',
+              content: './.styleguidist/spacingprovider.md',
+            },
           ],
         },
         {

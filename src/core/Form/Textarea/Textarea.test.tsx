@@ -280,7 +280,7 @@ describe('props', () => {
   describe('margin', () => {
     it('should have margin style from margin prop', () => {
       const { container } = render(<Textarea labelText="" margin="xs" />);
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+      expect(container.firstChild).toHaveStyle('margin: 10px');
     });
 
     it('should have margin prop overwritten from containerProps', () => {

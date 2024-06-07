@@ -18,7 +18,7 @@ describe('margin prop', () => {
       <Breadcrumb aria-label="You are here" margin="xs" />,
     );
     const navigation = container.querySelector('nav');
-    expect(navigation).toHaveAttribute('style', 'margin: 10px;');
+    expect(navigation).toHaveStyle('margin: 10px');
   });
 
   it('should have margin prop style overwritten from style', () => {

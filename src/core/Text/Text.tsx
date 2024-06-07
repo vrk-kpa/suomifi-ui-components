@@ -1,14 +1,20 @@
 import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import {
-  spacingStyles,
+  ColorProp,
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Text.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../reset';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
@@ -31,13 +37,13 @@ const StyledText = styled(
   ({
     variant = 'body',
     smallScreen,
+    globalMargins,
     className,
     theme,
     color,
     ...rest
-  }: TextProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: TextProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlSpan
@@ -50,23 +56,39 @@ const StyledText = styled(
             [smallScreenClassName]: smallScreen,
           },
         )}
-        style={{ ...marginStyle, ...passProps?.style }}
       />
     );
   },
+  // Component specific margins extracted within styles to minimize changes to surrounding code
 )`
-  ${(props) => baseStyles(props)}
+  ${({ theme, color, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return baseStyles(theme, color, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Text = forwardRef<HTMLSpanElement, TextProps>(
   (props: TextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledText theme={suomifiTheme} forwardedRef={ref} {...passProps} />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledText
+                theme={suomifiTheme}
+                globalMargins={margins}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

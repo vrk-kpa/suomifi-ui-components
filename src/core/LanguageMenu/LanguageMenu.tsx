@@ -9,11 +9,15 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import {
   LanguageMenuPopover,
@@ -24,6 +28,7 @@ import { getConditionalAriaProp } from '../../utils/aria';
 import { baseStyles } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps } from './LanguageMenuItem/LanguageMenuItem';
 import { IconChevronUp, IconChevronDown } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-language-menu';
 export const languageMenuClassNames = {
@@ -87,8 +92,8 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     'aria-label': ariaLabel,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
@@ -146,10 +151,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
   };
 
   return (
-    <HtmlDiv
-      className={classnames(baseClassName, className)}
-      style={{ ...marginStyle, ...style }}
-    >
+    <HtmlDiv className={classnames(baseClassName, className)} style={style}>
       <HtmlButton
         id={buttonId}
         aria-expanded={ariaExpanded}
@@ -191,31 +193,47 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
 };
 
 const StyledLanguageMenu = styled(
-  ({ theme, ...passProps }: LanguageMenuProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: LanguageMenuProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseLanguageMenu {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.languageMenu,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const LanguageMenu = forwardRef<HTMLButtonElement, LanguageMenuProps>(
   (props: LanguageMenuProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledLanguageMenu
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledLanguageMenu
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    id={id}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

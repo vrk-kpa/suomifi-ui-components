@@ -3,15 +3,22 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../../reset';
 import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
-import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  filterDuplicateKeys,
+} from '../../../../utils/common/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import {
-  spacingStyles,
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { LoadingSpinner } from '../../../LoadingSpinner/LoadingSpinner';
@@ -554,8 +561,7 @@ class BaseSingleSelect<T> extends Component<
       fullWidth,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
@@ -572,7 +578,7 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.error]: status === 'error',
           [singleSelectClassNames.fullWidth]: fullWidth,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (
@@ -783,8 +789,22 @@ class BaseSingleSelect<T> extends Component<
   }
 }
 
-const StyledSingleSelect = styled(BaseSingleSelect)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledSingleSelect = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: SingleSelectProps<SingleSelectData> &
+    SuomifiThemeProp &
+    GlobalMarginProps) => <BaseSingleSelect {...passProps} />,
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.singleSelect,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 function SingleSelectInner<T>(
@@ -793,20 +813,25 @@ function SingleSelectInner<T>(
 ) {
   const { id: propId, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledSingleSelect
-              theme={suomifiTheme}
-              id={id}
-              forwardedRef={ref}
-              {...passProps}
-            />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <AutoId id={propId}>
+              {(id) => (
+                <StyledSingleSelect
+                  theme={suomifiTheme}
+                  id={id}
+                  globalMargins={margins}
+                  forwardedRef={ref}
+                  {...passProps}
+                />
+              )}
+            </AutoId>
           )}
-        </AutoId>
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 }
 

@@ -96,7 +96,7 @@ describe('props', () => {
           Test
         </Notification>,
       );
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+      expect(container.firstChild).toHaveStyle('margin: 10px');
     });
   });
 

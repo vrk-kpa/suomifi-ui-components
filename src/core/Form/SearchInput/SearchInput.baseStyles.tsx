@@ -1,9 +1,22 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { input, containerIEFocus, font } from '../../theme/reset';
+import {
+  input,
+  containerIEFocus,
+  font,
+  fixInternalMargins,
+} from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   width: 290px;
 
   & .fi-search-input {

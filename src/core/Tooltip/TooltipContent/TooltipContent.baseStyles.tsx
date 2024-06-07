@@ -5,8 +5,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
   ${theme.typography.bodyTextSmall};
 
   &.fi-tooltip_content {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     position: relative;
     border: 1px solid ${theme.colors.depthDark2};
     border-radius: ${theme.radiuses.basic};

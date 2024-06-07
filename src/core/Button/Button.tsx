@@ -5,12 +5,14 @@ import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../theme/utils/spacing';
 import { IconPreloader } from 'suomifi-icons';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
+import { SpacingConsumer } from '../theme/SpacingProvider/SpacingProvider';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export type ButtonVariant =
   | 'default'
@@ -86,7 +88,9 @@ interface InternalButtonProps
 
 export type ButtonProps = InternalButtonProps &
   ForcedAccessibleNameProps &
-  LoadingProps;
+  LoadingProps & {
+    globalMargins?: GlobalMargins;
+  };
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -116,8 +120,7 @@ class BaseButton extends Component<ButtonProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
     const onClickProp = !!disabled || !!ariaDisabled ? null : { onClick };
 
     return (
@@ -144,7 +147,7 @@ class BaseButton extends Component<ButtonProps> {
             [loadingButtonClassName]: loading,
             [loadingButtonIconOnlyClassName]: loading && !children,
           })}
-          style={{ ...marginStyle, ...style }}
+          style={style}
         >
           {loading && <IconPreloader className={loadingIconClassName} />}
           {!!icon && !loading && (
@@ -163,14 +166,44 @@ class BaseButton extends Component<ButtonProps> {
 }
 
 const StyledButton = styled(
-  ({ theme, ...passProps }: ButtonProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: ButtonProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
     <BaseButton {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Button = forwardRef(
+  (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledButton
+              theme={suomifiTheme}
+              forwardedRef={ref}
+              globalMargins={margins}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
+      )}
+    </SpacingConsumer>
+  ),
+);
+
+export const InternalButton = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (

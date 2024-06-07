@@ -222,7 +222,7 @@ describe('props', () => {
           <RadioButton value="" />
         </RadioButtonGroup>,
       );
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+      expect(container.firstChild).toHaveStyle('margin: 10px');
     });
 
     it('should have margin style overridden by style prop', async () => {

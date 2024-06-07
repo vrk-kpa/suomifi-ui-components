@@ -14,13 +14,21 @@ import {
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
-import { forkRefs, getOwnerDocument } from '../../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  forkRefs,
+  getOwnerDocument,
+} from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
 import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
 import { HintText } from '../../Form/HintText/HintText';
@@ -533,8 +541,7 @@ class BaseDropdown<T extends string = string> extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     if (React.Children.count(children) < 1) {
       getLogger().warn(`Dropdown '${labelText}' does not contain items`);
@@ -577,7 +584,7 @@ class BaseDropdown<T extends string = string> extends Component<
           [dropdownClassNames.fullWidth]: fullWidth,
         })}
         id={id}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <Label
           id={labelId}
@@ -707,10 +714,20 @@ class BaseDropdown<T extends string = string> extends Component<
 const StyledDropdown = styled(
   <T extends string = string>({
     theme,
+    globalMargins,
     ...passProps
-  }: DropdownProps<T> & SuomifiThemeProp) => <BaseDropdown {...passProps} />,
+  }: DropdownProps<T> & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseDropdown {...passProps} />
+  ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.dropdown,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const DropdownInner = <T extends string = string>(
@@ -719,20 +736,25 @@ const DropdownInner = <T extends string = string>(
 ) => {
   const { id: propId, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledDropdown
-              theme={suomifiTheme}
-              id={id}
-              forwardedRef={ref}
-              {...passProps}
-            />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <AutoId id={propId}>
+              {(id) => (
+                <StyledDropdown
+                  theme={suomifiTheme}
+                  globalMargins={margins}
+                  id={id}
+                  forwardedRef={ref}
+                  {...passProps}
+                />
+              )}
+            </AutoId>
           )}
-        </AutoId>
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 };
 

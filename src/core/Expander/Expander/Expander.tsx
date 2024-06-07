@@ -3,17 +3,22 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   ExpanderGroupConsumer,
   ExpanderGroupProviderState,
 } from '../ExpanderGroup/ExpanderGroup';
 import { baseStyles } from './Expander.baseStyles';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-expander';
 const openClassName = `${baseClassName}--open`;
@@ -163,8 +168,7 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
     const openState = open !== undefined ? !!open : this.state.openState;
 
     return (
@@ -174,7 +178,7 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
         className={classnames(className, baseClassName, {
           [openClassName]: !!openState,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <ExpanderProvider
           value={{
@@ -191,8 +195,20 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
   }
 }
 
-const StyledExpander = styled(BaseExpander)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledExpander = styled(
+  (props: BaseExpanderProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { globalMargins, ...passProps } = props;
+    return <BaseExpander {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.dropdown,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 interface ExpanderState {
@@ -203,25 +219,30 @@ const Expander = forwardRef(
   (props: ExpanderProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <ExpanderGroupConsumer>
-                {(consumer) => (
-                  <StyledExpander
-                    theme={suomifiTheme}
-                    id={id}
-                    forwardedRef={ref}
-                    {...passProps}
-                    consumer={consumer}
-                  />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <ExpanderGroupConsumer>
+                    {(consumer) => (
+                      <StyledExpander
+                        theme={suomifiTheme}
+                        globalMargins={margins}
+                        id={id}
+                        forwardedRef={ref}
+                        {...passProps}
+                        consumer={consumer}
+                      />
+                    )}
+                  </ExpanderGroupConsumer>
                 )}
-              </ExpanderGroupConsumer>
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

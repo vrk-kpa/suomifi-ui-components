@@ -338,6 +338,12 @@ exports[`Basic dropdown should match snapshot 1`] = `
   width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-dropdown_item-list {
   padding-top: 0;
 }
@@ -1040,6 +1046,12 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-dropdown_item-list {
   padding-top: 0;
 }
@@ -1735,6 +1747,12 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-dropdown_item-list {
   padding-top: 0;
 }
@@ -2328,6 +2346,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 
 .c1 {
   width: 290px;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
 }
 
 .c1 .fi-dropdown_item-list {

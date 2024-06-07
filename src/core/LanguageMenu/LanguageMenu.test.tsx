@@ -133,7 +133,7 @@ describe('props', () => {
           margin: 'xs',
         }),
       );
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+      expect(container.firstChild).toHaveStyle('margin: 10px');
     });
 
     it('should have margin prop overwritten by style prop', () => {

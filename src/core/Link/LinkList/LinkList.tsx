@@ -2,14 +2,19 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { LinkListStyles } from './LinkList.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlUlProps, HtmlUlWithRef } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const LinkListClassName = 'fi-link-list';
 const SmallScreenClassName = 'fi-link-list--small';
@@ -30,11 +35,12 @@ const StyledLinkList = styled(
     children,
     smallScreen,
     ariaLabelledBy,
+    globalMargins,
     forwardedRef,
     ...rest
-  }: LinkListProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: LinkListProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlUlWithRef
         ref={forwardedRef}
@@ -43,23 +49,39 @@ const StyledLinkList = styled(
           [SmallScreenClassName]: smallScreen,
         })}
         {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {children}
       </HtmlUlWithRef>
     );
   },
 )`
-  ${({ theme }) => LinkListStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.linkList,
+      marginProps,
+    );
+    return LinkListStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const LinkList = forwardRef(
   (props: LinkListProps, ref: React.Ref<HTMLUListElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledLinkList theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledLinkList
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

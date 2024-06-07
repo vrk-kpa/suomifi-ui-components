@@ -77,19 +77,21 @@ const countries = [
   }
 ];
 
-<MultiSelect
-  labelText="Visited countries"
-  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
-  items={countries}
-  chipListVisible
-  ariaChipActionLabel="Deselect"
-  removeAllButtonLabel="Remove all selections"
-  visualPlaceholder="Choose countries"
-  noItemsText="No items"
-  ariaSelectedAmountText="countries selected"
-  ariaOptionsAvailableText="options available"
-  ariaOptionChipRemovedText="removed"
-/>;
+<>
+  <MultiSelect
+    labelText="Visited countries"
+    hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+    items={countries}
+    chipListVisible
+    ariaChipActionLabel="Deselect"
+    removeAllButtonLabel="Remove all selections"
+    visualPlaceholder="Choose countries"
+    noItemsText="No items"
+    ariaSelectedAmountText="countries selected"
+    ariaOptionsAvailableText="options available"
+    ariaOptionChipRemovedText="removed"
+  />
+</>;
 ```
 
 ### Default selected items

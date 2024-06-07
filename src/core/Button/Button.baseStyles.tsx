@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
+import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
 const invertedStyles = (theme: SuomifiTheme) => css`
   &.fi-button--inverted {
@@ -123,8 +124,14 @@ const secondaryLightStyles = (theme: SuomifiTheme) => css`
   }
 `;
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${button(theme)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   padding: 9px ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};

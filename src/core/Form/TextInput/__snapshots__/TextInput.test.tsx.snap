@@ -215,6 +215,12 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 0;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-text-input_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -689,6 +695,12 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   line-height: 0;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-text-input_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1130,6 +1142,12 @@ exports[`snapshots match minimal implementation 1`] = `
 .c1 {
   width: 290px;
   line-height: 0;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
 }
 
 .c1 .fi-text-input_character-counter {

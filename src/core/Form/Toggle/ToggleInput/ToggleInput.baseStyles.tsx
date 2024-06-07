@@ -7,9 +7,16 @@ import {
   iconHeight,
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
+import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${toggleBaseStyles(theme)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
   &.fi-toggle--input {
     &:focus-within {
       outline: 0;
@@ -20,6 +27,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
             ${theme.focuses.highContrastFocus} /* For high contrast mode */
         }
       }
+    }
+    & .fi-text {
+      margin: 0;
     }
   }
 

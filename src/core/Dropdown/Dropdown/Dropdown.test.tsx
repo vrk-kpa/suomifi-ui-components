@@ -323,7 +323,7 @@ describe('margin', () => {
     };
     const { baseElement } = render(TestDropdown(props));
     const div = baseElement.querySelector('.fi-dropdown');
-    expect(div).toHaveAttribute('style', 'margin: 10px;');
+    expect(div).toHaveStyle('margin: 10px');
   });
 
   it('should have margin style overwritten by style prop', () => {

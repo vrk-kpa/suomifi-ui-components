@@ -4,9 +4,16 @@ import {
   toggleBaseStyles,
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
+import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${toggleBaseStyles(theme)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
   &.fi-toggle--disabled > button {
     cursor: not-allowed;
   }
@@ -20,6 +27,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           ${theme.focuses.highContrastFocus} /* For high contrast mode */
         }
       }
+    }
+    & .fi-text {
+      margin: 0;
     }
   }
 `;

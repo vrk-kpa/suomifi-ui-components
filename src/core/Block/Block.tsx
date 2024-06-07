@@ -2,12 +2,18 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
+  GlobalMarginProps,
   SpacingProps,
   separateMarginAndPaddingProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
 import { HtmlDivWithNativeRef, HtmlDivProps } from '../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-block';
 
@@ -38,7 +44,7 @@ class SemanticBlock extends Component<BlockProps> {
   render() {
     const { className, variant, forwardedRef, ...rest } = this.props;
 
-    const [_, passProps] = separateMarginAndPaddingProps(rest);
+    const [_spacingProps, passProps] = separateMarginAndPaddingProps(rest);
 
     const ComponentVariant =
       !variant || variant === 'default' ? HtmlDivWithNativeRef : variant;
@@ -56,23 +62,40 @@ class SemanticBlock extends Component<BlockProps> {
 }
 
 const StyledBlock = styled(
-  ({ theme, variant, ...passProps }: BlockProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    variant,
+    globalMargins,
+    ...passProps
+  }: BlockProps & SuomifiThemeProp & GlobalMarginProps) => (
     <SemanticBlock variant={variant} {...passProps} />
   ),
 )`
-  ${(props) => {
-    const { theme, variant, ...rest } = props;
-    const [spacingProps] = separateMarginAndPaddingProps(rest);
-    return baseStyles(theme, variant, spacingProps);
+  ${({ theme, globalMargins, variant, ...rest }) => {
+    const [spacingProps, _passProps] = separateMarginAndPaddingProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.textInput,
+      spacingProps,
+    );
+    return baseStyles(theme, variant, cleanedGlobalMargins, spacingProps);
   }}
 `;
 
 const Block = forwardRef((props: BlockProps, ref: React.Ref<any>) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledBlock theme={suomifiTheme} forwardedRef={ref} {...props} />
+  <SpacingConsumer>
+    {({ margins }) => (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledBlock
+            theme={suomifiTheme}
+            globalMargins={margins}
+            forwardedRef={ref}
+            {...props}
+          />
+        )}
+      </SuomifiThemeConsumer>
     )}
-  </SuomifiThemeConsumer>
+  </SpacingConsumer>
 ));
 
 Block.displayName = 'Block';

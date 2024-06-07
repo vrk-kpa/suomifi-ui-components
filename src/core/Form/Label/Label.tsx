@@ -9,17 +9,22 @@ import React, {
 } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { HtmlSpan, HtmlSpanProps, HtmlDivWithRef } from '../../../reset';
 import { TooltipProps } from '../../Tooltip/Tooltip';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 export type LabelMode = 'hidden' | 'visible';
 
@@ -75,13 +80,14 @@ const StyledLabel = styled(
     style,
     children,
     asProp = 'label',
+    globalMargins,
     optionalText,
     tooltipComponent: tooltipComponentProp,
     forceTooltipRerender = false,
     ...rest
-  }: LabelProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: LabelProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
@@ -103,7 +109,7 @@ const StyledLabel = styled(
         forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
           setWrapperRef(ref)
         }
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         {labelMode === 'hidden' ? (
           <VisuallyHidden as={asProp} {...passProps}>
@@ -136,13 +142,30 @@ const StyledLabel = styled(
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.label,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Label = (props: LabelProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledLabel theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+  <SpacingConsumer>
+    {({ margins }) => (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledLabel
+            globalMargins={margins}
+            theme={suomifiTheme}
+            {...props}
+          />
+        )}
+      </SuomifiThemeConsumer>
+    )}
+  </SpacingConsumer>
 );
 
 Label.displayName = 'Label';

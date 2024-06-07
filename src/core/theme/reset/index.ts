@@ -45,6 +45,14 @@ export const containerIEFocus = (theme: SuomifiTheme) => css`
   }
 `;
 
+export const fixInternalMargins = () => css`
+  & .fi-label,
+  & .fi-hint-text,
+  & .fi-status-text {
+    margin: 0;
+  }
+`;
+
 export const inputButton = (theme: SuomifiTheme) => css`
   ${input(theme)}
 `;

@@ -850,8 +850,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c12 .fi-chip-list_content_wrapper > * {
-  margin-right: 10px;
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
   padding-right: -10px;
 }
 
@@ -1221,6 +1220,12 @@ exports[`has matching snapshot 1`] = `
   width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-multiselect .fi-filter-input_input-element-container {
   position: relative;
 }
@@ -1245,7 +1250,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c1 .fi-multiselect_removeAllButton {
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
 
 @media (forced-colors:active) {

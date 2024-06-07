@@ -7,8 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding-top: 5px;
 
   & .fi-chip-list_content_wrapper > * {
-    margin-right: 10px;
-    margin-top: 10px;
+    margin: 10px 10px 0 0;
     padding-right: -10px;
   }
 

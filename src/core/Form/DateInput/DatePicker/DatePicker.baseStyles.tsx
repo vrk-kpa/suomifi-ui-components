@@ -1,14 +1,19 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
-import { font } from '../../../theme/reset';
+import { fixInternalMargins, font } from '../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')};
+  ${fixInternalMargins()}
 
   &.fi-date-picker {
     background-color: ${theme.colors.whiteBase};
     box-shadow: ${theme.shadows.wideBoxShadow};
     border: 1px solid ${theme.colors.blackLight1};
+
+    & .fi-button {
+      margin: 0;
+    }
   }
 
   & .fi-date-picker_bottom-container {

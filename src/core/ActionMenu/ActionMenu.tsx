@@ -8,7 +8,11 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import {
   ActionMenuPopover,
   InitialActiveDescendant,
@@ -22,14 +26,15 @@ import {
 } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './ActionMenu.baseStyles';
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
 import { IconOptionsVertical } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
@@ -106,8 +111,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     style,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
@@ -170,7 +174,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       className={classnames(baseClassName, className, {
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <Button
         id={buttonId}
@@ -209,31 +213,47 @@ const BaseActionMenu = (props: ActionMenuProps) => {
 };
 
 const StyledActionMenu = styled(
-  ({ theme, ...passProps }: ActionMenuProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: ActionMenuProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseActionMenu {...passProps} />
   ),
 )`
-  ${() => baseStyles()}
+  ${({ globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.actionMenu,
+      marginProps,
+    );
+    return baseStyles(cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(
   (props: ActionMenuProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledActionMenu
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledActionMenu
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

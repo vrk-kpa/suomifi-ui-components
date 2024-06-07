@@ -8,13 +8,18 @@ import { getConditionalAriaProp } from '../../utils/aria';
 import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { Button, ButtonProps, LoadingProps } from '../Button/Button';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Notification.baseStyles';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export const baseClassName = 'fi-notification';
 export const notificationClassNames = {
@@ -102,8 +107,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       showCloseButton = true,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const {
       className: customCloseButtonClassName,
@@ -127,7 +131,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             [notificationClassNames.smallScreen]: !!smallScreen,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlDiv className={notificationClassNames.styleWrapper} style={style}>
           <HtmlDiv className={notificationClassNames.iconWrapper}>
@@ -198,32 +202,46 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
 }
 
 const StyledNotification = styled(
-  (props: NotificationProps & InnerRef & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (
+    props: NotificationProps & InnerRef & SuomifiThemeProp & GlobalMarginProps,
+  ) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseNotification {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.notification,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Notification = forwardRef(
   (props: NotificationProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledNotification
-                forwardedRef={ref}
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledNotification
+                    forwardedRef={ref}
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    id={id}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

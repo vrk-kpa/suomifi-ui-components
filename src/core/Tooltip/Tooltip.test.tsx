@@ -171,6 +171,6 @@ describe('margin', () => {
         Test
       </Tooltip>,
     );
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    expect(container).toMatchSnapshot();
   });
 });

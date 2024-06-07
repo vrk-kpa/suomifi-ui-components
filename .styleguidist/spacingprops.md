@@ -12,9 +12,9 @@ import { Button } from 'suomifi-ui-components';
 </div>;
 ```
 
-### Overriding with style attribute
+### Margin props and style attributes
 
-Margin properties add inline styling to the rendered HTML. If the component interface also accepts a style attribute, it takes precedence over margin property.
+Margin properties add CSS styling marked `!important` so it acts as an override all other styles, including HTML style attributes.
 
 ```jsx
 import { Button } from 'suomifi-ui-components';

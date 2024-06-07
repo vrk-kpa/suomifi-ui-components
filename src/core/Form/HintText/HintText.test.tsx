@@ -36,7 +36,7 @@ describe('props', () => {
   describe('margin', () => {
     it('should have margin style from margin prop', () => {
       const { getByText } = render(<HintText margin="xs">Test</HintText>);
-      expect(getByText('Test')).toHaveAttribute('style', 'margin: 10px;');
+      expect(getByText('Test')).toHaveStyle('margin: 10px');
     });
 
     it('should have margin prop overwritten from style prop', () => {

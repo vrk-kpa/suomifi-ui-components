@@ -12,6 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-breadcrumb-link_link {
       ${font(theme)('bodyTextSmall')}
+      margin: 0;
 
       &:hover,
       &:active {

@@ -101,7 +101,7 @@ describe('onClick', () => {
   describe('margin prop', () => {
     it('should have margin style from margin prop', () => {
       const { container } = render(<Chip margin="xs">Test</Chip>);
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+      expect(container.firstChild).toHaveStyle('margin: 10px');
     });
 
     it('should have margin prop style overwritten from style', () => {

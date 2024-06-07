@@ -1,10 +1,14 @@
 import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   HtmlDiv,
@@ -19,6 +23,7 @@ import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import classnames from 'classnames';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-radio-button-group';
 const radioButtonGroupClassNames = {
@@ -122,15 +127,14 @@ class BaseRadioButtonGroup extends Component<
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlFieldSet>
           <HtmlLegend className={radioButtonGroupClassNames.legend}>
@@ -165,28 +169,47 @@ class BaseRadioButtonGroup extends Component<
   }
 }
 
-const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledRadioButtonGroup = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: RadioButtonGroupProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseRadioButtonGroup {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.radioButtonGroup,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const RadioButtonGroup = forwardRef(
   (props: RadioButtonGroupProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledRadioButtonGroup
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledRadioButtonGroup
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

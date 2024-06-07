@@ -2,11 +2,15 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './LoadingSpinner.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../reset';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
@@ -15,6 +19,7 @@ import {
   IconErrorFilled,
   IconPreloader,
 } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps extends MarginProps, HtmlDivProps {
@@ -74,8 +79,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
       forwardedRef,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlDivWithRef
@@ -90,7 +94,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
         id={id}
         ref={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         {status === 'loading' && (
           <IconPreloader className={loadingSpinnerClassNames.icon} />
@@ -112,26 +116,38 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
   }
 }
 const StyledLoadingSpinner = styled(
-  (props: LoadingSpinnerProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: LoadingSpinnerProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseLoadingSpinner {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.loadingSpinner,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 const LoadingSpinner = forwardRef(
   (props: LoadingSpinnerProps, ref: React.Ref<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledLoadingSpinner
-            forwardedRef={ref}
-            theme={suomifiTheme}
-            {...passProps}
-          />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledLoadingSpinner
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                globalMargins={margins}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

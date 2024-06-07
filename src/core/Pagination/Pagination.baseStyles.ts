@@ -1,10 +1,18 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
-import { font, element } from '../theme/reset';
+import { font, element, fixInternalMargins } from '../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyTextSmall')}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   &.fi-pagination {
     & .fi-pagination_style-wrapper {
       display: inline-flex;
@@ -20,6 +28,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         width: 40px;
         padding-left: 0;
         padding-right: 0;
+        margin: 0;
 
         & > .fi-button_icon > .fi-icon {
           margin-right: auto;

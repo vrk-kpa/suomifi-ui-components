@@ -12,9 +12,13 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
 import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
-import { forkRefs } from '../../../utils/common/common';
+import { filterDuplicateKeys, forkRefs } from '../../../utils/common/common';
 import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
@@ -26,9 +30,9 @@ import {
 import { baseStyles } from './Textarea.baseStyles';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-textarea';
@@ -136,8 +140,7 @@ const BaseTextarea = (props: TextareaProps) => {
     ariaCharactersExceededText,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
   const [typingTimer, setTypingTimer] = useState<ReturnType<
@@ -203,7 +206,7 @@ const BaseTextarea = (props: TextareaProps) => {
         [textareaClassNames.error]: status === 'error' && !disabled,
         [textareaClassNames.fullWidth]: fullWidth,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <Label
         htmlFor={id}
@@ -268,31 +271,47 @@ const BaseTextarea = (props: TextareaProps) => {
 };
 
 const StyledTextarea = styled(
-  ({ theme, ...passProps }: TextareaProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: TextareaProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseTextarea {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.textarea,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Textarea = forwardRef(
   (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledTextarea
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledTextarea
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

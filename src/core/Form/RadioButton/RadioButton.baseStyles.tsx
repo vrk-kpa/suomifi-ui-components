@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
 const disabledStyles = (theme: SuomifiTheme) => css`
   &.fi-radio-button--disabled {
@@ -69,10 +70,16 @@ const largeStyles = () => css`
   }
 `;
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   position: relative;
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
 
   &.fi-radio-button {
     & .fi-radio-button_hintText {
