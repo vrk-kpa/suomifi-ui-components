@@ -5,6 +5,7 @@ Examples:
 - [Basic use](./#/Components/FileInput?id=basic-use)
 - [File preview](./#/Components/FileInput?id=file-preview)
 - [Multiple files](./#/Components/FileInput?id=multiple-files)
+- [Small screen](./#/Components/FileInput?id=small-screen)
 - [Non-controlled validation](./#/Components/FileInput?id=non-controlled-validation)
 
 <div style="margin-bottom: 40px">
@@ -73,6 +74,29 @@ import React from 'react';
     removeFileText="Remove"
     addedFileAriaText="Added file: "
     hintText="Allowed file formats are: pdf and docx. Maximum file size is 5 MB"
+    multiFile
+    multiFileListHeadingText="Added files"
+  />
+</div>;
+```
+
+### Small screen
+
+Apply the `smallScreen` prop to display a mobile optimized variant of the component
+
+```jsx
+import { FileInput } from 'suomifi-ui-components';
+import React from 'react';
+
+<div style={{ width: 350 }}>
+  <FileInput
+    labelText="Application attachment"
+    inputButtonText="Choose file"
+    dragAreaText="Choose file or drag and drop here"
+    removeFileText="Remove"
+    addedFileAriaText="Added file: "
+    hintText="Allowed file formats are: pdf and docx. Maximum file size is 5 MB"
+    smallScreen
     multiFile
     multiFileListHeadingText="Added files"
   />

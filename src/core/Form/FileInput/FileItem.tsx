@@ -12,20 +12,24 @@ import classnames from 'classnames';
 interface FileItemProps {
   file: File;
   filePreview: boolean;
+  multiFile: boolean;
   fileItemRefs: FileItemRefs;
   addedFileAriaText: string;
   removeFileText: ReactNode;
   removeFile: (file: File) => void;
+  smallScreen: boolean;
 }
 
 const BaseFileItem = (props: FileItemProps) => {
   const {
     file,
     filePreview,
+    multiFile,
     fileItemRefs,
     addedFileAriaText,
     removeFileText,
     removeFile,
+    smallScreen,
   } = props;
 
   const getFileSizeText = () => {
@@ -56,7 +60,7 @@ const BaseFileItem = (props: FileItemProps) => {
           </Link>
         ) : (
           <HtmlDivWithRef
-            tabIndex={0}
+            tabIndex={multiFile ? 0 : -1}
             forwardedRef={
               fileItemRefs.fileNameRef as React.RefObject<HTMLDivElement>
             }
@@ -75,13 +79,13 @@ const BaseFileItem = (props: FileItemProps) => {
         </HtmlDiv>
       </HtmlDiv>
       <Button
-        variant="secondaryNoBorder"
+        variant={smallScreen && !multiFile ? 'secondary' : 'secondaryNoBorder'}
         icon={<IconRemove />}
         onClick={() => removeFile(file)}
         aria-label={`${removeFileText} ${file.name}`}
         className={fileInputClassNames.removeFileButton}
       >
-        {removeFileText}
+        {!multiFile || (multiFile && !smallScreen) ? removeFileText : undefined}
       </Button>
     </HtmlDiv>
   );

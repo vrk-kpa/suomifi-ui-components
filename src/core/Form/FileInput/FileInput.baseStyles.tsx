@@ -93,8 +93,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         .fi-file-input_file-size {
           color: ${theme.colors.blackLight1};
-          flex-grow: 1;
-          flex-shrink: 1;
         }
       }
 
@@ -104,6 +102,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     .fi-file-input_input-outer-wrapper {
+      &.appears-focused {
+        position: relative;
+        ${theme.focuses.highContrastFocus}
+        &:after {
+          ${theme.focuses.absoluteFocus}
+        }
+      }
       .fi-file-input_drag-area {
         width: 100%;
         background: ${theme.colors.highlightLight4};
@@ -171,6 +176,43 @@ export const baseStyles = (theme: SuomifiTheme) => css`
             &:active {
               background: none;
               background-color: ${theme.colors.depthLight2};
+            }
+          }
+        }
+      }
+    }
+
+    &.fi-file-input--small-screen {
+      .fi-file-input_input-outer-wrapper {
+        .fi-file-input_drag-area {
+          .fi-file-input_input-wrapper {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            height: auto;
+
+            .fi-file-input_drag-text-container {
+              margin-left: 0;
+              margin-bottom: ${theme.spacing.insetXl};
+            }
+
+            label {
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      .fi-file-input_single-file-container {
+        .fi-file-input_file-item {
+          height: 100%;
+          flex-direction: column;
+          .fi-file-input_file-info {
+            margin-bottom: ${theme.spacing.insetXl};
+            .fi-file-input_file-size {
+              justify-content: space-between;
+              flex-shrink: revert;
+              flex-grow: revert;
             }
           }
         }
