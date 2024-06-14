@@ -1,8 +1,17 @@
 import React, { ReactNode } from 'react';
-import { FileItemRefs, fileInputClassNames } from './FileInput';
+import {
+  ControlledFileItem,
+  FileItemRefs,
+  fileInputClassNames,
+} from './FileInput';
 import { Button } from '../../Button/Button';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset/HtmlDiv/HtmlDiv';
-import { IconGenericFile, IconRemove } from 'suomifi-icons';
+import {
+  IconErrorFilled,
+  IconGenericFile,
+  IconPreloader,
+  IconRemove,
+} from 'suomifi-icons';
 import { Link } from '../../Link/Link/Link';
 import styled from 'styled-components';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
@@ -18,6 +27,7 @@ interface FileItemProps {
   removeFileText: ReactNode;
   removeFile: (file: File) => void;
   smallScreen: boolean;
+  metaData?: ControlledFileItem;
 }
 
 const BaseFileItem = (props: FileItemProps) => {
@@ -30,6 +40,7 @@ const BaseFileItem = (props: FileItemProps) => {
     removeFileText,
     removeFile,
     smallScreen,
+    metaData,
   } = props;
 
   const getFileSizeText = () => {
@@ -43,50 +54,102 @@ const BaseFileItem = (props: FileItemProps) => {
     return `${(fileSize / 1024 / 1024).toFixed(1)} MB`;
   };
 
+  const getButtonText = () => {
+    if (metaData?.buttonText) {
+      return metaData.buttonText;
+    }
+    return !multiFile || (multiFile && !smallScreen)
+      ? removeFileText
+      : undefined;
+  };
+
+  const getFileAriaLabel = () => {
+    if (metaData?.status !== 'loading' && !metaData?.ariaLoadingText) {
+      return `${addedFileAriaText} ${file.name} ${
+        metaData?.errorText ? metaData.errorText : ''
+      }`;
+    }
+    return `${metaData?.ariaLoadingText} ${file.name}`;
+  };
+
   return (
-    <HtmlDiv className={fileInputClassNames.fileItem}>
-      <HtmlDiv className={fileInputClassNames.fileInfo}>
-        <IconGenericFile />
-        {filePreview ? (
-          <Link
-            ref={fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>}
-            href={URL.createObjectURL(file)}
-            className={classnames(fileInputClassNames.fileName, 'is-link')}
-            target="_blank"
-            aria-label={`${addedFileAriaText} ${file.name}`}
-            aria-describedby={fileItemRefs.fileSizeElementId}
+    <HtmlDiv
+      className={fileInputClassNames.fileItemOuterWrapper}
+      role="listitem"
+    >
+      <HtmlDiv className={fileInputClassNames.fileItem}>
+        <HtmlDiv className={fileInputClassNames.fileInfo}>
+          {metaData?.status === 'error' && (
+            <IconErrorFilled className={fileInputClassNames.errorIcon} />
+          )}
+          {metaData?.status === 'loading' && (
+            <IconPreloader className={fileInputClassNames.loadingIcon} />
+          )}
+          {!metaData?.status && <IconGenericFile />}
+          {filePreview ? (
+            <Link
+              ref={
+                fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>
+              }
+              href={URL.createObjectURL(file)}
+              className={classnames(fileInputClassNames.fileName, 'is-link')}
+              target="_blank"
+              aria-label={getFileAriaLabel()}
+              aria-describedby={fileItemRefs.fileSizeElementId}
+            >
+              {file.name}
+            </Link>
+          ) : (
+            <HtmlDivWithRef
+              tabIndex={multiFile ? 0 : -1}
+              forwardedRef={
+                fileItemRefs.fileNameRef as React.RefObject<HTMLDivElement>
+              }
+              className={fileInputClassNames.fileName}
+              aria-label={getFileAriaLabel()}
+              aria-describedby={fileItemRefs.fileSizeElementId}
+            >
+              {file.name}
+            </HtmlDivWithRef>
+          )}
+          <HtmlDiv
+            className={fileInputClassNames.fileSize}
+            id={filePreview ? fileItemRefs.fileSizeElementId : undefined}
           >
-            {file.name}
-          </Link>
-        ) : (
-          <HtmlDivWithRef
-            tabIndex={multiFile ? 0 : -1}
-            forwardedRef={
-              fileItemRefs.fileNameRef as React.RefObject<HTMLDivElement>
-            }
-            className={fileInputClassNames.fileName}
-            aria-label={`${addedFileAriaText} ${file.name}`}
-            aria-describedby={fileItemRefs.fileSizeElementId}
-          >
-            {file.name}
-          </HtmlDivWithRef>
-        )}
-        <HtmlDiv
-          className={fileInputClassNames.fileSize}
-          id={filePreview ? fileItemRefs.fileSizeElementId : undefined}
-        >
-          {`(${getFileSizeText()})`}
+            {`(${getFileSizeText()})`}
+          </HtmlDiv>
         </HtmlDiv>
+        <Button
+          variant={
+            smallScreen && !multiFile ? 'secondary' : 'secondaryNoBorder'
+          }
+          icon={
+            metaData && metaData.buttonIcon ? (
+              metaData.buttonIcon
+            ) : (
+              <IconRemove />
+            )
+          }
+          onClick={() => {
+            if (metaData?.buttonOnClick) {
+              metaData.buttonOnClick();
+            } else {
+              removeFile(file);
+            }
+          }}
+          aria-label={`${
+            metaData?.buttonText ? metaData.buttonText : removeFileText
+          } ${file.name}`}
+          className={fileInputClassNames.removeFileButton}
+        >
+          {getButtonText()}
+        </Button>
       </HtmlDiv>
-      <Button
-        variant={smallScreen && !multiFile ? 'secondary' : 'secondaryNoBorder'}
-        icon={<IconRemove />}
-        onClick={() => removeFile(file)}
-        aria-label={`${removeFileText} ${file.name}`}
-        className={fileInputClassNames.removeFileButton}
-      >
-        {!multiFile || (multiFile && !smallScreen) ? removeFileText : undefined}
-      </Button>
+      {metaData?.errorText && (
+        <HtmlDiv className={fileInputClassNames.fileItemErrorText}>
+          {metaData.errorText}
+        </HtmlDiv>
+      )}
     </HtmlDiv>
   );
 };

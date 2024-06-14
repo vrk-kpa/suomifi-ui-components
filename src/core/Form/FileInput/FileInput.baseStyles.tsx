@@ -54,8 +54,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     .fi-file-input_multi-file-container {
       margin-top: ${theme.spacing.insetXl};
 
-      .fi-file-input_file-item {
+      .fi-file-input_file-item-outer-wrapper {
         padding: ${theme.spacing.xxs};
+
+        :not(:last-child) {
+          border-bottom: 1px solid ${theme.colors.depthLight2};
+        }
       }
     }
 
@@ -217,6 +221,36 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           }
         }
       }
+    }
+
+    .fi-file-input_error-icon {
+      color: ${theme.colors.alertBase};
+    }
+
+    .fi-file-input_loading-icon {
+      animation: rotation 1.5s infinite linear;
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+    @media (prefers-reduced-motion) {
+      &.fi-loadingSpinner.fi-loadingSpinner--loading {
+        .fi-loadingSpinner_icon {
+          animation: rotation 10s infinite linear;
+        }
+      }
+    }
+
+    .fi-file-input_file-item-error-text {
+      ${font(theme)('bodySemiBoldSmall')};
+      font-size: 14px;
+      color: ${theme.colors.alertBase};
     }
   }
 `;

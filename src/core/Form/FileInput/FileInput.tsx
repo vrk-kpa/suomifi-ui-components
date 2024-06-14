@@ -44,18 +44,22 @@ export const fileInputClassNames = {
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   hiddenUnderFile: `${baseClassName}_label--hidden-under-file`,
   dragAreaHasFile: `${baseClassName}_drag-area--has-file`,
+  fileItemOuterWrapper: `${baseClassName}_file-item-outer-wrapper`,
   fileItem: `${baseClassName}_file-item`,
   fileInfo: `${baseClassName}_file-info`,
   fileName: `${baseClassName}_file-name`,
   fileSize: `${baseClassName}_file-size`,
   removeFileButton: `${baseClassName}_remove-file-button`,
   smallScreen: `${baseClassName}--small-screen`,
+  errorIcon: `${baseClassName}_error-icon`,
+  loadingIcon: `${baseClassName}_loading-icon`,
+  fileItemErrorText: `${baseClassName}_file-item-error-text`,
 };
 
 interface BaseFileInputProps
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlInputProps, 'type' | 'onChange' | 'onClick' | 'onBlur'> {
+    Omit<HtmlInputProps, 'type' | 'onChange' | 'onClick' | 'onBlur' | 'value'> {
   /** CSS class for custom styles */
   className?: string;
   /** Label for the input */
@@ -80,6 +84,8 @@ interface BaseFileInputProps
   onChange?: (value: FileList) => void;
   /** Callback fired on input blur */
   onBlur?: () => void;
+  /** Controlled value of the input */
+  value?: ControlledFileItem[];
   /** Hint text to be shown below the component's label. Should be used to give file format instructions */
   hintText?: string;
   /**
@@ -135,6 +141,16 @@ export interface FileItemRefs {
   fileSizeElementId: string;
 }
 
+export interface ControlledFileItem {
+  file: File;
+  status?: 'default' | 'error' | 'loading';
+  errorText?: string;
+  ariaLoadingText?: string;
+  buttonText?: string;
+  buttonIcon?: ReactElement;
+  buttonOnClick?: () => void;
+}
+
 const BaseFileInput = (props: FileInputProps) => {
   const {
     className,
@@ -149,6 +165,7 @@ const BaseFileInput = (props: FileInputProps) => {
     addedFileAriaText,
     onChange: propOnChange,
     onBlur: propOnBlur,
+    value: controlledValue,
     smallScreen = false,
     style,
     optionalText,
@@ -169,18 +186,6 @@ const BaseFileInput = (props: FileInputProps) => {
   const dragAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [files, setFiles] = useState<FileList | null>(null);
-  const [fileItemRefs, setFileItemRefs] = useState<FileItemRefs[]>([]);
-  const [mockInputWrapperFocus, setMockInputWrapperFocus] = useState(false);
-
-  const labelId = `${id}-label`;
-  const hintTextId = `${id}-hintText`;
-  const statusTextId = `${id}-statusText`;
-  const multiFileListHeadingId = `${id}-multiFileListHeading`;
-
-  // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
-  const definedRef = forwardedRef || null;
-
   const buildFileItemRefs = (fileList: FileList) => {
     const newFileItemRefs = [];
     for (let index = 0; index < fileList.length; index += 1) {
@@ -196,6 +201,38 @@ const BaseFileInput = (props: FileInputProps) => {
     }
     return newFileItemRefs;
   };
+
+  const buildFileListFromControlledValueObjects = (
+    controlledValueObjects: ControlledFileItem[],
+  ) => {
+    const newFileList = new DataTransfer();
+    controlledValueObjects.forEach((fileItem) => {
+      newFileList.items.add(fileItem.file);
+    });
+    return newFileList.files;
+  };
+
+  const [files, setFiles] = useState<FileList | null>(
+    controlledValue
+      ? buildFileListFromControlledValueObjects(controlledValue)
+      : null,
+  );
+  const [fileItemRefs, setFileItemRefs] = useState<FileItemRefs[]>(
+    controlledValue
+      ? buildFileItemRefs(
+          buildFileListFromControlledValueObjects(controlledValue),
+        )
+      : [],
+  );
+  const [mockInputWrapperFocus, setMockInputWrapperFocus] = useState(false);
+
+  const labelId = `${id}-label`;
+  const hintTextId = `${id}-hintText`;
+  const statusTextId = `${id}-statusText`;
+  const multiFileListHeadingId = `${id}-multiFileListHeading`;
+
+  // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
+  const definedRef = forwardedRef || null;
 
   const dragEnterEventHandler = (e: DragEvent) => {
     e.preventDefault();
@@ -218,7 +255,7 @@ const BaseFileInput = (props: FileInputProps) => {
     dragAreaRef.current?.classList.remove('highlight');
     const dt = e.dataTransfer;
     const filesFromInput = dt?.files;
-    if (filesFromInput && inputRef.current?.files) {
+    if (!controlledValue && filesFromInput && inputRef.current?.files) {
       addNewFiles(filesFromInput, true);
     }
     if (propOnChange) {
@@ -261,6 +298,27 @@ const BaseFileInput = (props: FileInputProps) => {
     };
   }, []);
 
+  // Manage controlled input state
+  useEffect(() => {
+    if (inputRef.current && controlledValue !== undefined) {
+      const controlledValueAsArray = Array.from(
+        buildFileListFromControlledValueObjects(controlledValue) || [],
+      );
+      const dataTransfer = new DataTransfer();
+      controlledValueAsArray.forEach((file) => dataTransfer.items.add(file));
+      setFiles(dataTransfer.files);
+      setFileItemRefs(buildFileItemRefs(dataTransfer.files));
+      inputRef.current.files = dataTransfer.files;
+      if (
+        !multiFile &&
+        document.activeElement === inputRef.current &&
+        dataTransfer.files.length > 0
+      ) {
+        setMockInputWrapperFocus(dataTransfer.files.length > 0);
+      }
+    }
+  }, [controlledValue]);
+
   const addNewFiles = (
     filesToAdd: FileList,
     setInputFileListProgrammatically = false,
@@ -294,34 +352,37 @@ const BaseFileInput = (props: FileInputProps) => {
     }
 
     if (!multiFile) {
-      setMockInputWrapperFocus(true);
+      setMockInputWrapperFocus(filesToAdd.length > 0);
     }
   };
 
   const removeFile = (file: File) => {
     const initialFilesArray = Array.from(files || []);
     const indexOfRemovedFile = initialFilesArray.indexOf(file);
+    const modifiedFilesArray = [...initialFilesArray];
+    modifiedFilesArray.splice(indexOfRemovedFile, 1);
+    // Create a new FileList excluding the removed file
+    const newFileList = new DataTransfer();
+    modifiedFilesArray.forEach((f) => {
+      newFileList.items.add(f);
+    });
 
     // Handle focus
-    // In single file mode, set focus to the input element
+    // If there is only one file, set focus to the input element
     if (!multiFile || initialFilesArray.length === 1) {
       inputRef.current?.focus();
-    } // In multi file mode, if the removed file was the last item, set focus to the previous one
-    else if (indexOfRemovedFile === initialFilesArray.length - 1) {
-      fileItemRefs[indexOfRemovedFile - 1].fileNameRef.current?.focus();
-      // Else  set focus to the next file
-    } else {
+    } // In multi file mode, if the removed file was the first item, set focus to the next one
+    else if (indexOfRemovedFile === 0) {
       fileItemRefs[indexOfRemovedFile + 1].fileNameRef.current?.focus();
+      // Else set focus to the previous file
+    } else {
+      fileItemRefs[indexOfRemovedFile - 1].fileNameRef.current?.focus();
     }
 
-    // Create a new FileList excluding the removed file
-    if (indexOfRemovedFile !== -1) {
-      const modifiedFilesArray = [...initialFilesArray];
-      modifiedFilesArray.splice(indexOfRemovedFile, 1);
-      const newFileList = new DataTransfer();
-      modifiedFilesArray.forEach((f) => {
-        newFileList.items.add(f);
-      });
+    if (propOnChange) {
+      propOnChange(newFileList.files);
+    }
+    if (controlledValue === undefined) {
       if (inputRef.current) {
         inputRef.current.files = newFileList.files;
       }
@@ -331,14 +392,10 @@ const BaseFileInput = (props: FileInputProps) => {
       const newFileItemRefs = [...fileItemRefs];
       newFileItemRefs.splice(indexOfRemovedFile, 1);
       setFileItemRefs(newFileItemRefs);
+    }
 
-      if (!multiFile) {
-        setMockInputWrapperFocus(false);
-      }
-
-      if (propOnChange) {
-        propOnChange(newFileList.files);
-      }
+    if (!multiFile) {
+      setMockInputWrapperFocus(false);
     }
   };
 
@@ -388,9 +445,21 @@ const BaseFileInput = (props: FileInputProps) => {
               multiple={multiFile}
               forwardedRef={forkRefs(inputRef, definedRef)}
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                addNewFiles(event.target.files || new FileList());
                 if (propOnChange && event.target.files) {
                   propOnChange(event.target.files);
+                }
+                if (controlledValue === undefined) {
+                  addNewFiles(event.target.files || new FileList());
+                } else if (inputRef.current) {
+                  const controlledValueAsArray = Array.from(
+                    buildFileListFromControlledValueObjects(controlledValue) ||
+                      [],
+                  );
+                  const dataTransfer = new DataTransfer();
+                  controlledValueAsArray.forEach((file) =>
+                    dataTransfer.items.add(file),
+                  );
+                  inputRef.current.files = dataTransfer.files;
                 }
               }}
               onFocus={() => {
@@ -431,6 +500,7 @@ const BaseFileInput = (props: FileInputProps) => {
                 removeFileText={removeFileText}
                 removeFile={removeFile}
                 smallScreen={smallScreen}
+                metaData={controlledValue && controlledValue[0]}
               />
             </HtmlDiv>
           )}
@@ -451,20 +521,24 @@ const BaseFileInput = (props: FileInputProps) => {
           <Label mb="xxs" id={multiFileListHeadingId}>
             {`${multiFileListHeadingText} (${files.length})`}
           </Label>
-          {files.length === fileItemRefs.length &&
-            Array.from(files).map((file, index) => (
-              <FileItem
-                key={file.name}
-                file={file}
-                filePreview={filePreview}
-                multiFile={multiFile}
-                fileItemRefs={fileItemRefs[index]}
-                addedFileAriaText={addedFileAriaText}
-                removeFileText={removeFileText}
-                removeFile={removeFile}
-                smallScreen={smallScreen}
-              />
-            ))}
+          {files.length === fileItemRefs.length && (
+            <HtmlDiv role="list">
+              {Array.from(files).map((file, index) => (
+                <FileItem
+                  key={file.name}
+                  file={file}
+                  filePreview={filePreview}
+                  multiFile={multiFile}
+                  fileItemRefs={fileItemRefs[index]}
+                  addedFileAriaText={addedFileAriaText}
+                  removeFileText={removeFileText}
+                  removeFile={removeFile}
+                  smallScreen={smallScreen}
+                  metaData={controlledValue && controlledValue[index]}
+                />
+              ))}
+            </HtmlDiv>
+          )}
         </HtmlDiv>
       )}
     </HtmlDiv>

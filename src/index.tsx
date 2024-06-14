@@ -81,6 +81,7 @@ export {
   DropdownItemProps,
   FileInput,
   FileInputProps,
+  ControlledFileItem,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export {
