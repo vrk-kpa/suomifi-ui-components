@@ -4,6 +4,12 @@ If you need to select multiple options, use the [MultiSelect](./#/Components/Mul
 
 If your list only contains a few options (user does not need filtering to find the correct option), use the [Dropdown](./#/Components/Dropdown) component instead.
 
+### Accessibility notes
+
+- Options are not read out by VoiceOver on macOS when using Safari and when navigating options using up/down arrow keys. Options remain accessible using regular VO+arrow key combinations.
+- The selected state of an option is not read out by JAWS with either Chrome or Firefox or macOS VoiceOver with Safari.
+- Browsing the options of the opened listbox in VoiceOver on iOS requires using touch navigation.
+
 Examples:
 
 - [Basic use](./#/Components/SingleSelect?id=basic-use)

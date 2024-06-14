@@ -1,5 +1,9 @@
 The `<Textarea>` component is suitable for longer user inputs.
 
+### Accessibility Notes
+
+- Success/error states are not distinguishable without colour.
+
 Examples:
 
 - [Basic use](./#/Components/Textarea?id=basic-use)

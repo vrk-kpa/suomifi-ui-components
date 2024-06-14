@@ -197,7 +197,7 @@ import { DateInput } from 'suomifi-ui-components';
 
 ### Disabled dates in date picker
 
-Use the `shouldDisableDate()` prop to disable certain dates from the date picker. Disabled dates can still be accessed through keyboard navigation but they are not selectable.
+Use the `shouldDisableDate()` prop to disable certain dates from the date picker. Disabled dates can still be accessed through keyboard navigation but they are not selectable. Accessibility note: disabled dates are not currently distuinguishable from non-disabled ones in Windows High Contrast mode.
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
