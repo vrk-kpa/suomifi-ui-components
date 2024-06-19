@@ -241,10 +241,10 @@ const validateFiles = (newFileList) => {
 
 Below is a static example of the different, more granularly controlled items that can be provided as controlled value.
 
-- When `status === 'error'`
+- When element `status === 'error'`
   - If `multiFile` is enabled, always provide the `errorText` property to the controlled value as well
   - If the component is in single file mode, use the component's regular `status` and `statusText` only
-- When `status === 'loading`
+- When element `status === 'loading`
   - Always provide the `ariaLoadingText` property
 
 ```jsx
@@ -324,7 +324,7 @@ const mockedItems = [
       }
     ]}
     status="error"
-    statusText="Something went wrong while adding the file. Please try again"
+    statusText="Something went wrong while uploading the file. Please try again"
   />
 </div>;
 ```
