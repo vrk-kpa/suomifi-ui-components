@@ -1,16 +1,24 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../theme';
-import { button, element, font } from '../../theme/reset';
+import { MarginProps, SuomifiTheme } from '../../theme';
+import { button, element, fixInternalMargins, font } from '../../theme/reset';
+import { buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   &.fi-file-input {
+    /* stylelint-disable no-descending-specificity */
+    /* Nested :hover etc selectors do not work well with this rule. */
+
     ${element(theme)}
     width: 100%;
     max-width: 600px;
+    ${buildSpacingCSS(globalMargins)}
+    ${buildSpacingCSS(propMargins, true)}
     line-height: 0;
-
-    /* stylelint-disable no-descending-specificity */
-    /* Nested :hover etc selectors do not work well with this rule. */
+    ${fixInternalMargins()}
 
     &.fi-file-input--full-width {
       width: 100%;

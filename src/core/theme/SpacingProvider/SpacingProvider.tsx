@@ -42,6 +42,7 @@ export const SpacingProvider = (props: SpacingProviderProps) => {
     expander: null,
     expanderGroup: null,
     externalLink: null,
+    fileInput: null,
     heading: null,
     hintText: null,
     inlineAlert: null,

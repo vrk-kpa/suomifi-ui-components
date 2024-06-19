@@ -11,13 +11,17 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../../theme/utils/spacing';
-import { forkRefs } from '../../../utils/common/common';
+import { filterDuplicateKeys, forkRefs } from '../../../utils/common/common';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './FileInput.baseStyles';
 import { Label, LabelMode } from '../Label/Label';
@@ -151,7 +155,11 @@ export interface ControlledFileItem {
   buttonOnClick?: () => void;
 }
 
-const BaseFileInput = (props: FileInputProps) => {
+type InternalFileInputProps = FileInputProps & {
+  globalMargins?: GlobalMargins;
+};
+
+const BaseFileInput = (props: InternalFileInputProps) => {
   const {
     className,
     labelText,
@@ -178,10 +186,10 @@ const BaseFileInput = (props: FileInputProps) => {
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
     tooltipComponent,
+    globalMargins,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   const dragAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -407,7 +415,7 @@ const BaseFileInput = (props: FileInputProps) => {
         [fileInputClassNames.fullWidth]: fullWidth,
         [fileInputClassNames.smallScreen]: smallScreen,
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
     >
       <Label
         id={labelId}
@@ -546,31 +554,46 @@ const BaseFileInput = (props: FileInputProps) => {
 };
 
 const StyledFileInput = styled(
-  ({ theme, ...passProps }: FileInputProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    ...passProps
+  }: FileInputProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
     <BaseFileInput {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.fileInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
   (props: FileInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledFileInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledFileInput
+                    theme={suomifiTheme}
+                    id={id}
+                    forwardedRef={ref}
+                    globalMargins={margins}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
