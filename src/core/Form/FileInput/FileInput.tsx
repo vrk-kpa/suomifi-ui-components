@@ -320,7 +320,8 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       if (
         !multiFile &&
         document.activeElement === inputRef.current &&
-        dataTransfer.files.length > 0
+        dataTransfer.files.length > 0 &&
+        !filePreview
       ) {
         setMockInputWrapperFocus(dataTransfer.files.length > 0);
       }
@@ -359,7 +360,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       }
     }
 
-    if (!multiFile) {
+    if (!multiFile && !filePreview) {
       setMockInputWrapperFocus(filesToAdd.length > 0);
     }
   };
@@ -402,7 +403,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       setFileItemRefs(newFileItemRefs);
     }
 
-    if (!multiFile) {
+    if (!multiFile && !filePreview) {
       setMockInputWrapperFocus(false);
     }
   };
@@ -471,12 +472,12 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                 }
               }}
               onFocus={() => {
-                if (!multiFile && files && files.length === 1) {
+                if (!multiFile && !filePreview && files && files.length === 1) {
                   setMockInputWrapperFocus(true);
                 }
               }}
               onBlur={() => {
-                if (!multiFile && files && files.length === 1) {
+                if (!multiFile && !filePreview && files && files.length === 1) {
                   setMockInputWrapperFocus(false);
                 }
                 if (propOnBlur) {
