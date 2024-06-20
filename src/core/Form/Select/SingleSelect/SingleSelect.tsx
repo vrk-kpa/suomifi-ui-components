@@ -264,7 +264,9 @@ class BaseSingleSelect<T> extends Component<
         );
         if (matchingItem) {
           resolvedInputValue =
-            matchingItem.labelText || prevState.filterInputValue;
+            matchingItem.labelText && !prevState.filterMode
+              ? matchingItem.labelText
+              : prevState.filterInputValue;
         }
       }
 
