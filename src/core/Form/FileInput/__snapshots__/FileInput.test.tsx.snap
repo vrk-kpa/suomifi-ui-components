@@ -253,6 +253,10 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: none;
 }
 
+.c1.fi-file-input.fi-file-input--full-width .fi-file-input_single-file-container {
+  max-width: none;
+}
+
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   border: 2px dashed hsl(3,59%,43%);
 }
@@ -898,6 +902,10 @@ exports[`snapshots match hidden label 1`] = `
   max-width: none;
 }
 
+.c1.fi-file-input.fi-file-input--full-width .fi-file-input_single-file-container {
+  max-width: none;
+}
+
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   border: 2px dashed hsl(3,59%,43%);
 }
@@ -1533,6 +1541,10 @@ exports[`snapshots match hint text 1`] = `
   max-width: none;
 }
 
+.c1.fi-file-input.fi-file-input--full-width .fi-file-input_single-file-container {
+  max-width: none;
+}
+
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   border: 2px dashed hsl(3,59%,43%);
 }
@@ -2155,6 +2167,10 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-file-input.fi-file-input--full-width {
   width: 100%;
+  max-width: none;
+}
+
+.c1.fi-file-input.fi-file-input--full-width .fi-file-input_single-file-container {
   max-width: none;
 }
 
