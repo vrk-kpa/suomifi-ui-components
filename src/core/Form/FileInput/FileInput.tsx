@@ -152,7 +152,7 @@ export interface ControlledFileItem {
   ariaLoadingText?: string;
   buttonText?: string;
   buttonIcon?: ReactElement;
-  buttonOnClick?: () => void;
+  buttonOnClick?: (file: File) => void;
 }
 
 type InternalFileInputProps = FileInputProps & {

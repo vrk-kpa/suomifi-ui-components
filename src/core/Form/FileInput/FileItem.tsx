@@ -132,7 +132,7 @@ const BaseFileItem = (props: FileItemProps) => {
           }
           onClick={() => {
             if (metaData?.buttonOnClick) {
-              metaData.buttonOnClick();
+              metaData.buttonOnClick(file);
             } else {
               removeFile(file);
             }

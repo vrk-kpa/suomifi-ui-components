@@ -181,7 +181,7 @@ interface ControlledFileItem {
   // Override default remove button icon
   buttonIcon?: ReactElement;
   // Override default remove button behavior
-  buttonOnClick?: () => void;
+  buttonOnClick?: (file) => void;
 }
 ```
 
@@ -264,7 +264,8 @@ const mockedItems = [
     errorText: 'Uploading file failed. Please try again',
     buttonText: 'Try again',
     buttonIcon: <IconSwapRounded />,
-    buttonOnClick: () => console.log('File 1 button clicked!')
+    buttonOnClick: (file) =>
+      console.log('File 1 button clicked!', file)
   },
   {
     file: new File(
@@ -278,7 +279,8 @@ const mockedItems = [
     ariaLoadingText: 'Loading',
     buttonText: 'Cancel',
     buttonIcon: <IconClose />,
-    buttonOnClick: () => console.log('File 2 button clicked!')
+    buttonOnClick: (file) =>
+      console.log('File 2 button clicked!', file)
   },
   {
     file: new File(['Content of the third mock file'], 'mock-3.txt', {
@@ -320,7 +322,8 @@ const mockedItems = [
         ),
         buttonText: 'Try again',
         buttonIcon: <IconSwapRounded />,
-        buttonOnClick: () => console.log('Custom click handler!')
+        buttonOnClick: (file) =>
+          console.log('Custom click handler!', file)
       }
     ]}
     status="error"
