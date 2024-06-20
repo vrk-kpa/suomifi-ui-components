@@ -23,6 +23,10 @@ export const baseStyles = (
     &.fi-file-input--full-width {
       width: 100%;
       max-width: none;
+
+      .fi-file-input_single-file-container {
+        max-width: none;
+      }
     }
 
     &.fi-file-input--error {
