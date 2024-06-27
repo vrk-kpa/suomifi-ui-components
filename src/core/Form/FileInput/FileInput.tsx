@@ -148,19 +148,33 @@ export interface FileItemRefs {
 }
 
 export interface ControlledFileItem {
-  // The actual file object
+  /**
+   * The actual file object.
+   */
   file: File;
-  // Status of the element. Affects styling
+  /**
+   * Status of the element. Affects styling.
+   */
   status?: 'default' | 'error' | 'loading';
-  // Red text to display under the file item
+  /**
+   * Red text to display under the file item.
+   */
   errorText?: string;
-  // Additional text for screen readers when using loading status. E.g "Loading"
+  /**
+   * Additional text for screen readers when using loading status. E.g "Loading".
+   */
   ariaLoadingText?: string;
-  // Override default remove button text. Also used as aria-label for the button as thus: `${buttonText} ${file.name}`
+  /**
+   * Override default remove button text. Also used as aria-label for the button as thus: `${buttonText} ${file.name}`.
+   */
   buttonText?: string;
-  // Override default remove button icon
+  /**
+   * Override default remove button icon.
+   */
   buttonIcon?: ReactElement;
-  // Override default remove button behavior
+  /**
+   * Override default remove button behavior.
+   */
   buttonOnClick?: (file: File) => void;
 }
 
