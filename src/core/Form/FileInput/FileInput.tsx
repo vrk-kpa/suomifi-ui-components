@@ -20,6 +20,7 @@ import {
   separateMarginProps,
   MarginProps,
   GlobalMargins,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { filterDuplicateKeys, forkRefs } from '../../../utils/common/common';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -41,6 +42,7 @@ export const fileInputClassNames = {
   singleFileContainer: `${baseClassName}_single-file-container`,
   multiFileContainer: `${baseClassName}_multi-file-container`,
   inputWrapper: `${baseClassName}_input-wrapper`,
+  inputLabel: `${baseClassName}_input-label`,
   inputElement: `${baseClassName}_input-element`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
@@ -146,18 +148,23 @@ export interface FileItemRefs {
 }
 
 export interface ControlledFileItem {
+  // The actual file object
   file: File;
+  // Status of the element. Affects styling
   status?: 'default' | 'error' | 'loading';
+  // Red text to display under the file item
   errorText?: string;
+  // Additional text for screen readers when using loading status. E.g "Loading"
   ariaLoadingText?: string;
+  // Override default remove button text. Also used as aria-label for the button as thus: `${buttonText} ${file.name}`
   buttonText?: string;
+  // Override default remove button icon
   buttonIcon?: ReactElement;
+  // Override default remove button behavior
   buttonOnClick?: (file: File) => void;
 }
 
-type InternalFileInputProps = FileInputProps & {
-  globalMargins?: GlobalMargins;
-};
+type InternalFileInputProps = FileInputProps & GlobalMarginProps;
 
 const BaseFileInput = (props: InternalFileInputProps) => {
   const {
@@ -242,32 +249,44 @@ const BaseFileInput = (props: InternalFileInputProps) => {
   // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
   const definedRef = forwardedRef || null;
 
-  const dragEnterEventHandler = (e: DragEvent) => {
+  const generalDragEventHandler = (
+    e: DragEvent,
+    highLight: 'add' | 'remove',
+  ) => {
     e.preventDefault();
     e.stopPropagation();
-    dragAreaRef.current?.classList.add('highlight');
+    if (highLight === 'add') {
+      dragAreaRef.current?.classList.add('highlight');
+    } else {
+      dragAreaRef.current?.classList.remove('highlight');
+    }
+  };
+
+  const dragEnterEventHandler = (e: DragEvent) => {
+    generalDragEventHandler(e, 'add');
   };
   const dragOverEventHandler = (e: DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dragAreaRef.current?.classList.add('highlight');
+    generalDragEventHandler(e, 'add');
   };
   const dragLeaveEventHandler = (e: DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dragAreaRef.current?.classList.remove('highlight');
+    generalDragEventHandler(e, 'remove');
   };
   const dropEventHandler = (e: DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dragAreaRef.current?.classList.remove('highlight');
+    generalDragEventHandler(e, 'remove');
     const dt = e.dataTransfer;
     const filesFromInput = dt?.files;
-    if (!controlledValue && filesFromInput && inputRef.current?.files) {
-      addNewFiles(filesFromInput, true);
+    const previousAndNewFiles = Array.from(
+      inputRef.current?.files || [],
+    ).concat(Array.from(filesFromInput || []));
+    const newFileList = new DataTransfer();
+    previousAndNewFiles.forEach((file) => {
+      newFileList.items.add(file);
+    });
+    if (!controlledValue && filesFromInput) {
+      setFilesToStateAndInput(newFileList.files);
     }
     if (propOnChange) {
-      propOnChange(filesFromInput || new FileList());
+      propOnChange(newFileList.files || new FileList());
     }
   };
 
@@ -328,36 +347,17 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     }
   }, [controlledValue]);
 
-  const addNewFiles = (
-    filesToAdd: FileList,
-    setInputFileListProgrammatically = false,
-  ) => {
-    if (multiFile && files) {
-      const previousAndNewFiles = Array.from(files).concat(
-        Array.from(filesToAdd || []),
-      );
-      const newFileList = new DataTransfer();
-      previousAndNewFiles.forEach((file) => {
-        newFileList.items.add(file);
-      });
-      const newFileItemRefs = buildFileItemRefs(newFileList.files);
-      setFileItemRefs(newFileItemRefs);
-      setFiles(newFileList.files);
-      if (setInputFileListProgrammatically && inputRef.current?.files) {
-        inputRef.current.files = newFileList.files;
-      }
-    } else {
-      const newFileItemRefs = buildFileItemRefs(filesToAdd || new FileList());
-      setFileItemRefs(newFileItemRefs);
-      setFiles(filesToAdd || new FileList());
-      if (filePreview) {
-        setTimeout(() => {
-          newFileItemRefs[0].fileNameRef.current?.focus();
-        }, 100);
-      }
-      if (setInputFileListProgrammatically && inputRef.current?.files) {
-        inputRef.current.files = filesToAdd;
-      }
+  const setFilesToStateAndInput = (filesToAdd: FileList) => {
+    const newFileItemRefs = buildFileItemRefs(filesToAdd || new FileList());
+    setFileItemRefs(newFileItemRefs);
+    setFiles(filesToAdd || new FileList());
+    if (inputRef.current) {
+      inputRef.current.files = filesToAdd;
+    }
+    if (filePreview) {
+      setTimeout(() => {
+        newFileItemRefs[0].fileNameRef.current?.focus();
+      }, 100);
     }
 
     if (!multiFile && !filePreview) {
@@ -454,21 +454,34 @@ const BaseFileInput = (props: InternalFileInputProps) => {
               multiple={multiFile}
               forwardedRef={forkRefs(inputRef, definedRef)}
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                if (propOnChange && event.target.files) {
-                  propOnChange(event.target.files);
-                }
+                const newFileList = new DataTransfer();
                 if (controlledValue === undefined) {
-                  addNewFiles(event.target.files || new FileList());
+                  if (multiFile) {
+                    const previousAndNewFiles = Array.from(files || []).concat(
+                      Array.from(event.target.files || []),
+                    );
+                    previousAndNewFiles.forEach((file) => {
+                      newFileList.items.add(file);
+                    });
+                  } else {
+                    const filesFromEvent = Array.from(event.target.files || []);
+                    filesFromEvent.forEach((file) => {
+                      newFileList.items.add(file);
+                    });
+                  }
+                  setFilesToStateAndInput(newFileList.files);
                 } else if (inputRef.current) {
                   const controlledValueAsArray = Array.from(
                     buildFileListFromControlledValueObjects(controlledValue) ||
                       [],
                   );
-                  const dataTransfer = new DataTransfer();
                   controlledValueAsArray.forEach((file) =>
-                    dataTransfer.items.add(file),
+                    newFileList.items.add(file),
                   );
-                  inputRef.current.files = dataTransfer.files;
+                  inputRef.current.files = newFileList.files;
+                }
+                if (propOnChange) {
+                  propOnChange(newFileList.files);
                 }
               }}
               onFocus={() => {
@@ -493,7 +506,9 @@ const BaseFileInput = (props: InternalFileInputProps) => {
               ])}
               {...passProps}
             />
-            <HtmlLabel htmlFor={id}>{inputButtonText}</HtmlLabel>
+            <HtmlLabel htmlFor={id} className={fileInputClassNames.inputLabel}>
+              {inputButtonText}
+            </HtmlLabel>
             <HtmlDiv className={fileInputClassNames.dragTextContainer}>
               {dragAreaText}
             </HtmlDiv>

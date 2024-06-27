@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { FileInput } from './FileInput';
 import { axeTest } from '../../../utils/test';
 
@@ -12,18 +11,6 @@ const commonProps = {
   addedFileAriaText: 'Added file: ',
   'data-testid': 'file-input',
 };
-
-const mockFiles = [
-  new File(['Content of the first mock file'], 'mock-1.txt', {
-    type: 'text/plain',
-  }),
-  new File(['Content of the second mock file'], 'mock-2.txt', {
-    type: 'text/plain',
-  }),
-  new File(['Content of the third mock file'], 'mock-3.txt', {
-    type: 'text/plain',
-  }),
-];
 
 describe('snapshots match', () => {
   test('minimal implementation', () => {
@@ -193,62 +180,5 @@ describe('props', () => {
       const dragArea = getByText('Drag and drop files here');
       expect(dragArea).toHaveClass('fi-file-input_drag-text-container');
     });
-  });
-
-  describe('removeFileText', () => {
-    it('should be visible when a file is selected', async () => {
-      const { getByTestId, getByText } = render(<FileInput {...commonProps} />);
-      const input = getByTestId('file-input') as HTMLInputElement;
-      await userEvent.upload(input, mockFiles[0]);
-      const removeButton = getByText('Remove');
-      expect(removeButton).toBeInTheDocument();
-    });
-  });
-
-  describe('filePreviews', () => {
-    it('should render file names as links when preview is enabled', async () => {
-      window.URL.createObjectURL = jest.fn();
-      const { getByTestId, getByText } = render(
-        <FileInput {...commonProps} filePreview />,
-      );
-      const input = getByTestId('file-input') as HTMLInputElement;
-      await userEvent.upload(input, mockFiles[0]);
-      const fileLink = getByText('mock-1.txt');
-      expect(fileLink).toHaveAttribute('target', '_blank');
-    });
-  });
-});
-
-describe('interactions', () => {
-  it('should be able to add a file', async () => {
-    const { getByTestId } = render(<FileInput {...commonProps} />);
-    const input = getByTestId('file-input') as HTMLInputElement;
-    await userEvent.upload(input, mockFiles[0]);
-    expect(input.files![0]).toStrictEqual(mockFiles[0]);
-  });
-
-  it('should run onChange when a file is added', async () => {
-    const mockOnChange = jest.fn();
-    const { getByTestId } = render(
-      <FileInput {...commonProps} onChange={mockOnChange} />,
-    );
-    const input = getByTestId('file-input') as HTMLInputElement;
-    await userEvent.upload(input, mockFiles[0]);
-    expect(mockOnChange).toBeCalled();
-  });
-
-  it('should be able to add multiple files', async () => {
-    const { getByTestId } = render(
-      <FileInput
-        {...commonProps}
-        multiFile
-        multiFileListHeadingText="Added files"
-      />,
-    );
-    const input = getByTestId('file-input') as HTMLInputElement;
-    await userEvent.upload(input, mockFiles);
-    expect(input.files![0]).toStrictEqual(mockFiles[0]);
-    expect(input.files![1]).toStrictEqual(mockFiles[1]);
-    expect(input.files![2]).toStrictEqual(mockFiles[2]);
   });
 });

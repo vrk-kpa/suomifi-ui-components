@@ -168,7 +168,7 @@ The `value` prop accepts an array of objects with the following schema. See the 
 
 ```jsx static
 interface ControlledFileItem {
-  // The actual file element
+  // The actual file object
   file: File;
   // Status of the element. Affects styling
   status?: 'default' | 'error' | 'loading';
@@ -176,7 +176,7 @@ interface ControlledFileItem {
   errorText?: string;
   // Additional text for screen readers when using loading status. E.g "Loading"
   ariaLoadingText?: string;
-  // Override default remove button text. Also used as aria-label for the button as thus `${buttonText} ${file.name}`
+  // Override default remove button text. Also used as aria-label for the button as thus: `${buttonText} ${file.name}`
   buttonText?: string;
   // Override default remove button icon
   buttonIcon?: ReactElement;

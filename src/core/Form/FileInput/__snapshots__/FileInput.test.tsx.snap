@@ -369,6 +369,8 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
   color: hsl(0,0%,42%);
+  min-width: 70px;
+  margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
@@ -452,12 +454,12 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -473,7 +475,7 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: 9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -500,11 +502,11 @@ exports[`snapshots match error status with statustext 1`] = `
   cursor: pointer;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:hover {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:active {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
@@ -525,7 +527,7 @@ exports[`snapshots match error status with statustext 1`] = `
   margin-bottom: 16px;
 }
 
-.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   width: 100%;
   text-align: center;
 }
@@ -553,6 +555,7 @@ exports[`snapshots match error status with statustext 1`] = `
   -webkit-flex-grow: revert;
   -ms-flex-positive: revert;
   flex-grow: revert;
+  margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
@@ -621,7 +624,7 @@ exports[`snapshots match error status with statustext 1`] = `
           type="file"
         />
         <label
-          class="c6"
+          class="c6 fi-file-input_input-label"
           for="5"
         >
           Choose file
@@ -1018,6 +1021,8 @@ exports[`snapshots match hidden label 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
   color: hsl(0,0%,42%);
+  min-width: 70px;
+  margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
@@ -1101,12 +1106,12 @@ exports[`snapshots match hidden label 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -1122,7 +1127,7 @@ exports[`snapshots match hidden label 1`] = `
   z-index: 9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1149,11 +1154,11 @@ exports[`snapshots match hidden label 1`] = `
   cursor: pointer;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:hover {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:active {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
@@ -1174,7 +1179,7 @@ exports[`snapshots match hidden label 1`] = `
   margin-bottom: 16px;
 }
 
-.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   width: 100%;
   text-align: center;
 }
@@ -1202,6 +1207,7 @@ exports[`snapshots match hidden label 1`] = `
   -webkit-flex-grow: revert;
   -ms-flex-positive: revert;
   flex-grow: revert;
+  margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
@@ -1269,7 +1275,7 @@ exports[`snapshots match hidden label 1`] = `
           type="file"
         />
         <label
-          class="c6"
+          class="c6 fi-file-input_input-label"
           for="4"
         >
           Choose file
@@ -1657,6 +1663,8 @@ exports[`snapshots match hint text 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
   color: hsl(0,0%,42%);
+  min-width: 70px;
+  margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
@@ -1740,12 +1748,12 @@ exports[`snapshots match hint text 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -1761,7 +1769,7 @@ exports[`snapshots match hint text 1`] = `
   z-index: 9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1788,11 +1796,11 @@ exports[`snapshots match hint text 1`] = `
   cursor: pointer;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:hover {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:active {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
@@ -1813,7 +1821,7 @@ exports[`snapshots match hint text 1`] = `
   margin-bottom: 16px;
 }
 
-.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   width: 100%;
   text-align: center;
 }
@@ -1841,6 +1849,7 @@ exports[`snapshots match hint text 1`] = `
   -webkit-flex-grow: revert;
   -ms-flex-positive: revert;
   flex-grow: revert;
+  margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
@@ -1917,7 +1926,7 @@ exports[`snapshots match hint text 1`] = `
               type="file"
             />
             <label
-              class="c7"
+              class="c7 fi-file-input_input-label"
               for="3"
             >
               Choose file
@@ -2286,6 +2295,8 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
   color: hsl(0,0%,42%);
+  min-width: 70px;
+  margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
@@ -2369,12 +2380,12 @@ exports[`snapshots match minimal implementation 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -2390,7 +2401,7 @@ exports[`snapshots match minimal implementation 1`] = `
   z-index: 9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2417,11 +2428,11 @@ exports[`snapshots match minimal implementation 1`] = `
   cursor: pointer;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:hover {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label:active {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
@@ -2442,7 +2453,7 @@ exports[`snapshots match minimal implementation 1`] = `
   margin-bottom: 16px;
 }
 
-.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper label {
+.c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
   width: 100%;
   text-align: center;
 }
@@ -2470,6 +2481,7 @@ exports[`snapshots match minimal implementation 1`] = `
   -webkit-flex-grow: revert;
   -ms-flex-positive: revert;
   flex-grow: revert;
+  margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
@@ -2537,7 +2549,7 @@ exports[`snapshots match minimal implementation 1`] = `
           type="file"
         />
         <label
-          class="c6"
+          class="c6 fi-file-input_input-label"
           for="1"
         >
           Choose file

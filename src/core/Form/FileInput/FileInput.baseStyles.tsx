@@ -109,6 +109,8 @@ export const baseStyles = (
 
         .fi-file-input_file-size {
           color: ${theme.colors.blackLight1};
+          min-width: 70px;
+          margin-right: ${theme.spacing.insetL};
         }
       }
 
@@ -160,7 +162,7 @@ export const baseStyles = (
 
             &:not(.fi-file-input_label--hidden-under-file) {
               &:focus {
-                + label {
+                + .fi-file-input_input-label {
                   position: relative;
                   ${theme.focuses
                     .highContrastFocus} /* For high contrast mode */
@@ -173,7 +175,7 @@ export const baseStyles = (
             }
           }
 
-          label {
+          .fi-file-input_input-label {
             /* Make the label appear as a secondary variant button */
             ${button(theme)}
             padding: 9px ${theme.spacing.insetXxl};
@@ -211,7 +213,7 @@ export const baseStyles = (
               margin-bottom: ${theme.spacing.insetXl};
             }
 
-            label {
+            .fi-file-input_input-label {
               width: 100%;
               text-align: center;
             }
@@ -229,6 +231,7 @@ export const baseStyles = (
               justify-content: space-between;
               flex-shrink: revert;
               flex-grow: revert;
+              margin-right: 0;
             }
           }
         }
