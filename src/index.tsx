@@ -27,8 +27,6 @@ export {
   ForcedAccessibleNameProps,
 } from './core/Button/Button';
 export { Details, DetailsProps } from './core/Details/Details';
-export { Dropdown, DropdownProps } from './core/Dropdown/';
-export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
 export {
@@ -77,6 +75,13 @@ export {
   ErrorSummary,
   ErrorSummaryProps,
   ErrorSummaryItemProps,
+  Dropdown,
+  DropdownProps,
+  DropdownItem,
+  DropdownItemProps,
+  FileInput,
+  FileInputProps,
+  ControlledFileItem,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export {

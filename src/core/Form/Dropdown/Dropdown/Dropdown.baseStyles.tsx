@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../theme';
-import { element, fixInternalMargins, input } from '../../theme/reset';
-import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
+import { SuomifiTheme } from '../../../theme';
+import { element, fixInternalMargins, input } from '../../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
 export const baseStyles = (
   theme: SuomifiTheme,

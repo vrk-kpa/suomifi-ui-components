@@ -8,10 +8,7 @@ The margin values can be given using the desired spacing token.
 import {
   SpacingProvider,
   TextInput,
-  Button,
-  WizardNavigation,
-  WizardNavigationItem,
-  RouterLink
+  Button
 } from 'suomifi-ui-components';
 
 const Comp = (props) => {
@@ -45,12 +42,7 @@ The global margins given via the provider are set as low specificity css styles,
 In the example below all the buttons are inside a spacing provider with margins rules for buttons, but some of them have their styles overridden using the above methods.
 
 ```js
-import {
-  SpacingProvider,
-  TextInput,
-  Button,
-  Paragraph
-} from 'suomifi-ui-components';
+import { SpacingProvider, Button } from 'suomifi-ui-components';
 import { default as styled } from 'styled-components';
 
 const StyledButton = styled(Button)`
@@ -94,7 +86,6 @@ import {
   Button,
   TextInput,
   Textarea,
-  Checkbox,
   Paragraph,
   Heading,
   SpacingProvider

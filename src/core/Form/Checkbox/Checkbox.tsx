@@ -40,7 +40,10 @@ const checkboxClassNames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalCheckboxProps extends StatusTextCommonProps {
+export interface CheckboxProps
+  extends StatusTextCommonProps,
+    MarginProps,
+    Omit<HtmlInputProps, 'onClick' | 'value'> {
   /** Controlled checked state  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled `checked` state
@@ -99,15 +102,6 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   value?: string;
   /** Ref is passed to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
-  /** Properties for the wrapping div element */
-}
-
-export interface CheckboxProps
-  extends InternalCheckboxProps,
-    MarginProps,
-    Omit<HtmlInputProps, 'onClick' | 'value'> {
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLInputElement>;
 }
 
 class BaseCheckbox extends Component<CheckboxProps> {
@@ -244,10 +238,9 @@ const StyledCheckbox = styled(
     theme,
     globalMargins,
     ...passProps
-  }: InternalCheckboxProps &
-    SuomifiThemeProp &
-    GlobalMarginProps &
-    MarginProps) => <BaseCheckbox {...passProps} />,
+  }: CheckboxProps & SuomifiThemeProp & GlobalMarginProps & MarginProps) => (
+    <BaseCheckbox {...passProps} />
+  ),
 )`
   ${({ theme, globalMargins, ...rest }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);

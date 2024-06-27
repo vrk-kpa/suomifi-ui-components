@@ -27,6 +27,7 @@ const singularComponents = [
   ['Form/Select/MultiSelect/', 'MultiSelect'],
   ['Form/Select', 'SingleSelect'],
   ['Form', 'ErrorSummary'],
+  ['Form', 'FileInput'],
 ];
 
 const getComponent = ({ name, underName }) =>

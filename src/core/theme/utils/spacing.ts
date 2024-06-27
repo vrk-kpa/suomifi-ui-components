@@ -71,6 +71,7 @@ export type GlobalMargins = {
   expander?: MarginProps;
   expanderGroup?: MarginProps;
   externalLink?: MarginProps;
+  fileInput?: MarginProps;
   heading?: MarginProps;
   hintText?: MarginProps;
   inlineAlert?: MarginProps;
