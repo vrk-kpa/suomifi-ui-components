@@ -28,6 +28,7 @@ const singularComponents = [
   ['Form/Select', 'SingleSelect'],
   ['Form', 'ErrorSummary'],
   ['Form', 'FileInput'],
+  ['Form/Dropdown', 'Dropdown'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -216,13 +217,6 @@ module.exports = {
           components: getComponentWithVariants('Breadcrumb')([
             'Breadcrumb/Breadcrumb',
             'BreadcrumbLink/BreadcrumbLink',
-          ]),
-        },
-        {
-          name: 'Dropdown',
-          components: getComponentWithVariants('Dropdown')([
-            'Dropdown/Dropdown',
-            'DropdownItem/DropdownItem',
           ]),
         },
         {
