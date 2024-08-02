@@ -83,7 +83,6 @@ class BasePageInput extends Component<
       labelText,
       pageInputButtonLabel,
       onPageChange: propOnPageChange,
-      children,
       statusText,
       visualPlaceholder,
       id,

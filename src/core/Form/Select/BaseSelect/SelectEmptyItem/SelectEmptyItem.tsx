@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
@@ -14,6 +14,8 @@ const itemClassNames = {
 export interface SelectEmptyItemProps {
   /** Item container div class name for custom styling. */
   className?: string;
+  /** Item content */
+  children?: ReactNode;
 }
 
 class BaseSelectEmptyItem extends Component<
