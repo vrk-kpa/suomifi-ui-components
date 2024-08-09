@@ -83,6 +83,7 @@ export const baseStyles = (
         align-items: center;
         gap: ${theme.spacing.insetL};
         flex-shrink: 1;
+        ${font(theme)('bodyTextSmall')};
 
         .fi-icon {
           width: 24px;
