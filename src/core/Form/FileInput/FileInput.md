@@ -456,8 +456,8 @@ const labelText = 'Resume';
     hintText="Allowed file formats are: pdf and docx. Maximum file size is 5 MB"
     tooltipComponent={
       <Tooltip
-        ariaToggleButtonlabelText={`${labelText}, show additional information`}
-        ariaCloseButtonlabelText={`${labelText}, close additional information`}
+        ariaToggleButtonLabelText={`${labelText}, show additional information`}
+        ariaCloseButtonLabelText={`${labelText}, close additional information`}
       >
         <Heading variant="h5" as="h2">
           About the resume

@@ -405,7 +405,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     if (propOnChange) {
       propOnChange(newFileList.files);
     }
-    if (controlledValue === undefined) {
+    if (!controlledValue) {
       if (inputRef.current) {
         inputRef.current.files = newFileList.files;
       }
@@ -419,6 +419,44 @@ const BaseFileInput = (props: InternalFileInputProps) => {
 
     if (!multiFile && !filePreview) {
       setMockInputWrapperFocus(false);
+    }
+  };
+
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newFileList = new DataTransfer();
+    const filesFromEvent = event.target.files;
+    if (!controlledValue) {
+      if (multiFile) {
+        const previousAndNewFiles = Array.from(files || []).concat(
+          Array.from(filesFromEvent || []),
+        );
+        previousAndNewFiles.forEach((file) => {
+          newFileList.items.add(file);
+        });
+      } else {
+        const filesFromEventArr = Array.from(filesFromEvent || []);
+        filesFromEventArr.forEach((file) => {
+          newFileList.items.add(file);
+        });
+      }
+      setFilesToStateAndInput(newFileList.files);
+    } else if (inputRef.current) {
+      const controlledValueAsArray = Array.from(
+        buildFileListFromControlledValueObjects(controlledValue) || [],
+      );
+      const controlledFileList = new DataTransfer();
+      controlledValueAsArray.forEach((file) => {
+        controlledFileList.items.add(file);
+        newFileList.items.add(file);
+      });
+      inputRef.current.files = controlledFileList.files;
+      const filesFromEventArr = Array.from(filesFromEvent || []);
+      filesFromEventArr.forEach((file) => {
+        newFileList.items.add(file);
+      });
+    }
+    if (propOnChange) {
+      propOnChange(newFileList.files);
     }
   };
 
@@ -467,37 +505,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
               type="file"
               multiple={multiFile}
               forwardedRef={forkRefs(inputRef, definedRef)}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                const newFileList = new DataTransfer();
-                if (controlledValue === undefined) {
-                  if (multiFile) {
-                    const previousAndNewFiles = Array.from(files || []).concat(
-                      Array.from(event.target.files || []),
-                    );
-                    previousAndNewFiles.forEach((file) => {
-                      newFileList.items.add(file);
-                    });
-                  } else {
-                    const filesFromEvent = Array.from(event.target.files || []);
-                    filesFromEvent.forEach((file) => {
-                      newFileList.items.add(file);
-                    });
-                  }
-                  setFilesToStateAndInput(newFileList.files);
-                } else if (inputRef.current) {
-                  const controlledValueAsArray = Array.from(
-                    buildFileListFromControlledValueObjects(controlledValue) ||
-                      [],
-                  );
-                  controlledValueAsArray.forEach((file) =>
-                    newFileList.items.add(file),
-                  );
-                  inputRef.current.files = newFileList.files;
-                }
-                if (propOnChange) {
-                  propOnChange(newFileList.files);
-                }
-              }}
+              onChange={handleOnChange}
               onFocus={() => {
                 if (!multiFile && !filePreview && files && files.length === 1) {
                   setMockInputWrapperFocus(true);

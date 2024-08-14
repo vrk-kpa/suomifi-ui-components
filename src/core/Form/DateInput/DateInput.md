@@ -378,8 +378,8 @@ const labelText = 'Beginning date';
   language="en"
   tooltipComponent={
     <Tooltip
-      ariaToggleButtonlabelText={`${labelText}, show additional information`}
-      ariaCloseButtonlabelText={`${labelText}, close additional information`}
+      ariaToggleButtonLabelText={`${labelText}, show additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
         What happens on the beginning date?
