@@ -52,7 +52,6 @@ export interface SearchInputProps
       | 'onChange'
       | 'onBlur'
       | 'onSearch'
-      | 'children'
       | 'onClick'
       | 'value'
       | 'defaultValue'
