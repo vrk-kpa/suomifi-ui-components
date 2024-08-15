@@ -69,7 +69,7 @@ export const baseStyles = (
       .fi-file-input_file-item-outer-wrapper {
         padding: ${theme.spacing.xxs};
 
-        :not(:last-child) {
+        &:not(:last-child) {
           border-bottom: 1px solid ${theme.colors.depthLight2};
         }
       }
