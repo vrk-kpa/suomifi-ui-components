@@ -3,7 +3,6 @@ The `<WizardNavigation>` component is used for user interactions that progress i
 - Compose the navigation with `<WizardNavigationItem>` components.
 - Use `<RouterLink>` as the child of WizardNavigationItem to get inteded CSS styles. `<RouterLink>` is polymorphic, and can be rendered as any component of your choice, for example React Router Link.
 - Use descriptive and short names for the steps
-- Use `aria-current` for the currently active phase, `aria-disabled` for coming phases and an `aria-label` to mark completed phases.
 - Provide the navigation a descriptive `heading` and use the correct heading level depending on the navigation's location in the page structure.
 - When page content changes along with the phases, make sure this gets conveyed to screen reader users as well
 
