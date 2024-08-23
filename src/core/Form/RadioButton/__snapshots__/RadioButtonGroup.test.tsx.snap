@@ -249,7 +249,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -462,7 +462,7 @@ exports[`default, with only required props should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
@@ -877,7 +877,7 @@ exports[`props className should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -1090,7 +1090,7 @@ exports[`props className should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
@@ -1505,7 +1505,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -1718,7 +1718,7 @@ exports[`props defaultValue should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
@@ -2155,7 +2155,7 @@ exports[`props hintText should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -2368,7 +2368,7 @@ exports[`props hintText should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-radio-button-group_label--with-margin fi-label"
@@ -2788,7 +2788,7 @@ exports[`props id should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -3001,7 +3001,7 @@ exports[`props id should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
@@ -3416,7 +3416,7 @@ exports[`props label should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -3629,7 +3629,7 @@ exports[`props label should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
@@ -4056,7 +4056,7 @@ exports[`props labelMode should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -4684,7 +4684,7 @@ exports[`props name should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -4897,7 +4897,7 @@ exports[`props name should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
@@ -5312,7 +5312,7 @@ exports[`props value should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_legend {
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -5526,7 +5526,7 @@ exports[`props value should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-radio-button-group_legend"
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"
