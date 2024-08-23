@@ -1,18 +1,5 @@
 The `<WizardNavigation>` component is used for user interactions that progress in phases. It can help to break up a long form into manageable sections and allows the user to see their progress as well.
 
-- [Basic use](./#/Components/WizardNavigation?id=basic-use)
-- [Small screen](./#/Components/WizardNavigation?id=small-screen)
-- [Using with frameworks](./#/Components/WizardNavigation?id=using-with-frameworks)
-
-<div style="margin-bottom: 5px">
-  [Props & methods (WizardNavigation)](./#/Components/WizardNavigation?id=props--methods)
-</div>
-<div style="margin-bottom: 40px">
-  [Props & methods (WizardNavigationItem)](./#/Components/WizardNavigation?id=wizardnavigationitem)
-</div>
-
-### Basic use
-
 - Compose the navigation with `<WizardNavigationItem>` components.
 - Use `<RouterLink>` as the child of WizardNavigationItem to get inteded CSS styles. `<RouterLink>` is polymorphic, and can be rendered as any component of your choice, for example React Router Link.
 - Use descriptive and short names for the steps
@@ -28,6 +15,32 @@ A `<WizardNavigationItem>` can have one of these 6 statuses:
 - `'current-completed'`: Combination of current and completed statuses
 - `'coming'`: A step which is not reachable at the moment (but will become available when e.g. the previous steps have been completed)
 - `'disabled'`: A disabled step which will not become reachable. In most cases you should use `'coming'` instead of this
+
+<div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
+#### Important!
+
+To ensure accessibility, the following aria-attributes must be manually added to the inner `<RouterLink>` components
+
+- `aria-current="step"` when the wrapping item has `status="current"`
+- `aria-disabled` when the wrapping item has `status="coming"` or `status="disabled"`
+- A descriptive `aria-label` for any link where the wrapping item has `status="completed"`. The aria-label should indicate that the step is completed
+
+Please refer to the code below for examples
+
+</div>
+
+- [Basic use](./#/Components/WizardNavigation?id=basic-use)
+- [Small screen](./#/Components/WizardNavigation?id=small-screen)
+- [Using with frameworks](./#/Components/WizardNavigation?id=using-with-frameworks)
+
+<div style="margin-bottom: 5px">
+  [Props & methods (WizardNavigation)](./#/Components/WizardNavigation?id=props--methods)
+</div>
+<div style="margin-bottom: 40px">
+  [Props & methods (WizardNavigationItem)](./#/Components/WizardNavigation?id=wizardnavigationitem)
+</div>
+
+### Basic use
 
 ```js
 import {
