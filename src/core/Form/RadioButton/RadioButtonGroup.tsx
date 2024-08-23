@@ -143,7 +143,8 @@ class BaseRadioButtonGroup extends Component<
               labelMode={labelMode}
               optionalText={optionalText}
               className={classnames({
-                [radioButtonGroupClassNames.labelWithMargin]: groupHintText,
+                [radioButtonGroupClassNames.labelWithMargin]:
+                  groupHintText || labelMode !== 'hidden',
               })}
               tooltipComponent={tooltipComponent}
             >

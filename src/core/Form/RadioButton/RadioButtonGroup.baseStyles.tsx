@@ -16,10 +16,8 @@ export const baseStyles = (
 
   &.fi-radio-button-group {
     & .fi-radio-button-group_legend {
-      margin-bottom: 10px;
-
       .fi-hint-text {
-        margin-bottom: 0;
+        margin-bottom: ${theme.spacing.xs};
       }
     }
 
@@ -29,7 +27,7 @@ export const baseStyles = (
     }
 
     & .fi-radio-button-group_label--with-margin {
-      margin-bottom: 10px;
+      margin-bottom: ${theme.spacing.xs};
     }
 
     & .fi-radio-button-group_hintText {
