@@ -16,8 +16,11 @@ export const baseStyles = (
 
   &.fi-radio-button-group {
     & .fi-radio-button-group_legend {
-      .fi-hint-text {
+      &--with-margin {
         margin-bottom: ${theme.spacing.xs};
+      }
+      .fi-hint-text {
+        margin-bottom: 0;
       }
     }
 
