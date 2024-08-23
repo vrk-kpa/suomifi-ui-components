@@ -39,6 +39,7 @@ export const timeInputClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
+  fullWidth: `${baseClassName}--full-width`,
   labelIsVisible: `${baseClassName}_label--visible`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
@@ -122,6 +123,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
     value: controlledValue,
     defaultValue,
     forwardedRef,
+    fullWidth,
     debounce,
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
@@ -158,6 +160,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
         [timeInputClassNames.disabled]: !!passProps.disabled,
         [timeInputClassNames.error]: status === 'error',
         [timeInputClassNames.success]: status === 'success',
+        [timeInputClassNames.fullWidth]: !!fullWidth,
       })}
       style={style}
     >

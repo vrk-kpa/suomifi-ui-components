@@ -74,6 +74,9 @@ export const baseStyles = (
 
   &.fi-time-input--full-width {
     width: 100%;
+    & .fi-time-input_input-element-container {
+      width: 100%;
+    }
   }
 
   & .fi-time-input_input {
