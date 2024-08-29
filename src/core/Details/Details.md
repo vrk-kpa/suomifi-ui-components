@@ -35,8 +35,7 @@ The details component accepts practically any content, and thus its contents can
 import {
   Details,
   ExternalLink,
-  Paragraph,
-  Block
+  Paragraph
 } from 'suomifi-ui-components';
 
 <Details summaryLabel="Additional information on the topic">
