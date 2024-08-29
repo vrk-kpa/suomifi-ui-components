@@ -32,27 +32,20 @@ import { Details } from 'suomifi-ui-components';
 The details component accepts practically any content, and thus its contents can be structured in whatever way suits the purpose
 
 ```js
-import { Details, Heading, Paragraph } from 'suomifi-ui-components';
-
-const DetailsContent = () => (
-  <div style={{ display: 'flex' }}>
-    <div style={{ flex: 1 }}>
-      <Heading variant="h4">Some info</Heading>
-      <Paragraph>
-        This is some relevant information regarding a topic
-      </Paragraph>
-    </div>
-    <div style={{ flex: 1 }}>
-      <Heading variant="h4">Some other info</Heading>
-      <Paragraph>
-        This is relevant information concerning another topic
-      </Paragraph>
-    </div>
-  </div>
-);
+import {
+  Details,
+  ExternalLink,
+  Paragraph,
+  Block
+} from 'suomifi-ui-components';
 
 <Details summaryLabel="Additional information on the topic">
-  <DetailsContent />
+  <Paragraph>
+    This is some relevant information regarding a topic
+  </Paragraph>
+  <ExternalLink href="#">
+    For more information refer to this page
+  </ExternalLink>
 </Details>;
 ```
 
