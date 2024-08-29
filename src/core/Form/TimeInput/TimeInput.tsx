@@ -39,7 +39,6 @@ export const timeInputClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
-  fullWidth: `${baseClassName}--full-width`,
   labelIsVisible: `${baseClassName}_label--visible`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
@@ -96,8 +95,6 @@ export interface TimeInputProps
   defaultValue?: string;
   /** Controlled value */
   value?: string;
-  /** Sets component's width to 100% of its parent */
-  fullWidth?: boolean;
   /** Text to mark the field optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
@@ -123,7 +120,6 @@ const BaseTimeInput = (props: TimeInputProps) => {
     value: controlledValue,
     defaultValue,
     forwardedRef,
-    fullWidth,
     debounce,
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
@@ -160,7 +156,6 @@ const BaseTimeInput = (props: TimeInputProps) => {
         [timeInputClassNames.disabled]: !!passProps.disabled,
         [timeInputClassNames.error]: status === 'error',
         [timeInputClassNames.success]: status === 'success',
-        [timeInputClassNames.fullWidth]: !!fullWidth,
       })}
       style={style}
     >
