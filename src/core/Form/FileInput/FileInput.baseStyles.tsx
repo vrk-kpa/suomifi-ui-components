@@ -121,13 +121,6 @@ export const baseStyles = (
     }
 
     .fi-file-input_input-outer-wrapper {
-      &.appears-focused {
-        position: relative;
-        ${theme.focuses.highContrastFocus}
-        &:after {
-          ${theme.focuses.absoluteFocus}
-        }
-      }
       .fi-file-input_drag-area {
         width: 100%;
         background: ${theme.colors.highlightLight4};

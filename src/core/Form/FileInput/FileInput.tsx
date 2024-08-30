@@ -28,7 +28,13 @@ import { baseStyles } from './FileInput.baseStyles';
 import { Label, LabelMode } from '../Label/Label';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset/HtmlDiv/HtmlDiv';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { HtmlInput, HtmlInputProps, HtmlLabel } from '../../../reset';
+import {
+  HtmlFieldSet,
+  HtmlInput,
+  HtmlInputProps,
+  HtmlLabel,
+  HtmlLegend,
+} from '../../../reset';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { FileItem } from './FileItem';
@@ -145,6 +151,7 @@ export interface FileItemRefs {
   id: string;
   fileNameRef: React.RefObject<HTMLAnchorElement | HTMLDivElement>;
   fileSizeElementId: string;
+  removeButtonRef: React.RefObject<HTMLButtonElement>;
 }
 
 export interface ControlledFileItem {
@@ -222,10 +229,12 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       const fnRef = filePreview
         ? createRef<HTMLAnchorElement>()
         : createRef<HTMLDivElement>();
+      const removeButtonRef = createRef<HTMLButtonElement>();
       newFileItemRefs.push({
         id: `${id}-${file.name.replace(/\s/g, '')}`,
         fileNameRef: fnRef,
         fileSizeElementId: `${id}-${file.name.replace(/\s/g, '')}-fileSize`,
+        removeButtonRef,
       });
     }
     return newFileItemRefs;
@@ -253,7 +262,6 @@ const BaseFileInput = (props: InternalFileInputProps) => {
         )
       : [],
   );
-  const [mockInputWrapperFocus, setMockInputWrapperFocus] = useState(false);
 
   const labelId = `${id}-label`;
   const hintTextId = `${id}-hintText`;
@@ -348,7 +356,8 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       const dataTransfer = new DataTransfer();
       controlledValueAsArray.forEach((file) => dataTransfer.items.add(file));
       setFiles(dataTransfer.files);
-      setFileItemRefs(buildFileItemRefs(dataTransfer.files));
+      const newFileItemRefs = buildFileItemRefs(dataTransfer.files);
+      setFileItemRefs(newFileItemRefs);
       inputRef.current.files = dataTransfer.files;
       if (
         !multiFile &&
@@ -356,7 +365,9 @@ const BaseFileInput = (props: InternalFileInputProps) => {
         dataTransfer.files.length > 0 &&
         !filePreview
       ) {
-        setMockInputWrapperFocus(dataTransfer.files.length > 0);
+        setTimeout(() => {
+          newFileItemRefs[0].removeButtonRef.current?.focus();
+        }, 100);
       }
     }
   }, [controlledValue]);
@@ -368,14 +379,16 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     if (inputRef.current) {
       inputRef.current.files = filesToAdd;
     }
-    if (filePreview) {
+    if (!multiFile && filePreview) {
       setTimeout(() => {
         newFileItemRefs[0].fileNameRef.current?.focus();
       }, 100);
     }
 
     if (!multiFile && !filePreview) {
-      setMockInputWrapperFocus(filesToAdd.length > 0);
+      setTimeout(() => {
+        newFileItemRefs[0].removeButtonRef.current?.focus();
+      }, 100);
     }
   };
 
@@ -415,10 +428,6 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       const newFileItemRefs = [...fileItemRefs];
       newFileItemRefs.splice(indexOfRemovedFile, 1);
       setFileItemRefs(newFileItemRefs);
-    }
-
-    if (!multiFile && !filePreview) {
-      setMockInputWrapperFocus(false);
     }
   };
 
@@ -470,98 +479,94 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       })}
       style={style}
     >
-      <Label
-        id={labelId}
-        labelMode={labelMode}
-        optionalText={optionalText}
-        className={classnames({
-          [fileInputClassNames.labelIsVisible]: labelMode !== 'hidden',
-        })}
-        tooltipComponent={tooltipComponent}
-        onClick={() => inputRef.current?.focus()}
-      >
-        {labelText}
-      </Label>
-      <HintText id={hintTextId}>{hintText}</HintText>
-      <HtmlDiv
-        className={classnames(fileInputClassNames.inputOuterWrapper, {
-          'appears-focused': mockInputWrapperFocus,
-        })}
-      >
-        <HtmlDivWithRef
-          className={classnames(fileInputClassNames.dragArea, {
-            [fileInputClassNames.dragAreaHasFile]:
-              !multiFile && files && files.length > 0,
-          })}
-          forwardedRef={dragAreaRef}
-        >
-          <HtmlDiv className={fileInputClassNames.inputWrapper}>
-            <HtmlInput
-              id={id}
-              className={classnames(fileInputClassNames.inputElement, {
-                [fileInputClassNames.hiddenUnderFile]:
-                  !multiFile && files && files.length > 0,
-              })}
-              type="file"
-              multiple={multiFile}
-              forwardedRef={forkRefs(inputRef, definedRef)}
-              onChange={handleOnChange}
-              onFocus={() => {
-                if (!multiFile && !filePreview && files && files.length === 1) {
-                  setMockInputWrapperFocus(true);
-                }
-              }}
-              onBlur={() => {
-                if (!multiFile && !filePreview && files && files.length === 1) {
-                  setMockInputWrapperFocus(false);
-                }
-                if (propOnBlur) {
-                  propOnBlur();
-                }
-              }}
-              aria-invalid={status === 'error'}
-              aria-labelledby={labelId}
-              {...getConditionalAriaProp('aria-describedby', [
-                statusText ? statusTextId : undefined,
-                hintText ? hintTextId : undefined,
-                ariaDescribedBy,
-              ])}
-              {...passProps}
-            />
-            <HtmlLabel htmlFor={id} className={fileInputClassNames.inputLabel}>
-              {inputButtonText}
-            </HtmlLabel>
-            <HtmlDiv className={fileInputClassNames.dragTextContainer}>
-              {dragAreaText}
-            </HtmlDiv>
-          </HtmlDiv>
-          {!multiFile && files && files.length === 1 && (
-            <HtmlDiv className={fileInputClassNames.singleFileContainer}>
-              <FileItem
-                file={files[0]}
-                filePreview={filePreview}
-                multiFile={multiFile}
-                fileItemRefs={fileItemRefs[0]}
-                addedFileAriaText={addedFileAriaText}
-                removeFileText={removeFileText}
-                removeFile={removeFile}
-                smallScreen={smallScreen}
-                metaData={controlledValue && controlledValue[0]}
+      <HtmlFieldSet>
+        <HtmlLegend>
+          <Label
+            id={labelId}
+            labelMode={labelMode}
+            optionalText={optionalText}
+            className={classnames({
+              [fileInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+            tooltipComponent={tooltipComponent}
+            onClick={() => inputRef.current?.focus()}
+            asProp="span"
+          >
+            {labelText}
+          </Label>
+        </HtmlLegend>
+        <HintText id={hintTextId}>{hintText}</HintText>
+        <HtmlDiv className={classnames(fileInputClassNames.inputOuterWrapper)}>
+          <HtmlDivWithRef
+            className={classnames(fileInputClassNames.dragArea, {
+              [fileInputClassNames.dragAreaHasFile]:
+                !multiFile && files && files.length > 0,
+            })}
+            forwardedRef={dragAreaRef}
+          >
+            <HtmlDiv className={fileInputClassNames.inputWrapper}>
+              <HtmlInput
+                id={id}
+                className={classnames(fileInputClassNames.inputElement, {
+                  [fileInputClassNames.hiddenUnderFile]:
+                    !multiFile && files && files.length > 0,
+                })}
+                type="file"
+                multiple={multiFile}
+                forwardedRef={forkRefs(inputRef, definedRef)}
+                onChange={handleOnChange}
+                onBlur={() => {
+                  if (propOnBlur) {
+                    propOnBlur();
+                  }
+                }}
+                aria-invalid={status === 'error'}
+                {...getConditionalAriaProp('aria-describedby', [
+                  statusText ? statusTextId : undefined,
+                  hintText ? hintTextId : undefined,
+                  ariaDescribedBy,
+                ])}
+                tabIndex={!multiFile && files && files.length > 0 ? -1 : 0}
+                {...passProps}
               />
+              <HtmlLabel
+                htmlFor={id}
+                className={fileInputClassNames.inputLabel}
+              >
+                {inputButtonText}
+              </HtmlLabel>
+              <HtmlDiv className={fileInputClassNames.dragTextContainer}>
+                {dragAreaText}
+              </HtmlDiv>
             </HtmlDiv>
-          )}
-        </HtmlDivWithRef>
-      </HtmlDiv>
-      <StatusText
-        id={statusTextId}
-        className={classnames({
-          [fileInputClassNames.statusTextHasContent]: !!statusText,
-        })}
-        status={status}
-        ariaLiveMode={statusTextAriaLiveMode}
-      >
-        {statusText}
-      </StatusText>
+            {!multiFile && files && files.length === 1 && (
+              <HtmlDiv className={fileInputClassNames.singleFileContainer}>
+                <FileItem
+                  file={files[0]}
+                  filePreview={filePreview}
+                  multiFile={multiFile}
+                  fileItemRefs={fileItemRefs[0]}
+                  addedFileAriaText={addedFileAriaText}
+                  removeFileText={removeFileText}
+                  removeFile={removeFile}
+                  smallScreen={smallScreen}
+                  metaData={controlledValue && controlledValue[0]}
+                />
+              </HtmlDiv>
+            )}
+          </HtmlDivWithRef>
+        </HtmlDiv>
+        <StatusText
+          id={statusTextId}
+          className={classnames({
+            [fileInputClassNames.statusTextHasContent]: !!statusText,
+          })}
+          status={status}
+          ariaLiveMode={statusTextAriaLiveMode}
+        >
+          {statusText}
+        </StatusText>
+      </HtmlFieldSet>
       {multiFile && files && files.length > 0 && (
         <HtmlDiv className={fileInputClassNames.multiFileContainer}>
           <Label mb="xxs" id={multiFileListHeadingId}>
