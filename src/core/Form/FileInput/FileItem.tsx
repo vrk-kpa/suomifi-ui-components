@@ -75,7 +75,7 @@ const BaseFileItem = (props: FileItemProps) => {
   return (
     <HtmlDiv
       className={fileInputClassNames.fileItemOuterWrapper}
-      role="listitem"
+      role={multiFile ? 'listitem' : undefined}
     >
       <HtmlDiv className={fileInputClassNames.fileItem}>
         <HtmlDiv className={fileInputClassNames.fileInfo}>
@@ -101,7 +101,6 @@ const BaseFileItem = (props: FileItemProps) => {
             </Link>
           ) : (
             <HtmlDivWithRef
-              tabIndex={multiFile ? 0 : -1}
               forwardedRef={
                 fileItemRefs.fileNameRef as React.RefObject<HTMLDivElement>
               }
@@ -141,6 +140,7 @@ const BaseFileItem = (props: FileItemProps) => {
             metaData?.buttonText ? metaData.buttonText : removeFileText
           } ${file.name}`}
           className={fileInputClassNames.removeFileButton}
+          ref={fileItemRefs.removeButtonRef}
         >
           {getButtonText()}
         </Button>
