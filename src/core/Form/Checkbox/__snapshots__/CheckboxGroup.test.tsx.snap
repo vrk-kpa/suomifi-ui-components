@@ -265,7 +265,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c1 .fi-checkbox-group_legend {
+.c1 .fi-checkbox-group_legend--with-margin {
   margin-bottom: 10px;
 }
 
@@ -482,7 +482,7 @@ exports[`default, with only required props should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3 fi-checkbox-group_legend"
+        class="c3 fi-checkbox-group_legend fi-checkbox-group_legend--with-margin"
       >
         <div
           class="c0 c4 fi-label"

@@ -13,8 +13,9 @@ export const baseStyles = (
   ${buildSpacingCSS(propMargins, true)}
 
   & .fi-checkbox-group_legend {
-    margin-bottom: 10px;
-
+    &--with-margin {
+      margin-bottom: ${theme.spacing.xs};
+    }
     .fi-hint-text {
       margin-bottom: 0;
     }

@@ -32,6 +32,7 @@ import { filterDuplicateKeys } from '../../../utils/common/common';
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
   legend: `${baseClassName}_legend`,
+  legendWithMargin: `${baseClassName}_legend--with-margin`,
   labelWithMargin: `${baseClassName}_label--with-margin`,
   container: `${baseClassName}_container`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
@@ -115,13 +116,19 @@ class BaseCheckboxGroup extends Component<
         style={style}
       >
         <HtmlFieldSet>
-          <HtmlLegend className={checkboxGroupClassNames.legend}>
+          <HtmlLegend
+            className={classnames(checkboxGroupClassNames.legend, {
+              [checkboxGroupClassNames.legendWithMargin]:
+                !!groupHintText || labelMode !== 'hidden',
+            })}
+          >
             <Label
               htmlFor={id}
               labelMode={labelMode}
               optionalText={optionalText}
               className={classnames({
-                [checkboxGroupClassNames.labelWithMargin]: groupHintText,
+                [checkboxGroupClassNames.labelWithMargin]:
+                  groupHintText && labelMode !== 'hidden',
               })}
               tooltipComponent={tooltipComponent}
             >

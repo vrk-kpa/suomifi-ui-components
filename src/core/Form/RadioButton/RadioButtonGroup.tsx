@@ -28,6 +28,7 @@ import { filterDuplicateKeys } from '../../../utils/common/common';
 const baseClassName = 'fi-radio-button-group';
 const radioButtonGroupClassNames = {
   legend: `${baseClassName}_legend`,
+  legendWithMargin: `${baseClassName}_legend--with-margin`,
   labelWithMargin: `${baseClassName}_label--with-margin`,
   container: `${baseClassName}_container`,
 };
@@ -137,13 +138,19 @@ class BaseRadioButtonGroup extends Component<
         style={style}
       >
         <HtmlFieldSet>
-          <HtmlLegend className={radioButtonGroupClassNames.legend}>
+          <HtmlLegend
+            className={classnames(radioButtonGroupClassNames.legend, {
+              [radioButtonGroupClassNames.legendWithMargin]:
+                !!groupHintText || labelMode !== 'hidden',
+            })}
+          >
             <Label
               htmlFor={id}
               labelMode={labelMode}
               optionalText={optionalText}
               className={classnames({
-                [radioButtonGroupClassNames.labelWithMargin]: groupHintText,
+                [radioButtonGroupClassNames.labelWithMargin]:
+                  groupHintText && labelMode !== 'hidden',
               })}
               tooltipComponent={tooltipComponent}
             >
