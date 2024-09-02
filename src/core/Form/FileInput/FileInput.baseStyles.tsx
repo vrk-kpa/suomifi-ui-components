@@ -154,6 +154,10 @@ export const baseStyles = (
             opacity: 0;
             z-index: -9999;
 
+            &.fi-file-input_label--hidden-under-file {
+              visibility: hidden;
+            }
+
             &:not(.fi-file-input_label--hidden-under-file) {
               &:focus {
                 + .fi-file-input_input-label {

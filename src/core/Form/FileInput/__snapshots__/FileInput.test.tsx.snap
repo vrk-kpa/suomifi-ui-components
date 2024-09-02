@@ -496,6 +496,10 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: -9999;
 }
 
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element.fi-file-input_label--hidden-under-file {
+  visibility: hidden;
+}
+
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
@@ -1198,6 +1202,10 @@ exports[`snapshots match hidden label 1`] = `
   z-index: -9999;
 }
 
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element.fi-file-input_label--hidden-under-file {
+  visibility: hidden;
+}
+
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
@@ -1890,6 +1898,10 @@ exports[`snapshots match hint text 1`] = `
   z-index: -9999;
 }
 
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element.fi-file-input_label--hidden-under-file {
+  visibility: hidden;
+}
+
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
@@ -2570,6 +2582,10 @@ exports[`snapshots match minimal implementation 1`] = `
   height: 0.1px;
   opacity: 0;
   z-index: -9999;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element.fi-file-input_label--hidden-under-file {
+  visibility: hidden;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {

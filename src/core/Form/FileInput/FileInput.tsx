@@ -406,7 +406,9 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     // Handle focus
     // If there is only one file, set focus to the input element
     if (!multiFile || initialFilesArray.length === 1) {
-      inputRef.current?.focus();
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     } // In multi file mode, if the removed file was the first item, set focus to the next one
     else if (indexOfRemovedFile === 0) {
       fileItemRefs[indexOfRemovedFile + 1].fileNameRef.current?.focus();
