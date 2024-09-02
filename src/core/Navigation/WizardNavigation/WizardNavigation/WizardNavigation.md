@@ -18,13 +18,13 @@ A `<WizardNavigationItem>` can have one of these 6 statuses:
 <div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
 #### Important!
 
-To ensure accessibility, the following aria-attributes must be manually added to the inner `<RouterLink>` components
+To ensure accessibility, the following aria-attributes must be manually added to the inner `<RouterLink>` components:
 
 - `aria-current="step"` when the wrapping item has `status="current"`
 - `aria-disabled` when the wrapping item has `status="coming"` or `status="disabled"`
 - A descriptive `aria-label` for any link where the wrapping item has `status="completed"`. The aria-label should indicate that the step is completed
 
-Please refer to the code below for examples
+Please refer to the code below for examples.
 
 </div>
 
@@ -72,12 +72,12 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         4. Validity
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         5. Summary and validation
       </RouterLink>
     </WizardNavigationItem>
@@ -126,12 +126,12 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         4. Validity
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         5. Summary and validation
       </RouterLink>
     </WizardNavigationItem>
