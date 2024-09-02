@@ -1,5 +1,33 @@
 The `<WizardNavigation>` component is used for user interactions that progress in phases. It can help to break up a long form into manageable sections and allows the user to see their progress as well.
 
+- Compose the navigation with `<WizardNavigationItem>` components.
+- Use `<RouterLink>` as the child of WizardNavigationItem to get inteded CSS styles. `<RouterLink>` is polymorphic, and can be rendered as any component of your choice, for example React Router Link.
+- Use descriptive and short names for the steps
+- Provide the navigation a descriptive `heading` and use the correct heading level depending on the navigation's location in the page structure.
+- When page content changes along with the phases, make sure this gets conveyed to screen reader users as well
+
+A `<WizardNavigationItem>` can have one of these 6 statuses:
+
+- `'default'`: An incomplete step which the user can reach
+- `'current'`: Currently active step
+- `'completed'`: A step where the user has filled all required information
+- `'current-completed'`: Combination of current and completed statuses
+- `'coming'`: A step which is not reachable at the moment (but will become available when e.g. the previous steps have been completed)
+- `'disabled'`: A disabled step which will not become reachable. In most cases you should use `'coming'` instead of this
+
+<div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
+#### Important!
+
+To ensure accessibility, the following aria-attributes must be manually added to the inner `<RouterLink>` components:
+
+- `aria-current="step"` when the wrapping item has `status="current"`
+- `aria-disabled` when the wrapping item has `status="coming"` or `status="disabled"`
+- A descriptive `aria-label` for any link where the wrapping item has `status="completed"`. The aria-label should indicate that the step is completed
+
+Please refer to the code below for examples.
+
+</div>
+
 - [Basic use](./#/Components/WizardNavigation?id=basic-use)
 - [Small screen](./#/Components/WizardNavigation?id=small-screen)
 - [Using with frameworks](./#/Components/WizardNavigation?id=using-with-frameworks)
@@ -12,22 +40,6 @@ The `<WizardNavigation>` component is used for user interactions that progress i
 </div>
 
 ### Basic use
-
-- Compose the navigation with `<WizardNavigationItem>` components.
-- Use `<RouterLink>` as the child of WizardNavigationItem to get inteded CSS styles. `<RouterLink>` is polymorphic, and can be rendered as any component of your choice, for example React Router Link.
-- Use descriptive and short names for the steps
-- Use `aria-current` for the currently active phase, `aria-disabled` for coming phases and an `aria-label` to mark completed phases.
-- Provide the navigation a descriptive `heading` and use the correct heading level depending on the navigation's location in the page structure.
-- When page content changes along with the phases, make sure this gets conveyed to screen reader users as well
-
-A `<WizardNavigationItem>` can have one of these 6 statuses:
-
-- `'default'`: An incomplete step which the user can reach
-- `'current'`: Currently active step
-- `'completed'`: A step where the user has filled all required information
-- `'current-completed'`: Combination of current and completed statuses
-- `'coming'`: A step which is not reachable at the moment (but will become available when e.g. the previous steps have been completed)
-- `'disabled'`: A disabled step which will not become reachable. In most cases you should use `'coming'` instead of this
 
 ```js
 import {
@@ -60,12 +72,12 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         4. Validity
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         5. Summary and validation
       </RouterLink>
     </WizardNavigationItem>
@@ -114,12 +126,12 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         4. Validity
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link" tabIndex={0}>
+      <RouterLink aria-disabled role="link">
         5. Summary and validation
       </RouterLink>
     </WizardNavigationItem>
