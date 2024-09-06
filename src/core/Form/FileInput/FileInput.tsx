@@ -48,6 +48,7 @@ export const fileInputClassNames = {
   singleFileContainer: `${baseClassName}_single-file-container`,
   multiFileContainer: `${baseClassName}_multi-file-container`,
   inputWrapper: `${baseClassName}_input-wrapper`,
+  inputWrapperHidden: `${baseClassName}_input-wrapper--hidden`,
   inputLabel: `${baseClassName}_input-label`,
   inputElement: `${baseClassName}_input-element`,
   error: `${baseClassName}--error`,
@@ -506,7 +507,12 @@ const BaseFileInput = (props: InternalFileInputProps) => {
             })}
             forwardedRef={dragAreaRef}
           >
-            <HtmlDiv className={fileInputClassNames.inputWrapper}>
+            <HtmlDiv
+              className={classnames(fileInputClassNames.inputWrapper, {
+                [fileInputClassNames.inputWrapperHidden]:
+                  !multiFile && files && files.length > 0,
+              })}
+            >
               <HtmlInput
                 id={id}
                 className={classnames(fileInputClassNames.inputElement, {

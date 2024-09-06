@@ -143,6 +143,10 @@ export const baseStyles = (
           display: flex;
           align-items: center;
 
+          &.fi-file-input_input_wrapper--hidden {
+            visibility: hidden;
+          }
+
           .fi-file-input_drag-text-container {
             ${font(theme)('bodyTextSmall')}
             margin-left: ${theme.spacing.insetXxl};
@@ -153,10 +157,6 @@ export const baseStyles = (
             height: 0.1px;
             opacity: 0;
             z-index: -9999;
-
-            &.fi-file-input_label--hidden-under-file {
-              visibility: hidden;
-            }
 
             &:not(.fi-file-input_label--hidden-under-file) {
               &:focus {
