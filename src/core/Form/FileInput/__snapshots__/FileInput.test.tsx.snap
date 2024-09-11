@@ -472,6 +472,10 @@ exports[`snapshots match error status with statustext 1`] = `
   align-items: center;
 }
 
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
+  visibility: hidden;
+}
+
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1174,6 +1178,10 @@ exports[`snapshots match hidden label 1`] = `
   align-items: center;
 }
 
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
+  visibility: hidden;
+}
+
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1866,6 +1874,10 @@ exports[`snapshots match hint text 1`] = `
   align-items: center;
 }
 
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
+  visibility: hidden;
+}
+
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2546,6 +2558,10 @@ exports[`snapshots match minimal implementation 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
+  visibility: hidden;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
