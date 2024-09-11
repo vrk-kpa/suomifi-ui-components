@@ -143,7 +143,7 @@ export const baseStyles = (
           display: flex;
           align-items: center;
 
-          &.fi-file-input_input_wrapper--hidden {
+          &.fi-file-input_input-wrapper--hidden {
             visibility: hidden;
           }
 
