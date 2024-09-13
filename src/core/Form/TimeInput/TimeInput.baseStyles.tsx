@@ -72,10 +72,6 @@ export const baseStyles = (
     }
   }
 
-  &.fi-time-input--full-width {
-    width: 100%;
-  }
-
   & .fi-time-input_input {
     ${element(theme)}
     ${font(theme)('actionElementInnerText')}

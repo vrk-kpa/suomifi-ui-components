@@ -95,8 +95,6 @@ export interface TimeInputProps
   defaultValue?: string;
   /** Controlled value */
   value?: string;
-  /** Sets component's width to 100% of its parent */
-  fullWidth?: boolean;
   /** Text to mark the field optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
