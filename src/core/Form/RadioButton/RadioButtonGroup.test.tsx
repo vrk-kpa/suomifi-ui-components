@@ -240,4 +240,36 @@ describe('props', () => {
       expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
     });
   });
+
+  describe('groupStatus and statusText', () => {
+    const StatusGroup = (
+      <RadioButtonGroup
+        labelText="Label"
+        name="name"
+        groupStatus="error"
+        groupStatusText="Example status text"
+      >
+        {RadioChildren}
+      </RadioButtonGroup>
+    );
+
+    it('has status text element', () => {
+      const { getByText } = render(StatusGroup);
+      const statusText = getByText('Example status text');
+      expect(statusText).toHaveClass('fi-status-text');
+    });
+
+    it('has 3 radio buttons with error status', () => {
+      const { container } = render(StatusGroup);
+      const radioButtons = container.querySelectorAll('.fi-radio-button');
+      radioButtons.forEach((radio) => {
+        expect(radio).toHaveClass('fi-radio-button--error');
+      });
+    });
+
+    it('should match snapshot', () => {
+      const { container } = render(StatusGroup);
+      expect(container).toMatchSnapshot();
+    });
+  });
 });

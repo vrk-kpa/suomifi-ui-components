@@ -22,7 +22,10 @@ import {
 } from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HintText } from '../HintText/HintText';
-import { RadioButtonGroupConsumer } from './RadioButtonGroup';
+import {
+  RadioButtonGroupConsumer,
+  RadioButtonGroupStatus,
+} from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 import { IconRadioButton, IconRadioButtonLarge } from 'suomifi-icons';
 import { filterDuplicateKeys } from '../../../utils/common/common';
@@ -38,6 +41,7 @@ const radioButtonClassNames = {
   disabled: `${baseClassName}--disabled`,
   large: `${baseClassName}--large`,
   checked: `${baseClassName}--checked`,
+  error: `${baseClassName}--error`,
 };
 
 export interface RadioButtonProps
@@ -64,6 +68,15 @@ export interface RadioButtonProps
    * @default small
    */
   variant?: 'small' | 'large';
+  /**
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the input.
+   * Always use a descriptive `statusText` with an error status.
+   * Inherited from RadioButtonGroup.
+   * @default default
+   */
+  status?: RadioButtonGroupStatus;
   /** Checked state, overridden by RadioButtonGroup. */
   checked?: boolean;
   /** Default checked state for uncontrolled use, overridden by RadioButtonGroup. */
@@ -107,6 +120,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       variant,
       checked,
       defaultChecked,
+      status,
       children,
       value,
       hintText,
@@ -140,6 +154,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
             [radioButtonClassNames.disabled]: disabled,
             [radioButtonClassNames.large]: variant === 'large',
             [radioButtonClassNames.checked]: checked,
+            [radioButtonClassNames.error]: status === 'error' && !disabled,
           },
         )}
         style={style}
@@ -165,7 +180,10 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           {variant === 'large' ? (
             <IconRadioButtonLarge className={radioButtonClassNames.icon} />
           ) : (
-            <IconRadioButton className={radioButtonClassNames.icon} />
+            <IconRadioButton
+              className={radioButtonClassNames.icon}
+              baseColor="alertBase"
+            />
           )}
         </HtmlSpan>
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
@@ -200,7 +218,7 @@ const StyledRadioButton = styled(
 
 const RadioButton = forwardRef(
   (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
-    const { id: propId, onChange, ...passProps } = props;
+    const { id: propId, onChange, status: propStatus, ...passProps } = props;
     return (
       <SpacingConsumer>
         {({ margins }) => (
@@ -209,12 +227,18 @@ const RadioButton = forwardRef(
               <AutoId id={propId}>
                 {(id) => (
                   <RadioButtonGroupConsumer>
-                    {({ onRadioButtonChange, selectedValue, name }) => (
+                    {({
+                      onRadioButtonChange,
+                      selectedValue,
+                      name,
+                      groupStatus,
+                    }) => (
                       <StyledRadioButton
                         theme={suomifiTheme}
                         id={id}
                         forwardedRef={ref}
                         globalMargins={margins}
+                        status={!!propStatus ? propStatus : groupStatus}
                         {...passProps}
                         {...(!!onRadioButtonChange
                           ? {

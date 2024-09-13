@@ -3,6 +3,25 @@ import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
+const errorStyles = (theme: SuomifiTheme) => css`
+  &.fi-radio-button--error {
+    & .fi-radio-button_input {
+      + .fi-radio-button_icon_wrapper {
+        & .fi-icon-radio-base {
+          stroke: ${theme.colors.alertBase};
+        }
+      }
+      &:checked {
+        + .fi-radio-button_icon_wrapper {
+          & .fi-icon-radio-checked {
+            fill: ${theme.colors.alertBase};
+          }
+        }
+      }
+    }
+  }
+`;
+
 const disabledStyles = (theme: SuomifiTheme) => css`
   &.fi-radio-button--disabled {
     & .fi-radio-button_label {
@@ -154,6 +173,7 @@ export const baseStyles = (
       }
     }
     ${disabledStyles(theme)};
+    ${errorStyles(theme)};
     ${largeStyles()};
   }
 `;
