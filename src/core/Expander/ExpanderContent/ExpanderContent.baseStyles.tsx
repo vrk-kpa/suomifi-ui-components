@@ -13,9 +13,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   overflow: hidden;
   word-break: break-word;
   transform-origin: top;
-  transition: all ${`${theme.transitions.basicTime}
-        ${theme.transitions.basicTimingFunction}`};
-  will-change: transition, height;
 
   &.fi-expander {
     display: block;
