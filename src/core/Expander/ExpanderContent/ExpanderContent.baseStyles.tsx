@@ -47,6 +47,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       transform: scaleY(0);
     }
     100% {
+      height: auto;
       transform: scaleY(1);
     }
   }
