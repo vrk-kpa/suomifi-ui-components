@@ -338,9 +338,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
-  -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  will-change: transition,height;
 }
 
 .c9.fi-expander {
@@ -358,8 +355,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   border-top: 1px solid transparent;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
 .c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
