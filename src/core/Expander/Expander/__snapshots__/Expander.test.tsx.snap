@@ -203,9 +203,6 @@ exports[`Basic expander shoud match snapshot 1`] = `
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
-  -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  will-change: transition,height;
 }
 
 .c7.fi-expander {
