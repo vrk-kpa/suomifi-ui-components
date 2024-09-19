@@ -37,6 +37,14 @@ export const baseStyles = (
       color: ${theme.colors.depthDark1};
       ${theme.typography.bodyTextSmall};
     }
+
+    & .fi-status-text {
+      line-height: 18px;
+      &.fi-radio-button-group_statusText--has-content {
+        margin-top: ${theme.spacing.xxs};
+        padding-left: 3px;
+      }
+    }
   }
 
   & .fi-radio-button-group_container {

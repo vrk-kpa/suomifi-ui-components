@@ -24,6 +24,10 @@ import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import classnames from 'classnames';
 import { filterDuplicateKeys } from '../../../utils/common/common';
+import { InputStatus } from '../types';
+import { StatusText } from '../StatusText/StatusText';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import { getConditionalAriaProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-radio-button-group';
 const radioButtonGroupClassNames = {
@@ -31,7 +35,10 @@ const radioButtonGroupClassNames = {
   legendWithMargin: `${baseClassName}_legend--with-margin`,
   labelWithMargin: `${baseClassName}_label--with-margin`,
   container: `${baseClassName}_container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
+
+export type RadioButtonGroupStatus = Exclude<InputStatus, 'success'>;
 
 export interface RadioButtonGroupProps
   extends MarginProps,
@@ -42,6 +49,16 @@ export interface RadioButtonGroupProps
   children: Array<React.ReactElement<RadioButtonProps> | ReactNode>;
   /** Hint text to be displayed under the group label. */
   groupHintText?: string;
+  /**
+   * `'default'` | `'error'`
+   *
+   * Status for the entire group. Will be passed to children.
+   *
+   * @default default
+   */
+  groupStatus?: RadioButtonGroupStatus;
+  /** Status text to be shown below the group. Use for validation error messages */
+  groupStatusText?: string;
   /** Label for the group */
   labelText: ReactNode;
   /** Hides or shows the  group label. Label element is always present, but can be visually hidden.
@@ -73,6 +90,7 @@ export interface RadioButtonGroupProviderState {
   onRadioButtonChange?: (value: string) => void;
   name?: string;
   selectedValue?: string;
+  groupStatus?: RadioButtonGroupStatus;
 }
 
 const defaultProviderValue: RadioButtonGroupProviderState = {};
@@ -120,6 +138,8 @@ class BaseRadioButtonGroup extends Component<
       labelMode,
       optionalText,
       groupHintText,
+      groupStatus = 'default',
+      groupStatusText,
       id,
       name,
       defaultValue,
@@ -129,6 +149,8 @@ class BaseRadioButtonGroup extends Component<
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
+
+    const statusTextId = !!groupStatusText ? `${id}-statusText` : undefined;
 
     return (
       <HtmlDivWithRef
@@ -158,6 +180,11 @@ class BaseRadioButtonGroup extends Component<
             </Label>
 
             <HintText>{groupHintText}</HintText>
+            {groupStatusText && (
+              <VisuallyHidden
+                {...getConditionalAriaProp('aria-labelledby', [statusTextId])}
+              />
+            )}
           </HtmlLegend>
           <HtmlDiv className={radioButtonGroupClassNames.container}>
             <Provider
@@ -165,12 +192,23 @@ class BaseRadioButtonGroup extends Component<
                 onRadioButtonChange: this.handleRadioButtonChange,
                 selectedValue: this.state.selectedValue,
                 name,
+                groupStatus,
               }}
             >
               {children}
             </Provider>
           </HtmlDiv>
         </HtmlFieldSet>
+        <StatusText
+          className={classnames({
+            [radioButtonGroupClassNames.statusTextHasContent]:
+              !!groupStatusText,
+          })}
+          id={statusTextId}
+          status={groupStatus}
+        >
+          {groupStatusText}
+        </StatusText>
       </HtmlDivWithRef>
     );
   }

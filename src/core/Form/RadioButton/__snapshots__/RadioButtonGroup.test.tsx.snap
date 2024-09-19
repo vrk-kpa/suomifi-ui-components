@@ -226,6 +226,65 @@ exports[`default, with only required props should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -277,6 +336,15 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -292,22 +360,6 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -416,6 +468,14 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -624,6 +684,11 @@ exports[`default, with only required props should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -854,6 +919,65 @@ exports[`props className should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -905,6 +1029,15 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -920,22 +1053,6 @@ exports[`props className should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -1044,6 +1161,14 @@ exports[`props className should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -1252,6 +1377,11 @@ exports[`props className should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -1482,6 +1612,65 @@ exports[`props defaultValue should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -1533,6 +1722,15 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -1548,22 +1746,6 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -1672,6 +1854,14 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -1881,6 +2071,763 @@ exports[`props defaultValue should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
+  </div>
+</div>
+`;
+
+exports[`props groupStatus and statusText should match snapshot 1`] = `
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c7::before,
+.c7::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c9::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c9::before,
+.c9::after {
+  box-sizing: border-box;
+}
+
+.c11 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c11::before,
+.c11::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
+.c6 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c4.fi-label .fi-label_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
+  color: hsl(0,0%,13%);
+}
+
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-label .fi-label_label-span .fi-tooltip {
+  margin-left: 6px;
+}
+
+.c13 {
+  vertical-align: baseline;
+}
+
+.c13.fi-icon {
+  display: inline-block;
+}
+
+.c13 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c13 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c13.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c13.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-static-icon {
+  display: inline-block;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c10 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c10 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c12 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c12.fi-status-text {
+  display: block;
+}
+
+.c12.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c12.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
+.c1 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend--with-margin {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_label {
+  display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_hintText {
+  color: hsl(202,7%,40%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
+.c1 .fi-radio-button-group_container > .fi-radio-button {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+  margin-bottom: 0;
+}
+
+.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+  margin-bottom: 15px;
+}
+
+.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+  margin-top: 5px;
+}
+
+.c8 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  position: relative;
+}
+
+.c8.fi-radio-button .fi-radio-button_hintText {
+  display: block;
+  padding-left: 26px;
+  color: hsl(202,7%,40%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c8.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+  line-height: 27px;
+  padding-left: 26px;
+}
+
+.c8.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
+  position: absolute;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 2px;
+}
+
+.c8.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+}
+
+.c8.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
+}
+
+.c8.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
+}
+
+.c8.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c8.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  left: -1px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: 2px solid transparent;
+}
+
+.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+  box-shadow: none;
+}
+
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
+  cursor: not-allowed;
+  color: hsl(202,7%,67%);
+}
+
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
+}
+
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
+}
+
+.c8.fi-radio-button--large .fi-radio-button_hintText {
+  padding-left: 40px;
+}
+
+.c8.fi-radio-button--large .fi-radio-button_input {
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
+}
+
+.c8.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c8.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c8.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+  width: 32px;
+  height: 32px;
+  top: -1px;
+  left: -1px;
+}
+
+.c8.fi-radio-button--large .fi-radio-button_label {
+  padding-left: 40px;
+  line-height: 34px;
+}
+
+<div>
+  <div
+    class="c0 fi-radio-button-group c1"
+    id="9"
+  >
+    <fieldset
+      class="c2"
+    >
+      <legend
+        class="c3 fi-radio-button-group_legend fi-radio-button-group_legend--with-margin"
+      >
+        <div
+          class="c0 c4 fi-label"
+        >
+          <label
+            class="c5 fi-label_label-span"
+            for="9"
+          >
+            Label
+          </label>
+        </div>
+        <span
+          aria-labelledby="9-statusText"
+          class="c5 c6 fi-visually-hidden"
+        />
+      </legend>
+      <div
+        class="c7 fi-radio-button-group_container"
+      >
+        <div
+          class="c7 fi-radio-button fi-radio-button_container c8 fi-radio-button--error"
+        >
+          <input
+            class="c9 fi-radio-button_input"
+            id="test-id-1"
+            name="name"
+            type="radio"
+            value="1"
+          />
+          <span
+            class="c5 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="fi-icon c10 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
+          <label
+            class="c11 fi-radio-button_label"
+            for="test-id-1"
+          >
+            Label text 1
+          </label>
+        </div>
+        <div
+          class="c7 fi-radio-button fi-radio-button_container c8 fi-radio-button--error"
+        >
+          <input
+            class="c9 fi-radio-button_input"
+            id="test-id-2"
+            name="name"
+            type="radio"
+            value="2"
+          />
+          <span
+            class="c5 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="fi-icon c10 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
+          <label
+            class="c11 fi-radio-button_label"
+            for="test-id-2"
+          >
+            Label text 2
+          </label>
+        </div>
+        <div
+          class="c7 fi-radio-button fi-radio-button_container c8 fi-radio-button--error"
+        >
+          <input
+            class="c9 fi-radio-button_input"
+            id="test-id-3"
+            name="name"
+            type="radio"
+            value="3"
+          />
+          <span
+            class="c5 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="fi-icon c10 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
+          <label
+            class="c11 fi-radio-button_label"
+            for="test-id-3"
+          >
+            Label text 3
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c12 fi-radio-button-group_statusText--has-content fi-status-text fi-status-text--error"
+      id="9-statusText"
+    >
+      <svg
+        aria-hidden="true"
+        class="fi-icon c13"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="fi-icon-base-fill"
+          d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm.71 17.29c-.38-.37-1.05-.37-1.42 0-.181.19-.29.44-.29.71 0 .26.109.52.29.71.189.18.45.29.71.29.26 0 .52-.11.71-.29.18-.19.29-.45.29-.71 0-.27-.11-.52-.29-.71ZM12 5a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1Z"
+          fill="#222"
+          fill-rule="evenodd"
+        />
+      </svg>
+      Example status text
+    </span>
   </div>
 </div>
 `;
@@ -2132,6 +3079,65 @@ exports[`props hintText should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-static-icon {
+  display: inline-block;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c10 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c10 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c12 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c12.fi-status-text {
+  display: block;
+}
+
+.c12.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c12.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -2183,6 +3189,15 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -2198,22 +3213,6 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-static-icon {
-  display: inline-block;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c8 {
@@ -2322,6 +3321,14 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c8.fi-radio-button--large .fi-radio-button_hintText {
@@ -2535,6 +3542,11 @@ exports[`props hintText should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c12 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -2765,6 +3777,65 @@ exports[`props id should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -2816,6 +3887,15 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -2831,22 +3911,6 @@ exports[`props id should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -2955,6 +4019,14 @@ exports[`props id should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -3163,6 +4235,11 @@ exports[`props id should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -3393,6 +4470,65 @@ exports[`props label should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -3444,6 +4580,15 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -3459,22 +4604,6 @@ exports[`props label should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -3583,6 +4712,14 @@ exports[`props label should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -3791,6 +4928,11 @@ exports[`props label should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -4033,6 +5175,65 @@ exports[`props labelMode should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-static-icon {
+  display: inline-block;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c10 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c10 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c12 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c12.fi-status-text {
+  display: block;
+}
+
+.c12.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c12.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -4084,6 +5285,15 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -4099,22 +5309,6 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-static-icon {
-  display: inline-block;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -4223,6 +5417,14 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -4431,6 +5633,11 @@ exports[`props labelMode should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c9 c12 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -4661,6 +5868,65 @@ exports[`props name should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -4712,6 +5978,15 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -4727,22 +6002,6 @@ exports[`props name should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -4851,6 +6110,14 @@ exports[`props name should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -5059,6 +6326,11 @@ exports[`props name should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
   </div>
 </div>
 `;
@@ -5289,6 +6561,65 @@ exports[`props value should match snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c9 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
+.c11 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c11.fi-status-text {
+  display: block;
+}
+
+.c11.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,43%);
+}
+
+.c11.fi-status-text .fi-icon {
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+  margin-right: 5px;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -5340,6 +6671,15 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-status-text {
+  line-height: 18px;
+}
+
+.c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
 .c1 .fi-radio-button-group_container > .fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
@@ -5355,22 +6695,6 @@ exports[`props value should match snapshot 1`] = `
 
 .c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
   margin-top: 5px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -5479,6 +6803,14 @@ exports[`props value should match snapshot 1`] = `
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -5689,6 +7021,11 @@ exports[`props value should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c11 fi-status-text"
+    />
   </div>
 </div>
 `;
