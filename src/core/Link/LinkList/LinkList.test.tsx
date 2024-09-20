@@ -37,8 +37,8 @@ describe('Simple link list with one item', () => {
 
 describe('Margin prop', () => {
   it('should have margin style from margin prop', () => {
-    const { container } = render(<LinkList ariaLabelledBy="" margin="xs" />);
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    const { baseElement } = render(<LinkList ariaLabelledBy="" margin="xs" />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should have margin prop overwritten from style prop', () => {

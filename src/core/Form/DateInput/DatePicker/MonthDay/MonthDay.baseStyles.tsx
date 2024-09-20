@@ -83,4 +83,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       font-weight: 400;
     }
   }
+
+  @media screen and (forced-colors: active) {
+    [aria-disabled='true'] {
+      color: GrayText;
+    }
+  }
 `;

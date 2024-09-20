@@ -18,5 +18,8 @@ export const LinkListItemStyles = (theme: SuomifiTheme) => css`
         }
       }
     }
+    & .fi-link {
+      margin: 0;
+    }
   }
 `;

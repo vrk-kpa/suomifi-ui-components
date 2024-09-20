@@ -46,7 +46,7 @@ describe('Margin prop', () => {
         Test
       </Heading>,
     );
-    expect(getByText('Test')).toHaveAttribute('style', 'margin: 10px;');
+    expect(getByText('Test')).toHaveStyle('margin: 10px');
   });
 
   it('should have margin prop overwritten from style prop', () => {

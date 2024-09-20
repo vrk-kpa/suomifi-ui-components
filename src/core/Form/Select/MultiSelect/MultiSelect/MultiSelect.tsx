@@ -1,15 +1,22 @@
 import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../../../../theme/utils/spacing';
 import { HtmlDiv, HtmlDivProps } from '../../../../../reset';
 import { getOwnerDocument } from '../../../../../utils/common';
-import { HTMLAttributesIncludingDataAttributes } from '../../../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  filterDuplicateKeys,
+} from '../../../../../utils/common/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
 import { Popover, PopoverConsumer } from '../../../../Popover/Popover';
@@ -32,6 +39,7 @@ const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
   open: `${baseClassName}--open`,
   error: `${baseClassName}--error`,
+  fullWidth: `${baseClassName}--full-width`,
   content_wrapper: `${baseClassName}_content_wrapper`,
   removeAllButton: `${baseClassName}_removeAllButton`,
 };
@@ -194,6 +202,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Props passed to unordered list element inside the popover. For example data-attributes */
   listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
+  /** Sets component's width to 100% of its parent */
+  fullWidth?: boolean;
 }
 
 type AllowItemAdditionProps =
@@ -238,7 +248,7 @@ interface MultiSelectState<T extends MultiSelectData> {
 }
 
 class BaseMultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
+  MultiSelectProps<T & MultiSelectData>
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -249,7 +259,7 @@ class BaseMultiSelect<T> extends Component<
   private chipRemovalAnnounceTimeOut: ReturnType<typeof setTimeout> | null =
     null;
 
-  constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
+  constructor(props: MultiSelectProps<T & MultiSelectData>) {
     super(props);
     this.popoverListRef = React.createRef();
 
@@ -619,7 +629,6 @@ class BaseMultiSelect<T> extends Component<
     const {
       id,
       className,
-      theme,
       labelText,
       optionalText,
       hintText,
@@ -655,10 +664,10 @@ class BaseMultiSelect<T> extends Component<
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
       style,
+      fullWidth,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const filteredItemsWithChecked: (T & MultiSelectData & CheckedProp)[] =
       filteredItems.map((item) => ({
@@ -680,8 +689,9 @@ class BaseMultiSelect<T> extends Component<
           className={classnames(baseClassName, className, {
             [multiSelectClassNames.open]: showPopover,
             [multiSelectClassNames.error]: status === 'error',
+            [`${baseClassName}--full-width`]: fullWidth,
           })}
-          style={{ ...marginStyle, ...style }}
+          style={style}
         >
           <HtmlDiv
             className={classnames(multiSelectClassNames.content_wrapper, {})}
@@ -960,8 +970,24 @@ class BaseMultiSelect<T> extends Component<
   }
 }
 
-const StyledMultiSelect = styled(BaseMultiSelect)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledMultiSelect = styled(
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: MultiSelectProps<MultiSelectData> &
+    SuomifiThemeProp & { globalMargins?: GlobalMargins }) => (
+    <BaseMultiSelect {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins?.multiSelect,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 function MultiSelectInner<T>(
@@ -970,20 +996,25 @@ function MultiSelectInner<T>(
 ) {
   const { id: propId, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledMultiSelect
-              theme={suomifiTheme}
-              id={id}
-              forwardedRef={ref}
-              {...passProps}
-            />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <AutoId id={propId}>
+              {(id) => (
+                <StyledMultiSelect
+                  theme={suomifiTheme}
+                  id={id}
+                  forwardedRef={ref}
+                  globalMargins={margins}
+                  {...passProps}
+                />
+              )}
+            </AutoId>
           )}
-        </AutoId>
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 }
 

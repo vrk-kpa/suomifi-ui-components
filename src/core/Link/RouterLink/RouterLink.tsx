@@ -3,11 +3,15 @@ import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { IconChevronRight } from 'suomifi-icons';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import {
   baseClassName,
@@ -16,6 +20,7 @@ import {
 } from '../BaseLink/BaseLink';
 import classnames from 'classnames';
 import { HtmlA } from '../../../reset';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 //
 // Source: https://www.benmvp.com/blog/polymorphic-react-components-typescript/
@@ -116,6 +121,7 @@ const PolymorphicLink = <C extends React.ElementType>(
 ) => {
   const {
     asComponent,
+    globalMargins, // destructured out here to make typescript happy on styled level
     children,
     className,
     smallScreen,
@@ -125,8 +131,8 @@ const PolymorphicLink = <C extends React.ElementType>(
     forwardedRef,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const Component = asComponent || HtmlA;
 
   const classNames = classnames(baseClassName, routerLinkClassName, className, {
@@ -142,7 +148,7 @@ const PolymorphicLink = <C extends React.ElementType>(
         className={classNames}
         ref={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight color={theme.colors.accentBase} />
@@ -158,26 +164,49 @@ const PolymorphicLink = <C extends React.ElementType>(
       className={classNames}
       forwardedRef={forwardedRef}
       {...passProps}
-      style={{ ...marginStyle, ...passProps?.style }}
+      style={{ ...passProps?.style }}
     >
       {children}
     </Component>
   );
 };
 
-const StyledRouterLink = styled(PolymorphicLink)`
-  ${({ theme }) => RouterLinkStyles(theme)}
+const StyledRouterLink = styled(
+  <C extends React.ElementType>(
+    props: RouterLinkProps<C> & SuomifiThemeProp & GlobalMarginProps,
+  ) => {
+    const { ...passProps } = props;
+    return <PolymorphicLink {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.routerLink,
+      marginProps,
+    );
+    return RouterLinkStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const RouterLinkInner = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
   ref?: PolymorphicRef<C>,
 ) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledRouterLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+  <SpacingConsumer>
+    {({ margins }) => (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledRouterLink
+            theme={suomifiTheme}
+            globalMargins={margins}
+            forwardedRef={ref}
+            {...props}
+          />
+        )}
+      </SuomifiThemeConsumer>
     )}
-  </SuomifiThemeConsumer>
+  </SpacingConsumer>
 );
 
 // Type assertion is needed to set the function signature with generic type C.

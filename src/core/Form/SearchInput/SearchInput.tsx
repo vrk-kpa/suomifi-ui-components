@@ -9,11 +9,15 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
@@ -32,6 +36,7 @@ import { IconSearch } from 'suomifi-icons';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 type SearchInputValue = string | number | undefined;
 
@@ -47,7 +52,6 @@ export interface SearchInputProps
       | 'onChange'
       | 'onBlur'
       | 'onSearch'
-      | 'children'
       | 'onClick'
       | 'value'
       | 'defaultValue'
@@ -164,8 +168,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       statusTextAriaLiveMode = 'assertive',
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const statusTextId = `${id}-statusText`;
 
     const conditionalSetState = (newValue: SearchInputValue) => {
@@ -232,7 +236,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
           <Label
@@ -309,28 +313,47 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   }
 }
 
-const StyledSearchInput = styled(BaseSearchInput)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledSearchInput = styled(
+  ({
+    globalMargins,
+    ...passProps
+  }: SearchInputProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseSearchInput {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.searchInput,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const SearchInput = forwardRef(
   (props: SearchInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledSearchInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledSearchInput
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

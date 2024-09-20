@@ -1,9 +1,17 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
-import { font } from '../../../theme/reset';
+import { fixInternalMargins, font } from '../../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   width: 290px;
 
   &.fi-single-select {
@@ -15,6 +23,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-filter-input_input {
         padding-right: 73px;
       }
+    }
+
+    &--full-width {
+      width: 100%;
     }
   }
 

@@ -6,6 +6,7 @@ Examples:
 - [Default value](./#/Components/DateInput?id=default-value)
 - [Controlled value](./#/Components/DateInput?id=controlled-value)
 - [Date picker](./#/Components/DateInput?id=date-picker)
+- [Date picker position](./#/Components/DateInput?id=date-picker-position)
 - [MinDate & maxDate](./#/Components/DateInput?id=mindate--maxdate)
 - [Validation](./#/Components/DateInput?id=validation)
 - [Initial focused date in date picker](./#/Components/DateInput?id=initial-focused-date-in-date-picker)
@@ -91,6 +92,21 @@ import { DateInput } from 'suomifi-ui-components';
   hintText="Use format D.M.YYYY"
   language="en"
   datePickerEnabled
+/>;
+```
+
+### Date picker position
+
+Use `datePickerPosition` prop to change the position of the date picker popover in relation to the calendar button. The date picker will also automatically adjust its position, both vertically and horizontally, based on available space. The possible values are `left`, `right` and `center` with `left` being the default.
+
+```js
+import { DateInput } from 'suomifi-ui-components';
+
+<DateInput
+  labelText="Beginning date"
+  hintText="Use format D.M.YYYY"
+  datePickerEnabled
+  datePickerPosition="center"
 />;
 ```
 
@@ -362,8 +378,8 @@ const labelText = 'Beginning date';
   language="en"
   tooltipComponent={
     <Tooltip
-      ariaToggleButtonlabelText={`${labelText}, show additional information`}
-      ariaCloseButtonlabelText={`${labelText}, close additional information`}
+      ariaToggleButtonLabelText={`${labelText}, show additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
         What happens on the beginning date?

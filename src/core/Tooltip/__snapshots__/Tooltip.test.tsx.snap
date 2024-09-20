@@ -139,8 +139,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   position: relative;
   border: 1px solid hsl(201,7%,46%);
   border-radius: 2px;
@@ -321,5 +320,145 @@ exports[`Basic tooltip should match snapshot 1`] = `
       </svg>
     </button>
   </div>
+</div>
+`;
+
+exports[`margin should have margin style from margin prop 1`] = `
+.c2 {
+  vertical-align: baseline;
+}
+
+.c2.fi-icon {
+  display: inline-block;
+}
+
+.c2 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c2 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c2.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c2.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c0:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c0::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c0::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c0::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: inline;
+  height: 16px;
+  width: 16px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.c1:focus-visible {
+  outline: 3px solid transparent;
+  position: relative;
+}
+
+.c1:focus-visible:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 .fi-tooltip_toggle-button_icon {
+  height: 100%;
+  width: 100%;
+  color: hsl(212,63%,45%);
+}
+
+<div>
+  <button
+    aria-expanded="false"
+    aria-label=""
+    class="c0 c1 fi-tooltip fi-tooltip_toggle-button"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="fi-icon c2 fi-tooltip_toggle-button_icon"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        class="fi-icon-base-fill"
+        d="M11.996 0c3.207 0 6.22 1.248 8.487 3.514A11.917 11.917 0 0 1 24 12a11.92 11.92 0 0 1-3.517 8.486A11.927 11.927 0 0 1 11.996 24c-3.207 0-6.221-1.249-8.487-3.514-4.679-4.68-4.679-12.292 0-16.972A11.923 11.923 0 0 1 11.996 0Zm.007 10H10a1 1 0 0 0 0 2h1v5h-1a1 1 0 0 0 0 2h4.003a1 1 0 0 0 0-2h-1v-6a1 1 0 0 0-1-1Zm-.501-5a1.5 1.5 0 1 0-.002 3h.002l.145-.006A1.5 1.5 0 0 0 11.502 5Z"
+        fill="#222"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </button>
 </div>
 `;

@@ -2,16 +2,21 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { IconCheckCircle } from 'suomifi-icons';
 import { Heading } from '../Heading/Heading';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export interface ToastProps extends MarginProps, HtmlDivWithRefProps {
   /** Sets aria-live mode for the Toast text content and label.
@@ -54,14 +59,14 @@ class BaseToast extends Component<ToastProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         as="section"
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlDiv className={toastClassNames.styleWrapper}>
           <HtmlDiv className={toastClassNames.iconWrapper}>
@@ -88,22 +93,40 @@ class BaseToast extends Component<ToastProps> {
     );
   }
 }
-const StyledToast = styled((props: ToastProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <BaseToast {...passProps} />;
-})`
-  ${({ theme }) => baseStyles(theme)};
+const StyledToast = styled(
+  (props: ToastProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
+    return <BaseToast {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.toast,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Toast = forwardRef(
   (props: ToastProps, ref: React.Ref<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledToast forwardedRef={ref} theme={suomifiTheme} {...passProps} />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledToast
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                globalMargins={margins}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

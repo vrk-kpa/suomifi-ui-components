@@ -8,12 +8,17 @@ import {
   chipClassNames,
 } from '../BaseChip/BaseChip';
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 export interface StaticChipProps
   extends BaseChipProps,
@@ -26,8 +31,7 @@ export interface StaticChipProps
 class BaseChip extends Component<StaticChipProps> {
   render() {
     const { className, children, disabled = false, ...rest } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlSpan
@@ -35,7 +39,7 @@ class BaseChip extends Component<StaticChipProps> {
           [chipClassNames.disabled]: !!disabled,
         })}
         {...passProps}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
       </HtmlSpan>
@@ -44,20 +48,40 @@ class BaseChip extends Component<StaticChipProps> {
 }
 
 const StyledChip = styled(
-  ({ theme, ...passProps }: StaticChipProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: StaticChipProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseChip {...passProps} />
   ),
 )`
-  ${({ theme }) => staticChipBaseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.staticChip,
+      marginProps,
+    );
+    return staticChipBaseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const StaticChip = forwardRef(
   (props: StaticChipProps, ref: React.Ref<HTMLSpanElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledChip theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledChip
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

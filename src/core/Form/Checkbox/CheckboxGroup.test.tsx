@@ -165,7 +165,7 @@ describe('props', () => {
     it('should have margin style from margin prop', () => {
       const { getByTestId } = render(Group);
       const div = getByTestId('group');
-      expect(div).toHaveAttribute('style', 'margin: 10px;');
+      expect(div).toHaveStyle('margin: 10px');
     });
 
     it('should have margin style overridden by style prop', async () => {

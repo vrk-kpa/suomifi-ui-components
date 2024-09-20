@@ -4,12 +4,17 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-breadcrumb';
 const listClassName = `${baseClassName}_list`;
@@ -31,17 +36,16 @@ const breadcrumbItems = (children: ReactNode) =>
     <HtmlLi className={itemClassName}>{child}</HtmlLi>
   ));
 
-class BaseBreadcrumb extends Component<BreadcrumbProps & SuomifiThemeProp> {
+class BaseBreadcrumb extends Component<BreadcrumbProps> {
   render() {
-    const { className, theme, children, ...rest } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const { className, children, ...rest } = this.props;
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlNav
         {...passProps}
         className={classnames(baseClassName, className)}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         <HtmlOl className={listClassName}>{breadcrumbItems(children)}</HtmlOl>
       </HtmlNav>
@@ -49,22 +53,42 @@ class BaseBreadcrumb extends Component<BreadcrumbProps & SuomifiThemeProp> {
   }
 }
 
-const StyledBreadcrumb = styled(BaseBreadcrumb)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledBreadcrumb = styled(
+  ({
+    globalMargins,
+    theme,
+    ...passProps
+  }: BreadcrumbProps & SuomifiThemeProp & GlobalMarginProps) => (
+    <BaseBreadcrumb {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.breadcrumb,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Breadcrumb = (props: BreadcrumbProps) => {
   const { 'aria-label': ariaLabel, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledBreadcrumb
-          theme={suomifiTheme}
-          {...passProps}
-          {...getConditionalAriaProp('aria-label', [ariaLabel])}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledBreadcrumb
+              theme={suomifiTheme}
+              globalMargins={margins}
+              {...passProps}
+              {...getConditionalAriaProp('aria-label', [ariaLabel])}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 };
 

@@ -1,6 +1,26 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
+
+const errorStyles = (theme: SuomifiTheme) => css`
+  &.fi-radio-button--error {
+    & .fi-radio-button_input {
+      + .fi-radio-button_icon_wrapper {
+        & .fi-icon-radio-base {
+          stroke: ${theme.colors.alertBase};
+        }
+      }
+      &:checked {
+        + .fi-radio-button_icon_wrapper {
+          & .fi-icon-radio-checked {
+            fill: ${theme.colors.alertBase};
+          }
+        }
+      }
+    }
+  }
+`;
 
 const disabledStyles = (theme: SuomifiTheme) => css`
   &.fi-radio-button--disabled {
@@ -69,10 +89,16 @@ const largeStyles = () => css`
   }
 `;
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   position: relative;
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
 
   &.fi-radio-button {
     & .fi-radio-button_hintText {
@@ -147,6 +173,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     ${disabledStyles(theme)};
+    ${errorStyles(theme)};
     ${largeStyles()};
   }
 `;

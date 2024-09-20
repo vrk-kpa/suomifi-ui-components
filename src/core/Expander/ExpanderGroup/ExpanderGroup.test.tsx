@@ -447,7 +447,7 @@ describe('margin prop', () => {
       </ExpanderGroup>,
     );
     const div = getByTestId('expander-group');
-    expect(div).toHaveAttribute('style', 'margin: 10px;');
+    expect(div).toHaveStyle('margin: 10px');
   });
 });
 

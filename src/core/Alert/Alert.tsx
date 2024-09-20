@@ -10,14 +10,19 @@ import {
 } from '../../reset';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../utils/aria';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Alert.baseStyles';
 import { IconClose, IconError, IconInfo, IconWarning } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-alert';
 const alertClassNames = {
@@ -64,8 +69,7 @@ class BaseAlert extends Component<AlertProps> {
       closeButtonProps = {},
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const {
       className: customCloseButtonClassName,
@@ -81,7 +85,7 @@ class BaseAlert extends Component<AlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
         ref={forwardedRef}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
@@ -139,31 +143,45 @@ class BaseAlert extends Component<AlertProps> {
   }
 }
 
-const StyledAlert = styled((props: AlertProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <BaseAlert {...passProps} />;
-})`
-  ${({ theme }) => baseStyles(theme)}
+const StyledAlert = styled(
+  (props: AlertProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
+    return <BaseAlert {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.alert,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Alert = forwardRef(
   (props: AlertProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledAlert
-                forwardedRef={ref}
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledAlert
+                    forwardedRef={ref}
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    id={id}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

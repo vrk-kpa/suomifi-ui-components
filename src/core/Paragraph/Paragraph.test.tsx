@@ -13,7 +13,7 @@ const TestParagraph = (
 describe('margin', () => {
   it('should have margin style from margin prop', () => {
     const { container } = render(<Paragraph margin="xs">Test</Paragraph>);
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    expect(container.firstChild).toHaveStyle('margin: 10px');
   });
 
   it('should have margin prop overwritten from style prop', () => {

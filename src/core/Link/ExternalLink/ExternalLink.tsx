@@ -1,11 +1,15 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { IconChevronRight, IconLinkExternal } from 'suomifi-icons';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
@@ -16,6 +20,7 @@ import {
   baseClassName,
   linkClassNames,
 } from '../BaseLink/BaseLink';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const iconClassName = 'fi-link_icon';
 const externalClassName = 'fi-link--external';
@@ -58,8 +63,8 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
       underline = 'hover',
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlA
         {...passProps}
@@ -71,7 +76,6 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
-        style={{ ...marginStyle, ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight
@@ -88,25 +92,37 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
 }
 
 const StyledExternalLink = styled(
-  (props: ExternalLinkProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ExternalLinkProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseExternalLink theme={theme} {...passProps} />;
   },
 )`
-  ${({ theme }) => ExternalLinkStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.externalLink,
+      marginProps,
+    );
+    return ExternalLinkStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ExternalLink = forwardRef(
   (props: ExternalLinkProps, ref: React.Ref<HTMLAnchorElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledExternalLink
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledExternalLink
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

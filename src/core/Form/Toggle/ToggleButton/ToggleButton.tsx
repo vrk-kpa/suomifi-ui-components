@@ -8,12 +8,17 @@ import { HtmlSpan, HtmlButtonProps, HtmlButton } from '../../../../reset';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { baseStyles } from './ToggeButton.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -76,8 +81,8 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const { toggleState } = this.state;
 
     return (
@@ -91,7 +96,7 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
           },
           toggleClassNames.label,
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlButton
           {...passProps}
@@ -114,32 +119,44 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
 }
 
 const StyledToggleButton = styled(
-  (props: ToggleBaseProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ToggleButtonProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseToggleButton {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.toggleButton,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ToggleButton = forwardRef(
   (props: ToggleButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledToggleButton
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledToggleButton
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

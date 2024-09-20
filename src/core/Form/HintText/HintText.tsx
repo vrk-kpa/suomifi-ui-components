@@ -2,13 +2,18 @@ import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { baseStyles } from './HintText.baseStyles';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-hint-text';
 
@@ -26,24 +31,32 @@ export interface HintTextProps extends HtmlSpanProps, MarginProps {
 const StyledHintText = styled(
   ({
     className,
+    globalMargins,
     theme,
     children,
     ...rest
-  }: HintTextProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: HintTextProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlSpan
         {...passProps}
         className={classnames(className, baseClassName, {})}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {children}
       </HtmlSpan>
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.hintText,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const HintText = forwardRef(
@@ -53,17 +66,22 @@ const HintText = forwardRef(
       return null;
     }
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledHintText
-            forwardedRef={ref}
-            theme={suomifiTheme}
-            {...passProps}
-          >
-            {children}
-          </StyledHintText>
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledHintText
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                globalMargins={margins}
+                {...passProps}
+              >
+                {children}
+              </StyledHintText>
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

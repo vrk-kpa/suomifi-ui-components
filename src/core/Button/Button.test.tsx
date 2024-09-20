@@ -85,7 +85,7 @@ describe('Button variant', () => {
     it('should have margin style from margin prop', () => {
       const { container } = render(<Button margin="xs">Test button</Button>);
       const button = container.querySelector('button');
-      expect(button).toHaveAttribute('style', 'margin: 10px;');
+      expect(button).toHaveStyle('margin: 10px');
     });
 
     it('should have margin prop style overwritten from style', () => {

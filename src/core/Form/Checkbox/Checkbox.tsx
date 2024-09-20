@@ -5,11 +5,15 @@ import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlLabel, HtmlDiv, HtmlInput, HtmlInputProps } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
@@ -17,6 +21,7 @@ import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
 import { baseStyles } from './Checkbox.baseStyles';
 import { IconCheck } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-checkbox';
 
@@ -35,7 +40,10 @@ const checkboxClassNames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalCheckboxProps extends StatusTextCommonProps {
+export interface CheckboxProps
+  extends StatusTextCommonProps,
+    MarginProps,
+    Omit<HtmlInputProps, 'onClick' | 'value'> {
   /** Controlled checked state  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled `checked` state
@@ -94,15 +102,6 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   value?: string;
   /** Ref is passed to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
-  /** Properties for the wrapping div element */
-}
-
-export interface CheckboxProps
-  extends InternalCheckboxProps,
-    MarginProps,
-    Omit<HtmlInputProps, 'onClick' | 'value'> {
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLInputElement>;
 }
 
 class BaseCheckbox extends Component<CheckboxProps> {
@@ -156,8 +155,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const { checkedState } = this.state;
 
@@ -192,7 +190,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
             [checkboxClassNames.disabled]: !!disabled,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlInput
           type="checkbox"
@@ -236,36 +234,52 @@ class BaseCheckbox extends Component<CheckboxProps> {
 }
 
 const StyledCheckbox = styled(
-  ({ theme, ...passProps }: InternalCheckboxProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: CheckboxProps & SuomifiThemeProp & GlobalMarginProps & MarginProps) => (
     <BaseCheckbox {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.checkbox,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, status: propStatus, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <CheckboxGroupConsumer>
-                {({ status: groupStatus }) => (
-                  <StyledCheckbox
-                    theme={suomifiTheme}
-                    id={id}
-                    forwardedRef={ref}
-                    status={!!propStatus ? propStatus : groupStatus}
-                    {...passProps}
-                  />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <CheckboxGroupConsumer>
+                    {({ status: groupStatus }) => (
+                      <StyledCheckbox
+                        theme={suomifiTheme}
+                        id={id}
+                        forwardedRef={ref}
+                        globalMargins={margins}
+                        status={!!propStatus ? propStatus : groupStatus}
+                        {...passProps}
+                      />
+                    )}
+                  </CheckboxGroupConsumer>
                 )}
-              </CheckboxGroupConsumer>
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

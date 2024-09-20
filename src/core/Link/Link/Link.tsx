@@ -3,11 +3,15 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconChevronRight } from 'suomifi-icons';
 import { LinkStyles } from '../Link/Link.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlA } from '../../../reset';
 import {
@@ -15,6 +19,7 @@ import {
   baseClassName,
   linkClassNames,
 } from '../BaseLink/BaseLink';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 export interface LinkProps extends BaseLinkProps, MarginProps {
   /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
@@ -27,13 +32,14 @@ const StyledLink = styled(
     className,
     smallScreen,
     theme,
+    globalMargins,
     variant = 'default',
     children,
     underline = 'hover',
     ...rest
-  }: LinkProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: LinkProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlA
         {...passProps}
@@ -43,7 +49,7 @@ const StyledLink = styled(
           [linkClassNames.small]: smallScreen,
         })}
         as={asProp}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight
@@ -56,16 +62,32 @@ const StyledLink = styled(
     );
   },
 )`
-  ${({ theme }) => LinkStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return LinkStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Link = forwardRef(
   (props: LinkProps, ref: React.Ref<HTMLAnchorElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledLink
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

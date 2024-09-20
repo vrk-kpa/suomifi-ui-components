@@ -9,15 +9,20 @@ import {
 } from '../../../../reset';
 import styled from 'styled-components';
 import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import {
-  spacingStyles,
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 export interface ServiceNavigationProps extends MarginProps, HtmlDivProps {
   /** Use `<ServiceNavigationItem>` components as children */
@@ -62,8 +67,8 @@ const BaseServiceNavigation = ({
   style,
   ...rest
 }: ServiceNavigationProps) => {
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -75,7 +80,7 @@ const BaseServiceNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
       {...passProps}
     >
       {variant === 'smallScreen' && (
@@ -107,25 +112,37 @@ const BaseServiceNavigation = ({
 };
 
 const StyledServiceNavigation = styled(
-  (props: ServiceNavigationProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ServiceNavigationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseServiceNavigation {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.serviceNavigation,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ServiceNavigation = forwardRef(
   (props: ServiceNavigationProps, ref: React.Ref<HTMLElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledServiceNavigation
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledServiceNavigation
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

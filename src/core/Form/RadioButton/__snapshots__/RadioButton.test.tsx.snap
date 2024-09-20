@@ -133,6 +133,14 @@ exports[`children should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -239,6 +247,14 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -460,6 +476,14 @@ exports[`className should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -566,6 +590,14 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -787,6 +819,14 @@ exports[`disabled should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -893,6 +933,14 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -1136,6 +1184,14 @@ exports[`hintText should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -1242,6 +1298,14 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -1470,6 +1534,14 @@ exports[`id should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -1576,6 +1648,14 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -1797,6 +1877,14 @@ exports[`name should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -1903,6 +1991,14 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -2125,6 +2221,14 @@ exports[`value should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c4 .fi-icon-illustrative-base-fill {
+  fill: alertBase;
+}
+
+.c4 .fi-icon-illustrative-base-stroke {
+  stroke: alertBase;
+}
+
 .c1 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -2231,6 +2335,14 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {
@@ -2558,6 +2670,14 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3,59%,43%);
+}
+
+.c1.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3,59%,43%);
 }
 
 .c1.fi-radio-button--large .fi-radio-button_hintText {

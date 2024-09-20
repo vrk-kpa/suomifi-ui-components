@@ -14,6 +14,7 @@ Examples:
 - [Controlled state with custom option enabled](./#/Components/SingleSelect?id=controlled-state-with-custom-option-enabled)
 - [Disabled](./#/Components/SingleSelect?id=disabled)
 - [Loading indicator](./#/Components/SingleSelect?id=loading-indicator)
+- [Full width](./#/Components/SingleSelect?id=full-width)
 - [Tooltip](./#/Components/SingleSelect?id=tooltip)
 
 <div style="margin-bottom: 40px">
@@ -594,6 +595,66 @@ const simulateBackendCall = (searchStr) => {
       setLoading(true);
     }
   }}
+/>;
+```
+
+### Full width
+
+You can make the component span the entire width of its parent via the `fullWidth` prop.
+
+```js
+import { SingleSelect } from 'suomifi-ui-components';
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+<SingleSelect
+  labelText="Country of residence"
+  hintText="Select your current country of residence. You can filter options by typing in the field."
+  clearButtonLabel="Clear selection"
+  items={countries}
+  visualPlaceholder="Choose country"
+  noItemsText="No items"
+  ariaOptionsAvailableTextFunction={(amount) =>
+    amount === 1 ? 'option available' : 'options available'
+  }
+  fullWidth
 />;
 ```
 

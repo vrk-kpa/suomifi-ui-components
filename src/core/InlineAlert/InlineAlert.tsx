@@ -4,13 +4,18 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivProps } from '../../reset';
 import { IconError, IconWarning } from 'suomifi-icons';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './InlineAlert.baseStyles';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-inline-alert';
 const inlineAlertClassNames = {
@@ -55,8 +60,8 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
       forwardedRef,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlDivWithRef
         as="section"
@@ -65,7 +70,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [inlineAlertClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
         ref={forwardedRef}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
@@ -105,32 +110,44 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
 }
 
 const StyledInlineAlert = styled(
-  (props: InlineAlertProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: InlineAlertProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseInlineAlert {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.inlineAlert,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const InlineAlert = forwardRef<HTMLDivElement, InlineAlertProps>(
   (props: InlineAlertProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledInlineAlert
-                forwardedRef={ref}
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledInlineAlert
+                    forwardedRef={ref}
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    id={id}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

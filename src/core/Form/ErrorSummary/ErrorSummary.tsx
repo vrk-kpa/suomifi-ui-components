@@ -5,11 +5,7 @@ import { HtmlDiv, HtmlDivWithRef, HtmlDivProps, hLevels } from '../../../reset';
 import { IconErrorFilled } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import {
-  spacingStyles,
-  separateMarginProps,
-  MarginProps,
-} from '../../theme/utils/spacing';
+import { separateMarginProps, MarginProps } from '../../theme/utils/spacing';
 import { baseStyles } from './ErrorSummary.baseStyles';
 import { Heading } from '../../Heading/Heading';
 import { Link } from '../../Link';
@@ -77,8 +73,7 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
     forwardedRef,
     ...rest
   } = props;
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
 
   const focusInput = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -104,7 +99,7 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
       className={classnames(baseClassName, className, {
         [inlineAlertClassNames.smallScreen]: !!smallScreen,
       })}
-      style={{ ...marginStyle, ...passProps?.style }}
+      style={{ ...passProps?.style }}
       ref={forwardedRef}
     >
       <HtmlDiv className={inlineAlertClassNames.styleWrapper}>

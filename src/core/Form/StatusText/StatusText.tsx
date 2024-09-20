@@ -5,16 +5,18 @@ import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,
   SuomifiTheme,
+  SpacingConsumer,
 } from '../../theme';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
 import { IconErrorFilled, IconCheckCircleFilled } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
@@ -63,15 +65,16 @@ const getIcon = (status: InputStatus | undefined, theme: SuomifiTheme) => {
 const StyledStatusText = styled(
   ({
     className,
+    globalMargins,
     children,
     disabled,
     status,
     theme,
     ariaLiveMode = 'polite',
     ...rest
-  }: StatusTextProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: StatusTextProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const ariaLiveProp = !disabled
       ? { 'aria-live': ariaLiveMode }
       : { 'aria-live': 'off' };
@@ -84,7 +87,7 @@ const StyledStatusText = styled(
           [statusTextClassNames.error]: status === 'error',
         })}
         aria-atomic="true"
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       >
         {!!children && getIcon(status, theme)}
         {children}
@@ -92,24 +95,36 @@ const StyledStatusText = styled(
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.statusText,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const StatusText = forwardRef<HTMLSpanElement, StatusTextProps>(
   (props: StatusTextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { children, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledStatusText
-            forwardedRef={ref}
-            theme={suomifiTheme}
-            {...passProps}
-          >
-            {children}
-          </StyledStatusText>
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledStatusText
+                forwardedRef={ref}
+                globalMargins={margins}
+                theme={suomifiTheme}
+                {...passProps}
+              >
+                {children}
+              </StyledStatusText>
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

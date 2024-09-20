@@ -1,9 +1,22 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { input, containerIEFocus, font } from '../../theme/reset';
+import {
+  input,
+  containerIEFocus,
+  font,
+  fixInternalMargins,
+} from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
   width: 290px;
 
   & .fi-search-input {
@@ -163,6 +176,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       pointer-events: all;
     }
 
+    & .fi-search-input_button-clear {
+      clip: auto;
+      overflow: visible;
+      height: 20px;
+      width: 20px;
+      margin: 10px;
+
+      & .fi-icon-base-fill {
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
+      }
+    }
+
     & .fi-search-input_button-search {
       background: ${theme.gradients.highlightBaseToHighlightDark1};
 
@@ -191,13 +218,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           fill: ButtonText;
         }
       }
-    }
-    & .fi-search-input_button-clear {
-      clip: auto;
-      overflow: visible;
-      height: 20px;
-      width: 20px;
-      margin: 10px;
     }
   }
 `;

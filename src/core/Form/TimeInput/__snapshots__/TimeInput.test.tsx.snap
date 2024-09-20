@@ -227,6 +227,12 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-time-input_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -331,10 +337,6 @@ exports[`snapshots match error status with statustext 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c1.fi-time-input--full-width {
-  width: 100%;
 }
 
 .c1 .fi-time-input_input {
@@ -710,6 +712,12 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-time-input_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -814,10 +822,6 @@ exports[`snapshots match hidden label 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c1.fi-time-input--full-width {
-  width: 100%;
 }
 
 .c1 .fi-time-input_input {
@@ -1183,6 +1187,12 @@ exports[`snapshots match hint text 1`] = `
   max-width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-time-input_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1287,10 +1297,6 @@ exports[`snapshots match hint text 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c1.fi-time-input--full-width {
-  width: 100%;
 }
 
 .c1 .fi-time-input_input {
@@ -1646,6 +1652,12 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-time-input_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1750,10 +1762,6 @@ exports[`snapshots match minimal implementation 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c1.fi-time-input--full-width {
-  width: 100%;
 }
 
 .c1 .fi-time-input_input {

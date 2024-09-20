@@ -3,14 +3,20 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
 import { getLogger } from '../../utils/log';
-import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  ColorProp,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;
@@ -51,14 +57,15 @@ const StyledHeading = styled(
   ({
     smallScreen,
     className,
+    globalMargins,
     theme,
     variant,
     color,
     asProp,
     ...rest
-  }: InternalHeadingProps) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  }: InternalHeadingProps & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     return (
       <HtmlH
         {...passProps}
@@ -71,12 +78,19 @@ const StyledHeading = styled(
           },
         )}
         as={!!asProp ? asProp : getSemanticVariant(variant)}
-        style={{ ...marginStyle, ...passProps?.style }}
+        style={{ ...passProps?.style }}
       />
     );
   },
 )`
-  ${(props) => baseStyles(props)}
+  ${({ theme, color, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.button,
+      marginProps,
+    );
+    return baseStyles(theme, color, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Heading = forwardRef(
@@ -89,17 +103,22 @@ const Heading = forwardRef(
       return null;
     }
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledHeading
-            theme={suomifiTheme}
-            forwardedRef={ref}
-            asProp={as}
-            {...passProps}
-            variant={variant}
-          />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledHeading
+                theme={suomifiTheme}
+                globalMargins={margins}
+                forwardedRef={ref}
+                asProp={as}
+                {...passProps}
+                variant={variant}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

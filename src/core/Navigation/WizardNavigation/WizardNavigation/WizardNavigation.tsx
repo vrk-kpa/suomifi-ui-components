@@ -9,14 +9,19 @@ import {
   HtmlNav,
   HtmlUl,
 } from '../../../../reset';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import {
-  spacingStyles,
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './WizardNavigation.baseStyles';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 export interface WizardNavigationProps extends MarginProps, HtmlDivProps {
   /** Use `<WizardNavigationItem>` components as children */
@@ -61,8 +66,8 @@ const BaseWizardNavigation = ({
   style,
   ...rest
 }: WizardNavigationProps) => {
-  const [marginProps, passProps] = separateMarginProps(rest);
-  const marginStyle = spacingStyles(marginProps);
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -74,7 +79,7 @@ const BaseWizardNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
-      style={{ ...marginStyle, ...style }}
+      style={style}
       {...passProps}
     >
       {variant === 'smallScreen' ? (
@@ -107,25 +112,37 @@ const BaseWizardNavigation = ({
 };
 
 const StyledWizardNavigation = styled(
-  (props: WizardNavigationProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: WizardNavigationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseWizardNavigation {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.wizardNavigation,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const WizardNavigation = forwardRef(
   (props: WizardNavigationProps, ref: React.Ref<HTMLElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledWizardNavigation
-          theme={suomifiTheme}
-          forwardedRef={ref}
-          {...props}
-        />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledWizardNavigation
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

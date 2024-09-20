@@ -24,3 +24,9 @@ export {
   SpacingProps,
   SpacingWithoutInsetProp,
 } from './utils/spacing';
+export {
+  SpacingProvider,
+  SpacingProviderProps,
+  SpacingConsumer,
+} from './SpacingProvider/SpacingProvider';
+export { GlobalMargins } from './utils/spacing';

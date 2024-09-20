@@ -5,9 +5,9 @@ import { IconClose } from 'suomifi-icons';
 import { getLogger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import {
@@ -16,7 +16,12 @@ import {
   chipClassNames,
 } from '../BaseChip/BaseChip';
 import { baseStyles } from './Chip.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const chipButtonClassNames = {
   removable: `${baseClassName}--removable`,
@@ -63,8 +68,7 @@ class DefaultChip extends Component<ChipProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
@@ -89,7 +93,7 @@ class DefaultChip extends Component<ChipProps> {
         {...onClickProp}
         forwardedRef={forwardedRef}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         {!!removable && (
@@ -109,22 +113,42 @@ class DefaultChip extends Component<ChipProps> {
 }
 
 const StyledChip = styled(
-  ({ theme, ...passProps }: ChipProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: ChipProps & SuomifiThemeProp & GlobalMarginProps) => (
     <DefaultChip {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.chip,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Chip = forwardRef(
   (props: ChipProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledChip theme={suomifiTheme} forwardedRef={ref} {...passProps} />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <StyledChip
+                theme={suomifiTheme}
+                globalMargins={margins}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

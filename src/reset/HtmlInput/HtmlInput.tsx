@@ -11,7 +11,9 @@ export interface HtmlInputProps
    */
   type?: string;
   /** Ref is forwarded to the underlying input element */
-  forwardedRef?: React.RefObject<HTMLInputElement>;
+  forwardedRef?:
+    | React.Ref<HTMLInputElement>
+    | React.RefObject<HTMLInputElement>;
 }
 
 const inputResets = css`

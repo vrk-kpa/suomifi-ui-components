@@ -2,11 +2,7 @@ import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import {
-  spacingStyles,
-  separateMarginProps,
-  MarginProps,
-} from '../../theme/utils/spacing';
+import { separateMarginProps, MarginProps } from '../../theme/utils/spacing';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';
 import { baseStyles } from './TooltipToggleButton.baseStyles';
 import { IconInfoFilled } from 'suomifi-icons';
@@ -29,15 +25,14 @@ class BaseTooltipToggleButton extends Component<
 > {
   render() {
     const { className, 'aria-label': ariaLabel, style, ...rest } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlButton
         className={classnames(className, tooltipClassNames.toggleButton)}
         aria-label={ariaLabel}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <IconInfoFilled className={tooltipClassNames.toggleButtonIcon} />
       </HtmlButton>

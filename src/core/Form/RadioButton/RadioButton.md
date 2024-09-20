@@ -7,6 +7,7 @@ Examples:
 - [Basic use](./#/Components/RadioButton?id=basic-use)
 - [Default value](./#/Components/RadioButton?id=default-value)
 - [Controlled state](./#/Components/RadioButton?id=controlled-state)
+- [Group error status](./#/Components/RadioButton?id=group-error-status)
 - [Disabled](./#/Components/RadioButton?id=disabled)
 - [Large variant](./#/Components/RadioButton?id=large-variant)
 - [Optional input](./#/Components/RadioButton?id=optional-input)
@@ -88,6 +89,31 @@ const [controlledValue, setControlledValue] = useState('phone');
   name="contact-method-3"
   value={controlledValue}
   onChange={(newValue) => setControlledValue(newValue)}
+>
+  <RadioButton value="email">By email</RadioButton>
+  <RadioButton
+    value="phone"
+    hintText="We will call during office hours"
+  >
+    By phone
+  </RadioButton>
+  <RadioButton value="visit">By personal visit</RadioButton>
+</RadioButtonGroup>;
+```
+
+### Group error status
+
+A RadioButtonGroup can have a `groupStatus` which is passed down to all children. Use a descriptive `groupStatusText` with the error status.
+
+```js
+import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
+
+<RadioButtonGroup
+  labelText="How do you wish to be contacted?"
+  groupHintText="Choose your preferred option"
+  name="contact-method-1"
+  groupStatus="error"
+  groupStatusText="You must select one option"
 >
   <RadioButton value="email">By email</RadioButton>
   <RadioButton

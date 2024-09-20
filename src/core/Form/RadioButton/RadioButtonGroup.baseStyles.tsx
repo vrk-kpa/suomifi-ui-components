@@ -1,15 +1,24 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, font } from '../../theme/reset';
+import { element, fixInternalMargins, font } from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+  ${fixInternalMargins()}
 
   &.fi-radio-button-group {
     & .fi-radio-button-group_legend {
-      margin-bottom: 10px;
-
+      &--with-margin {
+        margin-bottom: ${theme.spacing.xs};
+      }
       .fi-hint-text {
         margin-bottom: 0;
       }
@@ -21,17 +30,26 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-radio-button-group_label--with-margin {
-      margin-bottom: 10px;
+      margin-bottom: ${theme.spacing.xs};
     }
 
     & .fi-radio-button-group_hintText {
       color: ${theme.colors.depthDark1};
       ${theme.typography.bodyTextSmall};
     }
+
+    & .fi-status-text {
+      line-height: 18px;
+      &.fi-radio-button-group_statusText--has-content {
+        margin-top: ${theme.spacing.xxs};
+        padding-left: 3px;
+      }
+    }
   }
 
   & .fi-radio-button-group_container {
     & > .fi-radio-button {
+      margin: 0;
       margin-bottom: ${theme.spacing.xs};
 
       &:last-child {

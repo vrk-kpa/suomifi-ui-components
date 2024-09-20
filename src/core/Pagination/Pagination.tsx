@@ -2,11 +2,15 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconArrowLeft, IconArrowRight } from 'suomifi-icons';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv, HtmlNavProps } from '../../reset';
@@ -14,6 +18,7 @@ import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { AutoId } from '../utils/AutoId/AutoId';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 export interface PageInputProps {
   /** Page input action button label for screen readers  */
@@ -168,8 +173,8 @@ class BasePagination extends Component<PaginationProps> {
       ...rest
     } = this.props;
 
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const pageInputId = `${id}-pageInput`;
 
     return (
@@ -178,7 +183,7 @@ class BasePagination extends Component<PaginationProps> {
         className={classnames(baseClassName, className, {
           [paginationClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>
@@ -235,31 +240,45 @@ class BasePagination extends Component<PaginationProps> {
   }
 }
 
-const StyledPagination = styled((props: PaginationProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <BasePagination {...passProps} />;
-})`
-  ${({ theme }) => baseStyles(theme)}
+const StyledPagination = styled(
+  (props: PaginationProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
+    return <BasePagination {...passProps} />;
+  },
+)`
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.pagination,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Pagination = forwardRef(
   (props: PaginationProps, ref: React.RefObject<HTMLElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledPagination
-                id={id}
-                theme={suomifiTheme}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledPagination
+                    id={id}
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

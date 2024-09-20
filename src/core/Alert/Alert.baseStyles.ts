@@ -2,11 +2,18 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { transparentize } from 'polished';
+import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   &.fi-alert {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
+    ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)};
     width: 100%;
 
     & .fi-alert_style-wrapper {
@@ -29,9 +36,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         height: 40px;
         display: inline-block;
         padding: 7px;
-        margin-top: 7px;
-        margin-right: ${theme.spacing.xs};
-        margin-bottom: ${theme.spacing.insetM};
+        margin: 7px ${theme.spacing.xs} ${theme.spacing.insetM} 0;
         border: 1px solid transparent;
         border-radius: ${theme.radiuses.basic};
         white-space: nowrap;

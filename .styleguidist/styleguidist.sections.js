@@ -15,6 +15,7 @@ const singularComponents = [
   'Paragraph',
   'Notification',
   'Toast',
+  'Details',
   ['Form', 'TextInput'],
   ['Form', 'TimeInput'],
   ['Form', 'SearchInput'],
@@ -26,6 +27,8 @@ const singularComponents = [
   ['Form/Select/MultiSelect/', 'MultiSelect'],
   ['Form/Select', 'SingleSelect'],
   ['Form', 'ErrorSummary'],
+  ['Form', 'FileInput'],
+  ['Form/Dropdown', 'Dropdown'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -105,6 +108,10 @@ module.exports = {
             {
               name: 'Tokens',
               content: './.styleguidist/spacingtokens.md',
+            },
+            {
+              name: 'Global spacing',
+              content: './.styleguidist/spacingprovider.md',
             },
           ],
         },
@@ -210,13 +217,6 @@ module.exports = {
           components: getComponentWithVariants('Breadcrumb')([
             'Breadcrumb/Breadcrumb',
             'BreadcrumbLink/BreadcrumbLink',
-          ]),
-        },
-        {
-          name: 'Dropdown',
-          components: getComponentWithVariants('Dropdown')([
-            'Dropdown/Dropdown',
-            'DropdownItem/DropdownItem',
           ]),
         },
         {

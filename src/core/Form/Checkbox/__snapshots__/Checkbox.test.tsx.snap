@@ -169,6 +169,12 @@ exports[`props children has matching snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1 .fi-checkbox_label {
   position: relative;
   display: block;

@@ -2,13 +2,19 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
-  spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../theme/utils/spacing';
-import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  ColorProp,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../theme';
 import { baseStyles } from './Paragraph.baseStyles';
 import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
+import { filterDuplicateKeys } from '../../utils/common/common';
 
 const baseClassName = 'fi-paragraph';
 
@@ -20,29 +26,50 @@ export interface ParagraphProps extends HtmlPProps, MarginProps {
 }
 
 const StyledParagraph = styled(
-  ({ className, theme, style, ...rest }: ParagraphProps & SuomifiThemeProp) => {
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+  ({
+    className,
+    theme,
+    style,
+    globalMargins,
+    ...rest
+  }: ParagraphProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     return (
       <HtmlP
         className={classnames(baseClassName, className)}
         {...passProps}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       />
     );
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.paragraph,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
   (props, ref) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledParagraph theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledParagraph
+              theme={suomifiTheme}
+              globalMargins={margins}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 

@@ -573,6 +573,22 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
   expect(inputfield).toHaveAttribute('placeholder', 'Select item(s)');
 });
 
+test('fullWidth: has the corresponding style and class', () => {
+  const { container } = render(
+    <MultiSelect
+      labelText="MultiSelect"
+      items={[]}
+      noItemsText="No items"
+      fullWidth={true}
+      ariaSelectedAmountText=""
+      ariaOptionsAvailableText=""
+      ariaOptionChipRemovedText=""
+    />,
+  );
+  expect(container.firstChild).toHaveClass('fi-multiselect--full-width');
+  expect(container.firstChild).toHaveStyle('width: 100%;');
+});
+
 test('id: has the given id', () => {
   const { getByRole } = render(
     <MultiSelect
@@ -825,7 +841,7 @@ describe('margin', () => {
       />,
     );
 
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    expect(container.firstChild).toHaveStyle('margin: 10px');
   });
 
   it('should have margin style overridden by style prop', async () => {

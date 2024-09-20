@@ -22,7 +22,7 @@ describe('margin', () => {
       </ExternalLink>,
     );
     const link = container.querySelector('a');
-    expect(link).toHaveAttribute('style', 'margin: 10px;');
+    expect(link).toHaveStyle('margin: 10px');
   });
 
   it('should have margin prop overwritten from style prop', () => {

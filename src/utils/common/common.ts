@@ -26,6 +26,26 @@ export const getOwnerDocument = (elementRef: React.RefObject<any>) => {
   return null;
 };
 
+/**
+ * This function takes an object and removes all properties that are present in the filterObject.
+ * Used in cleaning up generated style properties
+ */
+export function filterDuplicateKeys<T extends object, U extends object>(
+  mainObject?: T,
+  filterObject?: U,
+): Partial<T> {
+  if (!mainObject) {
+    return {};
+  }
+  return mainObject && filterObject
+    ? (Object.fromEntries(
+        Object.entries(mainObject).filter(
+          ([key]) => !Object.prototype.hasOwnProperty.call(filterObject, key),
+        ),
+      ) as Partial<T>)
+    : {};
+}
+
 export const escapeStringRegexp = (string: String) =>
   string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/-/g, '\\x2d');
 

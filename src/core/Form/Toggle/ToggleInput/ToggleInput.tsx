@@ -2,11 +2,15 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import {
-  spacingStyles,
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
@@ -19,6 +23,7 @@ import {
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { baseStyles } from './ToggleInput.baseStyles';
+import { filterDuplicateKeys } from '../../../../utils/common/common';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -86,8 +91,8 @@ class BaseToggleInput extends Component<ToggleInputProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
+
     const { toggleState } = this.state;
 
     return (
@@ -100,7 +105,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
             [toggleClassNames.disabled]: !!disabled,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlLabel className={toggleClassNames.label} htmlFor={id}>
           <HtmlInput
@@ -126,32 +131,44 @@ class BaseToggleInput extends Component<ToggleInputProps> {
 }
 
 const StyledToggleInput = styled(
-  (props: ToggleBaseProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ToggleInputProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseToggleInput {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.toggleButton,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ToggleInput = forwardRef(
   (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledToggleInput
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledToggleInput
+                    theme={suomifiTheme}
+                    id={id}
+                    globalMargins={margins}
+                    forwardedRef={ref}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

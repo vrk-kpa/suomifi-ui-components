@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 export type DebounceProps<T> = T & {
   waitFor?: number;
+  children?: (debouncer: Function, cancelDebounce: Function) => JSX.Element;
 };
 export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   timeout: ReturnType<typeof setTimeout> | null = null;
@@ -39,10 +40,7 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   }
 
   render() {
-    const children = this.props.children as (
-      debouncer: Function,
-      cancelDebounce: Function,
-    ) => JSX.Element;
+    const { children } = this.props;
 
     if (!!children) {
       return children(this.debouncer, this.cancelDebounce);

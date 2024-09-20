@@ -1,8 +1,15 @@
 import { SuomifiTheme } from 'core/theme';
 import { css } from 'styled-components';
 import { font } from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const LinkListStyles = (theme: SuomifiTheme) => css`
+export const LinkListStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   &.fi-link-list {
     padding: 0;
     margin: 5px 0 0 0;

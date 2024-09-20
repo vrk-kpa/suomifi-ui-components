@@ -1,11 +1,18 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element } from '../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
+  ${element(theme)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
+
   &.fi-language-menu {
-    ${element(theme)}
-
     .fi-language-menu_button {
       ${element(theme)}
       ${theme.typography.actionElementInnerTextBold}

@@ -315,6 +315,10 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   outline: 3px solid transparent;
 }
 
+.c1.fi-toggle--button > button .fi-text {
+  margin: 0;
+}
+
 <span
   class="c0 c1 fi-toggle fi-toggle--button fi-toggle_label"
 >

@@ -1,13 +1,21 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element } from '../../theme/reset';
+import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${element(theme)}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
 
   & .fi-checkbox-group_legend {
-    margin-bottom: 10px;
-
+    &--with-margin {
+      margin-bottom: ${theme.spacing.xs};
+    }
     .fi-hint-text {
       margin-bottom: 0;
     }

@@ -1,9 +1,16 @@
 import { font } from '../../../theme/reset';
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
+import { MarginProps, buildSpacingCSS } from '../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (
+  theme: SuomifiTheme,
+  globalMargins?: MarginProps,
+  propMargins?: MarginProps,
+) => css`
   ${font(theme)('bodyText')}
+  ${buildSpacingCSS(globalMargins)}
+  ${buildSpacingCSS(propMargins, true)}
   &.fi-service-navigation {
     &--small-screen {
       background: ${theme.colors.highlightLight3};

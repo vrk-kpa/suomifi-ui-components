@@ -10,17 +10,25 @@ import {
 } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import {
-  spacingStyles,
+  SpacingConsumer,
+  SuomifiThemeConsumer,
+  SuomifiThemeProp,
+} from '../../theme';
+import {
   separateMarginProps,
   MarginProps,
+  GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HintText } from '../HintText/HintText';
-import { RadioButtonGroupConsumer } from './RadioButtonGroup';
+import {
+  RadioButtonGroupConsumer,
+  RadioButtonGroupStatus,
+} from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 import { IconRadioButton, IconRadioButtonLarge } from 'suomifi-icons';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 
 const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
@@ -33,6 +41,7 @@ const radioButtonClassNames = {
   disabled: `${baseClassName}--disabled`,
   large: `${baseClassName}--large`,
   checked: `${baseClassName}--checked`,
+  error: `${baseClassName}--error`,
 };
 
 export interface RadioButtonProps
@@ -59,6 +68,15 @@ export interface RadioButtonProps
    * @default small
    */
   variant?: 'small' | 'large';
+  /**
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the input.
+   * Always use a descriptive `statusText` with an error status.
+   * Inherited from RadioButtonGroup.
+   * @default default
+   */
+  status?: RadioButtonGroupStatus;
   /** Checked state, overridden by RadioButtonGroup. */
   checked?: boolean;
   /** Default checked state for uncontrolled use, overridden by RadioButtonGroup. */
@@ -102,6 +120,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       variant,
       checked,
       defaultChecked,
+      status,
       children,
       value,
       hintText,
@@ -112,8 +131,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       style,
       ...rest
     } = this.props;
-    const [marginProps, passProps] = separateMarginProps(rest);
-    const marginStyle = spacingStyles(marginProps);
+    const [_marginProps, passProps] = separateMarginProps(rest);
 
     if (!children) {
       getLogger().error(
@@ -136,9 +154,10 @@ class BaseRadioButton extends Component<RadioButtonProps> {
             [radioButtonClassNames.disabled]: disabled,
             [radioButtonClassNames.large]: variant === 'large',
             [radioButtonClassNames.checked]: checked,
+            [radioButtonClassNames.error]: status === 'error' && !disabled,
           },
         )}
-        style={{ ...marginStyle, ...style }}
+        style={style}
       >
         <HtmlInput
           className={radioButtonClassNames.input}
@@ -161,7 +180,10 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           {variant === 'large' ? (
             <IconRadioButtonLarge className={radioButtonClassNames.icon} />
           ) : (
-            <IconRadioButton className={radioButtonClassNames.icon} />
+            <IconRadioButton
+              className={radioButtonClassNames.icon}
+              baseColor="alertBase"
+            />
           )}
         </HtmlSpan>
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
@@ -176,49 +198,73 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 }
 
 const StyledRadioButton = styled(
-  ({ theme, ...passProps }: RadioButtonProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: RadioButtonProps & SuomifiThemeProp & GlobalMarginProps) => (
     <BaseRadioButton {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.radioButton,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const RadioButton = forwardRef(
   (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
-    const { id: propId, onChange, ...passProps } = props;
+    const { id: propId, onChange, status: propStatus, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <RadioButtonGroupConsumer>
-                {({ onRadioButtonChange, selectedValue, name }) => (
-                  <StyledRadioButton
-                    theme={suomifiTheme}
-                    id={id}
-                    forwardedRef={ref}
-                    {...passProps}
-                    {...(!!onRadioButtonChange
-                      ? {
-                          checked: selectedValue === passProps.value,
-                          name,
-                        }
-                      : {})}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      if (!!onRadioButtonChange) {
-                        onRadioButtonChange(event.target.value);
-                      }
-                      if (!!onChange) {
-                        onChange(event);
-                      }
-                    }}
-                  />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <RadioButtonGroupConsumer>
+                    {({
+                      onRadioButtonChange,
+                      selectedValue,
+                      name,
+                      groupStatus,
+                    }) => (
+                      <StyledRadioButton
+                        theme={suomifiTheme}
+                        id={id}
+                        forwardedRef={ref}
+                        globalMargins={margins}
+                        status={!!propStatus ? propStatus : groupStatus}
+                        {...passProps}
+                        {...(!!onRadioButtonChange
+                          ? {
+                              checked: selectedValue === passProps.value,
+                              name,
+                            }
+                          : {})}
+                        onChange={(
+                          event: React.ChangeEvent<HTMLInputElement>,
+                        ) => {
+                          if (!!onRadioButtonChange) {
+                            onRadioButtonChange(event.target.value);
+                          }
+                          if (!!onChange) {
+                            onChange(event);
+                          }
+                        }}
+                      />
+                    )}
+                  </RadioButtonGroupConsumer>
                 )}
-              </RadioButtonGroupConsumer>
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );

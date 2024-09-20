@@ -13,6 +13,7 @@ export const baseStyles = (
   }
 
   & .fi-date-selectors_year-select {
+    margin: 0;
     margin-right: ${theme.spacing.xs};
     width: ${yearSelectWidth}px;
     .fi-dropdown_button {
@@ -21,6 +22,7 @@ export const baseStyles = (
   }
 
   & .fi-date-selectors_month-select {
+    margin: 0;
     margin-right: ${theme.spacing.xxs};
     width: ${monthSelectWidth}px;
     .fi-dropdown_button {

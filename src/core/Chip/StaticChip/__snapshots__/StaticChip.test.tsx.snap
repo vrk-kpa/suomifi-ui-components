@@ -95,6 +95,12 @@ exports[`children should match snapshot 1`] = `
   background: hsl(202,7%,67%);
 }
 
+@media screen and (forced-colors:active) {
+  .c1.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
+}
+
 <div>
   <span
     class="c0 fi-chip c1"
@@ -207,6 +213,12 @@ exports[`classnames should match snapshot 1`] = `
   background: hsl(202,7%,67%);
 }
 
+@media screen and (forced-colors:active) {
+  .c1.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
+}
+
 <div>
   <span
     class="c0 fi-chip c1 custom-class"
@@ -313,6 +325,12 @@ exports[`disabled should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
+}
+
+@media screen and (forced-colors:active) {
+  .c1.fi-chip--disabled.fi-chip {
+    color: GrayText;
+  }
 }
 
 <div>

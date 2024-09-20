@@ -846,6 +846,12 @@ exports[`has matching snapshot 1`] = `
   width: 290px;
 }
 
+.c1 .fi-label,
+.c1 .fi-hint-text,
+.c1 .fi-status-text {
+  margin: 0;
+}
+
 .c1.fi-single-select .fi-filter-input_input {
   padding-right: 36px;
 }
@@ -854,10 +860,20 @@ exports[`has matching snapshot 1`] = `
   padding-right: 73px;
 }
 
+.c1.fi-single-select--full-width {
+  width: 100%;
+}
+
 .c1.fi-single-select--open .fi-filter-input_input {
   border-bottom: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+@media (forced-colors:active) {
+  .c18.fi-select-item .fi-select-item--query_highlight {
+    background-color: Highlight;
+  }
 }
 
 @media (forced-colors:active) {
