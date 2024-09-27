@@ -245,6 +245,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   focusedDescendantId: string | null;
   selectedItems: Array<T & MultiSelectData>;
   chipRemovalAnnounceText: string;
+  shouldFilter: boolean;
 }
 
 class BaseMultiSelect<T> extends Component<
@@ -281,6 +282,7 @@ class BaseMultiSelect<T> extends Component<
       : this.props.defaultSelectedItems || [],
     chipRemovalAnnounceText: '',
     computedItems: this.props.items,
+    shouldFilter: false,
   };
 
   static getDerivedStateFromProps<U>(
@@ -501,6 +503,7 @@ class BaseMultiSelect<T> extends Component<
 
     switch (event.key) {
       case 'ArrowDown': {
+        event.preventDefault();
         this.setState({ showPopover: true });
         const nextItem =
           this.props.allowItemAddition &&
@@ -513,12 +516,17 @@ class BaseMultiSelect<T> extends Component<
               }
             : getNextItem();
         if (nextItem) {
-          this.setState({ focusedDescendantId: nextItem.uniqueItemId });
+          this.setState({
+            focusedDescendantId: nextItem.uniqueItemId,
+            filterInputValue: nextItem.labelText,
+            shouldFilter: false,
+          });
         }
         break;
       }
 
       case 'ArrowUp': {
+        event.preventDefault();
         this.setState({ showPopover: true });
         const previousItem =
           this.props.allowItemAddition &&
@@ -531,7 +539,11 @@ class BaseMultiSelect<T> extends Component<
               }
             : getPreviousItem();
         if (previousItem) {
-          this.setState({ focusedDescendantId: previousItem.uniqueItemId });
+          this.setState({
+            focusedDescendantId: previousItem.uniqueItemId,
+            filterInputValue: previousItem.labelText,
+            shouldFilter: false,
+          });
         }
         break;
       }
@@ -575,6 +587,7 @@ class BaseMultiSelect<T> extends Component<
       }
 
       default: {
+        this.setState({ shouldFilter: true });
         break;
       }
     }
@@ -624,6 +637,7 @@ class BaseMultiSelect<T> extends Component<
       filterInputValue,
       chipRemovalAnnounceText,
       computedItems,
+      shouldFilter,
     } = this.state;
 
     const {
@@ -711,6 +725,7 @@ class BaseMultiSelect<T> extends Component<
                   optionalText={optionalText}
                   hintText={hintText}
                   items={computedItems}
+                  shouldFilter={shouldFilter}
                   onFilter={(filtered) => {
                     this.setState(
                       (prevState: MultiSelectState<T & MultiSelectData>) => {
@@ -809,7 +824,9 @@ class BaseMultiSelect<T> extends Component<
                                   consumer.updatePopover();
                                 }}
                                 hightlightQuery={
-                                  this.filterInputRef.current?.value
+                                  shouldFilter
+                                    ? this.filterInputRef.current?.value
+                                    : ''
                                 }
                                 {...item.listItemProps}
                               >

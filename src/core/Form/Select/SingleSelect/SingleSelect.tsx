@@ -191,6 +191,7 @@ interface SingleSelectState<T extends SingleSelectData> {
   focusedDescendantId: string | null;
   selectedItem: (T & SingleSelectData) | null;
   initialItems: T[];
+  shouldFilter: boolean;
 }
 
 class BaseSingleSelect<T> extends Component<
@@ -234,6 +235,7 @@ class BaseSingleSelect<T> extends Component<
       : this.props.defaultSelectedItem || null,
     initialItems: this.props.items,
     computedItems: this.props.items,
+    shouldFilter: false,
   };
 
   static getDerivedStateFromProps<U>(
@@ -426,6 +428,7 @@ class BaseSingleSelect<T> extends Component<
 
     switch (event.key) {
       case 'ArrowDown': {
+        event.preventDefault();
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
@@ -440,12 +443,17 @@ class BaseSingleSelect<T> extends Component<
               }
             : getNextItem();
         if (nextItem) {
-          this.setState({ focusedDescendantId: nextItem.uniqueItemId });
+          this.setState({
+            focusedDescendantId: nextItem.uniqueItemId,
+            filterInputValue: nextItem.labelText,
+            shouldFilter: false,
+          });
         }
         break;
       }
 
       case 'ArrowUp': {
+        event.preventDefault();
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
@@ -460,7 +468,11 @@ class BaseSingleSelect<T> extends Component<
               }
             : getPreviousItem();
         if (previousItem) {
-          this.setState({ focusedDescendantId: previousItem.uniqueItemId });
+          this.setState({
+            focusedDescendantId: previousItem.uniqueItemId,
+            filterInputValue: previousItem.labelText,
+            shouldFilter: false,
+          });
         }
         break;
       }
@@ -497,6 +509,7 @@ class BaseSingleSelect<T> extends Component<
       }
 
       default: {
+        this.setState({ shouldFilter: true });
         break;
       }
     }
@@ -526,6 +539,7 @@ class BaseSingleSelect<T> extends Component<
       filterInputValue,
       selectedItem,
       computedItems,
+      shouldFilter,
     } = this.state;
 
     const {
@@ -598,6 +612,7 @@ class BaseSingleSelect<T> extends Component<
               optionalText={optionalText}
               hintText={hintText}
               items={computedItems}
+              shouldFilter={shouldFilter}
               onFilter={(filtered) => {
                 if (this.state.filterMode) {
                   this.setState(
@@ -720,7 +735,9 @@ class BaseSingleSelect<T> extends Component<
                           this.handleItemSelection(item);
                         }}
                         hightlightQuery={
-                          filterMode ? this.filterInputRef.current?.value : ''
+                          filterMode && shouldFilter
+                            ? this.filterInputRef.current?.value
+                            : ''
                         }
                         {...item.listItemProps}
                       >

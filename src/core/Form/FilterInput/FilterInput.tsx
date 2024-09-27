@@ -84,6 +84,7 @@ interface InternalFilterInputProps<T>
   children?: ReactNode;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
+  shouldFilter?: boolean;
 }
 
 interface InnerRef {
@@ -97,8 +98,11 @@ export interface FilterInputProps extends InternalFilterInputProps<any> {
 
 class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
   componentDidUpdate(prevProps: FilterInputProps) {
+    console.log(this.props.shouldFilter);
     if (
-      (!!this.props.onFilter && prevProps.value !== this.props.value) ||
+      (!!this.props.onFilter &&
+        prevProps.value !== this.props.value &&
+        this.props.shouldFilter) ||
       prevProps.items !== this.props.items
     ) {
       const value = !!this.props.value ? this.props.value.toString() : '';
@@ -143,6 +147,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       onChange: propOnChange,
       children,
       tooltipComponent,
+      shouldFilter,
       ...passProps
     } = this.props;
 
