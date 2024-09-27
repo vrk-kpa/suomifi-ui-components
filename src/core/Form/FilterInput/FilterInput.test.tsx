@@ -226,6 +226,7 @@ describe('props', () => {
           items={tools}
           onFilter={mockedOnFilter}
           filterFunc={filter}
+          shouldFilter={true}
         />,
       );
       const inputField = getByRole('textbox') as HTMLInputElement;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, act, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../../utils/test/axe';
 import { SingleSelect, SingleSelectData } from './SingleSelect';
 
@@ -235,7 +236,7 @@ describe('filter', () => {
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
-    fireEvent.change(input, { target: { value: 'h' } });
+    await userEvent.type(input, 'h');
     expect(input).toHaveValue('h');
     const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(4);
@@ -253,7 +254,7 @@ describe('filter', () => {
       />,
     );
     const input = getByRole('textbox');
-    fireEvent.change(input, { target: { value: 'h' } });
+    await userEvent.type(input, 'h');
     expect(input).toHaveValue('h');
     const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(4);
@@ -444,9 +445,7 @@ describe('custom item addition mode', () => {
       />,
     );
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'hamm' } });
-    });
+    await userEvent.type(input, 'hamm');
 
     const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(4);
@@ -505,9 +504,7 @@ describe('ariaOptionsAvailable', () => {
       />,
     );
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'M' } });
-    });
+    await userEvent.type(input, 'M');
     const ariaText = getByText(`2 Options available`);
     expect(ariaText).toBeInTheDocument();
   });
@@ -528,14 +525,11 @@ describe('ariaOptionsAvailable', () => {
       />,
     );
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'V' } });
-    });
+    await userEvent.type(input, 'V');
     const ariaText = getByText(`There is 1 option available`);
     expect(ariaText).toBeInTheDocument();
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'M' } });
-    });
+    await userEvent.clear(input);
+    await userEvent.type(input, 'M');
     expect(ariaText).toHaveTextContent('There are 2 options available');
   });
 });
