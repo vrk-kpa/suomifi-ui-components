@@ -501,9 +501,11 @@ class BaseSingleSelect<T> extends Component<
         if (this.state.showPopover) {
           event.stopPropagation();
         }
-        if (!this.state.selectedItem) {
-          this.setState({ filterInputValue: '' });
-        }
+        this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
+          filterInputValue: prevState.selectedItem
+            ? prevState.selectedItem.labelText
+            : '',
+        }));
         this.focusToInputAndCloseMenu();
         break;
       }
