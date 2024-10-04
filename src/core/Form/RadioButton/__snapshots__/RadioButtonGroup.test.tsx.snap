@@ -12,7 +12,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -70,7 +68,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -79,8 +76,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -97,7 +94,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -112,8 +108,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -128,7 +124,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -137,8 +132,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -153,7 +148,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -162,8 +156,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -178,7 +172,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -191,17 +184,13 @@ exports[`default, with only required props should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -212,7 +201,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -251,11 +240,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -264,7 +249,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -274,24 +259,22 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -329,7 +312,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -345,30 +328,26 @@ exports[`default, with only required props should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -383,7 +362,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -408,7 +387,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -417,29 +396,29 @@ exports[`default, with only required props should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -447,35 +426,35 @@ exports[`default, with only required props should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -489,19 +468,19 @@ exports[`default, with only required props should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -705,7 +684,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -718,8 +696,8 @@ exports[`props className should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -734,7 +712,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -747,8 +724,8 @@ exports[`props className should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -763,7 +740,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -772,8 +748,8 @@ exports[`props className should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -790,7 +766,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -805,8 +780,8 @@ exports[`props className should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -821,7 +796,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -830,8 +804,8 @@ exports[`props className should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -846,7 +820,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -855,8 +828,8 @@ exports[`props className should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -871,7 +844,6 @@ exports[`props className should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -884,17 +856,13 @@ exports[`props className should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -905,7 +873,7 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -944,11 +912,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -957,7 +921,7 @@ exports[`props className should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -967,24 +931,22 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1022,7 +984,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1038,30 +1000,26 @@ exports[`props className should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1076,7 +1034,7 @@ exports[`props className should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1101,7 +1059,7 @@ exports[`props className should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -1110,29 +1068,29 @@ exports[`props className should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -1140,35 +1098,35 @@ exports[`props className should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -1182,19 +1140,19 @@ exports[`props className should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -1398,7 +1356,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1411,8 +1368,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -1427,7 +1384,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1440,8 +1396,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1456,7 +1412,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1465,8 +1420,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -1483,7 +1438,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1498,8 +1452,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -1514,7 +1468,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1523,8 +1476,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -1539,7 +1492,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1548,8 +1500,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -1564,7 +1516,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1577,17 +1528,13 @@ exports[`props defaultValue should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1598,7 +1545,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1637,11 +1584,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1650,7 +1593,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1660,24 +1603,22 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1715,7 +1656,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1731,30 +1672,26 @@ exports[`props defaultValue should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1769,7 +1706,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1794,7 +1731,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -1803,29 +1740,29 @@ exports[`props defaultValue should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -1833,35 +1770,35 @@ exports[`props defaultValue should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -1875,19 +1812,19 @@ exports[`props defaultValue should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -2092,7 +2029,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2105,8 +2041,8 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -2121,7 +2057,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2134,8 +2069,8 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2150,7 +2085,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2159,8 +2093,8 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -2177,7 +2111,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2192,8 +2125,8 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c9::before,
-.c9::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -2208,7 +2141,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2217,8 +2149,8 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c11::before,
-.c11::after {
+.c11 ::before,
+.c11 ::after {
   box-sizing: border-box;
 }
 
@@ -2233,7 +2165,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2242,8 +2173,8 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -2258,7 +2189,6 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2271,14 +2201,13 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c6 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -2289,11 +2218,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2304,7 +2229,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2367,11 +2292,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c12 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2380,7 +2301,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2390,24 +2311,22 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c12.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c12.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c12.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2445,7 +2364,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -2461,30 +2380,26 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c8 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2499,7 +2414,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 .c8.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -2524,7 +2439,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   left: 2px;
 }
 
-.c8.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -2533,29 +2448,29 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   position: absolute;
 }
 
-.c8.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c8.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c8.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c8.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c8.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c8.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -2563,35 +2478,35 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c8.fi-radio-button--large .fi-radio-button_hintText {
@@ -2605,19 +2520,19 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   width: 30px;
 }
 
-.c8.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c8.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c8.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c8.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c8.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -2844,7 +2759,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2857,8 +2771,8 @@ exports[`props hintText should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -2873,7 +2787,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2886,8 +2799,8 @@ exports[`props hintText should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2902,7 +2815,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2911,8 +2823,8 @@ exports[`props hintText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -2929,7 +2841,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2944,8 +2855,8 @@ exports[`props hintText should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c9::before,
-.c9::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -2960,7 +2871,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2969,8 +2879,8 @@ exports[`props hintText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c11::before,
-.c11::after {
+.c11 ::before,
+.c11 ::after {
   box-sizing: border-box;
 }
 
@@ -2985,7 +2895,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2994,8 +2903,8 @@ exports[`props hintText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -3010,7 +2919,6 @@ exports[`props hintText should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3023,18 +2931,14 @@ exports[`props hintText should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c6 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3050,11 +2954,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3065,7 +2965,7 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -3104,11 +3004,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c12 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3117,7 +3013,7 @@ exports[`props hintText should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -3127,24 +3023,22 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c12.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c12.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c12.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3182,7 +3076,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3198,30 +3092,26 @@ exports[`props hintText should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c8 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3236,7 +3126,7 @@ exports[`props hintText should match snapshot 1`] = `
 .c8.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3261,7 +3151,7 @@ exports[`props hintText should match snapshot 1`] = `
   left: 2px;
 }
 
-.c8.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -3270,29 +3160,29 @@ exports[`props hintText should match snapshot 1`] = `
   position: absolute;
 }
 
-.c8.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c8.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c8.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c8.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c8.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c8.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -3300,35 +3190,35 @@ exports[`props hintText should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c8.fi-radio-button--large .fi-radio-button_hintText {
@@ -3342,19 +3232,19 @@ exports[`props hintText should match snapshot 1`] = `
   width: 30px;
 }
 
-.c8.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c8.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c8.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c8.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c8.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -3563,7 +3453,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3576,8 +3465,8 @@ exports[`props id should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -3592,7 +3481,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3605,8 +3493,8 @@ exports[`props id should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -3621,7 +3509,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3630,8 +3517,8 @@ exports[`props id should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -3648,7 +3535,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3663,8 +3549,8 @@ exports[`props id should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -3679,7 +3565,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3688,8 +3573,8 @@ exports[`props id should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -3704,7 +3589,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3713,8 +3597,8 @@ exports[`props id should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -3729,7 +3613,6 @@ exports[`props id should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3742,17 +3625,13 @@ exports[`props id should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3763,7 +3642,7 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -3802,11 +3681,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3815,7 +3690,7 @@ exports[`props id should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -3825,24 +3700,22 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3880,7 +3753,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3896,30 +3769,26 @@ exports[`props id should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3934,7 +3803,7 @@ exports[`props id should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3959,7 +3828,7 @@ exports[`props id should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -3968,29 +3837,29 @@ exports[`props id should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -3998,35 +3867,35 @@ exports[`props id should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -4040,19 +3909,19 @@ exports[`props id should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -4256,7 +4125,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4269,8 +4137,8 @@ exports[`props label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -4285,7 +4153,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4298,8 +4165,8 @@ exports[`props label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -4314,7 +4181,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4323,8 +4189,8 @@ exports[`props label should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -4341,7 +4207,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4356,8 +4221,8 @@ exports[`props label should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -4372,7 +4237,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4381,8 +4245,8 @@ exports[`props label should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -4397,7 +4261,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4406,8 +4269,8 @@ exports[`props label should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -4422,7 +4285,6 @@ exports[`props label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4435,17 +4297,13 @@ exports[`props label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4456,7 +4314,7 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -4495,11 +4353,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4508,7 +4362,7 @@ exports[`props label should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -4518,24 +4372,22 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4573,7 +4425,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -4589,30 +4441,26 @@ exports[`props label should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4627,7 +4475,7 @@ exports[`props label should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -4652,7 +4500,7 @@ exports[`props label should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -4661,29 +4509,29 @@ exports[`props label should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -4691,35 +4539,35 @@ exports[`props label should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -4733,19 +4581,19 @@ exports[`props label should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -4949,7 +4797,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4962,8 +4809,8 @@ exports[`props labelMode should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -4978,7 +4825,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -4991,8 +4837,8 @@ exports[`props labelMode should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -5007,7 +4853,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5016,8 +4861,8 @@ exports[`props labelMode should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -5034,7 +4879,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5049,8 +4893,8 @@ exports[`props labelMode should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -5065,7 +4909,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5074,8 +4917,8 @@ exports[`props labelMode should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c11::before,
-.c11::after {
+.c11 ::before,
+.c11 ::after {
   box-sizing: border-box;
 }
 
@@ -5090,7 +4933,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5099,8 +4941,8 @@ exports[`props labelMode should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -5115,7 +4957,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5128,14 +4969,13 @@ exports[`props labelMode should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c9::before,
-.c9::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
 .c5 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -5146,11 +4986,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5161,7 +4997,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -5200,11 +5036,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c12 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5213,7 +5045,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -5223,24 +5055,22 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c12.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c12.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c12.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5278,7 +5108,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -5294,30 +5124,26 @@ exports[`props labelMode should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5332,7 +5158,7 @@ exports[`props labelMode should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -5357,7 +5183,7 @@ exports[`props labelMode should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -5366,29 +5192,29 @@ exports[`props labelMode should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -5396,35 +5222,35 @@ exports[`props labelMode should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -5438,19 +5264,19 @@ exports[`props labelMode should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -5654,7 +5480,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5667,8 +5492,8 @@ exports[`props name should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -5683,7 +5508,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5696,8 +5520,8 @@ exports[`props name should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -5712,7 +5536,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5721,8 +5544,8 @@ exports[`props name should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -5739,7 +5562,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5754,8 +5576,8 @@ exports[`props name should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -5770,7 +5592,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5779,8 +5600,8 @@ exports[`props name should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -5795,7 +5616,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5804,8 +5624,8 @@ exports[`props name should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -5820,7 +5640,6 @@ exports[`props name should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5833,17 +5652,13 @@ exports[`props name should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5854,7 +5669,7 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -5893,11 +5708,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5906,7 +5717,7 @@ exports[`props name should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -5916,24 +5727,22 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5971,7 +5780,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -5987,30 +5796,26 @@ exports[`props name should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6025,7 +5830,7 @@ exports[`props name should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -6050,7 +5855,7 @@ exports[`props name should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -6059,29 +5864,29 @@ exports[`props name should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -6089,35 +5894,35 @@ exports[`props name should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -6131,19 +5936,19 @@ exports[`props name should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
@@ -6347,7 +6152,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6360,8 +6164,8 @@ exports[`props value should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -6376,7 +6180,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6389,8 +6192,8 @@ exports[`props value should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -6405,7 +6208,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6414,8 +6216,8 @@ exports[`props value should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -6432,7 +6234,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6447,8 +6248,8 @@ exports[`props value should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -6463,7 +6264,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6472,8 +6272,8 @@ exports[`props value should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -6488,7 +6288,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6497,8 +6296,8 @@ exports[`props value should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -6513,7 +6312,6 @@ exports[`props value should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -6526,17 +6324,13 @@ exports[`props value should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6547,7 +6341,7 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -6586,11 +6380,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c11 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6599,7 +6389,7 @@ exports[`props value should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -6609,24 +6399,22 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c11.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c11.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c11.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6664,7 +6452,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-radio-button-group_hintText {
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -6680,30 +6468,26 @@ exports[`props value should match snapshot 1`] = `
   padding-left: 3px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button {
+.c1 .fi-radio-button-group_container>.fi-radio-button {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button:last-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button:last-child {
   margin-bottom: 0;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large {
   margin-bottom: 15px;
 }
 
-.c1 .fi-radio-button-group_container > .fi-radio-button--large:first-child {
+.c1 .fi-radio-button-group_container>.fi-radio-button--large:first-child {
   margin-top: 5px;
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6718,7 +6502,7 @@ exports[`props value should match snapshot 1`] = `
 .c7.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -6743,7 +6527,7 @@ exports[`props value should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -6752,29 +6536,29 @@ exports[`props value should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(212,63%,45%);
+.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
   top: -1px;
   left: -1px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -6782,35 +6566,35 @@ exports[`props value should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  fill: hsl(202,7%,97%);
-  stroke: hsl(202,7%,80%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202, 7%, 97%);
+  stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(202,7%,67%);
+.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
-  stroke: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
-  fill: hsl(3,59%,43%);
+.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c7.fi-radio-button--large .fi-radio-button_hintText {
@@ -6824,19 +6608,19 @@ exports[`props value should match snapshot 1`] = `
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper::after {
+.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;

@@ -16,7 +16,6 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   height: auto;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,8 +76,8 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -94,7 +92,6 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -107,17 +104,13 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -129,9 +122,9 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c5.fi-language-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   z-index: 888;
 }
@@ -145,16 +138,8 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   padding-bottom: 5px;
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -181,14 +166,14 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -200,13 +185,13 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -237,28 +222,22 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c1.fi-language-menu .fi-language-menu_button {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
   padding: 9px 10px;
   line-height: 24px;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   border: 1px solid transparent;
   border-radius: 2px;
   word-break: break-word;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -278,7 +257,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: hsl(212, 63%, 45%);
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus {
@@ -296,29 +275,29 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-language-menu .fi-language-menu_button:hover {
-  border-color: hsl(202,7%,80%);
+  border-color: hsl(202, 7%, 80%);
 }
 
 .c1.fi-language-menu .fi-language-menu_button--open {
-  border-color: hsl(202,7%,80%);
+  border-color: hsl(202, 7%, 80%);
 }
 
 .c6.fi-language-menu-item {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   margin: 5px 0;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   word-break: break-word;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   display: inline-block;
   width: 100%;
   padding: 0 20px 0 5px;
@@ -329,11 +308,11 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 .c6.fi-language-menu-item:focus,
 .c6.fi-language-menu-item:visited {
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c6.fi-language-menu-item--isHighlighted {
-  border-left-color: hsl(212,63%,45%);
+  border-left-color: hsl(212, 63%, 45%);
   position: relative;
 }
 
@@ -343,10 +322,10 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 
 .c6.fi-language-menu-item--selected {
   font-weight: bold;
-  border-left-color: hsl(212,63%,45%);
+  border-left-color: hsl(212, 63%, 45%);
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c6.fi-language-menu-item--isHighlighted:after {
     position: absolute;
     left: 1px;
@@ -458,7 +437,6 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -491,8 +469,8 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   height: auto;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -507,7 +485,6 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -520,8 +497,8 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -536,7 +513,6 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -549,17 +525,13 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -571,9 +543,9 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c5.fi-language-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   z-index: 888;
 }
@@ -587,16 +559,8 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   padding-bottom: 5px;
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -623,14 +587,14 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -642,13 +606,13 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c5 .fi-language-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -679,28 +643,22 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c1.fi-language-menu .fi-language-menu_button {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
   padding: 9px 10px;
   line-height: 24px;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   border: 1px solid transparent;
   border-radius: 2px;
   word-break: break-word;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -720,7 +678,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: hsl(212, 63%, 45%);
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus {
@@ -738,29 +696,29 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-language-menu .fi-language-menu_button:hover {
-  border-color: hsl(202,7%,80%);
+  border-color: hsl(202, 7%, 80%);
 }
 
 .c1.fi-language-menu .fi-language-menu_button--open {
-  border-color: hsl(202,7%,80%);
+  border-color: hsl(202, 7%, 80%);
 }
 
 .c6.fi-language-menu-item {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   margin: 5px 0;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   word-break: break-word;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   display: inline-block;
   width: 100%;
   padding: 0 20px 0 5px;
@@ -771,11 +729,11 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 .c6.fi-language-menu-item:focus,
 .c6.fi-language-menu-item:visited {
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c6.fi-language-menu-item--isHighlighted {
-  border-left-color: hsl(212,63%,45%);
+  border-left-color: hsl(212, 63%, 45%);
   position: relative;
 }
 
@@ -785,10 +743,10 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 
 .c6.fi-language-menu-item--selected {
   font-weight: bold;
-  border-left-color: hsl(212,63%,45%);
+  border-left-color: hsl(212, 63%, 45%);
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c6.fi-language-menu-item--isHighlighted:after {
     position: absolute;
     left: 1px;

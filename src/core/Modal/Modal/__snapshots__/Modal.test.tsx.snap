@@ -2,12 +2,8 @@
 
 exports[`Basic modal should match snapshot 1`] = `
 .c0.fi-modal_base {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -25,45 +21,24 @@ exports[`Basic modal should match snapshot 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
 .c0 .fi-modal {
   border-radius: 4px;
-  background-color: hsl(0,0%,100%);
-  border-top: 4px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border-top: 4px solid hsl(212, 63%, 45%);
   overflow: hidden;
   max-height: calc(100% - 50px);
   min-height: 230px;
   width: 800px;
   max-width: 100%;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
   align-items: stretch;
 }
 
@@ -73,7 +48,7 @@ exports[`Basic modal should match snapshot 1`] = `
 
 .c0 .fi-modal:focus-visible {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
 }
 
@@ -104,7 +79,6 @@ exports[`Basic modal should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -137,8 +111,8 @@ exports[`Basic modal should match snapshot 1`] = `
   height: auto;
 }
 
-.c9::before,
-.c9::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -153,7 +127,6 @@ exports[`Basic modal should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -166,8 +139,8 @@ exports[`Basic modal should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c1::before,
-.c1::after {
+.c1 ::before,
+.c1 ::after {
   box-sizing: border-box;
 }
 
@@ -182,7 +155,6 @@ exports[`Basic modal should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -195,8 +167,8 @@ exports[`Basic modal should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -211,7 +183,6 @@ exports[`Basic modal should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -224,18 +195,14 @@ exports[`Basic modal should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c2 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -247,19 +214,11 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c2.fi-modal_content {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   max-height: 100%;
   padding: 24px 30px 50px 30px;
   overflow-y: auto;
-  -webkit-scroll-padding-bottom: 75px;
-  -moz-scroll-padding-bottom: 75px;
-  -ms-scroll-padding-bottom: 75px;
   scroll-padding-bottom: 75px;
-  -webkit-scroll-padding-top: 75px;
-  -moz-scroll-padding-top: 75px;
-  -ms-scroll-padding-top: 75px;
   scroll-padding-top: 75px;
 }
 
@@ -276,12 +235,8 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -290,15 +245,11 @@ exports[`Basic modal should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c6.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -310,11 +261,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -326,11 +273,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -342,11 +285,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -358,11 +297,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -374,11 +309,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -390,11 +321,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -406,11 +333,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -422,11 +345,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -438,11 +357,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -454,11 +369,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -470,11 +381,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -486,11 +393,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -502,11 +405,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -518,11 +417,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -562,9 +457,9 @@ exports[`Basic modal should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -573,8 +468,6 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c7.fi-modal_footer {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   position: relative;
 }
@@ -586,7 +479,7 @@ exports[`Basic modal should match snapshot 1`] = `
   padding-left: 30px;
 }
 
-.c7.fi-modal_footer .fi-modal_footer_content > * {
+.c7.fi-modal_footer .fi-modal_footer_content>* {
   margin-top: 20px;
   margin-right: 15px;
 }
@@ -596,13 +489,13 @@ exports[`Basic modal should match snapshot 1`] = `
   height: 51px;
   width: 100%;
   top: -51px;
-  border-bottom: 1px solid hsl(202,7%,80%);
+  border-bottom: 1px solid hsl(202, 7%, 80%);
 }
 
 .c7.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
   height: 50px;
   margin: 0 20px 0 20px;
-  background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
+  background: linear-gradient(           0deg,           hsl(0, 0%, 100%),           rgba(255, 255, 255, 0)         );
 }
 
 .c7.fi-modal_footer--small-screen .fi-modal_footer_content {
@@ -611,7 +504,7 @@ exports[`Basic modal should match snapshot 1`] = `
   padding-left: 15px;
 }
 
-.c7.fi-modal_footer--small-screen .fi-modal_footer_content > * {
+.c7.fi-modal_footer--small-screen .fi-modal_footer_content>* {
   display: block;
   width: calc(100% - 15px);
   margin-top: 15px;
@@ -619,7 +512,6 @@ exports[`Basic modal should match snapshot 1`] = `
 
 .c8 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -630,12 +522,8 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c10 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -648,11 +536,11 @@ exports[`Basic modal should match snapshot 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -672,29 +560,26 @@ exports[`Basic modal should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c10:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c10:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c10.fi-button--disabled,
 .c10[disabled],
 .c10:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -711,18 +596,18 @@ exports[`Basic modal should match snapshot 1`] = `
 
 .c10.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c10.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c10.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c10.fi-button--inverted.fi-button--disabled,
@@ -734,41 +619,41 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c10.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c10.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c10.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c10.fi-button--secondary.fi-button--disabled,
 .c10.fi-button--secondary[disabled],
 .c10.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -776,26 +661,26 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c10.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c10.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c10.fi-button--secondary-noborder.fi-button--disabled,
 .c10.fi-button--secondary-noborder[disabled],
 .c10.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary-noborder.fi-button--icon-only {
@@ -803,42 +688,42 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c10.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c10.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c10.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c10.fi-button--secondary-light.fi-button--disabled,
 .c10.fi-button--secondary-light[disabled],
 .c10.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c10.fi-button--secondary-light.fi-button--icon-only {
@@ -846,36 +731,34 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c10.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c10.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c10.fi-button--secondary-light.fi-button--disabled,
 .c10.fi-button--secondary-light[disabled],
 .c10.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c10.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c10 > .fi-button_icon > .fi-icon {
+.c10>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c10 > .fi-button_icon--right > .fi-icon {
+.c10>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -884,15 +767,15 @@ exports[`Basic modal should match snapshot 1`] = `
   padding: 6px 11px;
 }
 
-.c10.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c10.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c10.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c10.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c10.fi-button--disabled > .fi-button_icon {
+.c10.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -901,22 +784,15 @@ exports[`Basic modal should match snapshot 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c10 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c10.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -926,7 +802,6 @@ exports[`Basic modal should match snapshot 1`] = `
 
 @media (prefers-reduced-motion) {
   .c10.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }

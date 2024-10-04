@@ -14,7 +14,6 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -29,8 +28,8 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -45,7 +44,6 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -70,7 +68,6 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -83,18 +80,14 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
 .c6 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -103,15 +96,11 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c6.fi-text--bold {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -123,11 +112,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c6.fi-text--lead {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -139,11 +124,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c6.fi-text--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -155,11 +136,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c6.fi-text--small-screen.fi-text--bold {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -171,11 +148,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c6.fi-text--small-screen.fi-text--lead {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -210,14 +183,12 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c5 .fi-icon-toggle-base {
-  stroke: hsl(201,7%,58%);
-  fill: hsl(0,0%,100%);
+  stroke: hsl(201, 7%, 58%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5 .fi-icon-toggle-knob {
-  fill: hsl(201,7%,46%);
-  -webkit-transform: translateX(-17px);
-  -ms-transform: translateX(-17px);
+  fill: hsl(201, 7%, 46%);
   transform: translateX(-17px);
 }
 
@@ -226,27 +197,25 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c5.fi-toggle_icon--checked .fi-icon-toggle-base {
-  stroke: hsl(201,7%,58%);
+  stroke: hsl(201, 7%, 58%);
 }
 
 .c5.fi-toggle_icon--checked .fi-icon-toggle-knob {
-  fill: hsl(166,90%,34%);
-  -webkit-transform: translateX(0px);
-  -ms-transform: translateX(0px);
+  fill: hsl(166, 90%, 34%);
   transform: translateX(0px);
 }
 
 .c5.fi-toggle_icon--checked .fi-icon-toggle-checkmark {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5.fi-toggle_icon--disabled .fi-icon-toggle-base {
-  stroke: hsl(202,7%,80%);
-  fill: hsl(202,7%,97%);
+  stroke: hsl(202, 7%, 80%);
+  fill: hsl(202, 7%, 97%);
 }
 
 .c5.fi-toggle_icon--disabled .fi-icon-toggle-knob {
-  fill: hsl(202,7%,80%);
+  fill: hsl(202, 7%, 80%);
 }
 
 .c5.fi-toggle_icon--disabled .fi-icon-toggle-checkmark {
@@ -254,16 +223,12 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c5.fi-toggle_icon--checked.fi-toggle_icon--disabled .fi-icon-toggle-checkmark {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -306,9 +271,9 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   border-radius: 14px;
   right: -4px;
@@ -321,12 +286,8 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c1 .fi-toggle_input-element {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -340,7 +301,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   height: 24px;
   opacity: 0;
   z-index: -9999;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 <span

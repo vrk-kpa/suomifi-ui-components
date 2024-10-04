@@ -12,7 +12,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,18 +24,14 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -49,12 +44,8 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -64,7 +55,7 @@ exports[`calling render with the same component on the same container does not r
   line-height: 1.5;
   font-weight: 400;
   margin: 0;
-  margin-bottom: 15px !important;
+  margin-bottom: 15px!important;
 }
 
 .c3 {
@@ -78,7 +69,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -91,18 +81,14 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c4 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -111,15 +97,11 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-text--bold {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -131,11 +113,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c4.fi-text--lead {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -147,11 +125,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c4.fi-text--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -163,11 +137,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c4.fi-text--small-screen.fi-text--bold {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -179,11 +149,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c4.fi-text--small-screen.fi-text--lead {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;

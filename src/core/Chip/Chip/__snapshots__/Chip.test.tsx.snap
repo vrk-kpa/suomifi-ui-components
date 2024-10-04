@@ -16,7 +16,6 @@ exports[`children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`children should match snapshot 1`] = `
   height: auto;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,18 +76,14 @@ exports[`children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -103,8 +97,8 @@ exports[`children should match snapshot 1`] = `
 .c1.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
   max-height: 100%;
   display: inline-block;
 }
@@ -124,9 +118,9 @@ exports[`children should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   border-radius: 16px;
 }
@@ -140,12 +134,12 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-chip--disabled.fi-chip {
   cursor: not-allowed;
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c1.fi-chip--button {
@@ -153,11 +147,11 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-chip--button:hover {
-  background: hsl(212,63%,49%);
+  background: hsl(212, 63%, 49%);
 }
 
 .c1.fi-chip--button:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c1.fi-chip--button:focus {
@@ -188,7 +182,7 @@ exports[`children should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-@media screen and (forced-colors:active) {
+@media screen and (forced-colors: active) {
   .c1.fi-chip--disabled.fi-chip {
     color: GrayText;
   }
@@ -229,7 +223,6 @@ exports[`classnames should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -262,8 +255,8 @@ exports[`classnames should match snapshot 1`] = `
   height: auto;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -278,7 +271,6 @@ exports[`classnames should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -291,18 +283,14 @@ exports[`classnames should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -316,8 +304,8 @@ exports[`classnames should match snapshot 1`] = `
 .c1.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
   max-height: 100%;
   display: inline-block;
 }
@@ -337,9 +325,9 @@ exports[`classnames should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   border-radius: 16px;
 }
@@ -353,12 +341,12 @@ exports[`classnames should match snapshot 1`] = `
 
 .c1.fi-chip--disabled.fi-chip {
   cursor: not-allowed;
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c1.fi-chip--button {
@@ -366,11 +354,11 @@ exports[`classnames should match snapshot 1`] = `
 }
 
 .c1.fi-chip--button:hover {
-  background: hsl(212,63%,49%);
+  background: hsl(212, 63%, 49%);
 }
 
 .c1.fi-chip--button:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c1.fi-chip--button:focus {
@@ -401,7 +389,7 @@ exports[`classnames should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-@media screen and (forced-colors:active) {
+@media screen and (forced-colors: active) {
   .c1.fi-chip--disabled.fi-chip {
     color: GrayText;
   }
@@ -438,7 +426,6 @@ exports[`disabled should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -471,8 +458,8 @@ exports[`disabled should match snapshot 1`] = `
   height: auto;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -487,7 +474,6 @@ exports[`disabled should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -500,18 +486,14 @@ exports[`disabled should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -525,8 +507,8 @@ exports[`disabled should match snapshot 1`] = `
 .c1.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
   max-height: 100%;
   display: inline-block;
 }
@@ -546,9 +528,9 @@ exports[`disabled should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   border-radius: 16px;
 }
@@ -562,12 +544,12 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip--disabled.fi-chip {
   cursor: not-allowed;
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c1.fi-chip--button {
@@ -575,11 +557,11 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-chip--button:hover {
-  background: hsl(212,63%,49%);
+  background: hsl(212, 63%, 49%);
 }
 
 .c1.fi-chip--button:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c1.fi-chip--button:focus {
@@ -610,7 +592,7 @@ exports[`disabled should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-@media screen and (forced-colors:active) {
+@media screen and (forced-colors: active) {
   .c1.fi-chip--disabled.fi-chip {
     color: GrayText;
   }

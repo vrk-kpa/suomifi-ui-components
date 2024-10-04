@@ -12,7 +12,6 @@ exports[`props children has matching snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`props children has matching snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -43,7 +42,6 @@ exports[`props children has matching snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -58,8 +56,8 @@ exports[`props children has matching snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -74,7 +72,6 @@ exports[`props children has matching snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -83,8 +80,8 @@ exports[`props children has matching snapshot 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -99,7 +96,6 @@ exports[`props children has matching snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -112,17 +108,13 @@ exports[`props children has matching snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -131,7 +123,7 @@ exports[`props children has matching snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -141,24 +133,22 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c5.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c5.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c5.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -191,9 +181,9 @@ exports[`props children has matching snapshot 1`] = `
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  border: 1px solid hsl(201,7%,58%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 .c1 .fi-checkbox_icon {
@@ -212,9 +202,9 @@ exports[`props children has matching snapshot 1`] = `
   left: -1px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   width: 20px;
   height: 20px;
@@ -229,7 +219,7 @@ exports[`props children has matching snapshot 1`] = `
 
 .c1 .fi-hint-text {
   padding-left: 25px;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
 }
 
 .c1 .fi-status-text {
@@ -253,7 +243,7 @@ exports[`props children has matching snapshot 1`] = `
   box-sizing: border-box;
   height: 30px;
   width: 30px;
-  color: hsl(201,7%,58%);
+  color: hsl(201, 7%, 58%);
   border: 2px solid;
 }
 
@@ -276,59 +266,59 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c1.fi-checkbox--checked .fi-checkbox_label::before {
-  border-color: hsl(212,63%,45%);
-  background-color: hsl(212,63%,45%);
+  border-color: hsl(212, 63%, 45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
-.c1.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(0,0%,100%);
+.c1.fi-checkbox--checked .fi-checkbox_label>.fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(0, 0%, 100%);
 }
 
 .c1.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label::before {
-  border-color: hsl(202,7%,80%);
-  background-color: hsl(202,7%,80%);
+  border-color: hsl(202, 7%, 80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
-.c1.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,97%);
+.c1.fi-checkbox--checked.fi-checkbox--disabled .fi-checkbox_label>.fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(202, 7%, 97%);
 }
 
 .c1.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label::before {
-  border-color: hsl(3,59%,43%);
-  background-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
+  background-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
-.c1.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(0,0%,100%);
+.c1.fi-checkbox--checked.fi-checkbox--error .fi-checkbox_label>.fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(0, 0%, 100%);
 }
 
 .c1.fi-checkbox--error .fi-checkbox_label::before {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
-.c1.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(3,59%,43%);
+.c1.fi-checkbox--error .fi-checkbox_label>.fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(3, 59%, 43%);
 }
 
 .c1.fi-checkbox--disabled .fi-checkbox_label {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-checkbox--disabled .fi-checkbox_label::before {
-  background-color: hsl(202,7%,97%);
-  border-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 97%);
+  border-color: hsl(202, 7%, 80%);
   border-width: 1px;
 }
 
-.c1.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,97%);
+.c1.fi-checkbox--disabled .fi-checkbox_label>.fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(202, 7%, 97%);
 }
 
 .c1.fi-checkbox--disabled .fi-hint-text {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {

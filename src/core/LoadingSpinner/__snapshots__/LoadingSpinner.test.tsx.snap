@@ -12,7 +12,6 @@ exports[`props snapshot should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`props snapshot should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,6 @@ exports[`props snapshot should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`props snapshot should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -76,12 +74,8 @@ exports[`props snapshot should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -112,13 +106,7 @@ exports[`props snapshot should match snapshot 1`] = `
 }
 
 .c1.fi-loadingSpinner.fi-loadingSpinner-textAlign--right {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -140,21 +128,19 @@ exports[`props snapshot should match snapshot 1`] = `
 }
 
 .c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c1.fi-loadingSpinner.fi-loadingSpinner--success .fi-icon-base-fill {
-  fill: hsl(166,90%,34%);
+  fill: hsl(166, 90%, 34%);
 }
 
 .c1.fi-loadingSpinner.fi-loadingSpinner--failed .fi-icon-base-fill {
-  fill: hsl(3,59%,43%);
+  fill: hsl(3, 59%, 43%);
 }
 
 @media (prefers-reduced-motion) {
   .c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }

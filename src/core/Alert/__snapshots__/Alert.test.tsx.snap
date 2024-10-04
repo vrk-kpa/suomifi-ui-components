@@ -16,7 +16,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`props children should match snapshot 1`] = `
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,8 +76,8 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -94,7 +92,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -107,8 +104,8 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -161,12 +158,8 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -179,13 +172,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert .fi-alert_style-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
   max-width: 1110px;
   margin: auto;
@@ -201,11 +188,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -238,26 +221,24 @@ exports[`props children should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button:active {
-  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 80%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button:hover {
-  border-color: hsl(0,0%,13%);
+  border-color: hsl(0, 0%, 13%);
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button .fi-icon {
   width: 14px;
   height: 14px;
   margin-left: 5px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
   transform: translateY(0.1em);
 }
 
@@ -266,12 +247,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_text-content-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 20px;
   margin: 15px auto 15px 0;
@@ -279,11 +255,7 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_text-content-wrapper .fi-alert_content {
   vertical-align: middle;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -295,29 +267,29 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert.fi-alert--neutral {
-  background-color: hsl(216,100%,96%);
+  background-color: hsl(216, 100%, 96%);
   border-bottom: 1px solid rgba(23,112,238,0.2);
 }
 
 .c1.fi-alert.fi-alert--neutral .fi-alert_style-wrapper .fi-alert_icon--neutral .fi-icon-base-fill {
-  fill: hsl(0,0%,13%);
+  fill: hsl(0, 0%, 13%);
 }
 
 .c1.fi-alert.fi-alert--error {
-  background-color: hsl(3,59%,43%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(3, 59%, 43%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c1.fi-alert.fi-alert--error .fi-alert_style-wrapper .fi-alert_icon--error .fi-icon-base-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c1.fi-alert.fi-alert--warning {
-  background-color: hsl(42,93%,50%);
+  background-color: hsl(42, 93%, 50%);
 }
 
 .c1.fi-alert.fi-alert--warning .fi-alert_style-wrapper .fi-alert_icon--warning .fi-icon-base-fill {
-  fill: hsl(0,0%,13%);
+  fill: hsl(0, 0%, 13%);
 }
 
 .c1.fi-alert.fi-alert--small-screen .fi-alert_style-wrapper {
