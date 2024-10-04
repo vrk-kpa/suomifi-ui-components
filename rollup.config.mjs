@@ -7,7 +7,7 @@ import cssImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 
 const typesTsConfig = {
   declaration: true,
