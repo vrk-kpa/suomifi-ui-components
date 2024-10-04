@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { SuomifiThemeConsumer } from '../../core/theme';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../core/theme';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './ThemeProps.baseStyles';
 
-const ThemePropsContainer = styled(({ children, theme, ...passProps }) => (
-  <div {...passProps}>{children}</div>
-))`
+const ThemePropsContainer = styled(
+  ({
+    children,
+    theme,
+    ...passProps
+  }: {
+    children: React.ReactNode;
+    theme: SuomifiTheme;
+    [key: string]: any;
+  }) => <div {...passProps}>{children}</div>,
+)`
   ${({ theme }) => baseStyles(theme)}
 `;
 type ValueType = { [key: string]: any };

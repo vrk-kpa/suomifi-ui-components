@@ -1,4 +1,4 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { css } from 'styled-components';
 import { cssValueToString } from './cssvalue';
 
 const camelToSnake = (string: string) =>
@@ -13,7 +13,7 @@ const camelToSnake = (string: string) =>
  *    fontSize: {value: 16, unit: 'px'};
  *  })
  */
-export const cssObjectToCss = <T>(object: T) => css`
+export const cssObjectToCss = <T extends Record<string, any>>(object: T) => css`
   ${Object.entries(object)
     .map(([key, value]) => `${camelToSnake(key)}: ${cssValueToString(value)};`)
     .join('')}
@@ -35,11 +35,18 @@ export const cssObjectToCss = <T>(object: T) => css`
  *     }
  *  })
  */
-export const cssObjectsToCss = <T, K extends keyof T>(tokens: T) =>
+export const cssObjectsToCss = <
+  T extends Record<string, any>,
+  K extends keyof T,
+>(
+  tokens: T,
+) =>
   Object.entries(tokens).reduce(
     (retObj, [key, value]) => ({
       ...retObj,
-      [key]: cssObjectToCss(value),
+      [key]: css`
+        ${cssObjectToCss(value)}
+      `,
     }),
-    {} as { [key in K]: FlattenSimpleInterpolation },
+    {} as { [key in K]: ReturnType<typeof css> },
   );
