@@ -4,7 +4,6 @@ import { default as styled } from 'styled-components';
 import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,
-  SuomifiTheme,
   SpacingConsumer,
 } from '../../theme';
 import {
@@ -21,6 +20,7 @@ import { filterDuplicateKeys } from '../../../utils/common/common';
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
   error: `${baseClassName}--error`,
+  success: `${baseClassName}--success`,
 };
 
 export interface StatusTextProps extends HtmlSpanProps, MarginProps {
@@ -49,16 +49,11 @@ export interface StatusTextProps extends HtmlSpanProps, MarginProps {
   forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
-const getIcon = (status: InputStatus | undefined, theme: SuomifiTheme) => {
+const getIcon = (status: InputStatus | undefined) => {
   if (status === undefined || status === 'default') return null;
   if (status === 'error') return <IconErrorFilled aria-hidden="true" />;
   if (status === 'success') {
-    return (
-      <IconCheckCircleFilled
-        aria-hidden="true"
-        color={theme.colors.successBase}
-      />
-    );
+    return <IconCheckCircleFilled aria-hidden="true" />;
   }
 };
 
@@ -85,11 +80,12 @@ const StyledStatusText = styled(
         {...ariaLiveProp}
         className={classnames(className, baseClassName, {
           [statusTextClassNames.error]: status === 'error',
+          [statusTextClassNames.success]: status === 'success',
         })}
         aria-atomic="true"
         style={{ ...passProps?.style }}
       >
-        {!!children && getIcon(status, theme)}
+        {!!children && getIcon(status)}
         {children}
       </HtmlSpan>
     );
