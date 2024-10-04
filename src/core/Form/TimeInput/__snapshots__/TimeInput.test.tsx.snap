@@ -12,7 +12,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -72,7 +70,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -87,8 +84,8 @@ exports[`snapshots match error status with statustext 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -103,7 +100,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -116,17 +112,13 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -137,7 +129,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -176,11 +168,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -189,7 +177,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -199,23 +187,21 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -234,11 +220,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1 .fi-time-input_character-counter {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -247,22 +229,16 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
   flex: none;
   margin-top: 4px;
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,43%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(3, 59%, 43%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -276,13 +252,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1 .fi-time-input_bottom-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -307,14 +277,14 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 60px;
 }
 
-.c1 .fi-time-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-time-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-time-input_input-element-container:focus-within > input:focus {
+.c1 .fi-time-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -333,19 +303,15 @@ exports[`snapshots match error status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-time-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -355,35 +321,17 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   height: 40px;
   padding: 10px;
-  border-color: hsl(201,7%,58%);
-}
-
-.c1 .fi-time-input_input::-webkit-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input::-moz-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input:-ms-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
+  border-color: hsl(201, 7%, 58%);
 }
 
 .c1 .fi-time-input_input::placeholder {
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
   text-align: center;
 }
@@ -417,26 +365,26 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--success .fi-time-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--disabled .fi-time-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-time-input--disabled .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 <div
@@ -509,7 +457,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -522,8 +469,8 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -538,7 +485,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -551,8 +497,8 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -569,7 +515,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -584,8 +529,8 @@ exports[`snapshots match hidden label 1`] = `
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -600,7 +545,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -613,14 +557,13 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c5 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -631,11 +574,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -646,7 +585,7 @@ exports[`snapshots match hidden label 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -661,11 +600,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -674,7 +609,7 @@ exports[`snapshots match hidden label 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -684,23 +619,21 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -719,11 +652,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1 .fi-time-input_character-counter {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -732,22 +661,16 @@ exports[`snapshots match hidden label 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
   flex: none;
   margin-top: 4px;
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,43%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(3, 59%, 43%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -761,13 +684,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1 .fi-time-input_bottom-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -792,14 +709,14 @@ exports[`snapshots match hidden label 1`] = `
   width: 60px;
 }
 
-.c1 .fi-time-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-time-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-time-input_input-element-container:focus-within > input:focus {
+.c1 .fi-time-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -818,19 +735,15 @@ exports[`snapshots match hidden label 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-time-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -840,35 +753,17 @@ exports[`snapshots match hidden label 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   height: 40px;
   padding: 10px;
-  border-color: hsl(201,7%,58%);
-}
-
-.c1 .fi-time-input_input::-webkit-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input::-moz-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input:-ms-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
+  border-color: hsl(201, 7%, 58%);
 }
 
 .c1 .fi-time-input_input::placeholder {
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
   text-align: center;
 }
@@ -902,26 +797,26 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--success .fi-time-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--disabled .fi-time-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-time-input--disabled .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 <div
@@ -975,7 +870,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -988,8 +882,8 @@ exports[`snapshots match hint text 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1004,7 +898,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1017,8 +910,8 @@ exports[`snapshots match hint text 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -1035,7 +928,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1050,8 +942,8 @@ exports[`snapshots match hint text 1`] = `
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -1066,7 +958,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1079,17 +970,13 @@ exports[`snapshots match hint text 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1100,7 +987,7 @@ exports[`snapshots match hint text 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1115,11 +1002,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1128,7 +1011,7 @@ exports[`snapshots match hint text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1138,24 +1021,22 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1171,11 +1052,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1194,11 +1071,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1 .fi-time-input_character-counter {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1207,22 +1080,16 @@ exports[`snapshots match hint text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
   flex: none;
   margin-top: 4px;
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,43%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(3, 59%, 43%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1236,13 +1103,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1 .fi-time-input_bottom-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -1267,14 +1128,14 @@ exports[`snapshots match hint text 1`] = `
   width: 60px;
 }
 
-.c1 .fi-time-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-time-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-time-input_input-element-container:focus-within > input:focus {
+.c1 .fi-time-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -1293,19 +1154,15 @@ exports[`snapshots match hint text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-time-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1315,35 +1172,17 @@ exports[`snapshots match hint text 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   height: 40px;
   padding: 10px;
-  border-color: hsl(201,7%,58%);
-}
-
-.c1 .fi-time-input_input::-webkit-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input::-moz-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input:-ms-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
+  border-color: hsl(201, 7%, 58%);
 }
 
 .c1 .fi-time-input_input::placeholder {
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
   text-align: center;
 }
@@ -1377,26 +1216,26 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--success .fi-time-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--disabled .fi-time-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-time-input--disabled .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 <body>
@@ -1461,7 +1300,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1474,8 +1312,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1490,7 +1328,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1503,8 +1340,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -1521,7 +1358,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1536,8 +1372,8 @@ exports[`snapshots match minimal implementation 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -1552,7 +1388,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1565,17 +1400,13 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1586,7 +1417,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1601,11 +1432,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1614,7 +1441,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1624,23 +1451,21 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1659,11 +1484,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1 .fi-time-input_character-counter {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1672,22 +1493,16 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
   flex: none;
   margin-top: 4px;
 }
 
 .c1 .fi-time-input_character-counter.fi-time-input_character-counter--error {
-  color: hsl(3,59%,43%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(3, 59%, 43%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1701,13 +1516,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1 .fi-time-input_bottom-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -1732,14 +1541,14 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 60px;
 }
 
-.c1 .fi-time-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-time-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-time-input_input-element-container:focus-within > input:focus {
+.c1 .fi-time-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -1758,19 +1567,15 @@ exports[`snapshots match minimal implementation 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-time-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1780,35 +1585,17 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   height: 40px;
   padding: 10px;
-  border-color: hsl(201,7%,58%);
-}
-
-.c1 .fi-time-input_input::-webkit-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input::-moz-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
-}
-
-.c1 .fi-time-input_input:-ms-input-placeholder {
-  color: hsl(201,7%,46%);
-  opacity: 1;
-  text-align: center;
+  border-color: hsl(201, 7%, 58%);
 }
 
 .c1 .fi-time-input_input::placeholder {
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
   text-align: center;
 }
@@ -1842,26 +1629,26 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-time-input--error .fi-time-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--success .fi-time-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .c1.fi-time-input--disabled .fi-time-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-time-input--disabled .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 <div

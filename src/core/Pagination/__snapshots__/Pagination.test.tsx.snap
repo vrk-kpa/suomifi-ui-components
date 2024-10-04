@@ -88,7 +88,6 @@ exports[`snapshot should have matching default structure 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -121,8 +120,8 @@ exports[`snapshot should have matching default structure 1`] = `
   height: auto;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -137,7 +136,6 @@ exports[`snapshot should have matching default structure 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -150,8 +148,8 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -166,7 +164,6 @@ exports[`snapshot should have matching default structure 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -179,8 +176,8 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -197,7 +194,6 @@ exports[`snapshot should have matching default structure 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -212,8 +208,8 @@ exports[`snapshot should have matching default structure 1`] = `
   opacity: 0.54;
 }
 
-.c12::before,
-.c12::after {
+.c12 ::before,
+.c12 ::after {
   box-sizing: border-box;
 }
 
@@ -228,7 +224,6 @@ exports[`snapshot should have matching default structure 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -238,8 +233,8 @@ exports[`snapshot should have matching default structure 1`] = `
   max-width: 100%;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -254,7 +249,6 @@ exports[`snapshot should have matching default structure 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -267,14 +261,13 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c4 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -285,11 +278,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c14 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -298,7 +287,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -308,23 +297,21 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c14.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c14.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c14.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c11.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -335,7 +322,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -350,11 +337,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -384,29 +367,29 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c9 .fi-page-input_input-element-container {
-  background-color: hsl(0,0%,100%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 13%);
   width: 100%;
   height: 40px;
   box-sizing: border-box;
-  border: 1px solid hsl(201,7%,58%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
 }
 
-.c9 .fi-page-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c9 .fi-page-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c9 .fi-page-input_input-element-container:focus-within > input:focus {
+.c9 .fi-page-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
 .c9 .fi-page-input_input-element-container:focus-within {
   position: relative;
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   outline: 3px solid transparent;
 }
 
@@ -420,9 +403,9 @@ exports[`snapshot should have matching default structure 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   top: -3px;
   bottom: -3px;
@@ -430,17 +413,13 @@ exports[`snapshot should have matching default structure 1`] = `
   left: -3px;
 }
 
-.c9 .fi-page-input_input-element-container:focus-within > input:focus {
+.c9 .fi-page-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
 .c9 .fi-page-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -452,7 +431,7 @@ exports[`snapshot should have matching default structure 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   padding-top: 6px;
@@ -463,49 +442,20 @@ exports[`snapshot should have matching default structure 1`] = `
   min-height: 36px;
   margin-top: 1px;
   margin-bottom: 1px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
-}
-
-.c9 .fi-page-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c9 .fi-page-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c9 .fi-page-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c9 .fi-page-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c9 .fi-page-input_button {
   position: absolute;
   top: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   box-sizing: border-box;
   outline: none;
@@ -525,16 +475,16 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c9 .fi-page-input_button-icon .fi-icon-base-fill {
-  fill: hsl(202,7%,40%);
+  fill: hsl(202, 7%, 40%);
 }
 
 .c9.fi-page-input--error .fi-page-input_input-element-container {
-  border: 1px solid hsl(3,59%,43%);
+  border: 1px solid hsl(3, 59%, 43%);
   border-right: 0;
 }
 
 .c9.fi-page-input--error .fi-page-input_button {
-  border: 1px solid hsl(3,59%,43%);
+  border: 1px solid hsl(3, 59%, 43%);
   border-left: 0;
 }
 
@@ -547,7 +497,7 @@ exports[`snapshot should have matching default structure 1`] = `
 .c9.fi-page-input--not-empty .fi-page-input_button {
   cursor: pointer;
   pointer-events: all;
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
 }
 
 .c9.fi-page-input--not-empty .fi-page-input_button:focus:after {
@@ -560,32 +510,28 @@ exports[`snapshot should have matching default structure 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   outline: 3px solid transparent;
 }
 
 .c9.fi-page-input--not-empty .fi-page-input_button:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
 }
 
 .c9.fi-page-input--not-empty .fi-page-input_button:active {
-  background-color: hsl(212,63%,37%);
+  background-color: hsl(212, 63%, 37%);
 }
 
 .c9.fi-page-input--not-empty .fi-page-input_button .fi-page-input_button-icon .fi-icon-base-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c6 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -598,11 +544,11 @@ exports[`snapshot should have matching default structure 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -622,29 +568,26 @@ exports[`snapshot should have matching default structure 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c6:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c6:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c6.fi-button--disabled,
 .c6[disabled],
 .c6:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -661,18 +604,18 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c6.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c6.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c6.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c6.fi-button--inverted.fi-button--disabled,
@@ -684,41 +627,41 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c6.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c6.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c6.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c6.fi-button--secondary.fi-button--disabled,
 .c6.fi-button--secondary[disabled],
 .c6.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -726,26 +669,26 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c6.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c6.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c6.fi-button--secondary-noborder.fi-button--disabled,
 .c6.fi-button--secondary-noborder[disabled],
 .c6.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary-noborder.fi-button--icon-only {
@@ -753,42 +696,42 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c6.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c6.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c6.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c6.fi-button--secondary-light.fi-button--disabled,
 .c6.fi-button--secondary-light[disabled],
 .c6.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c6.fi-button--secondary-light.fi-button--icon-only {
@@ -796,36 +739,34 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c6.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c6.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c6.fi-button--secondary-light.fi-button--disabled,
 .c6.fi-button--secondary-light[disabled],
 .c6.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c6.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c6 > .fi-button_icon > .fi-icon {
+.c6>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c6 > .fi-button_icon--right > .fi-icon {
+.c6>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -834,15 +775,15 @@ exports[`snapshot should have matching default structure 1`] = `
   padding: 6px 11px;
 }
 
-.c6.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c6.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c6.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c6.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c6.fi-button--disabled > .fi-button_icon {
+.c6.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -851,22 +792,15 @@ exports[`snapshot should have matching default structure 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c6 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c6.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -875,12 +809,8 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -898,20 +828,11 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1.fi-pagination .fi-pagination_style-wrapper {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
 .c1.fi-pagination .fi-pagination_buttons-wrapper {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
@@ -924,21 +845,15 @@ exports[`snapshot should have matching default structure 1`] = `
   margin: 0;
 }
 
-.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button > .fi-button_icon > .fi-icon {
+.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button>.fi-button_icon>.fi-icon {
   margin-right: auto;
   margin-left: auto;
 }
 
 .c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_page-numbers {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  color: hsl(202,7%,40%);
+  color: hsl(202, 7%, 40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -957,23 +872,10 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1.fi-pagination--small-screen .fi-pagination_style-wrapper {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -985,13 +887,13 @@ exports[`snapshot should have matching default structure 1`] = `
   margin-right: 0;
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-page-input--not-empty .fi-page-input_button {
     border: solid 1px ButtonBorder;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-page-input--not-empty .fi-page-input_button .fi-page-input_button-icon .fi-icon-base-fill {
     fill: ButtonText;
   }
@@ -999,7 +901,6 @@ exports[`snapshot should have matching default structure 1`] = `
 
 @media (prefers-reduced-motion) {
   .c6.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
