@@ -1,32 +1,32 @@
 export {
   SuomifiThemeProvider,
-  SuomifiThemeProviderProps,
+  type SuomifiThemeProviderProps,
   SuomifiThemeConsumer,
   SuomifiThemeContext,
 } from './SuomifiThemeProvider/SuomifiThemeProvider';
 export {
-  SuomifiTheme,
-  ZIndexDesignTokens,
-  SuomifiDesignTokens,
+  type SuomifiTheme,
+  type ZIndexDesignTokens,
+  type SuomifiDesignTokens,
   getSuomifiTheme,
   defaultSuomifiTheme,
-  SuomifiThemeProp,
-  SuomifiCustomThemeProps,
-  PartialSuomifiTheme,
-  ColorProp,
-  TypographyProp,
-  SpacingProp,
-  GradientProp,
+  type SuomifiThemeProp,
+  type SuomifiCustomThemeProps,
+  type PartialSuomifiTheme,
+  type ColorProp,
+  type TypographyProp,
+  type SpacingProp,
+  type GradientProp,
 } from './SuomifiTheme/SuomifiTheme';
 export {
-  MarginProps,
-  PaddingProps,
-  SpacingProps,
-  SpacingWithoutInsetProp,
+  type MarginProps,
+  type PaddingProps,
+  type SpacingProps,
+  type SpacingWithoutInsetProp,
 } from './utils/spacing';
 export {
   SpacingProvider,
-  SpacingProviderProps,
+  type SpacingProviderProps,
   SpacingConsumer,
 } from './SpacingProvider/SpacingProvider';
-export { GlobalMargins } from './utils/spacing';
+export { type GlobalMargins } from './utils/spacing';

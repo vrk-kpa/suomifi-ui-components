@@ -1,6 +1,6 @@
 export {
   MultiSelect,
-  MultiSelectProps,
+  type MultiSelectProps,
   MultiSelectData,
   MultiSelectStatus,
 } from './MultiSelect/MultiSelect';
