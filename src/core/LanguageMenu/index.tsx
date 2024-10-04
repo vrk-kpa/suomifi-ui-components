@@ -1,5 +1,5 @@
-export { LanguageMenu, LanguageMenuProps } from './LanguageMenu';
+export { LanguageMenu, type LanguageMenuProps } from './LanguageMenu';
 export {
   LanguageMenuItem,
-  LanguageMenuItemProps,
+  type LanguageMenuItemProps,
 } from './LanguageMenuItem/LanguageMenuItem';

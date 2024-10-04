@@ -1,5 +1,5 @@
 export {
   ActionMenuPopover,
-  InternalActionMenuPopoverProps,
+  type InternalActionMenuPopoverProps,
   InitialActiveDescendant,
 } from './ActionMenuPopover';

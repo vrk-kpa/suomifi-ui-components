@@ -1,12 +1,12 @@
 export {
   SingleSelect,
-  SingleSelectProps,
+  type SingleSelectProps,
   SingleSelectData,
   SingleSelectStatus,
 } from './SingleSelect/SingleSelect';
 export {
   MultiSelect,
-  MultiSelectProps,
+  type MultiSelectProps,
   MultiSelectData,
   MultiSelectStatus,
 } from './MultiSelect';
