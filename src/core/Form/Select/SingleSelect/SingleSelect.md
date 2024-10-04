@@ -81,8 +81,11 @@ const countries = [
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
+  onChange={(value) => console.log(value)}
 />;
 ```
 
@@ -146,7 +149,9 @@ const defaultSelection = {
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
 />;
 ```
@@ -208,7 +213,9 @@ const [error, setError] = useState(true);
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   status={error ? 'error' : 'default'}
   statusText={error ? 'This field is required' : ''}
@@ -274,7 +281,9 @@ const countries = [
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   allowItemAddition
   itemAdditionHelpText="Add another country"
@@ -340,7 +349,9 @@ const countries = [
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   selectedItem={selectedCountry}
   onItemSelectionChange={(newItem) => setSelectedCountry(newItem)}
@@ -423,7 +434,9 @@ const handleSelection = (newSelectedItem) => {
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   allowItemAddition
   itemAdditionHelpText="Add another country"
@@ -498,7 +511,9 @@ const countries = [
     visualPlaceholder="Choose country"
     noItemsText="No items"
     ariaOptionsAvailableTextFunction={(amount) =>
-      amount === 1 ? 'option available' : 'options available'
+      amount === 1
+        ? `${amount} option available`
+        : `${amount}options available`
     }
   />
 </>;
@@ -584,7 +599,9 @@ const simulateBackendCall = (searchStr) => {
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   debounce={1000}
   loading={loading}
@@ -652,7 +669,9 @@ const countries = [
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   fullWidth
 />;
@@ -723,7 +742,9 @@ const labelText = 'Country of residence';
   visualPlaceholder="Choose country"
   noItemsText="No items"
   ariaOptionsAvailableTextFunction={(amount) =>
-    amount === 1 ? 'option available' : 'options available'
+    amount === 1
+      ? `${amount} option available`
+      : `${amount} options available`
   }
   tooltipComponent={
     <Tooltip
