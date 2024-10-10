@@ -566,7 +566,9 @@ describe('listProps', () => {
     const input = getByRole('textbox');
     fireEvent.focus(input);
     const menu = getByRole('listbox');
-    expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr');
+    await waitFor(() =>
+      expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr'),
+    );
   });
 });
 
@@ -590,8 +592,11 @@ describe('listItemProps', () => {
       />,
     );
     const input = getByRole('textbox');
-    fireEvent.focus(input);
+    await act(async () => {
+      fireEvent.focus(input);
+    });
     const option = getByRole('option');
+
     expect(option).toHaveAttribute('data-test-id', 'abc');
   });
 });
