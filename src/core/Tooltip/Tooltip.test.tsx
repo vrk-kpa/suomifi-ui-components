@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Tooltip } from './Tooltip';
 import { axeTest } from '../../utils/test';
 
@@ -21,7 +21,7 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      toggleButton.click();
+      fireEvent.click(toggleButton);
       expect(screen.getByText('Children of the component')).toBeInTheDocument();
     });
   });
@@ -52,7 +52,7 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      toggleButton.click();
+      fireEvent.click(toggleButton);
       const closeButton = screen.getAllByRole('button')[1];
       expect(closeButton).toHaveAttribute('aria-label', 'Close tooltip');
     });
@@ -86,7 +86,7 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      toggleButton.click();
+      fireEvent.click(toggleButton);
       const contentDiv = screen.getAllByRole('button')[1].parentElement;
       expect(contentDiv).toHaveClass('custom-class');
     });
@@ -105,13 +105,13 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      toggleButton.click();
+      fireEvent.click(toggleButton);
       expect(mockClickHandler).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('onCloseButtonClick', () => {
-    it('is clicked; given method called', () => {
+    it('is clicked; given method called', async () => {
       const mockClickHandler = jest.fn();
       render(
         <Tooltip
@@ -122,11 +122,15 @@ describe('props', () => {
           Test Tooltip
         </Tooltip>,
       );
+
       const toggleButton = screen.getAllByRole('button')[0];
-      toggleButton.click();
+      fireEvent.click(toggleButton);
       const closeButton = screen.getAllByRole('button')[1];
-      closeButton.click();
-      expect(mockClickHandler).toHaveBeenCalledTimes(1);
+      fireEvent.click(closeButton);
+
+      await waitFor(() => {
+        expect(mockClickHandler).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
@@ -155,7 +159,7 @@ describe('Basic tooltip', () => {
     );
     const { container } = render(BasicTooltip);
     const toggleButton = screen.getAllByRole('button')[0];
-    toggleButton.click();
+    fireEvent.click(toggleButton);
     expect(container).toMatchSnapshot();
   });
 });
