@@ -1,5 +1,5 @@
-import React from 'react';
-import { render, fireEvent, act, waitFor } from '@testing-library/react';
+import React, { act } from 'react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
@@ -113,69 +113,59 @@ const BasicMultiSelect = (
 );
 
 it('should not have basic accessibility issues', async () => {
-  await act(async () => {
-    axeTest(BasicMultiSelect);
-  });
+  await axeTest(BasicMultiSelect);
 });
 
 it('has matching snapshot', async () => {
-  await act(async () => {
-    const { baseElement, getByRole } = render(BasicMultiSelect);
-    const textfield = getByRole('textbox') as HTMLInputElement;
-    await act(async () => {
-      fireEvent.focus(textfield);
-    });
-    expect(baseElement).toMatchSnapshot();
-  });
+  const { baseElement, getByRole } = render(BasicMultiSelect);
+  const textfield = getByRole('textbox') as HTMLInputElement;
+  fireEvent.focus(textfield);
+  expect(baseElement).toMatchSnapshot();
 });
 
 describe('Chips', () => {
   it('should have selected Chips shown', async () => {
-    await act(async () => {
-      const { container } = render(BasicMultiSelect);
-      expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
+    const { container } = render(BasicMultiSelect);
+    await waitFor(() => {
+      expect(container.querySelectorAll('.fi-chip')).toHaveLength(3);
     });
   });
 
   it('second Chip should be removable and removed when clicked', async () => {
-    await act(async () => {
-      const { getByText, queryByText } = render(BasicMultiSelect);
-      const hammerChip = getByText('Hammer');
-      expect(queryByText('Hammer')).not.toBeNull();
+    const { getByText, queryByText } = render(BasicMultiSelect);
+    const hammerChip = getByText('Hammer');
+    expect(queryByText('Hammer')).not.toBeNull();
 
-      expect(hammerChip.classList).toContain('fi-chip--content');
-      await act(async () => {
-        fireEvent.click(hammerChip, {});
-      });
+    expect(hammerChip.classList).toContain('fi-chip--content');
+    fireEvent.click(hammerChip);
 
+    await waitFor(() => {
       const removedHammerChip = queryByText('Hammer');
       expect(removedHammerChip).toBeNull();
     });
   });
 
   test('onItemSelect: called with uniqueItem id, when clicking non-disabled Chip', async () => {
-    await act(async () => {
-      const mockOnItemSelect = jest.fn();
-      const { container } = render(
-        <MultiSelect
-          labelText="MultiSelect"
-          items={tools}
-          chipListVisible={true}
-          ariaChipActionLabel="Remove"
-          removeAllButtonLabel="Remove all selections"
-          visualPlaceholder="Choose your tool(s)"
-          noItemsText="No items"
-          defaultSelectedItems={defaultSelectedTools}
-          onItemSelect={mockOnItemSelect}
-          ariaSelectedAmountText="tools selected"
-          ariaOptionsAvailableText="tools left"
-          ariaOptionChipRemovedText="removed"
-        />,
-      );
-      const hammerChip = container.querySelectorAll('.fi-chip')[1];
-      await act(async () => {
-        fireEvent.click(hammerChip, {});
-      });
+    const mockOnItemSelect = jest.fn();
+    const { container } = render(
+      <MultiSelect
+        labelText="MultiSelect"
+        items={tools}
+        chipListVisible={true}
+        ariaChipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        defaultSelectedItems={defaultSelectedTools}
+        onItemSelect={mockOnItemSelect}
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    const hammerChip = container.querySelectorAll('.fi-chip')[1];
+    fireEvent.click(hammerChip);
+    await waitFor(() => {
       expect(mockOnItemSelect).toBeCalledWith('h9823523');
     });
   });
@@ -189,45 +179,49 @@ describe('Chips', () => {
   });
 
   it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
-    await act(async () => {
-      const { container } = render(BasicMultiSelect);
-      expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
-      const removeAllButton = container.querySelectorAll(
-        '.fi-multiselect_removeAllButton',
-      )[0];
-      await act(async () => {
-        fireEvent.click(removeAllButton, {});
-      });
+    const { container } = render(BasicMultiSelect);
+    expect(container.querySelectorAll('.fi-chip')).toHaveLength(3);
+    const removeAllButton = container.querySelector(
+      '.fi-multiselect_removeAllButton',
+    );
+    if (removeAllButton) {
+      if (removeAllButton) {
+        fireEvent.click(removeAllButton);
+      }
+    }
+    await waitFor(() => {
       const chips = container.querySelectorAll('.fi-chip');
-      expect(chips.length).toEqual(1);
+      expect(chips).toHaveLength(1);
     });
   });
 
   test('onRemoveAll: should be called when pressing "Remove all" button', async () => {
-    await act(async () => {
-      const mockOnRemoveAll = jest.fn();
-      const { container } = render(
-        <MultiSelect
-          labelText="MultiSelect"
-          items={tools}
-          chipListVisible={true}
-          ariaChipActionLabel="Remove"
-          removeAllButtonLabel="Remove all selections"
-          visualPlaceholder="Choose your tool(s)"
-          noItemsText="No items"
-          defaultSelectedItems={defaultSelectedTools}
-          onRemoveAll={mockOnRemoveAll}
-          ariaSelectedAmountText="tools selected"
-          ariaOptionsAvailableText="tools left"
-          ariaOptionChipRemovedText="removed"
-        />,
-      );
-      const removeAllButton = container.querySelectorAll(
-        '.fi-multiselect_removeAllButton',
-      )[0];
-      await act(async () => {
-        fireEvent.click(removeAllButton, {});
-      });
+    const mockOnRemoveAll = jest.fn();
+    const { container } = render(
+      <MultiSelect
+        labelText="MultiSelect"
+        items={tools}
+        chipListVisible={true}
+        ariaChipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        defaultSelectedItems={defaultSelectedTools}
+        onRemoveAll={mockOnRemoveAll}
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    const removeAllButton = container.querySelector(
+      '.fi-multiselect_removeAllButton',
+    );
+    if (removeAllButton) {
+      if (removeAllButton) {
+        fireEvent.click(removeAllButton);
+      }
+    }
+    await waitFor(() => {
       expect(mockOnRemoveAll).toBeCalledTimes(1);
     });
   });
@@ -235,86 +229,76 @@ describe('Chips', () => {
 
 describe('Non-controlled', () => {
   it('has correct amount of items are shown on filtering and after selection', async () => {
-    await act(async () => {
-      const { getByRole, findAllByRole, getByText } = render(
-        <MultiSelect
-          labelText="MultiSelect"
-          items={tools}
-          chipListVisible={false}
-          ariaChipActionLabel="Remove"
-          removeAllButtonLabel="Remove all selections"
-          visualPlaceholder="Choose your tool(s)"
-          noItemsText="No items"
-          ariaSelectedAmountText="tools selected"
-          ariaOptionsAvailableText="tools left"
-          ariaOptionChipRemovedText="removed"
-        />,
-      );
-      const textfield = getByRole('textbox') as HTMLInputElement;
-      await act(async () => {
-        fireEvent.change(textfield, { target: { value: 'hammer' } });
-      });
+    const { getByRole, findAllByRole, getByText } = render(
+      <MultiSelect
+        labelText="MultiSelect"
+        items={tools}
+        chipListVisible={false}
+        ariaChipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    const textfield = getByRole('textbox') as HTMLInputElement;
+    fireEvent.change(textfield, { target: { value: 'hammer' } });
 
-      const hammerItem = getByText('Hammer');
-      expect(hammerItem).toHaveTextContent('Hammer');
+    const hammerItem = getByText('Hammer');
+    expect(hammerItem).toHaveTextContent('Hammer');
 
-      const opts = await findAllByRole('option');
-      expect(opts).toHaveLength(3);
+    const opts = await findAllByRole('option');
+    expect(opts).toHaveLength(3);
 
-      await act(async () => {
-        fireEvent.click(hammerItem);
-      });
+    fireEvent.click(hammerItem);
 
+    await waitFor(async () => {
       const allOptions = await findAllByRole('option');
       expect(allOptions).toHaveLength(3);
     });
   });
 
   it('has possibility to select item', async () => {
-    await act(async () => {
-      const { getByRole, container, getByText, rerender } = render(
-        <MultiSelect
-          labelText="MultiSelect"
-          items={tools}
-          chipListVisible={true}
-          ariaChipActionLabel="Remove"
-          removeAllButtonLabel="Remove all selections"
-          visualPlaceholder="Choose your tool(s)"
-          noItemsText="No items"
-          ariaSelectedAmountText="tools selected"
-          ariaOptionsAvailableText="tools left"
-          ariaOptionChipRemovedText="removed"
-        />,
-      );
-      let chips = container.querySelectorAll('.fi-chip');
-      expect(chips).toHaveLength(0);
+    const { getByRole, container, getByText, rerender } = render(
+      <MultiSelect
+        labelText="MultiSelect"
+        items={tools}
+        chipListVisible={true}
+        ariaChipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    let chips = container.querySelectorAll('.fi-chip');
+    expect(chips).toHaveLength(0);
 
-      const textfield = getByRole('textbox') as HTMLInputElement;
-      await act(async () => {
-        fireEvent.focus(textfield);
-      });
-      await act(async () => {
-        rerender(
-          <MultiSelect
-            labelText="MultiSelect"
-            items={tools}
-            chipListVisible={true}
-            ariaChipActionLabel="Remove"
-            removeAllButtonLabel="Remove all selections"
-            visualPlaceholder="Choose your tool(s)"
-            noItemsText="No items"
-            ariaSelectedAmountText="tools selected"
-            ariaOptionsAvailableText="tools left"
-            ariaOptionChipRemovedText="removed"
-          />,
-        );
-      });
-      const hammerItem = getByText('Hammer');
+    const textfield = getByRole('textbox') as HTMLInputElement;
+    fireEvent.focus(textfield);
+    rerender(
+      <MultiSelect
+        labelText="MultiSelect"
+        items={tools}
+        chipListVisible={true}
+        ariaChipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    const hammerItem = getByText('Hammer');
 
-      await act(async () => {
-        fireEvent.click(hammerItem);
-      });
+    fireEvent.click(hammerItem);
 
+    await waitFor(() => {
       chips = container.querySelectorAll('.fi-chip');
       expect(chips).toHaveLength(1);
     });
@@ -357,9 +341,9 @@ describe('Controlled', () => {
       />
     );
 
-    await act(async () => {
-      const { container } = render(multiselect);
-      expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+    const { container } = render(multiselect);
+    await waitFor(() => {
+      expect(container.querySelectorAll('.fi-chip')).toHaveLength(2);
 
       const chips = container.querySelectorAll('.fi-chip');
 
@@ -414,13 +398,13 @@ describe('Controlled', () => {
 
     const { getByText, getAllByText } = render(multiselect);
     const turtleChip = getByText('Turtle');
-    await act(async () => {
-      fireEvent.click(turtleChip, {});
+    fireEvent.click(turtleChip);
+    await waitFor(() => {
+      expect(mockItemSelectionsChange).toBeCalledTimes(1);
+      expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
+      // Popover is open, so therefore two
+      expect(getAllByText('Turtle')).toHaveLength(2);
     });
-    expect(mockItemSelectionsChange).toBeCalledTimes(1);
-    expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
-    // Popover is open, so therefore two
-    expect(getAllByText('Turtle').length).toBe(2);
   });
 
   it('shows correct amount of items after filtering and selecting', async () => {
@@ -479,38 +463,32 @@ describe('Controlled', () => {
       />
     );
 
-    await act(async () => {
-      const { getByRole, rerender, findAllByRole } = render(multiMutti);
-      const textfield = getByRole('textbox') as HTMLInputElement;
-      await act(async () => {
-        fireEvent.change(textfield, { target: { value: 'sn' } });
-      });
-      const snailItem = getByRole('option');
-      expect(snailItem).toHaveTextContent('Snail');
+    const { getByRole, rerender, findAllByRole } = render(multiMutti);
+    const textfield = getByRole('textbox') as HTMLInputElement;
+    fireEvent.change(textfield, { target: { value: 'sn' } });
+    const snailItem = getByRole('option');
+    expect(snailItem).toHaveTextContent('Snail');
 
-      await act(async () => {
-        fireEvent.click(snailItem);
-      });
+    fireEvent.click(snailItem);
 
-      await act(async () => {
-        rerender(
-          <MultiSelect
-            items={animals}
-            selectedItems={selectedAnimals}
-            onItemSelect={onItemSelect}
-            labelText="Animals"
-            hintText="You can filter options by typing in the field"
-            noItemsText="No animals"
-            chipListVisible={true}
-            visualPlaceholder="Try to choose animals"
-            ariaChipActionLabel="Remove"
-            ariaSelectedAmountText="animals selected"
-            ariaOptionsAvailableText="options available"
-            ariaOptionChipRemovedText="removed"
-            id="mutti"
-          />,
-        );
-      });
+    await waitFor(async () => {
+      rerender(
+        <MultiSelect
+          items={animals}
+          selectedItems={selectedAnimals}
+          onItemSelect={onItemSelect}
+          labelText="Animals"
+          hintText="You can filter options by typing in the field"
+          noItemsText="No animals"
+          chipListVisible={true}
+          visualPlaceholder="Try to choose animals"
+          ariaChipActionLabel="Remove"
+          ariaSelectedAmountText="animals selected"
+          ariaOptionsAvailableText="options available"
+          ariaOptionChipRemovedText="removed"
+          id="mutti"
+        />,
+      );
       const allOptions = await findAllByRole('option');
       expect(allOptions).toHaveLength(1);
     });
@@ -518,41 +496,42 @@ describe('Controlled', () => {
 });
 
 it('should have correct baseClassName', async () => {
-  await act(async () => {
-    const { container } = render(BasicMultiSelect);
+  const { container } = render(BasicMultiSelect);
+  await waitFor(() => {
     expect(container.firstChild).toHaveClass('fi-multiselect');
   });
 });
 
 test('className: has given custom classname', async () => {
-  await act(async () => {
-    const { container } = render(
-      <MultiSelect
-        labelText="MultiSelect"
-        items={[]}
-        noItemsText="No items"
-        className="custom-class"
-        ariaSelectedAmountText=""
-        ariaOptionsAvailableText=""
-        ariaOptionChipRemovedText=""
-      />,
-    );
+  const { container } = render(
+    <MultiSelect
+      labelText="MultiSelect"
+      items={[]}
+      noItemsText="No items"
+      className="custom-class"
+      ariaSelectedAmountText=""
+      ariaOptionsAvailableText=""
+      ariaOptionChipRemovedText=""
+    />,
+  );
+
+  await waitFor(() => {
     expect(container.firstChild).toHaveClass('custom-class');
   });
 });
 
 test('labelText: has the given text as label', async () => {
-  await act(async () => {
-    const { queryByText } = render(
-      <MultiSelect
-        labelText="MultiSelect"
-        items={[]}
-        noItemsText="No items"
-        ariaSelectedAmountText=""
-        ariaOptionsAvailableText=""
-        ariaOptionChipRemovedText=""
-      />,
-    );
+  const { queryByText } = render(
+    <MultiSelect
+      labelText="MultiSelect"
+      items={[]}
+      noItemsText="No items"
+      ariaSelectedAmountText=""
+      ariaOptionsAvailableText=""
+      ariaOptionChipRemovedText=""
+    />,
+  );
+  await waitFor(() => {
     expect(queryByText('MultiSelect')).not.toBeNull();
   });
 });
@@ -680,10 +659,10 @@ describe('disabled', () => {
     const toggleBtn = container.querySelector('.fi-input-toggle-button');
     expect(toggleBtn).not.toBe(null);
     if (toggleBtn) {
-      await act(async () => {
-        fireEvent.click(toggleBtn);
+      fireEvent.click(toggleBtn);
+      await waitFor(() => {
+        expect(() => getAllByRole('option')).toThrowError();
       });
-      expect(() => getAllByRole('option')).toThrowError();
     }
   });
 });
