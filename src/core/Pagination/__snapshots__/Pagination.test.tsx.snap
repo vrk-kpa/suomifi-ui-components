@@ -1067,9 +1067,7 @@ exports[`snapshot should have matching default structure 1`] = `
             aria-live="assertive"
             class="c3 c14 fi-page-input_statusText--has-content fi-status-text"
             id="1-pageInput-statusText"
-          >
-            
-          </span>
+          />
         </span>
       </div>
     </div>
