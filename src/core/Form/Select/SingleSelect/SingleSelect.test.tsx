@@ -134,32 +134,28 @@ describe('Controlled', () => {
       />
     );
 
-    await act(async () => {
-      const { getByRole, getByText, rerender } = render(singleSelect);
-      expect(getByRole('textbox')).toHaveValue('Powersaw');
-      const input = getByRole('textbox');
-      await act(async () => {
-        fireEvent.click(input);
-      });
-      const item = await waitFor(() => getByText('Powersaw'));
-      expect(item).toHaveAttribute('aria-disabled');
-      expect(item).toHaveClass('fi-select-item--disabled');
+    const { getByRole, getByText, rerender } = render(singleSelect);
+    expect(getByRole('textbox')).toHaveValue('Powersaw');
+    const input = getByRole('textbox');
+    fireEvent.click(input);
+    const item = await waitFor(() => getByText('Powersaw'));
+    expect(item).toHaveAttribute('aria-disabled');
+    expect(item).toHaveClass('fi-select-item--disabled');
 
-      rerender(
-        <SingleSelect
-          selectedItem={null}
-          labelText="SingleSelect"
-          clearButtonLabel="Clear selection"
-          items={tools}
-          visualPlaceholder="Choose your tool"
-          noItemsText="No items"
-          defaultSelectedItem={defaultSelectedTool}
-          ariaOptionsAvailableText="Options available"
-        />,
-      );
-      const rerenderedInput = getByRole('textbox');
-      expect(rerenderedInput).toHaveValue('');
-    });
+    rerender(
+      <SingleSelect
+        selectedItem={null}
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool"
+        noItemsText="No items"
+        defaultSelectedItem={defaultSelectedTool}
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const rerenderedInput = getByRole('textbox');
+    expect(rerenderedInput).toHaveValue('');
   });
 
   it('does not allow removing of items by clicking', async () => {
@@ -208,26 +204,22 @@ describe('Controlled', () => {
 });
 
 it('should have correct baseClassName', async () => {
-  await act(async () => {
-    const { container } = render(BasicSingleSelect);
-    expect(container.firstChild).toHaveClass('fi-single-select');
-  });
+  const { container } = render(BasicSingleSelect);
+  expect(container.firstChild).toHaveClass('fi-single-select');
 });
 
 test('className: has given custom classname', async () => {
-  await act(async () => {
-    const { container } = render(
-      <SingleSelect
-        labelText="SingleSelect"
-        clearButtonLabel="Clear selection"
-        items={[]}
-        noItemsText="No items"
-        className="custom-class"
-        ariaOptionsAvailableText="Options available"
-      />,
-    );
-    expect(container.firstChild).toHaveClass('custom-class');
-  });
+  const { container } = render(
+    <SingleSelect
+      labelText="SingleSelect"
+      clearButtonLabel="Clear selection"
+      items={[]}
+      noItemsText="No items"
+      className="custom-class"
+      ariaOptionsAvailableText="Options available"
+    />,
+  );
+  expect(container.firstChild).toHaveClass('custom-class');
 });
 
 describe('filter', () => {
@@ -278,34 +270,28 @@ describe('filter', () => {
 });
 
 test('option: should be selected when clicked', async () => {
-  await act(async () => {
-    const { getByText, getByRole } = render(BasicSingleSelect);
-    const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.click(input);
-    });
+  const { getByText, getByRole } = render(BasicSingleSelect);
+  const input = getByRole('textbox');
+  fireEvent.click(input);
 
-    const option = await waitFor(() => getByText('Rake'));
-    await act(async () => {
-      fireEvent.click(option);
-    });
-    expect(input).toHaveValue('Rake');
-  });
+  const option = await waitFor(() => getByText('Rake'));
+
+  fireEvent.click(option);
+
+  expect(input).toHaveValue('Rake');
 });
 
 test('labelText: has the given text as label', async () => {
-  await act(async () => {
-    const { queryByText } = render(
-      <SingleSelect
-        labelText="SingleSelect"
-        clearButtonLabel="Clear selection"
-        items={[]}
-        noItemsText="No items"
-        ariaOptionsAvailableText="Options available"
-      />,
-    );
-    expect(queryByText('SingleSelect')).not.toBeNull();
-  });
+  const { queryByText } = render(
+    <SingleSelect
+      labelText="SingleSelect"
+      clearButtonLabel="Clear selection"
+      items={[]}
+      noItemsText="No items"
+      ariaOptionsAvailableText="Options available"
+    />,
+  );
+  expect(queryByText('SingleSelect')).not.toBeNull();
 });
 
 test('visualPlaceholder: has the given text as placeholder attribute', () => {
