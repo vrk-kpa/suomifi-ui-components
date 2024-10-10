@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, act, fireEvent, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { axeTest } from '../../../../utils/test/axe';
 import { SingleSelect, SingleSelectData } from './SingleSelect';
 
