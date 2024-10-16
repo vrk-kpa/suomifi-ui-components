@@ -93,6 +93,7 @@ export type GlobalMargins = {
   singleSelect?: MarginProps;
   staticChip?: MarginProps;
   statusText?: MarginProps;
+  table?: MarginProps;
   text?: MarginProps;
   textarea?: MarginProps;
   textInput?: MarginProps;

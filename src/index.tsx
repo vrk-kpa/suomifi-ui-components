@@ -153,6 +153,7 @@ export {
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
 export { Tooltip, TooltipProps } from './core/Tooltip/Tooltip';
+export { Table, TableProps, TableColumn } from './core/Table/Table';
 export {
   VisuallyHidden,
   VisuallyHiddenProps,
