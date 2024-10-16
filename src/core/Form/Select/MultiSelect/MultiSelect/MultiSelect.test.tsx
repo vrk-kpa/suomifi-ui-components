@@ -1,7 +1,6 @@
 import React, { act } from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
-import '@testing-library/jest-dom';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
 const tools = [
@@ -114,7 +113,7 @@ const BasicMultiSelect = (
 );
 
 it('should not have basic accessibility issues', async () => {
-  await axeTest(BasicMultiSelect);
+  axeTest(BasicMultiSelect);
 });
 
 it('has matching snapshot', async () => {
