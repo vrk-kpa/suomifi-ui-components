@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent, waitFor } from '@testing-library/react';
 import { ActionMenu, ActionMenuProps } from '../ActionMenu';
 import { ActionMenuItem } from '../ActionMenu/ActionMenuItem';
 import { ActionMenuDivider } from '../ActionMenu/ActionMenuDivider/ActionMenuDivider';
@@ -28,19 +28,25 @@ describe('Basic ActionMenu', () => {
   it('should have provided ids', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
-    expect(button).toHaveAttribute('id', 'test-id');
-    expect(button).toHaveAttribute('name', 'am-test-name');
+    await waitFor(() => {
+      expect(button).toHaveAttribute('id', 'test-id');
+      expect(button).toHaveAttribute('name', 'am-test-name');
+    });
   });
 
   it('should have button text', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
-    expect(button).toHaveTextContent('Actions');
+    await waitFor(() => {
+      expect(button).toHaveTextContent('Actions');
+    });
   });
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BasicActionMenu);
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 });
 
@@ -55,14 +61,18 @@ describe('Disabled ActionMenu', () => {
   it('should have disabled attributes when disabled', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
-    expect(button).toHaveClass('fi-button--disabled');
-    expect(button).toHaveAttribute('disabled');
-    expect(button).toHaveAttribute('aria-disabled', 'true');
+    await waitFor(() => {
+      expect(button).toHaveClass('fi-button--disabled');
+      expect(button).toHaveAttribute('disabled');
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+    });
   });
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BasicActionMenu);
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 });
 
@@ -77,7 +87,9 @@ describe('No borders variant', () => {
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BorderlessActionMenu);
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 });
 
@@ -86,7 +98,9 @@ describe('Margin prop', () => {
     const { container } = render(
       TestActionMenu({ ...actionMenuProps, margin: 'xs' }),
     );
-    expect(container.firstChild).toHaveStyle('margin: 10px');
+    await waitFor(() => {
+      expect(container.firstChild).toHaveStyle('margin: 10px');
+    });
   });
 
   it('should have margin style overridden by style prop', async () => {
@@ -98,7 +112,9 @@ describe('Margin prop', () => {
       },
     };
     const { container } = render(TestActionMenu(modProps));
-    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    await waitFor(() => {
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
   });
 });
 
@@ -117,7 +133,9 @@ describe('movement in ActionMenu', () => {
       });
     });
 
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(baseElement).toMatchSnapshot();
+    });
 
     await act(async () => {
       fireEvent.keyPress(baseElement, {
@@ -129,7 +147,9 @@ describe('movement in ActionMenu', () => {
       });
     });
 
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 });
 
