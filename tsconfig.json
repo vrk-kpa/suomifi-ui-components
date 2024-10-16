@@ -20,7 +20,8 @@
     "baseUrl": "./",
     "paths": {
       "*": ["src/*", "node_modules/*"]
-    }
+    },
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["./src/**/*", "./types/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
