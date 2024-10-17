@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import { DateInput } from './DateInput';
 
 describe('snapshots match', () => {
@@ -7,6 +7,7 @@ describe('snapshots match', () => {
     test('minimal implementation', () => {
       const { baseElement } = render(<DateInput labelText="Date" />);
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
 
     test('hidden label with placeholder', () => {
@@ -18,6 +19,7 @@ describe('snapshots match', () => {
         />,
       );
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
 
     test('hint text', () => {
@@ -25,6 +27,7 @@ describe('snapshots match', () => {
         <DateInput labelText="Date" hintText="User format D.M.YYYY" />,
       );
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
 
     test('optional text', () => {
@@ -32,6 +35,7 @@ describe('snapshots match', () => {
         <DateInput labelText="Date" optionalText="optional" />,
       );
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
 
     test('success status with statustext', () => {
@@ -39,6 +43,7 @@ describe('snapshots match', () => {
         <DateInput labelText="Date" statusText="Success" status="success" />,
       );
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
 
     test('error status with statustext', () => {
@@ -46,6 +51,7 @@ describe('snapshots match', () => {
         <DateInput labelText="Date" statusText="Error" status="error" />,
       );
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
   });
 
@@ -70,6 +76,7 @@ describe('snapshots match', () => {
       );
       fireEvent.click(getByRole('button'));
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
 
     test('with controlled input value', () => {
@@ -83,6 +90,7 @@ describe('snapshots match', () => {
       );
       fireEvent.click(getByRole('button'));
       expect(baseElement).toMatchSnapshot();
+      cleanup();
     });
   });
 });
@@ -106,6 +114,7 @@ describe('keyboard events', () => {
       key: 'Escape',
     });
     expect(baseElement.querySelector('[role="dialog"]')).not.toBeVisible();
+    cleanup();
   });
 });
 
@@ -132,6 +141,7 @@ describe('callbacks', () => {
         '.fi-month-day_button--disabled',
       );
       expect(dateButton).toHaveAttribute('aria-disabled');
+      cleanup();
     });
   });
 
@@ -146,6 +156,7 @@ describe('callbacks', () => {
         value: '1.1.2020',
         date: new Date(2020, 0, 1),
       });
+      cleanup();
     });
 
     it('calls onChange when date is selected', () => {
@@ -166,6 +177,7 @@ describe('callbacks', () => {
         value: '1.1.2020',
         date: new Date(2020, 0, 1),
       });
+      cleanup();
     });
   });
 
@@ -177,6 +189,7 @@ describe('callbacks', () => {
       );
       fireEvent.click(getByRole('textbox'));
       expect(mockOnClick).toBeCalledTimes(1);
+      cleanup();
     });
   });
 
@@ -189,6 +202,7 @@ describe('callbacks', () => {
       fireEvent.click(getByRole('textbox'));
       fireEvent.blur(getByRole('textbox'));
       expect(mockOnBlur).toBeCalledTimes(1);
+      cleanup();
     });
   });
 
@@ -205,6 +219,7 @@ describe('callbacks', () => {
       fireEvent.focus(getByRole('button'));
       fireEvent.blur(getByRole('button'));
       expect(mockOnBlur).toBeCalledTimes(1);
+      cleanup();
     });
   });
 });
@@ -215,6 +230,7 @@ describe('props', () => {
       const { getByText } = render(<DateInput labelText="Start date" />);
       const label = getByText('Start date');
       expect(label.tagName).toBe('LABEL');
+      cleanup();
     });
   });
 
@@ -225,6 +241,7 @@ describe('props', () => {
       );
       const label = getByText('Start date');
       expect(label).toHaveClass('fi-visually-hidden');
+      cleanup();
     });
   });
 
@@ -235,6 +252,7 @@ describe('props', () => {
       );
       const span = getByText('Use format D.M.YYYY');
       expect(span).toBeDefined();
+      cleanup();
     });
   });
 
@@ -245,6 +263,7 @@ describe('props', () => {
       );
       const span = getByText('(optional)');
       expect(span).toBeDefined();
+      cleanup();
     });
   });
 
@@ -255,6 +274,7 @@ describe('props', () => {
       );
       const div = baseElement.querySelector('.fi-date-input');
       expect(div).toHaveClass('custom-class');
+      cleanup();
     });
   });
 
@@ -273,6 +293,7 @@ describe('props', () => {
       const datePicker = baseElement.querySelector('.fi-date-picker');
       expect(datePicker).toHaveClass('custom-datePicker-class');
       expect(datePicker).toHaveAttribute('aria-disabled');
+      cleanup();
     });
 
     describe('maxDate', () => {
@@ -295,6 +316,7 @@ describe('props', () => {
         fireEvent.click(getByRole('button'));
         const dateCell = getByText('16');
         expect(dateCell.tagName).toBe('TD');
+        cleanup();
       });
 
       it('has next years removed from dropdown', () => {
@@ -316,6 +338,7 @@ describe('props', () => {
           expect(lis?.length).toBe(11);
           expect(lis?.[10]).toHaveTextContent('2020');
         }
+        cleanup();
       });
 
       it('has next months removed from dropdown', () => {
@@ -352,6 +375,7 @@ describe('props', () => {
           '.fi-date-selectors_month-button',
         )[1];
         expect(button).toBeDisabled();
+        cleanup();
       });
     });
 
@@ -375,6 +399,7 @@ describe('props', () => {
         fireEvent.click(getByRole('button'));
         const dateCell = getByText('14');
         expect(dateCell.tagName).toBe('TD');
+        cleanup();
       });
 
       it('has previous years removed from dropdown', () => {
@@ -396,6 +421,7 @@ describe('props', () => {
           expect(lis?.[0]).toHaveTextContent('2020');
           expect(lis?.length).toBe(11);
         }
+        cleanup();
       });
 
       it('has previous months removed from dropdown', () => {
@@ -417,6 +443,7 @@ describe('props', () => {
           expect(lis?.[0]).toHaveTextContent('Heinäkuu');
           expect(lis?.length).toBe(6);
         }
+        cleanup();
       });
 
       it('has previous month button disabled', () => {
@@ -433,6 +460,7 @@ describe('props', () => {
         )[0];
         expect(button).toBeDisabled();
       });
+      cleanup();
     });
 
     describe('initialDate', () => {
@@ -458,6 +486,7 @@ describe('props', () => {
           'aria-label',
           '15 maanantai Kesäkuu 2015',
         );
+        cleanup();
       });
 
       it('has focus', () => {
@@ -471,6 +500,7 @@ describe('props', () => {
         fireEvent.click(getByRole('button'));
         const dateButton = getByText('15').closest('button');
         expect(dateButton).toHaveFocus();
+        cleanup();
       });
     });
 
@@ -515,6 +545,7 @@ describe('props', () => {
           'aria-label',
           '15 lauantai Elokuu 2020 Valittu päivä',
         );
+        cleanup();
       });
 
       it('formats selected date to input field', () => {
@@ -531,278 +562,58 @@ describe('props', () => {
         ) as HTMLButtonElement;
         fireEvent.click(dateButton);
         expect(getByRole('textbox')).toHaveValue('2020-1-16');
-      });
-    });
-
-    describe('datePickerEnabled', () => {
-      it('has no datePicker wrapper div when false', () => {
-        const { baseElement } = render(<DateInput labelText="Date" />);
-        const div = baseElement.querySelector(
-          '.fi-date-input_picker-element-container',
-        );
-        expect(div).toBeNull();
+        cleanup();
       });
 
-      it('has datePicker wrapper div when true', () => {
-        const { baseElement } = render(
-          <DateInput labelText="Date" datePickerEnabled />,
-        );
-        const div = baseElement.querySelector(
-          '.fi-date-input_picker-element-container',
-        );
-        expect(div).not.toBeNull();
-      });
-    });
-
-    describe('language', () => {
-      it('has Finnish language option', () => {
-        const { getByRole } = render(
-          <DateInput labelText="Date" datePickerEnabled language="fi" />,
-        );
-        expect(getByRole('button')).toHaveTextContent('Valitse päivämäärä');
-      });
-
-      it('has English language option', () => {
-        const { getByRole } = render(
-          <DateInput labelText="Date" datePickerEnabled language="en" />,
-        );
-        expect(getByRole('button')).toHaveTextContent('Choose date');
-      });
-
-      it('has Swedish language option', () => {
-        const { getByRole } = render(
-          <DateInput labelText="Date" datePickerEnabled language="sv" />,
-        );
-        expect(getByRole('button')).toHaveTextContent('Välj datum');
-      });
-    });
-
-    describe('datePickerTexts', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      it('overwrites text in open button', () => {
-        const { getByRole } = render(
-          <DateInput
-            labelText="Date"
-            datePickerEnabled
-            datePickerTexts={{ openButtonLabel: 'Avaa kalenteri ' }}
-          />,
-        );
-        expect(getByRole('button')).toHaveTextContent('Avaa kalenteri');
-      });
-
-      it('overwrites texts in previous month button', () => {
-        const { baseElement, getByRole } = render(
-          <DateInput
-            labelText="Date"
-            datePickerEnabled
-            datePickerTexts={{ prevMonthButtonLabel: 'vorheriger Monat' }}
-          />,
-        );
-        fireEvent.click(getByRole('button'));
-        const button = baseElement.querySelectorAll(
-          '.fi-date-selectors_month-button',
-        )[0];
-        expect(button).toHaveAttribute(
-          'aria-label',
-          'vorheriger Monat Joulukuu',
-        );
-      });
-    });
-
-    describe('debounce', () => {
-      it('delays the running of onChange by the given time', () => {
-        jest.useFakeTimers();
-        const mockOnChange = jest.fn();
-        const { getByRole } = render(
-          <DateInput
-            labelText="Date"
-            debounce={1000}
-            onChange={mockOnChange}
-          />,
-        );
-        fireEvent.change(getByRole('textbox'), { target: { value: '1.1.' } });
-        fireEvent.change(getByRole('textbox'), {
-          target: { value: '1.1.2022' },
+      describe('datePickerEnabled', () => {
+        it('has no datePicker wrapper div when false', () => {
+          const { baseElement } = render(<DateInput labelText="Date" />);
+          const div = baseElement.querySelector(
+            '.fi-date-input_picker-element-container',
+          );
+          expect(div).toBeNull();
+          cleanup();
         });
-        expect(getByRole('textbox')).toHaveValue('1.1.2022');
-        expect(mockOnChange).not.toBeCalled();
-        jest.advanceTimersByTime(1000);
-        expect(mockOnChange).toBeCalledTimes(1);
-      });
-      it('resolves right away when no debounce is given', () => {
-        const mockOnChange = jest.fn();
-        const { getByRole } = render(
-          <DateInput labelText="Date" onChange={mockOnChange} />,
-        );
-        fireEvent.change(getByRole('textbox'), { target: { value: '1.1.' } });
-        fireEvent.change(getByRole('textbox'), {
-          target: { value: '1.1.2022' },
-        });
-        expect(mockOnChange).toBeCalledTimes(2);
-      });
-    });
 
-    describe('disabled', () => {
-      it('has input field disabled', () => {
-        const { getByRole } = render(<DateInput labelText="Date" disabled />);
-        expect(getByRole('textbox')).toHaveAttribute('disabled');
-      });
-
-      it('has date picker button disabled', () => {
-        const { getByRole } = render(
-          <DateInput labelText="Date" datePickerEnabled disabled />,
-        );
-        expect(getByRole('button')).toHaveAttribute('disabled');
-      });
-    });
-
-    describe('statusText', () => {
-      it('has status text defined by prop', () => {
-        const { getByText } = render(
-          <DateInput labelText="Date" statusText="Test status" />,
-        );
-        expect(getByText('Test status')).toBeDefined();
-      });
-    });
-
-    describe('statusTextAriaLiveMode', () => {
-      it('has assertive aria-live by default', () => {
-        const { getByText } = render(
-          <DateInput labelText="Date" statusText="Test status" />,
-        );
-        expect(getByText('Test status')).toHaveAttribute(
-          'aria-live',
-          'assertive',
-        );
-      });
-      it('has aria-live defined by prop', () => {
-        const { getByText } = render(
-          <DateInput
-            labelText="Date"
-            statusText="Test status"
-            statusTextAriaLiveMode="off"
-          />,
-        );
-        expect(getByText('Test status')).toHaveAttribute('aria-live', 'off');
-      });
-    });
-
-    describe('smallScreen', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      describe('not enabled', () => {
-        it('has position fixed', () => {
+        it('has datePicker wrapper div when true', () => {
           const { baseElement } = render(
             <DateInput labelText="Date" datePickerEnabled />,
           );
-          const dialog = baseElement.querySelector('[role="dialog"]');
-          expect(dialog).toHaveClass('fi-date-picker');
-          expect(dialog).toHaveStyle('position: fixed');
+          const div = baseElement.querySelector(
+            '.fi-date-input_picker-element-container',
+          );
+          expect(div).not.toBeNull();
+          cleanup();
         });
       });
 
-      describe('enabled', () => {
-        it('does not have position fixed', () => {
-          const { baseElement } = render(
-            <DateInput labelText="Date" smallScreen datePickerEnabled />,
+      describe('language', () => {
+        it('has Finnish language option', () => {
+          const { getByRole } = render(
+            <DateInput labelText="Date" datePickerEnabled language="fi" />,
           );
-          const dialog = baseElement.querySelector('.fi-date-picker');
-          expect(dialog).toHaveClass('fi-date-picker--small-screen');
-          expect(dialog).not.toHaveAttribute('style');
+          expect(getByRole('button')).toHaveTextContent('Valitse päivämäärä');
+          cleanup();
         });
 
-        it('has current date focused in smallScreen variant', () => {
-          const { getByRole, getByText } = render(
-            <DateInput labelText="Date" smallScreen datePickerEnabled />,
+        it('has English language option', () => {
+          const { getByRole } = render(
+            <DateInput labelText="Date" datePickerEnabled language="en" />,
           );
-          fireEvent.click(getByRole('button'));
-          const dateButton = getByText('15').closest(
-            'button',
-          ) as HTMLButtonElement;
-          expect(dateButton).toHaveAttribute(
-            'aria-label',
-            '15 keskiviikko Tammikuu 2020',
+          expect(getByRole('button')).toHaveTextContent('Choose date');
+          cleanup();
+        });
+
+        it('has Swedish language option', () => {
+          const { getByRole } = render(
+            <DateInput labelText="Date" datePickerEnabled language="sv" />,
           );
-          expect(dateButton).toHaveFocus();
+          expect(getByRole('button')).toHaveTextContent('Välj datum');
+          cleanup();
         });
       });
-    });
 
-    describe('value', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      it('has user given value in input', () => {
-        const { getByRole } = render(
-          <DateInput labelText="Date" value="1.5.2020" />,
-        );
-        expect(getByRole('textbox')).toHaveValue('1.5.2020');
-      });
-
-      it('has user given value selected in calendar', () => {
-        const { getByRole, baseElement } = render(
-          <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
-        );
-        fireEvent.click(getByRole('button'));
-        const dateButton = baseElement.querySelector(
-          '.fi-month-day_button--selected',
-        );
-        expect(dateButton).toHaveAttribute(
-          'aria-label',
-          '1 perjantai Toukokuu 2020 Valittu päivä',
-        );
-      });
-
-      it('has user given value focused in calendar', () => {
-        const { getByRole, baseElement } = render(
-          <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
-        );
-        fireEvent.click(getByRole('button'));
-        const dateButton = baseElement.querySelector(
-          '.fi-month-day_button--selected',
-        );
-        expect(dateButton).toHaveAttribute(
-          'aria-label',
-          '1 perjantai Toukokuu 2020 Valittu päivä',
-        );
-        expect(dateButton).toHaveFocus();
-      });
-    });
-
-    describe('visualPlaceholder', () => {
-      it('does not have placeholder by default', () => {
-        const { getByRole } = render(<DateInput labelText="Date" />);
-        expect(getByRole('textbox')).not.toHaveAttribute('placeholder');
-      });
-
-      it('has given text', () => {
-        const { getByRole } = render(
-          <DateInput labelText="Date" visualPlaceholder="1.1.2022" />,
-        );
-        expect(getByRole('textbox')).toHaveAttribute('placeholder', '1.1.2022');
-      });
-    });
-
-    describe('passProps', () => {
-      describe('defaultValue', () => {
+      describe('datePickerTexts', () => {
         beforeAll(() => {
           jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         });
@@ -811,20 +622,195 @@ describe('props', () => {
           jest.useRealTimers();
         });
 
-        it('has user given defaultValue in input', () => {
+        it('overwrites text in open button', () => {
           const { getByRole } = render(
-            <DateInput labelText="Date" defaultValue="31.1.2020" />,
-          );
-          expect(getByRole('textbox')).toHaveValue('31.1.2020');
-        });
-
-        it('has user given defaultValue selected in calendar', () => {
-          const { getByRole, baseElement } = render(
             <DateInput
               labelText="Date"
               datePickerEnabled
-              defaultValue="31.1.2020"
+              datePickerTexts={{ openButtonLabel: 'Avaa kalenteri ' }}
             />,
+          );
+          expect(getByRole('button')).toHaveTextContent('Avaa kalenteri');
+          cleanup();
+        });
+
+        it('overwrites texts in previous month button', () => {
+          const { baseElement, getByRole } = render(
+            <DateInput
+              labelText="Date"
+              datePickerEnabled
+              datePickerTexts={{ prevMonthButtonLabel: 'vorheriger Monat' }}
+            />,
+          );
+          fireEvent.click(getByRole('button'));
+          const button = baseElement.querySelectorAll(
+            '.fi-date-selectors_month-button',
+          )[0];
+          expect(button).toHaveAttribute(
+            'aria-label',
+            'vorheriger Monat Joulukuu',
+          );
+          cleanup();
+        });
+      });
+
+      describe('debounce', () => {
+        it('delays the running of onChange by the given time', () => {
+          jest.useFakeTimers();
+          const mockOnChange = jest.fn();
+          const { getByRole } = render(
+            <DateInput
+              labelText="Date"
+              debounce={1000}
+              onChange={mockOnChange}
+            />,
+          );
+          fireEvent.change(getByRole('textbox'), { target: { value: '1.1.' } });
+          fireEvent.change(getByRole('textbox'), {
+            target: { value: '1.1.2022' },
+          });
+          expect(getByRole('textbox')).toHaveValue('1.1.2022');
+          expect(mockOnChange).not.toBeCalled();
+          jest.advanceTimersByTime(1000);
+          expect(mockOnChange).toBeCalledTimes(1);
+          cleanup();
+        });
+
+        it('resolves right away when no debounce is given', () => {
+          const mockOnChange = jest.fn();
+          const { getByRole } = render(
+            <DateInput labelText="Date" onChange={mockOnChange} />,
+          );
+          fireEvent.change(getByRole('textbox'), { target: { value: '1.1.' } });
+          fireEvent.change(getByRole('textbox'), {
+            target: { value: '1.1.2022' },
+          });
+          expect(mockOnChange).toBeCalledTimes(2);
+          cleanup();
+        });
+      });
+
+      describe('disabled', () => {
+        it('has input field disabled', () => {
+          const { getByRole } = render(<DateInput labelText="Date" disabled />);
+          expect(getByRole('textbox')).toHaveAttribute('disabled');
+          cleanup();
+        });
+
+        it('has date picker button disabled', () => {
+          const { getByRole } = render(
+            <DateInput labelText="Date" datePickerEnabled disabled />,
+          );
+          expect(getByRole('button')).toHaveAttribute('disabled');
+          cleanup();
+        });
+      });
+
+      describe('statusText', () => {
+        it('has status text defined by prop', () => {
+          const { getByText } = render(
+            <DateInput labelText="Date" statusText="Test status" />,
+          );
+          expect(getByText('Test status')).toBeDefined();
+          cleanup();
+        });
+      });
+
+      describe('statusTextAriaLiveMode', () => {
+        it('has assertive aria-live by default', () => {
+          const { getByText } = render(
+            <DateInput labelText="Date" statusText="Test status" />,
+          );
+          expect(getByText('Test status')).toHaveAttribute(
+            'aria-live',
+            'assertive',
+          );
+          cleanup();
+        });
+
+        it('has aria-live defined by prop', () => {
+          const { getByText } = render(
+            <DateInput
+              labelText="Date"
+              statusText="Test status"
+              statusTextAriaLiveMode="off"
+            />,
+          );
+          expect(getByText('Test status')).toHaveAttribute('aria-live', 'off');
+          cleanup();
+        });
+      });
+
+      describe('smallScreen', () => {
+        beforeAll(() => {
+          jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
+        });
+
+        afterAll(() => {
+          jest.useRealTimers();
+        });
+
+        describe('not enabled', () => {
+          it('has position fixed', () => {
+            const { baseElement } = render(
+              <DateInput labelText="Date" datePickerEnabled />,
+            );
+            const dialog = baseElement.querySelector('[role="dialog"]');
+            expect(dialog).toHaveClass('fi-date-picker');
+            expect(dialog).toHaveStyle('position: fixed');
+            cleanup();
+          });
+        });
+
+        describe('enabled', () => {
+          it('does not have position fixed', () => {
+            const { baseElement } = render(
+              <DateInput labelText="Date" smallScreen datePickerEnabled />,
+            );
+            const dialog = baseElement.querySelector('.fi-date-picker');
+            expect(dialog).toHaveClass('fi-date-picker--small-screen');
+            expect(dialog).not.toHaveAttribute('style');
+            cleanup();
+          });
+
+          it('has current date focused in smallScreen variant', () => {
+            const { getByRole, getByText } = render(
+              <DateInput labelText="Date" smallScreen datePickerEnabled />,
+            );
+            fireEvent.click(getByRole('button'));
+            const dateButton = getByText('15').closest(
+              'button',
+            ) as HTMLButtonElement;
+            expect(dateButton).toHaveAttribute(
+              'aria-label',
+              '15 keskiviikko Tammikuu 2020',
+            );
+            expect(dateButton).toHaveFocus();
+            cleanup();
+          });
+        });
+      });
+
+      describe('value', () => {
+        beforeAll(() => {
+          jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+        });
+
+        afterAll(() => {
+          jest.useRealTimers();
+        });
+
+        it('has user given value in input', () => {
+          const { getByRole } = render(
+            <DateInput labelText="Date" value="1.5.2020" />,
+          );
+          expect(getByRole('textbox')).toHaveValue('1.5.2020');
+          cleanup();
+        });
+
+        it('has user given value selected in calendar', () => {
+          const { getByRole, baseElement } = render(
+            <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
           );
           fireEvent.click(getByRole('button'));
           const dateButton = baseElement.querySelector(
@@ -832,17 +818,14 @@ describe('props', () => {
           );
           expect(dateButton).toHaveAttribute(
             'aria-label',
-            '31 perjantai Tammikuu 2020 Valittu päivä',
+            '1 perjantai Toukokuu 2020 Valittu päivä',
           );
+          cleanup();
         });
 
-        it('has user given defaultValue focused in calendar', () => {
+        it('has user given value focused in calendar', () => {
           const { getByRole, baseElement } = render(
-            <DateInput
-              labelText="Date"
-              datePickerEnabled
-              defaultValue="31.1.2020"
-            />,
+            <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
           );
           fireEvent.click(getByRole('button'));
           const dateButton = baseElement.querySelector(
@@ -850,40 +833,122 @@ describe('props', () => {
           );
           expect(dateButton).toHaveAttribute(
             'aria-label',
-            '31 perjantai Tammikuu 2020 Valittu päivä',
+            '1 perjantai Toukokuu 2020 Valittu päivä',
           );
           expect(dateButton).toHaveFocus();
+          cleanup();
         });
       });
 
-      describe('aria-describedby', () => {
-        it('has user given aria-describedby on input', () => {
+      describe('visualPlaceholder', () => {
+        it('does not have placeholder by default', () => {
+          const { getByRole } = render(<DateInput labelText="Date" />);
+          expect(getByRole('textbox')).not.toHaveAttribute('placeholder');
+          cleanup();
+        });
+
+        it('has given text', () => {
           const { getByRole } = render(
-            <DateInput labelText="Date" aria-describedby="something" />,
+            <DateInput labelText="Date" visualPlaceholder="1.1.2022" />,
           );
           expect(getByRole('textbox')).toHaveAttribute(
-            'aria-describedby',
-            'something',
+            'placeholder',
+            '1.1.2022',
           );
+          cleanup();
         });
       });
-    });
 
-    describe('margin', () => {
-      it('has margin style from margin prop', () => {
-        const { baseElement } = render(
-          <DateInput labelText="Date" margin="xs" />,
-        );
-        const div = baseElement.querySelector('.fi-date-input');
-        expect(div).toHaveStyle('margin: 10px');
+      describe('passProps', () => {
+        describe('defaultValue', () => {
+          beforeAll(() => {
+            jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+          });
+
+          afterAll(() => {
+            jest.useRealTimers();
+          });
+
+          it('has user given defaultValue in input', () => {
+            const { getByRole } = render(
+              <DateInput labelText="Date" defaultValue="31.1.2020" />,
+            );
+            expect(getByRole('textbox')).toHaveValue('31.1.2020');
+            cleanup();
+          });
+
+          it('has user given defaultValue selected in calendar', () => {
+            const { getByRole, baseElement } = render(
+              <DateInput
+                labelText="Date"
+                datePickerEnabled
+                defaultValue="31.1.2020"
+              />,
+            );
+            fireEvent.click(getByRole('button'));
+            const dateButton = baseElement.querySelector(
+              '.fi-month-day_button--selected',
+            );
+            expect(dateButton).toHaveAttribute(
+              'aria-label',
+              '31 perjantai Tammikuu 2020 Valittu päivä',
+            );
+            cleanup();
+          });
+
+          it('has user given defaultValue focused in calendar', () => {
+            const { getByRole, baseElement } = render(
+              <DateInput
+                labelText="Date"
+                datePickerEnabled
+                defaultValue="31.1.2020"
+              />,
+            );
+            fireEvent.click(getByRole('button'));
+            const dateButton = baseElement.querySelector(
+              '.fi-month-day_button--selected',
+            );
+            expect(dateButton).toHaveAttribute(
+              'aria-label',
+              '31 perjantai Tammikuu 2020 Valittu päivä',
+            );
+            expect(dateButton).toHaveFocus();
+            cleanup();
+          });
+        });
+
+        describe('aria-describedby', () => {
+          it('has user given aria-describedby on input', () => {
+            const { getByRole } = render(
+              <DateInput labelText="Date" aria-describedby="something" />,
+            );
+            expect(getByRole('textbox')).toHaveAttribute(
+              'aria-describedby',
+              'something',
+            );
+            cleanup();
+          });
+        });
       });
 
-      it('has margin style overwritten by style prop', () => {
-        const { baseElement } = render(
-          <DateInput style={{ margin: 2 }} labelText="Date" margin="xs" />,
-        );
-        const div = baseElement.querySelector('.fi-date-input');
-        expect(div).toHaveAttribute('style', 'margin: 2px;');
+      describe('margin', () => {
+        it('has margin style from margin prop', () => {
+          const { baseElement } = render(
+            <DateInput labelText="Date" margin="xs" />,
+          );
+          const div = baseElement.querySelector('.fi-date-input');
+          expect(div).toHaveStyle('margin: 10px');
+          cleanup();
+        });
+
+        it('has margin style overwritten by style prop', () => {
+          const { baseElement } = render(
+            <DateInput style={{ margin: 2 }} labelText="Date" margin="xs" />,
+          );
+          const div = baseElement.querySelector('.fi-date-input');
+          expect(div).toHaveAttribute('style', 'margin: 2px;');
+          cleanup();
+        });
       });
     });
   });
