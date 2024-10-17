@@ -70,7 +70,7 @@ const StyledStatusText = styled(
   }: StatusTextProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [_marginProps, passProps] = separateMarginProps(rest);
 
-    const ariaLiveProp = !disabled
+    const ariaLiveProp: { 'aria-live': AriaLiveMode | undefined } = !disabled
       ? { 'aria-live': ariaLiveMode }
       : { 'aria-live': 'off' };
 
