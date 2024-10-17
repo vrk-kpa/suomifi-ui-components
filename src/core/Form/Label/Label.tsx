@@ -1,8 +1,6 @@
 import React, {
   ReactElement,
-  SetStateAction,
   ReactNode,
-  useState,
   isValidElement,
   cloneElement,
   CSSProperties,
@@ -88,14 +86,14 @@ const StyledLabel = styled(
   }: LabelProps & SuomifiThemeProp & GlobalMarginProps) => {
     const [_marginProps, passProps] = separateMarginProps(rest);
 
-    const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
+    const wrapperRef = React.useRef<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
       tooltipComponent: ReactElement<TooltipProps> | undefined,
     ): ReactNode {
       if (isValidElement(tooltipComponent)) {
         return cloneElement(tooltipComponent, {
-          anchorElement: wrapperRef,
+          anchorElement: wrapperRef.current,
           // trick to force tooltip to rerender every time when label changes.
           key: forceTooltipRerender ? Date.now() : null,
         });
@@ -106,9 +104,9 @@ const StyledLabel = styled(
     return (
       <HtmlDivWithRef
         className={classnames(className, baseClassName)}
-        forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
-          setWrapperRef(ref)
-        }
+        forwardedRef={(ref: HTMLDivElement | null) => {
+          wrapperRef.current = ref;
+        }}
         style={style}
       >
         {labelMode === 'hidden' ? (
