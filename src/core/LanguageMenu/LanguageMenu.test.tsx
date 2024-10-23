@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import { axeTest } from '../../utils/test';
 import { LanguageMenu, LanguageMenuProps } from './LanguageMenu';
 import { LanguageMenuItem } from './LanguageMenuItem/LanguageMenuItem';
@@ -32,7 +32,9 @@ const TestLanguageMenu = (props: MenuProps) => (
 describe('Basic LanguageMenu', () => {
   it('should match snapshot when closed', async () => {
     const { baseElement } = render(TestLanguageMenu(languageMenuProps));
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(async () => {
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 
   it('should match snapshot when opened', async () => {
@@ -52,14 +54,16 @@ describe('Basic LanguageMenu', () => {
 
 describe('LanguageMenuItem', () => {
   describe('onSelect', () => {
-    it('should call onSelect when clicked', () => {
+    it('should call onSelect when clicked', async () => {
       const { getByRole, getAllByRole } = render(
         TestLanguageMenu(languageMenuProps),
       );
       fireEvent.click(getByRole('button'));
       const item = getAllByRole('menuitem')[0];
       fireEvent.click(item);
-      expect(mockOnSelect).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(mockOnSelect).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
@@ -74,7 +78,7 @@ describe('props', () => {
   });
 
   describe('id', () => {
-    it('should have id', () => {
+    it('should have id', async () => {
       const { getByRole } = render(
         TestLanguageMenu({
           ...languageMenuProps,
@@ -82,12 +86,14 @@ describe('props', () => {
         }),
       );
       const button = getByRole('button');
-      expect(button).toHaveAttribute('id', 'test-id');
+      await waitFor(() => {
+        expect(button).toHaveAttribute('id', 'test-id');
+      });
     });
   });
 
   describe('data-testid', () => {
-    it('should have data-testid', () => {
+    it('should have data-testid', async () => {
       const { getByRole } = render(
         TestLanguageMenu({
           ...languageMenuProps,
@@ -95,25 +101,29 @@ describe('props', () => {
         }),
       );
       const button = getByRole('button');
-      expect(button).toHaveAttribute('data-testid', 'custom-data-attribute');
+      await waitFor(() => {
+        expect(button).toHaveAttribute('data-testid', 'custom-data-attribute');
+      });
     });
   });
 
   describe('className', () => {
-    it('shoud have base className and given className in wrapper element', () => {
+    it('shoud have base className and given className in wrapper element', async () => {
       const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
           className: 'lm-test',
         }),
       );
-      expect(container.firstChild).toHaveClass('fi-language-menu');
-      expect(container.firstChild).toHaveClass('lm-test');
+      await waitFor(() => {
+        expect(container.firstChild).toHaveClass('fi-language-menu');
+        expect(container.firstChild).toHaveClass('lm-test');
+      });
     });
   });
 
   describe('menuClassName', () => {
-    it('shoud have className in popover wrapper element', () => {
+    it('shoud have className in popover wrapper element', async () => {
       const { baseElement } = render(
         TestLanguageMenu({
           ...languageMenuProps,
@@ -121,22 +131,26 @@ describe('props', () => {
         }),
       );
       const div = baseElement.querySelector('.fi-language-menu-popover');
-      expect(div).toHaveClass('menu-custom-class');
+      await waitFor(() => {
+        expect(div).toHaveClass('menu-custom-class');
+      });
     });
   });
 
   describe('margin', () => {
-    it('should have margin style from margin prop', () => {
+    it('should have margin style from margin prop', async () => {
       const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
           margin: 'xs',
         }),
       );
-      expect(container.firstChild).toHaveStyle('margin: 10px');
+      await waitFor(() => {
+        expect(container.firstChild).toHaveStyle('margin: 10px');
+      });
     });
 
-    it('should have margin prop overwritten by style prop', () => {
+    it('should have margin prop overwritten by style prop', async () => {
       const { container } = render(
         TestLanguageMenu({
           ...languageMenuProps,
@@ -144,61 +158,65 @@ describe('props', () => {
           style: { margin: 2 },
         }),
       );
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+      await waitFor(() => {
+        expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+      });
     });
   });
 });
 
 describe('callbacks', () => {
   describe('onOpen', () => {
-    it('should call onOpen when menu button is clicked', () => {
+    it('should call onOpen when menu button is clicked', async () => {
       const mockOnOpen = jest.fn();
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
       fireEvent.click(getByRole('button'));
-      expect(mockOnOpen).toBeCalledTimes(1);
+      await waitFor(() => {
+        expect(mockOnOpen).toBeCalledTimes(1);
+      });
     });
 
-    it('should call onOpen with Enter in menu button', () => {
+    it('should call onOpen with Enter in menu button', async () => {
       const mockOnOpen = jest.fn();
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
       fireEvent.keyDown(getByRole('button'), { key: 'Enter' });
-      expect(mockOnOpen).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
 
-    it('should call onOpen with Space in menu button', () => {
+    it('should call onOpen with Space in menu button', async () => {
       const mockOnOpen = jest.fn();
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
       fireEvent.keyDown(getByRole('button'), { key: ' ' });
-      expect(mockOnOpen).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
 
-    it('should call onOpen with ArrowUp in menu button', () => {
+    it('should call onOpen with ArrowUp in menu button', async () => {
       const mockOnOpen = jest.fn();
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
       fireEvent.keyDown(getByRole('button'), { key: 'ArrowUp' });
-      expect(mockOnOpen).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
 
-    it('should call onOpen with ArrowDown in menu button', () => {
+    it('should call onOpen with ArrowDown in menu button', async () => {
       const mockOnOpen = jest.fn();
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
       fireEvent.keyDown(getByRole('button'), { key: 'ArrowDown' });
-      expect(mockOnOpen).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
   });
 
   describe('onClose', () => {
-    it('should call onClose with Escape', () => {
+    it('should call onClose with Escape', async () => {
       const mockOnClose = jest.fn();
       const { getByRole, getAllByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onClose: mockOnClose }),
@@ -207,7 +225,7 @@ describe('callbacks', () => {
       const item = getAllByRole('menuitem')[0];
       fireEvent.click(item);
       fireEvent.keyDown(item, { key: 'Escape' });
-      expect(mockOnClose).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnClose).toBeCalledTimes(1));
     });
 
     it('should call onClose with click outside menu', async () => {
@@ -216,20 +234,20 @@ describe('callbacks', () => {
         TestLanguageMenu({ ...languageMenuProps, onClose: mockOnClose }),
       );
       fireEvent.click(getByRole('button'));
-      expect(getByRole('menu')).toBeVisible();
+      await waitFor(() => expect(getByRole('menu')).toBeVisible());
       fireEvent.click(getByRole('button'));
-      expect(mockOnClose).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnClose).toBeCalledTimes(1));
     });
   });
 
   describe('onBlur', () => {
-    it('should call onBlur when focus moves to menu', () => {
+    it('should call onBlur when focus moves to menu', async () => {
       const mockOnBlur = jest.fn();
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onBlur: mockOnBlur }),
       );
       fireEvent.blur(getByRole('button'));
-      expect(mockOnBlur).toBeCalledTimes(1);
+      await waitFor(() => expect(mockOnBlur).toBeCalledTimes(1));
     });
   });
 });
