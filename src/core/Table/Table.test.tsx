@@ -70,7 +70,9 @@ const data = [
 
 describe('snapshots match', () => {
   test('minimal implementation', () => {
-    const tableRendered = render(<Table columns={columns} data={data} />);
+    const tableRendered = render(
+      <Table columns={columns} data={data} caption="Test table" />,
+    );
     const { container } = tableRendered;
     expect(container.firstChild).toMatchSnapshot();
   });
