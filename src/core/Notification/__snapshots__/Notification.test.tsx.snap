@@ -1,55 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`props children should match snapshot 1`] = `
-.c11 {
+.c10 {
   vertical-align: baseline;
 }
 
-.c11.fi-icon {
+.c10.fi-icon {
   display: inline-block;
 }
 
-.c11 .fi-icon-base-fill {
+.c10 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c11 .fi-icon-base-stroke {
+.c10 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c11.fi-icon--cursor-pointer {
+.c10.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c11.fi-icon--cursor-pointer * {
+.c10.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c4 {
+.c3 {
   vertical-align: baseline;
 }
 
-.c4.fi-icon {
+.c3.fi-icon {
   display: inline-block;
 }
 
-.c4 .fi-icon-base-fill {
+.c3 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c4 .fi-icon-base-stroke {
+.c3 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c4.fi-icon--cursor-pointer {
+.c3.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c4.fi-icon--cursor-pointer * {
+.c3.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c9 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -74,34 +74,34 @@ exports[`props children should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c9:-moz-focusring {
+.c8:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c9::-moz-focus-inner {
+.c8::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c9::-webkit-file-upload-button {
+.c8::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c9::-webkit-inner-spin-button {
+.c8::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c9::-webkit-outer-spin-button {
+.c8::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c9 ::before,
-.c9 ::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -124,8 +124,8 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3 ::before,
-.c3 ::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -157,7 +157,7 @@ exports[`props children should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -180,12 +180,12 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5 ::before,
-.c5 ::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
-.c7 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -208,12 +208,12 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7 ::before,
-.c7 ::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c5 {
   color: hsl(0, 0%, 13%);
   letter-spacing: 0;
   text-decoration: none;
@@ -227,7 +227,7 @@ exports[`props children should match snapshot 1`] = `
   color: hsl(0, 0%, 13%);
 }
 
-.c6.fi-heading--h1hero {
+.c5.fi-heading--h1hero {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -239,7 +239,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--h1 {
+.c5.fi-heading--h1 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -251,7 +251,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c6.fi-heading--h2 {
+.c5.fi-heading--h2 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -263,7 +263,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--h3 {
+.c5.fi-heading--h3 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -275,7 +275,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--h4 {
+.c5.fi-heading--h4 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -287,7 +287,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--h5 {
+.c5.fi-heading--h5 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -299,7 +299,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--h6 {
+.c5.fi-heading--h6 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -311,7 +311,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--small-screen {
+.c5.fi-heading--small-screen {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -323,7 +323,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h1hero {
+.c5.fi-heading--small-screen.fi-heading--h1hero {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -335,7 +335,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h1 {
+.c5.fi-heading--small-screen.fi-heading--h1 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -347,7 +347,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h2 {
+.c5.fi-heading--small-screen.fi-heading--h2 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -359,7 +359,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h3 {
+.c5.fi-heading--small-screen.fi-heading--h3 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -371,7 +371,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h4 {
+.c5.fi-heading--small-screen.fi-heading--h4 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -383,7 +383,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h5 {
+.c5.fi-heading--small-screen.fi-heading--h5 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -395,7 +395,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c6.fi-heading--small-screen.fi-heading--h6 {
+.c5.fi-heading--small-screen.fi-heading--h6 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -407,7 +407,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c8 {
+.c7 {
   position: absolute;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -418,7 +418,7 @@ exports[`props children should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c10 {
+.c9 {
   color: hsl(0, 0%, 13%);
   letter-spacing: 0;
   text-decoration: none;
@@ -442,12 +442,12 @@ exports[`props children should match snapshot 1`] = `
   border: 1px solid transparent;
 }
 
-.c10:focus {
+.c9:focus {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c10:focus::after {
+.c9:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -463,59 +463,59 @@ exports[`props children should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c10:hover {
+.c9:hover {
   background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
-.c10:active {
+.c9:active {
   background: hsl(212, 63%, 37%);
 }
 
-.c10.fi-button--disabled,
-.c10[disabled],
-.c10:disabled {
+.c9.fi-button--disabled,
+.c9[disabled],
+.c9:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
 
-.c10.fi-button--disabled::after {
+.c9.fi-button--disabled::after {
   border: none;
   box-shadow: none;
 }
 
-.c10.fi-button--fullwidth {
+.c9.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
 
-.c10.fi-button--inverted {
+.c9.fi-button--inverted {
   background: none;
   background-color: hsl(212, 63%, 45%);
   border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
-.c10.fi-button--inverted:hover {
+.c9.fi-button--inverted:hover {
   background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
-.c10.fi-button--inverted:active {
+.c9.fi-button--inverted:active {
   background: none;
   background-color: hsl(212, 63%, 45%);
 }
 
-.c10.fi-button--inverted.fi-button--disabled,
-.c10.fi-button--inverted[disabled],
-.c10.fi-button--inverted:disabled {
+.c9.fi-button--inverted.fi-button--disabled,
+.c9.fi-button--inverted[disabled],
+.c9.fi-button--inverted:disabled {
   opacity: 0.41;
   background: none;
   background-color: none;
 }
 
-.c10.fi-button--secondary {
+.c9.fi-button--secondary {
   color: hsl(212, 63%, 45%);
   background: none;
   background-color: hsl(0, 0%, 100%);
@@ -523,18 +523,18 @@ exports[`props children should match snapshot 1`] = `
   text-shadow: none;
 }
 
-.c10.fi-button--secondary:hover {
+.c9.fi-button--secondary:hover {
   background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
-.c10.fi-button--secondary:active {
+.c9.fi-button--secondary:active {
   background: none;
   background-color: hsl(202, 7%, 93%);
 }
 
-.c10.fi-button--secondary.fi-button--disabled,
-.c10.fi-button--secondary[disabled],
-.c10.fi-button--secondary:disabled {
+.c9.fi-button--secondary.fi-button--disabled,
+.c9.fi-button--secondary[disabled],
+.c9.fi-button--secondary:disabled {
   color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
@@ -542,11 +542,11 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
+.c9.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary-noborder {
+.c9.fi-button--secondary-noborder {
   color: hsl(212, 63%, 45%);
   background: none;
   background-color: hsl(0, 0%, 100%);
@@ -557,18 +557,18 @@ exports[`props children should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c10.fi-button--secondary-noborder:hover {
+.c9.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
-.c10.fi-button--secondary-noborder:active {
+.c9.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202, 7%, 93%);
 }
 
-.c10.fi-button--secondary-noborder.fi-button--disabled,
-.c10.fi-button--secondary-noborder[disabled],
-.c10.fi-button--secondary-noborder:disabled {
+.c9.fi-button--secondary-noborder.fi-button--disabled,
+.c9.fi-button--secondary-noborder[disabled],
+.c9.fi-button--secondary-noborder:disabled {
   color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
@@ -576,19 +576,19 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+.c9.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary-noborder.fi-button--icon-only {
+.c9.fi-button--secondary-noborder.fi-button--icon-only {
   padding: 6px 12px;
 }
 
-.c10.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
+.c9.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary-light {
+.c9.fi-button--secondary-light {
   color: hsl(212, 63%, 45%);
   color: hsl(212, 63%, 45%);
   background: none;
@@ -600,18 +600,18 @@ exports[`props children should match snapshot 1`] = `
   border: none;
 }
 
-.c10.fi-button--secondary-light:hover {
+.c9.fi-button--secondary-light:hover {
   background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
-.c10.fi-button--secondary-light:active {
+.c9.fi-button--secondary-light:active {
   background: none;
   background-color: hsl(202, 7%, 93%);
 }
 
-.c10.fi-button--secondary-light.fi-button--disabled,
-.c10.fi-button--secondary-light[disabled],
-.c10.fi-button--secondary-light:disabled {
+.c9.fi-button--secondary-light.fi-button--disabled,
+.c9.fi-button--secondary-light[disabled],
+.c9.fi-button--secondary-light:disabled {
   color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
@@ -619,35 +619,35 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+.c9.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
 }
 
-.c10.fi-button--secondary-light.fi-button--icon-only {
+.c9.fi-button--secondary-light.fi-button--icon-only {
   padding: 6px 12px;
 }
 
-.c10.fi-button--secondary-light:hover {
+.c9.fi-button--secondary-light:hover {
   background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
-.c10.fi-button--secondary-light:active {
+.c9.fi-button--secondary-light:active {
   background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
-.c10.fi-button--secondary-light.fi-button--disabled,
-.c10.fi-button--secondary-light[disabled],
-.c10.fi-button--secondary-light:disabled {
+.c9.fi-button--secondary-light.fi-button--disabled,
+.c9.fi-button--secondary-light[disabled],
+.c9.fi-button--secondary-light:disabled {
   color: hsl(202, 7%, 67%);
   background: none;
   background-color: hsl(202, 7%, 97%);
 }
 
-.c10.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
+.c9.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
 }
 
-.c10>.fi-button_icon>.fi-icon {
+.c9>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -655,28 +655,28 @@ exports[`props children should match snapshot 1`] = `
   transform: translateY(-0.1em);
 }
 
-.c10>.fi-button_icon--right>.fi-icon {
+.c9>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
 
-.c10.fi-button--icon-only {
+.c9.fi-button--icon-only {
   padding: 6px 11px;
 }
 
-.c10.fi-button--icon-only>.fi-button_icon>.fi-icon {
+.c9.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c10.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
+.c9.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c10.fi-button--disabled>.fi-button_icon {
+.c9.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
-.c10 .fi-button_loading-icon {
+.c9 .fi-button_loading-icon {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -684,33 +684,20 @@ exports[`props children should match snapshot 1`] = `
   animation: rotation 1.5s infinite linear;
 }
 
-.c10 .fi-button_loading-icon .fi-icon-component-brand-fill {
+.c9 .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(0, 0%, 100%);
 }
 
-.c10.fi-button--loading {
+.c9.fi-button--loading {
   display: flex;
   align-items: center;
 }
 
-.c10.fi-button--loading-icon-only .fi-button_loading-icon {
+.c9.fi-button--loading-icon-only .fi-button_loading-icon {
   margin-right: 0;
 }
 
 .c1 {
-  color: hsl(0, 0%, 13%);
-  letter-spacing: 0;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 {
   color: hsl(0, 0%, 13%);
   letter-spacing: 0;
   text-decoration: none;
@@ -727,41 +714,41 @@ exports[`props children should match snapshot 1`] = `
   padding-bottom: 10px;
 }
 
-.c2.fi-notification {
+.c1.fi-notification {
   background-color: hsl(0, 0%, 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.c2.fi-notification .fi-notification_style-wrapper {
+.c1.fi-notification .fi-notification_style-wrapper {
   padding: 0 10px 10px 40px;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
 }
 
-.c2.fi-notification .fi-notification_icon-wrapper {
+.c1.fi-notification .fi-notification_icon-wrapper {
   padding-top: 20px;
   flex: none;
 }
 
-.c2.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
+.c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
   height: 24px;
   width: 24px;
 }
 
-.c2.fi-notification .fi-notification_text-content-wrapper {
+.c1.fi-notification .fi-notification_text-content-wrapper {
   padding-top: 20px;
   padding-left: 20px;
   flex-grow: 1;
 }
 
-.c2.fi-notification .fi-notification_text-content-wrapper .fi-notification_content {
+.c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content {
   vertical-align: middle;
 }
 
-.c2.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_contentWrapper {
+.c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_contentWrapper {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -773,7 +760,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c2.fi-notification .fi-notification_heading {
+.c1.fi-notification .fi-notification_heading {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -787,19 +774,19 @@ exports[`props children should match snapshot 1`] = `
   margin-bottom: 5px;
 }
 
-.c2.fi-notification .fi-notification_action-element-wrapper {
+.c1.fi-notification .fi-notification_action-element-wrapper {
   padding: 20px 26px 19px 84px;
 }
 
-.c2.fi-notification .fi-notification_action-element-wrapper .fi-button {
+.c1.fi-notification .fi-notification_action-element-wrapper .fi-button {
   margin: 10px 15px 0 0;
 }
 
-.c2.fi-notification .fi-notification_action-element-wrapper .fi-button:first-child {
+.c1.fi-notification .fi-notification_action-element-wrapper .fi-button:first-child {
   margin-top: 0;
 }
 
-.c2.fi-notification .fi-notification_close-button {
+.c1.fi-notification .fi-notification_close-button {
   height: 40px;
   padding: 7px 10px;
   margin: 0;
@@ -809,12 +796,12 @@ exports[`props children should match snapshot 1`] = `
   color: hsl(212, 63%, 45%);
 }
 
-.c2.fi-notification .fi-notification_close-button:focus-visible {
+.c1.fi-notification .fi-notification_close-button:focus-visible {
   outline: 0;
   position: relative;
 }
 
-.c2.fi-notification .fi-notification_close-button:focus-visible:after {
+.c1.fi-notification .fi-notification_close-button:focus-visible:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -831,27 +818,27 @@ exports[`props children should match snapshot 1`] = `
   outline: 3px solid transparent;
 }
 
-.c2.fi-notification--neutral {
+.c1.fi-notification--neutral {
   border-top: 4px solid hsl(215, 86%, 51%);
 }
 
-.c2.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
+.c1.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
   fill: hsl(215, 86%, 51%);
 }
 
-.c2.fi-notification--error {
+.c1.fi-notification--error {
   border-top: 4px solid hsl(3, 59%, 43%);
 }
 
-.c2.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
+.c1.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
   fill: hsl(3, 59%, 43%);
 }
 
-.c2.fi-notification.fi-notification--small-screen {
+.c1.fi-notification.fi-notification--small-screen {
   padding-bottom: 20px;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
   padding-top: 15px;
   padding-left: 12px;
   padding-right: 12px;
@@ -859,43 +846,43 @@ exports[`props children should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_close-button {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button {
   margin: 3px;
   padding: 3px 5px 3px 4px;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_close-button .fi-icon {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button .fi-icon {
   margin-right: 5px;
   font-size: 16px;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_style-wrapper {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_style-wrapper {
   padding: 0;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_icon-wrapper {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_icon-wrapper {
   padding-top: 17px;
   padding-left: 17px;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper {
   padding: 0 15px;
 }
 
-.c2.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper .fi-button {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper .fi-button {
   width: 100%;
   margin-top: 15px;
   margin-right: 0;
 }
 
 @media (prefers-reduced-motion) {
-  .c10.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+  .c9.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
     animation: rotation 10s infinite linear;
   }
 }
 
 @media (forced-colors: active) {
-  .c2 {
+  .c1 {
     border: solid 1px ButtonBorder;
   }
 }
@@ -903,18 +890,18 @@ exports[`props children should match snapshot 1`] = `
 <div>
   <section
     aria-label="Lorem ipsum dolor sit"
-    class="c0 fi-block c1 fi-notification fi-notification--neutral c2"
+    class="c0 fi-notification fi-notification--neutral c1"
     role="region"
   >
     <div
-      class="c3 fi-notification_style-wrapper"
+      class="c2 fi-notification_style-wrapper"
     >
       <div
-        class="c3 fi-notification_icon-wrapper"
+        class="c2 fi-notification_icon-wrapper"
       >
         <svg
           aria-hidden="true"
-          class="fi-icon c4 fi-notification_icon fi-notification_icon--neutral"
+          class="fi-icon c3 fi-notification_icon fi-notification_icon--neutral"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -930,19 +917,19 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        class="c3 fi-notification_text-content-wrapper"
+        class="c2 fi-notification_text-content-wrapper"
         id="7"
       >
         <div
-          class="c3 fi-notification_content"
+          class="c2 fi-notification_content"
         >
           <h2
-            class="c5 fi-heading c6 fi-notification_heading fi-heading--h2"
+            class="c4 fi-heading c5 fi-notification_heading fi-heading--h2"
           >
             Lorem ipsum dolor sit
           </h2>
           <div
-            class="c3 fi-notification_contentWrapper"
+            class="c2 fi-notification_contentWrapper"
           >
             <div>
               Test notification
@@ -952,21 +939,21 @@ exports[`props children should match snapshot 1`] = `
       </div>
       <span
         aria-live="polite"
-        class="c7 c8 fi-visually-hidden"
+        class="c6 c7 fi-visually-hidden"
       />
       <button
         aria-disabled="false"
-        class="c9 fi-button c10 fi-notification_close-button fi-button--secondary-noborder"
+        class="c8 fi-button c9 fi-notification_close-button fi-button--secondary-noborder"
         tabindex="0"
         type="button"
       >
         Close
         <span
-          class="c7 fi-button_icon fi-button_icon--right"
+          class="c6 fi-button_icon fi-button_icon--right"
         >
           <svg
             aria-hidden="true"
-            class="fi-icon c11"
+            class="fi-icon c10"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
