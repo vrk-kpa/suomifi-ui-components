@@ -527,7 +527,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -549,17 +549,17 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c5 ::before,
-.c5 ::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -582,12 +582,12 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c6 ::before,
-.c6 ::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -874,7 +874,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
           class="c2 c3 fi-label"
         >
           <label
-            class="c4 fi-visually-hidden"
+            class="c4 c5 fi-visually-hidden"
             for="3"
           >
             Date
@@ -888,7 +888,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
           >
             <input
               autocomplete="off"
-              class="c5 fi-date-input_input"
+              class="c6 fi-date-input_input"
               id="3"
               placeholder="DateInput"
               type="text"
@@ -899,7 +899,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c6 c7 fi-status-text"
+          class="c4 c7 fi-status-text"
           id="3-statusText"
         />
       </div>
@@ -4072,7 +4072,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c2 c3 fi-label"
           >
             <label
-              class="c7 fi-visually-hidden"
+              class="c4 c7 fi-visually-hidden"
               id="16-label"
             >
               Valitse vuosi
@@ -4120,7 +4120,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c2 c3 fi-label"
           >
             <label
-              class="c7 fi-visually-hidden"
+              class="c4 c7 fi-visually-hidden"
               id="17-label"
             >
               Valitse kuukausi
@@ -6220,7 +6220,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               class="c2 c3 fi-label"
             >
               <label
-                class="c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
                 id="9-label"
               >
                 Valitse vuosi
@@ -6268,7 +6268,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               class="c2 c3 fi-label"
             >
               <label
-                class="c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
                 id="10-label"
               >
                 Valitse kuukausi

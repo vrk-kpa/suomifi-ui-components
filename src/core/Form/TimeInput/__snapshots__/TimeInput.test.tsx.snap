@@ -829,7 +829,7 @@ exports[`snapshots match hidden label 1`] = `
       class="c3 c4 fi-label"
     >
       <label
-        class="c5 fi-visually-hidden"
+        class="c2 c5 fi-visually-hidden"
         for="test-id3"
       >
         Test input

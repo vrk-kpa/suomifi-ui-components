@@ -644,7 +644,7 @@ exports[`snapshots match error status with statustext 1`] = `
 `;
 
 exports[`snapshots match hidden label 1`] = `
-.c9 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -667,12 +667,12 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c9 ::before,
-.c9 ::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -763,7 +763,7 @@ exports[`snapshots match hidden label 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -785,17 +785,17 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 100%;
 }
 
-.c7::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c7 ::before,
-.c7 ::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -814,8 +814,8 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 100%;
 }
 
-.c8 ::before,
-.c8 ::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -1206,7 +1206,7 @@ exports[`snapshots match hidden label 1`] = `
         class="c4 c5 fi-label"
       >
         <span
-          class="c6 fi-visually-hidden"
+          class="c6 c7 fi-visually-hidden"
           id="4-label"
         >
           Resume
@@ -1224,14 +1224,14 @@ exports[`snapshots match hidden label 1`] = `
         >
           <input
             aria-invalid="false"
-            class="c7 fi-file-input_input-element"
+            class="c8 fi-file-input_input-element"
             data-testid="file-input"
             id="4"
             tabindex="0"
             type="file"
           />
           <label
-            class="c8 fi-file-input_input-label"
+            class="c9 fi-file-input_input-label"
             for="4"
           >
             Choose file
@@ -1247,7 +1247,7 @@ exports[`snapshots match hidden label 1`] = `
     <span
       aria-atomic="true"
       aria-live="assertive"
-      class="c9 c10 fi-status-text"
+      class="c6 c10 fi-status-text"
       id="4-statusText"
     />
   </fieldset>

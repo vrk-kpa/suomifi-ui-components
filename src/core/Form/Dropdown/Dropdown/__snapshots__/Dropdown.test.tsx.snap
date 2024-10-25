@@ -1998,7 +1998,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 `;
 
 exports[`Dropdown with hidden label should match snapshot 1`] = `
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2023,30 +2023,30 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c5:-moz-focusring {
+.c6:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c5::-moz-focus-inner {
+.c6::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c5::-webkit-file-upload-button {
+.c6::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c5::-webkit-inner-spin-button {
+.c6::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c5::-webkit-outer-spin-button {
+.c6::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c5 ::before,
-.c5 ::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -2138,7 +2138,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2161,12 +2161,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6 ::before,
-.c6 ::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -2426,7 +2426,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         class="c2 c3 fi-label"
       >
         <label
-          class="c4 fi-visually-hidden"
+          class="c4 c5 fi-visually-hidden"
           id="test-id-label"
         >
           Dropdown test
@@ -2446,7 +2446,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
           type="button"
         >
           <span
-            class="c6 fi-dropdown_display-value"
+            class="c4 fi-dropdown_display-value"
             id="test-id-displayValue"
           >
             Dropdown
@@ -2462,7 +2462,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c6 c8 fi-status-text"
+          class="c4 c8 fi-status-text"
         />
       </div>
     </div>

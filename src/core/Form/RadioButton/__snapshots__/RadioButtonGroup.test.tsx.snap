@@ -4786,7 +4786,7 @@ exports[`props label should match snapshot 1`] = `
 `;
 
 exports[`props labelMode should match snapshot 1`] = `
-.c6 {
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -4809,8 +4809,8 @@ exports[`props labelMode should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6 ::before,
-.c6 ::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -4866,7 +4866,7 @@ exports[`props labelMode should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -4888,13 +4888,13 @@ exports[`props labelMode should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c8::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c8 ::before,
-.c8 ::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -4946,7 +4946,7 @@ exports[`props labelMode should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c9 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -4969,12 +4969,12 @@ exports[`props labelMode should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c9 ::before,
-.c9 ::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -5141,7 +5141,7 @@ exports[`props labelMode should match snapshot 1`] = `
   margin-top: 5px;
 }
 
-.c7 {
+.c8 {
   color: hsl(0, 0%, 13%);
   letter-spacing: 0;
   text-decoration: none;
@@ -5155,7 +5155,7 @@ exports[`props labelMode should match snapshot 1`] = `
   position: relative;
 }
 
-.c7.fi-radio-button .fi-radio-button_hintText {
+.c8.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
@@ -5165,7 +5165,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c7.fi-radio-button .fi-radio-button_label {
+.c8.fi-radio-button .fi-radio-button_label {
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -5173,7 +5173,7 @@ exports[`props labelMode should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input {
+.c8.fi-radio-button .fi-radio-button_input {
   opacity: 0;
   position: absolute;
   z-index: -9999;
@@ -5183,7 +5183,7 @@ exports[`props labelMode should match snapshot 1`] = `
   left: 2px;
 }
 
-.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
+.c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 3px;
   left: 0;
   margin: 2px;
@@ -5192,20 +5192,20 @@ exports[`props labelMode should match snapshot 1`] = `
   position: absolute;
 }
 
-.c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+.c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201, 7%, 58%);
   fill: hsl(0, 0%, 100%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+.c8.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+.c8.fi-radio-button .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212, 63%, 45%);
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -5222,68 +5222,68 @@ exports[`props labelMode should match snapshot 1`] = `
   outline: 2px solid transparent;
 }
 
-.c7.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) +.fi-radio-button_icon_wrapper::after {
   box-shadow: none;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202, 7%, 97%);
   stroke: hsl(202, 7%, 80%);
 }
 
-.c7.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+.c8.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202, 7%, 67%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+.c8.fi-radio-button.fi-radio-button--error .fi-radio-button_input:checked +.fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(3, 59%, 43%);
 }
 
-.c7.fi-radio-button--large .fi-radio-button_hintText {
+.c8.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input {
+.c8.fi-radio-button--large .fi-radio-button_input {
   top: 2px;
   left: 2px;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
+.c8.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper {
   top: 0;
   left: 0;
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
+.c8.fi-radio-button--large .fi-radio-button_input +.fi-radio-button_icon_wrapper .fi-radio-button_icon {
   height: 30px;
   width: 30px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
+.c8.fi-radio-button--large .fi-radio-button_input:focus +.fi-radio-button_icon_wrapper::after {
   width: 32px;
   height: 32px;
   top: -1px;
   left: -1px;
 }
 
-.c7.fi-radio-button--large .fi-radio-button_label {
+.c8.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   line-height: 34px;
 }
@@ -5303,7 +5303,7 @@ exports[`props labelMode should match snapshot 1`] = `
           class="c0 c4 fi-label"
         >
           <label
-            class="c5 fi-visually-hidden"
+            class="c5 c6 fi-visually-hidden"
             for="test-id"
           >
             Label here
@@ -5311,20 +5311,20 @@ exports[`props labelMode should match snapshot 1`] = `
         </div>
       </legend>
       <div
-        class="c6 fi-radio-button-group_container"
+        class="c7 fi-radio-button-group_container"
       >
         <div
-          class="c6 fi-radio-button fi-radio-button_container c7"
+          class="c7 fi-radio-button fi-radio-button_container c8"
         >
           <input
-            class="c8 fi-radio-button_input"
+            class="c9 fi-radio-button_input"
             id="test-id-1"
             name="name"
             type="radio"
             value="1"
           />
           <span
-            class="c9 fi-radio-button_icon_wrapper"
+            class="c5 fi-radio-button_icon_wrapper"
           >
             <svg
               aria-hidden="true"
@@ -5362,17 +5362,17 @@ exports[`props labelMode should match snapshot 1`] = `
           </label>
         </div>
         <div
-          class="c6 fi-radio-button fi-radio-button_container c7"
+          class="c7 fi-radio-button fi-radio-button_container c8"
         >
           <input
-            class="c8 fi-radio-button_input"
+            class="c9 fi-radio-button_input"
             id="test-id-2"
             name="name"
             type="radio"
             value="2"
           />
           <span
-            class="c9 fi-radio-button_icon_wrapper"
+            class="c5 fi-radio-button_icon_wrapper"
           >
             <svg
               aria-hidden="true"
@@ -5410,17 +5410,17 @@ exports[`props labelMode should match snapshot 1`] = `
           </label>
         </div>
         <div
-          class="c6 fi-radio-button fi-radio-button_container c7"
+          class="c7 fi-radio-button fi-radio-button_container c8"
         >
           <input
-            class="c8 fi-radio-button_input"
+            class="c9 fi-radio-button_input"
             id="test-id-3"
             name="name"
             type="radio"
             value="3"
           />
           <span
-            class="c9 fi-radio-button_icon_wrapper"
+            class="c5 fi-radio-button_icon_wrapper"
           >
             <svg
               aria-hidden="true"
@@ -5462,7 +5462,7 @@ exports[`props labelMode should match snapshot 1`] = `
     <span
       aria-atomic="true"
       aria-live="polite"
-      class="c9 c12 fi-status-text"
+      class="c5 c12 fi-status-text"
     />
   </div>
 </div>
