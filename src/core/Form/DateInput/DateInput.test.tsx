@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent, cleanup, waitFor } from '@testing-library/react';
 import { DateInput } from './DateInput';
 
 describe('snapshots match', () => {
@@ -256,7 +256,7 @@ describe('props', () => {
     });
   });
 
-  describe('optionlText', () => {
+  describe('optionalText', () => {
     it('has optional text', () => {
       const { getByText } = render(
         <DateInput labelText="Date" optionalText="optional" />,
@@ -341,7 +341,7 @@ describe('props', () => {
         cleanup();
       });
 
-      it('has next months removed from dropdown', () => {
+      it('has next months removed from dropdown', async () => {
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -357,8 +357,10 @@ describe('props', () => {
         if (dropdownButton) {
           fireEvent.click(dropdownButton);
           const lis = dropdown?.querySelectorAll('li');
-          expect(lis?.[0]).toHaveTextContent('Tammikuu');
-          expect(lis?.length).toBe(1);
+          await waitFor(() => {
+            expect(lis?.[0]).toHaveTextContent('Tammikuu');
+            expect(lis?.length).toBe(1);
+          });
         }
       });
 
@@ -446,7 +448,7 @@ describe('props', () => {
         cleanup();
       });
 
-      it('has previous month button disabled', () => {
+      it('has previous month button disabled', async () => {
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -458,7 +460,9 @@ describe('props', () => {
         const button = baseElement.querySelectorAll(
           '.fi-date-selectors_month-button',
         )[0];
-        expect(button).toBeDisabled();
+        await waitFor(() => {
+          expect(button).toBeDisabled();
+        });
       });
       cleanup();
     });
