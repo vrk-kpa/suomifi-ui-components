@@ -2,7 +2,12 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconClose, IconError, IconInfo } from 'suomifi-icons';
-import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
+import {
+  HtmlDiv,
+  HtmlDivProps,
+  HtmlDivWithRef,
+  HtmlDivWithRefProps,
+} from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { Heading } from '../Heading/Heading';
@@ -59,7 +64,7 @@ export type CloseButtonProps =
       closeButtonProps?: Omit<ButtonProps, 'onClick'>;
     };
 
-export type NotificationProps = HtmlDivWithRefProps &
+export type NotificationProps = HtmlDivProps &
   MarginProps &
   CloseButtonProps & {
     /** Style variant. Affects color and icon used.
@@ -119,9 +124,13 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
 
     return (
       <HtmlDivWithRef
-        as="section"
+        asProp="section"
         role="region"
-        aria-label={regionAriaLabel || headingText || children}
+        aria-label={
+          regionAriaLabel ||
+          headingText ||
+          (typeof children === 'string' ? children : undefined)
+        }
         {...passProps}
         className={classnames(
           baseClassName,
