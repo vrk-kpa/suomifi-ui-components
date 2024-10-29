@@ -94,13 +94,12 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
 
   return (
     <HtmlDivWithRef
-      as="section"
+      asProp="section"
       {...passProps}
       className={classnames(baseClassName, className, {
         [inlineAlertClassNames.smallScreen]: !!smallScreen,
       })}
       style={{ ...passProps?.style }}
-      ref={forwardedRef}
     >
       <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
         <IconErrorFilled className={classnames(inlineAlertClassNames.icon)} />

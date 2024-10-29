@@ -90,9 +90,8 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
           [loadingSpinnerClassNames.small]: variant === 'small',
           [loadingSpinnerClassNames.textAlignRight]: textAlign === 'right',
         })}
-        as="section"
+        asProp="section"
         id={id}
-        ref={forwardedRef}
         {...passProps}
         style={style}
       >

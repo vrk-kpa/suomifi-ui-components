@@ -6,7 +6,7 @@ import {
   HtmlDivWithRef,
   HtmlButton,
   HtmlButtonProps,
-  HtmlDivWithRefProps,
+  HtmlDivProps,
 } from '../../reset';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../utils/aria';
@@ -34,7 +34,7 @@ const alertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface AlertProps extends HtmlDivWithRefProps, MarginProps {
+export interface AlertProps extends HtmlDivProps, MarginProps {
   /** Style variant. Affects color and icon.
    * @default 'neutral'
    */
@@ -79,14 +79,13 @@ class BaseAlert extends Component<AlertProps> {
 
     return (
       <HtmlDivWithRef
-        as="section"
+        asProp="section"
         {...passProps}
         className={classnames(baseClassName, className, {
           [`${baseClassName}--${status}`]: !!status,
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
         style={{ ...passProps?.style }}
-        ref={forwardedRef}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
           {status === 'warning' && (

@@ -64,14 +64,13 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
 
     return (
       <HtmlDivWithRef
-        as="section"
+        asProp="section"
         {...passProps}
         className={classnames(baseClassName, className, {
           [`${baseClassName}--${status}`]: !!status,
           [inlineAlertClassNames.smallScreen]: !!smallScreen,
         })}
         style={{ ...passProps?.style }}
-        ref={forwardedRef}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
           {status === 'warning' && (
