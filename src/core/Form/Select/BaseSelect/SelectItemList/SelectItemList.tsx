@@ -9,14 +9,11 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
-import { HtmlDivWithRef, HtmlUlWithRef } from '../../../../../reset';
+import { HtmlUlWithRef } from '../../../../../reset';
+import { forkRefs } from '../../../../../utils/common/common';
 import { baseStyles } from './SelectItemList.baseStyles';
 
 const baseClassName = 'fi-select-item-list';
-
-const selectItemListClassNames = {
-  content_wrapper: `${baseClassName}_content_wrapper`,
-};
 
 export interface SelectItemListProps {
   /** SelectItemList container div class name for custom styling. */
@@ -36,12 +33,12 @@ export interface SelectItemListProps {
 }
 
 interface InnerRef {
-  forwardedRef: RefObject<HTMLUListElement>;
+  forwardedRef: React.Ref<HTMLUListElement>;
 }
 class BaseSelectItemList extends Component<
   SelectItemListProps & InnerRef & SuomifiThemeProp
 > {
-  private wrapperRef: RefObject<HTMLDivElement>;
+  private wrapperRef: RefObject<HTMLUListElement>;
 
   constructor(props: SelectItemListProps & InnerRef & SuomifiThemeProp) {
     super(props);
@@ -104,24 +101,19 @@ class BaseSelectItemList extends Component<
       preventScrolling,
       ...passProps
     } = this.props;
+
     return (
       <HtmlUlWithRef
         id={id}
         tabIndex={0}
-        forwardRef={forwardedRef}
+        forwardRef={forkRefs(this.wrapperRef, forwardedRef)}
         className={classnames(baseClassName, className, {})}
         {...passProps}
         role="listbox"
         onBlur={onBlur}
-        aria-activedescendant={focusedDescendantId}
         onKeyDown={onKeyDown}
       >
-        <HtmlDivWithRef
-          forwardedRef={this.wrapperRef}
-          className={selectItemListClassNames.content_wrapper}
-        >
-          {children}
-        </HtmlDivWithRef>
+        {children}
       </HtmlUlWithRef>
     );
   }

@@ -501,6 +501,7 @@ class BaseMultiSelect<T> extends Component<
 
     switch (event.key) {
       case 'ArrowDown': {
+        event.preventDefault();
         this.setState({ showPopover: true });
         const nextItem =
           this.props.allowItemAddition &&
@@ -519,6 +520,7 @@ class BaseMultiSelect<T> extends Component<
       }
 
       case 'ArrowUp': {
+        event.preventDefault();
         this.setState({ showPopover: true });
         const previousItem =
           this.props.allowItemAddition &&
@@ -791,7 +793,7 @@ class BaseMultiSelect<T> extends Component<
                       aria-multiselectable="true"
                       {...listProps}
                     >
-                      <HtmlDiv>
+                      <>
                         {!loading &&
                           filteredItemsWithChecked.length > 0 &&
                           filteredItemsWithChecked.map((item) => {
@@ -861,7 +863,7 @@ class BaseMultiSelect<T> extends Component<
                             />
                           </SelectEmptyItem>
                         )}
-                      </HtmlDiv>
+                      </>
                     </SelectItemList>
                   )}
                 </PopoverConsumer>

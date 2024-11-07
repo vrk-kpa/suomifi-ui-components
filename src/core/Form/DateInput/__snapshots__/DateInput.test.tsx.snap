@@ -4514,10 +4514,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c0 fi-dropdown_input-wrapper"
           >
             <button
+              aria-controls="16-popover"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="16-displayValue 16-label"
-              aria-owns="16-popover"
               class="c6 fi-dropdown_button"
               id="16_button"
               tabindex="0"
@@ -4562,10 +4562,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c0 fi-dropdown_input-wrapper"
           >
             <button
+              aria-controls="17-popover"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="17-displayValue 17-label"
-              aria-owns="17-popover"
               class="c6 fi-dropdown_button"
               id="17_button"
               tabindex="0"
@@ -6789,10 +6789,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               class="c0 fi-dropdown_input-wrapper"
             >
               <button
+                aria-controls="9-popover"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="9-displayValue 9-label"
-                aria-owns="9-popover"
                 class="c6 fi-dropdown_button"
                 id="9_button"
                 tabindex="0"
@@ -6837,10 +6837,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               class="c0 fi-dropdown_input-wrapper"
             >
               <button
+                aria-controls="10-popover"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="10-displayValue 10-label"
-                aria-owns="10-popover"
                 class="c6 fi-dropdown_button"
                 id="10_button"
                 tabindex="0"
