@@ -112,6 +112,7 @@ class BaseSelectItemList extends Component<
         role="listbox"
         onBlur={onBlur}
         onKeyDown={onKeyDown}
+        aria-activedescendant={focusedDescendantId}
       >
         {children}
       </HtmlUlWithRef>
