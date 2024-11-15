@@ -644,6 +644,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
       class="c2"
     >
       <ul
+        aria-activedescendant="test-id-item-1"
         class="c8 fi-select-item-list c9 fi-dropdown_item-list"
         id="test-id-popover"
         role="listbox"
@@ -1344,6 +1345,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       class="c2"
     >
       <ul
+        aria-activedescendant="test-id-item-2"
         class="c8 fi-select-item-list c9 fi-dropdown_item-list"
         id="test-id-popover"
         role="listbox"
@@ -2035,6 +2037,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       class="c2"
     >
       <ul
+        aria-activedescendant="test-id-item-1"
         class="c8 fi-select-item-list c9 fi-dropdown_item-list"
         id="test-id-popover"
         role="listbox"
