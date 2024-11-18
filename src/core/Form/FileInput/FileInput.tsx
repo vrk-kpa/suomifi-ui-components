@@ -40,7 +40,7 @@ import { StatusText } from '../StatusText/StatusText';
 import { FileItem } from './FileItem';
 
 const baseClassName = 'fi-file-input';
-export const fileInputClassNames = {
+const fileInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   inputOuterWrapper: `${baseClassName}_input-outer-wrapper`,
   dragArea: `${baseClassName}_drag-area`,
@@ -57,16 +57,7 @@ export const fileInputClassNames = {
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   hiddenUnderFile: `${baseClassName}_label--hidden-under-file`,
   dragAreaHasFile: `${baseClassName}_drag-area--has-file`,
-  fileItemOuterWrapper: `${baseClassName}_file-item-outer-wrapper`,
-  fileItem: `${baseClassName}_file-item`,
-  fileInfo: `${baseClassName}_file-info`,
-  fileName: `${baseClassName}_file-name`,
-  fileSize: `${baseClassName}_file-size`,
-  removeFileButton: `${baseClassName}_remove-file-button`,
   smallScreen: `${baseClassName}--small-screen`,
-  errorIcon: `${baseClassName}_error-icon`,
-  loadingIcon: `${baseClassName}_loading-icon`,
-  fileItemErrorText: `${baseClassName}_file-item-error-text`,
 };
 
 interface BaseFileInputProps
