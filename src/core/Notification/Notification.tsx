@@ -1,5 +1,5 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconClose, IconError, IconInfo } from 'suomifi-icons';
 import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../reset';

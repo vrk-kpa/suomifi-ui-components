@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import {
   SuomifiThemeProp,

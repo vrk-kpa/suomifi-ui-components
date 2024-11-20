@@ -1,5 +1,5 @@
 import React, { Component, forwardRef, RefObject, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
 import {

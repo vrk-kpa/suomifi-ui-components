@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { HtmlButton } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   ActionMenuProviderState,
   ActionMenuConsumer,

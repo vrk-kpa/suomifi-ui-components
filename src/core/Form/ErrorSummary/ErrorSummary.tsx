@@ -1,5 +1,5 @@
 import React, { MouseEvent, forwardRef, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivProps, hLevels } from '../../../reset';
 import { IconErrorFilled } from 'suomifi-icons';

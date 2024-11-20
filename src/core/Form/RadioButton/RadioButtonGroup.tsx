@@ -1,5 +1,5 @@
 import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,

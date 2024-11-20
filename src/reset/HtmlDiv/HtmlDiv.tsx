@@ -1,5 +1,5 @@
 import React, { HTMLProps, forwardRef } from 'react';
-import { default as styled, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { asPropType } from '../../utils/typescript';
 

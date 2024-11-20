@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';

@@ -5,7 +5,7 @@ import React, {
   MouseEvent,
   ReactNode,
 } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classNames from 'classnames';
 import { IconClose } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';

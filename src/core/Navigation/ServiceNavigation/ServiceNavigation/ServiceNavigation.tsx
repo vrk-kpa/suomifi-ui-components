@@ -7,7 +7,7 @@ import {
   HtmlSpan,
   HtmlUl,
 } from '../../../../reset';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
 import {
   SpacingConsumer,

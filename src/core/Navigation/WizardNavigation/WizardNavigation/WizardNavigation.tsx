@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
 import {

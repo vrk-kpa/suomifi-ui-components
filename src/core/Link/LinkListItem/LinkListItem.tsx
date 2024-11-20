@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactElement } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconChevronRight } from 'suomifi-icons';
 import { LinkListItemStyles } from './LinkListItem.baseStyles';

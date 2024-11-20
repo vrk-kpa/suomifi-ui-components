@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SuomifiTheme, SuomifiThemeConsumer } from '../../core/theme';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { baseStyles } from './ThemeProps.baseStyles';
 
 const ThemePropsContainer = styled(
