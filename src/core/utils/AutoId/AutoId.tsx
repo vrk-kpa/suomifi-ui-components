@@ -6,22 +6,27 @@
  */
 import { useState, useEffect } from 'react';
 import { useEnhancedEffect } from '../../../utils/common';
+import { useConfig } from '../ConfigProvider/ConfigProvider';
 
 let autoId = 0;
 let clientRender = false;
 
-const generateNextId = () => {
+const generateNextId = (prefix?: string) => {
   autoId += 1;
+  console.log('idPrefix', prefix);
+  if (prefix) {
+    return `${prefix}-${autoId}`;
+  }
   return autoId;
 };
 
-const useGeneratedId = (propId?: string | null) => {
+const useGeneratedId = (propId?: string | null, idPrefix?: string) => {
   const startId = propId || (clientRender ? generateNextId() : null);
   const [generatedId, setId] = useState(startId);
 
   useEnhancedEffect(() => {
     if (generatedId === null) {
-      setId(generateNextId());
+      setId(generateNextId(idPrefix));
     }
   }, []);
 
@@ -33,6 +38,8 @@ const useGeneratedId = (propId?: string | null) => {
   return generatedId != null ? String(generatedId) : undefined;
 };
 
+const { idPrefix } = useConfig();
+
 /**
  * Returns automatically generated id if one was not provided.
  */
@@ -43,6 +50,6 @@ export const AutoId = ({
   id?: string;
   children: (passedId: string) => JSX.Element;
 }) => {
-  const generatedId = useGeneratedId(id);
+  const generatedId = useGeneratedId(id, idPrefix);
   return children(!!generatedId ? generatedId : '');
 };
