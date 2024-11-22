@@ -38,8 +38,6 @@ const useGeneratedId = (propId?: string | null, idPrefix?: string) => {
   return generatedId != null ? String(generatedId) : undefined;
 };
 
-const { idPrefix } = useConfig();
-
 /**
  * Returns automatically generated id if one was not provided.
  */
@@ -50,6 +48,7 @@ export const AutoId = ({
   id?: string;
   children: (passedId: string) => JSX.Element;
 }) => {
+  const { idPrefix } = useConfig();
   const generatedId = useGeneratedId(id, idPrefix);
   return children(!!generatedId ? generatedId : '');
 };
