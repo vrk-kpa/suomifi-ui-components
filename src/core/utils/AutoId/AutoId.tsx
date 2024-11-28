@@ -13,7 +13,6 @@ let clientRender = false;
 
 const generateNextId = (prefix?: string) => {
   autoId += 1;
-  console.log('idPrefix', prefix);
   if (prefix) {
     return `${prefix}-${autoId}`;
   }
