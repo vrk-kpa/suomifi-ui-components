@@ -683,18 +683,14 @@ exports[`has matching snapshot 1`] = `
   border-bottom-right-radius: 2px;
   margin: 0;
   padding: 4px 0 0 0;
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c16:focus {
   outline: none;
-}
-
-.c16 .fi-select-item-list_content_wrapper {
-  display: block;
-  width: 100%;
-  max-height: inherit;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .c18 {
@@ -1065,120 +1061,112 @@ exports[`has matching snapshot 1`] = `
         role="listbox"
         tabindex="0"
       >
-        <div
-          class="c3 fi-select-item-list_content_wrapper"
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c17 fi-select-item c18"
+          id="2-jh2435626"
+          role="option"
+          tabindex="-1"
         >
-          <div
-            class="c0"
+          Jackhammer
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="true"
+          class="c17 fi-select-item c18 fi-select-item--selected"
+          id="2-h9823523"
+          role="option"
+          tabindex="-1"
+        >
+          Hammer
+          <svg
+            aria-hidden="true"
+            class="fi-icon c19 fi-select-item_icon"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 20 20"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <li
-              aria-disabled="false"
-              aria-selected="false"
-              class="c17 fi-select-item c18"
-              id="2-jh2435626"
-              role="option"
-              tabindex="-1"
-            >
-              Jackhammer
-            </li>
-            <li
-              aria-disabled="false"
-              aria-selected="true"
-              class="c17 fi-select-item c18 fi-select-item--selected"
-              id="2-h9823523"
-              role="option"
-              tabindex="-1"
-            >
-              Hammer
-              <svg
-                aria-hidden="true"
-                class="fi-icon c19 fi-select-item_icon"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  class="fi-icon-base-fill"
-                  d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
-                  fill="#222"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </li>
-            <li
-              aria-disabled="false"
-              aria-selected="false"
-              class="c17 fi-select-item c18"
-              id="2-sh908293482"
-              role="option"
-              tabindex="-1"
-            >
-              Sledgehammer
-            </li>
-            <li
-              aria-disabled="false"
-              aria-selected="false"
-              class="c17 fi-select-item c18"
-              id="2-s82502335"
-              role="option"
-              tabindex="-1"
-            >
-              Spade
-            </li>
-            <li
-              aria-disabled="true"
-              aria-selected="false"
-              class="c17 fi-select-item c18 fi-select-item--disabled"
-              id="2-ps9081231"
-              role="option"
-              tabindex="-1"
-            >
-              Powersaw
-            </li>
-            <li
-              aria-disabled="false"
-              aria-selected="false"
-              class="c17 fi-select-item c18"
-              id="2-s05111511"
-              role="option"
-              tabindex="-1"
-            >
-              Shovel
-            </li>
-            <li
-              aria-disabled="false"
-              aria-selected="false"
-              class="c17 fi-select-item c18"
-              id="2-is3451261"
-              role="option"
-              tabindex="-1"
-            >
-              Iron stick
-            </li>
-            <li
-              aria-disabled="false"
-              aria-selected="false"
-              class="c17 fi-select-item c18"
-              id="2-r09282626"
-              role="option"
-              tabindex="-1"
-            >
-              Rake
-            </li>
-            <li
-              aria-disabled="true"
-              aria-selected="false"
-              class="c17 fi-select-item c18 fi-select-item--disabled"
-              id="2-ms6126266"
-              role="option"
-              tabindex="-1"
-            >
-              Motorsaw
-            </li>
-          </div>
-        </div>
+            <path
+              class="fi-icon-base-fill"
+              d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c17 fi-select-item c18"
+          id="2-sh908293482"
+          role="option"
+          tabindex="-1"
+        >
+          Sledgehammer
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c17 fi-select-item c18"
+          id="2-s82502335"
+          role="option"
+          tabindex="-1"
+        >
+          Spade
+        </li>
+        <li
+          aria-disabled="true"
+          aria-selected="false"
+          class="c17 fi-select-item c18 fi-select-item--disabled"
+          id="2-ps9081231"
+          role="option"
+          tabindex="-1"
+        >
+          Powersaw
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c17 fi-select-item c18"
+          id="2-s05111511"
+          role="option"
+          tabindex="-1"
+        >
+          Shovel
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c17 fi-select-item c18"
+          id="2-is3451261"
+          role="option"
+          tabindex="-1"
+        >
+          Iron stick
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c17 fi-select-item c18"
+          id="2-r09282626"
+          role="option"
+          tabindex="-1"
+        >
+          Rake
+        </li>
+        <li
+          aria-disabled="true"
+          aria-selected="false"
+          class="c17 fi-select-item c18 fi-select-item--disabled"
+          id="2-ms6126266"
+          role="option"
+          tabindex="-1"
+        >
+          Motorsaw
+        </li>
       </ul>
     </div>
   </div>

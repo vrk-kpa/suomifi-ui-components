@@ -426,6 +426,7 @@ class BaseSingleSelect<T> extends Component<
 
     switch (event.key) {
       case 'ArrowDown': {
+        event.preventDefault();
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
@@ -446,6 +447,7 @@ class BaseSingleSelect<T> extends Component<
       }
 
       case 'ArrowUp': {
+        event.preventDefault();
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
@@ -699,7 +701,7 @@ class BaseSingleSelect<T> extends Component<
               focusedDescendantId={ariaActiveDescendant}
               {...listProps}
             >
-              <HtmlDiv>
+              <>
                 {popoverItems.length > 0 &&
                   !loading &&
                   popoverItems.map((item) => {
@@ -766,7 +768,7 @@ class BaseSingleSelect<T> extends Component<
                       {filterInputValue}
                     </SelectItemAddition>
                   )}
-              </HtmlDiv>
+              </>
             </SelectItemList>
           </Popover>
         )}

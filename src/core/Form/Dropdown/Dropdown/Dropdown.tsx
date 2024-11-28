@@ -619,7 +619,7 @@ class BaseDropdown<T extends string = string> extends Component<
               statusTextId,
               hintTextId,
             ])}
-            aria-owns={popoverItemListId}
+            aria-controls={popoverItemListId}
             aria-expanded={ariaExpanded}
             onClick={() => {
               if (!showPopover) {

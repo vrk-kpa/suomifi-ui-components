@@ -95,7 +95,6 @@ describe('Dropdown with hidden label', () => {
   it('should have hidden label', async () => {
     const { findByText } = render(DropdownWithHiddenLabel);
     const label = await findByText('Dropdown test');
-    console.log(label);
     expect(label).toHaveClass('fi-visually-hidden');
   });
 
