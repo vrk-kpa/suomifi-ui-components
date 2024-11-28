@@ -285,18 +285,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-bottom-right-radius: 2px;
   margin: 0;
   padding: 4px 0 0 0;
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c9:focus {
   outline: none;
-}
-
-.c9 .fi-select-item-list_content_wrapper {
-  display: block;
-  width: 100%;
-  max-height: inherit;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .c7 {
@@ -607,10 +603,10 @@ exports[`Basic dropdown should match snapshot 1`] = `
         class="c0 fi-dropdown_input-wrapper"
       >
         <button
+          aria-controls="test-id-popover"
           aria-expanded="true"
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
-          aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
           tabindex="0"
@@ -654,30 +650,26 @@ exports[`Basic dropdown should match snapshot 1`] = `
         role="listbox"
         tabindex="0"
       >
-        <div
-          class="c2 fi-select-item-list_content_wrapper"
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c10 c11 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
+          id="test-id-item-1"
+          role="option"
+          tabindex="0"
         >
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="c10 c11 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
-            id="test-id-item-1"
-            role="option"
-            tabindex="0"
-          >
-            Item 1
-          </li>
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="c10 c11 fi-dropdown_item"
-            id="test-id-item-2"
-            role="option"
-            tabindex="-1"
-          >
-            Item 2
-          </li>
-        </div>
+          Item 1
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c10 c11 fi-dropdown_item"
+          id="test-id-item-2"
+          role="option"
+          tabindex="-1"
+        >
+          Item 2
+        </li>
       </ul>
     </div>
   </div>
@@ -969,18 +961,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   border-bottom-right-radius: 2px;
   margin: 0;
   padding: 4px 0 0 0;
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c9:focus {
   outline: none;
-}
-
-.c9 .fi-select-item-list_content_wrapper {
-  display: block;
-  width: 100%;
-  max-height: inherit;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .c12 {
@@ -1315,10 +1303,10 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
         class="c0 fi-dropdown_input-wrapper"
       >
         <button
+          aria-controls="test-id-popover"
           aria-expanded="true"
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
-          aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
           tabindex="0"
@@ -1363,46 +1351,42 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
         role="listbox"
         tabindex="0"
       >
-        <div
-          class="c2 fi-select-item-list_content_wrapper"
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c10 c11 fi-dropdown_item"
+          id="test-id-item-1"
+          role="option"
+          tabindex="-1"
         >
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="c10 c11 fi-dropdown_item"
-            id="test-id-item-1"
-            role="option"
-            tabindex="-1"
+          Item 1
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="true"
+          class="c10 c11 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
+          id="test-id-item-2"
+          role="option"
+          tabindex="0"
+        >
+          Item 2
+          <svg
+            aria-hidden="true"
+            class="fi-icon c12 fi-dropdown_item_icon"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 20 20"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Item 1
-          </li>
-          <li
-            aria-disabled="false"
-            aria-selected="true"
-            class="c10 c11 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
-            id="test-id-item-2"
-            role="option"
-            tabindex="0"
-          >
-            Item 2
-            <svg
-              aria-hidden="true"
-              class="fi-icon c12 fi-dropdown_item_icon"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                class="fi-icon-base-fill"
-                d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
-                fill="#222"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </li>
-        </div>
+            <path
+              class="fi-icon-base-fill"
+              d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </li>
       </ul>
     </div>
   </div>
@@ -1694,18 +1678,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-bottom-right-radius: 2px;
   margin: 0;
   padding: 4px 0 0 0;
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c9:focus {
   outline: none;
-}
-
-.c9 .fi-select-item-list_content_wrapper {
-  display: block;
-  width: 100%;
-  max-height: inherit;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .c7 {
@@ -2016,10 +1996,10 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
         class="c0 fi-dropdown_input-wrapper"
       >
         <button
+          aria-controls="test-id-popover"
           aria-expanded="true"
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue additional-label-id test-id-label"
-          aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
           tabindex="0"
@@ -2063,30 +2043,26 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
         role="listbox"
         tabindex="0"
       >
-        <div
-          class="c2 fi-select-item-list_content_wrapper"
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c10 c11 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
+          id="test-id-item-1"
+          role="option"
+          tabindex="0"
         >
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="c10 c11 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
-            id="test-id-item-1"
-            role="option"
-            tabindex="0"
-          >
-            Item 1
-          </li>
-          <li
-            aria-disabled="false"
-            aria-selected="false"
-            class="c10 c11 fi-dropdown_item"
-            id="test-id-item-2"
-            role="option"
-            tabindex="-1"
-          >
-            Item 2
-          </li>
-        </div>
+          Item 1
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="c10 c11 fi-dropdown_item"
+          id="test-id-item-2"
+          role="option"
+          tabindex="-1"
+        >
+          Item 2
+        </li>
       </ul>
     </div>
   </div>
@@ -2551,10 +2527,10 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         class="c0 fi-dropdown_input-wrapper"
       >
         <button
+          aria-controls="test-id-popover"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
-          aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
           tabindex="0"

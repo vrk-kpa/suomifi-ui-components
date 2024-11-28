@@ -29,7 +29,7 @@ export const HtmlUl = styled(Ul)`
 const UlWithRef = ({
   forwardRef,
   ...passProps
-}: HtmlUlProps & { forwardRef: React.RefObject<HTMLUListElement> }) => (
+}: HtmlUlProps & { forwardRef: React.Ref<HTMLUListElement> }) => (
   <ul {...passProps} ref={forwardRef} />
 );
 
