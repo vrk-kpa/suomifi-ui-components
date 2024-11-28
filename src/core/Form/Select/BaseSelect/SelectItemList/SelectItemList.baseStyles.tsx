@@ -16,15 +16,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   margin: 0;
   padding: 4px 0 0 0;
 
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
   &:focus {
     outline: none;
-  }
-
-  & .fi-select-item-list_content_wrapper {
-    display: block;
-    width: 100%;
-    max-height: inherit;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 `;
