@@ -6,6 +6,7 @@ import { escapeStringRegexp } from '../../../../../utils/common';
 import { HtmlLi } from '../../../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { baseStyles } from './SelectItem.baseStyles';
+import { HtmlMark } from '../../../../../reset/HtmlMark/HtmlMark';
 
 const baseClassName = 'fi-select-item';
 
@@ -47,9 +48,9 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
         if (isMatch) {
           return (
             // eslint-disable-next-line react/no-array-index-key
-            <mark className={selectItemClassNames.queryHighlight} key={i}>
+            <HtmlMark className={selectItemClassNames.queryHighlight} key={i}>
               {substring}
-            </mark>
+            </HtmlMark>
           );
         }
         // eslint-disable-next-line react/no-array-index-key
