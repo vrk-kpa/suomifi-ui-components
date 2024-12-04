@@ -1,10 +1,10 @@
-import React, { HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
 
 export interface HtmlMarkProps extends HTMLProps<HTMLElement> {}
 
-const spanResets = css`
+const markResets = css`
   ${resets.normalize.html}
   ${resets.common}
   display: inline;
@@ -14,8 +14,6 @@ const spanResets = css`
   white-space: normal;
 `;
 
-const Mark = (props: HtmlMarkProps) => <mark {...props} />;
-
-export const HtmlMark = styled(Mark)`
-  ${spanResets}
+export const HtmlMark = styled.mark<HtmlMarkProps>`
+  ${markResets}
 `;
