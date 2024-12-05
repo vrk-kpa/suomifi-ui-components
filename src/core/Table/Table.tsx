@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -16,6 +16,7 @@ import { baseStyles } from './Table.baseStyles';
 import { filterDuplicateKeys } from '../../utils/common/common';
 import { AutoId } from '../utils/AutoId/AutoId';
 import {
+  HtmlButton,
   HtmlDiv,
   HtmlTable,
   HtmlTableBody,
@@ -26,13 +27,16 @@ import {
   HtmlTableProps,
   HtmlTableRow,
 } from '../../reset';
-import { Button } from '../Button/Button';
 import {
-  IconArrowheadDown,
-  IconArrowheadUp,
-  IconMenu,
-  IconRows,
+  IconSort,
+  IconSortDown,
+  IconSortDownAlph,
+  IconSortUp,
+  IconSortUpAlph,
 } from 'suomifi-icons';
+import { getConditionalAriaProp } from '../../utils/aria';
+import { Checkbox } from '../Form/Checkbox/Checkbox';
+import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 
 const baseClassName = 'fi-table';
 
@@ -53,6 +57,7 @@ const tableClassNames = {
   condensed: `${baseClassName}--condensed`,
   rowCountText: `${baseClassName}_row-count-text`,
   sortIcons: `${baseClassName}_sort-icons`,
+  sortButton: `${baseClassName}_sort-button`,
 };
 
 export interface TableColumn {
@@ -60,6 +65,9 @@ export interface TableColumn {
   labelText: string;
   textAlign?: 'left' | 'center' | 'right';
   sortable?: boolean;
+  sortIcon?: 'alphabetical' | 'generic';
+  minWidth?: string;
+  maxWidth?: string;
 }
 
 // Infer the literal types from columns
@@ -68,7 +76,7 @@ export type TableRow<TColumns extends readonly TableColumn[]> = {
     | string
     | number
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-} & { id: string };
+} & { id: string; rowSelectionCheckboxLabel?: string };
 
 export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   extends MarginProps,
@@ -78,8 +86,6 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Used as an accessible heading for the table */
-  caption: string;
   /** Table columns and their configurations */
   columns: TColumns; // Use the generic type parameter for columns
   /**
@@ -89,29 +95,34 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   data: TableRow<TColumns>[]; // Use the inferred type for data
   /** Condenses the padding of table cells */
   condensed?: boolean;
-  /** Function which parses a text above the table indicating the amount of its rows */
-  rowCounterTextFunction?: (rowCount: number) => string;
+  /** Enables selection of rows via checkboxes
+   * @default false
+   */
+  enableRowSelection?: true;
+  /** Callback fired when selected rows change */
+  onSelectedRowsChange?: (selectedRowIds: string[]) => void;
+  /** Controlled array */
+  controlledSelectedRowIds?: string[];
+  /** Function to give text to an aria-live region upon table sort */
+  tableSortedAriaLiveText?: (
+    columnLabel: string,
+    direction: 'asc' | 'desc',
+  ) => string;
   /** Ref object is placed to the main table element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTableElement>;
 }
 
-type CondenseButtonProps =
+type TableHeadingProps =
+  | { caption: string; 'aria-labelledby'?: never }
   | {
-      showCondenseButtons?: false;
-      expandButtonAriaLabel?: never;
-      condenseButtonAriaLabel?: never;
-    }
-  | {
-      /** Shows condense/expand buttons in a toolbar above the table */
-      showCondenseButtons?: true;
-      /** Aria label for the expand button */
-      expandButtonAriaLabel: string;
-      /** Aria label for the condense button */
-      condenseButtonAriaLabel: string;
+      /** An accessible heading for the table. Required if no `aria-labelledby` is present */
+      caption?: never;
+      /** Required if no `caption` is present */
+      'aria-labelledby': string;
     };
 
 export type TableProps<TColumns extends readonly TableColumn[]> =
-  BaseTableProps<TColumns> & CondenseButtonProps;
+  BaseTableProps<TColumns> & TableHeadingProps;
 
 type InternalTableProps<TColumns extends readonly TableColumn[]> =
   TableProps<TColumns> & GlobalMarginProps;
@@ -124,11 +135,11 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     columns,
     data: propData,
     caption,
-    condensed: propCondensed,
-    showCondenseButtons,
-    condenseButtonAriaLabel,
-    expandButtonAriaLabel,
-    rowCounterTextFunction,
+    condensed,
+    enableRowSelection,
+    onSelectedRowsChange,
+    tableSortedAriaLiveText,
+    controlledSelectedRowIds,
     className,
     'aria-labelledby': ariaLabelledBy,
     globalMargins,
@@ -136,11 +147,21 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
   } = props;
   const [_marginProps, passProps] = separateMarginProps(rest);
 
-  const alternativeCaptionId = `${id}-caption`;
-
   const [data, setData] = useState(propData);
-  const [condensed, setCondensed] = useState(propCondensed || false);
   const [sortColumn, setSortColumn] = useState('');
+  const [selectedRowIds, setSelectedRowIds] = useState<string[]>(
+    controlledSelectedRowIds || [],
+  );
+
+  useEffect(() => {
+    if (controlledSelectedRowIds !== undefined) {
+      setSelectedRowIds(controlledSelectedRowIds);
+    }
+  }, [controlledSelectedRowIds]);
+
+  useEffect(() => {
+    setData(propData);
+  }, [propData]);
 
   const sortData = (key: string) => {
     const sortedData = [...data].sort((a, b) => {
@@ -168,7 +189,6 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         : bValueText.localeCompare(aValueText);
     });
     setData(sortedData);
-    console.log(sortColumn);
     if (!sortColumn.includes(key) || sortColumn === `${key}-desc`) {
       setSortColumn(`${key}-asc`);
     } else {
@@ -176,73 +196,51 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     }
   };
 
+  const handleRowSelection = (rowId: string, operation: 'add' | 'remove') => {
+    const newSelectedRowIds =
+      operation === 'add'
+        ? [...selectedRowIds, rowId]
+        : selectedRowIds.filter((rid) => rid !== rowId);
+    if (controlledSelectedRowIds === undefined) {
+      setSelectedRowIds(newSelectedRowIds);
+    }
+    if (onSelectedRowsChange) {
+      onSelectedRowsChange(newSelectedRowIds);
+    }
+  };
+
+  const getSortColumnLabel = () =>
+    columns.find((col) => sortColumn.includes(col.key))?.labelText || '';
+
+  const getSortDirection = () => (sortColumn.endsWith('-asc') ? 'asc' : 'desc');
+
   return (
     <HtmlDiv className={classnames(baseClassName, className)}>
-      {rowCounterTextFunction && (
-        <HtmlDiv
-          className={tableClassNames.alternativeCaption}
-          id={alternativeCaptionId}
-        >
-          {caption}
-        </HtmlDiv>
-      )}
-      <HtmlDiv className={tableClassNames.toolbar}>
-        {showCondenseButtons && !rowCounterTextFunction && (
-          <HtmlDiv
-            className={tableClassNames.alternativeCaption}
-            id={alternativeCaptionId}
-          >
-            {caption}
-          </HtmlDiv>
-        )}
-        {rowCounterTextFunction && (
-          <HtmlDiv className={tableClassNames.rowCountText}>
-            {rowCounterTextFunction(data.length)}
-          </HtmlDiv>
-        )}
-        {showCondenseButtons && (
-          <HtmlDiv className={tableClassNames.condenseButtons}>
-            <Button
-              variant="secondary"
-              icon={<IconMenu />}
-              aria-label={condenseButtonAriaLabel}
-              className={classnames(tableClassNames.condenseButton, {
-                toggled: condensed,
-              })}
-              onClick={() => setCondensed(true)}
-            />
-            <Button
-              variant="secondary"
-              icon={<IconRows />}
-              aria-label={expandButtonAriaLabel}
-              className={classnames({
-                toggled: !condensed,
-              })}
-              onClick={() => setCondensed(false)}
-            />
-          </HtmlDiv>
-        )}
-      </HtmlDiv>
+      <VisuallyHidden aria-live="polite">
+        {sortColumn !== '' &&
+          tableSortedAriaLiveText &&
+          tableSortedAriaLiveText(getSortColumnLabel(), getSortDirection())}
+      </VisuallyHidden>
       <HtmlTable
         className={classnames(tableClassNames.table, {
           [tableClassNames.condensed]: condensed,
         })}
         id={id}
-        aria-labelledby={
-          ariaLabelledBy ||
-          (showCondenseButtons || rowCounterTextFunction
-            ? alternativeCaptionId
-            : undefined)
-        }
+        {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
         {...passProps}
       >
-        {!showCondenseButtons && !rowCounterTextFunction && (
+        {caption && (
           <HtmlTableCaption className={tableClassNames.caption}>
             {caption}
           </HtmlTableCaption>
         )}
         <HtmlTableHeader className={tableClassNames.thead}>
           <HtmlTableRow>
+            {enableRowSelection && (
+              <HtmlTableCell
+                className={classnames(tableClassNames.th, 'checkbox-')}
+              />
+            )}
             {columns.map((col) => (
               <HtmlTableHeaderCell
                 scope="col"
@@ -250,24 +248,34 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                 className={classnames(tableClassNames.th, {
                   [tableClassNames.tdAlignRight]: col.textAlign === 'right',
                   [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
-                  sortable: col.sortable,
                 })}
-                onClick={col.sortable ? () => sortData(col.key) : undefined}
+                aria-sort={
+                  sortColumn === `${col.key}-asc`
+                    ? 'ascending'
+                    : sortColumn === `${col.key}-desc`
+                    ? 'descending'
+                    : undefined
+                }
+                style={col.minWidth ? { minWidth: col.minWidth } : {}}
               >
-                {col.labelText}
-                {col.sortable && (
-                  <HtmlDiv className={tableClassNames.sortIcons}>
-                    <IconArrowheadUp
-                      className={classnames({
-                        highlighted: sortColumn === `${col.key}-desc`,
-                      })}
-                    />
-                    <IconArrowheadDown
-                      className={classnames({
-                        highlighted: sortColumn === `${col.key}-asc`,
-                      })}
-                    />
-                  </HtmlDiv>
+                {col.sortable ? (
+                  <HtmlButton
+                    onClick={() => sortData(col.key)}
+                    className={tableClassNames.sortButton}
+                  >
+                    {col.labelText}
+                    {!sortColumn.includes(col.key) && <IconSort />}
+                    {sortColumn === `${col.key}-asc` &&
+                      col.sortIcon !== 'generic' && <IconSortDownAlph />}
+                    {sortColumn === `${col.key}-desc` &&
+                      col.sortIcon !== 'generic' && <IconSortUpAlph />}
+                    {sortColumn === `${col.key}-asc` &&
+                      col.sortIcon === 'generic' && <IconSortDown />}
+                    {sortColumn === `${col.key}-desc` &&
+                      col.sortIcon === 'generic' && <IconSortUp />}
+                  </HtmlButton>
+                ) : (
+                  col.labelText
                 )}
               </HtmlTableHeaderCell>
             ))}
@@ -275,14 +283,35 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         </HtmlTableHeader>
         <HtmlTableBody className={tableClassNames.tbody}>
           {data.map((row) => (
-            <HtmlTableRow key={row.id} className={tableClassNames.tr}>
+            <HtmlTableRow
+              key={row.id}
+              className={classnames(tableClassNames.tr, {
+                highlighted: selectedRowIds.includes(row.id),
+              })}
+            >
+              {enableRowSelection && (
+                <HtmlTableCell className={classnames(tableClassNames.td)}>
+                  <Checkbox
+                    checked={selectedRowIds.includes(row.id)}
+                    onClick={(checkedVal) =>
+                      handleRowSelection(
+                        row.id,
+                        checkedVal.checkboxState ? 'add' : 'remove',
+                      )
+                    }
+                  >
+                    <VisuallyHidden>
+                      {row.rowSelectionCheckboxLabel}
+                    </VisuallyHidden>
+                  </Checkbox>
+                </HtmlTableCell>
+              )}
               {columns.map((col) => (
                 <HtmlTableCell
                   key={`${row.id}-${row[col.key as keyof TableRow<TColumns>]}`}
                   className={classnames(tableClassNames.td, {
                     [tableClassNames.tdAlignRight]: col.textAlign === 'right',
                     [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
-                    // ['highlighted']: sortColumn.includes(col.key),
                   })}
                 >
                   {row[col.key as keyof TableRow<TColumns>]}

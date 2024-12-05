@@ -9,6 +9,34 @@ export const baseStyles = (
   propMargins?: MarginProps,
 ) => css`
   &.fi-table {
+    overflow: auto;
+    /* Prevents text in cells from wrapping */
+    white-space: nowrap;
+
+    background-image: 
+	
+  /* Shadows */
+      linear-gradient(to right, white, white),
+      linear-gradient(to right, white, white),
+      /* Shadow covers */
+        linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0)),
+      linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
+
+    background-position:
+      left center,
+      right center,
+      left center,
+      right center;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size:
+      30px 100%,
+      30px 100%,
+      20px 100%,
+      20px 100%;
+
+    background-attachment: local, local, scroll, scroll;
+
     .fi-table_table {
       ${element(theme)}
       ${buildSpacingCSS(globalMargins)}
@@ -36,6 +64,10 @@ export const baseStyles = (
         .fi-link {
           font-size: 16px;
         }
+        .fi-checkbox {
+          height: 18px;
+          width: 5px;
+        }
       }
 
       .fi-table_td--align-right {
@@ -48,26 +80,37 @@ export const baseStyles = (
       .fi-table_th {
         background-color: ${theme.colors.brandBase};
         color: ${theme.colors.whiteBase};
+        line-height: 1.5;
 
-        &.sortable {
+        &.checkbox-header {
+          padding: 0;
+        }
+
+        .fi-table_sort-button {
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-start;
           align-items: center;
           cursor: pointer;
           user-select: none;
-        }
-
-        .fi-table_sort-icons {
-          display: flex;
-          flex-direction: column;
-          margin-left: 5px;
+          width: 100%;
+          ${element(theme)}
+          color: ${theme.colors.whiteBase};
+          ${font(theme)('bodySemiBold')}
+          font-size: 16px;
 
           .fi-icon {
-            width: 12px;
-            height: 10px;
+            margin-left: ${theme.spacing.xs};
+            height: 24px;
+            width: 24px;
+            fill: ${theme.colors.whiteBase};
+          }
 
-            &.highlighted {
-              color: ${theme.colors.accentBase};
+          &:focus {
+            position: relative;
+            ${theme.focuses.highContrastFocus} /* For high contrast mode */
+
+            &::after {
+              ${theme.focuses.absoluteFocus}
             }
           }
         }
@@ -75,10 +118,15 @@ export const baseStyles = (
 
       .fi-table_tr {
         &:nth-child(even) {
-          background-color: ${theme.colors.depthLight3};
+          /* We are not using theme color because transparency is needed for sadow scroll effect */
+          background-color: rgba(199, 202, 204, 0.2);
         }
         &:not(:last-child) {
           border-bottom: 1px solid ${theme.colors.depthLight1};
+        }
+
+        &.highlighted {
+          background-color: ${theme.colors.depthSecondaryDark1};
         }
       }
 
