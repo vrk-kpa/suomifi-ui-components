@@ -680,11 +680,10 @@ const [currentPage, setCurrentPage] = React.useState(1);
       caption="People in the project"
       columns={columns}
       data={data}
-      condensed
-      aria-labelledby="table-heading"
     />
     <Block mt="l">
       <Pagination
+        pageInput={false}
         currentPage={currentPage}
         lastPage={3}
         nextButtonAriaLabel="Next table page"
