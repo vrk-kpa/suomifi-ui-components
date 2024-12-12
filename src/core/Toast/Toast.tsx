@@ -1,5 +1,5 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import React, { Component, forwardRef, RefObject, ReactNode } from 'react';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
 import {
@@ -36,7 +36,7 @@ export interface ToastProps extends MarginProps, HtmlDivWithRefProps {
   /** HTML id attribute */
   id?: string;
   /** Ref is placed on the outermost div element of the component. Alternative to React `ref` attribute. */
-  forwardedRef?: React.Ref<HTMLDivElement>;
+  forwardedRef?: RefObject<HTMLDivElement>;
 }
 
 const baseClassName = 'fi-toast';
@@ -64,7 +64,7 @@ class BaseToast extends Component<ToastProps> {
     return (
       <HtmlDivWithRef
         className={classnames(baseClassName, className)}
-        as="section"
+        asProp="section"
         {...passProps}
         style={style}
       >
@@ -110,7 +110,7 @@ const StyledToast = styled(
 `;
 
 const Toast = forwardRef(
-  (props: ToastProps, ref: React.Ref<HTMLDivElement>) => {
+  (props: ToastProps, ref: RefObject<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
       <SpacingConsumer>

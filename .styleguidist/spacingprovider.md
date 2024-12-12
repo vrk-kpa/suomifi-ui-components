@@ -43,7 +43,7 @@ In the example below all the buttons are inside a spacing provider with margins 
 
 ```js
 import { SpacingProvider, Button } from 'suomifi-ui-components';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 
 const StyledButton = styled(Button)`
   margin: 0;

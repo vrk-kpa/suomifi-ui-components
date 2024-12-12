@@ -1,13 +1,13 @@
 import progress from 'rollup-plugin-progress';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-ts';
+import ts from 'rollup-plugin-ts';
 import postcss from 'rollup-plugin-postcss';
 import cssImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 
 const typesTsConfig = {
   declaration: true,
@@ -36,15 +36,15 @@ const output = {
 
 const plugins = (tsConfig, extractCSS) => [
   progress(),
-  resolve(),
+  nodeResolve(),
   commonjs(),
-  typescript({
+  ts({
     transpiler: 'babel',
     babelConfig: {
       presets: ['@babel/preset-env', '@babel/preset-react'],
       plugins: [
         '@babel/plugin-transform-runtime',
-        ['styled-components', { ssr: true, displayName: false }],
+        ['babel-plugin-styled-components', { ssr: true, displayName: false }],
       ],
     },
     include: ['**/*.ts', '**/*.tsx'],

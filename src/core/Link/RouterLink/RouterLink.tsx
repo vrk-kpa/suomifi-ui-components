@@ -1,6 +1,6 @@
 // import React, { Component, ReactNode } from 'react';
 import React, { forwardRef, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { IconChevronRight } from 'suomifi-icons';
 import {

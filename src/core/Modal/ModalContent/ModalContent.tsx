@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';

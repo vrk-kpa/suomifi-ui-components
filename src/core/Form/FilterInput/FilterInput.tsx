@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   ReactElement,
 } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import {

@@ -25,5 +25,8 @@ export const baseStyles = (
       transform: translateY(-0.1em);
       margin-right: ${theme.spacing.xxs};
     }
+    &.fi-status-text--success .fi-icon-base-fill {
+      fill: ${theme.colors.successBase};
+    }
   }
 `;

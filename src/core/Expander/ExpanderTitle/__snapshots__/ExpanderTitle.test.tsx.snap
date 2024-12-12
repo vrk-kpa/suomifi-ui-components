@@ -16,7 +16,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   height: auto;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,8 +76,8 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -94,7 +92,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -107,14 +104,13 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c4 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -149,12 +145,8 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -167,25 +159,19 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   width: 100%;
   max-width: 100%;
   min-height: 60px;
-  background-color: hsl(212,63%,98%);
+  background-color: hsl(212, 63%, 98%);
   border-radius: inherit;
   white-space: break-word;
   word-wrap: break-word;
 }
 
 .c1.fi-expander_title {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-expander_title--open {
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -196,12 +182,8 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 }
 
 .c1 .fi-expander_title-button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -212,11 +194,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -225,22 +203,11 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(212,63%,45%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  color: hsl(212, 63%, 45%);
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   position: relative;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
-  -webkit-flex: 0 0 60px;
-  -ms-flex: 0 0 60px;
   flex: 0 0 60px;
   padding-top: 20px;
 }
@@ -263,21 +230,21 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-expander_title-button:hover {
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
 }
 
-.c1 .fi-expander_title-button:not(:focus-visible) {
+.c1 .fi-expander_title-button :not(:focus-visible) {
   outline: 0;
 }
 
-.c1 .fi-expander_title-button:not(:focus-visible):after {
+.c1 .fi-expander_title-button :not(:focus-visible):after {
   content: none;
 }
 
@@ -300,8 +267,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 
 .c1 .fi-expander_title--open .fi-expander_title-icon,
 .c1 .fi-expander_title-icon--open {
-  -webkit-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 

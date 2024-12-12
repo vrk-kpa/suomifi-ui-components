@@ -12,7 +12,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -70,7 +68,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -83,8 +80,8 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -99,7 +96,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -108,8 +104,8 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -126,7 +122,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -141,8 +136,8 @@ exports[`snapshots match error status with statustext 1`] = `
   opacity: 0.54;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -157,7 +152,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -166,8 +160,8 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 100%;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -182,7 +176,6 @@ exports[`snapshots match error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -191,17 +184,13 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c5.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -212,7 +201,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -251,11 +240,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -264,7 +249,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -274,19 +259,21 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c9.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c9.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1.fi-file-input {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   width: 100%;
   max-width: 600px;
   line-height: 0;
@@ -308,11 +295,11 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_single-file-container {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_label--visible {
@@ -334,7 +321,7 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 100%;
   max-width: 600px;
   height: 100%;
-  background: hsl(0,0%,100%);
+  background: hsl(0, 0%, 100%);
   padding: 20px;
 }
 
@@ -347,38 +334,20 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_multi-file-container .fi-file-input_file-item-outer-wrapper:not(:last-child) {
-  border-bottom: 1px solid hsl(202,7%,93%);
+  border-bottom: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_file-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -392,19 +361,12 @@ exports[`snapshots match error status with statustext 1`] = `
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-icon {
   width: 24px;
   height: 24px;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
   overflow-wrap: break-word;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
   font-size: 16px;
 }
@@ -424,51 +386,43 @@ exports[`snapshots match error status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  color: hsl(0,0%,42%);
+  color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   width: 100%;
-  background: hsl(212,63%,98%);
-  border: 1px dashed hsl(212,63%,45%);
+  background: hsl(212, 63%, 98%);
+  border: 1px dashed hsl(212, 63%, 45%);
   padding: 20px;
   position: relative;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.highlight {
-  background: hsl(212,63%,90%);
+  background: hsl(212, 63%, 90%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
-  border: 1px solid hsl(202,7%,93%);
+  border: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
   position: relative;
   width: 100%;
   height: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -477,11 +431,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -500,12 +450,12 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -515,19 +465,15 @@ exports[`snapshots match error status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -540,30 +486,25 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   cursor: pointer;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
-  -webkit-flex-direction: column-reverse;
-  -ms-flex-direction: column-reverse;
   flex-direction: column-reverse;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
   height: auto;
 }
@@ -580,8 +521,6 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item {
   height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -590,35 +529,22 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-flex-shrink: revert;
-  -ms-flex-negative: revert;
   flex-shrink: revert;
-  -webkit-box-flex: revert;
-  -webkit-flex-grow: revert;
-  -ms-flex-positive: revert;
   flex-grow: revert;
   margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_loading-icon {
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c1.fi-file-input .fi-file-input_file-item-error-text {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -628,12 +554,11 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 @media (prefers-reduced-motion) {
   .c1.fi-file-input.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
@@ -719,7 +644,7 @@ exports[`snapshots match error status with statustext 1`] = `
 `;
 
 exports[`snapshots match hidden label 1`] = `
-.c9 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -730,7 +655,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -743,14 +667,13 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c9::before,
-.c9::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c7 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -771,7 +694,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -784,8 +706,8 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -800,7 +722,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -813,8 +734,8 @@ exports[`snapshots match hidden label 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -829,7 +750,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -838,12 +758,12 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -856,7 +776,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -866,17 +785,17 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 100%;
 }
 
-.c7::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c7::before,
-.c7::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -887,7 +806,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -896,8 +814,8 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 100%;
 }
 
-.c8::before,
-.c8::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -912,7 +830,6 @@ exports[`snapshots match hidden label 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -921,17 +838,13 @@ exports[`snapshots match hidden label 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c5.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -942,7 +855,7 @@ exports[`snapshots match hidden label 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -957,11 +870,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -970,7 +879,7 @@ exports[`snapshots match hidden label 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -980,19 +889,21 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c10.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c10.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c10.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1.fi-file-input {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   width: 100%;
   max-width: 600px;
   line-height: 0;
@@ -1014,11 +925,11 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_single-file-container {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_label--visible {
@@ -1040,7 +951,7 @@ exports[`snapshots match hidden label 1`] = `
   width: 100%;
   max-width: 600px;
   height: 100%;
-  background: hsl(0,0%,100%);
+  background: hsl(0, 0%, 100%);
   padding: 20px;
 }
 
@@ -1053,38 +964,20 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_multi-file-container .fi-file-input_file-item-outer-wrapper:not(:last-child) {
-  border-bottom: 1px solid hsl(202,7%,93%);
+  border-bottom: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_file-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1098,19 +991,12 @@ exports[`snapshots match hidden label 1`] = `
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-icon {
   width: 24px;
   height: 24px;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
   overflow-wrap: break-word;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
   font-size: 16px;
 }
@@ -1130,51 +1016,43 @@ exports[`snapshots match hidden label 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  color: hsl(0,0%,42%);
+  color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   width: 100%;
-  background: hsl(212,63%,98%);
-  border: 1px dashed hsl(212,63%,45%);
+  background: hsl(212, 63%, 98%);
+  border: 1px dashed hsl(212, 63%, 45%);
   padding: 20px;
   position: relative;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.highlight {
-  background: hsl(212,63%,90%);
+  background: hsl(212, 63%, 90%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
-  border: 1px solid hsl(202,7%,93%);
+  border: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
   position: relative;
   width: 100%;
   height: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -1183,11 +1061,7 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1206,12 +1080,12 @@ exports[`snapshots match hidden label 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -1221,19 +1095,15 @@ exports[`snapshots match hidden label 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1246,30 +1116,25 @@ exports[`snapshots match hidden label 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   cursor: pointer;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
-  -webkit-flex-direction: column-reverse;
-  -ms-flex-direction: column-reverse;
   flex-direction: column-reverse;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
   height: auto;
 }
@@ -1286,8 +1151,6 @@ exports[`snapshots match hidden label 1`] = `
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item {
   height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -1296,35 +1159,22 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-flex-shrink: revert;
-  -ms-flex-negative: revert;
   flex-shrink: revert;
-  -webkit-box-flex: revert;
-  -webkit-flex-grow: revert;
-  -ms-flex-positive: revert;
   flex-grow: revert;
   margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_loading-icon {
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c1.fi-file-input .fi-file-input_file-item-error-text {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1334,12 +1184,11 @@ exports[`snapshots match hidden label 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 @media (prefers-reduced-motion) {
   .c1.fi-file-input.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
@@ -1357,7 +1206,7 @@ exports[`snapshots match hidden label 1`] = `
         class="c4 c5 fi-label"
       >
         <span
-          class="c6 fi-visually-hidden"
+          class="c6 c7 fi-visually-hidden"
           id="4-label"
         >
           Resume
@@ -1375,14 +1224,14 @@ exports[`snapshots match hidden label 1`] = `
         >
           <input
             aria-invalid="false"
-            class="c7 fi-file-input_input-element"
+            class="c8 fi-file-input_input-element"
             data-testid="file-input"
             id="4"
             tabindex="0"
             type="file"
           />
           <label
-            class="c8 fi-file-input_input-label"
+            class="c9 fi-file-input_input-label"
             for="4"
           >
             Choose file
@@ -1398,7 +1247,7 @@ exports[`snapshots match hidden label 1`] = `
     <span
       aria-atomic="true"
       aria-live="assertive"
-      class="c9 c10 fi-status-text"
+      class="c6 c10 fi-status-text"
       id="4-statusText"
     />
   </fieldset>
@@ -1417,7 +1266,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1430,8 +1278,8 @@ exports[`snapshots match hint text 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -1446,7 +1294,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1459,8 +1306,8 @@ exports[`snapshots match hint text 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1475,7 +1322,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1488,8 +1334,8 @@ exports[`snapshots match hint text 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -1504,7 +1350,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1513,8 +1358,8 @@ exports[`snapshots match hint text 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -1531,7 +1376,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1546,8 +1390,8 @@ exports[`snapshots match hint text 1`] = `
   opacity: 0.54;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -1562,7 +1406,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1571,8 +1414,8 @@ exports[`snapshots match hint text 1`] = `
   max-width: 100%;
 }
 
-.c9::before,
-.c9::after {
+.c9 ::before,
+.c9 ::after {
   box-sizing: border-box;
 }
 
@@ -1587,7 +1430,6 @@ exports[`snapshots match hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1596,17 +1438,13 @@ exports[`snapshots match hint text 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c5.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1617,7 +1455,7 @@ exports[`snapshots match hint text 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1632,12 +1470,8 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1653,11 +1487,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1666,7 +1496,7 @@ exports[`snapshots match hint text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1676,19 +1506,21 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c10.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c10.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c10.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1.fi-file-input {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   width: 100%;
   max-width: 600px;
   line-height: 0;
@@ -1710,11 +1542,11 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_single-file-container {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_label--visible {
@@ -1736,7 +1568,7 @@ exports[`snapshots match hint text 1`] = `
   width: 100%;
   max-width: 600px;
   height: 100%;
-  background: hsl(0,0%,100%);
+  background: hsl(0, 0%, 100%);
   padding: 20px;
 }
 
@@ -1749,38 +1581,20 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_multi-file-container .fi-file-input_file-item-outer-wrapper:not(:last-child) {
-  border-bottom: 1px solid hsl(202,7%,93%);
+  border-bottom: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_file-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1794,19 +1608,12 @@ exports[`snapshots match hint text 1`] = `
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-icon {
   width: 24px;
   height: 24px;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
   overflow-wrap: break-word;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
   font-size: 16px;
 }
@@ -1826,51 +1633,43 @@ exports[`snapshots match hint text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  color: hsl(0,0%,42%);
+  color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   width: 100%;
-  background: hsl(212,63%,98%);
-  border: 1px dashed hsl(212,63%,45%);
+  background: hsl(212, 63%, 98%);
+  border: 1px dashed hsl(212, 63%, 45%);
   padding: 20px;
   position: relative;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.highlight {
-  background: hsl(212,63%,90%);
+  background: hsl(212, 63%, 90%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
-  border: 1px solid hsl(202,7%,93%);
+  border: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
   position: relative;
   width: 100%;
   height: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -1879,11 +1678,7 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1902,12 +1697,12 @@ exports[`snapshots match hint text 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -1917,19 +1712,15 @@ exports[`snapshots match hint text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1942,30 +1733,25 @@ exports[`snapshots match hint text 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   cursor: pointer;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
-  -webkit-flex-direction: column-reverse;
-  -ms-flex-direction: column-reverse;
   flex-direction: column-reverse;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
   height: auto;
 }
@@ -1982,8 +1768,6 @@ exports[`snapshots match hint text 1`] = `
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item {
   height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -1992,35 +1776,22 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-flex-shrink: revert;
-  -ms-flex-negative: revert;
   flex-shrink: revert;
-  -webkit-box-flex: revert;
-  -webkit-flex-grow: revert;
-  -ms-flex-positive: revert;
   flex-grow: revert;
   margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_loading-icon {
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c1.fi-file-input .fi-file-input_file-item-error-text {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2030,12 +1801,11 @@ exports[`snapshots match hint text 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 @media (prefers-reduced-motion) {
   .c1.fi-file-input.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
@@ -2124,7 +1894,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2137,8 +1906,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -2153,7 +1922,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2166,8 +1934,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2182,7 +1950,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2195,8 +1962,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -2211,7 +1978,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2220,8 +1986,8 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -2238,7 +2004,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2253,8 +2018,8 @@ exports[`snapshots match minimal implementation 1`] = `
   opacity: 0.54;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -2269,7 +2034,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2278,8 +2042,8 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -2294,7 +2058,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2303,17 +2066,13 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c5.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2324,7 +2083,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2339,11 +2098,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2352,7 +2107,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2362,19 +2117,21 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c9.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c9.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1.fi-file-input {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   width: 100%;
   max-width: 600px;
   line-height: 0;
@@ -2396,11 +2153,11 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input.fi-file-input--error .fi-file-input_single-file-container {
-  border: 2px dashed hsl(3,59%,43%);
+  border: 2px dashed hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_label--visible {
@@ -2422,7 +2179,7 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 100%;
   max-width: 600px;
   height: 100%;
-  background: hsl(0,0%,100%);
+  background: hsl(0, 0%, 100%);
   padding: 20px;
 }
 
@@ -2435,38 +2192,20 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_multi-file-container .fi-file-input_file-item-outer-wrapper:not(:last-child) {
-  border-bottom: 1px solid hsl(202,7%,93%);
+  border-bottom: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_file-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2480,19 +2219,12 @@ exports[`snapshots match minimal implementation 1`] = `
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-icon {
   width: 24px;
   height: 24px;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
   overflow-wrap: break-word;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
   font-size: 16px;
 }
@@ -2512,51 +2244,43 @@ exports[`snapshots match minimal implementation 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  color: hsl(0,0%,42%);
+  color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
   width: 100%;
-  background: hsl(212,63%,98%);
-  border: 1px dashed hsl(212,63%,45%);
+  background: hsl(212, 63%, 98%);
+  border: 1px dashed hsl(212, 63%, 45%);
   padding: 20px;
   position: relative;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.highlight {
-  background: hsl(212,63%,90%);
+  background: hsl(212, 63%, 90%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
-  border: 1px solid hsl(202,7%,93%);
+  border: 1px solid hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
   position: relative;
   width: 100%;
   height: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -2565,11 +2289,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2588,12 +2308,12 @@ exports[`snapshots match minimal implementation 1`] = `
   z-index: -9999;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label {
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus + .fi-file-input_input-label:after {
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-element:not(.fi-file-input_label--hidden-under-file):focus +.fi-file-input_input-label:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -2603,19 +2323,15 @@ exports[`snapshots match minimal implementation 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2628,30 +2344,25 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   cursor: pointer;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_input-label:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
-  -webkit-flex-direction: column-reverse;
-  -ms-flex-direction: column-reverse;
   flex-direction: column-reverse;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
   height: auto;
 }
@@ -2668,8 +2379,6 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item {
   height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -2678,35 +2387,22 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-file-input.fi-file-input--small-screen .fi-file-input_single-file-container .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-size {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-flex-shrink: revert;
-  -ms-flex-negative: revert;
   flex-shrink: revert;
-  -webkit-box-flex: revert;
-  -webkit-flex-grow: revert;
-  -ms-flex-positive: revert;
   flex-grow: revert;
   margin-right: 0;
 }
 
 .c1.fi-file-input .fi-file-input_error-icon {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c1.fi-file-input .fi-file-input_loading-icon {
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c1.fi-file-input .fi-file-input_file-item-error-text {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2716,12 +2412,11 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 @media (prefers-reduced-motion) {
   .c1.fi-file-input.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }

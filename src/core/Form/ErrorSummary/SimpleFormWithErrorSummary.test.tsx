@@ -6,7 +6,8 @@ import {
   Block,
   ErrorSummaryItemProps,
 } from '../../../index';
-import { render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 const SimpleFormWithErrorSummary: React.FC = () => {
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState('');
@@ -129,7 +130,7 @@ describe('funcionality', () => {
   it('should render ErrorSummary and focus on the heading when invalid inputs are submitted', async () => {
     const { getByText, getAllByText } = render(<SimpleFormWithErrorSummary />);
     const submitButton = getByText('Submit');
-    submitButton.click();
+    fireEvent.click(submitButton);
     expect(
       getByText('The following problems were found in the form'),
     ).toBeInTheDocument();
@@ -150,26 +151,26 @@ describe('funcionality', () => {
       <SimpleFormWithErrorSummary />,
     );
     const submitButton = getByText('Submit');
-    submitButton.click();
+    fireEvent.click(submitButton);
 
     const firstNameLink = getByRole('link', {
       name: 'First name is a required field',
     });
-    firstNameLink.click();
+    fireEvent.click(firstNameLink);
     const firstNameInput = getByTestId('first-name');
     expect(firstNameInput).toHaveFocus();
 
     const lastNameLink = getByRole('link', {
       name: 'Last name is a required field',
     });
-    lastNameLink.click();
+    fireEvent.click(lastNameLink);
     const lastNameInput = getByTestId('last-name');
     expect(lastNameInput).toHaveFocus();
 
     const emailAddressLink = getByRole('link', {
       name: 'Email address is a required field',
     });
-    emailAddressLink.click();
+    fireEvent.click(emailAddressLink);
     const emailAddressInput = getByTestId('email-address');
     expect(emailAddressInput).toHaveFocus();
   });

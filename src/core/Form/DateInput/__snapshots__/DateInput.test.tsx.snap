@@ -36,7 +36,6 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`snapshots match date input error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,8 +76,8 @@ exports[`snapshots match date input error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -96,7 +94,6 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -111,8 +108,8 @@ exports[`snapshots match date input error status with statustext 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -127,7 +124,6 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -140,17 +136,13 @@ exports[`snapshots match date input error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -161,7 +153,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -176,11 +168,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -189,7 +177,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -199,23 +187,21 @@ exports[`snapshots match date input error status with statustext 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -258,14 +244,14 @@ exports[`snapshots match date input error status with statustext 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -284,32 +270,23 @@ exports[`snapshots match date input error status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -321,70 +298,43 @@ exports[`snapshots match date input error status with statustext 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -402,9 +352,9 @@ exports[`snapshots match date input error status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -413,41 +363,41 @@ exports[`snapshots match date input error status with statustext 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -532,7 +482,6 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -545,8 +494,8 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -561,7 +510,6 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -574,12 +522,12 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -592,7 +540,6 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -602,17 +549,17 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -623,7 +570,6 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -636,14 +582,13 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -654,11 +599,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -669,7 +610,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -684,11 +625,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -697,7 +634,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -707,23 +644,21 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -766,14 +701,14 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -792,32 +727,23 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -829,70 +755,43 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -910,9 +809,9 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -921,41 +820,41 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -975,7 +874,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
           class="c2 c3 fi-label"
         >
           <label
-            class="c4 fi-visually-hidden"
+            class="c4 c5 fi-visually-hidden"
             for="3"
           >
             Date
@@ -989,7 +888,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
           >
             <input
               autocomplete="off"
-              class="c5 fi-date-input_input"
+              class="c6 fi-date-input_input"
               id="3"
               placeholder="DateInput"
               type="text"
@@ -1000,7 +899,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c6 c7 fi-status-text"
+          class="c4 c7 fi-status-text"
           id="3-statusText"
         />
       </div>
@@ -1021,7 +920,6 @@ exports[`snapshots match date input hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1034,8 +932,8 @@ exports[`snapshots match date input hint text 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1050,7 +948,6 @@ exports[`snapshots match date input hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1063,8 +960,8 @@ exports[`snapshots match date input hint text 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -1081,7 +978,6 @@ exports[`snapshots match date input hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1096,8 +992,8 @@ exports[`snapshots match date input hint text 1`] = `
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -1112,7 +1008,6 @@ exports[`snapshots match date input hint text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1125,17 +1020,13 @@ exports[`snapshots match date input hint text 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1146,7 +1037,7 @@ exports[`snapshots match date input hint text 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1161,12 +1052,8 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1182,11 +1069,7 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1195,7 +1078,7 @@ exports[`snapshots match date input hint text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1205,23 +1088,21 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1264,14 +1145,14 @@ exports[`snapshots match date input hint text 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -1290,32 +1171,23 @@ exports[`snapshots match date input hint text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1327,70 +1199,43 @@ exports[`snapshots match date input hint text 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -1408,9 +1253,9 @@ exports[`snapshots match date input hint text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -1419,41 +1264,41 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -1525,7 +1370,6 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1538,8 +1382,8 @@ exports[`snapshots match date input minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1554,7 +1398,6 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1567,8 +1410,8 @@ exports[`snapshots match date input minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -1585,7 +1428,6 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1600,8 +1442,8 @@ exports[`snapshots match date input minimal implementation 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -1616,7 +1458,6 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1629,17 +1470,13 @@ exports[`snapshots match date input minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1650,7 +1487,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1665,11 +1502,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1678,7 +1511,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1688,23 +1521,21 @@ exports[`snapshots match date input minimal implementation 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1747,14 +1578,14 @@ exports[`snapshots match date input minimal implementation 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -1773,32 +1604,23 @@ exports[`snapshots match date input minimal implementation 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1810,70 +1632,43 @@ exports[`snapshots match date input minimal implementation 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -1891,9 +1686,9 @@ exports[`snapshots match date input minimal implementation 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -1902,41 +1697,41 @@ exports[`snapshots match date input minimal implementation 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -2001,7 +1796,6 @@ exports[`snapshots match date input optional text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2014,8 +1808,8 @@ exports[`snapshots match date input optional text 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2030,7 +1824,6 @@ exports[`snapshots match date input optional text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2043,8 +1836,8 @@ exports[`snapshots match date input optional text 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -2061,7 +1854,6 @@ exports[`snapshots match date input optional text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2076,8 +1868,8 @@ exports[`snapshots match date input optional text 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -2092,7 +1884,6 @@ exports[`snapshots match date input optional text 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2105,17 +1896,13 @@ exports[`snapshots match date input optional text 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2126,7 +1913,7 @@ exports[`snapshots match date input optional text 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2141,11 +1928,7 @@ exports[`snapshots match date input optional text 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2154,7 +1937,7 @@ exports[`snapshots match date input optional text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2164,23 +1947,21 @@ exports[`snapshots match date input optional text 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2223,14 +2004,14 @@ exports[`snapshots match date input optional text 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -2249,32 +2030,23 @@ exports[`snapshots match date input optional text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2286,70 +2058,43 @@ exports[`snapshots match date input optional text 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -2367,9 +2112,9 @@ exports[`snapshots match date input optional text 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -2378,41 +2123,41 @@ exports[`snapshots match date input optional text 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -2480,11 +2225,11 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c7 .fi-icon-base-fill {
-  fill: hsl(166,90%,34%);
+  fill: currentColor;
 }
 
 .c7 .fi-icon-base-stroke {
-  stroke: hsl(166,90%,34%);
+  stroke: currentColor;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -2506,7 +2251,6 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2519,8 +2263,8 @@ exports[`snapshots match date input success status with statustext 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2535,7 +2279,6 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2548,8 +2291,8 @@ exports[`snapshots match date input success status with statustext 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -2566,7 +2309,6 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2581,8 +2323,8 @@ exports[`snapshots match date input success status with statustext 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -2597,7 +2339,6 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2610,17 +2351,13 @@ exports[`snapshots match date input success status with statustext 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2631,7 +2368,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2646,11 +2383,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2659,7 +2392,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2669,23 +2402,21 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2728,14 +2459,14 @@ exports[`snapshots match date input success status with statustext 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -2754,32 +2485,23 @@ exports[`snapshots match date input success status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2791,70 +2513,43 @@ exports[`snapshots match date input success status with statustext 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -2872,9 +2567,9 @@ exports[`snapshots match date input success status with statustext 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -2883,41 +2578,41 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -2962,7 +2657,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c4 c6 fi-date-input_statusText--has-content fi-status-text"
+          class="c4 c6 fi-date-input_statusText--has-content fi-status-text fi-status-text--success"
           id="6-statusText"
         >
           <svg
@@ -3077,7 +2772,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3110,8 +2804,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   height: auto;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -3126,7 +2820,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3139,8 +2832,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -3155,7 +2848,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3168,8 +2860,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -3186,7 +2878,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3201,8 +2892,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -3217,7 +2908,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3230,14 +2920,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c7 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -3248,12 +2937,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3266,11 +2951,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -3290,29 +2975,26 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c13:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c13:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c13.fi-button--disabled,
 .c13[disabled],
 .c13:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -3329,18 +3011,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c13.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c13.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c13.fi-button--inverted.fi-button--disabled,
@@ -3352,41 +3034,41 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c13.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c13.fi-button--secondary.fi-button--disabled,
 .c13.fi-button--secondary[disabled],
 .c13.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -3394,26 +3076,26 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c13.fi-button--secondary-noborder.fi-button--disabled,
 .c13.fi-button--secondary-noborder[disabled],
 .c13.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-noborder.fi-button--icon-only {
@@ -3421,42 +3103,42 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c13.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c13.fi-button--secondary-light.fi-button--disabled,
 .c13.fi-button--secondary-light[disabled],
 .c13.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-light.fi-button--icon-only {
@@ -3464,36 +3146,34 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c13.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c13.fi-button--secondary-light.fi-button--disabled,
 .c13.fi-button--secondary-light[disabled],
 .c13.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c13 > .fi-button_icon > .fi-icon {
+.c13>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c13 > .fi-button_icon--right > .fi-icon {
+.c13>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -3502,15 +3182,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
   padding: 6px 11px;
 }
 
-.c13.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c13.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c13.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c13.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c13.fi-button--disabled > .fi-button_icon {
+.c13.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -3519,22 +3199,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c13 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c13.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -3550,37 +3223,33 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c17.fi-month-day--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c17 .fi-month-day_current {
   margin: 0 6px;
   padding: 3px 0;
-  border-bottom: 1px solid hsl(202,7%,67%);
+  border-bottom: 1px solid hsl(202, 7%, 67%);
   text-align: center;
 }
 
 .c17 .fi-month-day_button_current {
   margin: 0 6px;
   padding: 3px 0;
-  border-bottom: 1px solid hsl(0,0%,13%);
+  border-bottom: 1px solid hsl(0, 0%, 13%);
   text-align: center;
 }
 
 .c17 .fi-month-day_button--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c17 .fi-month-day_button--disabled .fi-month-day_button_current {
-  border-bottom: 1px solid hsl(202,7%,67%);
+  border-bottom: 1px solid hsl(202, 7%, 67%);
 }
 
 .c17 .fi-month-day_button {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3612,25 +3281,24 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
-  border-bottom: 1px solid hsl(0,0%,100%);
+  border-bottom: 1px solid hsl(0, 0%, 100%);
 }
 
 .c17 .fi-month-day_button--selected {
-  border: 1px solid hsl(212,63%,45%);
-  background-color: hsl(212,63%,95%);
-  -webkit-text-decoration: none;
+  border: 1px solid hsl(212, 63%, 45%);
+  background-color: hsl(212, 63%, 95%);
   text-decoration: none;
   font-weight: 600;
 }
@@ -3650,9 +3318,9 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -3661,11 +3329,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c16.fi-month-table {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3686,11 +3350,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3701,7 +3361,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -3716,11 +3376,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3729,7 +3385,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -3739,15 +3395,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c9.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
+}
+
+.c9.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
 }
 
 .c12 {
@@ -3785,12 +3443,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown .fi-dropdown_button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3802,7 +3456,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
@@ -3812,15 +3466,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   text-align: left;
   line-height: 1.5;
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -3836,12 +3487,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(0,0%,13%) transparent transparent transparent;
+  border-color: hsl(0, 0%, 13%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c12.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(0,0%,13%) transparent;
+  border-color: transparent transparent hsl(0, 0%, 13%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -3854,7 +3505,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown .fi-dropdown_popover {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3864,8 +3515,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
   font-size: 100%;
   border: 0;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(201,7%,58%);
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(201, 7%, 58%);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
@@ -3891,13 +3542,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
 .c12.fi-dropdown--italicize .fi-dropdown_button {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -3906,14 +3557,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button {
-  background-color: hsl(202,7%,97%);
-  color: hsl(202,7%,67%);
+  background-color: hsl(202, 7%, 97%);
+  color: hsl(202, 7%, 67%);
   opacity: 1;
   pointer-events: none;
 }
 
 .c12.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button:before {
-  border-color: hsl(202,7%,67%) transparent transparent transparent;
+  border-color: hsl(202, 7%, 67%) transparent transparent transparent;
 }
 
 .c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
@@ -3931,19 +3582,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c11.fi-date-selectors_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   row-gap: 10px;
 }
@@ -3969,12 +3615,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c11 .fi-date-selectors_buttons {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
 
@@ -3990,11 +3631,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4012,9 +3649,9 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10.fi-date-picker {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
 }
 
 .c10.fi-date-picker .fi-button {
@@ -4022,31 +3659,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 .fi-date-picker_bottom-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
 .c10 .fi-date-picker_application {
   padding: 20px 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
 }
@@ -4059,12 +3680,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: 0;
   right: 0;
   position: fixed;
-  -webkit-transform: translateZ(0) translateY(0);
-  -ms-transform: translateZ(0) translateY(0);
   transform: translateZ(0) translateY(0);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1);
-  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .c10.fi-date-picker--small-screen .fi-date-picker_application {
@@ -4077,20 +3694,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10.fi-date-picker--small-screen-hidden {
-  -webkit-transform: translateZ(0) translateY(100%);
-  -ms-transform: translateZ(0) translateY(100%);
   transform: translateZ(0) translateY(100%);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
-  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28, 0.84, 0.42, 1),visibility 200ms cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .c10 .fi-date-picker_slide-indicator-wrapper {
   touch-action: none;
   padding-top: 20px;
   padding-bottom: 10px;
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
   cursor: grab;
 }
 
@@ -4098,15 +3709,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin: 0 auto;
   width: 60px;
   height: 3px;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 .c10 .fi-date-picker_small-screen-container {
   touch-action: pan-x pinch-zoom;
   max-height: 100%;
   overscroll-behavior: contain;
-  background-color: hsl(0,0%,100%);
-  border-top: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  border-top: 1px solid hsl(0, 0%, 42%);
   border-radius: 10px 10px 0 0;
   position: absolute;
   bottom: 0;
@@ -4128,9 +3739,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c10 .fi-date-picker_popper-arrow::before {
   content: '';
-  background-color: hsl(0,0%,100%);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  background-color: hsl(0, 0%, 100%);
   transform: rotate(45deg);
 }
 
@@ -4139,8 +3748,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-top: 1px solid hsl(0,0%,42%);
-  border-left: 1px solid hsl(0,0%,42%);
+  border-top: 1px solid hsl(0, 0%, 42%);
+  border-left: 1px solid hsl(0, 0%, 42%);
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
@@ -4148,16 +3757,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
-  border-bottom: 1px solid hsl(0,0%,42%);
-  border-right: 1px solid hsl(0,0%,42%);
+  border-bottom: 1px solid hsl(0, 0%, 42%);
+  border-right: 1px solid hsl(0, 0%, 42%);
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4200,14 +3805,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -4226,32 +3831,23 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -4263,70 +3859,43 @@ exports[`snapshots match date input with datepicker with controlled input value 
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -4344,9 +3913,9 @@ exports[`snapshots match date input with datepicker with controlled input value 
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -4355,41 +3924,41 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -4399,12 +3968,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 @media (prefers-reduced-motion) {
   .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media screen and (forced-colors:active) {
+@media screen and (forced-colors: active) {
   .c17 [aria-disabled='true'] {
     color: GrayText;
   }
@@ -4504,7 +4072,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c2 c3 fi-label"
           >
             <label
-              class="c7 fi-visually-hidden"
+              class="c4 c7 fi-visually-hidden"
               id="16-label"
             >
               Valitse vuosi
@@ -4552,7 +4120,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c2 c3 fi-label"
           >
             <label
-              class="c7 fi-visually-hidden"
+              class="c4 c7 fi-visually-hidden"
               id="17-label"
             >
               Valitse kuukausi
@@ -5343,7 +4911,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5376,8 +4943,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   height: auto;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -5392,7 +4959,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5405,8 +4971,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -5421,7 +4987,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5434,8 +4999,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -5452,7 +5017,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5467,8 +5031,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -5483,7 +5047,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -5496,14 +5059,13 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c7 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -5514,12 +5076,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c13 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5532,11 +5090,11 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -5556,29 +5114,26 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c13:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c13:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c13.fi-button--disabled,
 .c13[disabled],
 .c13:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -5595,18 +5150,18 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c13.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c13.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c13.fi-button--inverted.fi-button--disabled,
@@ -5618,41 +5173,41 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c13.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c13.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c13.fi-button--secondary.fi-button--disabled,
 .c13.fi-button--secondary[disabled],
 .c13.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -5660,26 +5215,26 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c13.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c13.fi-button--secondary-noborder.fi-button--disabled,
 .c13.fi-button--secondary-noborder[disabled],
 .c13.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-noborder.fi-button--icon-only {
@@ -5687,42 +5242,42 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c13.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c13.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c13.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c13.fi-button--secondary-light.fi-button--disabled,
 .c13.fi-button--secondary-light[disabled],
 .c13.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c13.fi-button--secondary-light.fi-button--icon-only {
@@ -5730,36 +5285,34 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c13.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c13.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c13.fi-button--secondary-light.fi-button--disabled,
 .c13.fi-button--secondary-light[disabled],
 .c13.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c13 > .fi-button_icon > .fi-icon {
+.c13>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c13 > .fi-button_icon--right > .fi-icon {
+.c13>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -5768,15 +5321,15 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   padding: 6px 11px;
 }
 
-.c13.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c13.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c13.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c13.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c13.fi-button--disabled > .fi-button_icon {
+.c13.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -5785,22 +5338,15 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c13 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c13.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -5816,37 +5362,33 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c17.fi-month-day--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c17 .fi-month-day_current {
   margin: 0 6px;
   padding: 3px 0;
-  border-bottom: 1px solid hsl(202,7%,67%);
+  border-bottom: 1px solid hsl(202, 7%, 67%);
   text-align: center;
 }
 
 .c17 .fi-month-day_button_current {
   margin: 0 6px;
   padding: 3px 0;
-  border-bottom: 1px solid hsl(0,0%,13%);
+  border-bottom: 1px solid hsl(0, 0%, 13%);
   text-align: center;
 }
 
 .c17 .fi-month-day_button--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c17 .fi-month-day_button--disabled .fi-month-day_button_current {
-  border-bottom: 1px solid hsl(202,7%,67%);
+  border-bottom: 1px solid hsl(202, 7%, 67%);
 }
 
 .c17 .fi-month-day_button {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5878,25 +5420,24 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
-  border-bottom: 1px solid hsl(0,0%,100%);
+  border-bottom: 1px solid hsl(0, 0%, 100%);
 }
 
 .c17 .fi-month-day_button--selected {
-  border: 1px solid hsl(212,63%,45%);
-  background-color: hsl(212,63%,95%);
-  -webkit-text-decoration: none;
+  border: 1px solid hsl(212, 63%, 45%);
+  background-color: hsl(212, 63%, 95%);
   text-decoration: none;
   font-weight: 600;
 }
@@ -5916,9 +5457,9 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -5927,11 +5468,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c16.fi-month-table {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5952,11 +5489,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5967,7 +5500,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -5982,11 +5515,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -5995,7 +5524,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -6005,15 +5534,17 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c9.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
+}
+
+.c9.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
 }
 
 .c12 {
@@ -6051,12 +5582,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown .fi-dropdown_button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6068,7 +5595,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
@@ -6078,15 +5605,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   text-align: left;
   line-height: 1.5;
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -6102,12 +5626,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(0,0%,13%) transparent transparent transparent;
+  border-color: hsl(0, 0%, 13%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c12.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(0,0%,13%) transparent;
+  border-color: transparent transparent hsl(0, 0%, 13%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -6120,7 +5644,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown .fi-dropdown_popover {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -6130,8 +5654,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   box-sizing: border-box;
   font-size: 100%;
   border: 0;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(201,7%,58%);
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(201, 7%, 58%);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
@@ -6157,13 +5681,13 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
 .c12.fi-dropdown--italicize .fi-dropdown_button {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -6172,14 +5696,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button {
-  background-color: hsl(202,7%,97%);
-  color: hsl(202,7%,67%);
+  background-color: hsl(202, 7%, 97%);
+  color: hsl(202, 7%, 67%);
   opacity: 1;
   pointer-events: none;
 }
 
 .c12.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button:before {
-  border-color: hsl(202,7%,67%) transparent transparent transparent;
+  border-color: hsl(202, 7%, 67%) transparent transparent transparent;
 }
 
 .c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
@@ -6197,19 +5721,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c11.fi-date-selectors_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   row-gap: 10px;
 }
@@ -6235,12 +5754,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c11 .fi-date-selectors_buttons {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
 
@@ -6256,11 +5770,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6278,9 +5788,9 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10.fi-date-picker {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
 }
 
 .c10.fi-date-picker .fi-button {
@@ -6288,31 +5798,15 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 .fi-date-picker_bottom-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
 .c10 .fi-date-picker_application {
   padding: 20px 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
 }
@@ -6325,12 +5819,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: 0;
   right: 0;
   position: fixed;
-  -webkit-transform: translateZ(0) translateY(0);
-  -ms-transform: translateZ(0) translateY(0);
   transform: translateZ(0) translateY(0);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1);
-  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .c10.fi-date-picker--small-screen .fi-date-picker_application {
@@ -6343,20 +5833,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10.fi-date-picker--small-screen-hidden {
-  -webkit-transform: translateZ(0) translateY(100%);
-  -ms-transform: translateZ(0) translateY(100%);
   transform: translateZ(0) translateY(100%);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
-  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28, 0.84, 0.42, 1),visibility 200ms cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .c10 .fi-date-picker_slide-indicator-wrapper {
   touch-action: none;
   padding-top: 20px;
   padding-bottom: 10px;
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
   cursor: grab;
 }
 
@@ -6364,15 +5848,15 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   margin: 0 auto;
   width: 60px;
   height: 3px;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 .c10 .fi-date-picker_small-screen-container {
   touch-action: pan-x pinch-zoom;
   max-height: 100%;
   overscroll-behavior: contain;
-  background-color: hsl(0,0%,100%);
-  border-top: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  border-top: 1px solid hsl(0, 0%, 42%);
   border-radius: 10px 10px 0 0;
   position: absolute;
   bottom: 0;
@@ -6394,9 +5878,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c10 .fi-date-picker_popper-arrow::before {
   content: '';
-  background-color: hsl(0,0%,100%);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  background-color: hsl(0, 0%, 100%);
   transform: rotate(45deg);
 }
 
@@ -6405,8 +5887,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-top: 1px solid hsl(0,0%,42%);
-  border-left: 1px solid hsl(0,0%,42%);
+  border-top: 1px solid hsl(0, 0%, 42%);
+  border-left: 1px solid hsl(0, 0%, 42%);
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
@@ -6414,16 +5896,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
-  border-bottom: 1px solid hsl(0,0%,42%);
-  border-right: 1px solid hsl(0,0%,42%);
+  border-bottom: 1px solid hsl(0, 0%, 42%);
+  border-right: 1px solid hsl(0, 0%, 42%);
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6466,14 +5944,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   width: 100%;
 }
 
-.c1 .fi-date-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_input-element-container >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+.c1 .fi-date-input_input-element-container:focus-within >input:focus {
   outline: none;
 }
 
@@ -6492,32 +5970,23 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-date-input_picker-element-container {
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c1 .fi-date-input_input-and-picker-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -6529,70 +5998,43 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-radius: 2px;
-}
-
-.c1 .fi-date-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-date-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
 }
 
 .c1 .fi-date-input_input::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
 .c1 .fi-date-input_picker-button {
   height: 100%;
   width: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
+  border: 1px solid hsl(212, 63%, 45%);
   border-radius: 2px;
 }
 
-.c1 .fi-date-input_picker-button > input:focus {
-  outline-color: hsl(196,77%,44%);
+.c1 .fi-date-input_picker-button >input:focus {
+  outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c1 .fi-date-input_picker-button:focus-within > input:focus {
+.c1 .fi-date-input_picker-button:focus-within >input:focus {
   outline: none;
 }
 
@@ -6610,9 +6052,9 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -6621,41 +6063,41 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c1 .fi-date-input_picker-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1 .fi-date-input_picker-button--disabled {
   cursor: default;
-  border-color: hsl(202,7%,67%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c1.fi-date-input--error .fi-date-input_input {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-date-input--error .fi-date-input_picker-button {
-  border: 2px solid hsl(3,59%,43%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(3, 59%, 43%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--success .fi-date-input_input {
-  border: 2px solid hsl(166,90%,34%);
+  border: 2px solid hsl(166, 90%, 34%);
 }
 
 .c1.fi-date-input--success .fi-date-input_picker-button {
-  border: 2px solid hsl(166,90%,34%);
-  border-left: 1px solid hsl(212,63%,45%);
+  border: 2px solid hsl(166, 90%, 34%);
+  border-left: 1px solid hsl(212, 63%, 45%);
   border-radius: 0 2px 2px 0;
 }
 
 .c1.fi-date-input--disabled .fi-date-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
+  color: hsl(202, 7%, 67%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-date-input--has-picker .fi-date-input_input {
@@ -6665,12 +6107,11 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 @media (prefers-reduced-motion) {
   .c13.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media screen and (forced-colors:active) {
+@media screen and (forced-colors: active) {
   .c17 [aria-disabled='true'] {
     color: GrayText;
   }
@@ -6779,7 +6220,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               class="c2 c3 fi-label"
             >
               <label
-                class="c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
                 id="9-label"
               >
                 Valitse vuosi
@@ -6827,7 +6268,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               class="c2 c3 fi-label"
             >
               <label
-                class="c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
                 id="10-label"
               >
                 Valitse kuukausi

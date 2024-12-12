@@ -16,7 +16,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   height: auto;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,8 +76,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -94,7 +92,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -107,8 +104,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -125,7 +122,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -140,8 +136,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -156,7 +152,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -165,8 +160,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   display: list-item;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -181,7 +176,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -194,8 +188,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -210,7 +204,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -225,17 +218,13 @@ exports[`Basic dropdown should match snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -246,7 +235,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -261,11 +250,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -277,10 +262,10 @@ exports[`Basic dropdown should match snapshot 1`] = `
   list-style-type: none;
   box-sizing: content-box;
   max-height: 265px;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   margin: 0;
@@ -296,11 +281,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -309,7 +290,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -319,15 +300,17 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
+}
+
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
 }
 
 .c1 {
@@ -365,12 +348,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -382,7 +361,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
@@ -392,15 +371,12 @@ exports[`Basic dropdown should match snapshot 1`] = `
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   text-align: left;
   line-height: 1.5;
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -416,12 +392,12 @@ exports[`Basic dropdown should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(0,0%,13%) transparent transparent transparent;
+  border-color: hsl(0, 0%, 13%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(0,0%,13%) transparent;
+  border-color: transparent transparent hsl(0, 0%, 13%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -434,7 +410,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -444,8 +420,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-sizing: border-box;
   font-size: 100%;
   border: 0;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(201,7%,58%);
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(201, 7%, 58%);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
@@ -471,13 +447,13 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -486,14 +462,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button {
-  background-color: hsl(202,7%,97%);
-  color: hsl(202,7%,67%);
+  background-color: hsl(202, 7%, 97%);
+  color: hsl(202, 7%, 67%);
   opacity: 1;
   pointer-events: none;
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button:before {
-  border-color: hsl(202,7%,67%) transparent transparent transparent;
+  border-color: hsl(202, 7%, 67%) transparent transparent transparent;
 }
 
 .c1.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
@@ -511,14 +487,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c11.fi-dropdown_item {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -535,8 +511,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c11.fi-dropdown_item:hover {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item .fi-dropdown_item_icon {
@@ -548,35 +524,35 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c11.fi-dropdown_item--selected {
-  background-color: hsl(215,100%,95%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(215, 100%, 95%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected {
-  background-color: hsl(0,0%,100%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
 .c11.fi-dropdown_item--disabled:hover {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c11.fi-dropdown_item--hasKeyboardFocus,
   .c11.fi-dropdown_item:hover {
     background-color: Highlight;
@@ -692,7 +668,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -725,8 +700,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   height: auto;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -741,7 +716,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -754,8 +728,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -770,7 +744,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -783,8 +756,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -801,7 +774,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -816,8 +788,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -832,7 +804,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -841,8 +812,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   display: list-item;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -857,7 +828,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -870,8 +840,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -886,7 +856,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -901,17 +870,13 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -922,7 +887,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -937,11 +902,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -953,10 +914,10 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   list-style-type: none;
   box-sizing: content-box;
   max-height: 265px;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   margin: 0;
@@ -996,11 +957,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1009,7 +966,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1019,15 +976,17 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
+}
+
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
 }
 
 .c1 {
@@ -1065,12 +1024,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1082,7 +1037,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
@@ -1092,15 +1047,12 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   text-align: left;
   line-height: 1.5;
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -1116,12 +1068,12 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(0,0%,13%) transparent transparent transparent;
+  border-color: hsl(0, 0%, 13%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(0,0%,13%) transparent;
+  border-color: transparent transparent hsl(0, 0%, 13%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -1134,7 +1086,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1144,8 +1096,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
   font-size: 100%;
   border: 0;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(201,7%,58%);
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(201, 7%, 58%);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
@@ -1171,13 +1123,13 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -1186,14 +1138,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button {
-  background-color: hsl(202,7%,97%);
-  color: hsl(202,7%,67%);
+  background-color: hsl(202, 7%, 97%);
+  color: hsl(202, 7%, 67%);
   opacity: 1;
   pointer-events: none;
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button:before {
-  border-color: hsl(202,7%,67%) transparent transparent transparent;
+  border-color: hsl(202, 7%, 67%) transparent transparent transparent;
 }
 
 .c1.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
@@ -1211,14 +1163,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c11.fi-dropdown_item {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1235,8 +1187,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c11.fi-dropdown_item:hover {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item .fi-dropdown_item_icon {
@@ -1248,35 +1200,35 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c11.fi-dropdown_item--selected {
-  background-color: hsl(215,100%,95%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(215, 100%, 95%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected {
-  background-color: hsl(0,0%,100%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
 .c11.fi-dropdown_item--disabled:hover {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c11.fi-dropdown_item--hasKeyboardFocus,
   .c11.fi-dropdown_item:hover {
     background-color: Highlight;
@@ -1409,7 +1361,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1442,8 +1393,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   height: auto;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -1458,7 +1409,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1471,8 +1421,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1487,7 +1437,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1500,8 +1449,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -1518,7 +1467,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1533,8 +1481,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -1549,7 +1497,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1558,8 +1505,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   display: list-item;
 }
 
-.c10::before,
-.c10::after {
+.c10 ::before,
+.c10 ::after {
   box-sizing: border-box;
 }
 
@@ -1574,7 +1521,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1587,8 +1533,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -1603,7 +1549,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1618,17 +1563,13 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1639,7 +1580,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1654,11 +1595,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1670,10 +1607,10 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   list-style-type: none;
   box-sizing: content-box;
   max-height: 265px;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   margin: 0;
@@ -1689,11 +1626,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1702,7 +1635,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1712,15 +1645,17 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c7.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c7.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
+}
+
+.c7.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
 }
 
 .c1 {
@@ -1758,12 +1693,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1775,7 +1706,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
@@ -1785,15 +1716,12 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   text-align: left;
   line-height: 1.5;
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -1809,12 +1737,12 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(0,0%,13%) transparent transparent transparent;
+  border-color: hsl(0, 0%, 13%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(0,0%,13%) transparent;
+  border-color: transparent transparent hsl(0, 0%, 13%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -1827,7 +1755,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1837,8 +1765,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-sizing: border-box;
   font-size: 100%;
   border: 0;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(201,7%,58%);
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(201, 7%, 58%);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
@@ -1864,13 +1792,13 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -1879,14 +1807,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button {
-  background-color: hsl(202,7%,97%);
-  color: hsl(202,7%,67%);
+  background-color: hsl(202, 7%, 97%);
+  color: hsl(202, 7%, 67%);
   opacity: 1;
   pointer-events: none;
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button:before {
-  border-color: hsl(202,7%,67%) transparent transparent transparent;
+  border-color: hsl(202, 7%, 67%) transparent transparent transparent;
 }
 
 .c1.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
@@ -1904,14 +1832,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c11.fi-dropdown_item {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1928,8 +1856,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c11.fi-dropdown_item:hover {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item .fi-dropdown_item_icon {
@@ -1941,35 +1869,35 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c11.fi-dropdown_item--selected {
-  background-color: hsl(215,100%,95%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(215, 100%, 95%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected {
-  background-color: hsl(0,0%,100%);
-  color: hsl(0,0%,13%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c11.fi-dropdown_item--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
 .c11.fi-dropdown_item--disabled:hover {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c11.fi-dropdown_item--hasKeyboardFocus,
   .c11.fi-dropdown_item:hover {
     background-color: Highlight;
@@ -2070,7 +1998,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 `;
 
 exports[`Dropdown with hidden label should match snapshot 1`] = `
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2085,7 +2013,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2096,30 +2023,30 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c5:-moz-focusring {
+.c6:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c5::-moz-focus-inner {
+.c6::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c5::-webkit-file-upload-button {
+.c6::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c5::-webkit-inner-spin-button {
+.c6::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c5::-webkit-outer-spin-button {
+.c6::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c5::before,
-.c5::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -2134,7 +2061,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2147,8 +2073,8 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2163,7 +2089,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2176,8 +2101,8 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -2194,7 +2119,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2209,12 +2133,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2225,7 +2149,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2238,14 +2161,13 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -2256,11 +2178,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2271,7 +2189,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2286,11 +2204,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2299,7 +2213,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2309,15 +2223,17 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c8.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c8.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
+}
+
+.c8.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
 }
 
 .c1 {
@@ -2355,12 +2271,8 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_button {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2372,7 +2284,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
@@ -2382,15 +2294,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
-  border-color: hsl(201,7%,58%);
+  border-color: hsl(201, 7%, 58%);
   text-align: left;
   line-height: 1.5;
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -2406,12 +2315,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(0,0%,13%) transparent transparent transparent;
+  border-color: hsl(0, 0%, 13%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(0,0%,13%) transparent;
+  border-color: transparent transparent hsl(0, 0%, 13%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -2424,7 +2333,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -2434,8 +2343,8 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-sizing: border-box;
   font-size: 100%;
   border: 0;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(201,7%,58%);
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(201, 7%, 58%);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
@@ -2461,13 +2370,13 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,43%);
+  border-color: hsl(3, 59%, 43%);
   border-width: 2px;
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -2476,14 +2385,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button {
-  background-color: hsl(202,7%,97%);
-  color: hsl(202,7%,67%);
+  background-color: hsl(202, 7%, 97%);
+  color: hsl(202, 7%, 67%);
   opacity: 1;
   pointer-events: none;
 }
 
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper .fi-dropdown_button:before {
-  border-color: hsl(202,7%,67%) transparent transparent transparent;
+  border-color: hsl(202, 7%, 67%) transparent transparent transparent;
 }
 
 .c1.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
@@ -2501,9 +2410,9 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -2517,7 +2426,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         class="c2 c3 fi-label"
       >
         <label
-          class="c4 fi-visually-hidden"
+          class="c4 c5 fi-visually-hidden"
           id="test-id-label"
         >
           Dropdown test
@@ -2531,13 +2440,13 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
-          class="c5 fi-dropdown_button"
+          class="c6 fi-dropdown_button"
           id="test-id_button"
           tabindex="0"
           type="button"
         >
           <span
-            class="c6 fi-dropdown_display-value"
+            class="c4 fi-dropdown_display-value"
             id="test-id-displayValue"
           >
             Dropdown
@@ -2553,7 +2462,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c6 c8 fi-status-text"
+          class="c4 c8 fi-status-text"
         />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { Component, ReactNode, createRef, ReactElement } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { getLogger } from '../../../utils/log';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';

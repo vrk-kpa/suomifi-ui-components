@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { HtmlDiv } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuDivider.baseStyles';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 export interface ActionMenuDividerProps {
   /** CSS class for custom styles */

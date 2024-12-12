@@ -1,13 +1,15 @@
-import React, { Component, forwardRef, RefObject, ReactNode } from 'react';
-import { default as styled } from 'styled-components';
+import React, {
+  Component,
+  forwardRef,
+  RefObject,
+  MouseEvent,
+  ReactNode,
+} from 'react';
+import { styled } from 'styled-components';
 import classNames from 'classnames';
 import { IconClose } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import {
-  HtmlButton,
-  HtmlDivWithRef,
-  HtmlDivWithRefProps,
-} from '../../../reset';
+import { HtmlButton, HtmlDivProps, HtmlDivWithRef } from '../../../reset';
 import { baseStyles } from './TooltipContent.baseStyles';
 
 const baseClassName = 'fi-tooltip';
@@ -19,7 +21,7 @@ const tooltipContentClassNames = {
   closeButtonIcon: `${baseClassName}_close-button_icon`,
 };
 
-interface TooltipContentProps extends HtmlDivWithRefProps {
+interface TooltipContentProps extends HtmlDivProps {
   /** Offset for positioning the arrow */
   arrowOffsetPx: number;
   /** Close button label for the screen readers */
@@ -30,7 +32,7 @@ interface TooltipContentProps extends HtmlDivWithRefProps {
   // eslint-disable-next-line react/require-default-props
   className?: string;
   /** Event to be called when close button is clicked. */
-  onCloseButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onCloseButtonClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface InnerRef {
@@ -43,7 +45,6 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
       children,
       arrowOffsetPx,
       onCloseButtonClick,
-      forwardedRef,
       ariaCloseButtonLabelText,
       className,
       ...passProps
@@ -51,7 +52,6 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
     return (
       <HtmlDivWithRef
         {...passProps}
-        forwardedRef={forwardedRef}
         className={classNames(tooltipContentClassNames.content, className, {
           [tooltipContentClassNames.arrowHidden]: arrowOffsetPx <= 0,
         })}

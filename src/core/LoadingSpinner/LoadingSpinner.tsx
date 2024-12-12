@@ -1,5 +1,5 @@
 import React, { Component, forwardRef } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './LoadingSpinner.baseStyles';
 import {
@@ -90,9 +90,8 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
           [loadingSpinnerClassNames.small]: variant === 'small',
           [loadingSpinnerClassNames.textAlignRight]: textAlign === 'right',
         })}
-        as="section"
+        asProp="section"
         id={id}
-        ref={forwardedRef}
         {...passProps}
         style={style}
       >

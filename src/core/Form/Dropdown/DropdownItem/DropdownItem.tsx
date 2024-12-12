@@ -1,5 +1,5 @@
 import React, { ReactNode, useLayoutEffect, useRef } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { IconCheck } from 'suomifi-icons';
 import { baseStyles } from './DropdownItem.basestyles';
 import {

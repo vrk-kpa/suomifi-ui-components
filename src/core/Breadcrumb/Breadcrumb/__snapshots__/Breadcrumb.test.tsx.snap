@@ -13,19 +13,17 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
   cursor: inherit;
   display: inline;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -34,7 +32,6 @@ exports[`calling render with the same component on the same container does not r
 .c6:focus,
 .c6:focus-within {
   color: inherit;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -50,7 +47,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -59,8 +55,8 @@ exports[`calling render with the same component on the same container does not r
   display: list-item;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -75,7 +71,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -85,8 +80,8 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -101,7 +96,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -116,8 +110,8 @@ exports[`calling render with the same component on the same container does not r
   padding-left: 40px;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -132,7 +126,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -145,19 +138,15 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   display: block;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -170,14 +159,14 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 .fi-breadcrumb_list {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .c1 .fi-breadcrumb_item {
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   list-style: none;
   float: left;
 }
@@ -207,11 +196,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -223,8 +208,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c7.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -232,46 +216,41 @@ exports[`calling render with the same component on the same container does not r
 .c7.fi-link:active,
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c7.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c7.fi-link:hover,
 .c7.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c7.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:focus,
 .c7.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:hover,
 .c7.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -279,8 +258,6 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
 }
 
@@ -297,11 +274,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -315,48 +288,40 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link:hover,
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:focus,
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:hover,
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current {
-  color: hsl(202,7%,40%);
-  -webkit-text-decoration: none;
+  color: hsl(202, 7%, 40%);
   text-decoration: none;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current:hover,
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_icon {
-  -webkit-transform: translateY(0.2em);
-  -ms-transform: translateY(0.2em);
   transform: translateY(0.2em);
   margin: 0 4px;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,40%);
+  fill: hsl(202, 7%, 40%);
 }
 
 <nav

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import classnames from 'classnames';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { Link } from '../Link/Link';
 import { SkipLinkStyles } from './SkipLink.baseStyles';
 import { BaseLinkProps } from '../BaseLink/BaseLink';

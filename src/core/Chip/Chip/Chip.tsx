@@ -1,6 +1,6 @@
 import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { IconClose } from 'suomifi-icons';
 import { getLogger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';

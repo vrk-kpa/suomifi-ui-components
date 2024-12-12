@@ -1,11 +1,11 @@
 import React, { HTMLProps, forwardRef } from 'react';
-import { default as styled, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { asPropType } from '../../utils/typescript';
 
 export interface HtmlDivProps
   extends Omit<HTMLProps<HTMLDivElement>, 'ref' | 'as'> {
-  as?: asPropType;
+  asProp?: asPropType;
 }
 
 const divResets = css`
@@ -29,9 +29,11 @@ export interface HtmlDivWithRefProps extends HtmlDivProps {
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
-const DivWithRef = ({ forwardedRef, ...passProps }: HtmlDivWithRefProps) => (
-  <div ref={forwardedRef} {...passProps} />
-);
+const DivWithRef = ({
+  forwardedRef,
+  asProp: Component = 'div',
+  ...passProps
+}: HtmlDivWithRefProps) => <Component ref={forwardedRef} {...passProps} />;
 
 export const HtmlDivWithRef = styled(DivWithRef)`
   ${divResets}
@@ -39,7 +41,7 @@ export const HtmlDivWithRef = styled(DivWithRef)`
 
 /** Passing the ref with name 'ref' needs the forwardRef function */
 export const HtmlDivWithNativeRef = forwardRef(
-  (props: HtmlDivProps, ref: React.Ref<HTMLElement>) => (
+  (props: HtmlDivProps, ref: React.RefObject<any>) => (
     <HtmlDivWithRef forwardedRef={ref} {...props} />
   ),
 );

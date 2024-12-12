@@ -1,20 +1,27 @@
-import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
+import React, { act } from 'react';
 import { render } from '@testing-library/react';
 import { ModalContent, ModalContentProps } from './ModalContent';
 import { ModalTitle, Modal } from '../';
+import { createRoot, Root } from 'react-dom/client';
 
 let appRoot: HTMLDivElement | null = null;
+let root: Root | null = null;
 
 beforeEach(() => {
   appRoot = document.createElement('div');
   appRoot.setAttribute('id', 'root');
   document.body.appendChild(appRoot);
+  root = createRoot(appRoot);
 });
 
 afterEach(() => {
-  if (!!appRoot) {
-    unmountComponentAtNode(appRoot);
+  if (root) {
+    act(() => {
+      root?.unmount();
+    });
+    root = null;
+  }
+  if (appRoot) {
     appRoot.remove();
     appRoot = null;
   }

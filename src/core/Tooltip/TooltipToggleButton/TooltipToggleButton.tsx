@@ -1,6 +1,6 @@
 import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { separateMarginProps, MarginProps } from '../../theme/utils/spacing';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';

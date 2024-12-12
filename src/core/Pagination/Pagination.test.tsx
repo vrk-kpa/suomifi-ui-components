@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../utils/test';
 import { Pagination, PaginationProps } from './Pagination';
 
@@ -75,7 +75,7 @@ describe('props', () => {
   });
 
   describe('onChange', () => {
-    it('should notice input field change and call with the given number', () => {
+    it('should notice input field change and call with the given number', async () => {
       jest.useFakeTimers();
       const mockOnChange = jest.fn();
       const { getByPlaceholderText, getAllByRole } = render(
@@ -87,10 +87,14 @@ describe('props', () => {
       fireEvent.change(inputElement, { target: { value: '3' } });
       const actionButton = getAllByRole('button')[2];
       fireEvent.click(actionButton);
-      expect(mockOnChange).not.toBeCalled();
+      await waitFor(async () => {
+        expect(mockOnChange).not.toBeCalled();
+      });
       jest.advanceTimersByTime(200);
-      expect(mockOnChange).toBeCalledTimes(1);
-      expect(mockOnChange).toBeCalledWith(3);
+      await waitFor(async () => {
+        expect(mockOnChange).toBeCalledTimes(1);
+        expect(mockOnChange).toBeCalledWith(3);
+      });
     });
 
     it('should notice next button click', () => {

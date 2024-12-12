@@ -13,7 +13,7 @@ import {
   IconRemove,
 } from 'suomifi-icons';
 import { Link } from '../../Link/Link/Link';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './FileInput.baseStyles';
 import classnames from 'classnames';

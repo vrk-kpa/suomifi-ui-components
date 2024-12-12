@@ -12,7 +12,6 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c1::before,
-.c1::after {
+.c1 ::before,
+.c1 ::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,6 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
@@ -70,7 +68,6 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -83,18 +80,14 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c0.fi-modal_base {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -112,45 +105,24 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
 .c0 .fi-modal {
   border-radius: 4px;
-  background-color: hsl(0,0%,100%);
-  border-top: 4px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border-top: 4px solid hsl(212, 63%, 45%);
   overflow: hidden;
   max-height: calc(100% - 50px);
   min-height: 230px;
   width: 800px;
   max-width: 100%;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
   align-items: stretch;
 }
 
@@ -160,7 +132,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 
 .c0 .fi-modal:focus-visible {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
 }
 
@@ -177,12 +149,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c2 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -194,19 +162,11 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c2.fi-modal_content {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   max-height: 100%;
   padding: 24px 30px 50px 30px;
   overflow-y: auto;
-  -webkit-scroll-padding-bottom: 75px;
-  -moz-scroll-padding-bottom: 75px;
-  -ms-scroll-padding-bottom: 75px;
   scroll-padding-bottom: 75px;
-  -webkit-scroll-padding-top: 75px;
-  -moz-scroll-padding-top: 75px;
-  -ms-scroll-padding-top: 75px;
   scroll-padding-top: 75px;
 }
 
@@ -223,12 +183,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -237,15 +193,11 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c6.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -257,11 +209,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -273,11 +221,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -289,11 +233,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -305,11 +245,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -321,11 +257,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -337,11 +269,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -353,11 +281,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -369,11 +293,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -385,11 +305,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -401,11 +317,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -417,11 +329,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -433,11 +341,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -449,11 +353,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -465,11 +365,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-heading--small-screen.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -509,9 +405,9 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
