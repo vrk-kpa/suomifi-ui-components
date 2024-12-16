@@ -98,7 +98,7 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   /** Enables selection of rows via checkboxes
    * @default false
    */
-  enableRowSelection?: true;
+  enableRowSelection?: boolean;
   /** Callback fired when selected rows change */
   onSelectedRowsChange?: (selectedRowIds: string[]) => void;
   /** Controlled array */
@@ -237,9 +237,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         <HtmlTableHeader className={tableClassNames.thead}>
           <HtmlTableRow>
             {enableRowSelection && (
-              <HtmlTableCell
-                className={classnames(tableClassNames.th, 'checkbox-')}
-              />
+              <HtmlTableCell className={classnames(tableClassNames.th)} />
             )}
             {columns.map((col) => (
               <HtmlTableHeaderCell
