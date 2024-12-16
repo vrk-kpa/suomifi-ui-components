@@ -156,7 +156,7 @@ export {
 export { Text, type TextProps } from './core/Text/Text';
 export { Textarea, type TextareaProps } from './core/Form/Textarea/Textarea';
 export { Tooltip, type TooltipProps } from './core/Tooltip/Tooltip';
-export { Table, TableProps, TableColumn } from './core/Table/Table';
+export { Table, type TableProps, type TableColumn } from './core/Table/Table';
 export {
   VisuallyHidden,
   type VisuallyHiddenProps,
