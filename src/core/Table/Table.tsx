@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import {
   SuomifiThemeProp,
@@ -66,8 +66,7 @@ export interface TableColumn {
   textAlign?: 'left' | 'center' | 'right';
   sortable?: boolean;
   sortIcon?: 'alphabetical' | 'generic';
-  minWidth?: string;
-  maxWidth?: string;
+  className?: string;
 }
 
 // Infer the literal types from columns
@@ -243,7 +242,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
               <HtmlTableHeaderCell
                 scope="col"
                 key={col.key}
-                className={classnames(tableClassNames.th, {
+                className={classnames(tableClassNames.th, col.className, {
                   [tableClassNames.tdAlignRight]: col.textAlign === 'right',
                   [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
                 })}
@@ -254,7 +253,6 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     ? 'descending'
                     : undefined
                 }
-                style={col.minWidth ? { minWidth: col.minWidth } : {}}
               >
                 {col.sortable ? (
                   <HtmlButton
@@ -307,7 +305,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
               {columns.map((col) => (
                 <HtmlTableCell
                   key={`${row.id}-${row[col.key as keyof TableRow<TColumns>]}`}
-                  className={classnames(tableClassNames.td, {
+                  className={classnames(tableClassNames.td, col.className, {
                     [tableClassNames.tdAlignRight]: col.textAlign === 'right',
                     [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
                   })}

@@ -30,6 +30,8 @@ interface TableColumn {
   sortable?: boolean;
   // Icon to show when sorting. Defaults to 'alphabetical'
   sortIcon?: 'alphabetical' | 'generic';
+  // CSS class to be applied to each cell in this column. Use e.g. for setting column width
+  className?: string
 }
 ```
 
@@ -59,7 +61,8 @@ const columns = [
   },
   {
     key: 'country',
-    labelText: 'Country of Residence'
+    labelText: 'Country of Residence',
+    className: 'my-custom-class'
   }
 ];
 
