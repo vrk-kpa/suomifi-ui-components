@@ -309,6 +309,15 @@ exports[`Table functionalities matches snapshot 1`] = `
 }
 
 .c1.fi-table {
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
   overflow: auto;
   white-space: nowrap;
   background-image: linear-gradient(to right, white, white),linear-gradient(to right, white, white),linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0)),linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));

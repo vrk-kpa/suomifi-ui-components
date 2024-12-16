@@ -9,13 +9,13 @@ export const baseStyles = (
   propMargins?: MarginProps,
 ) => css`
   &.fi-table {
+    ${font(theme)('bodyText')}
     overflow: auto;
     /* Prevents text in cells from wrapping */
     white-space: nowrap;
 
     background-image: 
-	
-  /* Shadows */
+      /* Shadows */
       linear-gradient(to right, white, white),
       linear-gradient(to right, white, white),
       /* Shadow covers */
