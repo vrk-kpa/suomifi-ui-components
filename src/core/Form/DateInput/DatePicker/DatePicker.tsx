@@ -213,12 +213,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
-    event.stopPropagation();
     if (
       event.key === 'Escape' &&
       !(yearSelectRef.current?.getAttribute('aria-expanded') === 'true') &&
       !(monthSelectRef.current?.getAttribute('aria-expanded') === 'true')
     ) {
+      event.stopPropagation();
       handleClose(true);
     }
 
