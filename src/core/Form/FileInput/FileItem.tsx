@@ -1,9 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  ControlledFileItem,
-  FileItemRefs,
-  fileInputClassNames,
-} from './FileInput';
+import { ControlledFileItem, FileItemRefs } from './FileInput';
 import { Button } from '../../Button/Button';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset/HtmlDiv/HtmlDiv';
 import {
@@ -29,6 +25,19 @@ interface FileItemProps {
   smallScreen: boolean;
   metaData?: ControlledFileItem;
 }
+
+const baseClassName = 'fi-file-input';
+const fileItemClassNames = {
+  fileItemOuterWrapper: `${baseClassName}_file-item-outer-wrapper`,
+  fileItem: `${baseClassName}_file-item`,
+  fileInfo: `${baseClassName}_file-info`,
+  fileName: `${baseClassName}_file-name`,
+  fileSize: `${baseClassName}_file-size`,
+  removeFileButton: `${baseClassName}_remove-file-button`,
+  errorIcon: `${baseClassName}_error-icon`,
+  loadingIcon: `${baseClassName}_loading-icon`,
+  fileItemErrorText: `${baseClassName}_file-item-error-text`,
+};
 
 const BaseFileItem = (props: FileItemProps) => {
   const {
@@ -74,16 +83,16 @@ const BaseFileItem = (props: FileItemProps) => {
 
   return (
     <HtmlDiv
-      className={fileInputClassNames.fileItemOuterWrapper}
+      className={fileItemClassNames.fileItemOuterWrapper}
       role={multiFile ? 'listitem' : undefined}
     >
-      <HtmlDiv className={fileInputClassNames.fileItem}>
-        <HtmlDiv className={fileInputClassNames.fileInfo}>
+      <HtmlDiv className={fileItemClassNames.fileItem}>
+        <HtmlDiv className={fileItemClassNames.fileInfo}>
           {metaData?.status === 'error' && (
-            <IconErrorFilled className={fileInputClassNames.errorIcon} />
+            <IconErrorFilled className={fileItemClassNames.errorIcon} />
           )}
           {metaData?.status === 'loading' && (
-            <IconPreloader className={fileInputClassNames.loadingIcon} />
+            <IconPreloader className={fileItemClassNames.loadingIcon} />
           )}
           {!metaData?.status && <IconGenericFile />}
           {filePreview ? (
@@ -92,7 +101,7 @@ const BaseFileItem = (props: FileItemProps) => {
                 fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>
               }
               href={URL.createObjectURL(file)}
-              className={classnames(fileInputClassNames.fileName, 'is-link')}
+              className={classnames(fileItemClassNames.fileName, 'is-link')}
               target="_blank"
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
@@ -104,7 +113,7 @@ const BaseFileItem = (props: FileItemProps) => {
               forwardedRef={
                 fileItemRefs.fileNameRef as React.RefObject<HTMLDivElement>
               }
-              className={fileInputClassNames.fileName}
+              className={fileItemClassNames.fileName}
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
             >
@@ -112,7 +121,7 @@ const BaseFileItem = (props: FileItemProps) => {
             </HtmlDivWithRef>
           )}
           <HtmlDiv
-            className={fileInputClassNames.fileSize}
+            className={fileItemClassNames.fileSize}
             id={filePreview ? fileItemRefs.fileSizeElementId : undefined}
           >
             {`(${getFileSizeText()})`}
@@ -139,14 +148,14 @@ const BaseFileItem = (props: FileItemProps) => {
           aria-label={`${
             metaData?.buttonText ? metaData.buttonText : removeFileText
           } ${file.name}`}
-          className={fileInputClassNames.removeFileButton}
+          className={fileItemClassNames.removeFileButton}
           ref={fileItemRefs.removeButtonRef}
         >
           {getButtonText()}
         </Button>
       </HtmlDiv>
       {metaData?.errorText && (
-        <HtmlDiv className={fileInputClassNames.fileItemErrorText}>
+        <HtmlDiv className={fileItemClassNames.fileItemErrorText}>
           {metaData.errorText}
         </HtmlDiv>
       )}
