@@ -371,14 +371,6 @@ exports[`Table functionalities matches snapshot 1`] = `
   width: 5px;
 }
 
-.c1.fi-table .fi-table_table .fi-table_td--align-right {
-  text-align: right;
-}
-
-.c1.fi-table .fi-table_table .fi-table_td--align-center {
-  text-align: center;
-}
-
 .c1.fi-table .fi-table_table .fi-table_th {
   background-color: hsl(214, 100%, 24%);
   color: hsl(0, 0%, 100%);
@@ -436,6 +428,22 @@ exports[`Table functionalities matches snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-right {
+  text-align: right;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-right.fi-table_th .fi-table_sort-button {
+  justify-content: flex-end;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-center {
+  text-align: center;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-center .fi-table_th .fi-table_sort-button {
+  justify-content: center;
 }
 
 .c1.fi-table .fi-table_table .fi-table_tr:nth-child(even) {

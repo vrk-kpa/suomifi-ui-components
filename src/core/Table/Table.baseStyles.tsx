@@ -70,13 +70,6 @@ export const baseStyles = (
         }
       }
 
-      .fi-table_td--align-right {
-        text-align: right;
-      }
-      .fi-table_td--align-center {
-        text-align: center;
-      }
-
       .fi-table_th {
         background-color: ${theme.colors.brandBase};
         color: ${theme.colors.whiteBase};
@@ -112,6 +105,25 @@ export const baseStyles = (
             &::after {
               ${theme.focuses.absoluteFocus}
             }
+          }
+        }
+      }
+
+      .fi-table_td--align-right {
+        text-align: right;
+
+        &.fi-table_th {
+          .fi-table_sort-button {
+            justify-content: flex-end;
+          }
+        }
+      }
+      .fi-table_td--align-center {
+        text-align: center;
+
+        .fi-table_th {
+          .fi-table_sort-button {
+            justify-content: center;
           }
         }
       }
