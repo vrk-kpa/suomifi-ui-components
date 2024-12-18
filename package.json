@@ -159,7 +159,7 @@
     "react-modal": "3.16.1",
     "react-popper": "2.3.0",
     "suomifi-design-tokens": "6.0.0",
-    "suomifi-icons": "7.2.0"
+    "suomifi-icons": "7.3.0"
   },
   "peerDependencies": {
     "@types/styled-components": ">=5.1.9",
