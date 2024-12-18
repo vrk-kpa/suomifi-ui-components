@@ -218,6 +218,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       !(yearSelectRef.current?.getAttribute('aria-expanded') === 'true') &&
       !(monthSelectRef.current?.getAttribute('aria-expanded') === 'true')
     ) {
+      event.stopPropagation();
       handleClose(true);
     }
 
