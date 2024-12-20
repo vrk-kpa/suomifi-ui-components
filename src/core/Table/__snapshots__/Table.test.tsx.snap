@@ -357,24 +357,35 @@ exports[`Table functionalities matches snapshot 1`] = `
 
 .c1.fi-table .fi-table_table .fi-table_th,
 .c1.fi-table .fi-table_table .fi-table_td {
-  padding: 20px;
+  padding: 12px 20px;
+  line-height: 2;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th .fi-link,
 .c1.fi-table .fi-table_table .fi-table_td .fi-link {
   font-size: 16px;
+  line-height: 1;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th .fi-checkbox,
 .c1.fi-table .fi-table_table .fi-table_td .fi-checkbox {
-  height: 18px;
+  height: 19px;
   width: 5px;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-radio-button,
+.c1.fi-table .fi-table_table .fi-table_td .fi-radio-button {
+  width: 3px;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper,
+.c1.fi-table .fi-table_table .fi-table_td .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper {
+  top: 4px;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th {
   background-color: hsl(214, 100%, 24%);
   color: hsl(0, 0%, 100%);
-  line-height: 1.5;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th.checkbox-header {
@@ -460,7 +471,7 @@ exports[`Table functionalities matches snapshot 1`] = `
 
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_th,
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_td {
-  padding: 15px 20px;
+  padding: 10px 20px;
 }
 
 .c1.fi-table .fi-table_toolbar {

@@ -37,6 +37,7 @@ import {
 import { getConditionalAriaProp } from '../../utils/aria';
 import { Checkbox } from '../Form/Checkbox/Checkbox';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
+import { RadioButton } from '../Form/RadioButton/RadioButton';
 
 const baseClassName = 'fi-table';
 
@@ -98,6 +99,8 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
    * @default false
    */
   enableRowSelection?: boolean;
+  /** Enables selection of a single row via a radiobutton */
+  enableSingleRowSelection?: boolean;
   /** Callback fired when selected rows change */
   onSelectedRowsChange?: (selectedRowIds: string[]) => void;
   /** Controlled array */
@@ -136,6 +139,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     caption,
     condensed,
     enableRowSelection,
+    enableSingleRowSelection,
     onSelectedRowsChange,
     tableSortedAriaLiveText,
     controlledSelectedRowIds,
@@ -196,10 +200,15 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
   };
 
   const handleRowSelection = (rowId: string, operation: 'add' | 'remove') => {
-    const newSelectedRowIds =
-      operation === 'add'
-        ? [...selectedRowIds, rowId]
-        : selectedRowIds.filter((rid) => rid !== rowId);
+    let newSelectedRowIds = [];
+    if (enableSingleRowSelection) {
+      newSelectedRowIds = [rowId];
+    } else {
+      newSelectedRowIds =
+        operation === 'add'
+          ? [...selectedRowIds, rowId]
+          : selectedRowIds.filter((rid) => rid !== rowId);
+    }
     if (controlledSelectedRowIds === undefined) {
       setSelectedRowIds(newSelectedRowIds);
     }
@@ -235,7 +244,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         )}
         <HtmlTableHeader className={tableClassNames.thead}>
           <HtmlTableRow>
-            {enableRowSelection && (
+            {(enableRowSelection || enableSingleRowSelection) && (
               <HtmlTableCell className={classnames(tableClassNames.th)} />
             )}
             {columns.map((col) => (
@@ -300,6 +309,21 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                       {row.rowSelectionCheckboxLabel}
                     </VisuallyHidden>
                   </Checkbox>
+                </HtmlTableCell>
+              )}
+              {enableSingleRowSelection && (
+                <HtmlTableCell className={classnames(tableClassNames.td)}>
+                  <RadioButton
+                    value={`radiobutton-${row.id}`}
+                    checked={selectedRowIds.includes(row.id)}
+                    onChange={(newValue) =>
+                      handleRowSelection(row.id, newValue ? 'add' : 'remove')
+                    }
+                  >
+                    <VisuallyHidden>
+                      {row.rowSelectionCheckboxLabel}
+                    </VisuallyHidden>
+                  </RadioButton>
                 </HtmlTableCell>
               )}
               {columns.map((col) => (

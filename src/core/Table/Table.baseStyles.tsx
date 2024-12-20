@@ -59,21 +59,28 @@ export const baseStyles = (
 
       .fi-table_th,
       .fi-table_td {
-        padding: ${theme.spacing.m};
-
+        padding: 12px 20px;
+        line-height: 2;
         .fi-link {
           font-size: 16px;
+          line-height: 1;
         }
         .fi-checkbox {
-          height: 18px;
+          height: 19px;
           width: 5px;
+        }
+
+        .fi-radio-button {
+          width: 3px;
+          .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+            top: 4px;
+          }
         }
       }
 
       .fi-table_th {
         background-color: ${theme.colors.brandBase};
         color: ${theme.colors.whiteBase};
-        line-height: 1.5;
 
         &.checkbox-header {
           padding: 0;
@@ -145,7 +152,7 @@ export const baseStyles = (
       &.fi-table--condensed {
         .fi-table_th,
         .fi-table_td {
-          padding: ${theme.spacing.s} ${theme.spacing.m};
+          padding: ${theme.spacing.xs} ${theme.spacing.m};
         }
       }
     }
