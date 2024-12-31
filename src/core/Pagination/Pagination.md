@@ -6,6 +6,7 @@ Examples:
 - [Using internal state](./#/Components/Pagination?id=using-internal-state)
 - [Slicing a dataset based on current page](./#/Components/Pagination?id=slicing-a-dataset-based-on-current-page)
 - [Without page input](./#/Components/Pagination?id=without-page-input)
+- [Page browsing using links](./#/Components/Pagination?id=page-browsing-using-links)
 - [Small screen](./#/Components/Pagination?id=small-screen)
 
 <div style="margin-bottom: 40px">
@@ -226,6 +227,85 @@ const fakePageNode = (
     nextButtonAriaLabel="Next page"
     previousButtonAriaLabel="Previous page"
     aria-label="Pagination"
+    onChange={(page) => {
+      setCurrent(page);
+    }}
+    pageIndicatorText={(currentPage, lastPage) =>
+      'Page ' + currentPage + ' / ' + lastPage
+    }
+    ariaPageIndicatorText={(currentPage, lastPage) =>
+      'Showing page ' + currentPage + ' out of ' + lastPage
+    }
+  />
+</Block>;
+```
+
+### Page browsing using links
+
+For search engine optimization or other such reasons, it is possible to give custom components to use instead of the regular arrow buttons for browsing. If you do decide to replace the buttons, make sure that the customized solution is accessible.
+
+```js
+import {
+  Pagination,
+  Block,
+  Heading,
+  Link,
+  IconArrowRight,
+  IconArrowLeft,
+  suomifiDesignTokens
+} from 'suomifi-ui-components';
+
+const [current, setCurrent] = React.useState(2);
+const lastPage = 8;
+
+const fakePageNode = (
+  <Block
+    padding="xl"
+    mb="l"
+    style={{
+      border: `1px solid ${suomifiDesignTokens.colors.depthLight1}`
+    }}
+  >
+    <Heading variant="h3"> Page: {current}</Heading>
+  </Block>
+);
+
+const handlePageChange = (newPage) => {
+  if (newPage <= 0 || newPage > lastPage) return;
+  setCurrent(newPage);
+};
+
+<Block style={{ width: '600px' }}>
+  {fakePageNode}
+  <Pagination
+    currentPage={current}
+    lastPage={lastPage}
+    customPreviousButton={
+      <Link
+        href="./#/Components/Pagination?id=page-browsing-using-links"
+        rel="prev"
+        onClick={() => handlePageChange(current - 1)}
+        disabled={current <= 1}
+      >
+        Previous page
+      </Link>
+    }
+    customNextButton={
+      <Link
+        href="./#/Components/Pagination?id=page-browsing-using-links"
+        rel="next"
+        onClick={() => handlePageChange(current + 1)}
+      >
+        Next page
+      </Link>
+    }
+    aria-label="Pagination"
+    pageInputProps={{
+      invalidValueErrorText: (value) => `"${value}" is not allowed`,
+      inputPlaceholderText: 'Go to',
+      buttonText: 'Jump to page',
+      labelText: 'Page number'
+    }}
     onChange={(page) => {
       setCurrent(page);
     }}
