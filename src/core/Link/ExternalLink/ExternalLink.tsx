@@ -78,10 +78,7 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         as={asProp}
       >
         {variant === 'accent' && (
-          <IconChevronRight
-            color={theme.colors.accentBase}
-            className={linkClassNames.accentIcon}
-          />
+          <IconChevronRight className={linkClassNames.accentIcon} />
         )}
         {children}
         {toNewWindow && <VisuallyHidden>{labelNewWindow}</VisuallyHidden>}
