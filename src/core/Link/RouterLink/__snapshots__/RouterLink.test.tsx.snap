@@ -102,6 +102,10 @@ exports[`calling render with the same component on the same container does not r
   transform: translateY(0.15em);
 }
 
+.c1.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
+}
+
 .c1.fi-link.fi-link--small {
   font-size: 16px;
 }
