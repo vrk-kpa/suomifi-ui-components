@@ -230,8 +230,7 @@ import React, { useState } from 'react';
 const columns = [
   {
     key: 'firstName',
-    labelText: 'First name',
-    sortable: true
+    labelText: 'First name'
   },
   {
     key: 'lastName',
@@ -240,9 +239,7 @@ const columns = [
   {
     key: 'hours_worked',
     labelText: 'Number of hours worked',
-    textAlign: 'right',
-    sortable: true,
-    sortIcon: 'generic'
+    textAlign: 'right'
   },
   {
     key: 'title',
@@ -250,8 +247,7 @@ const columns = [
   },
   {
     key: 'country',
-    labelText: 'Country of Residence',
-    sortable: true
+    labelText: 'Country of Residence'
   }
 ];
 
