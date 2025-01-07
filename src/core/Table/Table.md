@@ -217,9 +217,11 @@ const data = [
 
 Use the `enableRowSelection` to allow row selection via Checkboxes on the left hand side. Use the `onSelectedRowsChange()` prop to detect selection changes. The function returns the `id`s of selected rows.
 
-Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection checkbox.
+Alternatively, you can use the `enableSingleRowSelection` prop to allow single row selection via RadioButton.
 
-You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the second example below.
+Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection Checkbox/RadioButton.
+
+You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
 ```jsx
 import { Table, Link, Button } from 'suomifi-ui-components';
@@ -228,8 +230,7 @@ import React, { useState } from 'react';
 const columns = [
   {
     key: 'firstName',
-    labelText: 'First name',
-    sortable: true
+    labelText: 'First name'
   },
   {
     key: 'lastName',
@@ -238,9 +239,7 @@ const columns = [
   {
     key: 'hours_worked',
     labelText: 'Number of hours worked',
-    textAlign: 'right',
-    sortable: true,
-    sortIcon: 'generic'
+    textAlign: 'right'
   },
   {
     key: 'title',
@@ -248,8 +247,7 @@ const columns = [
   },
   {
     key: 'country',
-    labelText: 'Country of Residence',
-    sortable: true
+    labelText: 'Country of Residence'
   }
 ];
 
@@ -310,6 +308,15 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
     columns={columns}
     data={data}
     enableRowSelection
+    onSelectedRowsChange={(rowIds) => console.log(rowIds)}
+    mb="xxxl"
+  />
+
+  <Table
+    caption="People in the project"
+    columns={columns}
+    data={data}
+    enableSingleRowSelection
     onSelectedRowsChange={(rowIds) => console.log(rowIds)}
     mb="xxxl"
   />
