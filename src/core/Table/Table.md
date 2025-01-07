@@ -221,7 +221,7 @@ Alternatively, you can use the `enableSingleRowSelection` prop to allow single r
 
 Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection Checkbox/RadioButton.
 
-You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the second example below.
+You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
 ```jsx
 import { Table, Link, Button } from 'suomifi-ui-components';
