@@ -52,10 +52,7 @@ const StyledLink = styled(
         style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
-          <IconChevronRight
-            color={theme.colors.accentBase}
-            className={linkClassNames.accentIcon}
-          />
+          <IconChevronRight className={linkClassNames.accentIcon} />
         )}
         {children}
       </HtmlA>

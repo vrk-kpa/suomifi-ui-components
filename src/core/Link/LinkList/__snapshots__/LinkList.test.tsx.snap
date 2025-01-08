@@ -329,6 +329,10 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   transform: translateY(0.15em);
 }
 
+.c7.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
+}
+
 .c7.fi-link.fi-link--small {
   font-size: 16px;
 }

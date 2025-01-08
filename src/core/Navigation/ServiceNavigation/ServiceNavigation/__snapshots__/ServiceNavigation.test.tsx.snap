@@ -452,6 +452,10 @@ exports[`should match snapshot 1`] = `
   transform: translateY(0.15em);
 }
 
+.c10.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
+}
+
 .c10.fi-link.fi-link--small {
   font-size: 16px;
 }
@@ -527,6 +531,10 @@ exports[`should match snapshot 1`] = `
   margin-left: -3px;
   margin-right: 2px;
   transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c7.fi-link.fi-link--small {

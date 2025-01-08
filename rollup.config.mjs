@@ -16,19 +16,27 @@ const typesTsConfig = {
 
 const output = {
   js: [
-    { dir: 'dist/cjs', format: 'cjs', preserveModules: true, sourcemap: true },
+    {
+      dir: 'dist/cjs',
+      format: 'cjs',
+      preserveModules: true,
+      sourcemap: true,
+      interop: 'auto',
+    },
     {
       dir: 'dist/esm',
       format: 'es',
       preserveModules: true,
       exports: 'named',
       sourcemap: true,
+      interop: 'auto',
     },
   ],
   types: [
     {
       file: 'dist/tmp/index.js',
       format: 'cjs',
+      interop: 'auto',
     },
   ],
   css: [{}],
