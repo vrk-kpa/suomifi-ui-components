@@ -150,7 +150,11 @@ export interface ControlledFileItem {
   /**
    * The actual file object.
    */
-  file: File;
+  file?: File;
+  /**
+   * Additional metadata for the file.
+   */
+  metadata?: MetaData;
   /**
    * Status of the element. Affects styling.
    */
@@ -174,8 +178,23 @@ export interface ControlledFileItem {
   /**
    * Override default remove button behavior.
    */
-  buttonOnClick?: (file: File) => void;
+  buttonOnClick?: (file: any) => void;
 }
+
+type MetaData = {
+  /**
+   * The size of the file in bytes.
+   */
+  fileSize: number;
+  /**
+   * The name of the file.
+   */
+  fileName: string;
+  /**
+   * URL to the file
+   */
+  fileURL: string;
+};
 
 type InternalFileInputProps = FileInputProps & GlobalMarginProps;
 
@@ -237,7 +256,9 @@ const BaseFileInput = (props: InternalFileInputProps) => {
   ) => {
     const newFileList = new DataTransfer();
     controlledValueObjects.forEach((fileItem) => {
-      newFileList.items.add(fileItem.file);
+      if (fileItem.file) {
+        newFileList.items.add(fileItem.file);
+      }
     });
     return newFileList.files;
   };
@@ -549,7 +570,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                   removeFileText={removeFileText}
                   removeFile={removeFile}
                   smallScreen={smallScreen}
-                  metaData={controlledValue && controlledValue[0]}
+                  fileItemProps={controlledValue && controlledValue[0]}
                 />
               </HtmlDiv>
             )}
@@ -584,7 +605,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                   removeFileText={removeFileText}
                   removeFile={removeFile}
                   smallScreen={smallScreen}
-                  metaData={controlledValue && controlledValue[index]}
+                  fileItemProps={controlledValue && controlledValue[index]}
                 />
               ))}
             </HtmlDiv>
