@@ -15,15 +15,15 @@ import { baseStyles } from './FileInput.baseStyles';
 import classnames from 'classnames';
 
 interface FileItemProps {
-  file: File;
+  file?: File;
   filePreview: boolean;
   multiFile: boolean;
   fileItemRefs: FileItemRefs;
   addedFileAriaText: string;
   removeFileText: ReactNode;
-  removeFile: (file: File) => void;
+  removeFile: (file: any) => void;
   smallScreen: boolean;
-  metaData?: ControlledFileItem;
+  fileItemProps?: ControlledFileItem;
 }
 
 const baseClassName = 'fi-file-input';
@@ -49,11 +49,22 @@ const BaseFileItem = (props: FileItemProps) => {
     removeFileText,
     removeFile,
     smallScreen,
-    metaData,
+    fileItemProps,
   } = props;
 
+  const {
+    fileSize: metaDataFileName,
+    fileSize: metaDataFileSize,
+    fileURL: metadataFileURL,
+  } = fileItemProps?.metadata || {};
+
+  console.log('fileItemProps', fileItemProps);
+
   const getFileSizeText = () => {
-    const fileSize = file.size;
+    const fileSize = file?.size || metaDataFileSize;
+    if (!fileSize) {
+      return '';
+    }
     if (fileSize < 1024) {
       return `${fileSize} B`;
     }
@@ -64,8 +75,8 @@ const BaseFileItem = (props: FileItemProps) => {
   };
 
   const getButtonText = () => {
-    if (metaData?.buttonText) {
-      return metaData.buttonText;
+    if (fileItemProps?.buttonText) {
+      return fileItemProps.buttonText;
     }
     return !multiFile || (multiFile && !smallScreen)
       ? removeFileText
@@ -73,12 +84,17 @@ const BaseFileItem = (props: FileItemProps) => {
   };
 
   const getFileAriaLabel = () => {
-    if (metaData?.status !== 'loading' && !metaData?.ariaLoadingText) {
-      return `${addedFileAriaText} ${file.name} ${
-        metaData?.errorText ? metaData.errorText : ''
+    if (
+      fileItemProps?.status !== 'loading' &&
+      !fileItemProps?.ariaLoadingText
+    ) {
+      return `${addedFileAriaText} ${file?.name || metaDataFileName} ${
+        fileItemProps?.errorText ? fileItemProps.errorText : ''
       }`;
     }
-    return `${metaData?.ariaLoadingText} ${file.name}`;
+    return `${fileItemProps?.ariaLoadingText} ${
+      file?.name || metaDataFileName
+    }`;
   };
 
   return (
@@ -88,25 +104,25 @@ const BaseFileItem = (props: FileItemProps) => {
     >
       <HtmlDiv className={fileItemClassNames.fileItem}>
         <HtmlDiv className={fileItemClassNames.fileInfo}>
-          {metaData?.status === 'error' && (
+          {fileItemProps?.status === 'error' && (
             <IconErrorFilled className={fileItemClassNames.errorIcon} />
           )}
-          {metaData?.status === 'loading' && (
+          {fileItemProps?.status === 'loading' && (
             <IconPreloader className={fileItemClassNames.loadingIcon} />
           )}
-          {!metaData?.status && <IconGenericFile />}
+          {!fileItemProps?.status && <IconGenericFile />}
           {filePreview ? (
             <Link
               ref={
                 fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>
               }
-              href={URL.createObjectURL(file)}
+              href={file ? URL.createObjectURL(file) : metadataFileURL || ''}
               className={classnames(fileItemClassNames.fileName, 'is-link')}
               target="_blank"
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
             >
-              {file.name}
+              {file?.name || metaDataFileName}
             </Link>
           ) : (
             <HtmlDivWithRef
@@ -117,7 +133,7 @@ const BaseFileItem = (props: FileItemProps) => {
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
             >
-              {file.name}
+              {file?.name || metaDataFileName}
             </HtmlDivWithRef>
           )}
           <HtmlDiv
@@ -132,31 +148,33 @@ const BaseFileItem = (props: FileItemProps) => {
             smallScreen && !multiFile ? 'secondary' : 'secondaryNoBorder'
           }
           icon={
-            metaData && metaData.buttonIcon ? (
-              metaData.buttonIcon
+            fileItemProps && fileItemProps.buttonIcon ? (
+              fileItemProps.buttonIcon
             ) : (
               <IconRemove />
             )
           }
           onClick={() => {
-            if (metaData?.buttonOnClick) {
-              metaData.buttonOnClick(file);
+            if (fileItemProps?.buttonOnClick) {
+              fileItemProps.buttonOnClick(file || fileItemProps?.metadata);
             } else {
-              removeFile(file);
+              removeFile(file || fileItemProps?.metadata);
             }
           }}
           aria-label={`${
-            metaData?.buttonText ? metaData.buttonText : removeFileText
-          } ${file.name}`}
+            fileItemProps?.buttonText
+              ? fileItemProps.buttonText
+              : removeFileText
+          } ${file?.name || metaDataFileName}`}
           className={fileItemClassNames.removeFileButton}
           ref={fileItemRefs.removeButtonRef}
         >
           {getButtonText()}
         </Button>
       </HtmlDiv>
-      {metaData?.errorText && (
+      {fileItemProps?.errorText && (
         <HtmlDiv className={fileItemClassNames.fileItemErrorText}>
-          {metaData.errorText}
+          {fileItemProps.errorText}
         </HtmlDiv>
       )}
     </HtmlDiv>
