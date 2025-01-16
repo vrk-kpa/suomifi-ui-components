@@ -193,7 +193,15 @@ type MetaData = {
   /**
    * URL to the file
    */
-  fileURL: string;
+  fileURL?: string;
+  /**
+   * The type of the file
+   */
+  fileType: string;
+  /**
+   * Callback for when file preview link is clicked
+   */
+  filePreviewCallBack?: () => void;
 };
 
 type InternalFileInputProps = FileInputProps & GlobalMarginProps;
@@ -258,6 +266,15 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     controlledValueObjects.forEach((fileItem) => {
       if (fileItem.file) {
         newFileList.items.add(fileItem.file);
+      } else if (fileItem.metadata) {
+        // Create a new mock file from metadata
+        const { fileName, fileType } = fileItem.metadata;
+        const blob = new Blob([], { type: fileType });
+        const file = new File([blob], fileName, {
+          type: fileType,
+          lastModified: Date.now(),
+        });
+        newFileList.items.add(file);
       }
     });
     return newFileList.files;
