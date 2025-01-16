@@ -53,12 +53,21 @@ const BaseFileItem = (props: FileItemProps) => {
   } = props;
 
   const {
-    fileSize: metaDataFileName,
+    fileName: metaDataFileName,
     fileSize: metaDataFileSize,
     fileURL: metadataFileURL,
+    filePreviewCallBack: metadataFilePreviewCallBack,
   } = fileItemProps?.metadata || {};
 
+  const getPreviewLinkHref = () => {
+    if (metadataFilePreviewCallBack) return '';
+    if (metadataFileURL) return metadataFileURL;
+    if (file) return URL.createObjectURL(file);
+    return '';
+  };
+
   console.log('fileItemProps', fileItemProps);
+  console.log('file: ', file);
 
   const getFileSizeText = () => {
     const fileSize = file?.size || metaDataFileSize;
@@ -113,14 +122,18 @@ const BaseFileItem = (props: FileItemProps) => {
           {!fileItemProps?.status && <IconGenericFile />}
           {filePreview ? (
             <Link
+              asProp={metadataFilePreviewCallBack ? 'button' : undefined}
               ref={
                 fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>
               }
-              href={file ? URL.createObjectURL(file) : metadataFileURL || ''}
+              href={getPreviewLinkHref()}
               className={classnames(fileItemClassNames.fileName, 'is-link')}
               target="_blank"
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
+              onClick={() =>
+                metadataFilePreviewCallBack && metadataFilePreviewCallBack()
+              }
             >
               {file?.name || metaDataFileName}
             </Link>
