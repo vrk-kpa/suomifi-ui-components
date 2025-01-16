@@ -332,6 +332,79 @@ const mockedItems = [
 </div>;
 ```
 
+### Controlled items with custom data handling
+
+If you want to handle the file data without saving it to the component state, you can opt to provide only the necessary metadata to show the file in the component/list. You can then handle the file data as you want when saving the form. File previews can also be handled either by providing a `fileURL` or `filePreviewCallback` in the metadata.
+
+```jsx
+import { FileInput } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const [statusText, setStatusText] = useState('');
+const [status, setStatus] = useState('default');
+const [controlledValue, setControlledValue] = useState([]);
+
+const validateFiles = (newFileList) => {
+  console.log(newFileList);
+  const filesAsArray = Array.from(newFileList);
+  let invalidFileFound = false;
+  let errorText = '';
+  if (filesAsArray.length > 0) {
+    // TODO: apply for multiple files
+    const file = filesAsArray[0];
+    if (file.size > 1000000) {
+      errorText += 'File size must be less than 1 megabytes.';
+      invalidFileFound = true;
+    }
+  }
+  if (invalidFileFound) {
+    setStatus('error');
+    setStatusText(errorText);
+  } else {
+    setStatus('default');
+    setStatusText('');
+    filesAsArray.length > 0
+      ? customSaveFunction(filesAsArray)
+      : setControlledValue([]);
+  }
+};
+
+const customSaveFunction = (files) => {
+  const pseudoFiles = [];
+  files.forEach((file) => {
+    const fileMetaData = {
+      metadata: {
+        fileName: file.name,
+        fileSize: file.size,
+        fileType: file.type,
+        filePreviewCallBack: () =>
+          // Fetch the file from wherever you store it
+          console.log(`Fetching file ${file.name} from backend`)
+      }
+    };
+    pseudoFiles.push(fileMetaData);
+    // Save actual file data however you want
+  });
+  setControlledValue(pseudoFiles);
+};
+
+<div style={{ width: 600 }}>
+  <FileInput
+    labelText="Resume"
+    inputButtonText="Choose file"
+    dragAreaText="Choose file or drag and drop here"
+    removeFileText="Remove"
+    addedFileAriaText="Added file: "
+    hintText="Use the pdf file format. Maximum file size is 1 MB"
+    status={status}
+    statusText={statusText}
+    onChange={validateFiles}
+    value={controlledValue}
+    filePreview
+  />
+</div>;
+```
+
 ### Accessing the input with ref
 
 The component's ref points to the underlying `<input type="file">` element and can thus be used to access the component's value as well as setting focus to it.
