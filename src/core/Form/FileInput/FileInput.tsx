@@ -154,7 +154,7 @@ export interface ControlledFileItem {
   /**
    * Additional metadata for the file.
    */
-  metadata?: MetaData;
+  metadata?: Metadata;
   /**
    * Status of the element. Affects styling.
    */
@@ -178,10 +178,10 @@ export interface ControlledFileItem {
   /**
    * Override default remove button behavior.
    */
-  buttonOnClick?: (file: any) => void;
+  buttonOnClick?: () => void;
 }
 
-type MetaData = {
+type Metadata = {
   /**
    * The size of the file in bytes.
    */
@@ -587,7 +587,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                   removeFileText={removeFileText}
                   removeFile={removeFile}
                   smallScreen={smallScreen}
-                  fileItemProps={controlledValue && controlledValue[0]}
+                  fileItemDetails={controlledValue && controlledValue[0]}
                 />
               </HtmlDiv>
             )}
@@ -622,7 +622,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                   removeFileText={removeFileText}
                   removeFile={removeFile}
                   smallScreen={smallScreen}
-                  fileItemProps={controlledValue && controlledValue[index]}
+                  fileItemDetails={controlledValue && controlledValue[index]}
                 />
               ))}
             </HtmlDiv>
