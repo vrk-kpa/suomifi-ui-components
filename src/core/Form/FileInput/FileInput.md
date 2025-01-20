@@ -349,7 +349,6 @@ const [status, setStatus] = useState('default');
 const [controlledValue, setControlledValue] = useState([]);
 
 const validateFiles = (newFileList) => {
-  console.log(newFileList);
   const filesArray = Array.from(newFileList);
   let invalidFileFound = false;
   let errorText = '';
@@ -375,17 +374,26 @@ const validateFiles = (newFileList) => {
 const customSaveFunction = (files) => {
   const pseudoFiles = [];
   files.forEach((file) => {
-    const fileMetaData = {
+    const fileItemData = {
       metadata: {
+        id: `${Math.random().toString(36).substring(2, 15)}`,
         fileName: file.name,
         fileSize: file.size,
         fileType: file.type,
         filePreviewCallBack: () =>
           // Fetch the file from wherever you store it
           console.log(`Fetching file ${file.name} from backend`)
+      },
+      buttonOnClick: (file) => {
+        // Filter out the item based on id
+        setControlledValue((prevValue) =>
+          prevValue.filter(
+            (item) => item.metadata.id !== fileItemData.metadata.id
+          )
+        );
       }
     };
-    pseudoFiles.push(fileMetaData);
+    pseudoFiles.push(fileItemData);
     // Save actual file data however you want
   });
   setControlledValue(pseudoFiles);
@@ -404,6 +412,7 @@ const customSaveFunction = (files) => {
     onChange={validateFiles}
     value={controlledValue}
     filePreview
+    multiFile
   />
 </div>;
 ```
