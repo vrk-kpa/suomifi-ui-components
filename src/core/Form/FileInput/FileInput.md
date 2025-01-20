@@ -182,6 +182,8 @@ interface ControlledFileItem {
   buttonIcon?: ReactElement;
   // Override default remove button behavior
   buttonOnClick?: (file) => void;
+  // File metadata for when you want to save the file outside the component state
+  metadata: Metadata;
 }
 ```
 
@@ -334,7 +336,9 @@ const mockedItems = [
 
 ### Controlled items with custom data handling
 
-If you want to handle the file data without saving it to the component state, you can opt to provide only the necessary metadata to show the file in the component/list. You can then handle the file data as you want when saving the form. File previews can also be handled either by providing a `fileURL` or `filePreviewCallback` in the metadata.
+If you want to handle the file data without saving it to the component state, you can opt to provide only the necessary metadata to show the file in the component/list. You can then handle the file data as you want when saving the form.
+
+Provide at least `fileName`, `fileType` and `fileSize` as the metadata of the controlled value object. File previews can also be handled either by providing a `fileURL` or `filePreviewCallback` in the metadata.
 
 ```jsx
 import { FileInput } from 'suomifi-ui-components';
@@ -346,12 +350,11 @@ const [controlledValue, setControlledValue] = useState([]);
 
 const validateFiles = (newFileList) => {
   console.log(newFileList);
-  const filesAsArray = Array.from(newFileList);
+  const filesArray = Array.from(newFileList);
   let invalidFileFound = false;
   let errorText = '';
-  if (filesAsArray.length > 0) {
-    // TODO: apply for multiple files
-    const file = filesAsArray[0];
+  if (filesArray.length > 0) {
+    const file = filesArray[0];
     if (file.size > 1000000) {
       errorText += 'File size must be less than 1 megabytes.';
       invalidFileFound = true;
@@ -363,8 +366,8 @@ const validateFiles = (newFileList) => {
   } else {
     setStatus('default');
     setStatusText('');
-    filesAsArray.length > 0
-      ? customSaveFunction(filesAsArray)
+    filesArray.length > 0
+      ? customSaveFunction(filesArray)
       : setControlledValue([]);
   }
 };
