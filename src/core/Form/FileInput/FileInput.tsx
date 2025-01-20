@@ -191,13 +191,17 @@ type Metadata = {
    */
   fileName: string;
   /**
+   * The type of the file
+   */
+  fileType: string;
+  /**
    * URL to the file
    */
   fileURL?: string;
   /**
-   * The type of the file
+   * id of the file
    */
-  fileType: string;
+  id?: string;
   /**
    * Callback for when file preview link is clicked
    */
