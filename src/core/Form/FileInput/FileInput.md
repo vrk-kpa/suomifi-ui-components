@@ -351,14 +351,15 @@ const [controlledValue, setControlledValue] = useState([]);
 const validateFiles = (newFileList) => {
   const filesArray = Array.from(newFileList);
   let invalidFileFound = false;
-  let errorText = '';
-  if (filesArray.length > 0) {
-    const file = filesArray[0];
+  let errorText = 'File size must be less than 1 megabytes ';
+
+  filesArray.forEach((file) => {
     if (file.size > 1000000) {
-      errorText += 'File size must be less than 1 megabytes.';
+      errorText += `(${file.name}) `;
       invalidFileFound = true;
     }
-  }
+  });
+
   if (invalidFileFound) {
     setStatus('error');
     setStatusText(errorText);
@@ -393,7 +394,11 @@ const customSaveFunction = (files) => {
         );
       }
     };
-    pseudoFiles.push(fileItemData);
+    pseudoFiles.push(
+      controlledValue.find(
+        (item) => item.metadata.fileName === file.name
+      ) || fileItemData
+    );
     // Save actual file data however you want
   });
   setControlledValue(pseudoFiles);
