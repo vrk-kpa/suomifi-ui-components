@@ -53,8 +53,8 @@ const BaseFileItem = (props: FileItemProps) => {
   } = props;
 
   const {
-    fileName: metaDataFileName,
-    fileSize: metaDataFileSize,
+    fileName: metadataFileName,
+    fileSize: metadataFileSize,
     fileURL: metadataFileURL,
     filePreviewCallBack: metadataFilePreviewCallBack,
   } = fileItemDetails?.metadata || {};
@@ -66,11 +66,8 @@ const BaseFileItem = (props: FileItemProps) => {
     return '';
   };
 
-  console.log('fileItemDetails', fileItemDetails);
-  console.log('file: ', file);
-
   const getFileSizeText = () => {
-    const fileSize = file?.size || metaDataFileSize;
+    const fileSize = file?.size || metadataFileSize;
     if (!fileSize) {
       return '';
     }
@@ -97,12 +94,12 @@ const BaseFileItem = (props: FileItemProps) => {
       fileItemDetails?.status !== 'loading' &&
       !fileItemDetails?.ariaLoadingText
     ) {
-      return `${addedFileAriaText} ${file?.name || metaDataFileName} ${
+      return `${addedFileAriaText} ${file?.name || metadataFileName} ${
         fileItemDetails?.errorText ? fileItemDetails.errorText : ''
       }`;
     }
     return `${fileItemDetails?.ariaLoadingText} ${
-      file?.name || metaDataFileName
+      file?.name || metadataFileName
     }`;
   };
 
@@ -137,7 +134,7 @@ const BaseFileItem = (props: FileItemProps) => {
                 }
               }}
             >
-              {file?.name || metaDataFileName}
+              {file?.name || metadataFileName}
             </Link>
           ) : (
             <HtmlDivWithRef
@@ -148,7 +145,7 @@ const BaseFileItem = (props: FileItemProps) => {
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
             >
-              {file?.name || metaDataFileName}
+              {file?.name || metadataFileName}
             </HtmlDivWithRef>
           )}
           <HtmlDiv
@@ -180,7 +177,7 @@ const BaseFileItem = (props: FileItemProps) => {
             fileItemDetails?.buttonText
               ? fileItemDetails.buttonText
               : removeFileText
-          } ${file?.name || metaDataFileName}`}
+          } ${file?.name || metadataFileName}`}
           className={fileItemClassNames.removeFileButton}
           ref={fileItemRefs.removeButtonRef}
         >
