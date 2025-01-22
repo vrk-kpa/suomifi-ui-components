@@ -179,6 +179,10 @@ export interface ControlledFileItem {
    * Override default remove button behavior.
    */
   buttonOnClick?: () => void;
+  /**
+   * Callback for when file preview link is clicked
+   */
+  filePreviewOnClick?: () => void;
 }
 
 type Metadata = {
@@ -202,10 +206,6 @@ type Metadata = {
    * id of the file
    */
   id?: string;
-  /**
-   * Callback for when file preview link is clicked
-   */
-  filePreviewCallBack?: () => void;
 };
 
 type InternalFileInputProps = FileInputProps & GlobalMarginProps;

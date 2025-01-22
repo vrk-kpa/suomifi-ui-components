@@ -56,18 +56,19 @@ const BaseFileItem = (props: FileItemProps) => {
     fileName: metadataFileName,
     fileSize: metadataFileSize,
     fileURL: metadataFileURL,
-    filePreviewCallBack: metadataFilePreviewCallBack,
   } = fileItemDetails?.metadata || {};
 
+  const filePreviewCallBack = fileItemDetails?.filePreviewOnClick;
+
   const getPreviewLinkHref = () => {
-    if (metadataFilePreviewCallBack) return '';
+    if (filePreviewCallBack) return '';
     if (metadataFileURL) return metadataFileURL;
     if (file) return URL.createObjectURL(file);
     return '';
   };
 
   const getFileSizeText = () => {
-    const fileSize = file?.size || metadataFileSize;
+    const fileSize = metadataFileSize || file?.size;
     if (!fileSize) {
       return '';
     }
@@ -128,9 +129,9 @@ const BaseFileItem = (props: FileItemProps) => {
               aria-label={getFileAriaLabel()}
               aria-describedby={fileItemRefs.fileSizeElementId}
               onClick={(e) => {
-                if (metadataFilePreviewCallBack) {
+                if (filePreviewCallBack) {
                   e.preventDefault();
-                  metadataFilePreviewCallBack();
+                  filePreviewCallBack();
                 }
               }}
             >
