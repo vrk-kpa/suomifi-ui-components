@@ -8,7 +8,8 @@ Examples:
 - [Small screen](./#/Components/FileInput?id=small-screen)
 - [Non-controlled validation](./#/Components/FileInput?id=non-controlled-validation)
 - [Controlled state](./#/Components/FileInput?id=controlled-state)
-- [Controlled items metadata](./#/Components/FileInput?id=controlled-items-metadata)
+- [Controlled items status](./#/Components/FileInput?id=controlled-items-status)
+- [Controlled items with custom data handling](./#/FileInput?id=controlled-items-with-custom-data-handling)
 - [Accessing the input with ref](./#/Components/FileInput?id=accessing-the-input-with-ref)
 - [Full width](./#/Components/FileInput?id=full-width)
 - [Hidden label](./#/Components/FileInput?id=hidden-label)
@@ -239,7 +240,7 @@ const validateFiles = (newFileList) => {
 </div>;
 ```
 
-### Controlled items metadata
+### Controlled items status
 
 Below is a static example of the different, more granularly controlled items that can be provided as controlled value.
 
@@ -338,7 +339,34 @@ const mockedItems = [
 
 If you want to handle the file data without saving it to the component state, you can opt to provide only the necessary metadata to show the file in the component/list. You can then handle the file data as you want when saving the form.
 
-Provide at least `fileName`, `fileType` and `fileSize` as the metadata of the controlled value object. File previews can also be handled either by providing a `fileURL` or `filePreviewCallback` in the metadata.
+Provide at least `fileName`, `fileType` and `fileSize` as the metadata of the controlled value object. File previews can also be handled either by providing a `fileURL` in the metadata or a `filePreviewOnClick` in the `ControlledFileItem` object.
+
+The interface for the metadata is as follows:
+
+```jsx static
+export interface Metadata {
+  /**
+   * The size of the file in bytes.
+   */
+  fileSize: number;
+  /**
+   * The name of the file.
+   */
+  fileName: string;
+  /**
+   * The type of the file
+   */
+  fileType: string;
+  /**
+   * URL to the file
+   */
+  fileURL?: string;
+  /**
+   * id of the file
+   */
+  id?: string;
+}
+```
 
 ```jsx
 import { FileInput } from 'suomifi-ui-components';
@@ -380,10 +408,7 @@ const customSaveFunction = (files) => {
         id: `${Math.random().toString(36).substring(2, 15)}`,
         fileName: file.name,
         fileSize: file.size,
-        fileType: file.type,
-        filePreviewCallBack: () =>
-          // Fetch the file from wherever you store it
-          console.log(`Fetching file ${file.name} from backend`)
+        fileType: file.type
       },
       buttonOnClick: (file) => {
         // Filter out the item based on id
@@ -392,7 +417,10 @@ const customSaveFunction = (files) => {
             (item) => item.metadata.id !== fileItemData.metadata.id
           )
         );
-      }
+      },
+      filePreviewOnClick: () =>
+        // Fetch the file from wherever you store it
+        console.log(`Fetching file ${file.name} from backend`)
     };
     pseudoFiles.push(
       controlledValue.find(
