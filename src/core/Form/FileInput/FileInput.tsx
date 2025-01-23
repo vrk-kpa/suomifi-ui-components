@@ -185,7 +185,7 @@ export interface ControlledFileItem {
   filePreviewOnClick?: () => void;
 }
 
-type Metadata = {
+export interface Metadata {
   /**
    * The size of the file in bytes.
    */
@@ -206,7 +206,7 @@ type Metadata = {
    * id of the file
    */
   id?: string;
-};
+}
 
 type InternalFileInputProps = FileInputProps & GlobalMarginProps;
 

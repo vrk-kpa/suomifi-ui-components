@@ -54,4 +54,5 @@ export {
   FileInput,
   type FileInputProps,
   type ControlledFileItem,
+  type Metadata,
 } from './FileInput/FileInput';
