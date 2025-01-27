@@ -280,7 +280,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
         const blob = new Blob([], { type: fileType });
         const file = new File([blob], fileName, {
           type: fileType,
-          lastModified: Date.now(),
+          lastModified: -1,
         });
         newFileList.items.add(file);
       }
@@ -346,7 +346,13 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       setFilesToStateAndInput(newFileList.files);
     }
     if (propOnChange) {
-      propOnChange(newFileList.files || new FileList());
+      const filteredFiles = Array.from(newFileList.files).filter(
+        (file) => file.lastModified !== -1,
+      );
+      const filteredFileList = new DataTransfer();
+      filteredFiles.forEach((file) => filteredFileList.items.add(file));
+      console.log('Changed files:', filteredFileList.files);
+      propOnChange(filteredFileList.files || new FileList());
     }
   };
 
@@ -474,38 +480,47 @@ const BaseFileInput = (props: InternalFileInputProps) => {
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newFileList = new DataTransfer();
     const filesFromEvent = event.target.files;
-    if (!controlledValue) {
-      if (multiFile) {
-        const previousAndNewFiles = Array.from(files || []).concat(
-          Array.from(filesFromEvent || []),
+
+    if (filesFromEvent && filesFromEvent.length > 0) {
+      if (!controlledValue) {
+        if (multiFile) {
+          const previousAndNewFiles = Array.from(files || []).concat(
+            Array.from(filesFromEvent || []),
+          );
+          previousAndNewFiles.forEach((file) => {
+            newFileList.items.add(file);
+          });
+        } else {
+          const filesFromEventArr = Array.from(filesFromEvent || []);
+          filesFromEventArr.forEach((file) => {
+            newFileList.items.add(file);
+          });
+        }
+        setFilesToStateAndInput(newFileList.files);
+      } else if (inputRef.current) {
+        const controlledValueAsArray = Array.from(
+          buildFileListFromControlledValueObjects(controlledValue) || [],
         );
-        previousAndNewFiles.forEach((file) => {
+        const controlledFileList = new DataTransfer();
+        controlledValueAsArray.forEach((file) => {
+          controlledFileList.items.add(file);
           newFileList.items.add(file);
         });
-      } else {
+        inputRef.current.files = controlledFileList.files;
         const filesFromEventArr = Array.from(filesFromEvent || []);
         filesFromEventArr.forEach((file) => {
           newFileList.items.add(file);
         });
       }
-      setFilesToStateAndInput(newFileList.files);
-    } else if (inputRef.current) {
-      const controlledValueAsArray = Array.from(
-        buildFileListFromControlledValueObjects(controlledValue) || [],
-      );
-      const controlledFileList = new DataTransfer();
-      controlledValueAsArray.forEach((file) => {
-        controlledFileList.items.add(file);
-        newFileList.items.add(file);
-      });
-      inputRef.current.files = controlledFileList.files;
-      const filesFromEventArr = Array.from(filesFromEvent || []);
-      filesFromEventArr.forEach((file) => {
-        newFileList.items.add(file);
-      });
-    }
-    if (propOnChange) {
-      propOnChange(newFileList.files);
+      if (propOnChange) {
+        const filteredFiles = Array.from(newFileList.files).filter(
+          (file) => file.lastModified !== -1,
+        );
+        const filteredFileList = new DataTransfer();
+        filteredFiles.forEach((file) => filteredFileList.items.add(file));
+        console.log('Changed files:', filteredFileList.files);
+        propOnChange(filteredFileList.files);
+      }
     }
   };
 

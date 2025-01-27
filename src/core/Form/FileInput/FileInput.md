@@ -373,6 +373,7 @@ const [status, setStatus] = useState('default');
 const [controlledValue, setControlledValue] = useState([]);
 
 const validateFiles = (newFileList) => {
+  if (newFileList.length === 0) return;
   const filesArray = Array.from(newFileList);
   let invalidFileFound = false;
   let errorText = 'File size must be less than 1 megabytes ';
@@ -418,14 +419,10 @@ const customSaveFunction = (files) => {
         // Fetch the file from wherever you store it
         console.log(`Fetching file ${file.name} from backend`)
     };
-    pseudoFiles.push(
-      controlledValue.find(
-        (item) => item.metadata.fileName === file.name
-      ) || fileItemData
-    );
+    pseudoFiles.push(fileItemData);
     // Save actual file data however you want
   });
-  setControlledValue(pseudoFiles);
+  setControlledValue((prevValue) => [...prevValue, ...pseudoFiles]);
 };
 
 <div style={{ width: 600 }}>
