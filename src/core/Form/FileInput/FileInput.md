@@ -416,9 +416,7 @@ const customSaveFunction = (files) => {
       },
       filePreviewOnClick: () =>
         // Fetch the file from wherever you store it
-        console.log(`Fetching file ${file.name} from backend`),
-      wrapperRef:
-        files.indexOf(file) === files.length - 1 ? testRef : undefined
+        console.log(`Fetching file ${file.name} from backend`)
     };
     pseudoFiles.push(
       controlledValue.find(
