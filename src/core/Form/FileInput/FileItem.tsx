@@ -52,17 +52,15 @@ const BaseFileItem = (props: FileItemProps) => {
     fileItemDetails,
   } = props;
 
-  const {
-    fileName: metadataFileName,
-    fileSize: metadataFileSize,
-    fileURL: metadataFileURL,
-  } = fileItemDetails?.metadata || {};
+  const { fileName: metadataFileName, fileSize: metadataFileSize } =
+    fileItemDetails?.metadata || {};
 
   const filePreviewCallBack = fileItemDetails?.filePreviewOnClick;
+  const fileUrl = fileItemDetails?.fileURL;
 
   const getPreviewLinkHref = () => {
     if (filePreviewCallBack) return '';
-    if (metadataFileURL) return metadataFileURL;
+    if (fileUrl) return fileUrl;
     if (file) return URL.createObjectURL(file);
     return '';
   };

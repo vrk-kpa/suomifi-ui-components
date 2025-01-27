@@ -183,6 +183,10 @@ export interface ControlledFileItem {
    * Callback for when file preview link is clicked
    */
   filePreviewOnClick?: () => void;
+  /**
+   * URL to the file. Used in the file preview link. Secondary to `filePreviewOnClick`
+   */
+  fileURL?: string;
 }
 
 export interface Metadata {

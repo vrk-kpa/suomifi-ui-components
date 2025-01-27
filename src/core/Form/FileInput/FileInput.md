@@ -358,10 +358,6 @@ export interface Metadata {
    */
   fileType: string;
   /**
-   * URL to the file
-   */
-  fileURL?: string;
-  /**
    * id of the file
    */
   id?: string;
@@ -420,7 +416,9 @@ const customSaveFunction = (files) => {
       },
       filePreviewOnClick: () =>
         // Fetch the file from wherever you store it
-        console.log(`Fetching file ${file.name} from backend`)
+        console.log(`Fetching file ${file.name} from backend`),
+      wrapperRef:
+        files.indexOf(file) === files.length - 1 ? testRef : undefined
     };
     pseudoFiles.push(
       controlledValue.find(
