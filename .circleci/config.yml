@@ -3,13 +3,13 @@ version: 2.1
 executors:
   build-executor:
     docker:
-      - image: cimg/node:lts
+      - image: cimg/node:20.18.2 # This is a workaround before node 22 support is sorted
 
 commands:
   checkout_and_cache:
     steps:
       - checkout
-      - run: 
+      - run:
           name: Node version
           command: node --version
       - restore_cache: # special step to restore the dependency cache
