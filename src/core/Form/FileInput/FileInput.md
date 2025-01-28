@@ -400,6 +400,7 @@ const validateFiles = (newFileList) => {
 const customSaveFunction = (files) => {
   const pseudoFiles = [];
   files.forEach((file) => {
+    // Create a metadata object based on file
     const fileItemData = {
       metadata: {
         id: `${Math.random().toString(36).substring(2, 15)}`,
