@@ -21,7 +21,7 @@ interface FileItemProps {
   fileItemRefs: FileItemRefs;
   addedFileAriaText: string;
   removeFileText: ReactNode;
-  removeFile: (file: any) => void;
+  removeFile: (file: File) => void;
   smallScreen: boolean;
   fileItemDetails?: ControlledFileItem;
 }
@@ -168,8 +168,8 @@ const BaseFileItem = (props: FileItemProps) => {
           onClick={() => {
             if (fileItemDetails?.buttonOnClick) {
               fileItemDetails.buttonOnClick();
-            } else {
-              removeFile(file || fileItemDetails?.metadata);
+            } else if (file) {
+              removeFile(file);
             }
           }}
           aria-label={`${

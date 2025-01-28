@@ -339,7 +339,7 @@ const mockedItems = [
 
 If you want to handle the file data without saving it to the component state, you can opt to provide only the necessary metadata to show the file in the component/list. You can then handle the file data as you want when saving the form.
 
-Provide at least `fileName`, `fileType` and `fileSize` as the metadata of the controlled value object. File previews can also be handled either by providing a `fileURL` in the metadata or a `filePreviewOnClick` in the `ControlledFileItem` object.
+Provide at least `fileName`, `fileType` and `fileSize` as the metadata of the controlled value object. File previews can also be handled either by providing a `fileURL` or a `filePreviewOnClick` in the `ControlledFileItem` object.
 
 The interface for the metadata is as follows:
 
@@ -440,6 +440,7 @@ const customSaveFunction = (files) => {
     value={controlledValue}
     filePreview
     multiFile
+    multiFileListHeadingText="Added files"
   />
 </div>;
 ```
