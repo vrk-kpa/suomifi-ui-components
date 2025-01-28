@@ -407,7 +407,7 @@ const customSaveFunction = (files) => {
         fileSize: file.size,
         fileType: file.type
       },
-      buttonOnClick: (file) => {
+      buttonOnClick: () => {
         // Filter out the item based on id
         setControlledValue((prevValue) =>
           prevValue.filter(

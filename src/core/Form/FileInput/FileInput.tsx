@@ -351,7 +351,6 @@ const BaseFileInput = (props: InternalFileInputProps) => {
       );
       const filteredFileList = new DataTransfer();
       filteredFiles.forEach((file) => filteredFileList.items.add(file));
-      console.log('Changed files:', filteredFileList.files);
       propOnChange(filteredFileList.files || new FileList());
     }
   };
@@ -518,7 +517,6 @@ const BaseFileInput = (props: InternalFileInputProps) => {
         );
         const filteredFileList = new DataTransfer();
         filteredFiles.forEach((file) => filteredFileList.items.add(file));
-        console.log('Changed files:', filteredFileList.files);
         propOnChange(filteredFileList.files);
       }
     }
