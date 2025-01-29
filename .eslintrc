@@ -24,7 +24,12 @@
     "react",
     "tree-shaking"
   ],
-  "ignorePatterns": ["**/*.config.*", "jest/*.js"],
+  "ignorePatterns": [
+    "**/*.config.*",
+    "jest/*.js",
+    "node_modules/",
+    "dist/**/*"
+  ],
   "rules": {
     "@typescript-eslint/naming-convention": [
       "error",
