@@ -1,13 +1,15 @@
 import progress from 'rollup-plugin-progress';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import ts from 'rollup-plugin-ts';
+import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import cssImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import dts from 'rollup-plugin-dts';
+import { babel } from '@rollup/plugin-babel';
 
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './package.json' with { type: 'json' };
 
 const typesTsConfig = {
   declaration: true,
@@ -22,6 +24,7 @@ const output = {
       preserveModules: true,
       sourcemap: true,
       interop: 'auto',
+      importAttributesKey: 'with',
     },
     {
       dir: 'dist/esm',
@@ -30,37 +33,36 @@ const output = {
       exports: 'named',
       sourcemap: true,
       interop: 'auto',
+      importAttributesKey: 'with',
     },
   ],
   types: [
     {
-      file: 'dist/tmp/index.js',
+      file: 'dist/types/index.d.ts',
       format: 'cjs',
-      interop: 'auto',
     },
   ],
   css: [{}],
+};
+
+const babelConfig = {
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: [
+    '@babel/plugin-transform-runtime',
+    ['babel-plugin-styled-components', { ssr: true, displayName: false }],
+  ],
 };
 
 const plugins = (tsConfig, extractCSS) => [
   progress(),
   nodeResolve(),
   commonjs(),
-  ts({
-    transpiler: 'babel',
-    babelConfig: {
-      presets: ['@babel/preset-env', '@babel/preset-react'],
-      plugins: [
-        '@babel/plugin-transform-runtime',
-        ['babel-plugin-styled-components', { ssr: true, displayName: false }],
-      ],
-    },
-    include: ['**/*.ts', '**/*.tsx'],
-    transpileOnly: false,
-    tsconfig: (resolvedConfig) => ({
-      ...resolvedConfig,
-      ...tsConfig,
-    }),
+  typescript(tsConfig),
+  babel({
+    babelHelpers: 'runtime',
+    ...babelConfig,
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    include: ['src/**/*'],
   }),
   postcss({
     extensions: ['.css', '.scss'],
@@ -76,10 +78,10 @@ const plugins = (tsConfig, extractCSS) => [
   }),
 ];
 
-const bundle = (output, tsConfig, exctractCSS) => ({
+const bundle = (output, tsConfig, extractCSS) => ({
   input: 'src/index.tsx',
   output: output,
-  plugins: plugins(tsConfig, exctractCSS),
+  plugins: plugins(tsConfig, extractCSS),
   external: [
     /@babel\/runtime/,
     ...(!!pkg.dependencies ? Object.keys(pkg.dependencies) : []),
@@ -90,5 +92,9 @@ const bundle = (output, tsConfig, exctractCSS) => ({
 
 export default [
   bundle(output['js'], {}, false),
-  bundle(output['types'], typesTsConfig, true),
+  {
+    input: 'src/index.tsx', // Updated the path to a valid TypeScript entry file
+    output: output['types'],
+    plugins: [dts()],
+  },
 ];
