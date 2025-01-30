@@ -18,7 +18,9 @@ Examples:
 ```js
 import { Toast } from 'suomifi-ui-components';
 
-<Toast>Information saved successfully</Toast>;
+<Toast showCloseButton closeButtonText="close">
+  Information saved successfully
+</Toast>;
 ```
 
 ### Toast with heading
