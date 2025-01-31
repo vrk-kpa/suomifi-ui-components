@@ -165,6 +165,10 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
 }
 
+.c1.fi-toast .fi-toast-wrapper .fi-toast_close-button .fi-icon .fi-icon-base-fill {
+  fill: hsl(212, 63%, 45%);
+}
+
 .c1.fi-toast .fi-toast-wrapper .fi-toast_close-button:focus-visible {
   outline: 0;
   position: relative;
