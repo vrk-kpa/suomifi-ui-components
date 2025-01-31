@@ -116,7 +116,7 @@ export const baseStyles = (
         padding: 3px;
 
         & .fi-icon {
-          margin: 0 8px;
+          margin: 0 ${theme.spacing.insetM};
           font-size: 16px;
         }
       }
