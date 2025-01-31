@@ -16,7 +16,6 @@ export const baseStyles = (
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
-  overflow: hidden;
   &.fi-toast {
     background-color: ${theme.colors.whiteBase};
     & .fi-toast-wrapper {
