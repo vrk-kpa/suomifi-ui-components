@@ -96,7 +96,6 @@ exports[`props children should match snapshot 1`] = `
   width: 100%;
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border-radius: 4px;
-  overflow: hidden;
 }
 
 .c1.fi-toast {
