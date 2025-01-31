@@ -18,9 +18,7 @@ Examples:
 ```js
 import { Toast } from 'suomifi-ui-components';
 
-<Toast showCloseButton closeButtonText="close">
-  Information saved successfully
-</Toast>;
+<Toast>Information saved successfully</Toast>;
 ```
 
 ### Toast with heading
@@ -33,6 +31,18 @@ Even with a heading the content should be kept concise.
 import { Toast } from 'suomifi-ui-components';
 
 <Toast headingVariant="h2" headingText="Success">
+  Your information was sent successfully.
+</Toast>;
+```
+
+### Toast with close button
+
+In some cases you might want to give the user the option to close the toast manually. This can be achieved by giving the toast the `showCloseButton` and `closeText` attributes.
+
+```js
+import { Toast } from 'suomifi-ui-components';
+
+<Toast showCloseButton closeText="Close">
   Your information was sent successfully.
 </Toast>;
 ```
