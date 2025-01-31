@@ -55,6 +55,9 @@ export const baseStyles = (
         & .fi-icon {
           margin: 0 ${theme.spacing.xxs};
           font-size: 16px;
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.highlightBase};
+          }
         }
 
         &:focus-visible {
