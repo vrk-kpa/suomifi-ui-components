@@ -113,10 +113,10 @@ export const baseStyles = (
       }
       & .fi-notification_close-button {
         margin: 3px;
-        padding: 3px 5px 3px 4px;
+        padding: 3px;
 
         & .fi-icon {
-          margin-right: ${theme.spacing.xxs};
+          margin: 0 8px;
           font-size: 16px;
         }
       }
