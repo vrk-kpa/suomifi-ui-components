@@ -85,6 +85,7 @@ export {
   FileInput,
   type FileInputProps,
   type ControlledFileItem,
+  type Metadata,
 } from './core/Form';
 export { Heading, type HeadingProps } from './core/Heading/Heading';
 export {

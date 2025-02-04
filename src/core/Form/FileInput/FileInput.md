@@ -8,7 +8,8 @@ Examples:
 - [Small screen](./#/Components/FileInput?id=small-screen)
 - [Non-controlled validation](./#/Components/FileInput?id=non-controlled-validation)
 - [Controlled state](./#/Components/FileInput?id=controlled-state)
-- [Controlled items metadata](./#/Components/FileInput?id=controlled-items-metadata)
+- [Controlled items status](./#/Components/FileInput?id=controlled-items-status)
+- [Controlled items with custom data handling](./#/FileInput?id=controlled-items-with-custom-data-handling)
 - [Accessing the input with ref](./#/Components/FileInput?id=accessing-the-input-with-ref)
 - [Full width](./#/Components/FileInput?id=full-width)
 - [Hidden label](./#/Components/FileInput?id=hidden-label)
@@ -182,6 +183,8 @@ interface ControlledFileItem {
   buttonIcon?: ReactElement;
   // Override default remove button behavior
   buttonOnClick?: (file) => void;
+  // File metadata for when you want to save the file outside the component state
+  metadata: Metadata;
 }
 ```
 
@@ -237,7 +240,7 @@ const validateFiles = (newFileList) => {
 </div>;
 ```
 
-### Controlled items metadata
+### Controlled items status
 
 Below is a static example of the different, more granularly controlled items that can be provided as controlled value.
 
@@ -328,6 +331,116 @@ const mockedItems = [
     ]}
     status="error"
     statusText="Something went wrong while uploading the file. Please try again"
+  />
+</div>;
+```
+
+### Controlled items with custom data handling
+
+If you want to handle the file data without saving it to the component state, you can opt to provide only the necessary metadata to show the file in the component/list. You can then handle the file data as you want when saving the form.
+
+Provide at least `fileName`, `fileType` and `fileSize` as the metadata of the controlled value object. File previews can also be handled either by providing a `fileURL` or a `filePreviewOnClick` in the `ControlledFileItem` object.
+
+The interface for the metadata is as follows:
+
+```jsx static
+export interface Metadata {
+  /**
+   * The size of the file in bytes.
+   */
+  fileSize: number;
+  /**
+   * The name of the file.
+   */
+  fileName: string;
+  /**
+   * The type of the file
+   */
+  fileType: string;
+  /**
+   * id of the file
+   */
+  id?: string;
+}
+```
+
+```jsx
+import { FileInput } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const [statusText, setStatusText] = useState('');
+const [status, setStatus] = useState('default');
+const [controlledValue, setControlledValue] = useState([]);
+
+const validateFiles = (newFileList) => {
+  if (newFileList.length === 0) return;
+  const filesArray = Array.from(newFileList);
+  let invalidFileFound = false;
+  let errorText = 'File size must be less than 1 megabytes ';
+
+  filesArray.forEach((file) => {
+    if (file.size > 1000000) {
+      errorText += `(${file.name}) `;
+      invalidFileFound = true;
+    }
+  });
+
+  if (invalidFileFound) {
+    setStatus('error');
+    setStatusText(errorText);
+  } else {
+    setStatus('default');
+    setStatusText('');
+    filesArray.length > 0
+      ? customSaveFunction(filesArray)
+      : setControlledValue([]);
+  }
+};
+
+const customSaveFunction = (files) => {
+  const pseudoFiles = [];
+  files.forEach((file) => {
+    // Create a metadata object based on file
+    const fileItemData = {
+      metadata: {
+        id: `${Math.random().toString(36).substring(2, 15)}`,
+        fileName: file.name,
+        fileSize: file.size,
+        fileType: file.type
+      },
+      buttonOnClick: () => {
+        // Filter out the item based on id
+        setControlledValue((prevValue) =>
+          prevValue.filter(
+            (item) => item.metadata.id !== fileItemData.metadata.id
+          )
+        );
+      },
+      filePreviewOnClick: () =>
+        // Fetch the file from wherever you store it
+        console.log(`Fetching file ${file.name} from backend`)
+    };
+    pseudoFiles.push(fileItemData);
+    // Save actual file data however you want
+  });
+  setControlledValue((prevValue) => [...prevValue, ...pseudoFiles]);
+};
+
+<div style={{ width: 600 }}>
+  <FileInput
+    labelText="Resume"
+    inputButtonText="Choose file"
+    dragAreaText="Choose file or drag and drop here"
+    removeFileText="Remove"
+    addedFileAriaText="Added file: "
+    hintText="Use the pdf file format. Maximum file size is 1 MB"
+    status={status}
+    statusText={statusText}
+    onChange={validateFiles}
+    value={controlledValue}
+    filePreview
+    multiFile
+    multiFileListHeadingText="Added files"
   />
 </div>;
 ```
