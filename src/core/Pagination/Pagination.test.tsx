@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../utils/test';
 import { Pagination, PaginationProps } from './Pagination';
+import { Link } from '../Link';
 
 const TestPagination = (props: Partial<PaginationProps> = {}) => (
   <Pagination
@@ -122,6 +123,36 @@ describe('props', () => {
     });
   });
 
+  describe('custom previous and next elements', () => {
+    it('should render custom previous and next elements', () => {
+      const { getByText, getAllByRole } = render(
+        <Pagination
+          data-testid="pagination"
+          lastPage={2}
+          pageInputProps={{
+            invalidValueErrorText: (value) => `${value} is not allowed`,
+            inputPlaceholderText: 'placeholder text',
+            buttonText: 'Jump',
+            labelText: 'Page number input',
+          }}
+          onChange={() => null}
+          pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
+          ariaPageIndicatorText={(current, last) =>
+            `Page ${current} of ${last}`
+          }
+          aria-label="my component here"
+          customNextButton={<Link href="https://example.com">Next</Link>}
+          customPreviousButton={
+            <Link href="https://example.com">Previous</Link>
+          }
+        />,
+      );
+      expect(getByText('Next')).toBeInTheDocument();
+      expect(getByText('Previous')).toBeInTheDocument();
+      expect(getAllByRole('link')).toHaveLength(2);
+    });
+  });
+
   describe('ref', () => {
     it('ref is forwarded to input', () => {
       const ref = React.createRef<HTMLElement>();
@@ -154,6 +185,40 @@ describe('props', () => {
       );
 
       expect(ref.current?.tagName).toBe('NAV');
+    });
+  });
+  describe('button focus', () => {
+    it('should focus other button when button gets disabled', async () => {
+      const { getAllByRole } = render(
+        <Pagination
+          data-testid="pagination"
+          lastPage={2}
+          pageInputProps={{
+            invalidValueErrorText: (value) => `${value} is not allowed`,
+            inputPlaceholderText: 'placeholder text',
+            buttonText: 'Jump',
+            labelText: 'Page number input',
+          }}
+          nextButtonAriaLabel="Next page"
+          previousButtonAriaLabel="Previous page"
+          onChange={() => null}
+          pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
+          ariaPageIndicatorText={(current, last) =>
+            `Page ${current} of ${last}`
+          }
+          aria-label="my component here"
+        />,
+      );
+      const previousButton = getAllByRole('button')[0];
+      const nextButton = getAllByRole('button')[1];
+      expect(nextButton).not.toBeDisabled();
+      fireEvent.click(nextButton);
+      expect(nextButton).toBeDisabled();
+      expect(previousButton).toHaveFocus();
+
+      fireEvent.click(previousButton);
+      expect(previousButton).toBeDisabled();
+      expect(nextButton).toHaveFocus();
     });
   });
 });
