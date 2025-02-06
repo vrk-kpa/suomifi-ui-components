@@ -31,7 +31,7 @@ export interface PageInputProps {
   labelText: string;
 }
 
-type nextPreviousButtonProps =
+export type NextPreviousButtonProps =
   | {
       /** Next page button label for screen readers */
       nextButtonAriaLabel: string;
@@ -49,7 +49,7 @@ type nextPreviousButtonProps =
       customNextButton: React.ReactNode;
     };
 
-type ShowInputProps =
+export type ShowInputProps =
   | {
       pageInput: false;
       pageInputProps?: never;
@@ -106,7 +106,7 @@ interface InternalPaginationProps {
 
 export type PaginationProps = ShowInputProps &
   InternalPaginationProps &
-  nextPreviousButtonProps &
+  NextPreviousButtonProps &
   Omit<HtmlNavProps, 'onChange'> &
   MarginProps;
 
@@ -133,26 +133,51 @@ interface PaginationState {
   currentPage: number;
 }
 
+const leftButtonRef = React.createRef<HTMLButtonElement>();
+const rightButtonRef = React.createRef<HTMLButtonElement>();
+
 class BasePagination extends Component<PaginationProps> {
   private onLeftButtonClick = () => {
     if (this.props.currentPage) {
-      this.props.onChange(this.props.currentPage - 1);
+      const newPage = this.props.currentPage - 1;
+      this.props.onChange(newPage);
+      if (newPage <= 1) {
+        rightButtonRef.current?.focus();
+      }
     } else {
-      this.props.onChange(this.state.currentPage - 1);
-      this.setState((prevState: PaginationState) => ({
-        currentPage: prevState.currentPage - 1,
-      }));
+      this.setState(
+        (prevState: PaginationState) => ({
+          currentPage: prevState.currentPage - 1,
+        }),
+        () => {
+          this.props.onChange(this.state.currentPage);
+          if (this.state.currentPage <= 1) {
+            rightButtonRef.current?.focus();
+          }
+        },
+      );
     }
   };
 
   private onRightButtonClick = () => {
     if (this.props.currentPage) {
-      this.props.onChange(this.props.currentPage + 1);
+      const newPage = this.props.currentPage + 1;
+      this.props.onChange(newPage);
+      if (newPage >= this.props.lastPage) {
+        leftButtonRef.current?.focus();
+      }
     } else {
-      this.props.onChange(this.state.currentPage + 1);
-      this.setState((prevState: PaginationState) => ({
-        currentPage: prevState.currentPage + 1,
-      }));
+      this.setState(
+        (prevState: PaginationState) => ({
+          currentPage: prevState.currentPage + 1,
+        }),
+        () => {
+          this.props.onChange(this.state.currentPage);
+          if (this.state.currentPage >= this.props.lastPage) {
+            leftButtonRef.current?.focus();
+          }
+        },
+      );
     }
   };
 
@@ -221,6 +246,7 @@ class BasePagination extends Component<PaginationProps> {
                 icon={<IconArrowLeft />}
                 disabled={this.getCurrentPage() <= 1}
                 aria-label={previousButtonAriaLabel}
+                forwardedRef={leftButtonRef}
               />
             )}
 
@@ -236,6 +262,7 @@ class BasePagination extends Component<PaginationProps> {
                 disabled={this.getCurrentPage() >= lastPage}
                 aria-label={nextButtonAriaLabel}
                 icon={<IconArrowRight />}
+                forwardedRef={rightButtonRef}
               />
             )}
           </HtmlDiv>
