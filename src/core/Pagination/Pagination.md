@@ -250,13 +250,17 @@ import {
   Block,
   Heading,
   Link,
+  Text,
   IconArrowRight,
   IconArrowLeft,
   suomifiDesignTokens
 } from 'suomifi-ui-components';
+import { useRef } from 'react';
 
 const [current, setCurrent] = React.useState(2);
 const lastPage = 8;
+const prevPageLinkRef = useRef();
+const nextPageLinkRef = useRef();
 
 const fakePageNode = (
   <Block
@@ -273,6 +277,10 @@ const fakePageNode = (
 const handlePageChange = (newPage) => {
   if (newPage <= 0 || newPage > lastPage) return;
   setCurrent(newPage);
+  if (newPage === 1) {
+    nextPageLinkRef.current.focus();
+  }
+  if (newPage === lastPage) prevPageLinkRef.current.focus();
 };
 
 <Block style={{ width: '600px' }}>
@@ -281,23 +289,40 @@ const handlePageChange = (newPage) => {
     currentPage={current}
     lastPage={lastPage}
     customPreviousButton={
-      <Link
-        href="./#/Components/Pagination?id=page-browsing-using-links"
-        rel="prev"
-        onClick={() => handlePageChange(current - 1)}
-        disabled={current <= 1}
-      >
-        Previous page
-      </Link>
+      current <= 1 ? (
+        <Text
+          style={{ color: suomifiDesignTokens.colors.depthLight3 }}
+        >
+          Previous page
+        </Text>
+      ) : (
+        <Link
+          forwardedRef={prevPageLinkRef}
+          href="./#/Components/Pagination?id=page-browsing-using-links"
+          rel="prev"
+          onClick={() => handlePageChange(current - 1)}
+        >
+          Previous page
+        </Link>
+      )
     }
     customNextButton={
-      <Link
-        href="./#/Components/Pagination?id=page-browsing-using-links"
-        rel="next"
-        onClick={() => handlePageChange(current + 1)}
-      >
-        Next page
-      </Link>
+      current >= lastPage ? (
+        <Text
+          style={{ color: suomifiDesignTokens.colors.depthLight3 }}
+        >
+          Next page
+        </Text>
+      ) : (
+        <Link
+          forwardedRef={nextPageLinkRef}
+          href="./#/Components/Pagination?id=page-browsing-using-links"
+          rel="next"
+          onClick={() => handlePageChange(current + 1)}
+        >
+          Next page
+        </Link>
+      )
     }
     aria-label="Pagination"
     pageInputProps={{
