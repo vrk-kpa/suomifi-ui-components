@@ -8,6 +8,7 @@ Examples:
 
 - [Basic use](./#/Components/Toast?id=basic-use)
 - [Toast with heading](./#/Components/Toast?id=toast-with-heading)
+- [Toast with close button](./#/Components/Toast?id=toast-with-close-button)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/Toast?id=props--methods)
@@ -40,11 +41,23 @@ import { Toast } from 'suomifi-ui-components';
 In some cases you might want to give the user the option to close the toast manually. This can be achieved by giving the toast the `showCloseButton` and `closeText` attributes.
 
 ```js
-import { Toast } from 'suomifi-ui-components';
+import { Toast, Button } from 'suomifi-ui-components';
+import { useState } from 'react';
 
-<Toast showCloseButton closeText="Close">
-  Your information was sent successfully.
-</Toast>;
+const [showToast, setShowToast] = useState(true);
+
+<>
+  {showToast && (
+    <Toast
+      showCloseButton
+      closeText="Close"
+      onCloseButtonClick={() => setShowToast(false)}
+    >
+      Your information was sent successfully.
+    </Toast>
+  )}
+  <Button onClick={() => setShowToast(true)}>Show toast</Button>
+</>;
 ```
 
 ### Props & methods

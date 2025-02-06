@@ -55,9 +55,7 @@ export type CloseButtonProps =
        */
       showCloseButton: true;
       /**
-       * Text to label the close button.
-       * Is visible and as `aria-label` in regular size and only used as `aria-label` in small screen variant.
-       * Required when clear button is shown.
+       * Text to be used as aria-label for the close button.
        */
       closeText: string;
       /** Callback fired on close button click */
