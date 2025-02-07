@@ -133,16 +133,17 @@ interface PaginationState {
   currentPage: number;
 }
 
-const leftButtonRef = React.createRef<HTMLButtonElement>();
-const rightButtonRef = React.createRef<HTMLButtonElement>();
-
 class BasePagination extends Component<PaginationProps> {
+  private leftButtonRef = React.createRef<HTMLButtonElement>();
+
+  private rightButtonRef = React.createRef<HTMLButtonElement>();
+
   private onLeftButtonClick = () => {
     if (this.props.currentPage) {
       const newPage = this.props.currentPage - 1;
       this.props.onChange(newPage);
       if (newPage <= 1) {
-        rightButtonRef.current?.focus();
+        this.rightButtonRef.current?.focus();
       }
     } else {
       this.setState(
@@ -152,7 +153,7 @@ class BasePagination extends Component<PaginationProps> {
         () => {
           this.props.onChange(this.state.currentPage);
           if (this.state.currentPage <= 1) {
-            rightButtonRef.current?.focus();
+            this.rightButtonRef.current?.focus();
           }
         },
       );
@@ -164,7 +165,7 @@ class BasePagination extends Component<PaginationProps> {
       const newPage = this.props.currentPage + 1;
       this.props.onChange(newPage);
       if (newPage >= this.props.lastPage) {
-        leftButtonRef.current?.focus();
+        this.leftButtonRef.current?.focus();
       }
     } else {
       this.setState(
@@ -174,7 +175,7 @@ class BasePagination extends Component<PaginationProps> {
         () => {
           this.props.onChange(this.state.currentPage);
           if (this.state.currentPage >= this.props.lastPage) {
-            leftButtonRef.current?.focus();
+            this.leftButtonRef.current?.focus();
           }
         },
       );
@@ -246,7 +247,7 @@ class BasePagination extends Component<PaginationProps> {
                 icon={<IconArrowLeft />}
                 disabled={this.getCurrentPage() <= 1}
                 aria-label={previousButtonAriaLabel}
-                forwardedRef={leftButtonRef}
+                forwardedRef={this.leftButtonRef}
               />
             )}
 
@@ -262,7 +263,7 @@ class BasePagination extends Component<PaginationProps> {
                 disabled={this.getCurrentPage() >= lastPage}
                 aria-label={nextButtonAriaLabel}
                 icon={<IconArrowRight />}
-                forwardedRef={rightButtonRef}
+                forwardedRef={this.rightButtonRef}
               />
             )}
           </HtmlDiv>
