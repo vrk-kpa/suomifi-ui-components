@@ -290,9 +290,7 @@ const handlePageChange = (newPage) => {
     lastPage={lastPage}
     customPreviousButton={
       current <= 1 ? (
-        <Text
-          style={{ color: suomifiDesignTokens.colors.depthLight3 }}
-        >
+        <Text style={{ color: suomifiDesignTokens.colors.depthBase }}>
           Previous page
         </Text>
       ) : (
@@ -308,9 +306,7 @@ const handlePageChange = (newPage) => {
     }
     customNextButton={
       current >= lastPage ? (
-        <Text
-          style={{ color: suomifiDesignTokens.colors.depthLight3 }}
-        >
+        <Text style={{ color: suomifiDesignTokens.colors.depthBase }}>
           Next page
         </Text>
       ) : (
