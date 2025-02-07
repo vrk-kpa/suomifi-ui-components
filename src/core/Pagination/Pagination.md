@@ -242,7 +242,7 @@ const fakePageNode = (
 
 ### Page browsing using links
 
-For search engine optimization or other such reasons, it is possible to give custom components to use instead of the regular arrow buttons for browsing. If you do decide to replace the buttons, make sure that the customized solution is accessible.
+For search engine optimization or other such reasons, it is possible to give custom components to use instead of the regular arrow buttons for browsing. If you do decide to replace the buttons, make sure that the customized solution is accessible. When the first or last page is reach via clicking the links or other custom components, move focus to the other browse button.
 
 ```js
 import {
