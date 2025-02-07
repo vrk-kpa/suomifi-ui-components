@@ -33,7 +33,12 @@ afterEach(() => {
 describe('Basic modal', () => {
   const text = 'Modal Content';
   const BasicModal = (props?: Partial<ModalProps>) => (
-    <Modal appElementId="root" visible={true} {...props}>
+    <Modal
+      appElementId="root"
+      visible={true}
+      {...props}
+      ariaLabelledBy="test12"
+    >
       <ModalContent>
         <ModalTitle>Test modal</ModalTitle>
         <p>{text}</p>
@@ -62,6 +67,11 @@ describe('Basic modal', () => {
   it('should not have basic accessibility issues', () => {
     const { baseElement } = render(BasicModal());
     axeTest(baseElement as any);
+  });
+
+  it('should have given aria-labelledby', () => {
+    const { getByRole } = render(BasicModal());
+    expect(getByRole('dialog')).toHaveAttribute('aria-labelledby', 'test12');
   });
 });
 
