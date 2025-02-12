@@ -142,9 +142,6 @@ class BasePagination extends Component<PaginationProps> {
     if (this.props.currentPage) {
       const newPage = this.props.currentPage - 1;
       this.props.onChange(newPage);
-      if (newPage <= 1) {
-        this.rightButtonRef.current?.focus();
-      }
     } else {
       this.setState(
         (prevState: PaginationState) => ({
@@ -152,9 +149,6 @@ class BasePagination extends Component<PaginationProps> {
         }),
         () => {
           this.props.onChange(this.state.currentPage);
-          if (this.state.currentPage <= 1) {
-            this.rightButtonRef.current?.focus();
-          }
         },
       );
     }
@@ -164,9 +158,6 @@ class BasePagination extends Component<PaginationProps> {
     if (this.props.currentPage) {
       const newPage = this.props.currentPage + 1;
       this.props.onChange(newPage);
-      if (newPage >= this.props.lastPage) {
-        this.leftButtonRef.current?.focus();
-      }
     } else {
       this.setState(
         (prevState: PaginationState) => ({
@@ -174,9 +165,6 @@ class BasePagination extends Component<PaginationProps> {
         }),
         () => {
           this.props.onChange(this.state.currentPage);
-          if (this.state.currentPage >= this.props.lastPage) {
-            this.leftButtonRef.current?.focus();
-          }
         },
       );
     }
