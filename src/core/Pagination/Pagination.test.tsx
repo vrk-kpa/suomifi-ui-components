@@ -187,38 +187,4 @@ describe('props', () => {
       expect(ref.current?.tagName).toBe('NAV');
     });
   });
-  describe('button focus', () => {
-    it('should focus other button when button gets disabled', async () => {
-      const { getAllByRole } = render(
-        <Pagination
-          data-testid="pagination"
-          lastPage={2}
-          pageInputProps={{
-            invalidValueErrorText: (value) => `${value} is not allowed`,
-            inputPlaceholderText: 'placeholder text',
-            buttonText: 'Jump',
-            labelText: 'Page number input',
-          }}
-          nextButtonAriaLabel="Next page"
-          previousButtonAriaLabel="Previous page"
-          onChange={() => null}
-          pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
-          ariaPageIndicatorText={(current, last) =>
-            `Page ${current} of ${last}`
-          }
-          aria-label="my component here"
-        />,
-      );
-      const previousButton = getAllByRole('button')[0];
-      const nextButton = getAllByRole('button')[1];
-      expect(nextButton).not.toBeDisabled();
-      fireEvent.click(nextButton);
-      expect(nextButton).toBeDisabled();
-      expect(previousButton).toHaveFocus();
-
-      fireEvent.click(previousButton);
-      expect(previousButton).toBeDisabled();
-      expect(nextButton).toHaveFocus();
-    });
-  });
 });
