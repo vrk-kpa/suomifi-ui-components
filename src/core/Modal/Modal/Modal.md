@@ -29,6 +29,8 @@ Hide the application root node from the keyboard focus order and assistive techn
 
 Visibility state of the Modal is controlled outside the component. Closing the Modal needs to be done explicitly on footer buttons and esc keypress.
 
+While the modal is made to be accessible without it, you might want to add an `ariaLabelledBy` prop referring to your `ModalTitle` element to appease automatic accessibility checkers and as a backup measure.
+
 ```js
 import { useState } from 'react';
 import {
@@ -57,9 +59,10 @@ Quisque non sapien sem.`;
     appElementId="rsg-root"
     visible={visible}
     onEscKeyDown={() => setVisible(false)}
+    ariaLabelledBy="modal-title"
   >
     <ModalContent>
-      <ModalTitle>Modal example</ModalTitle>
+      <ModalTitle id="modal-title">Modal example</ModalTitle>
       <Paragraph>
         {Array.apply(null, { length: 10 }).map((e, i) => (
           <Paragraph mb="l" key={i}>
