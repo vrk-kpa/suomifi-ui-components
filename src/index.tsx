@@ -153,6 +153,8 @@ export {
   Pagination,
   type PaginationProps,
   type PageInputProps,
+  type NextPreviousButtonProps,
+  type ShowInputProps,
 } from './core/Pagination/Pagination';
 export { Text, type TextProps } from './core/Text/Text';
 export { Textarea, type TextareaProps } from './core/Form/Textarea/Textarea';

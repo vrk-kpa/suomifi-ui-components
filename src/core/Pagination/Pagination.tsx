@@ -31,7 +31,25 @@ export interface PageInputProps {
   labelText: string;
 }
 
-type ShowInputProps =
+export type NextPreviousButtonProps =
+  | {
+      /** Next page button label for screen readers */
+      nextButtonAriaLabel: string;
+      /** Previous page button label for screen readers */
+      previousButtonAriaLabel: string;
+      customPreviousButton?: never;
+      customNextButton?: never;
+    }
+  | {
+      nextButtonAriaLabel?: never;
+      previousButtonAriaLabel?: never;
+      /** Custom previous button component */
+      customPreviousButton: React.ReactNode;
+      /** Custom next button component */
+      customNextButton: React.ReactNode;
+    };
+
+export type ShowInputProps =
   | {
       pageInput: false;
       pageInputProps?: never;
@@ -84,14 +102,11 @@ interface InternalPaginationProps {
   onChange: (page: number) => void;
   /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLElement>;
-  /** Next page button label for screen readers  */
-  nextButtonAriaLabel: string;
-  /** Previous page button label for screen readers */
-  previousButtonAriaLabel: string;
 }
 
 export type PaginationProps = ShowInputProps &
   InternalPaginationProps &
+  NextPreviousButtonProps &
   Omit<HtmlNavProps, 'onChange'> &
   MarginProps;
 
@@ -119,25 +134,39 @@ interface PaginationState {
 }
 
 class BasePagination extends Component<PaginationProps> {
+  private leftButtonRef = React.createRef<HTMLButtonElement>();
+
+  private rightButtonRef = React.createRef<HTMLButtonElement>();
+
   private onLeftButtonClick = () => {
     if (this.props.currentPage) {
-      this.props.onChange(this.props.currentPage - 1);
+      const newPage = this.props.currentPage - 1;
+      this.props.onChange(newPage);
     } else {
-      this.props.onChange(this.state.currentPage - 1);
-      this.setState((prevState: PaginationState) => ({
-        currentPage: prevState.currentPage - 1,
-      }));
+      this.setState(
+        (prevState: PaginationState) => ({
+          currentPage: prevState.currentPage - 1,
+        }),
+        () => {
+          this.props.onChange(this.state.currentPage);
+        },
+      );
     }
   };
 
   private onRightButtonClick = () => {
     if (this.props.currentPage) {
-      this.props.onChange(this.props.currentPage + 1);
+      const newPage = this.props.currentPage + 1;
+      this.props.onChange(newPage);
     } else {
-      this.props.onChange(this.state.currentPage + 1);
-      this.setState((prevState: PaginationState) => ({
-        currentPage: prevState.currentPage + 1,
-      }));
+      this.setState(
+        (prevState: PaginationState) => ({
+          currentPage: prevState.currentPage + 1,
+        }),
+        () => {
+          this.props.onChange(this.state.currentPage);
+        },
+      );
     }
   };
 
@@ -163,8 +192,10 @@ class BasePagination extends Component<PaginationProps> {
       onChange,
       currentPage,
       lastPage,
-      previousButtonAriaLabel,
-      nextButtonAriaLabel,
+      previousButtonAriaLabel = '',
+      nextButtonAriaLabel = '',
+      customNextButton,
+      customPreviousButton,
       pageInput,
       pageInputProps,
       smallScreen,
@@ -195,28 +226,34 @@ class BasePagination extends Component<PaginationProps> {
               {ariaPageIndicatorText(this.getCurrentPage(), lastPage)}
             </VisuallyHidden>
 
-            <Button
-              id={`${id}-previous-button`}
-              className={paginationClassNames.arrowButton}
-              variant="secondary"
-              onClick={this.onLeftButtonClick}
-              icon={<IconArrowLeft />}
-              disabled={this.getCurrentPage() <= 1}
-              aria-label={previousButtonAriaLabel}
-            />
+            {customPreviousButton || (
+              <Button
+                id={`${id}-previous-button`}
+                className={paginationClassNames.arrowButton}
+                variant="secondary"
+                onClick={this.onLeftButtonClick}
+                icon={<IconArrowLeft />}
+                disabled={this.getCurrentPage() <= 1}
+                aria-label={previousButtonAriaLabel}
+                forwardedRef={this.leftButtonRef}
+              />
+            )}
 
             <HtmlSpan className={paginationClassNames.pageNumbers}>
               {pageIndicatorText(this.getCurrentPage(), lastPage)}
             </HtmlSpan>
-            <Button
-              id={`${id}-next-button`}
-              className={paginationClassNames.arrowButton}
-              variant="secondary"
-              onClick={this.onRightButtonClick}
-              disabled={this.getCurrentPage() >= lastPage}
-              aria-label={nextButtonAriaLabel}
-              icon={<IconArrowRight />}
-            />
+            {customNextButton || (
+              <Button
+                id={`${id}-next-button`}
+                className={paginationClassNames.arrowButton}
+                variant="secondary"
+                onClick={this.onRightButtonClick}
+                disabled={this.getCurrentPage() >= lastPage}
+                aria-label={nextButtonAriaLabel}
+                icon={<IconArrowRight />}
+                forwardedRef={this.rightButtonRef}
+              />
+            )}
           </HtmlDiv>
 
           {pageInput === true && pageInputProps && (
