@@ -341,12 +341,6 @@ const handlePageChange = (newPage) => {
       )
     }
     aria-label="Pagination"
-    pageInputProps={{
-      invalidValueErrorText: (value) => `"${value}" is not allowed`,
-      inputPlaceholderText: 'Go to',
-      buttonText: 'Jump to page',
-      labelText: 'Page number'
-    }}
     onChange={(page) => {
       setCurrent(page);
       headingRef.current.focus();
