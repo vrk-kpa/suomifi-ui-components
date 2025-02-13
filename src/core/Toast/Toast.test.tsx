@@ -84,6 +84,54 @@ describe('props', () => {
       );
     });
   });
+  describe('close button', () => {
+    const ToastWithCloseButton = (
+      <Toast showCloseButton closeText="Close">
+        Testcontent
+      </Toast>
+    );
+    it('should have close button', () => {
+      const { container } = render(ToastWithCloseButton);
+      expect(
+        container.querySelector('.fi-toast_close-button'),
+      ).toBeInTheDocument();
+    });
+    it('has close text as aria-label', () => {
+      const { container } = render(ToastWithCloseButton);
+      expect(container.querySelector('.fi-toast_close-button')).toHaveAttribute(
+        'aria-label',
+        'Close',
+      );
+    });
+    it('has given onClick callback', () => {
+      const onCloseButtonClick = jest.fn();
+      const { getByLabelText } = render(
+        <Toast
+          showCloseButton
+          closeText="Close"
+          onCloseButtonClick={onCloseButtonClick}
+        >
+          Testcontent
+        </Toast>,
+      );
+      getByLabelText('Close').click();
+      expect(onCloseButtonClick).toHaveBeenCalledTimes(1);
+    });
+    it('has given custom props', () => {
+      const { container } = render(
+        <Toast
+          showCloseButton
+          closeText="Close"
+          closeButtonProps={{ className: 'custom-class' }}
+        >
+          Testcontent
+        </Toast>,
+      );
+      expect(container.querySelector('.fi-toast_close-button')).toHaveClass(
+        'custom-class',
+      );
+    });
+  });
 });
 
 describe('margin', () => {

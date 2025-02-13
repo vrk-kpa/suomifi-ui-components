@@ -16,7 +16,6 @@ export const baseStyles = (
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
-  overflow: hidden;
   &.fi-toast {
     background-color: ${theme.colors.whiteBase};
     & .fi-toast-wrapper {
@@ -29,6 +28,7 @@ export const baseStyles = (
       & .fi-toast-content-wrapper {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}
+        flex-grow: 1;
       }
       & .fi-toast-heading {
         ${font(theme)('bodySemiBold')}
@@ -41,6 +41,32 @@ export const baseStyles = (
         & .fi-toast_icon {
           height: 24px;
           width: 24px;
+        }
+      }
+      & .fi-toast_close-button {
+        height: 40px;
+        padding: 3px 6px 3px 6px;
+        margin-right: -15px;
+        margin-top: -20px;
+        border: 1px solid transparent;
+        color: ${theme.colors.highlightBase};
+
+        & .fi-icon {
+          margin: 0 ${theme.spacing.xxs};
+          font-size: 16px;
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.highlightBase};
+          }
+        }
+
+        &:focus-visible {
+          outline: 0;
+          position: relative;
+
+          &:after {
+            ${theme.focuses.absoluteFocus}
+            ${theme.focuses.highContrastFocus} /* For high contrast mode */
+          }
         }
       }
     }
