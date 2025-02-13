@@ -42,6 +42,10 @@ export interface ModalProps {
   focusOnCloseRef?: React.RefObject<any>;
   /** Callback fired on esc key press, i.e. closing modal */
   onEscKeyDown?: () => void;
+  /**
+   * Id of the element that labels the modal. Most likely the `ModalTitle`.
+   */
+  ariaLabelledBy?: string;
 }
 
 interface InternalModalProps extends ModalProps, SuomifiThemeProp {
@@ -142,6 +146,7 @@ class BaseModal extends Component<InternalModalProps> {
       focusOnOpenRef,
       focusOnCloseRef = null,
       onEscKeyDown,
+      ariaLabelledBy,
     } = this.props;
 
     if (!appElementId) {
@@ -157,7 +162,7 @@ class BaseModal extends Component<InternalModalProps> {
           [modalClassNames.noScroll]: scrollable === false,
         })}
         ariaHideApp={!!appElementId}
-        aria={{ modal: false }}
+        aria={{ modal: false, labelledby: ariaLabelledBy }}
         isOpen={visible}
         onAfterOpen={() => {
           this.toggleBodyScroll();

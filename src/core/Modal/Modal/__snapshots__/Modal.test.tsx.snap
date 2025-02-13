@@ -831,6 +831,7 @@ exports[`Basic modal should match snapshot 1`] = `
       class="ReactModal__Overlay fi-modal_overlay"
     >
       <div
+        aria-labelledby="test12"
         aria-modal="false"
         class="ReactModal__Content fi-modal"
         role="dialog"
