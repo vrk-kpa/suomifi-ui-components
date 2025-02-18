@@ -335,9 +335,14 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     generalDragEventHandler(e, 'remove');
     const dt = e.dataTransfer;
     const filesFromInput = dt?.files;
-    const previousAndNewFiles = Array.from(
-      inputRef.current?.files || [],
-    ).concat(Array.from(filesFromInput || []));
+    const previousFiles = Array.from(inputRef.current?.files || []);
+    if (!multiFile && previousFiles.length > 0) {
+      console.log('files from input: ', filesFromInput);
+      return;
+    }
+    const previousAndNewFiles = previousFiles.concat(
+      Array.from(filesFromInput || []),
+    );
     const newFileList = new DataTransfer();
     previousAndNewFiles.forEach((file) => {
       newFileList.items.add(file);
