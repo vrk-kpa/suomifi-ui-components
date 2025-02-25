@@ -369,6 +369,7 @@ exports[`snapshots match error status with statustext 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -491,6 +492,7 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
@@ -999,6 +1001,7 @@ exports[`snapshots match hidden label 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -1121,6 +1124,7 @@ exports[`snapshots match hidden label 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
@@ -1616,6 +1620,7 @@ exports[`snapshots match hint text 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -1738,6 +1743,7 @@ exports[`snapshots match hint text 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
@@ -2227,6 +2233,7 @@ exports[`snapshots match minimal implementation 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -2349,6 +2356,7 @@ exports[`snapshots match minimal implementation 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
