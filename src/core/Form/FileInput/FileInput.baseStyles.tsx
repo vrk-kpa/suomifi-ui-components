@@ -96,6 +96,7 @@ export const baseStyles = (
           flex-grow: 1;
           flex-shrink: 1;
           font-size: 16px;
+          word-break: break-word;
 
           &:not(.is-link) {
             &:focus {
@@ -183,6 +184,7 @@ export const baseStyles = (
             background-color: ${theme.colors.whiteBase};
             border: 1px solid ${theme.colors.highlightBase};
             text-shadow: none;
+            word-break: normal;
             cursor: pointer;
 
             &:hover {
