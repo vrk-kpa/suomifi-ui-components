@@ -11,7 +11,7 @@ export const baseStyles = (
   ${font(theme)('bodySemiBoldSmall')};
   color: ${theme.colors.blackBase};
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)};
 
