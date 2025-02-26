@@ -61,7 +61,7 @@ export const button = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('actionElementInnerTextBold')}
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
 `;
 
 export const nav = (theme: SuomifiTheme) => css`
