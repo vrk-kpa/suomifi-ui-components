@@ -24,7 +24,7 @@ export const baseStyles = (
     ${font(theme)('bodyTextSmall')};
     color: ${theme.colors.blackBase};
     font-size: 14px;
-    line-height: 20px;
+    line-height: calc(18 / 14);
     flex: none;
     margin-top: 4px;
 
@@ -32,7 +32,7 @@ export const baseStyles = (
       color: ${theme.colors.alertBase};
       ${font(theme)('bodySemiBoldSmall')};
       font-size: 14px;
-      line-height: 20px;
+      line-height: calc(18 / 14);
     }
   }
 

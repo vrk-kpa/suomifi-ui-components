@@ -39,7 +39,7 @@ export const baseStyles = (
     }
 
     & .fi-status-text {
-      line-height: 18px;
+      line-height: calc(18 / 14);
       &.fi-radio-button-group_statusText--has-content {
         margin-top: ${theme.spacing.xxs};
         padding-left: 3px;

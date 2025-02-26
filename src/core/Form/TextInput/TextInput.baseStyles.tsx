@@ -24,7 +24,7 @@ export const baseStyles = (
     ${font(theme)('bodyTextSmall')};
     color: ${theme.colors.blackBase};
     font-size: 14px;
-    line-height: 20px;
+    line-height: calc(18 / 14);
     flex: none;
     margin-top: ${theme.spacing.xxs};
 
@@ -32,7 +32,7 @@ export const baseStyles = (
       color: ${theme.colors.alertBase};
       ${font(theme)('bodySemiBoldSmall')};
       font-size: 14px;
-      line-height: 20px;
+      line-height: calc(18 / 14);
     }
   }
 
@@ -114,8 +114,8 @@ export const baseStyles = (
 
     & .fi-icon {
       position: absolute;
-      width: 18px;
-      height: 18px;
+      width: calc(18 / 14);
+      height: calc(18 / 14);
       top: ${theme.spacing.insetL};
       right: ${theme.spacing.insetL};
     }
