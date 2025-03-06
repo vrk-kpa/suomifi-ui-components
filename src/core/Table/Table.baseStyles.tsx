@@ -189,5 +189,49 @@ export const baseStyles = (
     .fi-table_caption--alternative {
       ${font(theme)('heading3')}
     }
+
+    .fi-table_skeleton {
+      background-color: ${theme.colors.depthLight2};
+      border-radius: 4px;
+      animation: shimmer 1.5s infinite linear;
+    }
+
+    .fi-table_skeleton-row {
+      .fi-table_skeleton-cell {
+        padding: 12px 20px;
+      }
+      &:first-child {
+        .fi-table_skeleton-cell {
+          padding-top: 18px;
+        }
+      }
+      &:last-child {
+        .fi-table_skeleton-cell {
+          padding-bottom: 18px;
+        }
+      }
+
+      .fi-table_selection-cell-skeleton {
+        width: 48px;
+        padding-right: 12px;
+      }
+    }
+
+    .fi-table_skeleton-content {
+      height: 6px;
+      width: 100%;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-color: ${theme.colors.depthLight2};
+      }
+      50% {
+        background-color: ${theme.colors.depthLight3};
+      }
+      100% {
+        background-color: ${theme.colors.depthLight2};
+      }
+    }
   }
 `;

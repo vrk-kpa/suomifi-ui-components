@@ -38,6 +38,7 @@ import { getConditionalAriaProp } from '../../utils/aria';
 import { Checkbox } from '../Form/Checkbox/Checkbox';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { RadioButton } from '../Form/RadioButton/RadioButton';
+import { Block } from '../Block/Block';
 
 const baseClassName = 'fi-table';
 
@@ -59,6 +60,11 @@ const tableClassNames = {
   rowCountText: `${baseClassName}_row-count-text`,
   sortIcons: `${baseClassName}_sort-icons`,
   sortButton: `${baseClassName}_sort-button`,
+  skeleton: `${baseClassName}_skeleton`,
+  skeletonRow: `${baseClassName}_skeleton-row`,
+  skeletonCell: `${baseClassName}_skeleton-cell`,
+  skeletonContent: `${baseClassName}_skeleton-content`,
+  selectionCellSkeleton: `${baseClassName}_selection-cell-skeleton`,
 };
 
 export interface TableColumn {
@@ -110,6 +116,11 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
     columnLabel: string,
     direction: 'asc' | 'desc',
   ) => string;
+  tableSortedCallback?: (
+    columnLabel: string,
+    direction: 'asc' | 'desc',
+  ) => void;
+  loading?: boolean;
   /** Ref object is placed to the main table element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTableElement>;
 }
@@ -142,6 +153,8 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     enableSingleRowSelection,
     onSelectedRowsChange,
     tableSortedAriaLiveText,
+    tableSortedCallback,
+    loading,
     controlledSelectedRowIds,
     className,
     'aria-labelledby': ariaLabelledBy,
@@ -184,14 +197,33 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         }
         return '';
       };
+
       const aValueText = getTextContent(aValue);
       const bValueText = getTextContent(bValue);
+
+      const isNumeric =
+        !Number.isNaN(Number(aValueText)) && !Number.isNaN(Number(bValueText));
+
+      if (isNumeric) {
+        return !sortColumn.includes(key) || sortColumn === `${key}-desc`
+          ? Number(aValueText) - Number(bValueText)
+          : Number(bValueText) - Number(aValueText);
+      }
 
       return !sortColumn.includes(key) || sortColumn === `${key}-desc`
         ? aValueText.localeCompare(bValueText)
         : bValueText.localeCompare(aValueText);
     });
-    setData(sortedData);
+    if (!!tableSortedCallback) {
+      tableSortedCallback(
+        key,
+        !sortColumn.includes(key) || sortColumn === `${key}-desc`
+          ? 'asc'
+          : 'desc',
+      );
+    } else {
+      setData(sortedData);
+    }
     if (!sortColumn.includes(key) || sortColumn === `${key}-desc`) {
       setSortColumn(`${key}-asc`);
     } else {
@@ -235,6 +267,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         })}
         id={id}
         {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
+        aria-busy={loading}
         {...passProps}
       >
         {caption && (
@@ -287,58 +320,102 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
           </HtmlTableRow>
         </HtmlTableHeader>
         <HtmlTableBody className={tableClassNames.tbody}>
-          {data.map((row) => (
-            <HtmlTableRow
-              key={row.id}
-              className={classnames(tableClassNames.tr, {
-                highlighted: selectedRowIds.includes(row.id),
-              })}
-            >
-              {enableRowSelection && (
-                <HtmlTableCell className={classnames(tableClassNames.td)}>
-                  <Checkbox
-                    checked={selectedRowIds.includes(row.id)}
-                    onClick={(checkedVal) =>
-                      handleRowSelection(
-                        row.id,
-                        checkedVal.checkboxState ? 'add' : 'remove',
-                      )
-                    }
-                  >
-                    <VisuallyHidden>
-                      {row.rowSelectionCheckboxLabel}
-                    </VisuallyHidden>
-                  </Checkbox>
-                </HtmlTableCell>
-              )}
-              {enableSingleRowSelection && (
-                <HtmlTableCell className={classnames(tableClassNames.td)}>
-                  <RadioButton
-                    value={`radiobutton-${row.id}`}
-                    checked={selectedRowIds.includes(row.id)}
-                    onChange={(newValue) =>
-                      handleRowSelection(row.id, newValue ? 'add' : 'remove')
-                    }
-                  >
-                    <VisuallyHidden>
-                      {row.rowSelectionCheckboxLabel}
-                    </VisuallyHidden>
-                  </RadioButton>
-                </HtmlTableCell>
-              )}
-              {columns.map((col) => (
-                <HtmlTableCell
-                  key={`${row.id}-${row[col.key as keyof TableRow<TColumns>]}`}
-                  className={classnames(tableClassNames.td, col.className, {
-                    [tableClassNames.tdAlignRight]: col.textAlign === 'right',
-                    [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
+          {loading
+            ? [0, 1, 2, 3, 4].map((val) => (
+                <HtmlTableRow
+                  key={`loading-row-${val}}`}
+                  className={tableClassNames.skeletonRow}
+                  aria-hidden="true"
+                >
+                  {(enableRowSelection || enableSingleRowSelection) && (
+                    <HtmlTableCell
+                      className={classnames(
+                        tableClassNames.skeletonCell,
+                        tableClassNames.selectionCellSkeleton,
+                      )}
+                    >
+                      <Block
+                        className={classnames(
+                          tableClassNames.skeleton,
+                          tableClassNames.skeletonContent,
+                        )}
+                      />
+                    </HtmlTableCell>
+                  )}
+                  {columns.map((col) => (
+                    <HtmlTableCell
+                      key={`loading-cell-${col.key}`}
+                      className={tableClassNames.skeletonCell}
+                    >
+                      <Block
+                        className={classnames(
+                          tableClassNames.skeleton,
+                          tableClassNames.skeletonContent,
+                        )}
+                      />
+                    </HtmlTableCell>
+                  ))}
+                </HtmlTableRow>
+              ))
+            : data.map((row) => (
+                <HtmlTableRow
+                  key={row.id}
+                  className={classnames(tableClassNames.tr, {
+                    highlighted: selectedRowIds.includes(row.id),
                   })}
                 >
-                  {row[col.key as keyof TableRow<TColumns>]}
-                </HtmlTableCell>
+                  {enableRowSelection && (
+                    <HtmlTableCell className={classnames(tableClassNames.td)}>
+                      <Checkbox
+                        checked={selectedRowIds.includes(row.id)}
+                        onClick={(checkedVal) =>
+                          handleRowSelection(
+                            row.id,
+                            checkedVal.checkboxState ? 'add' : 'remove',
+                          )
+                        }
+                      >
+                        <VisuallyHidden>
+                          {row.rowSelectionCheckboxLabel}
+                        </VisuallyHidden>
+                      </Checkbox>
+                    </HtmlTableCell>
+                  )}
+                  {enableSingleRowSelection && (
+                    <HtmlTableCell className={classnames(tableClassNames.td)}>
+                      <RadioButton
+                        value={`radiobutton-${row.id}`}
+                        checked={selectedRowIds.includes(row.id)}
+                        onChange={(newValue) =>
+                          handleRowSelection(
+                            row.id,
+                            newValue ? 'add' : 'remove',
+                          )
+                        }
+                      >
+                        <VisuallyHidden>
+                          {row.rowSelectionCheckboxLabel}
+                        </VisuallyHidden>
+                      </RadioButton>
+                    </HtmlTableCell>
+                  )}
+                  {columns.map((col) => (
+                    <HtmlTableCell
+                      key={`${row.id}-${
+                        row[col.key as keyof TableRow<TColumns>]
+                      }`}
+                      className={classnames(tableClassNames.td, col.className, {
+                        [tableClassNames.tdAlignRight]:
+                          col.textAlign === 'right',
+                        [tableClassNames.tdAlignCenter]:
+                          col.textAlign === 'center',
+                      })}
+                    >
+                      {row[col.key as keyof TableRow<TColumns>]}
+                    </HtmlTableCell>
+                  ))}
+                </HtmlTableRow>
               ))}
-            </HtmlTableRow>
-          ))}
         </HtmlTableBody>
       </HtmlTable>
     </HtmlDiv>
