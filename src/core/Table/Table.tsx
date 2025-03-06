@@ -401,9 +401,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                   )}
                   {columns.map((col) => (
                     <HtmlTableCell
-                      key={`${row.id}-${
-                        row[col.key as keyof TableRow<TColumns>]
-                      }`}
+                      key={`${row.id}-${col.key}`}
                       className={classnames(tableClassNames.td, col.className, {
                         [tableClassNames.tdAlignRight]:
                           col.textAlign === 'right',
