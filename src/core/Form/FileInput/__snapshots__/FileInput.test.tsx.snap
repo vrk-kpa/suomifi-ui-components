@@ -251,7 +251,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c9.fi-status-text {
@@ -483,7 +483,7 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(212, 63%, 45%);
@@ -881,7 +881,7 @@ exports[`snapshots match hidden label 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c10.fi-status-text {
@@ -1113,7 +1113,7 @@ exports[`snapshots match hidden label 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(212, 63%, 45%);
@@ -1498,7 +1498,7 @@ exports[`snapshots match hint text 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c10.fi-status-text {
@@ -1730,7 +1730,7 @@ exports[`snapshots match hint text 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(212, 63%, 45%);
@@ -2109,7 +2109,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c9.fi-status-text {
@@ -2341,7 +2341,7 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(212, 63%, 45%);

@@ -368,7 +368,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -789,7 +789,7 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(0, 0%, 100%);

@@ -240,7 +240,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {

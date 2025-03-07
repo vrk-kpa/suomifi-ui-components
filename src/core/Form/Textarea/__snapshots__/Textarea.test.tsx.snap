@@ -155,7 +155,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -219,7 +219,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-weight: 400;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
   flex: none;
   margin-top: 5px;
 }
@@ -236,7 +236,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-textarea .fi-textarea_statusText--has-content {
@@ -311,7 +311,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 
 .c1.fi-textarea .fi-status-text {
   display: block;
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-textarea.fi-textarea--disabled {

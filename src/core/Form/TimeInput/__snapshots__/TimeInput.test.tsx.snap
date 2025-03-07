@@ -179,7 +179,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -231,7 +231,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 400;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
   flex: none;
   margin-top: 4px;
 }
@@ -248,7 +248,7 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c1 .fi-time-input_bottom-wrapper {
@@ -611,7 +611,7 @@ exports[`snapshots match hidden label 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -663,7 +663,7 @@ exports[`snapshots match hidden label 1`] = `
   font-weight: 400;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
   flex: none;
   margin-top: 4px;
 }
@@ -680,7 +680,7 @@ exports[`snapshots match hidden label 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c1 .fi-time-input_bottom-wrapper {
@@ -1013,7 +1013,7 @@ exports[`snapshots match hint text 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -1082,7 +1082,7 @@ exports[`snapshots match hint text 1`] = `
   font-weight: 400;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
   flex: none;
   margin-top: 4px;
 }
@@ -1099,7 +1099,7 @@ exports[`snapshots match hint text 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c1 .fi-time-input_bottom-wrapper {
@@ -1443,7 +1443,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -1495,7 +1495,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 400;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
   flex: none;
   margin-top: 4px;
 }
@@ -1512,7 +1512,7 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c1 .fi-time-input_bottom-wrapper {

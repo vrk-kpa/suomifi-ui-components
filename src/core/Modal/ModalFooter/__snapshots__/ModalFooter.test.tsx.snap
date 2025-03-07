@@ -238,7 +238,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(0, 0%, 100%);

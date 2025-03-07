@@ -251,7 +251,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -320,7 +320,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -923,7 +923,7 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -992,7 +992,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -1595,7 +1595,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -1664,7 +1664,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -2303,7 +2303,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c12.fi-status-text {
@@ -2372,7 +2372,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -3015,7 +3015,7 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c12.fi-status-text {
@@ -3084,7 +3084,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -3692,7 +3692,7 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -3761,7 +3761,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -4364,7 +4364,7 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -4433,7 +4433,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -5047,7 +5047,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c12.fi-status-text {
@@ -5116,7 +5116,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -5719,7 +5719,7 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -5788,7 +5788,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {
@@ -6391,7 +6391,7 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c11.fi-status-text {
@@ -6460,7 +6460,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button-group .fi-status-text {
-  line-height: 18px;
+  line-height: calc(18 / 14);
 }
 
 .c1.fi-radio-button-group .fi-status-text.fi-radio-button-group_statusText--has-content {

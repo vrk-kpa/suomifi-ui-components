@@ -272,7 +272,7 @@ exports[`Basic expander shoud match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;

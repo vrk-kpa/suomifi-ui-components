@@ -292,7 +292,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -968,7 +968,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -1637,7 +1637,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -2215,7 +2215,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c8.fi-status-text {

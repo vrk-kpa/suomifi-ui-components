@@ -179,7 +179,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -636,7 +636,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -1080,7 +1080,7 @@ exports[`snapshots match date input hint text 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c7.fi-status-text {
@@ -1513,7 +1513,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -1939,7 +1939,7 @@ exports[`snapshots match date input optional text 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -2394,7 +2394,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c6.fi-status-text {
@@ -2948,7 +2948,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(0, 0%, 100%);
@@ -3387,7 +3387,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c9.fi-status-text {
@@ -5087,7 +5087,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   line-height: 1.5;
   font-weight: 600;
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(20 / 14);
   padding: 9px 20px;
   min-height: 40px;
   color: hsl(0, 0%, 100%);
@@ -5526,7 +5526,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c9.fi-status-text {

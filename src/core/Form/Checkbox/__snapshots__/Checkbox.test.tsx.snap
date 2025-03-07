@@ -125,7 +125,7 @@ exports[`props children has matching snapshot 1`] = `
   font-weight: 600;
   color: hsl(0, 0%, 13%);
   font-size: 14px;
-  line-height: 20px;
+  line-height: calc(18 / 14);
 }
 
 .c5.fi-status-text {
