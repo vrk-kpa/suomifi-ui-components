@@ -126,4 +126,17 @@ describe('Table functionalities', () => {
       expect(row).toHaveClass('fi-table_skeleton-row');
     });
   });
+
+  it('renders the correct number of skeleton rows when loadingRowAmount is provided', () => {
+    renderTable({
+      caption: 'People in the project',
+      loading: true,
+      loadingRowAmount: 3,
+    });
+    const skeletonRows = screen.getAllByRole('row', { hidden: true }).slice(1);
+    expect(skeletonRows).toHaveLength(3);
+    skeletonRows.forEach((row) => {
+      expect(row).toHaveClass('fi-table_skeleton-row');
+    });
+  });
 });

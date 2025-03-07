@@ -361,6 +361,13 @@ exports[`Table functionalities matches snapshot 1`] = `
   line-height: 2;
 }
 
+.c1.fi-table .fi-table_table .fi-table_th.fi-table_td--selection,
+.c1.fi-table .fi-table_table .fi-table_td.fi-table_td--selection {
+  width: 45px;
+  padding: 0;
+  position: relative;
+}
+
 .c1.fi-table .fi-table_table .fi-table_th .fi-link,
 .c1.fi-table .fi-table_table .fi-table_td .fi-link {
   font-size: 16px;
@@ -370,17 +377,33 @@ exports[`Table functionalities matches snapshot 1`] = `
 .c1.fi-table .fi-table_table .fi-table_th .fi-checkbox,
 .c1.fi-table .fi-table_table .fi-table_td .fi-checkbox {
   height: 19px;
-  width: 5px;
+  width: 0;
+  margin: auto;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th .fi-radio-button,
 .c1.fi-table .fi-table_table .fi-table_td .fi-radio-button {
-  width: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper,
 .c1.fi-table .fi-table_table .fi-table_td .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper {
-  top: 4px;
+  top: 18px;
+  left: 20px;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-radio-button .fi-radio-button_label,
+.c1.fi-table .fi-table_table .fi-table_td .fi-radio-button .fi-radio-button_label {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 18px;
+  left: 22px;
+  padding: 0;
 }
 
 .c1.fi-table .fi-table_table .fi-table_th {
@@ -532,14 +555,8 @@ exports[`Table functionalities matches snapshot 1`] = `
 
 .c1.fi-table .fi-table_skeleton-row .fi-table_skeleton-cell {
   padding: 12px 20px;
-}
-
-.c1.fi-table .fi-table_skeleton-row:first-child .fi-table_skeleton-cell {
-  padding-top: 18px;
-}
-
-.c1.fi-table .fi-table_skeleton-row:last-child .fi-table_skeleton-cell {
-  padding-bottom: 18px;
+  height: 57px;
+  vertical-align: middle;
 }
 
 .c1.fi-table .fi-table_skeleton-row .fi-table_selection-cell-skeleton {

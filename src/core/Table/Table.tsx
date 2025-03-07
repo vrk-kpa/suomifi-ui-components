@@ -49,6 +49,7 @@ const tableClassNames = {
   th: `${baseClassName}_th`,
   tr: `${baseClassName}_tr`,
   td: `${baseClassName}_td`,
+  selectionTd: `${baseClassName}_td--selection`,
   tdAlignRight: `${baseClassName}_td--align-right`,
   tdAlignCenter: `${baseClassName}_td--align-center`,
   caption: `${baseClassName}_caption`,
@@ -116,11 +117,15 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
     columnLabel: string,
     direction: 'asc' | 'desc',
   ) => string;
+  /** Optional custom callback which is fired when table is sorted */
   tableSortedCallback?: (
     columnLabel: string,
     direction: 'asc' | 'desc',
   ) => void;
+  /** Displays skeleton rows (default of 5) to indicate the table is waiting to receive data */
   loading?: boolean;
+  /** Optional override of the default amount (5) of skeleton rows when `loading` is true */
+  loadingRowAmount?: number;
   /** Ref object is placed to the main table element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTableElement>;
 }
@@ -155,6 +160,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     tableSortedAriaLiveText,
     tableSortedCallback,
     loading,
+    loadingRowAmount = 5,
     controlledSelectedRowIds,
     className,
     'aria-labelledby': ariaLabelledBy,
@@ -254,6 +260,13 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
 
   const getSortDirection = () => (sortColumn.endsWith('-asc') ? 'asc' : 'desc');
 
+  const skeletonRows = [];
+  if (loading) {
+    for (let i = 0; i < loadingRowAmount; i += 1) {
+      skeletonRows.push(i);
+    }
+  }
+
   return (
     <HtmlDiv className={classnames(baseClassName, className)}>
       <VisuallyHidden aria-live="polite">
@@ -278,7 +291,12 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         <HtmlTableHeader className={tableClassNames.thead}>
           <HtmlTableRow>
             {(enableRowSelection || enableSingleRowSelection) && (
-              <HtmlTableCell className={classnames(tableClassNames.th)} />
+              <HtmlTableCell
+                className={classnames(
+                  tableClassNames.th,
+                  tableClassNames.selectionTd,
+                )}
+              />
             )}
             {columns.map((col) => (
               <HtmlTableHeaderCell
@@ -321,7 +339,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         </HtmlTableHeader>
         <HtmlTableBody className={tableClassNames.tbody}>
           {loading
-            ? [0, 1, 2, 3, 4].map((val) => (
+            ? skeletonRows.map((val) => (
                 <HtmlTableRow
                   key={`loading-row-${val}}`}
                   className={tableClassNames.skeletonRow}
@@ -365,7 +383,12 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                   })}
                 >
                   {enableRowSelection && (
-                    <HtmlTableCell className={classnames(tableClassNames.td)}>
+                    <HtmlTableCell
+                      className={classnames(
+                        tableClassNames.td,
+                        tableClassNames.selectionTd,
+                      )}
+                    >
                       <Checkbox
                         checked={selectedRowIds.includes(row.id)}
                         onClick={(checkedVal) =>
@@ -382,7 +405,12 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     </HtmlTableCell>
                   )}
                   {enableSingleRowSelection && (
-                    <HtmlTableCell className={classnames(tableClassNames.td)}>
+                    <HtmlTableCell
+                      className={classnames(
+                        tableClassNames.td,
+                        tableClassNames.selectionTd,
+                      )}
+                    >
                       <RadioButton
                         value={`radiobutton-${row.id}`}
                         checked={selectedRowIds.includes(row.id)}
