@@ -781,9 +781,14 @@ const [currentPage, setCurrentPage] = React.useState(1);
 
 ### Loading state
 
-To visually indicate that the table is waiting to receive data, apply the `loading` prop.
+To visually indicate that the table is waiting to receive data, apply the `loading` prop. Be default, it renders 5 skeleton rows. To prevent layout shift, you can apply the `loadingRowAmount` prop to control the amount of skeleton rows.
 
-In addition, to ensure accessibility, always use a text based loading indicator inside an `aria-live` region as shown in the example below.
+<div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
+##### IMPORTANT
+
+To ensure accessibility when using the loading state, always use an additional text-based loading indicator inside an `aria-live` region as shown in the example below.
+
+</div>
 
 ```jsx
 import {
