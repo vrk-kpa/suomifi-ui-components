@@ -225,7 +225,7 @@ export const baseStyles = (
       }
 
       .fi-table_selection-cell-skeleton {
-        width: 48px;
+        width: 45px;
         padding-right: 12px;
       }
     }
