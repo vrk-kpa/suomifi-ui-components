@@ -494,7 +494,7 @@ exports[`Table functionalities matches snapshot 1`] = `
 
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_th,
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_td {
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 
 .c1.fi-table .fi-table_toolbar {

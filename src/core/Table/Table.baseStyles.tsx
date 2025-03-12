@@ -173,7 +173,7 @@ export const baseStyles = (
       &.fi-table--condensed {
         .fi-table_th,
         .fi-table_td {
-          padding: ${theme.spacing.xs} ${theme.spacing.m};
+          padding: ${theme.spacing.xxs} ${theme.spacing.m};
         }
       }
     }
