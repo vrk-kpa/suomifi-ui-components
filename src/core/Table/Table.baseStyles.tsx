@@ -8,6 +8,7 @@ export const baseStyles = (
   globalMargins?: MarginProps,
   propMargins?: MarginProps,
 ) => css`
+  /* stylelint-disable no-descending-specificity */
   &.fi-table {
     ${font(theme)('bodyText')}
     overflow: auto;
@@ -174,6 +175,17 @@ export const baseStyles = (
         .fi-table_th,
         .fi-table_td {
           padding: ${theme.spacing.xxs} ${theme.spacing.m};
+        }
+        .fi-table_skeleton-row {
+          .fi-table_skeleton-cell {
+            padding: 5px 20px;
+            height: 43px;
+          }
+
+          .fi-table_selection-cell-skeleton {
+            width: 45px;
+            padding: 5px 12px 5px 20px;
+          }
         }
       }
     }

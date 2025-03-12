@@ -497,6 +497,16 @@ exports[`Table functionalities matches snapshot 1`] = `
   padding: 5px 20px;
 }
 
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_skeleton-cell {
+  padding: 5px 20px;
+  height: 43px;
+}
+
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_selection-cell-skeleton {
+  width: 45px;
+  padding: 5px 12px 5px 20px;
+}
+
 .c1.fi-table .fi-table_toolbar {
   display: flex;
   justify-content: space-between;
