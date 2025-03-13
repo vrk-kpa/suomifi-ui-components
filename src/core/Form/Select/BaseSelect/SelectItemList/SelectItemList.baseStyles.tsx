@@ -5,7 +5,7 @@ import { font } from '../../../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   list-style-type: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
   max-height: 265px;
   background-color: ${theme.colors.whiteBase};
   border-width: 0 1px 1px 1px;
@@ -17,6 +17,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding: 4px 0 0 0;
 
   display: block;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 

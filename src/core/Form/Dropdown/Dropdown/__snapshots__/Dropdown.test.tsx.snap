@@ -260,7 +260,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   list-style-type: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
   max-height: 265px;
   background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
@@ -271,6 +271,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   margin: 0;
   padding: 4px 0 0 0;
   display: block;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -911,7 +912,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   list-style-type: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
   max-height: 265px;
   background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
@@ -922,6 +923,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   margin: 0;
   padding: 4px 0 0 0;
   display: block;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -1603,7 +1605,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   list-style-type: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
   max-height: 265px;
   background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
@@ -1614,6 +1616,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   margin: 0;
   padding: 4px 0 0 0;
   display: block;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
