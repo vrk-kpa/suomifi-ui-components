@@ -271,7 +271,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   margin: 0;
   padding: 4px 0 0 0;
   display: block;
-  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -923,7 +922,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   margin: 0;
   padding: 4px 0 0 0;
   display: block;
-  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -1616,7 +1614,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   margin: 0;
   padding: 4px 0 0 0;
   display: block;
-  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }

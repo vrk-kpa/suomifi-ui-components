@@ -17,7 +17,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding: 4px 0 0 0;
 
   display: block;
-  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 
