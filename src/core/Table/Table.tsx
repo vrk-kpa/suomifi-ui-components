@@ -118,10 +118,7 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
     direction: 'asc' | 'desc',
   ) => string;
   /** Optional custom callback which is fired when table is sorted */
-  tableSortedCallback?: (
-    columnLabel: string,
-    direction: 'asc' | 'desc',
-  ) => void;
+  tableSortCallback?: (columnLabel: string, direction: 'asc' | 'desc') => void;
   /** Displays skeleton rows (default of 5) to indicate the table is waiting to receive data */
   loading?: boolean;
   /** Optional override of the default amount (5) of skeleton rows when `loading` is true */
@@ -158,7 +155,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     enableSingleRowSelection,
     onSelectedRowsChange,
     tableSortedAriaLiveText,
-    tableSortedCallback,
+    tableSortCallback,
     loading,
     loadingRowAmount = 5,
     controlledSelectedRowIds,
@@ -220,8 +217,8 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         ? aValueText.localeCompare(bValueText)
         : bValueText.localeCompare(aValueText);
     });
-    if (!!tableSortedCallback) {
-      tableSortedCallback(
+    if (!!tableSortCallback) {
+      tableSortCallback(
         key,
         !sortColumn.includes(key) || sortColumn === `${key}-desc`
           ? 'asc'
