@@ -547,7 +547,7 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   list-style-type: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
   max-height: 265px;
   background-color: hsl(0, 0%, 100%);
   border-width: 0 1px 1px 1px;
