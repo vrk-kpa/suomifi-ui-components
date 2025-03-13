@@ -117,4 +117,26 @@ describe('Table functionalities', () => {
     const table = screen.getByRole('table');
     expect(table).toHaveAttribute('aria-labelledby', 'table-heading');
   });
+
+  it('renders skeleton rows when loading prop is true', () => {
+    renderTable({ caption: 'People in the project', loading: true });
+    const skeletonRows = screen.getAllByRole('row', { hidden: true }).slice(1);
+    expect(skeletonRows).toHaveLength(5);
+    skeletonRows.forEach((row) => {
+      expect(row).toHaveClass('fi-table_skeleton-row');
+    });
+  });
+
+  it('renders the correct number of skeleton rows when loadingRowAmount is provided', () => {
+    renderTable({
+      caption: 'People in the project',
+      loading: true,
+      loadingRowAmount: 3,
+    });
+    const skeletonRows = screen.getAllByRole('row', { hidden: true }).slice(1);
+    expect(skeletonRows).toHaveLength(3);
+    skeletonRows.forEach((row) => {
+      expect(row).toHaveClass('fi-table_skeleton-row');
+    });
+  });
 });

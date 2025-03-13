@@ -8,6 +8,7 @@ Examples:
 - [Condensed table](./#/Components/Table?id=condensed-table)
 - [Horizontal scroll (mobile)](./#/Components/Table?id=horizontal-scroll-mobile)
 - [Paginated data](./#/Components/Table?id=paginated-data)
+- [Loading state](./#/Components/Table?id=loading-state)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/Table?id=props--methods)
@@ -120,13 +121,13 @@ const data = [
 
 ### Sorting
 
-You can set `sortable: true` to any column you wish be able to sort the table with.
+You can set `sortable: true` to any column you wish be able to sort the table with. You can either let the component handle the data sorting, or provide a `tableSortCallback()` prop to handle data sorting with a custom logic. The function receives the key of the sorted column and a string of `'asc' | 'desc'` as parameters.
 
-Also use the `tableSortedAriaLiveText()` function as demonstrated below to give screen readers information about table sorting.
+Always use the `tableSortedAriaLiveText()` function as demonstrated below to give screen readers information about table sorting.
 
 ```jsx
 import { Table, Link } from 'suomifi-ui-components';
-import React from 'react';
+import React, { useState } from 'react';
 
 const columns = [
   {
@@ -156,7 +157,7 @@ const columns = [
   }
 ];
 
-const data = [
+const dataArr = [
   {
     id: '1',
     firstName: 'John',
@@ -199,6 +200,49 @@ const data = [
   }
 ];
 
+const [data, setData] = useState(dataArr);
+
+const customDataSort = (key, dir) => {
+  const sortedData = [...data].sort((a, b) => {
+    const aValue = a[key];
+    const bValue = b[key];
+
+    const getTextContent = (element) => {
+      if (
+        typeof element === 'string' ||
+        typeof element === 'number'
+      ) {
+        return element.toString();
+      }
+      if (React.isValidElement(element)) {
+        const { children } = element.props;
+        if (Array.isArray(children)) {
+          return children.map(getTextContent).join('');
+        }
+        return getTextContent(children);
+      }
+      return '';
+    };
+
+    const aValueText = getTextContent(aValue);
+    const bValueText = getTextContent(bValue);
+
+    const isNumeric =
+      !isNaN(Number(aValueText)) && !isNaN(Number(bValueText));
+
+    if (isNumeric) {
+      return dir === 'asc'
+        ? Number(aValueText) - Number(bValueText)
+        : Number(bValueText) - Number(aValueText);
+    }
+
+    return dir === 'asc'
+      ? aValueText.localeCompare(bValueText)
+      : bValueText.localeCompare(aValueText);
+  });
+  setData(sortedData);
+};
+
 <div style={{ width: '900px' }}>
   <Table
     caption="People in the project"
@@ -209,6 +253,19 @@ const data = [
         direction === 'asc' ? 'ascdencing' : 'descending'
       }`
     }
+    mb="xxl"
+  />
+  <Table
+    caption="People in the project"
+    columns={columns}
+    data={data}
+    tableSortedAriaLiveText={(sortedColumn, direction) =>
+      `Table is sorted by ${sortedColumn} ${
+        direction === 'asc' ? 'ascdencing' : 'descending'
+      }`
+    }
+    mb="xxl"
+    tableSortCallback={customDataSort}
   />
 </div>;
 ```
@@ -349,7 +406,7 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
 Use the `condensed` prop to decrease vertical padding in table cells
 
 ```jsx
-import { Table, Link, Heading } from 'suomifi-ui-components';
+import { Table, Link } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -720,6 +777,124 @@ const [currentPage, setCurrentPage] = React.useState(1);
     </Block>
   </div>
 </>;
+```
+
+### Loading state
+
+To visually indicate that the table is waiting to receive data, apply the `loading` prop. Be default, it renders 5 skeleton rows. To prevent layout shift, you can apply the `loadingRowAmount` prop to control the amount of skeleton rows.
+
+<div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
+##### IMPORTANT
+
+To ensure accessibility when using the loading state, always use an additional text-based loading indicator inside an `aria-live` region as shown in the example below.
+
+</div>
+
+```jsx
+import {
+  Table,
+  Link,
+  Button,
+  Heading,
+  Block,
+  Text
+} from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const columns = [
+  {
+    key: 'firstName',
+    labelText: 'First name'
+  },
+  {
+    key: 'lastName',
+    labelText: 'Last name'
+  },
+  {
+    key: 'hours_worked',
+    labelText: 'Number of hours worked',
+    textAlign: 'right'
+  },
+  {
+    key: 'title',
+    labelText: 'Title'
+  },
+  {
+    key: 'country',
+    labelText: 'Country of Residence'
+  }
+];
+
+const data = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    hours_worked: 125,
+    title: 'Developer',
+    country: 'United Kingdom'
+  },
+  {
+    id: '2',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    hours_worked: 150,
+    title: 'Architect',
+    country: 'Norway'
+  },
+  {
+    id: '3',
+    firstName: 'Bruce',
+    lastName: 'Willis',
+    hours_worked: 10,
+    title: 'Project manager',
+    country: 'United States of America'
+  },
+  {
+    id: '4',
+    firstName: 'Harriet',
+    lastName: 'Ackermann',
+    hours_worked: '',
+    title: 'Security consultant',
+    country: <Link href="https://suomi.fi">Germany</Link>
+  },
+  {
+    id: '5',
+    firstName: 'Alexander',
+    lastName: 'Stubb',
+    hours_worked: 2543,
+    title: 'President',
+    country: 'Finland'
+  }
+];
+
+const [loading, setLoading] = useState(false);
+
+const simulateLoading = () => {
+  setLoading(true);
+  setTimeout(() => setLoading(false), 3000);
+};
+
+<div style={{ width: '900px' }}>
+  <Button onClick={simulateLoading} disabled={loading} mb="l">
+    Simulate loading
+  </Button>
+  <Heading variant="h3" id="table-heading" mb="m">
+    People in the project
+  </Heading>
+  <Block mb="s" aria-live="polite">
+    <Text variant="bold">
+      {!loading ? `${data.length} people` : 'Loading data...'}
+    </Text>
+  </Block>
+  <Table
+    aria-labelledby="table-heading"
+    columns={columns}
+    data={data}
+    enableRowSelection
+    loading={loading}
+  />
+</div>;
 ```
 
 ### Props & methods

@@ -8,6 +8,7 @@ export const baseStyles = (
   globalMargins?: MarginProps,
   propMargins?: MarginProps,
 ) => css`
+  /* stylelint-disable no-descending-specificity */
   &.fi-table {
     ${font(theme)('bodyText')}
     overflow: auto;
@@ -61,19 +62,40 @@ export const baseStyles = (
       .fi-table_td {
         padding: 12px 20px;
         line-height: 2;
+
+        &.fi-table_td--selection {
+          width: 45px;
+          padding: 0;
+          position: relative;
+        }
+
         .fi-link {
           font-size: 16px;
           line-height: 1;
         }
         .fi-checkbox {
           height: 19px;
-          width: 5px;
+          width: 0;
+          margin: auto;
         }
 
         .fi-radio-button {
-          width: 3px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
           .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-            top: 4px;
+            top: 18px;
+            left: 20px;
+          }
+          .fi-radio-button_label {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: 18px;
+            left: 22px;
+            padding: 0;
           }
         }
       }
@@ -152,7 +174,18 @@ export const baseStyles = (
       &.fi-table--condensed {
         .fi-table_th,
         .fi-table_td {
-          padding: ${theme.spacing.xs} ${theme.spacing.m};
+          padding: ${theme.spacing.xxs} ${theme.spacing.m};
+        }
+        .fi-table_skeleton-row {
+          .fi-table_skeleton-cell {
+            padding: 5px 20px;
+            height: 43px;
+          }
+
+          .fi-table_selection-cell-skeleton {
+            width: 45px;
+            padding: 5px 12px 5px 20px;
+          }
         }
       }
     }
@@ -188,6 +221,42 @@ export const baseStyles = (
 
     .fi-table_caption--alternative {
       ${font(theme)('heading3')}
+    }
+
+    .fi-table_skeleton {
+      background-color: ${theme.colors.depthLight2};
+      border-radius: 4px;
+      animation: shimmer 1.5s infinite linear;
+    }
+
+    .fi-table_skeleton-row {
+      .fi-table_skeleton-cell {
+        padding: 12px 20px;
+        height: 57px;
+        vertical-align: middle;
+      }
+
+      .fi-table_selection-cell-skeleton {
+        width: 45px;
+        padding-right: 12px;
+      }
+    }
+
+    .fi-table_skeleton-content {
+      height: 6px;
+      width: 100%;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-color: ${theme.colors.depthLight2};
+      }
+      50% {
+        background-color: ${theme.colors.depthLight3};
+      }
+      100% {
+        background-color: ${theme.colors.depthLight2};
+      }
     }
   }
 `;
