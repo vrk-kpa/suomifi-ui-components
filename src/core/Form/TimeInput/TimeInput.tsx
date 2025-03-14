@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import {

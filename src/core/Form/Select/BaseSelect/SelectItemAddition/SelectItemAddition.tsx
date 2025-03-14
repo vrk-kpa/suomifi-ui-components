@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlDiv, HtmlLi } from '../../../../../reset';
 import { selectItemAdditionStyles } from './SelectItemAddition.baseStyles';

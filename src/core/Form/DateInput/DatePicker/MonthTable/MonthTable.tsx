@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';

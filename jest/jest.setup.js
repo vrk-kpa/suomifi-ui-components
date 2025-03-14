@@ -2,7 +2,7 @@
 require('jest-axe/extend-expect');
 
 // // add some helpful assertions
-require('@testing-library/jest-dom/extend-expect');
+require('@testing-library/jest-dom');
 
 require('jest-styled-components');
 
@@ -18,7 +18,13 @@ jest.mock('react', () => ({
 }));
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
-    observe: jest.fn(),
-    unobserve: jest.fn(),
-    disconnect: jest.fn(),
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
 }));
+
+// Polyfill for TextEncoder and TextDecoder
+const { TextEncoder, TextDecoder } = require('util');
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;

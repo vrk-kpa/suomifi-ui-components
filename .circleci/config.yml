@@ -9,7 +9,7 @@ commands:
   checkout_and_cache:
     steps:
       - checkout
-      - run: 
+      - run:
           name: Node version
           command: node --version
       - restore_cache: # special step to restore the dependency cache

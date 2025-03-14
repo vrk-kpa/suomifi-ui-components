@@ -1,7 +1,7 @@
 Click the figures to copy the spacing token name to clipboard.
 
 ```js noeditor
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { defaultSuomifiTheme } from '../src/core/theme';
 import { cssValueToString } from '../src/utils/css';
 import { element, fonts } from '../src/core/theme/reset';

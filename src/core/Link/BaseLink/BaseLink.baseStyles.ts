@@ -48,6 +48,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         margin-left: -3px;
         margin-right: 2px;
         transform: translateY(0.15em);
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.accentBase};
+        }
       }
     }
     &.fi-link--small {

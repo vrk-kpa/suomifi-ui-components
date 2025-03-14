@@ -1,23 +1,30 @@
 import React, { ReactNode, useRef, useState } from 'react';
-import { unmountComponentAtNode } from 'react-dom';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { Modal, ModalProps } from './Modal';
 import { ModalContent, ModalFooter, ModalTitle } from '../';
 import { Button } from '../../../';
+import { createRoot, Root } from 'react-dom/client';
 
 let appRoot: HTMLDivElement | null = null;
+let root: Root | null = null;
 
 beforeEach(() => {
   appRoot = document.createElement('div');
   appRoot.setAttribute('id', 'root');
   document.body.appendChild(appRoot);
+  root = createRoot(appRoot);
 });
 
 afterEach(() => {
-  if (!!appRoot) {
-    unmountComponentAtNode(appRoot);
+  if (root) {
+    act(() => {
+      root?.unmount();
+    });
+    root = null;
+  }
+  if (appRoot) {
     appRoot.remove();
     appRoot = null;
   }
@@ -26,7 +33,12 @@ afterEach(() => {
 describe('Basic modal', () => {
   const text = 'Modal Content';
   const BasicModal = (props?: Partial<ModalProps>) => (
-    <Modal appElementId="root" visible={true} {...props}>
+    <Modal
+      appElementId="root"
+      visible={true}
+      {...props}
+      ariaLabelledBy="test12"
+    >
       <ModalContent>
         <ModalTitle>Test modal</ModalTitle>
         <p>{text}</p>
@@ -55,6 +67,11 @@ describe('Basic modal', () => {
   it('should not have basic accessibility issues', () => {
     const { baseElement } = render(BasicModal());
     axeTest(baseElement as any);
+  });
+
+  it('should have given aria-labelledby', () => {
+    const { getByRole } = render(BasicModal());
+    expect(getByRole('dialog')).toHaveAttribute('aria-labelledby', 'test12');
   });
 });
 

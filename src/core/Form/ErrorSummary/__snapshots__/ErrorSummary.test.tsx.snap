@@ -13,19 +13,17 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
   cursor: inherit;
   display: inline;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -34,7 +32,6 @@ exports[`snapshots match minimal implementation 1`] = `
 .c6:focus,
 .c6:focus-within {
   color: inherit;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -50,7 +47,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -63,8 +59,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -79,7 +75,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -92,8 +87,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -108,7 +103,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -121,8 +115,8 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -151,12 +145,8 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -165,15 +155,11 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -185,11 +171,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -201,11 +183,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -217,11 +195,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -233,11 +207,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -249,11 +219,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -265,11 +231,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -281,11 +243,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -297,11 +255,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -313,11 +267,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -329,11 +279,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -345,11 +291,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -361,11 +303,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -377,11 +315,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -393,11 +327,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -409,11 +339,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -425,8 +351,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c7.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -434,46 +359,41 @@ exports[`snapshots match minimal implementation 1`] = `
 .c7.fi-link:active,
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c7.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c7.fi-link:hover,
 .c7.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c7.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:focus,
 .c7.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:hover,
 .c7.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -481,9 +401,11 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c7.fi-link.fi-link--small {
@@ -491,12 +413,8 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-error-summary {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -508,19 +426,13 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 100%;
   padding: 5px 0px 4px 0px;
   border: 1px solid;
-  background-color: hsl(0,59%,96%);
+  background-color: hsl(0, 59%, 96%);
   border-color: rgba(174,51,45,0.2);
-  border-left: 4px solid hsl(3,59%,43%);
+  border-left: 4px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-error-summary .fi-error-summary_style-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
@@ -534,16 +446,11 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-error-summary .fi-error-summary_icon .fi-icon-base-fill {
-  fill: hsl(3,59%,43%);
+  fill: hsl(3, 59%, 43%);
 }
 
 .c1.fi-error-summary .fi-error-summary_text-content-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
   padding: 0 15px;
@@ -551,11 +458,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -584,18 +487,14 @@ exports[`snapshots match minimal implementation 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_content {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -696,19 +595,17 @@ exports[`snapshots match smallScreen styles 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
   cursor: inherit;
   display: inline;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -717,7 +614,6 @@ exports[`snapshots match smallScreen styles 1`] = `
 .c6:focus,
 .c6:focus-within {
   color: inherit;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -733,7 +629,6 @@ exports[`snapshots match smallScreen styles 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -746,8 +641,8 @@ exports[`snapshots match smallScreen styles 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -762,7 +657,6 @@ exports[`snapshots match smallScreen styles 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -775,8 +669,8 @@ exports[`snapshots match smallScreen styles 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -791,7 +685,6 @@ exports[`snapshots match smallScreen styles 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -804,8 +697,8 @@ exports[`snapshots match smallScreen styles 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -834,12 +727,8 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -848,15 +737,11 @@ exports[`snapshots match smallScreen styles 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -868,11 +753,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -884,11 +765,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -900,11 +777,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -916,11 +789,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -932,11 +801,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -948,11 +813,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -964,11 +825,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -980,11 +837,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -996,11 +849,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1012,11 +861,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1028,11 +873,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1044,11 +885,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1060,11 +897,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1076,11 +909,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1092,11 +921,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1108,8 +933,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c7.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -1117,46 +941,41 @@ exports[`snapshots match smallScreen styles 1`] = `
 .c7.fi-link:active,
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c7.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c7.fi-link:hover,
 .c7.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c7.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:focus,
 .c7.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:hover,
 .c7.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -1164,9 +983,11 @@ exports[`snapshots match smallScreen styles 1`] = `
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c7.fi-link.fi-link--small {
@@ -1174,12 +995,8 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c1.fi-error-summary {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1191,19 +1008,13 @@ exports[`snapshots match smallScreen styles 1`] = `
   width: 100%;
   padding: 5px 0px 4px 0px;
   border: 1px solid;
-  background-color: hsl(0,59%,96%);
+  background-color: hsl(0, 59%, 96%);
   border-color: rgba(174,51,45,0.2);
-  border-left: 4px solid hsl(3,59%,43%);
+  border-left: 4px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-error-summary .fi-error-summary_style-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
@@ -1217,16 +1028,11 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c1.fi-error-summary .fi-error-summary_icon .fi-icon-base-fill {
-  fill: hsl(3,59%,43%);
+  fill: hsl(3, 59%, 43%);
 }
 
 .c1.fi-error-summary .fi-error-summary_text-content-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
   padding: 0 15px;
@@ -1234,11 +1040,7 @@ exports[`snapshots match smallScreen styles 1`] = `
 }
 
 .c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_heading {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1267,18 +1069,14 @@ exports[`snapshots match smallScreen styles 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-error-summary .fi-error-summary_text-content-wrapper .fi-error-summary_content {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;

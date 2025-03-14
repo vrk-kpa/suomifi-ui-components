@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconChevronRight } from 'suomifi-icons';
 import { LinkStyles } from '../Link/Link.baseStyles';
@@ -52,10 +52,7 @@ const StyledLink = styled(
         style={{ ...passProps?.style }}
       >
         {variant === 'accent' && (
-          <IconChevronRight
-            color={theme.colors.accentBase}
-            className={linkClassNames.accentIcon}
-          />
+          <IconChevronRight className={linkClassNames.accentIcon} />
         )}
         {children}
       </HtmlA>

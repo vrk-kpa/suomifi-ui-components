@@ -8,7 +8,7 @@ import React, {
   useState,
   useRef,
 } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconCalendar } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';

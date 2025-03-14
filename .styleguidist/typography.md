@@ -3,7 +3,7 @@ Suomifi-styleguide typography.
 Click the examples to copy related JSX tags to clipboard.
 
 ```js noeditor
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { Text, Heading } from '../src';
 import { defaultSuomifiTheme } from '../src/core/theme';
 

@@ -64,7 +64,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -97,8 +96,8 @@ exports[`props children should match snapshot 1`] = `
   height: auto;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -113,7 +112,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -126,8 +124,8 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -142,7 +140,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -155,8 +152,8 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -171,7 +168,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -184,8 +180,8 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -200,7 +196,6 @@ exports[`props children should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -213,18 +208,14 @@ exports[`props children should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -233,15 +224,11 @@ exports[`props children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -253,11 +240,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -269,11 +252,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -285,11 +264,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -301,11 +276,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -317,11 +288,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -333,11 +300,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -349,11 +312,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -365,11 +324,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h1hero {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -381,11 +336,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -397,11 +348,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h2 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -413,11 +360,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -429,11 +372,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h4 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -445,11 +384,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -461,11 +396,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5.fi-heading--small-screen.fi-heading--h6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -478,7 +409,6 @@ exports[`props children should match snapshot 1`] = `
 
 .c7 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -489,12 +419,8 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c9 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -507,11 +433,11 @@ exports[`props children should match snapshot 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -531,29 +457,26 @@ exports[`props children should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c9:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c9:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c9.fi-button--disabled,
 .c9[disabled],
 .c9:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -570,18 +493,18 @@ exports[`props children should match snapshot 1`] = `
 
 .c9.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c9.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c9.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c9.fi-button--inverted.fi-button--disabled,
@@ -593,41 +516,41 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c9.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c9.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c9.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c9.fi-button--secondary.fi-button--disabled,
 .c9.fi-button--secondary[disabled],
 .c9.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -635,26 +558,26 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c9.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c9.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c9.fi-button--secondary-noborder.fi-button--disabled,
 .c9.fi-button--secondary-noborder[disabled],
 .c9.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary-noborder.fi-button--icon-only {
@@ -662,42 +585,42 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c9.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c9.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c9.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c9.fi-button--secondary-light.fi-button--disabled,
 .c9.fi-button--secondary-light[disabled],
 .c9.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c9.fi-button--secondary-light.fi-button--icon-only {
@@ -705,36 +628,34 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c9.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c9.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c9.fi-button--secondary-light.fi-button--disabled,
 .c9.fi-button--secondary-light[disabled],
 .c9.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c9.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c9 > .fi-button_icon > .fi-icon {
+.c9>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c9 > .fi-button_icon--right > .fi-icon {
+.c9>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -743,15 +664,15 @@ exports[`props children should match snapshot 1`] = `
   padding: 6px 11px;
 }
 
-.c9.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c9.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c9.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c9.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c9.fi-button--disabled > .fi-button_icon {
+.c9.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -760,22 +681,15 @@ exports[`props children should match snapshot 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c9 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c9.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -784,12 +698,8 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -799,43 +709,27 @@ exports[`props children should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border-radius: 4px;
   padding-bottom: 10px;
 }
 
 .c1.fi-notification {
-  background-color: hsl(0,0%,100%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  background-color: hsl(0, 0%, 100%);
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
   padding: 0 10px 10px 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
   overflow: hidden;
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper {
   padding-top: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
   flex: none;
 }
 
@@ -847,9 +741,6 @@ exports[`props children should match snapshot 1`] = `
 .c1.fi-notification .fi-notification_text-content-wrapper {
   padding-top: 20px;
   padding-left: 20px;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
@@ -858,11 +749,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_contentWrapper {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -874,11 +761,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_heading {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -910,7 +793,7 @@ exports[`props children should match snapshot 1`] = `
   margin-top: 6px;
   border: 1px solid transparent;
   white-space: nowrap;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c1.fi-notification .fi-notification_close-button:focus-visible {
@@ -928,27 +811,27 @@ exports[`props children should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   outline: 3px solid transparent;
 }
 
 .c1.fi-notification--neutral {
-  border-top: 4px solid hsl(215,86%,51%);
+  border-top: 4px solid hsl(215, 86%, 51%);
 }
 
 .c1.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(215,86%,51%);
+  fill: hsl(215, 86%, 51%);
 }
 
 .c1.fi-notification--error {
-  border-top: 4px solid hsl(3,59%,43%);
+  border-top: 4px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(3,59%,43%);
+  fill: hsl(3, 59%, 43%);
 }
 
 .c1.fi-notification.fi-notification--small-screen {
@@ -959,22 +842,17 @@ exports[`props children should match snapshot 1`] = `
   padding-top: 15px;
   padding-left: 12px;
   padding-right: 12px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button {
   margin: 3px;
-  padding: 3px 5px 3px 4px;
+  padding: 3px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button .fi-icon {
-  margin-right: 5px;
+  margin: 0 8px;
   font-size: 16px;
 }
 
@@ -999,12 +877,11 @@ exports[`props children should match snapshot 1`] = `
 
 @media (prefers-reduced-motion) {
   .c9.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c1 {
     border: solid 1px ButtonBorder;
   }

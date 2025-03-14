@@ -1,5 +1,5 @@
 import React, { ReactNode, HTMLProps } from 'react';
-import { default as styled, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { allStates } from '../../utils/css';
 import { asPropType } from '../../utils/typescript';

@@ -8,7 +8,7 @@ import React, {
   ChangeEvent,
   createRef,
 } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import {
@@ -40,7 +40,7 @@ import { StatusText } from '../StatusText/StatusText';
 import { FileItem } from './FileItem';
 
 const baseClassName = 'fi-file-input';
-export const fileInputClassNames = {
+const fileInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   inputOuterWrapper: `${baseClassName}_input-outer-wrapper`,
   dragArea: `${baseClassName}_drag-area`,
@@ -57,16 +57,7 @@ export const fileInputClassNames = {
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   hiddenUnderFile: `${baseClassName}_label--hidden-under-file`,
   dragAreaHasFile: `${baseClassName}_drag-area--has-file`,
-  fileItemOuterWrapper: `${baseClassName}_file-item-outer-wrapper`,
-  fileItem: `${baseClassName}_file-item`,
-  fileInfo: `${baseClassName}_file-info`,
-  fileName: `${baseClassName}_file-name`,
-  fileSize: `${baseClassName}_file-size`,
-  removeFileButton: `${baseClassName}_remove-file-button`,
   smallScreen: `${baseClassName}--small-screen`,
-  errorIcon: `${baseClassName}_error-icon`,
-  loadingIcon: `${baseClassName}_loading-icon`,
-  fileItemErrorText: `${baseClassName}_file-item-error-text`,
 };
 
 interface BaseFileInputProps
@@ -159,7 +150,11 @@ export interface ControlledFileItem {
   /**
    * The actual file object.
    */
-  file: File;
+  file?: File;
+  /**
+   * Additional metadata for the file.
+   */
+  metadata?: Metadata;
   /**
    * Status of the element. Affects styling.
    */
@@ -183,7 +178,38 @@ export interface ControlledFileItem {
   /**
    * Override default remove button behavior.
    */
-  buttonOnClick?: (file: File) => void;
+  buttonOnClick?: () => void;
+  /**
+   * Callback for when file preview link is clicked
+   */
+  filePreviewOnClick?: () => void;
+  /**
+   * URL to the file. Used in the file preview link. Secondary to `filePreviewOnClick`
+   */
+  fileURL?: string;
+}
+
+export interface Metadata {
+  /**
+   * The size of the file in bytes.
+   */
+  fileSize: number;
+  /**
+   * The name of the file.
+   */
+  fileName: string;
+  /**
+   * The type of the file
+   */
+  fileType: string;
+  /**
+   * URL to the file
+   */
+  fileURL?: string;
+  /**
+   * id of the file
+   */
+  id?: string;
 }
 
 type InternalFileInputProps = FileInputProps & GlobalMarginProps;
@@ -246,7 +272,18 @@ const BaseFileInput = (props: InternalFileInputProps) => {
   ) => {
     const newFileList = new DataTransfer();
     controlledValueObjects.forEach((fileItem) => {
-      newFileList.items.add(fileItem.file);
+      if (fileItem.file) {
+        newFileList.items.add(fileItem.file);
+      } else if (fileItem.metadata) {
+        // Create a new mock file from metadata
+        const { fileName, fileType } = fileItem.metadata;
+        const blob = new Blob([], { type: fileType });
+        const file = new File([blob], fileName, {
+          type: fileType,
+          lastModified: -1,
+        });
+        newFileList.items.add(file);
+      }
     });
     return newFileList.files;
   };
@@ -297,19 +334,25 @@ const BaseFileInput = (props: InternalFileInputProps) => {
   const dropEventHandler = (e: DragEvent) => {
     generalDragEventHandler(e, 'remove');
     const dt = e.dataTransfer;
-    const filesFromInput = dt?.files;
-    const previousAndNewFiles = Array.from(
-      inputRef.current?.files || [],
-    ).concat(Array.from(filesFromInput || []));
+    const incomingFiles = Array.from(dt?.files || []);
+    const previousFiles = Array.from(inputRef.current?.files || []);
+    const previousAndNewFiles = multiFile
+      ? previousFiles.concat(incomingFiles)
+      : incomingFiles.slice(0, 1);
     const newFileList = new DataTransfer();
     previousAndNewFiles.forEach((file) => {
       newFileList.items.add(file);
     });
-    if (!controlledValue && filesFromInput) {
+    if (!controlledValue && incomingFiles.length > 0) {
       setFilesToStateAndInput(newFileList.files);
     }
     if (propOnChange) {
-      propOnChange(newFileList.files || new FileList());
+      const filteredFiles = Array.from(newFileList.files).filter(
+        (file) => file.lastModified !== -1,
+      );
+      const filteredFileList = new DataTransfer();
+      filteredFiles.forEach((file) => filteredFileList.items.add(file));
+      propOnChange(filteredFileList.files || new FileList());
     }
   };
 
@@ -437,38 +480,46 @@ const BaseFileInput = (props: InternalFileInputProps) => {
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newFileList = new DataTransfer();
     const filesFromEvent = event.target.files;
-    if (!controlledValue) {
-      if (multiFile) {
-        const previousAndNewFiles = Array.from(files || []).concat(
-          Array.from(filesFromEvent || []),
+
+    if (filesFromEvent && filesFromEvent.length > 0) {
+      if (!controlledValue) {
+        if (multiFile) {
+          const previousAndNewFiles = Array.from(files || []).concat(
+            Array.from(filesFromEvent || []),
+          );
+          previousAndNewFiles.forEach((file) => {
+            newFileList.items.add(file);
+          });
+        } else {
+          const filesFromEventArr = Array.from(filesFromEvent || []);
+          filesFromEventArr.forEach((file) => {
+            newFileList.items.add(file);
+          });
+        }
+        setFilesToStateAndInput(newFileList.files);
+      } else if (inputRef.current) {
+        const controlledValueAsArray = Array.from(
+          buildFileListFromControlledValueObjects(controlledValue) || [],
         );
-        previousAndNewFiles.forEach((file) => {
+        const controlledFileList = new DataTransfer();
+        controlledValueAsArray.forEach((file) => {
+          controlledFileList.items.add(file);
           newFileList.items.add(file);
         });
-      } else {
+        inputRef.current.files = controlledFileList.files;
         const filesFromEventArr = Array.from(filesFromEvent || []);
         filesFromEventArr.forEach((file) => {
           newFileList.items.add(file);
         });
       }
-      setFilesToStateAndInput(newFileList.files);
-    } else if (inputRef.current) {
-      const controlledValueAsArray = Array.from(
-        buildFileListFromControlledValueObjects(controlledValue) || [],
-      );
-      const controlledFileList = new DataTransfer();
-      controlledValueAsArray.forEach((file) => {
-        controlledFileList.items.add(file);
-        newFileList.items.add(file);
-      });
-      inputRef.current.files = controlledFileList.files;
-      const filesFromEventArr = Array.from(filesFromEvent || []);
-      filesFromEventArr.forEach((file) => {
-        newFileList.items.add(file);
-      });
-    }
-    if (propOnChange) {
-      propOnChange(newFileList.files);
+      if (propOnChange) {
+        const filteredFiles = Array.from(newFileList.files).filter(
+          (file) => file.lastModified !== -1,
+        );
+        const filteredFileList = new DataTransfer();
+        filteredFiles.forEach((file) => filteredFileList.items.add(file));
+        propOnChange(filteredFileList.files);
+      }
     }
   };
 
@@ -558,7 +609,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                   removeFileText={removeFileText}
                   removeFile={removeFile}
                   smallScreen={smallScreen}
-                  metaData={controlledValue && controlledValue[0]}
+                  fileItemDetails={controlledValue && controlledValue[0]}
                 />
               </HtmlDiv>
             )}
@@ -593,7 +644,7 @@ const BaseFileInput = (props: InternalFileInputProps) => {
                   removeFileText={removeFileText}
                   removeFile={removeFile}
                   smallScreen={smallScreen}
-                  metaData={controlledValue && controlledValue[index]}
+                  fileItemDetails={controlledValue && controlledValue[index]}
                 />
               ))}
             </HtmlDiv>

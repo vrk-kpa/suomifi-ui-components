@@ -37,19 +37,17 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
   cursor: inherit;
   display: inline;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -58,7 +56,6 @@ exports[`calling render with the same component on the same container does not r
 .c7:focus,
 .c7:focus-within {
   color: inherit;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -74,7 +71,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -87,8 +83,8 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -103,7 +99,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -112,8 +107,8 @@ exports[`calling render with the same component on the same container does not r
   display: list-item;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -128,7 +123,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -138,8 +132,8 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -154,7 +148,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -167,8 +160,8 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -183,7 +176,6 @@ exports[`calling render with the same component on the same container does not r
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -198,18 +190,14 @@ exports[`calling render with the same component on the same container does not r
   padding-left: 40px;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c1.fi-wizard-navigation .fi-wizard-navigation_heading {
   margin-left: 20px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -222,7 +210,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c1.fi-wizard-navigation .fi-wizard-navigation_divider {
   height: 1px;
-  background: hsl(202,7%,80%);
+  background: hsl(202, 7%, 80%);
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -237,31 +225,18 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1.fi-wizard-navigation--small-screen {
-  background: hsl(212,63%,95%);
+  background: hsl(212, 63%, 95%);
 }
 
 .c1.fi-wizard-navigation--small-screen .fi-wizard-navigation_heading {
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding: 15px;
   margin-left: 0;
   position: relative;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -286,14 +261,14 @@ exports[`calling render with the same component on the same container does not r
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1.fi-wizard-navigation--small-screen .fi-wizard-navigation_heading .fi-icon {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   width: 24px;
   height: 24px;
 }
@@ -305,13 +280,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: relative;
   padding: 5px 20px;
@@ -325,7 +294,7 @@ exports[`calling render with the same component on the same container does not r
   content: '';
   height: calc(100% - 26px);
   width: 1px;
-  background: hsl(0,0%,42%);
+  background: hsl(0, 0%, 42%);
   position: absolute;
   bottom: -10px;
   left: 33px;
@@ -337,25 +306,17 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item:focus-within {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
@@ -374,7 +335,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--default:hover {
-  border-left: 4px solid hsl(212,63%,45%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   padding-left: calc(20px - 4px);
 }
 
@@ -383,34 +344,21 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--default .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(0,0%,42%);
+  border: 1px solid hsl(0, 0%, 42%);
   width: 26px;
   height: 26px;
   line-height: 26px;
   font-size: 18px;
   margin-right: 10px;
-  background: hsl(0,0%,100%);
+  background: hsl(0, 0%, 100%);
 }
 
 .c5.fi-wizard-navigation-item--default .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -423,22 +371,21 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--default .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c5.fi-wizard-navigation-item--default .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-wizard-navigation-item--current {
-  background: hsl(212,63%,95%);
-  border-left: 4px solid hsl(212,63%,45%);
+  background: hsl(212, 63%, 95%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   padding-left: calc(20px - 4px);
 }
 
 .c5.fi-wizard-navigation-item--current:hover {
-  border-left: 4px solid hsl(212,63%,45%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   padding-left: calc(20px - 4px);
 }
 
@@ -448,36 +395,23 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(0,0%,42%);
+  border: 1px solid hsl(0, 0%, 42%);
   width: 26px;
   height: 26px;
   line-height: 26px;
   font-size: 18px;
   margin-right: 10px;
-  background: hsl(0,0%,100%);
+  background: hsl(0, 0%, 100%);
 }
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
   pointer-events: none;
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -491,19 +425,18 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-wizard-navigation-item--current-completed {
-  background: hsl(212,63%,95%);
-  border-left: 4px solid hsl(212,63%,45%);
+  background: hsl(212, 63%, 95%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   padding-left: calc(20px - 4px);
 }
 
 .c5.fi-wizard-navigation-item--current-completed:hover {
-  border-left: 4px solid hsl(212,63%,45%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   padding-left: calc(20px - 4px);
 }
 
@@ -513,27 +446,18 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(165,90%,27%);
+  border: 1px solid hsl(165, 90%, 27%);
   width: 26px;
   height: 26px;
   line-height: 26px;
   font-size: 18px;
   margin-right: 10px;
-  background: hsl(165,90%,27%);
-  color: hsl(0,0%,100%);
+  background: hsl(165, 90%, 27%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
@@ -543,12 +467,8 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
   pointer-events: none;
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -562,13 +482,12 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-wizard-navigation-item--completed:hover {
-  border-left: 4px solid hsl(212,63%,45%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   padding-left: calc(20px - 4px);
 }
 
@@ -577,27 +496,18 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(165,90%,27%);
+  border: 1px solid hsl(165, 90%, 27%);
   width: 26px;
   height: 26px;
   line-height: 26px;
   font-size: 18px;
   margin-right: 10px;
-  background: hsl(165,90%,27%);
-  color: hsl(0,0%,100%);
+  background: hsl(165, 90%, 27%);
+  color: hsl(0, 0%, 100%);
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
@@ -606,11 +516,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -623,12 +529,11 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-wizard-navigation-item--coming .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
@@ -645,33 +550,20 @@ exports[`calling render with the same component on the same container does not r
   top: 10px;
   right: 10px;
   content: '';
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
+  border: 1px solid hsl(201, 7%, 58%);
   width: 5px;
   height: 5px;
-  background: hsl(201,7%,58%);
+  background: hsl(201, 7%, 58%);
 }
 
 .c5.fi-wizard-navigation-item--coming .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
   pointer-events: none;
-  color: hsl(201,7%,58%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(201, 7%, 58%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -683,12 +575,11 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--coming .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c5.fi-wizard-navigation-item--coming .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
-  color: hsl(201,7%,58%);
+  color: hsl(201, 7%, 58%);
 }
 
 .c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
@@ -705,31 +596,18 @@ exports[`calling render with the same component on the same container does not r
   top: -5px;
   right: 12px;
   content: '';
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 1px;
   height: 36px;
-  background: hsl(201,7%,58%);
+  background: hsl(201, 7%, 58%);
 }
 
 .c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
   pointer-events: none;
-  color: hsl(201,7%,58%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(201, 7%, 58%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -741,20 +619,15 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
-  color: hsl(201,7%,58%);
+  color: hsl(201, 7%, 58%);
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -766,8 +639,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c8.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -775,46 +647,41 @@ exports[`calling render with the same component on the same container does not r
 .c8.fi-link:active,
 .c8.fi-link:focus,
 .c8.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c8.fi-link:focus,
 .c8.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c8.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c8.fi-link:hover,
 .c8.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c8.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c8.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c8.fi-link--initial-underline:focus,
 .c8.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c8.fi-link--initial-underline:hover,
 .c8.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -822,9 +689,11 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
+}
+
+.c8.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c8.fi-link.fi-link--small {

@@ -1,0 +1,706 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table functionalities matches snapshot 1`] = `
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c9:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c9::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c9::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c9::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c9::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c9 ::before,
+.c9 ::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0 ::before,
+.c0 ::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2 ::before,
+.c2 ::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.c4 ::before,
+.c4 ::after {
+  box-sizing: border-box;
+}
+
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  text-align: left;
+}
+
+.c5 ::before,
+.c5 ::after {
+  box-sizing: border-box;
+}
+
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+}
+
+.c6 ::before,
+.c6 ::after {
+  box-sizing: border-box;
+}
+
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+}
+
+.c7 ::before,
+.c7 ::after {
+  box-sizing: border-box;
+}
+
+.c11 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+}
+
+.c11 ::before,
+.c11 ::after {
+  box-sizing: border-box;
+}
+
+.c8 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+}
+
+.c8 ::before,
+.c8 ::after {
+  box-sizing: border-box;
+}
+
+.c12 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+}
+
+.c12 ::before,
+.c12 ::after {
+  box-sizing: border-box;
+}
+
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
+}
+
+.c10 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c10 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c3 {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c1.fi-table {
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  overflow: auto;
+  white-space: nowrap;
+  background-image: linear-gradient(to right, white, white),linear-gradient(to right, white, white),linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0)),linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
+  background-position: left center,right center,left center,right center;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 30px 100%,30px 100%,20px 100%,20px 100%;
+  background-attachment: local,local,scroll,scroll;
+}
+
+.c1.fi-table .fi-table_table {
+  color: hsl(0, 0%, 13%);
+  font-size: 16px;
+  width: 100%;
+}
+
+.c1.fi-table .fi-table_table .fi-table_caption {
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.c1.fi-table .fi-table_table .fi-table_thead {
+  border: 1px solid hsl(214, 100%, 24%);
+}
+
+.c1.fi-table .fi-table_table .fi-table_tbody {
+  border: 1px solid hsl(202, 7%, 80%);
+}
+
+.c1.fi-table .fi-table_table .fi-table_th,
+.c1.fi-table .fi-table_table .fi-table_td {
+  padding: 12px 20px;
+  line-height: 2;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th.fi-table_td--selection,
+.c1.fi-table .fi-table_table .fi-table_td.fi-table_td--selection {
+  width: 45px;
+  padding: 0;
+  position: relative;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-link,
+.c1.fi-table .fi-table_table .fi-table_td .fi-link {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-checkbox,
+.c1.fi-table .fi-table_table .fi-table_td .fi-checkbox {
+  height: 19px;
+  width: 0;
+  margin: auto;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-radio-button,
+.c1.fi-table .fi-table_table .fi-table_td .fi-radio-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper,
+.c1.fi-table .fi-table_table .fi-table_td .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper {
+  top: 18px;
+  left: 20px;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-radio-button .fi-radio-button_label,
+.c1.fi-table .fi-table_table .fi-table_td .fi-radio-button .fi-radio-button_label {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 18px;
+  left: 22px;
+  padding: 0;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th {
+  background-color: hsl(214, 100%, 24%);
+  color: hsl(0, 0%, 100%);
+}
+
+.c1.fi-table .fi-table_table .fi-table_th.checkbox-header {
+  padding: 0;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-table_sort-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  color: hsl(0, 0%, 13%);
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-table_sort-button .fi-icon {
+  margin-left: 10px;
+  height: 24px;
+  width: 24px;
+  fill: hsl(0, 0%, 100%);
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-table_sort-button:focus {
+  position: relative;
+  outline: 3px solid transparent;
+}
+
+.c1.fi-table .fi-table_table .fi-table_th .fi-table_sort-button:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0, 0%, 100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
+  z-index: 9999;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-right {
+  text-align: right;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-right.fi-table_th .fi-table_sort-button {
+  justify-content: flex-end;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-center {
+  text-align: center;
+}
+
+.c1.fi-table .fi-table_table .fi-table_td--align-center .fi-table_th .fi-table_sort-button {
+  justify-content: center;
+}
+
+.c1.fi-table .fi-table_table .fi-table_tr:nth-child(even) {
+  background-color: rgba(199, 202, 204, 0.2);
+}
+
+.c1.fi-table .fi-table_table .fi-table_tr:not(:last-child) {
+  border-bottom: 1px solid hsl(202, 7%, 80%);
+}
+
+.c1.fi-table .fi-table_table .fi-table_tr.highlighted {
+  background-color: hsl(215, 100%, 95%);
+}
+
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_th,
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_td {
+  padding: 5px 20px;
+}
+
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_skeleton-cell {
+  padding: 5px 20px;
+  height: 43px;
+}
+
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_selection-cell-skeleton {
+  width: 45px;
+  padding: 5px 12px 5px 20px;
+}
+
+.c1.fi-table .fi-table_toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.c1.fi-table .fi-table_toolbar .fi-table_row-count-text {
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons {
+  align-self: flex-end;
+}
+
+.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons .fi-table_condense-button {
+  margin-right: 5px;
+}
+
+.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons .toggled {
+  background: hsl(212, 63%, 45%);
+  cursor: default;
+  color: hsl(0, 0%, 100%);
+}
+
+.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons .toggled:hover {
+  background: hsl(212, 63%, 45%);
+}
+
+.c1.fi-table .fi-table_caption--alternative {
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.c1.fi-table .fi-table_skeleton {
+  background-color: hsl(202, 7%, 93%);
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.c1.fi-table .fi-table_skeleton-row .fi-table_skeleton-cell {
+  padding: 12px 20px;
+  height: 57px;
+  vertical-align: middle;
+}
+
+.c1.fi-table .fi-table_skeleton-row .fi-table_selection-cell-skeleton {
+  width: 45px;
+  padding-right: 12px;
+}
+
+.c1.fi-table .fi-table_skeleton-content {
+  height: 6px;
+  width: 100%;
+}
+
+<div>
+  <div
+    class="c0 fi-table c1"
+  >
+    <span
+      aria-live="polite"
+      class="c2 c3 fi-visually-hidden"
+    />
+    <table
+      class="c4 fi-table_table"
+      id="1"
+    >
+      <caption
+        class="c5 fi-table_caption"
+      >
+        People in the project
+      </caption>
+      <thead
+        class="c6 fi-table_thead"
+      >
+        <tr
+          class="c7"
+        >
+          <th
+            class="c8 fi-table_th"
+            scope="col"
+          >
+            <button
+              class="c9 fi-table_sort-button"
+              type="button"
+            >
+              Name
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10"
+                fill="none"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  class="fi-icon-base-fill"
+                  clip-rule="evenodd"
+                  fill="#222"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M7.293 15.293a1 1 0 0 1 1.414 0L12 18.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414ZM16.707 8.707a1 1 0 0 1-1.414 0L12 5.414 8.707 8.707a1 1 0 0 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414Z"
+                  />
+                </g>
+              </svg>
+            </button>
+          </th>
+          <th
+            class="c8 fi-table_th fi-table_td--align-right"
+            scope="col"
+          >
+            <button
+              class="c9 fi-table_sort-button"
+              type="button"
+            >
+              Age
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10"
+                fill="none"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  class="fi-icon-base-fill"
+                  clip-rule="evenodd"
+                  fill="#222"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M7.293 15.293a1 1 0 0 1 1.414 0L12 18.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414ZM16.707 8.707a1 1 0 0 1-1.414 0L12 5.414 8.707 8.707a1 1 0 0 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414Z"
+                  />
+                </g>
+              </svg>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="c11 fi-table_tbody"
+      >
+        <tr
+          class="c7 fi-table_tr"
+        >
+          <td
+            class="c12 fi-table_td"
+          >
+            John Doe
+          </td>
+          <td
+            class="c12 fi-table_td fi-table_td--align-right"
+          >
+            28
+          </td>
+        </tr>
+        <tr
+          class="c7 fi-table_tr"
+        >
+          <td
+            class="c12 fi-table_td"
+          >
+            Jane Smith
+          </td>
+          <td
+            class="c12 fi-table_td fi-table_td--align-right"
+          >
+            34
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

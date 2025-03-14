@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
 import { getLogger } from '../../utils/log';

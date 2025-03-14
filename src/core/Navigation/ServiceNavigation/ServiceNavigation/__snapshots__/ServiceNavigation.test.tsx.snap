@@ -13,19 +13,17 @@ exports[`should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
   cursor: inherit;
   display: inline;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -34,7 +32,6 @@ exports[`should match snapshot 1`] = `
 .c6:focus,
 .c6:focus-within {
   color: inherit;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -50,7 +47,6 @@ exports[`should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -63,8 +59,8 @@ exports[`should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -79,7 +75,6 @@ exports[`should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -88,8 +83,8 @@ exports[`should match snapshot 1`] = `
   display: list-item;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -104,7 +99,6 @@ exports[`should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -114,8 +108,8 @@ exports[`should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -130,7 +124,6 @@ exports[`should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -143,8 +136,8 @@ exports[`should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c8::before,
-.c8::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -159,7 +152,6 @@ exports[`should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -174,17 +166,13 @@ exports[`should match snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -196,20 +184,16 @@ exports[`should match snapshot 1`] = `
 }
 
 .c1.fi-service-navigation--small-screen {
-  background: hsl(212,63%,95%);
+  background: hsl(212, 63%, 95%);
 }
 
 .c1.fi-service-navigation--small-screen .fi-service-navigation-item,
 .c1.fi-service-navigation--small-screen .fi-service-navigation-item--selected {
-  border-bottom: 1px solid hsl(0,0%,100%);
+  border-bottom: 1px solid hsl(0, 0%, 100%);
 }
 
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -220,34 +204,16 @@ exports[`should match snapshot 1`] = `
   font-weight: 600;
   position: relative;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding: 20px;
-  border: 1px solid hsl(212,63%,90%);
+  border: 1px solid hsl(212, 63%, 90%);
 }
 
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button .fi-service-navigation_expand-button_text-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -265,9 +231,9 @@ exports[`should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -283,11 +249,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -299,22 +261,16 @@ exports[`should match snapshot 1`] = `
 }
 
 .c5.fi-service-navigation-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: relative;
 }
 
 .c5.fi-service-navigation-item:hover,
 .c5.fi-service-navigation-item:active {
-  background: hsl(212,63%,95%);
+  background: hsl(212, 63%, 95%);
   cursor: pointer;
-  border-left: 4px solid hsl(212,63%,45%);
+  border-left: 4px solid hsl(212, 63%, 45%);
 }
 
 .c5.fi-service-navigation-item:hover .fi-link--router,
@@ -324,22 +280,16 @@ exports[`should match snapshot 1`] = `
 
 .c5.fi-service-navigation-item:focus-within {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   z-index: 9999;
 }
 
 .c5.fi-service-navigation-item .fi-link--router {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  color: hsl(0, 0%, 13%);
   display: flex;
   padding: 10px 20px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   cursor: pointer;
   background: inherit;
@@ -349,16 +299,15 @@ exports[`should match snapshot 1`] = `
 .c5.fi-service-navigation-item .fi-link--router:focus {
   border: none;
   box-shadow: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   outline: 3px solid transparent;
 }
 
 .c5.fi-service-navigation-item .fi-link--router:hover,
 .c5.fi-service-navigation-item .fi-link--router:active,
 .c5.fi-service-navigation-item .fi-link--router:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-service-navigation-item--disabled:hover,
@@ -374,7 +323,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c5.fi-service-navigation-item--disabled .fi-link--router {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -382,20 +331,14 @@ exports[`should match snapshot 1`] = `
 .c5.fi-service-navigation-item--disabled .fi-link--router:hover,
 .c5.fi-service-navigation-item--disabled .fi-link--router:active,
 .c5.fi-service-navigation-item--disabled .fi-link--router:visited {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-service-navigation-item--selected {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  background: hsl(212,63%,95%);
-  border-left: 4px solid hsl(212,63%,45%);
+  background: hsl(212, 63%, 95%);
+  border-left: 4px solid hsl(212, 63%, 45%);
   position: relative;
 }
 
@@ -409,39 +352,31 @@ exports[`should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c5.fi-service-navigation-item--selected .fi-link--router {
   font-weight: bold;
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  color: hsl(0, 0%, 13%);
   display: flex;
   padding: 10px 25px;
   padding-left: calc(20px - 4px);
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .c5.fi-service-navigation-item--selected .fi-link--router:hover,
 .c5.fi-service-navigation-item--selected .fi-link--router:active,
 .c5.fi-service-navigation-item--selected .fi-link--router:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c11 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -452,11 +387,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -468,8 +399,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c10.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -477,46 +407,41 @@ exports[`should match snapshot 1`] = `
 .c10.fi-link:active,
 .c10.fi-link:focus,
 .c10.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c10.fi-link:focus,
 .c10.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c10.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c10.fi-link:hover,
 .c10.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c10.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c10.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c10.fi-link--initial-underline:focus,
 .c10.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c10.fi-link--initial-underline:hover,
 .c10.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -524,9 +449,11 @@ exports[`should match snapshot 1`] = `
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
+}
+
+.c10.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c10.fi-link.fi-link--small {
@@ -541,11 +468,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -557,8 +480,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c7.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -566,46 +488,41 @@ exports[`should match snapshot 1`] = `
 .c7.fi-link:active,
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c7.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c7.fi-link:hover,
 .c7.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c7.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:focus,
 .c7.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:hover,
 .c7.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -613,9 +530,11 @@ exports[`should match snapshot 1`] = `
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c7.fi-link.fi-link--small {
@@ -623,12 +542,8 @@ exports[`should match snapshot 1`] = `
 }
 
 .c9 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -642,8 +557,8 @@ exports[`should match snapshot 1`] = `
 .c9.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
   max-height: 100%;
   display: inline-block;
 }
@@ -663,9 +578,9 @@ exports[`should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   border-radius: 16px;
 }
@@ -679,15 +594,15 @@ exports[`should match snapshot 1`] = `
 
 .c9.fi-chip--disabled.fi-chip {
   cursor: not-allowed;
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
 .c9.fi-chip--disabled.fi-chip:hover,
 .c9.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,67%);
+  background: hsl(202, 7%, 67%);
 }
 
-@media screen and (forced-colors:active) {
+@media screen and (forced-colors: active) {
   .c9.fi-chip--disabled.fi-chip {
     color: GrayText;
   }

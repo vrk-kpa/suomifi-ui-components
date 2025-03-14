@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlLi, HtmlSpan } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './WizardNavigationItem.baseStyles';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { IconCheck } from 'suomifi-icons';
 
 export interface WizardNavigationItemProps {

@@ -1,1 +1,1 @@
-export { ActionMenuItem, ActionMenuItemProps } from './ActionMenuItem';
+export { ActionMenuItem, type ActionMenuItemProps } from './ActionMenuItem';

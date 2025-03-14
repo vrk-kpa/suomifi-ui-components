@@ -16,7 +16,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -49,8 +48,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -65,7 +64,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -78,8 +76,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -94,7 +92,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -107,8 +104,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -123,7 +120,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -136,17 +132,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -158,9 +150,9 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8.fi-action-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -174,16 +166,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 .c8 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -210,14 +194,14 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -229,13 +213,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -267,7 +251,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c3 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -278,12 +261,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -296,11 +275,11 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -320,29 +299,26 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c5:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c5:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c5.fi-button--disabled,
 .c5[disabled],
 .c5:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -359,18 +335,18 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c5.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c5.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-button--inverted.fi-button--disabled,
@@ -382,41 +358,41 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c5.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary.fi-button--disabled,
 .c5.fi-button--secondary[disabled],
 .c5.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -424,26 +400,26 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--disabled,
 .c5.fi-button--secondary-noborder[disabled],
 .c5.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--icon-only {
@@ -451,42 +427,42 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light.fi-button--icon-only {
@@ -494,36 +470,34 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c5.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c5 > .fi-button_icon > .fi-icon {
+.c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c5 > .fi-button_icon--right > .fi-icon {
+.c5>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -532,15 +506,15 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   padding: 6px 11px;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c5.fi-button--disabled > .fi-button_icon {
+.c5.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -549,22 +523,15 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c5 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -577,11 +544,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -594,11 +557,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item {
   position: relative;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -607,24 +566,15 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   padding: 10px 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   cursor: pointer;
   background: inherit;
   border: none;
   border-radius: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -634,7 +584,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 .c9.fi-action-menu-item:visited {
   border: none;
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c9.fi-action-menu-item .fi-icon {
@@ -646,28 +596,27 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--disabled:active,
 .c9.fi-action-menu-item--disabled:focus,
 .c9.fi-action-menu-item--disabled:hover,
 .c9.fi-action-menu-item--disabled:visited {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--selected {
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
 }
 
 .c9.fi-action-menu-item--selected:active,
 .c9.fi-action-menu-item--selected:focus,
 .c9.fi-action-menu-item--selected:hover,
 .c9.fi-action-menu-item--selected:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,100%);
+  color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
@@ -677,7 +626,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-action-menu-divider {
@@ -685,40 +634,30 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 @media (prefers-reduced-motion) {
   .c5.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -729,13 +668,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
@@ -862,7 +801,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -895,8 +833,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -911,7 +849,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -924,8 +861,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -940,7 +877,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -953,8 +889,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -969,7 +905,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -982,17 +917,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1004,9 +935,9 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8.fi-action-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1020,16 +951,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 .c8 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -1056,14 +979,14 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -1075,13 +998,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -1113,7 +1036,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c3 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -1124,12 +1046,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1142,11 +1060,11 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -1166,29 +1084,26 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c5:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c5:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c5.fi-button--disabled,
 .c5[disabled],
 .c5:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -1205,18 +1120,18 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c5.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c5.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-button--inverted.fi-button--disabled,
@@ -1228,41 +1143,41 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c5.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary.fi-button--disabled,
 .c5.fi-button--secondary[disabled],
 .c5.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -1270,26 +1185,26 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--disabled,
 .c5.fi-button--secondary-noborder[disabled],
 .c5.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--icon-only {
@@ -1297,42 +1212,42 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light.fi-button--icon-only {
@@ -1340,36 +1255,34 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c5.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c5 > .fi-button_icon > .fi-icon {
+.c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c5 > .fi-button_icon--right > .fi-icon {
+.c5>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -1378,15 +1291,15 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   padding: 6px 11px;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c5.fi-button--disabled > .fi-button_icon {
+.c5.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -1395,22 +1308,15 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c5 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -1423,11 +1329,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1440,11 +1342,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item {
   position: relative;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1453,24 +1351,15 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   padding: 10px 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   cursor: pointer;
   background: inherit;
   border: none;
   border-radius: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -1480,7 +1369,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 .c9.fi-action-menu-item:visited {
   border: none;
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c9.fi-action-menu-item .fi-icon {
@@ -1492,28 +1381,27 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--disabled:active,
 .c9.fi-action-menu-item--disabled:focus,
 .c9.fi-action-menu-item--disabled:hover,
 .c9.fi-action-menu-item--disabled:visited {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--selected {
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
 }
 
 .c9.fi-action-menu-item--selected:active,
 .c9.fi-action-menu-item--selected:focus,
 .c9.fi-action-menu-item--selected:hover,
 .c9.fi-action-menu-item--selected:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,100%);
+  color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
@@ -1523,7 +1411,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-action-menu-divider {
@@ -1531,40 +1419,30 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 @media (prefers-reduced-motion) {
   .c5.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -1575,13 +1453,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
@@ -1708,7 +1586,6 @@ exports[`No borders variant should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1741,8 +1618,8 @@ exports[`No borders variant should match snapshot 1`] = `
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -1757,7 +1634,6 @@ exports[`No borders variant should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1770,8 +1646,8 @@ exports[`No borders variant should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -1786,7 +1662,6 @@ exports[`No borders variant should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1799,8 +1674,8 @@ exports[`No borders variant should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -1815,7 +1690,6 @@ exports[`No borders variant should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -1828,17 +1702,13 @@ exports[`No borders variant should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1850,9 +1720,9 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8.fi-action-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1866,16 +1736,8 @@ exports[`No borders variant should match snapshot 1`] = `
 .c8 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -1902,14 +1764,14 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -1921,13 +1783,13 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -1959,7 +1821,6 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c3 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -1970,12 +1831,8 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1988,11 +1845,11 @@ exports[`No borders variant should match snapshot 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -2012,29 +1869,26 @@ exports[`No borders variant should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c5:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c5:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c5.fi-button--disabled,
 .c5[disabled],
 .c5:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -2051,18 +1905,18 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c5.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c5.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-button--inverted.fi-button--disabled,
@@ -2074,41 +1928,41 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c5.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary.fi-button--disabled,
 .c5.fi-button--secondary[disabled],
 .c5.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -2116,26 +1970,26 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--disabled,
 .c5.fi-button--secondary-noborder[disabled],
 .c5.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--icon-only {
@@ -2143,42 +1997,42 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light.fi-button--icon-only {
@@ -2186,36 +2040,34 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c5.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c5 > .fi-button_icon > .fi-icon {
+.c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c5 > .fi-button_icon--right > .fi-icon {
+.c5>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -2224,15 +2076,15 @@ exports[`No borders variant should match snapshot 1`] = `
   padding: 6px 11px;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c5.fi-button--disabled > .fi-button_icon {
+.c5.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -2241,22 +2093,15 @@ exports[`No borders variant should match snapshot 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c5 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -2269,11 +2114,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2286,11 +2127,7 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c9.fi-action-menu-item {
   position: relative;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2299,24 +2136,15 @@ exports[`No borders variant should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   padding: 10px 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   cursor: pointer;
   background: inherit;
   border: none;
   border-radius: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -2326,7 +2154,7 @@ exports[`No borders variant should match snapshot 1`] = `
 .c9.fi-action-menu-item:visited {
   border: none;
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c9.fi-action-menu-item .fi-icon {
@@ -2338,28 +2166,27 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--disabled:active,
 .c9.fi-action-menu-item--disabled:focus,
 .c9.fi-action-menu-item--disabled:hover,
 .c9.fi-action-menu-item--disabled:visited {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--selected {
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
 }
 
 .c9.fi-action-menu-item--selected:active,
 .c9.fi-action-menu-item--selected:focus,
 .c9.fi-action-menu-item--selected:hover,
 .c9.fi-action-menu-item--selected:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,100%);
+  color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
@@ -2369,7 +2196,7 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-action-menu-divider {
@@ -2377,40 +2204,30 @@ exports[`No borders variant should match snapshot 1`] = `
   min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 @media (prefers-reduced-motion) {
   .c5.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -2421,13 +2238,13 @@ exports[`No borders variant should match snapshot 1`] = `
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
@@ -2554,7 +2371,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2587,8 +2403,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -2603,7 +2419,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2616,8 +2431,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -2632,7 +2447,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2645,8 +2459,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -2661,7 +2475,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -2674,17 +2487,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2696,9 +2505,9 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8.fi-action-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -2712,16 +2521,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c8 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -2748,14 +2549,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -2767,13 +2568,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -2805,7 +2606,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c3 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -2816,12 +2616,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -2834,11 +2630,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -2858,29 +2654,26 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c5:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c5:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c5.fi-button--disabled,
 .c5[disabled],
 .c5:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -2897,18 +2690,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c5.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c5.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-button--inverted.fi-button--disabled,
@@ -2920,41 +2713,41 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c5.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary.fi-button--disabled,
 .c5.fi-button--secondary[disabled],
 .c5.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -2962,26 +2755,26 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--disabled,
 .c5.fi-button--secondary-noborder[disabled],
 .c5.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--icon-only {
@@ -2989,42 +2782,42 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light.fi-button--icon-only {
@@ -3032,36 +2825,34 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c5.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c5 > .fi-button_icon > .fi-icon {
+.c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c5 > .fi-button_icon--right > .fi-icon {
+.c5>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -3070,15 +2861,15 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   padding: 6px 11px;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c5.fi-button--disabled > .fi-button_icon {
+.c5.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -3087,22 +2878,15 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c5 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -3115,11 +2899,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3132,11 +2912,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item {
   position: relative;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3145,24 +2921,15 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   padding: 10px 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   cursor: pointer;
   background: inherit;
   border: none;
   border-radius: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -3172,7 +2939,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c9.fi-action-menu-item:visited {
   border: none;
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c9.fi-action-menu-item .fi-icon {
@@ -3184,28 +2951,27 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--disabled:active,
 .c9.fi-action-menu-item--disabled:focus,
 .c9.fi-action-menu-item--disabled:hover,
 .c9.fi-action-menu-item--disabled:visited {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--selected {
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
 }
 
 .c9.fi-action-menu-item--selected:active,
 .c9.fi-action-menu-item--selected:focus,
 .c9.fi-action-menu-item--selected:hover,
 .c9.fi-action-menu-item--selected:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,100%);
+  color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
@@ -3215,7 +2981,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-action-menu-divider {
@@ -3223,40 +2989,30 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 @media (prefers-reduced-motion) {
   .c5.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -3267,13 +3023,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
@@ -3401,7 +3157,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3434,8 +3189,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -3450,7 +3205,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3463,8 +3217,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -3479,7 +3233,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3492,8 +3245,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -3508,7 +3261,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -3521,17 +3273,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
 .c8 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3543,9 +3291,9 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8.fi-action-menu-popover {
-  background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
-  border: 1px solid hsl(0,0%,42%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
+  border: 1px solid hsl(0, 0%, 42%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -3559,16 +3307,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c8 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
   overflow-y: auto;
@@ -3595,14 +3335,14 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-  border-bottom-color: hsl(0,0%,42%);
+  border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-  border-bottom-color: hsl(0,0%,100%);
+  border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -3614,13 +3354,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-  border-top-color: hsl(0,0%,42%);
+  border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
-  border-top-color: hsl(0,0%,100%);
+  border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
@@ -3652,7 +3392,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c3 {
   position: absolute;
-  -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
@@ -3663,12 +3402,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3681,11 +3416,11 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   line-height: 20px;
   padding: 9px 20px;
   min-height: 40px;
-  color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 37%) 0%, hsl(212, 63%, 45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  text-shadow: 0 1px 1px hsla(214, 100%, 24%, 0.5);
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -3705,29 +3440,26 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c5:hover {
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  background: linear-gradient(0deg, hsl(212, 63%, 45%) 0%, hsl(212, 63%, 49%) 100%);
   outline: 2px solid transparent;
 }
 
 .c5:active {
-  background: hsl(212,63%,37%);
+  background: hsl(212, 63%, 37%);
 }
 
 .c5.fi-button--disabled,
 .c5[disabled],
 .c5:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  background: linear-gradient(0deg, hsl(202, 7%, 67%) 0%, hsl(202, 7%, 80%) 100%);
   user-select: none;
   cursor: not-allowed;
 }
@@ -3744,18 +3476,18 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c5.fi-button--inverted {
   background: none;
-  background-color: hsl(212,63%,45%);
-  border: 1px solid hsl(0,0%,100%);
+  background-color: hsl(212, 63%, 45%);
+  border: 1px solid hsl(0, 0%, 100%);
   text-shadow: none;
 }
 
 .c5.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--inverted:active {
   background: none;
-  background-color: hsl(212,63%,45%);
+  background-color: hsl(212, 63%, 45%);
 }
 
 .c5.fi-button--inverted.fi-button--disabled,
@@ -3767,41 +3499,41 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c5.fi-button--secondary {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
 }
 
 .c5.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary.fi-button--disabled,
 .c5.fi-button--secondary[disabled],
 .c5.fi-button--secondary:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
   border: none;
   padding: 10px 20px;
@@ -3809,26 +3541,26 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c5.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--disabled,
 .c5.fi-button--secondary-noborder[disabled],
 .c5.fi-button--secondary-noborder:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-noborder.fi-button--icon-only {
@@ -3836,42 +3568,42 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c5.fi-button--secondary-noborder .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light {
-  color: hsl(212,63%,45%);
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
+  color: hsl(212, 63%, 45%);
   background: none;
-  background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  background: linear-gradient(0deg, hsl(215, 100%, 95%), hsl(215, 100%, 97%));
   padding: 10px 20px;
   border: none;
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 93%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c5.fi-button--secondary-light:active {
   background: none;
-  background-color: hsl(202,7%,93%);
+  background-color: hsl(202, 7%, 93%);
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   text-shadow: none;
   background: none;
-  background-color: hsl(212,63%,98%);
-  border-color: hsl(202,7%,67%);
+  background-color: hsl(212, 63%, 98%);
+  border-color: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
 .c5.fi-button--secondary-light.fi-button--icon-only {
@@ -3879,36 +3611,34 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c5.fi-button--secondary-light:hover {
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+  background: linear-gradient(0deg, hsl(215, 100%, 97%), hsl(212, 63%, 98%));
 }
 
 .c5.fi-button--secondary-light:active {
-  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+  background: linear-gradient(0deg, hsl(202, 7%, 93%), hsl(202, 7%, 97%));
 }
 
 .c5.fi-button--secondary-light.fi-button--disabled,
 .c5.fi-button--secondary-light[disabled],
 .c5.fi-button--secondary-light:disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   background: none;
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(202,7%,67%);
+  fill: hsl(202, 7%, 67%);
 }
 
-.c5 > .fi-button_icon > .fi-icon {
+.c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c5 > .fi-button_icon--right > .fi-icon {
+.c5>.fi-button_icon--right>.fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -3917,15 +3647,15 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   padding: 6px 11px;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon>.fi-icon {
   margin-right: 0;
 }
 
-.c5.fi-button--icon-only > .fi-button_icon--right > .fi-icon {
+.c5.fi-button--icon-only>.fi-button_icon--right>.fi-icon {
   margin-left: 0;
 }
 
-.c5.fi-button--disabled > .fi-button_icon {
+.c5.fi-button--disabled>.fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -3934,22 +3664,15 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
 .c5 .fi-button_loading-icon .fi-icon-component-brand-fill {
-  fill: hsl(0,0%,100%);
+  fill: hsl(0, 0%, 100%);
 }
 
 .c5.fi-button--loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -3962,11 +3685,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3979,11 +3698,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c9.fi-action-menu-item {
   position: relative;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3992,24 +3707,15 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   padding: 10px 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   cursor: pointer;
   background: inherit;
   border: none;
   border-radius: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -4019,7 +3725,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c9.fi-action-menu-item:visited {
   border: none;
   outline: none;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c9.fi-action-menu-item .fi-icon {
@@ -4031,28 +3737,27 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--disabled:active,
 .c9.fi-action-menu-item--disabled:focus,
 .c9.fi-action-menu-item--disabled:hover,
 .c9.fi-action-menu-item--disabled:visited {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c9.fi-action-menu-item--selected {
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
+  color: hsl(0, 0%, 100%);
+  background: hsl(212, 63%, 45%);
 }
 
 .c9.fi-action-menu-item--selected:active,
 .c9.fi-action-menu-item--selected:focus,
 .c9.fi-action-menu-item--selected:hover,
 .c9.fi-action-menu-item--selected:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,100%);
+  color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
@@ -4062,7 +3767,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
 }
 
 .c10.fi-action-menu-divider {
@@ -4070,40 +3775,30 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
-  background-color: hsl(202,7%,80%);
+  background-color: hsl(202, 7%, 80%);
 }
 
 @media (prefers-reduced-motion) {
   .c5.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
-    -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -4114,13 +3809,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
-@media (forced-colors:active) {
+@media (forced-colors: active) {
   .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }

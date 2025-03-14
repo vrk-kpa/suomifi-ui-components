@@ -64,7 +64,6 @@ exports[`Basic tooltip should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -97,8 +96,8 @@ exports[`Basic tooltip should match snapshot 1`] = `
   height: auto;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -113,7 +112,6 @@ exports[`Basic tooltip should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -126,8 +124,8 @@ exports[`Basic tooltip should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -141,11 +139,11 @@ exports[`Basic tooltip should match snapshot 1`] = `
 .c4.fi-tooltip_content {
   margin: 10px 0;
   position: relative;
-  border: 1px solid hsl(201,7%,46%);
+  border: 1px solid hsl(201, 7%, 46%);
   border-radius: 2px;
-  background-color: hsl(212,63%,98%);
+  background-color: hsl(212, 63%, 98%);
   padding: 20px 43px 20px 20px;
-  box-shadow: 0 2px 3px 0 hsla(0,0%,13%,0.2);
+  box-shadow: 0 2px 3px 0 hsla(0, 0%, 13%, 0.2);
 }
 
 .c4.fi-tooltip_content:before,
@@ -159,7 +157,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content:before {
-  border-bottom-color: hsl(0,0%,13%);
+  border-bottom-color: hsl(0, 0%, 13%);
   border-width: 9px;
   left: 0px;
   margin-right: -9px;
@@ -167,7 +165,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content:after {
-  border-bottom-color: hsl(212,63%,98%);
+  border-bottom-color: hsl(212, 63%, 98%);
   border-width: 8px;
   margin-right: -9px;
   bottom: 100%;
@@ -195,7 +193,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:active {
-  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,hsla(0,0%,100%,0) 100%);
+  background: linear-gradient(-180deg, hsl(202, 7%, 80%) 0%, hsla(0, 0%, 100%, 0) 100%);
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:focus-visible {
@@ -212,14 +210,14 @@ exports[`Basic tooltip should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:hover {
-  outline: 1px solid hsl(0,0%,13%);
+  outline: 1px solid hsl(0, 0%, 13%);
 }
 
 .c4.fi-tooltip_content .fi-heading {
@@ -257,16 +255,16 @@ exports[`Basic tooltip should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-tooltip_toggle-button_icon {
   height: 100%;
   width: 100%;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 <div>
@@ -363,7 +361,6 @@ exports[`margin should have margin style from margin prop 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -396,8 +393,8 @@ exports[`margin should have margin style from margin prop 1`] = `
   height: auto;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -424,16 +421,16 @@ exports[`margin should have margin style from margin prop 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
 .c1 .fi-tooltip_toggle-button_icon {
   height: 100%;
   width: 100%;
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 <div>

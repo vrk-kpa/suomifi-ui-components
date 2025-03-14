@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../utils/test';
 import { Pagination, PaginationProps } from './Pagination';
+import { Link } from '../Link';
 
 const TestPagination = (props: Partial<PaginationProps> = {}) => (
   <Pagination
@@ -75,7 +76,7 @@ describe('props', () => {
   });
 
   describe('onChange', () => {
-    it('should notice input field change and call with the given number', () => {
+    it('should notice input field change and call with the given number', async () => {
       jest.useFakeTimers();
       const mockOnChange = jest.fn();
       const { getByPlaceholderText, getAllByRole } = render(
@@ -87,10 +88,14 @@ describe('props', () => {
       fireEvent.change(inputElement, { target: { value: '3' } });
       const actionButton = getAllByRole('button')[2];
       fireEvent.click(actionButton);
-      expect(mockOnChange).not.toBeCalled();
+      await waitFor(async () => {
+        expect(mockOnChange).not.toBeCalled();
+      });
       jest.advanceTimersByTime(200);
-      expect(mockOnChange).toBeCalledTimes(1);
-      expect(mockOnChange).toBeCalledWith(3);
+      await waitFor(async () => {
+        expect(mockOnChange).toBeCalledTimes(1);
+        expect(mockOnChange).toBeCalledWith(3);
+      });
     });
 
     it('should notice next button click', () => {
@@ -115,6 +120,36 @@ describe('props', () => {
       fireEvent.click(previousButton);
       expect(mockOnChange).toBeCalledTimes(1);
       expect(mockOnChange).toBeCalledWith(2);
+    });
+  });
+
+  describe('custom previous and next elements', () => {
+    it('should render custom previous and next elements', () => {
+      const { getByText, getAllByRole } = render(
+        <Pagination
+          data-testid="pagination"
+          lastPage={2}
+          pageInputProps={{
+            invalidValueErrorText: (value) => `${value} is not allowed`,
+            inputPlaceholderText: 'placeholder text',
+            buttonText: 'Jump',
+            labelText: 'Page number input',
+          }}
+          onChange={() => null}
+          pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
+          ariaPageIndicatorText={(current, last) =>
+            `Page ${current} of ${last}`
+          }
+          aria-label="my component here"
+          customNextButton={<Link href="https://example.com">Next</Link>}
+          customPreviousButton={
+            <Link href="https://example.com">Previous</Link>
+          }
+        />,
+      );
+      expect(getByText('Next')).toBeInTheDocument();
+      expect(getByText('Previous')).toBeInTheDocument();
+      expect(getAllByRole('link')).toHaveLength(2);
     });
   });
 

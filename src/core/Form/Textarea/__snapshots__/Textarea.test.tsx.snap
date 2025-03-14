@@ -12,7 +12,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -25,8 +24,8 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +40,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -54,8 +52,8 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -70,7 +68,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -83,8 +80,8 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -101,7 +98,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -116,17 +112,13 @@ exports[`snapshot default structure should match snapshot 1`] = `
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c5 ::before,
+.c5 ::after {
   box-sizing: border-box;
 }
 
 .c3.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -137,7 +129,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
 }
 
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -152,11 +144,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c6 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -165,7 +153,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -175,24 +163,22 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c6.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,43%);
+  color: hsl(3, 59%, 43%);
 }
 
 .c6.fi-status-text .fi-icon {
   vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-  -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
   margin-right: 5px;
 }
 
+.c6.fi-status-text.fi-status-text--success .fi-icon-base-fill {
+  fill: hsl(166, 90%, 34%);
+}
+
 .c1 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(0, 0%, 13%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -201,7 +187,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   width: 290px;
 }
 
@@ -212,32 +198,17 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 .c1.fi-textarea .fi-textarea_bottom-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .c1.fi-textarea .fi-textarea_character-counter {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -246,22 +217,16 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,13%);
+  color: hsl(0, 0%, 13%);
   font-size: 14px;
   line-height: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
   flex: none;
   margin-top: 5px;
 }
 
 .c1.fi-textarea .fi-textarea_character-counter.fi-textarea_character-counter--error {
-  color: hsl(3,59%,43%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
+  color: hsl(3, 59%, 43%);
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -293,9 +258,9 @@ exports[`snapshot default structure should match snapshot 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+  border: 0px solid hsl(0, 0%, 100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
 }
 
@@ -311,42 +276,24 @@ exports[`snapshot default structure should match snapshot 1`] = `
   display: block;
   resize: vertical;
   border-radius: 2px;
-  border: 1px solid hsl(201,7%,58%);
-  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  border: 1px solid hsl(201, 7%, 58%);
+  box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   padding: 8px 14px 13px 10px;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  background-color: hsl(0,0%,100%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 .c1.fi-textarea .fi-textarea_textarea:focus {
   outline: none;
 }
 
-.c1.fi-textarea .fi-textarea_textarea::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1.fi-textarea .fi-textarea_textarea::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1.fi-textarea .fi-textarea_textarea:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c1.fi-textarea .fi-textarea_textarea::placeholder {
   font-style: italic;
-  color: hsl(201,7%,46%);
+  color: hsl(201, 7%, 46%);
   opacity: 1;
 }
 
@@ -368,16 +315,16 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea.fi-textarea--disabled {
-  color: hsl(202,7%,67%);
+  color: hsl(202, 7%, 67%);
   cursor: not-allowed;
 }
 
 .c1.fi-textarea.fi-textarea--disabled .fi-textarea_textarea {
-  background-color: hsl(202,7%,97%);
+  background-color: hsl(202, 7%, 97%);
 }
 
 .c1.fi-textarea.fi-textarea--error .fi-textarea_textarea {
-  border: 2px solid hsl(3,59%,43%);
+  border: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-textarea--full-width {

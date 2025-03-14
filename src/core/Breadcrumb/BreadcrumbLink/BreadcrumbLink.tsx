@@ -1,5 +1,5 @@
 import React from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { Link, LinkProps } from '../../Link';
 import { HtmlSpan } from '../../../reset';
 import classnames from 'classnames';

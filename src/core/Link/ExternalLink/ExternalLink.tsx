@@ -1,5 +1,5 @@
 import React, { Component, forwardRef } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import {
   SuomifiThemeProp,
@@ -78,10 +78,7 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         as={asProp}
       >
         {variant === 'accent' && (
-          <IconChevronRight
-            color={theme.colors.accentBase}
-            className={linkClassNames.accentIcon}
-          />
+          <IconChevronRight className={linkClassNames.accentIcon} />
         )}
         {children}
         {toNewWindow && <VisuallyHidden>{labelNewWindow}</VisuallyHidden>}

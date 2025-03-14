@@ -12,7 +12,6 @@ exports[`Margin prop should have margin style from margin prop 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -27,13 +26,13 @@ exports[`Margin prop should have margin style from margin prop 1`] = `
   padding-left: 40px;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
 .c1 {
-  margin: 10px !important;
+  margin: 10px!important;
 }
 
 .c1.fi-link-list {
@@ -42,17 +41,11 @@ exports[`Margin prop should have margin style from margin prop 1`] = `
 }
 
 .c1.fi-link-list--small .fi-link-list-item_icon .fi-icon {
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
 }
 
 .c1.fi-link-list--small .fi-link {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -109,19 +102,17 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
   cursor: inherit;
   display: inline;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c6::before,
-.c6::after {
+.c6 ::before,
+.c6 ::after {
   box-sizing: border-box;
 }
 
@@ -130,7 +121,6 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 .c6:focus,
 .c6:focus-within {
   color: inherit;
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -146,7 +136,6 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -155,8 +144,8 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   display: list-item;
 }
 
-.c2::before,
-.c2::after {
+.c2 ::before,
+.c2 ::after {
   box-sizing: border-box;
 }
 
@@ -171,7 +160,6 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -184,8 +172,8 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c4 ::before,
+.c4 ::after {
   box-sizing: border-box;
 }
 
@@ -200,7 +188,6 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   font: 100% inherit;
   line-height: 1;
   text-align: left;
-  -webkit-text-decoration: none;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
@@ -215,17 +202,13 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c0::before,
-.c0::after {
+.c0 ::before,
+.c0 ::after {
   box-sizing: border-box;
 }
 
 .c3 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -248,13 +231,11 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 .c3.fi-link-list-item .fi-link-list-item_icon .fi-icon {
   margin-left: -3px;
   font-size: 16px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
   transform: translateY(0.1em);
 }
 
 .c3.fi-link-list-item .fi-link-list-item_icon .fi-icon .fi-icon-base-fill {
-  fill: hsl(23,82%,50%);
+  fill: hsl(23, 82%, 50%);
 }
 
 .c3.fi-link-list-item .fi-link {
@@ -267,17 +248,11 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c1.fi-link-list--small .fi-link-list-item_icon .fi-icon {
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
 }
 
 .c1.fi-link-list--small .fi-link {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -289,11 +264,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c7 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
   letter-spacing: 0;
-  -webkit-text-decoration: none;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -305,8 +276,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c7.fi-link {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
+  color: hsl(212, 63%, 45%);
   text-decoration: none;
 }
 
@@ -314,46 +284,41 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 .c7.fi-link:active,
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  color: hsl(212,63%,45%);
+  color: hsl(212, 63%, 45%);
 }
 
 .c7.fi-link:focus,
 .c7.fi-link:focus-within {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c7.fi-link:focus {
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
 .c7.fi-link:hover,
 .c7.fi-link:active {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link:visited {
-  color: hsl(284,36%,45%);
+  color: hsl(284, 36%, 45%);
 }
 
 .c7.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:focus,
 .c7.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 .c7.fi-link--initial-underline:hover,
 .c7.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -361,9 +326,11 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
   transform: translateY(0.15em);
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon .fi-icon-base-fill {
+  fill: hsl(23, 82%, 50%);
 }
 
 .c7.fi-link.fi-link--small {

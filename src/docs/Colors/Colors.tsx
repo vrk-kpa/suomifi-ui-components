@@ -5,7 +5,7 @@ import {
   defaultSuomifiTheme,
 } from '../../core/theme';
 import { hslaToHex } from '../../utils/css';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
 import clipboardCopy from 'clipboard-copy';
 

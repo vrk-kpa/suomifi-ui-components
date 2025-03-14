@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { HtmlLi } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './ServiceNavigationItem.baseStyles';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 export interface ServiceNavigationItemProps {
   /** CSS class for custom styles */

@@ -1,200 +1,212 @@
 export {
   ActionMenu,
-  ActionMenuProps,
+  type ActionMenuProps,
   ActionMenuItem,
-  ActionMenuItemProps,
+  type ActionMenuItemProps,
   ActionMenuDivider,
 } from './core/ActionMenu';
 
 export {
   Breadcrumb,
-  BreadcrumbProps,
+  type BreadcrumbProps,
   BreadcrumbLink,
-  BreadcrumbLinkProps,
+  type BreadcrumbLinkProps,
 } from './core/Breadcrumb';
-export { Alert, AlertProps } from './core/Alert/Alert';
-export { InlineAlert, InlineAlertProps } from './core/InlineAlert/InlineAlert';
+export { Alert, type AlertProps } from './core/Alert/Alert';
+export {
+  InlineAlert,
+  type InlineAlertProps,
+} from './core/InlineAlert/InlineAlert';
 export {
   Notification,
-  NotificationProps,
-  CloseButtonProps,
+  type NotificationProps,
+  type CloseButtonProps,
 } from './core/Notification/Notification';
-export { Toast, ToastProps } from './core/Toast/Toast';
-export { Block, BlockProps } from './core/Block/Block';
+export { Toast, type ToastProps } from './core/Toast/Toast';
+export { Block, type BlockProps } from './core/Block/Block';
 export {
   Button,
-  ButtonProps,
-  ForcedAccessibleNameProps,
+  type ButtonProps,
+  type ForcedAccessibleNameProps,
 } from './core/Button/Button';
-export { Details, DetailsProps } from './core/Details/Details';
-export { Chip, ChipProps } from './core/Chip/';
-export { StaticChip, StaticChipProps } from './core/Chip/';
+export { Details, type DetailsProps } from './core/Details/Details';
+export { Chip, type ChipProps } from './core/Chip/';
+export { StaticChip, type StaticChipProps } from './core/Chip/';
 export {
   LoadingSpinner,
-  LoadingSpinnerProps,
-  LoadingSpinnerStatus,
+  type LoadingSpinnerProps,
+  type LoadingSpinnerStatus,
 } from './core/LoadingSpinner/LoadingSpinner';
 export {
   Checkbox,
-  CheckboxProps,
+  type CheckboxProps,
   CheckboxGroup,
-  CheckboxGroupProps,
+  type CheckboxGroupProps,
   TextInput,
-  TextInputProps,
-  TextInputValue,
+  type TextInputProps,
+  type TextInputValue,
   TimeInput,
-  TimeInputProps,
+  type TimeInputProps,
   ToggleInput,
-  ToggleInputProps,
+  type ToggleInputProps,
   ToggleButton,
-  ToggleButtonProps,
+  type ToggleButtonProps,
   SearchInput,
-  SearchInputProps,
+  type SearchInputProps,
   RadioButton,
-  RadioButtonProps,
+  type RadioButtonProps,
   RadioButtonGroup,
-  RadioButtonGroupProps,
+  type RadioButtonGroupProps,
   MultiSelect,
-  MultiSelectProps,
-  MultiSelectData,
-  MultiSelectStatus,
+  type MultiSelectProps,
+  type MultiSelectData,
+  type MultiSelectStatus,
   SingleSelect,
-  SingleSelectProps,
-  SingleSelectData,
-  SingleSelectStatus,
+  type SingleSelectProps,
+  type SingleSelectData,
+  type SingleSelectStatus,
   StatusText,
-  StatusTextProps,
+  type StatusTextProps,
   Label,
-  LabelProps,
+  type LabelProps,
   HintText,
-  HintTextProps,
+  type HintTextProps,
   DateInput,
-  DateInputProps,
-  DatePickerTextProps,
-  characterCounterProps,
+  type DateInputProps,
+  type DatePickerTextProps,
+  type characterCounterProps,
   ErrorSummary,
-  ErrorSummaryProps,
-  ErrorSummaryItemProps,
+  type ErrorSummaryProps,
+  type ErrorSummaryItemProps,
   Dropdown,
-  DropdownProps,
+  type DropdownProps,
   DropdownItem,
-  DropdownItemProps,
+  type DropdownItemProps,
   FileInput,
-  FileInputProps,
-  ControlledFileItem,
+  type FileInputProps,
+  type ControlledFileItem,
+  type Metadata,
 } from './core/Form';
-export { Heading, HeadingProps } from './core/Heading/Heading';
+export { Heading, type HeadingProps } from './core/Heading/Heading';
 export {
   Link,
-  LinkProps,
+  type LinkProps,
   ExternalLink,
-  ExternalLinkProps,
+  type ExternalLinkProps,
   SkipLink,
-  SkipLinkProps,
+  type SkipLinkProps,
   RouterLink,
-  RouterLinkProps,
+  type RouterLinkProps,
   LinkListItem,
-  LinkListItemProps,
+  type LinkListItemProps,
   LinkList,
-  LinkListProps,
+  type LinkListProps,
 } from './core/Link/';
 export {
   LanguageMenu,
-  LanguageMenuProps,
+  type LanguageMenuProps,
   LanguageMenuItem,
-  LanguageMenuItemProps,
+  type LanguageMenuItemProps,
 } from './core/LanguageMenu';
 export {
   Modal,
-  ModalProps,
+  type ModalProps,
   ModalContent,
-  ModalContentProps,
+  type ModalContentProps,
   ModalTitle,
-  ModalTitleProps,
+  type ModalTitleProps,
   ModalFooter,
-  ModalFooterProps,
+  type ModalFooterProps,
 } from './core/Modal/';
 export {
   WizardNavigation,
-  WizardNavigationProps,
+  type WizardNavigationProps,
   WizardNavigationItem,
-  WizardNavigationItemProps,
+  type WizardNavigationItemProps,
 } from './core/Navigation/WizardNavigation';
 export {
   ServiceNavigation,
-  ServiceNavigationProps,
+  type ServiceNavigationProps,
   ServiceNavigationItem,
-  ServiceNavigationItemProps,
+  type ServiceNavigationItemProps,
 } from './core/Navigation/ServiceNavigation';
 export {
   SideNavigation,
-  SideNavigationProps,
+  type SideNavigationProps,
   SideNavigationItem,
-  SideNavigationItemProps,
+  type SideNavigationItemProps,
 } from './core/Navigation/SideNavigation';
 export {
   Expander,
-  ExpanderProps,
+  type ExpanderProps,
   ExpanderGroup,
-  ExpanderGroupProps,
+  type ExpanderGroupProps,
   ExpanderContent,
-  ExpanderContentProps,
+  type ExpanderContentProps,
   ExpanderTitleButton,
-  ExpanderTitleButtonProps,
+  type ExpanderTitleButtonProps,
   ExpanderTitle,
-  ExpanderTitleProps,
+  type ExpanderTitleProps,
 } from './core/Expander/';
-export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
+export { Paragraph, type ParagraphProps } from './core/Paragraph/Paragraph';
 export {
   Pagination,
-  PaginationProps,
-  PageInputProps,
+  type PaginationProps,
+  type PageInputProps,
+  type NextPreviousButtonProps,
+  type ShowInputProps,
 } from './core/Pagination/Pagination';
-export { Text, TextProps } from './core/Text/Text';
-export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
-export { Tooltip, TooltipProps } from './core/Tooltip/Tooltip';
+export { Text, type TextProps } from './core/Text/Text';
+export { Textarea, type TextareaProps } from './core/Form/Textarea/Textarea';
+export { Tooltip, type TooltipProps } from './core/Tooltip/Tooltip';
+export {
+  Table,
+  type TableProps,
+  type TableColumn,
+  type TableRow,
+} from './core/Table/Table';
 export {
   VisuallyHidden,
-  VisuallyHiddenProps,
+  type VisuallyHiddenProps,
 } from './core/VisuallyHidden/VisuallyHidden';
 export {
-  SuomifiTheme,
-  ZIndexDesignTokens,
-  SuomifiDesignTokens,
+  type SuomifiTheme,
+  type ZIndexDesignTokens,
+  type SuomifiDesignTokens,
   defaultSuomifiTheme,
   SuomifiThemeProvider,
-  SuomifiThemeProviderProps,
+  type SuomifiThemeProviderProps,
   SuomifiThemeConsumer,
   SuomifiThemeContext,
-  PartialSuomifiTheme,
-  ColorProp,
-  TypographyProp,
-  SpacingProp,
-  MarginProps,
-  PaddingProps,
-  SpacingProps,
-  SpacingWithoutInsetProp,
+  type PartialSuomifiTheme,
+  type ColorProp,
+  type TypographyProp,
+  type SpacingProp,
+  type MarginProps,
+  type PaddingProps,
+  type SpacingProps,
+  type SpacingWithoutInsetProp,
 } from './core/theme';
 export {
   SpacingProvider,
-  SpacingProviderProps,
+  type SpacingProviderProps,
   SpacingConsumer,
-  GlobalMargins,
+  type GlobalMargins,
 } from './core/theme';
-export { getLogger, setLogger, Logger } from './utils/log/logger';
+export { getLogger, setLogger, type Logger } from './utils/log/logger';
 export { autocompleteTimeString } from './utils/common';
 export {
   suomifiDesignTokens,
-  DesignTokens,
-  TypographyDesignTokens,
-  ColorDesignTokens,
-  SpacingDesignTokens,
-  RawDesignTokens,
-  ValueUnit,
-  RawColorDesignTokens,
-  ColorToken,
-  RawSpacingDesignTokens,
-  RawTypographyDesignTokens,
-  TypographyToken,
+  type DesignTokens,
+  type TypographyDesignTokens,
+  type ColorDesignTokens,
+  type SpacingDesignTokens,
+  type RawDesignTokens,
+  type ValueUnit,
+  type RawColorDesignTokens,
+  type ColorToken,
+  type RawSpacingDesignTokens,
+  type RawTypographyDesignTokens,
+  type TypographyToken,
 } from 'suomifi-design-tokens';
 export * from 'suomifi-icons';

@@ -1,5 +1,5 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { getLogger } from '../../../../utils/log';

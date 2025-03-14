@@ -1,10 +1,7 @@
 {
-  "extends": [
-    "stylelint-config-recommended"
-  ],
+  "extends": ["stylelint-config-recommended"],
   "customSyntax": "postcss-styled-syntax",
   "rules": {
-    "no-extra-semicolons": null,
     "function-no-unknown": null
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { default as styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../../utils/common';
@@ -218,6 +218,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       !(yearSelectRef.current?.getAttribute('aria-expanded') === 'true') &&
       !(monthSelectRef.current?.getAttribute('aria-expanded') === 'true')
     ) {
+      event.stopPropagation();
       handleClose(true);
     }
 
