@@ -131,8 +131,7 @@ export const autocompleteTimeString = (timeStr: string): string | null => {
  * <Component wrapperProps={{ 'data-testid': 'something' }}
  * Solution inspired by: https://github.com/microsoft/TypeScript/issues/28960
  */
-type DataAttributeKey = `data-${string}`;
 export interface HTMLAttributesIncludingDataAttributes<T>
   extends React.HTMLAttributes<T> {
-  [dataAttribute: DataAttributeKey]: any;
+  [dataAttribute: `data-${string}`]: any;
 }

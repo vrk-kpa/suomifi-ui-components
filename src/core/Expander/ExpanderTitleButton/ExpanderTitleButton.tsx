@@ -6,7 +6,7 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 import { IconChevronDown } from 'suomifi-icons';
-import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
+import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 
 const baseClassName = 'fi-expander_title-button';
 const titleOpenClassName = `${baseClassName}--open`;

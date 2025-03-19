@@ -6,8 +6,8 @@ import { LinkListItemStyles } from './LinkListItem.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLi, HtmlLiProps, HtmlSpan } from '../../../reset';
 import { LinkProps } from '../Link/Link';
-import { ExternalLinkProps } from 'core/Link/ExternalLink/ExternalLink';
-import { RouterLinkProps } from 'core/Link/RouterLink/RouterLink';
+import { ExternalLinkProps } from '../../Link/ExternalLink/ExternalLink';
+import { RouterLinkProps } from '../../Link/RouterLink/RouterLink';
 
 const baseClassName = 'fi-link-list-item';
 

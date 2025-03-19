@@ -23,7 +23,7 @@ import {
   moveMonths,
 } from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
-import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
+import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
 
 const baseClassName = 'fi-date-picker';
 
