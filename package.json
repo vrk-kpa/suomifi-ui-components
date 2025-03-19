@@ -150,7 +150,7 @@
     "webpack": "5.95.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.23.5",
+    "@babel/runtime": "^7.23.5",
     "@popperjs/core": "2.11.8",
     "@types/react-modal": "3.16.0",
     "classnames": "2.3.2",
