@@ -193,7 +193,11 @@ export {
   SpacingConsumer,
   type GlobalMargins,
 } from './core/theme';
-export { getLogger, setLogger, type Logger } from './utils/log/logger';
+export {
+  ConfigProvider,
+  ConfigContextProps,
+} from './core/utils/ConfigProvider/ConfigProvider';
+export { getLogger, setLogger, Logger } from './utils/log/logger';
 export { autocompleteTimeString } from './utils/common';
 export {
   suomifiDesignTokens,
