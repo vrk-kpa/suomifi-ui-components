@@ -243,7 +243,7 @@ const customDataSort = (key, dir) => {
   setData(sortedData);
 };
 
-<div style={{ width: '900px' }}>
+<div style={{ width: '920px' }}>
   <Table
     caption="People in the project"
     columns={columns}

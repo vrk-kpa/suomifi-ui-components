@@ -38,13 +38,13 @@ export const baseStyles = (
 
     background-attachment: local, local, scroll, scroll;
 
-    &:focus {
-      position: relative;
-      ${theme.focuses.highContrastFocus} /* For high contrast mode */
+    /* This exists as a bit of a hack to make the focus ring work in horizontal scrolling tables */
+    border: 2px solid transparent;
 
-      &::after {
-        ${theme.focuses.absoluteFocus}
-      }
+    &:focus {
+      outline: none;
+      border: 2px solid ${theme.colors.accentSecondary};
+      border-radius: ${theme.radiuses.focus};
     }
 
     .fi-table_table {
