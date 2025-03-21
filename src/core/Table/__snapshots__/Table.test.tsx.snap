@@ -326,27 +326,13 @@ exports[`Table functionalities matches snapshot 1`] = `
   background-color: white;
   background-size: 30px 100%,30px 100%,20px 100%,20px 100%;
   background-attachment: local,local,scroll,scroll;
+  border: 2px solid transparent;
 }
 
 .c1.fi-table:focus {
-  position: relative;
-  outline: 3px solid transparent;
-}
-
-.c1.fi-table:focus::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
+  outline: none;
+  border: 2px solid hsl(196, 77%, 44%);
   border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0, 0%, 100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
-  z-index: 9999;
 }
 
 .c1.fi-table .fi-table_table {
