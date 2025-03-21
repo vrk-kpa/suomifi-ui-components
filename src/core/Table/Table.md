@@ -551,7 +551,7 @@ const data = [
     lastName: 'Ackermann',
     hours_worked: '',
     title: 'Security consultant',
-    country: <Link href="https://suomi.fi">Germany</Link>
+    country: 'Germany'
   },
   {
     id: '5',

@@ -328,6 +328,27 @@ exports[`Table functionalities matches snapshot 1`] = `
   background-attachment: local,local,scroll,scroll;
 }
 
+.c1.fi-table:focus {
+  position: relative;
+  outline: 3px solid transparent;
+}
+
+.c1.fi-table:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0, 0%, 100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
+  z-index: 9999;
+}
+
 .c1.fi-table .fi-table_table {
   color: hsl(0, 0%, 13%);
   font-size: 16px;
@@ -363,7 +384,7 @@ exports[`Table functionalities matches snapshot 1`] = `
 
 .c1.fi-table .fi-table_table .fi-table_th.fi-table_td--selection,
 .c1.fi-table .fi-table_table .fi-table_td.fi-table_td--selection {
-  width: 45px;
+  min-width: 45px;
   padding: 0;
   position: relative;
 }
@@ -503,7 +524,7 @@ exports[`Table functionalities matches snapshot 1`] = `
 }
 
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_selection-cell-skeleton {
-  width: 45px;
+  min-width: 45px;
   padding: 5px 12px 5px 20px;
 }
 
@@ -570,7 +591,7 @@ exports[`Table functionalities matches snapshot 1`] = `
 }
 
 .c1.fi-table .fi-table_skeleton-row .fi-table_selection-cell-skeleton {
-  width: 45px;
+  min-width: 45px;
   padding-right: 12px;
 }
 
@@ -593,6 +614,7 @@ exports[`Table functionalities matches snapshot 1`] = `
     >
       <caption
         class="c5 fi-table_caption"
+        id="1-caption"
       >
         People in the project
       </caption>

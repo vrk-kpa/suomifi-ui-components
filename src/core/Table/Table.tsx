@@ -17,7 +17,7 @@ import { filterDuplicateKeys } from '../../utils/common/common';
 import { AutoId } from '../utils/AutoId/AutoId';
 import {
   HtmlButton,
-  HtmlDiv,
+  HtmlDivWithRef,
   HtmlTable,
   HtmlTableBody,
   HtmlTableCaption,
@@ -172,6 +172,9 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     controlledSelectedRowIds || [],
   );
 
+  const [hasHorizontalScrollbar, setHasHorizontalScrollbar] = useState(false);
+  const wrapperRef = React.createRef<HTMLDivElement>();
+
   useEffect(() => {
     if (controlledSelectedRowIds !== undefined) {
       setSelectedRowIds(controlledSelectedRowIds);
@@ -181,6 +184,20 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
   useEffect(() => {
     setData(propData);
   }, [propData]);
+
+  useEffect(() => {
+    const targetDiv = wrapperRef.current;
+    if (!targetDiv) return;
+
+    const observer = new ResizeObserver(() => {
+      const isScrollbarVisible = targetDiv.scrollWidth > targetDiv.clientWidth;
+      setHasHorizontalScrollbar(isScrollbarVisible);
+    });
+
+    observer.observe(targetDiv);
+
+    return () => observer.disconnect();
+  }, []);
 
   const sortData = (key: string) => {
     const sortedData = [...data].sort((a, b) => {
@@ -264,8 +281,17 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     }
   }
 
+  const tableCaptionId = `${id}-caption`;
+  const getTableCaptionId = () => (caption ? `${id}-caption` : ariaLabelledBy);
+
   return (
-    <HtmlDiv className={classnames(baseClassName, className)}>
+    <HtmlDivWithRef
+      className={classnames(baseClassName, className)}
+      forwardedRef={wrapperRef}
+      tabIndex={hasHorizontalScrollbar ? 0 : undefined}
+      role={hasHorizontalScrollbar ? 'region' : undefined}
+      aria-labelledby={hasHorizontalScrollbar ? getTableCaptionId() : undefined}
+    >
       <VisuallyHidden aria-live="polite">
         {sortColumn !== '' &&
           tableSortedAriaLiveText &&
@@ -281,7 +307,10 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         {...passProps}
       >
         {caption && (
-          <HtmlTableCaption className={tableClassNames.caption}>
+          <HtmlTableCaption
+            className={tableClassNames.caption}
+            id={tableCaptionId}
+          >
             {caption}
           </HtmlTableCaption>
         )}
@@ -441,7 +470,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
               ))}
         </HtmlTableBody>
       </HtmlTable>
-    </HtmlDiv>
+    </HtmlDivWithRef>
   );
 };
 
