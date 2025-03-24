@@ -53,9 +53,6 @@ export const baseStyles = (
     }
 
     .fi-file-input_single-file-container {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       max-width: 600px;
       height: 100%;
@@ -80,7 +77,7 @@ export const baseStyles = (
       justify-content: space-between;
       .fi-file-input_file-info {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: ${theme.spacing.insetL};
         flex-shrink: 1;
         ${font(theme)('bodyTextSmall')};
@@ -89,6 +86,7 @@ export const baseStyles = (
           width: 24px;
           height: 24px;
           flex-shrink: 0;
+          margin-top: 6px;
         }
 
         .fi-file-input_file-name {
@@ -97,6 +95,7 @@ export const baseStyles = (
           flex-shrink: 1;
           font-size: 16px;
           word-break: break-word;
+          align-self: center;
 
           &:not(.is-link) {
             &:focus {
@@ -113,11 +112,13 @@ export const baseStyles = (
           color: ${theme.colors.blackLight1};
           min-width: 70px;
           margin-right: ${theme.spacing.insetL};
+          margin-top: 12px;
         }
       }
 
       .fi-file-input_remove-file-button {
         flex-shrink: 0;
+        height: 40px;
       }
     }
 
@@ -135,6 +136,7 @@ export const baseStyles = (
 
         &.fi-file-input_drag-area--has-file {
           border: 1px solid ${theme.colors.depthLight2};
+          padding: 0;
         }
 
         .fi-file-input_input-wrapper {
@@ -146,6 +148,7 @@ export const baseStyles = (
 
           &.fi-file-input_input-wrapper--hidden {
             visibility: hidden;
+            height: 0;
           }
 
           .fi-file-input_drag-text-container {
