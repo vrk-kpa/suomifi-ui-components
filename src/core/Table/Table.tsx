@@ -282,7 +282,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
   }
 
   const tableCaptionId = `${id}-caption`;
-  const getTableCaptionId = () => (caption ? `${id}-caption` : ariaLabelledBy);
+  const getTableCaptionId = () => (caption ? tableCaptionId : ariaLabelledBy);
 
   return (
     <HtmlDivWithRef
