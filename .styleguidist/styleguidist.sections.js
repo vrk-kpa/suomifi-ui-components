@@ -137,6 +137,10 @@ module.exports = {
           name: 'Logger',
           content: './.styleguidist/logger.md',
         },
+        {
+          name: 'Configuration',
+          content: './.styleguidist/configprovider.md',
+        },
       ],
       sectionDepth: 2,
       expand: true,
