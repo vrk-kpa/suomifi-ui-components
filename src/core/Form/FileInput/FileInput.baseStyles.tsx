@@ -137,6 +137,18 @@ export const baseStyles = (
         &.fi-file-input_drag-area--has-file {
           border: 1px solid ${theme.colors.depthLight2};
           padding: 0;
+
+          & .fi-file-input_drag-text-container {
+            height: 0;
+            margin-bottom: 0 !important;
+          }
+
+          & .fi-file-input_input-label.fi-file-input_input-label {
+            height: 0;
+            padding: 0;
+            min-height: 0;
+            border: 0;
+          }
         }
 
         .fi-file-input_input-wrapper {
