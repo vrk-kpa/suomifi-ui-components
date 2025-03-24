@@ -329,7 +329,7 @@ exports[`Table functionalities matches snapshot 1`] = `
   border: 2px solid transparent;
 }
 
-.c1.fi-table:focus {
+.c1.fi-table:focus-visible {
   outline: none;
   border: 2px solid hsl(196, 77%, 44%);
   border-radius: 2px;

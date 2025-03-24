@@ -41,7 +41,7 @@ export const baseStyles = (
     /* This exists as a bit of a hack to make the focus ring work in horizontal scrolling tables */
     border: 2px solid transparent;
 
-    &:focus {
+    &:focus-visible {
       outline: none;
       border: 2px solid ${theme.colors.accentSecondary};
       border-radius: ${theme.radiuses.focus};
