@@ -4,7 +4,7 @@ import { TooltipContent } from './TooltipContent/TooltipContent';
 import { TooltipToggleButton } from './TooltipToggleButton/TooltipToggleButton';
 import { forkRefs } from '../../utils/common';
 import { MarginProps } from '../theme/utils/spacing';
-import { HtmlButtonProps } from 'reset';
+import { HtmlButtonProps } from '../../reset';
 
 const baseClassName = 'fi-tooltip';
 

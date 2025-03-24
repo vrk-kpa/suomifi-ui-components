@@ -38,6 +38,15 @@ export const baseStyles = (
 
     background-attachment: local, local, scroll, scroll;
 
+    /* This exists as a bit of a hack to make the focus ring work in horizontal scrolling tables */
+    border: 2px solid transparent;
+
+    &:focus-visible {
+      outline: none;
+      border: 2px solid ${theme.colors.accentSecondary};
+      border-radius: ${theme.radiuses.focus};
+    }
+
     .fi-table_table {
       ${element(theme)}
       ${buildSpacingCSS(globalMargins)}
@@ -64,7 +73,7 @@ export const baseStyles = (
         line-height: 2;
 
         &.fi-table_td--selection {
-          width: 45px;
+          min-width: 45px;
           padding: 0;
           position: relative;
         }
@@ -183,7 +192,7 @@ export const baseStyles = (
           }
 
           .fi-table_selection-cell-skeleton {
-            width: 45px;
+            min-width: 45px;
             padding: 5px 12px 5px 20px;
           }
         }
@@ -237,7 +246,7 @@ export const baseStyles = (
       }
 
       .fi-table_selection-cell-skeleton {
-        width: 45px;
+        min-width: 45px;
         padding-right: 12px;
       }
     }
