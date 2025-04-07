@@ -38,8 +38,8 @@ import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';
 import { filterDuplicateKeys } from '../../../utils/common/common';
 import { Popover } from '../../Popover/Popover';
-import { SelectItemList } from '../Select/BaseSelect/SelectItemList/SelectItemList';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
+import { SuggestionList } from './SuggestionList/SuggestionList';
 
 type SearchInputValue = string | number | undefined;
 
@@ -142,12 +142,14 @@ const searchInputClassNames = {
 interface SearchInputState {
   value: SearchInputValue;
   showPopover: boolean;
+  focusedDescendantId: string | null;
 }
 
 class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   state: SearchInputState = {
     value: this.props.value || this.props.defaultValue || '',
-    showPopover: false, // Default to false initially
+    showPopover: false,
+    focusedDescendantId: null,
   };
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
@@ -213,9 +215,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       }
     };
 
-    const onSearch = () => {
+    const onSearch = (searchValue: SearchInputValue) => {
       if (!!propOnSearch) {
-        propOnSearch(this.state.value);
+        propOnSearch(searchValue);
       }
     };
 
@@ -232,14 +234,69 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (!!this.state.value && event?.key === 'Enter') {
-        onSearch();
+      if (
+        !!this.state.value &&
+        event?.key === 'Enter' &&
+        this.state.focusedDescendantId === null
+      ) {
+        onSearch(this.state.value);
       }
     };
 
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event?.key === 'Escape') {
+      const { focusedDescendantId } = this.state;
+      const popoverItems = this.props.suggestions || [];
+
+      const index = focusedDescendantId
+        ? popoverItems.findIndex(
+            ({ uniqueId }) => uniqueId === focusedDescendantId,
+          )
+        : -1;
+
+      const getNextIndex = () => (index + 1) % popoverItems.length;
+      const getPreviousIndex = () =>
+        (index - 1 + popoverItems.length) % popoverItems.length;
+
+      if (event.key === 'Escape') {
         event.preventDefault();
+        this.setState({ showPopover: false, focusedDescendantId: null });
+      }
+
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        if (autosuggest && focusedDescendantId) {
+          const selectedItem = popoverItems.find(
+            ({ uniqueId }) => uniqueId === focusedDescendantId,
+          );
+          if (selectedItem) {
+            this.setState({ showPopover: false });
+            if (this.props.onSearch) {
+              this.props.onSearch(selectedItem.label);
+            }
+          }
+        }
+      }
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (autosuggest && popoverItems.length > 0) {
+          const nextIndex = getNextIndex();
+          this.setState({
+            focusedDescendantId: popoverItems[nextIndex].uniqueId,
+            showPopover: true,
+          });
+        }
+      }
+
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (autosuggest && popoverItems.length > 0) {
+          const previousIndex = getPreviousIndex();
+          this.setState({
+            focusedDescendantId: popoverItems[previousIndex].uniqueId,
+            showPopover: true,
+          });
+        }
       }
     };
 
@@ -352,17 +409,19 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
               this.setState({ showPopover: false });
             }}
           >
-            <SelectItemList
+            <SuggestionList
               className={searchInputClassNames.suggestions}
-              focusedDescendantId="id"
+              focusedDescendantId={this.state.focusedDescendantId || ''}
               id={`${id}-itemlist`}
             >
-              {suggestions ? (
+              {suggestions && suggestions.length > 0 ? (
                 suggestions.map((item) => (
                   <SelectItem
-                    key={item.id}
-                    id={item.id}
-                    hasKeyboardFocus={false}
+                    key={item.uniqueId}
+                    id={item.uniqueId}
+                    hasKeyboardFocus={
+                      this.state.focusedDescendantId === item.uniqueId
+                    }
                     hightlightQuery={
                       !!this.state.value ? String(this.state.value) : undefined
                     }
@@ -387,10 +446,10 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     this.setState({ showPopover: false });
                   }}
                 >
-                  Jesjoo
+                  No suggestions available
                 </SelectItem>
               )}
-            </SelectItemList>
+            </SuggestionList>
           </Popover>
         )}
       </HtmlDiv>
