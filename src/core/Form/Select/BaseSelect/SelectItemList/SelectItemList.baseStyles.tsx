@@ -17,10 +17,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding: 4px 0 0 0;
 
   display: block;
-  width: calc(100% + 26px);
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-left: -1px;
   &:focus {
     outline: none;
   }
