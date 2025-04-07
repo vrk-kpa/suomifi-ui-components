@@ -37,14 +37,32 @@ import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';
 import { filterDuplicateKeys } from '../../../utils/common/common';
+import { Popover } from '../../Popover/Popover';
+import { SelectItemList } from '../Select/BaseSelect/SelectItemList/SelectItemList';
+import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 
 type SearchInputValue = string | number | undefined;
 
 type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
+interface AutoSuggestProps {
+  /** Enable autosuggest
+   *  @default false
+   */
+  autosuggest?: boolean;
+  /** Callback to fetch suggestions based on input value */
+  onSuggestionsFetchRequested?: (value: string) => void;
+  /** Callback to clear suggestions on */
+  onSuggestionsClearRequested?: () => void;
+  /** List of suggestions to show */
+  suggestions?: any[];
+  suggestionsLoadingText?: string;
+}
+
 export interface SearchInputProps
   extends StatusTextCommonProps,
     MarginProps,
+    AutoSuggestProps,
     Omit<
       HtmlInputProps,
       | 'type'
@@ -118,18 +136,33 @@ const searchInputClassNames = {
   searchIcon: `${baseClassName}_button-search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
+  suggestions: `${baseClassName}_suggestions`,
 };
 
 interface SearchInputState {
   value: SearchInputValue;
+  showPopover: boolean;
 }
 
 class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   state: SearchInputState = {
     value: this.props.value || this.props.defaultValue || '',
+    showPopover: false, // Default to false initially
   };
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
+
+  componentDidMount() {
+    if (this.props.autosuggest) {
+      this.setState({ showPopover: true }); // Update showPopover based on autosuggest
+    }
+  }
+
+  componentDidUpdate(prevProps: SearchInputProps) {
+    if (prevProps.autosuggest !== this.props.autosuggest) {
+      this.setState({ showPopover: !!this.props.autosuggest }); // Update showPopover when autosuggest changes
+    }
+  }
 
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
@@ -166,6 +199,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       forwardedRef, // Taking this out so it's not passed "twice" to HtmlInput
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
+      autosuggest = 'false',
+      suggestions,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -308,6 +343,56 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             {statusText}
           </StatusText>
         </HtmlSpan>
+        {this.state.showPopover && (
+          <Popover
+            sourceRef={this.inputRef}
+            matchWidth={true}
+            onKeyDown={onKeyDown}
+            onClickOutside={() => {
+              this.setState({ showPopover: false });
+            }}
+          >
+            <SelectItemList
+              className={searchInputClassNames.suggestions}
+              focusedDescendantId="id"
+              id={`${id}-itemlist`}
+            >
+              {suggestions ? (
+                suggestions.map((item) => (
+                  <SelectItem
+                    key={item.id}
+                    id={item.id}
+                    hasKeyboardFocus={false}
+                    hightlightQuery={
+                      !!this.state.value ? String(this.state.value) : undefined
+                    }
+                    checked={false}
+                    onClick={() => {
+                      this.setState({ showPopover: false });
+                      if (this.props.onChange) {
+                        this.props.onChange(item.label);
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </SelectItem>
+                ))
+              ) : (
+                <SelectItem
+                  id="default-item"
+                  hasKeyboardFocus={false}
+                  hightlightQuery=""
+                  checked={false}
+                  onClick={() => {
+                    this.setState({ showPopover: false });
+                  }}
+                >
+                  Jesjoo
+                </SelectItem>
+              )}
+            </SelectItemList>
+          </Popover>
+        )}
       </HtmlDiv>
     );
   }

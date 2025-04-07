@@ -82,6 +82,13 @@ import { SearchInput } from 'suomifi-ui-components';
 import { useState } from 'react';
 
 const [controlledValue, setControlledValue] = useState('');
+const suggestedResults = [
+  { id: 1, label: 'Jalkapallo' },
+  { id: 2, label: 'Sulkapallo' },
+  { id: 3, label: 'Jääpallo' },
+  { id: 4, label: 'Koripallo' },
+  { id: 5, label: 'Pallo' }
+];
 
 <SearchInput
   labelText="Search the site"
@@ -90,7 +97,13 @@ const [controlledValue, setControlledValue] = useState('');
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   value={controlledValue}
-  onChange={(newValue) => setControlledValue(newValue)}
+  onChange={(newValue) => {
+    console.log(newValue);
+    console.log(controlledValue.length >= 3);
+    setControlledValue(newValue);
+  }}
+  autosuggest={controlledValue.length >= 3}
+  suggestions={suggestedResults}
 />;
 ```
 
