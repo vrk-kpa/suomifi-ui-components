@@ -82,13 +82,6 @@ import { SearchInput } from 'suomifi-ui-components';
 import { useState } from 'react';
 
 const [controlledValue, setControlledValue] = useState('');
-const suggestedResults = [
-  { id: 1, label: 'Jalkapallo' },
-  { id: 2, label: 'Sulkapallo' },
-  { id: 3, label: 'Jääpallo' },
-  { id: 4, label: 'Koripallo' },
-  { id: 5, label: 'Pallo' }
-];
 
 <SearchInput
   labelText="Search the site"
@@ -98,12 +91,8 @@ const suggestedResults = [
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   value={controlledValue}
   onChange={(newValue) => {
-    console.log(newValue);
-    console.log(controlledValue.length >= 3);
     setControlledValue(newValue);
   }}
-  autosuggest={controlledValue.length >= 3}
-  suggestions={suggestedResults}
 />;
 ```
 
@@ -181,6 +170,62 @@ import { SearchInput } from 'suomifi-ui-components';
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   labelMode="hidden"
+/>;
+```
+
+### Search suggestions
+
+You can provide search suggestions for the user using the `autosuggest` and `suggestions` props. The suggestions are shown in a popover list under the input field.
+
+When the user selects a suggestion from the list, the `onSuggestionSelected` callback gets called with the `uniqueId` of the element.
+
+It's recommended to use debounce on fetching the suggestions to avoid fetchin on every keypress.
+
+```jsx
+import { SearchInput } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [controlledValue, setControlledValue] = useState('');
+const [suggestions, setSuggestions] = useState([]);
+
+const potentialSearches = [
+  { uniqueId: 1, label: 'Jalkapallo' },
+  { uniqueId: 2, label: 'Sulkapallo' },
+  { uniqueId: 3, label: 'Jääpallo' },
+  { uniqueId: 4, label: 'Koripallo' },
+  { uniqueId: 5, label: 'Sulkapallo' },
+  { uniqueId: 6, label: 'Pallo' },
+  { uniqueId: 7, label: 'Jäätanssi' },
+  { uniqueId: 8, label: 'Jääkiekko' }
+];
+
+const filterSuggestions = (input, items) => {
+  return items.filter((item) =>
+    item.label.toLowerCase().includes(input.toLowerCase())
+  );
+};
+
+const handleSuggestionSelection = (id) => {
+  console.log(
+    'Searching for',
+    suggestions.find((element) => element.uniqueId === id).label
+  );
+};
+
+<SearchInput
+  labelText="Search the site"
+  searchButtonLabel="Search"
+  clearButtonLabel="Clear"
+  visualPlaceholder="Write search terms..."
+  onSearch={(value) => console.log(`Searching for ${value}...`)}
+  value={controlledValue}
+  onChange={(newValue) => {
+    setControlledValue(newValue);
+    setSuggestions(filterSuggestions(newValue, potentialSearches));
+  }}
+  autosuggest={controlledValue.length >= 3}
+  suggestions={suggestions}
+  onSuggestionSelected={(id) => handleSuggestionSelection(id)}
 />;
 ```
 
