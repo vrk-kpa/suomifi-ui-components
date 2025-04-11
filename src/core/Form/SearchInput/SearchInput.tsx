@@ -54,8 +54,11 @@ interface AutoSuggestProps {
   onSuggestionsFetchRequested?: (value: string) => void;
   /** Callback to clear suggestions on */
   onSuggestionsClearRequested?: () => void;
+  /** Callback when a suggestion is selected */
+  onSuggestionSelected?: (suggestionId: string) => void;
   /** List of suggestions to show */
   suggestions?: any[];
+  /** Text to show during loading state */
   suggestionsLoadingText?: string;
 }
 
@@ -203,6 +206,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       statusTextAriaLiveMode = 'assertive',
       autosuggest = 'false',
       suggestions,
+      onSuggestionSelected,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -270,8 +274,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           );
           if (selectedItem) {
             this.setState({ showPopover: false });
-            if (this.props.onSearch) {
-              this.props.onSearch(selectedItem.label);
+            if (this.props.onSuggestionSelected) {
+              this.props.onSuggestionSelected(selectedItem.uniqueId);
             }
           }
         }
@@ -409,13 +413,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
               this.setState({ showPopover: false });
             }}
           >
-            <SuggestionList
-              className={searchInputClassNames.suggestions}
-              focusedDescendantId={this.state.focusedDescendantId || ''}
-              id={`${id}-itemlist`}
-            >
-              {suggestions && suggestions.length > 0 ? (
-                suggestions.map((item) => (
+            {suggestions && suggestions.length > 0 && (
+              <SuggestionList
+                className={searchInputClassNames.suggestions}
+                focusedDescendantId={this.state.focusedDescendantId || ''}
+                id={`${id}-itemlist`}
+              >
+                {suggestions.map((item) => (
                   <SelectItem
                     key={item.uniqueId}
                     id={item.uniqueId}
@@ -428,28 +432,16 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     checked={false}
                     onClick={() => {
                       this.setState({ showPopover: false });
-                      if (this.props.onChange) {
-                        this.props.onChange(item.label);
+                      if (onSuggestionSelected) {
+                        onSuggestionSelected(item.uniqueId);
                       }
                     }}
                   >
                     {item.label}
                   </SelectItem>
-                ))
-              ) : (
-                <SelectItem
-                  id="default-item"
-                  hasKeyboardFocus={false}
-                  hightlightQuery=""
-                  checked={false}
-                  onClick={() => {
-                    this.setState({ showPopover: false });
-                  }}
-                >
-                  No suggestions available
-                </SelectItem>
-              )}
-            </SuggestionList>
+                ))}
+              </SuggestionList>
+            )}
           </Popover>
         )}
       </HtmlDiv>
