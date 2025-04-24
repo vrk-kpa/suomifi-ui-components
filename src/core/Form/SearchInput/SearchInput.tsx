@@ -45,11 +45,12 @@ type SearchInputValue = string | number | undefined;
 
 type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
-interface AutoSuggestProps {
-  /** Enable autosuggest
-   *  @default false
-   */
-  autosuggest?: boolean;
+export type SearchSuggestionItem = {
+  uniqueId: string;
+  label: string;
+};
+
+type AutosSuggestElementProps = {
   /** Callback to fetch suggestions based on input value */
   onSuggestionsFetchRequested?: (value: string) => void;
   /** Callback to clear suggestions on */
@@ -57,71 +58,91 @@ interface AutoSuggestProps {
   /** Callback when a suggestion is selected */
   onSuggestionSelected?: (suggestionId: string) => void;
   /** List of suggestions to show */
-  suggestions?: any[];
+  suggestions: SearchSuggestionItem[];
   /** Text to show during loading state */
   suggestionsLoadingText?: string;
-}
+  /** Hint text to let the users know that the suggestions will appear below the input */
+  suggestionHintText?: string;
+  /** Text to let the user know how many suggestions are available */
+  ariaOptionsAvailableText?: string;
+};
 
-export interface SearchInputProps
-  extends StatusTextCommonProps,
-    MarginProps,
-    AutoSuggestProps,
-    Omit<
-      HtmlInputProps,
-      | 'type'
-      | 'disabled'
-      | 'onChange'
-      | 'onBlur'
-      | 'onSearch'
-      | 'onClick'
-      | 'value'
-      | 'defaultValue'
-    > {
-  /** CSS class for custom styles */
-  className?: string;
-  /** Label text */
-  labelText: ReactNode;
-  /**
-   * `'visible'` | `'hidden'`
-   *
-   * Hides or shows the label. Label element is always present, but can be visually hidden.
-   * @default visible
-   */
-  labelMode?: LabelMode;
-  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
-  visualPlaceholder?: string;
-  /** Screen reader label for the 'Clear' button */
-  clearButtonLabel: string;
-  /** Screen reader label for the 'Search' button */
-  searchButtonLabel: string;
-  /** Props passed to the 'Search' button */
-  searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
-  /**
-   * `'default'` | `'error'`
-   *
-   * Status of the component. Error state creates a red border around the input. Always use a descriptive `statusText` with an error status.
-   * @default default
-   */
-  status?: SearchInputStatus;
-  /** HTML input attribute */
-  name?: string;
-  /** Sets components width to 100% */
-  fullWidth?: boolean;
-  /** Controlled value */
-  value?: SearchInputValue;
-  /** Default value */
-  defaultValue?: SearchInputValue;
-  /** Callback fired when input text changes */
-  onChange?: (value: SearchInputValue) => void;
-  /** Callback fired on input blur */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Callback fired on search button click */
-  onSearch?: (value: SearchInputValue) => void;
-  /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
-  debounce?: number;
-  /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLInputElement>;
-}
+type AutoSuggestProps =
+  | {
+      /** Enable search suggestions
+       * @default false
+       */
+      autosuggest?: false;
+      autoSuggestProps?: never;
+    }
+  | {
+      /** Enable search suggestions
+       * @default false
+       */
+      autosuggest?: true;
+      autoSuggestProps?: AutosSuggestElementProps;
+    };
+
+export type SearchInputProps = StatusTextCommonProps &
+  MarginProps &
+  AutoSuggestProps &
+  Omit<
+    HtmlInputProps,
+    | 'type'
+    | 'disabled'
+    | 'onChange'
+    | 'onBlur'
+    | 'onSearch'
+    | 'onClick'
+    | 'value'
+    | 'defaultValue'
+  > & {
+    /** CSS class for custom styles */
+    className?: string;
+    /** Label text */
+    labelText: ReactNode;
+    /**
+     * `'visible'` | `'hidden'`
+     *
+     * Hides or shows the label. Label element is always present, but can be visually hidden.
+     * @default visible
+     */
+    labelMode?: LabelMode;
+    /** Placeholder text for the input. Use only as visual aid, not for instructions. */
+    visualPlaceholder?: string;
+    /** Screen reader label for the 'Clear' button */
+    clearButtonLabel: string;
+    /** Screen reader label for the 'Search' button */
+    searchButtonLabel: string;
+    /** Props passed to the 'Search' button */
+    searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
+    /**
+     * `'default'` | `'error'`
+     *
+     * Status of the component. Error state creates a red border around the input.
+     * Always use a descriptive `statusText` with an error status.
+     * @default default
+     */
+    status?: SearchInputStatus;
+    /** HTML input attribute */
+    name?: string;
+    /** Sets components width to 100% */
+    fullWidth?: boolean;
+    /** Controlled value */
+    value?: SearchInputValue;
+    /** Default value */
+    defaultValue?: SearchInputValue;
+    /** Callback fired when input text changes */
+    onChange?: (value: SearchInputValue) => void;
+    /** Callback fired on input blur */
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+    /** Callback fired on search button click */
+    onSearch?: (value: SearchInputValue) => void;
+    /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
+    debounce?: number;
+    /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
+    forwardedRef?: React.RefObject<HTMLInputElement>;
+  };
 
 const baseClassName = 'fi-search-input';
 const searchInputClassNames = {
@@ -204,14 +225,21 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       forwardedRef, // Taking this out so it's not passed "twice" to HtmlInput
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
-      autosuggest = 'false',
-      suggestions,
-      onSuggestionSelected,
+      autosuggest = false, // Default autosuggest to false
+      autoSuggestProps,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
 
     const statusTextId = `${id}-statusText`;
+    const suggestionHintId = `${id}-suggestionHintText`;
+
+    const {
+      suggestions,
+      suggestionHintText,
+      ariaOptionsAvailableText,
+      onSuggestionSelected,
+    } = autoSuggestProps || {};
 
     const conditionalSetState = (newValue: SearchInputValue) => {
       if (!('value' in this.props)) {
@@ -249,7 +277,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       const { focusedDescendantId } = this.state;
-      const popoverItems = this.props.suggestions || [];
+      const popoverItems = autoSuggestProps?.suggestions || [];
 
       const index = focusedDescendantId
         ? popoverItems.findIndex(
@@ -274,8 +302,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           );
           if (selectedItem) {
             this.setState({ showPopover: false });
-            if (this.props.onSuggestionSelected) {
-              this.props.onSuggestionSelected(selectedItem.uniqueId);
+            if (autoSuggestProps?.onSuggestionSelected) {
+              autoSuggestProps.onSuggestionSelected(selectedItem.uniqueId);
             }
           }
         }
@@ -355,6 +383,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     {...getConditionalAriaProp('aria-describedby', [
                       !!statusText ? statusTextId : undefined,
                       ariaDescribedBy,
+                      suggestionHintId,
                     ])}
                     forwardedRef={this.inputRef}
                     aria-invalid={status === 'error'}
@@ -362,6 +391,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     className={searchInputClassNames.inputElement}
                     type="search"
                     role="searchbox"
+                    aria-controls={`${id}-itemlist`}
+                    aria-activedescendant={this.state.focusedDescendantId}
+                    autoComplete="off"
                     value={this.state.value}
                     placeholder={visualPlaceholder}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -403,6 +435,16 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           >
             {statusText}
           </StatusText>
+          {autosuggest && (
+            <>
+              <VisuallyHidden aria-live="polite" aria-atomic="true">
+                {this.state.showPopover ? ariaOptionsAvailableText : ''}
+              </VisuallyHidden>
+              <VisuallyHidden id={suggestionHintId}>
+                {suggestionHintText}
+              </VisuallyHidden>
+            </>
+          )}
         </HtmlSpan>
         {this.state.showPopover && (
           <Popover
