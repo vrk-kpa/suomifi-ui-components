@@ -189,14 +189,14 @@ const [controlledValue, setControlledValue] = useState('');
 const [suggestions, setSuggestions] = useState([]);
 
 const potentialSearches = [
-  { uniqueId: 1, label: 'Jalkapallo' },
-  { uniqueId: 2, label: 'Sulkapallo' },
-  { uniqueId: 3, label: 'Jääpallo' },
-  { uniqueId: 4, label: 'Koripallo' },
-  { uniqueId: 5, label: 'Sulkapallo' },
-  { uniqueId: 6, label: 'Pallo' },
-  { uniqueId: 7, label: 'Jäätanssi' },
-  { uniqueId: 8, label: 'Jääkiekko' }
+  { uniqueId: 1, label: 'Football' },
+  { uniqueId: 2, label: 'Badminton' },
+  { uniqueId: 3, label: 'Tennis' },
+  { uniqueId: 4, label: 'Basketball' },
+  { uniqueId: 5, label: 'Ice hockey' },
+  { uniqueId: 6, label: 'Ball' },
+  { uniqueId: 7, label: 'Ice skating' },
+  { uniqueId: 8, label: 'Figure skating' }
 ];
 
 const filterSuggestions = (input, items) => {
@@ -226,6 +226,8 @@ const handleSuggestionSelection = (id) => {
   autosuggest={controlledValue.length >= 3}
   suggestions={suggestions}
   onSuggestionSelected={(id) => handleSuggestionSelection(id)}
+  suggestionHintText="Search suggestions open under the input"
+  ariaOptionsAvailableText={`${suggestions.length} suggestions available`}
 />;
 ```
 
