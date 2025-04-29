@@ -1,18 +1,24 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import React, { act } from 'react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
 
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
-  const { labelText, clearButtonLabel, searchButtonLabel, ...passProps } =
-    props;
+  const {
+    labelText,
+    clearButtonLabel,
+    searchButtonLabel,
+    autosuggest,
+    ...passProps
+  } = props;
   return (
     <SearchInput
       data-testid="searchinput"
       labelText={labelText || 'Test search input'}
       clearButtonLabel={clearButtonLabel || 'Clear'}
       searchButtonLabel={searchButtonLabel || 'Search'}
+      autosuggest={false}
       {...passProps}
     />
   );
@@ -218,6 +224,7 @@ describe('props', () => {
       }
     });
   });
+
   describe('debounce', () => {
     it('delays the running of onChange by the given time', () => {
       jest.useFakeTimers();
@@ -257,6 +264,76 @@ describe('props', () => {
 
       expect(ref.current?.tagName).toBe('INPUT');
     });
+  });
+});
+
+describe('autosuggest', () => {
+  it('should display suggestions based on input value', async () => {
+    const mockSuggestions = [
+      { uniqueId: '1', label: 'apple' },
+      { uniqueId: '2', label: 'banana' },
+      { uniqueId: '3', label: 'cherry' },
+    ];
+    const { getByRole, getByText, getAllByRole } = render(
+      <SearchInput
+        labelText="Search"
+        clearButtonLabel="Clear"
+        searchButtonLabel="Search"
+        autosuggest={true}
+        suggestions={mockSuggestions}
+        suggestionHintText="Search suggestions open under the input"
+        ariaOptionsAvailableText="suggestions available"
+        onSuggestionSelected={(suggestionId) =>
+          console.log(`Selected: ${suggestionId}`)
+        }
+      />,
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+    fireEvent.change(inputElement, { target: { value: 'app' } });
+
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(3);
+
+    expect(getByText('app')).toBeInTheDocument();
+    expect(getByText('banana')).toBeInTheDocument();
+    expect(getByText('cherry')).toBeInTheDocument();
+  });
+
+  it('should call onSuggestionSelect when a suggestion is clicked', async () => {
+    const mockSuggestions = [
+      { uniqueId: '1', label: 'apple' },
+      { uniqueId: '2', label: 'banana' },
+      { uniqueId: '3', label: 'cherry' },
+    ];
+
+    const mockOnSuggestionSelect = jest.fn();
+    const { getByRole, getByText, getAllByRole } = render(
+      <SearchInput
+        labelText="Search"
+        clearButtonLabel="Clear"
+        searchButtonLabel="Search"
+        autosuggest={true}
+        suggestions={mockSuggestions}
+        suggestionHintText="Search suggestions open under the input"
+        ariaOptionsAvailableText="suggestions available"
+        onSuggestionSelected={mockOnSuggestionSelect}
+      />,
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+
+    const options = await waitFor(() => getAllByRole('option'));
+    expect(options).toHaveLength(3);
+
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'app' } });
+    });
+
+    const suggestion = getByText('app');
+    fireEvent.click(suggestion);
+
+    expect(mockOnSuggestionSelect).toBeCalledWith('1');
   });
 });
 
