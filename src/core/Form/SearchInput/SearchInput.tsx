@@ -205,7 +205,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
   componentDidMount() {
-    if (!!this.props.autosuggest) {
+    if (!!this.props.autosuggest && this.props.suggestions.length > 0) {
       this.setState({ showPopover: true });
     }
   }
@@ -404,8 +404,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     {...passProps}
                     {...getConditionalAriaProp('aria-describedby', [
                       !!statusText ? statusTextId : undefined,
+                      !!autosuggest ? suggestionHintId : undefined,
                       ariaDescribedBy,
-                      suggestionHintId,
                     ])}
                     forwardedRef={this.inputRef}
                     aria-invalid={status === 'error'}
