@@ -6,19 +6,27 @@ import { SearchInput, SearchInputProps } from './SearchInput';
 
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
   const {
-    labelText,
-    clearButtonLabel,
-    searchButtonLabel,
-    autosuggest,
+    labelText = 'Test search input',
+    clearButtonLabel = 'Clear',
+    searchButtonLabel = 'Search',
+    autosuggest = false,
+    suggestions = [],
+    suggestionHintText = '',
+    ariaOptionsAvailableText = '',
+    onSuggestionSelected = jest.fn(),
     ...passProps
   } = props;
   return (
     <SearchInput
       data-testid="searchinput"
-      labelText={labelText || 'Test search input'}
-      clearButtonLabel={clearButtonLabel || 'Clear'}
-      searchButtonLabel={searchButtonLabel || 'Search'}
-      autosuggest={false}
+      labelText={labelText}
+      clearButtonLabel={clearButtonLabel}
+      searchButtonLabel={searchButtonLabel}
+      autosuggest={autosuggest}
+      suggestions={suggestions}
+      suggestionHintText={suggestionHintText}
+      ariaOptionsAvailableText={ariaOptionsAvailableText}
+      onSuggestionSelected={onSuggestionSelected}
       {...passProps}
     />
   );
@@ -268,25 +276,18 @@ describe('props', () => {
 });
 
 describe('autosuggest', () => {
+  const suggestions = [
+    { uniqueId: '1', label: 'app' },
+    { uniqueId: '2', label: 'banana' },
+    { uniqueId: '3', label: 'cherry' },
+  ];
+
   it('should display suggestions based on input value', async () => {
-    const mockSuggestions = [
-      { uniqueId: '1', label: 'apple' },
-      { uniqueId: '2', label: 'banana' },
-      { uniqueId: '3', label: 'cherry' },
-    ];
     const { getByRole, getByText, getAllByRole } = render(
-      <SearchInput
-        labelText="Search"
-        clearButtonLabel="Clear"
-        searchButtonLabel="Search"
-        autosuggest={true}
-        suggestions={mockSuggestions}
-        suggestionHintText="Search suggestions open under the input"
-        ariaOptionsAvailableText="suggestions available"
-        onSuggestionSelected={(suggestionId) =>
-          console.log(`Selected: ${suggestionId}`)
-        }
-      />,
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+      }),
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
@@ -301,24 +302,13 @@ describe('autosuggest', () => {
   });
 
   it('should call onSuggestionSelect when a suggestion is clicked', async () => {
-    const mockSuggestions = [
-      { uniqueId: '1', label: 'apple' },
-      { uniqueId: '2', label: 'banana' },
-      { uniqueId: '3', label: 'cherry' },
-    ];
-
     const mockOnSuggestionSelect = jest.fn();
     const { getByRole, getByText, getAllByRole } = render(
-      <SearchInput
-        labelText="Search"
-        clearButtonLabel="Clear"
-        searchButtonLabel="Search"
-        autosuggest={true}
-        suggestions={mockSuggestions}
-        suggestionHintText="Search suggestions open under the input"
-        ariaOptionsAvailableText="suggestions available"
-        onSuggestionSelected={mockOnSuggestionSelect}
-      />,
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+        onSuggestionSelected: mockOnSuggestionSelect,
+      }),
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
@@ -334,6 +324,77 @@ describe('autosuggest', () => {
     fireEvent.click(suggestion);
 
     expect(mockOnSuggestionSelect).toBeCalledWith('1');
+  });
+
+  it('should allow keyboard navigation through suggestions', async () => {
+    const { getByRole, getAllByRole } = render(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+      }),
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+    fireEvent.change(inputElement, { target: { value: 'a' } });
+
+    const items = await waitFor(() => getAllByRole('option'));
+    fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    expect(items[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
+
+    fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    expect(items[1]).toHaveClass('fi-select-item--hasKeyboardFocus');
+    expect(items[0]).not.toHaveClass('fi-select-item--hasKeyboardFocus');
+
+    fireEvent.keyDown(inputElement, { key: 'ArrowUp' });
+    expect(items[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
+  });
+
+  it('should close suggestions on Escape key press', async () => {
+    const { getByRole, queryAllByRole } = render(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+      }),
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+
+    const items = await waitFor(() => queryAllByRole('option'));
+    expect(items).toHaveLength(3);
+
+    fireEvent.keyDown(inputElement, { key: 'Escape' });
+    expect(queryAllByRole('option')).toHaveLength(0);
+  });
+
+  it('should update suggestions dynamically', async () => {
+    const updatedSuggestions = [
+      { uniqueId: '3', label: 'cherry' },
+      { uniqueId: '4', label: 'date' },
+    ];
+    const { getByRole, getAllByRole, rerender } = render(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+      }),
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+    fireEvent.change(inputElement, { target: { value: 'a' } });
+
+    let items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(3);
+
+    rerender(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions: updatedSuggestions,
+      }),
+    );
+
+    items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(2);
+    expect(items[0]).toHaveTextContent('cherry');
+    expect(items[1]).toHaveTextContent('date');
   });
 });
 
