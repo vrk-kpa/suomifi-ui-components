@@ -50,21 +50,21 @@ export type SearchSuggestionItem = {
   label: string;
 };
 
-type AutosSuggestElementProps = {
+export type AutosSuggestElementProps = {
   /** Callback to fetch suggestions based on input value */
   onSuggestionsFetchRequested?: (value: string) => void;
   /** Callback to clear suggestions on */
   onSuggestionsClearRequested?: () => void;
   /** Callback when a suggestion is selected */
-  onSuggestionSelected?: (suggestionId: string) => void;
+  onSuggestionSelected: (suggestionId: string) => void;
   /** List of suggestions to show */
   suggestions: SearchSuggestionItem[];
   /** Text to show during loading state */
-  suggestionsLoadingText?: string;
+  suggestionsLoadingText: string;
   /** Hint text to let the users know that the suggestions will appear below the input */
-  suggestionHintText?: string;
+  suggestionHintText: string;
   /** Text to let the user know how many suggestions are available */
-  ariaOptionsAvailableText?: string;
+  ariaOptionsAvailableText: string;
 };
 
 type AutoSuggestProps =
@@ -72,15 +72,41 @@ type AutoSuggestProps =
       /** Enable search suggestions
        * @default false
        */
-      autosuggest?: false;
-      autoSuggestProps?: never;
+      autosuggest?: false | never;
+      /** Callback to fetch suggestions based on input value */
+      onSuggestionsFetchRequested?: (value: string) => void;
+      /** Callback to clear suggestions on */
+      onSuggestionsClearRequested?: () => void;
+      /** Callback when a suggestion is selected */
+      onSuggestionSelected?: (suggestionId: string) => void;
+      /** List of suggestions to show */
+      suggestions?: SearchSuggestionItem[];
+      /** Text to show during loading state */
+      suggestionsLoadingText?: string;
+      /** Hint text to let the users know that the suggestions will appear below the input */
+      suggestionHintText?: string;
+      /** Text to let the user know how many suggestions are available */
+      ariaOptionsAvailableText?: string;
     }
   | {
       /** Enable search suggestions
        * @default false
        */
-      autosuggest?: true;
-      autoSuggestProps?: AutosSuggestElementProps;
+      autosuggest: true;
+      /** Callback to fetch suggestions based on input value */
+      onSuggestionsFetchRequested?: (value: string) => void;
+      /** Callback to clear suggestions on */
+      onSuggestionsClearRequested?: () => void;
+      /** Callback when a suggestion is selected */
+      onSuggestionSelected: (suggestionId: string) => void;
+      /** List of suggestions to show */
+      suggestions: SearchSuggestionItem[];
+      /** Text to show during loading state */
+      suggestionsLoadingText?: string;
+      /** Hint text to let the users know that the suggestions will appear below the input */
+      suggestionHintText: string;
+      /** Text to let the user know how many suggestions are available */
+      ariaOptionsAvailableText: string;
     };
 
 export type SearchInputProps = StatusTextCommonProps &
@@ -179,14 +205,14 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
   componentDidMount() {
-    if (this.props.autosuggest) {
-      this.setState({ showPopover: true }); // Update showPopover based on autosuggest
+    if (!!this.props.autosuggest) {
+      this.setState({ showPopover: true });
     }
   }
 
   componentDidUpdate(prevProps: SearchInputProps) {
     if (prevProps.autosuggest !== this.props.autosuggest) {
-      this.setState({ showPopover: !!this.props.autosuggest }); // Update showPopover when autosuggest changes
+      this.setState({ showPopover: !!this.props.autosuggest });
     }
   }
 
@@ -226,20 +252,16 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
       autosuggest = false, // Default autosuggest to false
-      autoSuggestProps,
+      suggestions,
+      suggestionHintText,
+      ariaOptionsAvailableText,
+      onSuggestionSelected,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
 
     const statusTextId = `${id}-statusText`;
     const suggestionHintId = `${id}-suggestionHintText`;
-
-    const {
-      suggestions,
-      suggestionHintText,
-      ariaOptionsAvailableText,
-      onSuggestionSelected,
-    } = autoSuggestProps || {};
 
     const conditionalSetState = (newValue: SearchInputValue) => {
       if (!('value' in this.props)) {
@@ -277,7 +299,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       const { focusedDescendantId } = this.state;
-      const popoverItems = autoSuggestProps?.suggestions || [];
+      const popoverItems = suggestions || [];
 
       const index = focusedDescendantId
         ? popoverItems.findIndex(
@@ -302,8 +324,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           );
           if (selectedItem) {
             this.setState({ showPopover: false });
-            if (autoSuggestProps?.onSuggestionSelected) {
-              autoSuggestProps.onSuggestionSelected(selectedItem.uniqueId);
+            if (onSuggestionSelected) {
+              onSuggestionSelected(selectedItem.uniqueId);
             }
           }
         }
