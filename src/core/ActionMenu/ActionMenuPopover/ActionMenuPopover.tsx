@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import { styled } from 'styled-components';
-import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -8,6 +7,15 @@ import { HtmlDivWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
 import { MenuContent } from '../ActionMenu';
+import {
+  useFloating,
+  offset,
+  flip,
+  shift,
+  autoUpdate,
+  arrow,
+  size,
+} from '@floating-ui/react-dom';
 
 const baseClassName = 'fi-action-menu-popover';
 
@@ -15,7 +23,7 @@ export const actionMenuClassNames = {
   baseClassName,
   hidden: `${baseClassName}--hidden`,
   list: `${baseClassName}_list`,
-  popperArrow: `${baseClassName}_popper-arrow`,
+  floatinguiArrow: `${baseClassName}_floatingui-arrow`,
 };
 
 export type InitialActiveDescendant = 'first' | 'last' | 'none';
@@ -61,21 +69,6 @@ const defaultProviderValue: ActionMenuProviderState = {
 const { Provider: ActionMenuProvider, Consumer: ActionMenuConsumer } =
   React.createContext(defaultProviderValue);
 
-/* From Popover.tsx */
-const sameWidth: any = {
-  name: 'sameWidth',
-  enabled: true,
-  phase: 'beforeWrite',
-  requires: ['computeStyles'],
-  /* eslint-disable no-param-reassign */
-  fn({ state }: { state: any }) {
-    state.styles.popper.width = `${state.rects.reference.width}px`;
-  },
-  effect({ state }: { state: any }) {
-    state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
-  },
-};
-
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
@@ -95,6 +88,7 @@ export const BaseActionMenuPopover = (
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [activeChild, setActiveChild] = useState<number>(-1);
   const divRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -246,40 +240,51 @@ export const BaseActionMenuPopover = (
     // Enter and space are handled by menu item component
   };
 
-  // Popper options modifiers
-  const defaultModifiers = [
-    { name: 'eventListeners', enabled: isOpen },
-    {
-      name: 'offset',
-      options: {
-        offset: [0, 10],
-      },
-    },
-    {
-      name: 'flip',
-      options: {
-        fallbackPlacements: ['top-end'],
-      },
-    },
-    {
-      name: 'preventOverflow',
-      options: {
-        padding: 5,
-      },
-    },
-  ];
+  const {
+    refs: floatingUiRefs,
+    floatingStyles,
+    middlewareData,
+  } = useFloating({
+    open: isOpen,
+    middleware: [
+      offset(10),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowRef,
+      }),
+      ...(fullWidth
+        ? [
+            size({
+              apply({
+                rects,
+                elements,
+              }: {
+                rects: { reference: { width: number } };
+                elements: { floating: HTMLElement };
+              }) {
+                const floatingElement = elements.floating;
+                floatingElement.style.width = `${rects.reference.width}px`;
+              },
+            }),
+          ]
+        : []),
+    ],
+    whileElementsMounted: autoUpdate,
+    placement: 'bottom-end',
+  });
 
-  const { styles, attributes } = usePopper(
-    openButtonRef.current,
-    dialogElement,
-    {
-      strategy: 'fixed',
-      modifiers: fullWidth
-        ? [...defaultModifiers, sameWidth]
-        : defaultModifiers,
-      placement: 'bottom-end',
-    },
-  );
+  useEffect(() => {
+    if (openButtonRef.current) {
+      floatingUiRefs.setReference(openButtonRef.current);
+    }
+  }, [floatingUiRefs, openButtonRef]);
+
+  useEffect(() => {
+    if (dialogElement) {
+      floatingUiRefs.setFloating(dialogElement);
+    }
+  }, [floatingUiRefs, dialogElement]);
 
   const handleClose = (moveFocus: boolean): void => {
     onClose(moveFocus);
@@ -313,7 +318,7 @@ export const BaseActionMenuPopover = (
       className={classnames(className, baseClassName, {
         [actionMenuClassNames.hidden]: !isOpen,
       })}
-      style={styles.popper}
+      style={floatingStyles}
       forwardedRef={setDialogElement}
       tabIndex={-1}
       role="none"
@@ -339,13 +344,17 @@ export const BaseActionMenuPopover = (
           {menuItems(children)}
         </HtmlDivWithRef>
       </ActionMenuProvider>
-      <div
-        className={actionMenuClassNames.popperArrow}
-        style={styles.arrow}
+      <HtmlDivWithRef
+        forwardedRef={arrowRef}
+        className={actionMenuClassNames.floatinguiArrow}
+        data-floatingui-placement={middlewareData?.offset?.placement}
         aria-hidden={true}
         tabIndex={-1}
-        data-popper-arrow
-        data-popper-placement={attributes.popper?.['data-popper-placement']}
+        style={{
+          position: 'absolute',
+          left: middlewareData.arrow?.x,
+          top: middlewareData.arrow?.y,
+        }}
       />
     </HtmlDivWithRef>
   );
