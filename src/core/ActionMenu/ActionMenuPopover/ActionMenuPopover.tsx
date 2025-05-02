@@ -349,7 +349,6 @@ export const BaseActionMenuPopover = (
         className={actionMenuClassNames.floatinguiArrow}
         data-floatingui-placement={middlewareData?.offset?.placement}
         aria-hidden={true}
-        tabIndex={-1}
         style={{
           position: 'absolute',
           left: middlewareData.arrow?.x,

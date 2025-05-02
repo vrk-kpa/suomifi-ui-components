@@ -178,8 +178,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c8 .fi-action-menu-popover_floatingui-arrow::before,
+.c8 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -189,18 +189,18 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -208,17 +208,17 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -726,7 +726,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
       <div
         class="c7 c8 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
-        style="position: fixed; left: 0px; top: 0px;"
+        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
@@ -774,10 +774,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="fi-action-menu-popover_popper-arrow"
-          data-popper-arrow="true"
+          class="c7 fi-action-menu-popover_floatingui-arrow"
           style="position: absolute;"
-          tabindex="-1"
         />
       </div>
     </div>
@@ -963,8 +961,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c8 .fi-action-menu-popover_floatingui-arrow::before,
+.c8 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -974,18 +972,18 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -993,17 +991,17 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1511,7 +1509,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
       <div
         class="c7 c8 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
-        style="position: fixed; left: 0px; top: 0px;"
+        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
@@ -1559,10 +1557,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="fi-action-menu-popover_popper-arrow"
-          data-popper-arrow="true"
+          class="c7 fi-action-menu-popover_floatingui-arrow"
           style="position: absolute;"
-          tabindex="-1"
         />
       </div>
     </div>
@@ -1748,8 +1744,8 @@ exports[`No borders variant should match snapshot 1`] = `
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c8 .fi-action-menu-popover_floatingui-arrow::before,
+.c8 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -1759,18 +1755,18 @@ exports[`No borders variant should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1778,17 +1774,17 @@ exports[`No borders variant should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2296,7 +2292,7 @@ exports[`No borders variant should match snapshot 1`] = `
       <div
         class="c7 c8 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
-        style="position: fixed; left: 0px; top: 0px;"
+        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
@@ -2344,10 +2340,8 @@ exports[`No borders variant should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="fi-action-menu-popover_popper-arrow"
-          data-popper-arrow="true"
+          class="c7 fi-action-menu-popover_floatingui-arrow"
           style="position: absolute;"
-          tabindex="-1"
         />
       </div>
     </div>
@@ -2533,8 +2527,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c8 .fi-action-menu-popover_floatingui-arrow::before,
+.c8 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -2544,18 +2538,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2563,17 +2557,17 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3081,7 +3075,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
       <div
         class="c7 c8 fi-action-menu-popover"
         role="none"
-        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
+        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
         <div
@@ -3092,10 +3086,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9 fi-action-menu-item--selected"
+            class="c4 fi-action-menu-item c9"
             id="test-id-menu-list-item-0"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
             type="button"
           >
             Item 1
@@ -3129,11 +3123,9 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="fi-action-menu-popover_popper-arrow"
-          data-popper-arrow="true"
-          data-popper-placement="bottom-end"
-          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-          tabindex="-1"
+          class="c7 fi-action-menu-popover_floatingui-arrow"
+          data-floatingui-placement="bottom-end"
+          style="position: absolute; left: 0px;"
         />
       </div>
     </div>
@@ -3319,8 +3311,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c8 .fi-action-menu-popover_floatingui-arrow::before,
+.c8 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -3330,18 +3322,18 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3349,17 +3341,17 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3867,7 +3859,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
       <div
         class="c7 c8 fi-action-menu-popover"
         role="none"
-        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
+        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
         <div
@@ -3915,11 +3907,9 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         </div>
         <div
           aria-hidden="true"
-          class="fi-action-menu-popover_popper-arrow"
-          data-popper-arrow="true"
-          data-popper-placement="bottom-end"
-          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-          tabindex="-1"
+          class="c7 fi-action-menu-popover_floatingui-arrow"
+          data-floatingui-placement="bottom-end"
+          style="position: absolute; left: 0px;"
         />
       </div>
     </div>
