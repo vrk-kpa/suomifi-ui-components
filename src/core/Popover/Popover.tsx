@@ -1,8 +1,15 @@
 import React, { useState, ReactNode, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { usePopper } from 'react-popper';
 import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
+import {
+  useFloating,
+  flip,
+  shift,
+  autoUpdate,
+  size,
+} from '@floating-ui/react-dom';
+
 export interface PopoverProps extends HtmlDivProps {
   /** Source ref for positioning the Popover */
   sourceRef: React.RefObject<any>;
@@ -22,25 +29,11 @@ export interface PopoverProps extends HtmlDivProps {
   /** Event hanlder for clicks outside the popover element */
   onClickOutside?: (event: MouseEvent) => void;
   /**
-   * Whether the popper element is rendered in a portal or not
+   * Whether the popover element is rendered in a portal or not
    * @default true
    */
   portal?: boolean;
 }
-
-const sameWidth: any = {
-  name: 'sameWidth',
-  enabled: true,
-  phase: 'beforeWrite',
-  requires: ['computeStyles'],
-  /* eslint-disable no-param-reassign */
-  fn({ state }: { state: any }) {
-    state.styles.popper.width = `${state.rects.reference.width}px`;
-  },
-  effect({ state }: { state: any }) {
-    state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
-  },
-};
 
 export interface PopoverProviderState {
   updatePopover: () => void;
@@ -68,22 +61,56 @@ export const Popover = (props: PopoverProps) => {
     ...passProps
   } = props;
 
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+  const [floatingElement, setFloatingElement] = useState<HTMLElement | null>(
+    null,
+  );
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
 
   const portalRef = useRef<HTMLDivElement>(null);
 
-  const { update, styles } = usePopper(sourceRef.current, popperElement, {
-    modifiers: [
-      {
-        name: 'flip',
-        enabled: allowFlip,
-      },
-      matchWidth ? sameWidth : {},
+  const {
+    refs: floatingUiRefs,
+    floatingStyles,
+
+    update,
+  } = useFloating({
+    open: true,
+    middleware: [
+      flip(),
+      shift(),
+      ...(matchWidth
+        ? [
+            size({
+              apply({
+                rects,
+                elements,
+              }: {
+                rects: { reference: { width: number } };
+                elements: { floating: HTMLElement };
+              }) {
+                const floatingEl = elements.floating;
+                floatingEl.style.width = `${rects.reference.width}px`;
+              },
+            }),
+          ]
+        : []),
     ],
-    placement,
+    whileElementsMounted: autoUpdate,
+    placement: 'bottom',
   });
+
+  useEffect(() => {
+    if (sourceRef.current) {
+      floatingUiRefs.setReference(sourceRef.current);
+    }
+  }, [floatingUiRefs, sourceRef]);
+
+  useEffect(() => {
+    if (floatingElement) {
+      floatingUiRefs.setFloating(floatingElement);
+    }
+  }, [floatingUiRefs, floatingElement]);
 
   useEffect(() => {
     const globalClickHandler = (nativeEvent: MouseEvent) => {
@@ -119,8 +146,8 @@ export const Popover = (props: PopoverProps) => {
         {ReactDOM.createPortal(
           <div
             className={'fi-portal'}
-            ref={setPopperElement}
-            style={{ ...styles.popper, ...portalStyleProps }}
+            ref={setFloatingElement}
+            style={{ ...floatingStyles, ...portalStyleProps }}
             tabIndex={-1}
             role="presentation"
           >
@@ -141,8 +168,8 @@ export const Popover = (props: PopoverProps) => {
   }
   return (
     <div
-      ref={setPopperElement}
-      style={{ ...styles.popper, ...portalStyleProps }}
+      ref={setFloatingElement}
+      style={{ ...floatingStyles, ...portalStyleProps }}
       tabIndex={-1}
       role="presentation"
     >

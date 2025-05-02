@@ -156,7 +156,6 @@
     "date-fns": "2.30.0",
     "polished": "4.2.2",
     "react-modal": "3.16.3",
-    "react-popper": "2.3.0",
     "suomifi-design-tokens": "6.0.0",
     "suomifi-icons": "7.5.0"
   },

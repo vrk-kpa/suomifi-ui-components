@@ -613,7 +613,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   <div
     class="fi-portal"
     role="presentation"
-    style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 0px);"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px); width: 0px;"
     tabindex="-1"
   >
     <div
@@ -1290,7 +1290,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   <div
     class="fi-portal"
     role="presentation"
-    style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 0px);"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px); width: 0px;"
     tabindex="-1"
   >
     <div
@@ -1958,7 +1958,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   <div
     class="fi-portal"
     role="presentation"
-    style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 0px);"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px); width: 0px;"
     tabindex="-1"
   >
     <div
