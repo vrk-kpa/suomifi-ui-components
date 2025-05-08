@@ -366,6 +366,23 @@ describe('autosuggest', () => {
     expect(queryAllByRole('option')).toHaveLength(0);
   });
 
+  it('should retain focus on input after Escape key press', async () => {
+    const { getByRole } = render(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+      }),
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+
+    fireEvent.keyDown(inputElement, { key: 'Escape' });
+
+    await waitFor(() => {
+      expect(inputElement).toHaveFocus();
+    });
+  });
+
   it('should update suggestions dynamically', async () => {
     const updatedSuggestions = [
       { uniqueId: '3', label: 'cherry' },
