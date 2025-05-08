@@ -10,6 +10,7 @@ Examples:
 - [Debounce](./#/Components/SearchInput?id=debounce)
 - [Full width](./#/Components/SearchInput?id=full-width)
 - [Hidden label](./#/Components/SearchInput?id=hidden-label)
+- [Search suggestions](./#/Components/SearchInput?id=search-suggestions)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/SearchInput?id=props--methods)
@@ -175,11 +176,11 @@ import { SearchInput } from 'suomifi-ui-components';
 
 ### Search suggestions
 
-You can provide search suggestions for the user using the `autosuggest` and `suggestions` props. The suggestions are shown in a popover list under the input field.
+You can provide search suggestions for the user using the `autosuggest` and `suggestions` props. The suggestions are shown in a popover list under the input field. Provide a descriptive `suggestionHintText` to let screen reader users know there will be a suggestion list under the component, as the usual accessible pattern is not available for search input component. Also provide `ariaOptionsAvailableText` to inform screen reader users about the updating amount of suggestions.
 
 When the user selects a suggestion from the list, the `onSuggestionSelected` callback gets called with the `uniqueId` of the element.
 
-It's recommended to use debounce on fetching the suggestions to avoid fetchin on every keypress.
+It's recommended to use debounce on fetching the suggestions to avoid unnecessary fetches. Do not use debounce prop of the component for this purpose.
 
 ```jsx
 import { SearchInput } from 'suomifi-ui-components';
