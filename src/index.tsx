@@ -53,6 +53,8 @@ export {
   type ToggleButtonProps,
   SearchInput,
   type SearchInputProps,
+  type SearchSuggestionItem,
+  type SearchInputStatus,
   RadioButton,
   type RadioButtonProps,
   RadioButtonGroup,
