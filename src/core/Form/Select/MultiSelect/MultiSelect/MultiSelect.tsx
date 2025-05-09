@@ -202,6 +202,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Props passed to unordered list element inside the popover. For example data-attributes */
   listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
+  /** Popover container div CSS class for custom styles. Can be used to modify popover z-index. */
+  popoverClassName?: string;
   /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
 }
@@ -665,6 +667,7 @@ class BaseMultiSelect<T> extends Component<
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
+      popoverClassName,
       style,
       fullWidth,
       ...rest
@@ -783,6 +786,7 @@ class BaseMultiSelect<T> extends Component<
                     this.setState({ showPopover: false });
                   }
                 }}
+                className={popoverClassName}
               >
                 <PopoverConsumer>
                   {(consumer) => (

@@ -2,21 +2,14 @@ import React, { useState, ReactNode, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
-import {
-  useFloating,
-  flip,
-  shift,
-  autoUpdate,
-  size,
-} from '@floating-ui/react-dom';
+import { useFloating, shift, autoUpdate, size } from '@floating-ui/react-dom';
+import classNames from 'classnames';
 
 export interface PopoverProps extends HtmlDivProps {
   /** Source ref for positioning the Popover */
   sourceRef: React.RefObject<any>;
   /** Content for the Popover */
   children: ReactNode;
-  /** Style props for portal element */
-  portalStyleProps?: React.CSSProperties;
   /**
    * Menu placement, top or bottom
    * @default bottom
@@ -33,6 +26,8 @@ export interface PopoverProps extends HtmlDivProps {
    * @default true
    */
   portal?: boolean;
+  /** CSS class for custom styles */
+  className?: string;
 }
 
 export interface PopoverProviderState {
@@ -50,7 +45,6 @@ export { PopoverConsumer };
 
 export const Popover = (props: PopoverProps) => {
   const {
-    portalStyleProps = {},
     placement = 'bottom',
     allowFlip = false,
     matchWidth = true,
@@ -58,6 +52,7 @@ export const Popover = (props: PopoverProps) => {
     sourceRef,
     onClickOutside,
     portal = true,
+    className,
     ...passProps
   } = props;
 
@@ -77,7 +72,6 @@ export const Popover = (props: PopoverProps) => {
   } = useFloating({
     open: true,
     middleware: [
-      flip(),
       shift(),
       ...(matchWidth
         ? [
@@ -145,9 +139,9 @@ export const Popover = (props: PopoverProps) => {
       <>
         {ReactDOM.createPortal(
           <div
-            className={'fi-portal'}
+            className={classNames('fi-portal', className)}
             ref={setFloatingElement}
-            style={{ ...floatingStyles, ...portalStyleProps }}
+            style={floatingStyles}
             tabIndex={-1}
             role="presentation"
           >
@@ -168,8 +162,9 @@ export const Popover = (props: PopoverProps) => {
   }
   return (
     <div
+      className={className}
       ref={setFloatingElement}
-      style={{ ...floatingStyles, ...portalStyleProps }}
+      style={floatingStyles}
       tabIndex={-1}
       role="presentation"
     >
