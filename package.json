@@ -157,7 +157,7 @@
     "polished": "4.2.2",
     "react-modal": "3.16.3",
     "suomifi-design-tokens": "6.0.0",
-    "suomifi-icons": "7.5.0"
+    "suomifi-icons": "7.6.0"
   },
   "peerDependencies": {
     "@types/styled-components": ">=5.1.9",
