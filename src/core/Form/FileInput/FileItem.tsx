@@ -116,7 +116,9 @@ const BaseFileItem = (props: FileItemProps) => {
             <IconPreloader className={fileItemClassNames.loadingIcon} />
           )}
           {!fileItemDetails?.status && <IconGenericFile />}
-          {filePreview ? (
+          {filePreview &&
+          fileItemDetails?.status !== 'error' &&
+          fileItemDetails?.status !== 'loading' ? (
             <Link
               ref={
                 fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>
