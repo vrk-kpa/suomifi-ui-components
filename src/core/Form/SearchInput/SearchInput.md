@@ -10,6 +10,7 @@ Examples:
 - [Debounce](./#/Components/SearchInput?id=debounce)
 - [Full width](./#/Components/SearchInput?id=full-width)
 - [Hidden label](./#/Components/SearchInput?id=hidden-label)
+- [Search suggestions](./#/Components/SearchInput?id=search-suggestions)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/SearchInput?id=props--methods)
@@ -90,7 +91,9 @@ const [controlledValue, setControlledValue] = useState('');
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   value={controlledValue}
-  onChange={(newValue) => setControlledValue(newValue)}
+  onChange={(newValue) => {
+    setControlledValue(newValue);
+  }}
 />;
 ```
 
@@ -168,6 +171,64 @@ import { SearchInput } from 'suomifi-ui-components';
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   labelMode="hidden"
+/>;
+```
+
+### Search suggestions
+
+You can provide search suggestions for the user using the `autosuggest` and `suggestions` props. The suggestions are shown in a popover list under the input field. Provide a descriptive `suggestionHintText` to let screen reader users know there will be a suggestion list under the component, as the usual accessible pattern is not available for search input component. Also provide `ariaOptionsAvailableText` to inform screen reader users about the updating amount of suggestions.
+
+When the user selects a suggestion from the list, the `onSuggestionSelected` callback gets called with the `uniqueId` of the element.
+
+It's recommended to use debounce on fetching the suggestions to avoid unnecessary fetches. Do not use debounce prop of the component for this purpose.
+
+```jsx
+import { SearchInput } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [controlledValue, setControlledValue] = useState('');
+const [suggestions, setSuggestions] = useState([]);
+
+const potentialSearches = [
+  { uniqueId: 1, label: 'Football' },
+  { uniqueId: 2, label: 'Badminton' },
+  { uniqueId: 3, label: 'Tennis' },
+  { uniqueId: 4, label: 'Basketball' },
+  { uniqueId: 5, label: 'Ice hockey' },
+  { uniqueId: 6, label: 'Ball' },
+  { uniqueId: 7, label: 'Ice skating' },
+  { uniqueId: 8, label: 'Figure skating' }
+];
+
+const filterSuggestions = (input, items) => {
+  return items.filter((item) =>
+    item.label.toLowerCase().includes(input.toLowerCase())
+  );
+};
+
+const handleSuggestionSelection = (id) => {
+  console.log(
+    'Searching for',
+    suggestions.find((element) => element.uniqueId === id).label
+  );
+};
+
+<SearchInput
+  labelText="Search the site"
+  searchButtonLabel="Search"
+  clearButtonLabel="Clear"
+  visualPlaceholder="Write search terms..."
+  onSearch={(value) => console.log(`Searching for ${value}...`)}
+  value={controlledValue}
+  onChange={(newValue) => {
+    setControlledValue(newValue);
+    setSuggestions(filterSuggestions(newValue, potentialSearches));
+  }}
+  autosuggest={controlledValue.length >= 3}
+  suggestions={suggestions}
+  onSuggestionSelected={(id) => handleSuggestionSelection(id)}
+  suggestionHintText="Search suggestions open under the input"
+  ariaOptionsAvailableText={`${suggestions.length} suggestions available`}
 />;
 ```
 
