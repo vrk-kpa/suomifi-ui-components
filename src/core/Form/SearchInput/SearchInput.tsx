@@ -299,6 +299,11 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       if (event.key === 'Escape') {
         event.preventDefault();
         this.setState({ showPopover: false, focusedDescendantId: null });
+        setTimeout(() => {
+          if (this.inputRef.current) {
+            this.inputRef.current.focus();
+          }
+        }, 100);
       }
 
       if (event.key === 'Enter') {
@@ -402,8 +407,6 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     id={id}
                     className={searchInputClassNames.inputElement}
                     type="search"
-                    role="searchbox"
-                    aria-controls={`${id}-itemlist`}
                     aria-activedescendant={this.state.focusedDescendantId}
                     autoComplete="off"
                     value={this.state.value}
