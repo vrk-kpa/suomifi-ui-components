@@ -11,7 +11,7 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 - Suomi.fi brand styles
 - Highly customizable (CSS, CSS-in-JS)
 
-Works with [React >= 16.8.0](https://github.com/facebook/react) (React 18 supported) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
+Works with [React >= 16.8.0](https://github.com/facebook/react) (React 19 supported) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
 
 ### Supported browser and screenreader combinations
 
