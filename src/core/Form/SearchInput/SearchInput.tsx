@@ -41,20 +41,15 @@ import { Popover } from '../../Popover/Popover';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 import { SuggestionList } from './SuggestionList/SuggestionList';
 
-type SearchInputValue = string | number | undefined;
-
-type SearchInputStatus = Exclude<InputStatus, 'success'>;
+export type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export type SearchSuggestionItem = {
   uniqueId: string;
   label: string;
+  [key: string]: string;
 };
 
 export type AutosSuggestElementProps = {
-  /** Callback to fetch suggestions based on input value */
-  onSuggestionsFetchRequested?: (value: string) => void;
-  /** Callback to clear suggestions on */
-  onSuggestionsClearRequested?: () => void;
   /** Callback when a suggestion is selected */
   onSuggestionSelected: (suggestionId: string) => void;
   /** List of suggestions to show */
@@ -73,10 +68,6 @@ type AutoSuggestProps =
        * @default false
        */
       autosuggest?: false | never;
-      /** Callback to fetch suggestions based on input value */
-      onSuggestionsFetchRequested?: (value: string) => void;
-      /** Callback to clear suggestions on */
-      onSuggestionsClearRequested?: () => void;
       /** Callback when a suggestion is selected */
       onSuggestionSelected?: (suggestionId: string) => void;
       /** List of suggestions to show */
@@ -93,16 +84,10 @@ type AutoSuggestProps =
        * @default false
        */
       autosuggest: true;
-      /** Callback to fetch suggestions based on input value */
-      onSuggestionsFetchRequested?: (value: string) => void;
-      /** Callback to clear suggestions on */
-      onSuggestionsClearRequested?: () => void;
       /** Callback when a suggestion is selected */
       onSuggestionSelected: (suggestionId: string) => void;
       /** List of suggestions to show */
       suggestions: SearchSuggestionItem[];
-      /** Text to show during loading state */
-      suggestionsLoadingText?: string;
       /** Hint text to let the users know that the suggestions will appear below the input */
       suggestionHintText: string;
       /** Text to let the user know how many suggestions are available */
@@ -155,15 +140,15 @@ export type SearchInputProps = StatusTextCommonProps &
     /** Sets components width to 100% */
     fullWidth?: boolean;
     /** Controlled value */
-    value?: SearchInputValue;
+    value?: string;
     /** Default value */
-    defaultValue?: SearchInputValue;
+    defaultValue?: string;
     /** Callback fired when input text changes */
-    onChange?: (value: SearchInputValue) => void;
+    onChange?: (value: string) => void;
     /** Callback fired on input blur */
     onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     /** Callback fired on search button click */
-    onSearch?: (value: SearchInputValue) => void;
+    onSearch?: (value: string) => void;
     /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
     debounce?: number;
     /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
@@ -190,7 +175,7 @@ const searchInputClassNames = {
 };
 
 interface SearchInputState {
-  value: SearchInputValue;
+  value: string;
   showPopover: boolean;
   focusedDescendantId: string | null;
 }
@@ -263,13 +248,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     const statusTextId = `${id}-statusText`;
     const suggestionHintId = `${id}-suggestionHintText`;
 
-    const conditionalSetState = (newValue: SearchInputValue) => {
+    const conditionalSetState = (newValue: string) => {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
       }
     };
 
-    const onSearch = (searchValue: SearchInputValue) => {
+    const onSearch = (searchValue: string) => {
       if (!!propOnSearch) {
         propOnSearch(searchValue);
       }
@@ -394,6 +379,11 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           >
             {labelText}
           </Label>
+          {autosuggest && (
+            <VisuallyHidden id={suggestionHintId}>
+              {suggestionHintText}
+            </VisuallyHidden>
+          )}
           <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
               <HtmlDiv className={searchInputClassNames.functionalityContainer}>
@@ -458,14 +448,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             {statusText}
           </StatusText>
           {autosuggest && (
-            <>
-              <VisuallyHidden aria-live="polite" aria-atomic="true">
-                {this.state.showPopover ? ariaOptionsAvailableText : ''}
-              </VisuallyHidden>
-              <VisuallyHidden id={suggestionHintId}>
-                {suggestionHintText}
-              </VisuallyHidden>
-            </>
+            <VisuallyHidden aria-live="polite" aria-atomic="true">
+              {this.state.showPopover ? ariaOptionsAvailableText : ''}
+            </VisuallyHidden>
           )}
         </HtmlSpan>
         {this.state.showPopover && (
