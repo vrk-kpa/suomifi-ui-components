@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { styled } from 'styled-components';
-import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
@@ -24,6 +23,14 @@ import {
 } from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
 import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
+import {
+  useFloating,
+  offset,
+  flip,
+  shift,
+  autoUpdate,
+  arrow,
+} from '@floating-ui/react-dom';
 
 const baseClassName = 'fi-date-picker';
 
@@ -38,7 +45,7 @@ export const datePickerClassNames = {
   slideIndicatorWrapper: `${baseClassName}_slide-indicator-wrapper`,
   application: `${baseClassName}_application`,
   bottomContainer: `${baseClassName}_bottom-container`,
-  popperArrow: `${baseClassName}_popper-arrow`,
+  floatinguiArrow: `${baseClassName}_floatingui-arrow`,
 };
 
 export interface InternalDatePickerProps
@@ -83,13 +90,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     minDate,
     maxDate,
     smallScreen,
+    position,
     userProps = {},
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
-  const [hasPopperEventListeners, setHasPopperEventListeners] =
-    useState<boolean>(false);
   const [focusableDate, setFocusableDate] = useState<Date>(new Date());
   const [focusedDate, setFocusedDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -107,6 +113,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const monthSelectRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const dayButtonRef = useRef<HTMLButtonElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -151,12 +158,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (!smallScreen && isOpen) {
-      setHasPopperEventListeners(true);
-      return () => {
-        setHasPopperEventListeners(false);
-      };
-    }
     if (smallScreen && isOpen && smallScreenAppRef.current) {
       smallScreenAppRef.current.style.top = '';
       conditionalSmallScreenScroll();
@@ -307,41 +308,40 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     return null;
   };
 
-  const datePickerOffset =
-    props.position === 'right' ? 322 : props.position === 'center' ? 160 : 0;
+  const {
+    refs: floatingUiRefs,
+    floatingStyles,
+    middlewareData,
+  } = useFloating({
+    open: isOpen,
+    middleware: [
+      offset(10),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowRef,
+      }),
+    ],
+    whileElementsMounted: autoUpdate,
+    placement:
+      position === 'right'
+        ? 'bottom-start'
+        : position === 'left'
+        ? 'bottom-end'
+        : 'bottom',
+  });
 
-  const { styles, attributes } = usePopper(
-    openButtonRef.current,
-    dialogElement,
-    {
-      strategy: 'fixed',
-      modifiers: [
-        {
-          name: 'eventListeners',
-          enabled: hasPopperEventListeners && !smallScreen,
-        },
-        {
-          name: 'offset',
-          options: {
-            offset: [datePickerOffset, 10],
-          },
-        },
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: ['top-end'],
-          },
-        },
-        {
-          name: 'preventOverflow',
-          options: {
-            padding: 5,
-          },
-        },
-      ],
-      placement: 'bottom-end',
-    },
-  );
+  useEffect(() => {
+    if (openButtonRef.current) {
+      floatingUiRefs.setReference(openButtonRef.current);
+    }
+  }, [floatingUiRefs, openButtonRef]);
+
+  useEffect(() => {
+    if (dialogElement) {
+      floatingUiRefs.setFloating(dialogElement);
+    }
+  }, [floatingUiRefs, dialogElement]);
 
   const isSelectOpen = (
     event: React.TouchEvent<HTMLDivElement> | TouchEvent,
@@ -491,16 +491,21 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       role="dialog"
       aria-hidden={!isOpen}
       className={classnames(...dialogClasses)}
-      style={styles.popper}
+      style={floatingStyles}
       forwardedRef={setDialogElement}
       {...passProps}
     >
       {application}
-      <div
-        className={datePickerClassNames.popperArrow}
-        style={styles.arrow}
-        data-popper-arrow
-        data-popper-placement={attributes.popper?.['data-popper-placement']}
+      <HtmlDivWithRef
+        forwardedRef={arrowRef}
+        className={datePickerClassNames.floatinguiArrow}
+        data-floatingui-placement={middlewareData?.offset?.placement}
+        aria-hidden={true}
+        tabIndex={-1}
+        style={{
+          left: middlewareData.arrow?.x,
+          top: middlewareData.arrow?.y,
+        }}
       />
     </HtmlDivWithRef>
   );

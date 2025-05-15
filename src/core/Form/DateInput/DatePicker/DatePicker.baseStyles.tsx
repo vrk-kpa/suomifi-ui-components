@@ -90,34 +90,32 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     touch-action: auto;
   }
 
-  & .fi-date-picker_popper-arrow,
-  & .fi-date-picker_popper-arrow::before {
+  & .fi-date-picker_floatingui-arrow,
+  & .fi-date-picker_floatingui-arrow::before {
     position: absolute;
     width: 11px;
     height: 11px;
   }
 
-  & .fi-date-picker_popper-arrow::before {
+  & .fi-date-picker_floatingui-arrow::before {
     content: '';
     background-color: ${theme.colors.whiteBase};
     transform: rotate(45deg);
   }
 
-  & .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end'] {
-    top: -7px;
+  & .fi-date-picker_floatingui-arrow[data-floatingui-placement^='bottom'] {
+    top: -6px;
+    &::before {
+      border-top: 1px solid ${theme.colors.blackLight1};
+      border-left: 1px solid ${theme.colors.blackLight1};
+    }
   }
 
-  & .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
-    border-top: 1px solid ${theme.colors.blackLight1};
-    border-left: 1px solid ${theme.colors.blackLight1};
-  }
-
-  & .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
+  & .fi-date-picker_floatingui-arrow[data-floatingui-placement^='top'] {
     bottom: -6px;
-  }
-
-  & .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
-    border-bottom: 1px solid ${theme.colors.blackLight1};
-    border-right: 1px solid ${theme.colors.blackLight1};
+    &::before {
+      border-bottom: 1px solid ${theme.colors.blackLight1};
+      border-right: 1px solid ${theme.colors.blackLight1};
+    }
   }
 `;
