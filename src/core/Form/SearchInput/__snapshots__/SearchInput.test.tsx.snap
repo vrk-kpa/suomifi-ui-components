@@ -646,10 +646,10 @@ exports[`snapshot should have matching default structure 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="c5 fi-search-input_input"
           data-testid="searchinput"
           id="1"
-          role="searchbox"
           type="search"
           value=""
         />
