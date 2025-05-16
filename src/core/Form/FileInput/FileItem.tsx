@@ -67,10 +67,8 @@ const BaseFileItem = (props: FileItemProps) => {
 
   const getFileSizeText = () => {
     const fileSize = metadataFileSize || file?.size;
-    if (!fileSize) {
-      return '';
-    }
-    if (fileSize < 1024) {
+
+    if (!fileSize || fileSize < 1024) {
       return `${fileSize} B`;
     }
     if (fileSize < 1024 * 1024) {
@@ -116,7 +114,9 @@ const BaseFileItem = (props: FileItemProps) => {
             <IconPreloader className={fileItemClassNames.loadingIcon} />
           )}
           {!fileItemDetails?.status && <IconGenericFile />}
-          {filePreview ? (
+          {filePreview &&
+          fileItemDetails?.status !== 'error' &&
+          fileItemDetails?.status !== 'loading' ? (
             <Link
               ref={
                 fileItemRefs.fileNameRef as React.RefObject<HTMLAnchorElement>
@@ -151,7 +151,7 @@ const BaseFileItem = (props: FileItemProps) => {
             className={fileItemClassNames.fileSize}
             id={filePreview ? fileItemRefs.fileSizeElementId : undefined}
           >
-            {`(${getFileSizeText()})`}
+            {getFileSizeText()}
           </HtmlDiv>
         </HtmlDiv>
         <Button

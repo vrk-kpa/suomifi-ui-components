@@ -203,10 +203,6 @@ export interface Metadata {
    */
   fileType: string;
   /**
-   * URL to the file
-   */
-  fileURL?: string;
-  /**
    * id of the file
    */
   id?: string;
