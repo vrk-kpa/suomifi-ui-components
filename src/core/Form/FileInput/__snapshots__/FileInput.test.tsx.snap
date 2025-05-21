@@ -315,9 +315,6 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_single-file-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   max-width: 600px;
   height: 100%;
@@ -344,7 +341,7 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   flex-shrink: 1;
   letter-spacing: 0;
@@ -362,6 +359,7 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
@@ -369,6 +367,8 @@ exports[`snapshots match error status with statustext 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
+  align-self: center;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -396,10 +396,12 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
+  margin-top: 12px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
   flex-shrink: 0;
+  height: 40px;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
@@ -416,6 +418,19 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
   border: 1px solid hsl(202, 7%, 93%);
+  padding: 0;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_drag-text-container {
+  height: 0;
+  margin-bottom: 0!important;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_input-label.fi-file-input_input-label {
+  height: 0;
+  padding: 0;
+  min-height: 0;
+  border: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
@@ -428,6 +443,7 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
   visibility: hidden;
+  height: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
@@ -491,6 +507,7 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
@@ -945,9 +962,6 @@ exports[`snapshots match hidden label 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_single-file-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   max-width: 600px;
   height: 100%;
@@ -974,7 +988,7 @@ exports[`snapshots match hidden label 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   flex-shrink: 1;
   letter-spacing: 0;
@@ -992,6 +1006,7 @@ exports[`snapshots match hidden label 1`] = `
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
@@ -999,6 +1014,8 @@ exports[`snapshots match hidden label 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
+  align-self: center;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -1026,10 +1043,12 @@ exports[`snapshots match hidden label 1`] = `
   color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
+  margin-top: 12px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
   flex-shrink: 0;
+  height: 40px;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
@@ -1046,6 +1065,19 @@ exports[`snapshots match hidden label 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
   border: 1px solid hsl(202, 7%, 93%);
+  padding: 0;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_drag-text-container {
+  height: 0;
+  margin-bottom: 0!important;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_input-label.fi-file-input_input-label {
+  height: 0;
+  padding: 0;
+  min-height: 0;
+  border: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
@@ -1058,6 +1090,7 @@ exports[`snapshots match hidden label 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
   visibility: hidden;
+  height: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
@@ -1121,6 +1154,7 @@ exports[`snapshots match hidden label 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
@@ -1562,9 +1596,6 @@ exports[`snapshots match hint text 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_single-file-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   max-width: 600px;
   height: 100%;
@@ -1591,7 +1622,7 @@ exports[`snapshots match hint text 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   flex-shrink: 1;
   letter-spacing: 0;
@@ -1609,6 +1640,7 @@ exports[`snapshots match hint text 1`] = `
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
@@ -1616,6 +1648,8 @@ exports[`snapshots match hint text 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
+  align-self: center;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -1643,10 +1677,12 @@ exports[`snapshots match hint text 1`] = `
   color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
+  margin-top: 12px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
   flex-shrink: 0;
+  height: 40px;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
@@ -1663,6 +1699,19 @@ exports[`snapshots match hint text 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
   border: 1px solid hsl(202, 7%, 93%);
+  padding: 0;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_drag-text-container {
+  height: 0;
+  margin-bottom: 0!important;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_input-label.fi-file-input_input-label {
+  height: 0;
+  padding: 0;
+  min-height: 0;
+  border: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
@@ -1675,6 +1724,7 @@ exports[`snapshots match hint text 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
   visibility: hidden;
+  height: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
@@ -1738,6 +1788,7 @@ exports[`snapshots match hint text 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
@@ -2173,9 +2224,6 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-file-input .fi-file-input_single-file-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   max-width: 600px;
   height: 100%;
@@ -2202,7 +2250,7 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   flex-shrink: 1;
   letter-spacing: 0;
@@ -2220,6 +2268,7 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name {
@@ -2227,6 +2276,8 @@ exports[`snapshots match minimal implementation 1`] = `
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
+  word-break: break-word;
+  align-self: center;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_file-info .fi-file-input_file-name:not(.is-link):focus {
@@ -2254,10 +2305,12 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0, 0%, 42%);
   min-width: 70px;
   margin-right: 10px;
+  margin-top: 12px;
 }
 
 .c1.fi-file-input .fi-file-input_file-item .fi-file-input_remove-file-button {
   flex-shrink: 0;
+  height: 40px;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area {
@@ -2274,6 +2327,19 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file {
   border: 1px solid hsl(202, 7%, 93%);
+  padding: 0;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_drag-text-container {
+  height: 0;
+  margin-bottom: 0!important;
+}
+
+.c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area.fi-file-input_drag-area--has-file .fi-file-input_input-label.fi-file-input_input-label {
+  height: 0;
+  padding: 0;
+  min-height: 0;
+  border: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper {
@@ -2286,6 +2352,7 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper.fi-file-input_input-wrapper--hidden {
   visibility: hidden;
+  height: 0;
 }
 
 .c1.fi-file-input .fi-file-input_input-outer-wrapper .fi-file-input_drag-area .fi-file-input_input-wrapper .fi-file-input_drag-text-container {
@@ -2349,6 +2416,7 @@ exports[`snapshots match minimal implementation 1`] = `
   background-color: hsl(0, 0%, 100%);
   border: 1px solid hsl(212, 63%, 45%);
   text-shadow: none;
+  word-break: normal;
   cursor: pointer;
 }
 
