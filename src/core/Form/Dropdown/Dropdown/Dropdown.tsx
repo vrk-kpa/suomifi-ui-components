@@ -306,6 +306,16 @@ class BaseDropdown<T extends string = string> extends Component<
     this.componentIsMounted = false;
   }
 
+  componentDidUpdate(prevProps: Readonly<DropdownProps<T>>): void {
+    // Case nullifying value by setting it from a defined value to undefined
+    if (this.props.value === undefined && prevProps.value !== undefined) {
+      this.setState({
+        selectedValue: undefined,
+        selectedValueNode: undefined,
+      });
+    }
+  }
+
   private isOutsideClick(event: MouseEvent) {
     return (
       !!this.buttonRef &&
