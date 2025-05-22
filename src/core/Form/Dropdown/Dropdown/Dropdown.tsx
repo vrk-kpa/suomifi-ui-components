@@ -105,7 +105,7 @@ interface DropdownState<T> {
 export interface DropdownProps<T extends string = string>
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlButtonProps, 'onChange'> {
+    Omit<HtmlButtonProps, 'onChange' | 'value'> {
   /**
    * HTML id attribute
    * If no id is specified, one will be generated automatically
@@ -116,7 +116,7 @@ export interface DropdownProps<T extends string = string>
   /** Sets a default, initially selected value for non controlled Dropdown */
   defaultValue?: T;
   /** Controlled selected value, overrides `defaultValue` if provided. */
-  value?: T;
+  value?: T | null;
   /** Label for the Dropdown component. */
   labelText: ReactNode;
   /** Hint text to be shown below the label */
@@ -257,7 +257,7 @@ class BaseDropdown<T extends string = string> extends Component<
   }
 
   static getSelectedValueNode<U extends string>(
-    selectedValue: string | undefined,
+    selectedValue: string | undefined | null,
     children:
       | Array<
           | ReactElement<DropdownItemProps<U>>
@@ -304,6 +304,16 @@ class BaseDropdown<T extends string = string> extends Component<
 
   componentWillUnmount(): void {
     this.componentIsMounted = false;
+  }
+
+  componentDidUpdate(prevProps: Readonly<DropdownProps<T>>): void {
+    // Case nullifying value by setting it from a defined value to undefined
+    if (this.props.value === undefined && prevProps.value !== undefined) {
+      this.setState({
+        selectedValue: undefined,
+        selectedValueNode: undefined,
+      });
+    }
   }
 
   private isOutsideClick(event: MouseEvent) {

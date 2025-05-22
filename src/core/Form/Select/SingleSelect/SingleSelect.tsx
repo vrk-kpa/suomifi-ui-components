@@ -289,6 +289,16 @@ class BaseSingleSelect<T> extends Component<
         computedItems: this.props.items,
       });
     }
+    // Case nullifying selectedItem by setting it from a defined value to undefined
+    if (
+      this.props.selectedItem === undefined &&
+      prevProps.selectedItem !== undefined
+    ) {
+      this.setState({
+        selectedItem: null,
+        filterInputValue: '',
+      });
+    }
   }
 
   private filter = (data: SingleSelectData, query: string) =>
