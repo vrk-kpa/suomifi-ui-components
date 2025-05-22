@@ -169,6 +169,8 @@ export interface DropdownProps<T extends string = string>
    * @default true
    */
   portal?: boolean;
+  /** Popover container div CSS class for custom styles. Can be used to modify popover z-index. */
+  popoverClassName?: string;
   /** Set component's width to 100% */
   fullWidth?: boolean;
   /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
@@ -536,6 +538,7 @@ class BaseDropdown<T extends string = string> extends Component<
       onBlur,
       tooltipComponent,
       portal = true,
+      popoverClassName,
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
       style,
@@ -670,6 +673,7 @@ class BaseDropdown<T extends string = string> extends Component<
               matchWidth={true}
               onKeyDown={this.handleKeyDown}
               portal={portal}
+              className={popoverClassName}
             >
               <DropdownProvider
                 value={{

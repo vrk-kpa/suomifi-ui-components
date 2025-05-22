@@ -136,6 +136,8 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Props passed to the unordered list element inside the popover. For example data-attributes */
   listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
+  /** Popover container div CSS class for custom styles. Can be used to modify popover z-index. */
+  popoverClassName?: string;
   /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
 }
@@ -561,6 +563,7 @@ class BaseSingleSelect<T> extends Component<
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
+      popoverClassName,
       style,
       fullWidth,
       ...rest
@@ -694,6 +697,7 @@ class BaseSingleSelect<T> extends Component<
                 this.setState({ showPopover: false });
               }
             }}
+            className={popoverClassName}
           >
             <SelectItemList
               id={popoverItemListId}

@@ -755,19 +755,19 @@ describe('props', () => {
         });
 
         describe('not enabled', () => {
-          it('has position fixed', () => {
+          it('has position absolute', () => {
             const { baseElement } = render(
               <DateInput labelText="Date" datePickerEnabled />,
             );
             const dialog = baseElement.querySelector('[role="dialog"]');
             expect(dialog).toHaveClass('fi-date-picker');
-            expect(dialog).toHaveStyle('position: fixed');
+            expect(dialog).toHaveStyle('position: absolute');
             cleanup();
           });
         });
 
         describe('enabled', () => {
-          it('does not have position fixed', () => {
+          it('does not have position absolute', () => {
             const { baseElement } = render(
               <DateInput labelText="Date" smallScreen datePickerEnabled />,
             );
