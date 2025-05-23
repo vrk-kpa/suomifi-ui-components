@@ -180,14 +180,15 @@ You can provide search suggestions for the user using the `autosuggest` and `sug
 
 When the user selects a suggestion from the list, the `onSuggestionSelected` callback gets called with the `uniqueId` of the element.
 
-It's recommended to use debounce on fetching the suggestions to avoid unnecessary fetches. Do not use debounce prop of the component for this purpose.
+It's recommended to use debounce on fetching the suggestions to avoid unnecessary fetches. Below is an example demonstrating how to implement debounce for fetching suggestions.
 
 ```jsx
 import { SearchInput } from 'suomifi-ui-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const [controlledValue, setControlledValue] = useState('');
 const [suggestions, setSuggestions] = useState([]);
+const [debouncedValue, setDebouncedValue] = useState('');
 
 const potentialSearches = [
   { uniqueId: 'abc', label: 'Football' },
@@ -200,15 +201,26 @@ const potentialSearches = [
   { uniqueId: 'vwx', label: 'Figure skating' }
 ];
 
-const handleOnChange = (newValue) => {
-  setControlledValue(newValue);
+// Simple debounce
+useEffect(() => {
+  const handler = setTimeout(() => {
+    setDebouncedValue(controlledValue);
+  }, 300);
+
+  return () => {
+    clearTimeout(handler);
+  };
+}, [controlledValue]);
+
+useEffect(() => {
+  // Fetching suggestions from backend would happen here
   const filteredItems = potentialSearches.filter((item) =>
-    item.label.toLowerCase().includes(newValue.toLowerCase())
+    item.label.toLowerCase().includes(debouncedValue.toLowerCase())
   );
-  if (newValue.length >= 3) {
+  if (debouncedValue.length >= 3) {
     setSuggestions(filteredItems);
   } else setSuggestions([]);
-};
+}, [debouncedValue]);
 
 const handleSuggestionSelection = (id) => {
   console.log(
@@ -225,7 +237,7 @@ const handleSuggestionSelection = (id) => {
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   value={controlledValue}
   onChange={(newValue) => {
-    handleOnChange(newValue);
+    setControlledValue(newValue);
   }}
   autosuggest={true}
   suggestions={suggestions}
