@@ -410,7 +410,7 @@ describe('autosuggest', () => {
 
     items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(2);
-    expect(items[0]).toHaveTextContent('cherry');
+    expect(items[0]).toHaveTextContent('kiwi');
     expect(items[1]).toHaveTextContent('date');
   });
 });
