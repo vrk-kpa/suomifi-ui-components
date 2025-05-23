@@ -37,70 +37,123 @@ import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';
 import { filterDuplicateKeys } from '../../../utils/common/common';
+import { Popover } from '../../Popover/Popover';
+import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
+import { SuggestionList } from './SuggestionList/SuggestionList';
 
-type SearchInputValue = string | number | undefined;
+export type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
-type SearchInputStatus = Exclude<InputStatus, 'success'>;
+export type SearchSuggestionItem = {
+  uniqueId: string;
+  label: string;
+  [key: string]: string;
+};
 
-export interface SearchInputProps
-  extends StatusTextCommonProps,
-    MarginProps,
-    Omit<
-      HtmlInputProps,
-      | 'type'
-      | 'disabled'
-      | 'onChange'
-      | 'onBlur'
-      | 'onSearch'
-      | 'onClick'
-      | 'value'
-      | 'defaultValue'
-    > {
-  /** CSS class for custom styles */
-  className?: string;
-  /** Label text */
-  labelText: ReactNode;
-  /**
-   * `'visible'` | `'hidden'`
-   *
-   * Hides or shows the label. Label element is always present, but can be visually hidden.
-   * @default visible
-   */
-  labelMode?: LabelMode;
-  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
-  visualPlaceholder?: string;
-  /** Screen reader label for the 'Clear' button */
-  clearButtonLabel: string;
-  /** Screen reader label for the 'Search' button */
-  searchButtonLabel: string;
-  /** Props passed to the 'Search' button */
-  searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
-  /**
-   * `'default'` | `'error'`
-   *
-   * Status of the component. Error state creates a red border around the input. Always use a descriptive `statusText` with an error status.
-   * @default default
-   */
-  status?: SearchInputStatus;
-  /** HTML input attribute */
-  name?: string;
-  /** Sets components width to 100% */
-  fullWidth?: boolean;
-  /** Controlled value */
-  value?: SearchInputValue;
-  /** Default value */
-  defaultValue?: SearchInputValue;
-  /** Callback fired when input text changes */
-  onChange?: (value: SearchInputValue) => void;
-  /** Callback fired on input blur */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Callback fired on search button click */
-  onSearch?: (value: SearchInputValue) => void;
-  /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
-  debounce?: number;
-  /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLInputElement>;
-}
+export type AutosSuggestElementProps = {
+  /** Callback when a suggestion is selected */
+  onSuggestionSelected: (suggestionId: string) => void;
+  /** List of suggestions to show */
+  suggestions: SearchSuggestionItem[];
+  /** Text to show during loading state */
+  suggestionsLoadingText: string;
+  /** Hint text to let the users know that the suggestions will appear below the input */
+  suggestionHintText: string;
+  /** Text to let the user know how many suggestions are available */
+  ariaOptionsAvailableText: string;
+};
+
+type AutoSuggestProps =
+  | {
+      /** Enable search suggestions
+       * @default false
+       */
+      autosuggest?: false | never;
+      /** Callback when a suggestion is selected */
+      onSuggestionSelected?: (suggestionId: string) => void;
+      /** List of suggestions to show */
+      suggestions?: SearchSuggestionItem[];
+      /** Text to show during loading state */
+      suggestionsLoadingText?: string;
+      /** Hint text to let the users know that the suggestions will appear below the input */
+      suggestionHintText?: string;
+      /** Text to let the user know how many suggestions are available */
+      ariaOptionsAvailableText?: string;
+    }
+  | {
+      /** Enable search suggestions
+       * @default false
+       */
+      autosuggest: true;
+      /** Callback when a suggestion is selected */
+      onSuggestionSelected: (suggestionId: string) => void;
+      /** List of suggestions to show */
+      suggestions: SearchSuggestionItem[];
+      /** Hint text to let the users know that the suggestions will appear below the input */
+      suggestionHintText: string;
+      /** Text to let the user know how many suggestions are available */
+      ariaOptionsAvailableText: string;
+    };
+
+export type SearchInputProps = StatusTextCommonProps &
+  MarginProps &
+  AutoSuggestProps &
+  Omit<
+    HtmlInputProps,
+    | 'type'
+    | 'disabled'
+    | 'onChange'
+    | 'onBlur'
+    | 'onSearch'
+    | 'onClick'
+    | 'value'
+    | 'defaultValue'
+  > & {
+    /** CSS class for custom styles */
+    className?: string;
+    /** Label text */
+    labelText: ReactNode;
+    /**
+     * `'visible'` | `'hidden'`
+     *
+     * Hides or shows the label. Label element is always present, but can be visually hidden.
+     * @default visible
+     */
+    labelMode?: LabelMode;
+    /** Placeholder text for the input. Use only as visual aid, not for instructions. */
+    visualPlaceholder?: string;
+    /** Screen reader label for the 'Clear' button */
+    clearButtonLabel: string;
+    /** Screen reader label for the 'Search' button */
+    searchButtonLabel: string;
+    /** Props passed to the 'Search' button */
+    searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
+    /**
+     * `'default'` | `'error'`
+     *
+     * Status of the component. Error state creates a red border around the input.
+     * Always use a descriptive `statusText` with an error status.
+     * @default default
+     */
+    status?: SearchInputStatus;
+    /** HTML input attribute */
+    name?: string;
+    /** Sets components width to 100% */
+    fullWidth?: boolean;
+    /** Controlled value */
+    value?: string;
+    /** Default value */
+    defaultValue?: string;
+    /** Callback fired when input text changes */
+    onChange?: (value: string) => void;
+    /** Callback fired on input blur */
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+    /** Callback fired on search button click */
+    onSearch?: (value: string) => void;
+    /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
+    debounce?: number;
+    /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
+    forwardedRef?: React.RefObject<HTMLInputElement>;
+  };
 
 const baseClassName = 'fi-search-input';
 const searchInputClassNames = {
@@ -118,18 +171,45 @@ const searchInputClassNames = {
   searchIcon: `${baseClassName}_button-search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
+  suggestions: `${baseClassName}_suggestions`,
 };
 
 interface SearchInputState {
-  value: SearchInputValue;
+  value: string;
+  showPopover: boolean;
+  focusedDescendantId: string | null;
 }
 
 class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   state: SearchInputState = {
     value: this.props.value || this.props.defaultValue || '',
+    showPopover: false,
+    focusedDescendantId: null,
   };
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
+
+  componentDidMount() {
+    if (this.props.autosuggest && this.props.suggestions?.length > 0) {
+      this.setState({ showPopover: true });
+    }
+  }
+
+  componentDidUpdate(prevProps: SearchInputProps) {
+    const suggestionsChanged =
+      JSON.stringify(prevProps.suggestions) !==
+      JSON.stringify(this.props.suggestions);
+
+    if (
+      prevProps.autosuggest !== this.props.autosuggest ||
+      suggestionsChanged
+    ) {
+      this.setState({
+        showPopover:
+          this.props.autosuggest && this.props.suggestions?.length > 0,
+      });
+    }
+  }
 
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
@@ -166,21 +246,27 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       forwardedRef, // Taking this out so it's not passed "twice" to HtmlInput
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
+      autosuggest = false,
+      suggestions,
+      suggestionHintText,
+      ariaOptionsAvailableText,
+      onSuggestionSelected,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
 
     const statusTextId = `${id}-statusText`;
+    const suggestionHintId = `${id}-suggestionHintText`;
 
-    const conditionalSetState = (newValue: SearchInputValue) => {
+    const conditionalSetState = (newValue: string) => {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
       }
     };
 
-    const onSearch = () => {
+    const onSearch = (searchValue: string) => {
       if (!!propOnSearch) {
-        propOnSearch(this.state.value);
+        propOnSearch(searchValue);
       }
     };
 
@@ -197,14 +283,74 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (!!this.state.value && event?.key === 'Enter') {
-        onSearch();
+      if (
+        !!this.state.value &&
+        event?.key === 'Enter' &&
+        this.state.focusedDescendantId === null
+      ) {
+        onSearch(this.state.value);
       }
     };
 
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event?.key === 'Escape') {
+      const { focusedDescendantId } = this.state;
+      const popoverItems = suggestions || [];
+
+      const index = focusedDescendantId
+        ? popoverItems.findIndex(
+            ({ uniqueId }) => uniqueId === focusedDescendantId,
+          )
+        : -1;
+
+      const getNextIndex = () => (index + 1) % popoverItems.length;
+      const getPreviousIndex = () =>
+        (index - 1 + popoverItems.length) % popoverItems.length;
+
+      if (event.key === 'Escape') {
         event.preventDefault();
+        this.setState({ showPopover: false, focusedDescendantId: null });
+        setTimeout(() => {
+          if (this.inputRef.current) {
+            this.inputRef.current.focus();
+          }
+        }, 100);
+      }
+
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        if (autosuggest && focusedDescendantId) {
+          const selectedItem = popoverItems.find(
+            ({ uniqueId }) => uniqueId === focusedDescendantId,
+          );
+          if (selectedItem) {
+            this.setState({ showPopover: false });
+            if (onSuggestionSelected) {
+              onSuggestionSelected(selectedItem.uniqueId);
+            }
+          }
+        }
+      }
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (autosuggest && popoverItems.length > 0) {
+          const nextIndex = getNextIndex();
+          this.setState({
+            focusedDescendantId: popoverItems[nextIndex].uniqueId,
+            showPopover: true,
+          });
+        }
+      }
+
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (autosuggest && popoverItems.length > 0) {
+          const previousIndex = getPreviousIndex();
+          this.setState({
+            focusedDescendantId: popoverItems[previousIndex].uniqueId,
+            showPopover: true,
+          });
+        }
       }
     };
 
@@ -248,6 +394,11 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           >
             {labelText}
           </Label>
+          {autosuggest && (
+            <VisuallyHidden id={suggestionHintId}>
+              {suggestionHintText}
+            </VisuallyHidden>
+          )}
           <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
               <HtmlDiv className={searchInputClassNames.functionalityContainer}>
@@ -258,6 +409,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     {...passProps}
                     {...getConditionalAriaProp('aria-describedby', [
                       !!statusText ? statusTextId : undefined,
+                      !!autosuggest ? suggestionHintId : undefined,
                       ariaDescribedBy,
                     ])}
                     forwardedRef={this.inputRef}
@@ -265,7 +417,11 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     id={id}
                     className={searchInputClassNames.inputElement}
                     type="search"
-                    role="searchbox"
+                    aria-activedescendant={this.state.focusedDescendantId}
+                    aria-controls={
+                      this.state.showPopover ? `${id}-itemlist` : undefined
+                    }
+                    autoComplete="off"
                     value={this.state.value}
                     placeholder={visualPlaceholder}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -307,7 +463,52 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           >
             {statusText}
           </StatusText>
+          {autosuggest && (
+            <VisuallyHidden aria-live="polite" aria-atomic="true">
+              {this.state.showPopover ? ariaOptionsAvailableText : ''}
+            </VisuallyHidden>
+          )}
         </HtmlSpan>
+        {this.state.showPopover && (
+          <Popover
+            sourceRef={this.inputRef}
+            matchWidth={true}
+            onKeyDown={onKeyDown}
+            onClickOutside={() => {
+              this.setState({ showPopover: false });
+            }}
+          >
+            {suggestions && suggestions.length > 0 && (
+              <SuggestionList
+                className={searchInputClassNames.suggestions}
+                focusedDescendantId={this.state.focusedDescendantId || ''}
+                id={`${id}-itemlist`}
+              >
+                {suggestions.map((item) => (
+                  <SelectItem
+                    key={item.uniqueId}
+                    id={item.uniqueId}
+                    hasKeyboardFocus={
+                      this.state.focusedDescendantId === item.uniqueId
+                    }
+                    hightlightQuery={
+                      !!this.state.value ? String(this.state.value) : undefined
+                    }
+                    checked={false}
+                    onClick={() => {
+                      this.setState({ showPopover: false });
+                      if (onSuggestionSelected) {
+                        onSuggestionSelected(item.uniqueId);
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SuggestionList>
+            )}
+          </Popover>
+        )}
       </HtmlDiv>
     );
   }

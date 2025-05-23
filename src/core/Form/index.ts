@@ -10,7 +10,12 @@ export {
   type TextInputValue,
 } from './TextInput/TextInput';
 export { TimeInput, type TimeInputProps } from './TimeInput/TimeInput';
-export { SearchInput, type SearchInputProps } from './SearchInput/SearchInput';
+export {
+  SearchInput,
+  type SearchInputProps,
+  type SearchSuggestionItem,
+  type SearchInputStatus,
+} from './SearchInput/SearchInput';
 export { Checkbox, type CheckboxProps } from './Checkbox/Checkbox';
 export {
   CheckboxGroup,
