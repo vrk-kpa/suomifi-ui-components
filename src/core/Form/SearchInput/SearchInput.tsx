@@ -190,14 +190,24 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
   componentDidMount() {
-    if (!!this.props.autosuggest && this.props.suggestions.length > 0) {
+    if (this.props.autosuggest && this.props.suggestions?.length > 0) {
       this.setState({ showPopover: true });
     }
   }
 
   componentDidUpdate(prevProps: SearchInputProps) {
-    if (prevProps.autosuggest !== this.props.autosuggest) {
-      this.setState({ showPopover: !!this.props.autosuggest });
+    const suggestionsChanged =
+      JSON.stringify(prevProps.suggestions) !==
+      JSON.stringify(this.props.suggestions);
+
+    if (
+      prevProps.autosuggest !== this.props.autosuggest ||
+      suggestionsChanged
+    ) {
+      this.setState({
+        showPopover:
+          this.props.autosuggest && this.props.suggestions?.length > 0,
+      });
     }
   }
 
@@ -236,7 +246,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       forwardedRef, // Taking this out so it's not passed "twice" to HtmlInput
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
-      autosuggest = false, // Default autosuggest to false
+      autosuggest = false,
       suggestions,
       suggestionHintText,
       ariaOptionsAvailableText,
@@ -408,6 +418,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     className={searchInputClassNames.inputElement}
                     type="search"
                     aria-activedescendant={this.state.focusedDescendantId}
+                    aria-controls={
+                      this.state.showPopover ? `${id}-itemlist` : undefined
+                    }
                     autoComplete="off"
                     value={this.state.value}
                     placeholder={visualPlaceholder}

@@ -385,7 +385,7 @@ describe('autosuggest', () => {
 
   it('should update suggestions dynamically', async () => {
     const updatedSuggestions = [
-      { uniqueId: '3', label: 'cherry' },
+      { uniqueId: '3', label: 'kiwi' },
       { uniqueId: '4', label: 'date' },
     ];
     const { getByRole, getAllByRole, rerender } = render(
