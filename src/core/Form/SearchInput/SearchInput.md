@@ -190,20 +190,24 @@ const [controlledValue, setControlledValue] = useState('');
 const [suggestions, setSuggestions] = useState([]);
 
 const potentialSearches = [
-  { uniqueId: 1, label: 'Football' },
-  { uniqueId: 2, label: 'Badminton' },
-  { uniqueId: 3, label: 'Tennis' },
-  { uniqueId: 4, label: 'Basketball' },
-  { uniqueId: 5, label: 'Ice hockey' },
-  { uniqueId: 6, label: 'Ball' },
-  { uniqueId: 7, label: 'Ice skating' },
-  { uniqueId: 8, label: 'Figure skating' }
+  { uniqueId: 'abc', label: 'Football' },
+  { uniqueId: 'def', label: 'Badminton' },
+  { uniqueId: 'ghi', label: 'Tennis' },
+  { uniqueId: 'jkl', label: 'Basketball' },
+  { uniqueId: 'mno', label: 'Ice hockey' },
+  { uniqueId: 'pqr', label: 'Ball' },
+  { uniqueId: 'stu', label: 'Ice skating' },
+  { uniqueId: 'vwx', label: 'Figure skating' }
 ];
 
-const filterSuggestions = (input, items) => {
-  return items.filter((item) =>
-    item.label.toLowerCase().includes(input.toLowerCase())
+const handleOnChange = (newValue) => {
+  setControlledValue(newValue);
+  const filteredItems = potentialSearches.filter((item) =>
+    item.label.toLowerCase().includes(newValue.toLowerCase())
   );
+  if (newValue.length >= 3) {
+    setSuggestions(filteredItems);
+  } else setSuggestions([]);
 };
 
 const handleSuggestionSelection = (id) => {
@@ -221,10 +225,9 @@ const handleSuggestionSelection = (id) => {
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   value={controlledValue}
   onChange={(newValue) => {
-    setControlledValue(newValue);
-    setSuggestions(filterSuggestions(newValue, potentialSearches));
+    handleOnChange(newValue);
   }}
-  autosuggest={controlledValue.length >= 3}
+  autosuggest={true}
   suggestions={suggestions}
   onSuggestionSelected={(id) => handleSuggestionSelection(id)}
   suggestionHintText="Search suggestions open under the input"
