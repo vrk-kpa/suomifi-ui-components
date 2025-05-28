@@ -186,10 +186,10 @@ It's recommended to use debounce on fetching the suggestions to avoid unnecessar
 import { SearchInput } from 'suomifi-ui-components';
 import { useState, useEffect } from 'react';
 
-const [controlledValue, setControlledValue] = useState('');
+const [inputValue, setInputValue] = useState('');
 const [suggestions, setSuggestions] = useState([]);
-const [debouncedValue, setDebouncedValue] = useState('');
 
+// Mock suggestions that would be residing in backend
 const potentialSearches = [
   { uniqueId: 'abc', label: 'Football' },
   { uniqueId: 'def', label: 'Badminton' },
@@ -201,26 +201,15 @@ const potentialSearches = [
   { uniqueId: 'vwx', label: 'Figure skating' }
 ];
 
-// Simple debounce
 useEffect(() => {
-  const handler = setTimeout(() => {
-    setDebouncedValue(controlledValue);
-  }, 300);
-
-  return () => {
-    clearTimeout(handler);
-  };
-}, [controlledValue]);
-
-useEffect(() => {
-  // Fetching suggestions from backend would happen here
-  const filteredItems = potentialSearches.filter((item) =>
-    item.label.toLowerCase().includes(debouncedValue.toLowerCase())
-  );
-  if (debouncedValue.length >= 3) {
+  if (inputValue.length >= 3) {
+    // Fetching suggestions from backend would happen here
+    const filteredItems = potentialSearches.filter((item) =>
+      item.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
     setSuggestions(filteredItems);
   } else setSuggestions([]);
-}, [debouncedValue]);
+}, [inputValue]);
 
 const handleSuggestionSelection = (id) => {
   console.log(
@@ -235,9 +224,9 @@ const handleSuggestionSelection = (id) => {
   clearButtonLabel="Clear"
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
-  value={controlledValue}
+  debounce={400}
   onChange={(newValue) => {
-    setControlledValue(newValue);
+    setInputValue(newValue);
   }}
   autosuggest={true}
   suggestions={suggestions}
