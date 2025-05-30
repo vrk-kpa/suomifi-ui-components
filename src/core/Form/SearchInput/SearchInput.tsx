@@ -282,6 +282,16 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       }
     };
 
+    const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
+      this.setState({
+        showPopover: false,
+        focusedDescendantId: null,
+      });
+      if (this.props.onBlur) {
+        this.props.onBlur(event);
+      }
+    };
+
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       const { focusedDescendantId } = this.state;
       const popoverItems = suggestions || [];
@@ -420,6 +430,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     forwardedRef={this.inputRef}
                     aria-invalid={status === 'error'}
                     id={id}
+                    onBlur={handleOnBlur}
                     className={searchInputClassNames.inputElement}
                     type="search"
                     aria-activedescendant={this.state.focusedDescendantId}
@@ -480,7 +491,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             matchWidth={true}
             onKeyDown={onKeyDown}
             onClickOutside={() => {
-              this.setState({ showPopover: false });
+              this.setState({ showPopover: false, focusedDescendantId: null });
             }}
           >
             {suggestions && suggestions.length > 0 && (
