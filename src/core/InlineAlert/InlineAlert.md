@@ -15,13 +15,22 @@ Examples:
 
 ### Basic use
 
-```js
-import { InlineAlert } from 'suomifi-ui-components';
+<div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
+#### Important!
 
-<InlineAlert labelText="Info">
-  Make sure your name is typed exactly as it appears in your
-  identification
-</InlineAlert>;
+To ensure accessibility, always wrap a dynamically appearing InlineAlert component in an aria-live region as shown in the examples below. The element which has an aria-live region must be present in the HTML document on initial page load.
+
+</div>
+
+```js
+import { InlineAlert, Block } from 'suomifi-ui-components';
+
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert labelText="Info">
+    Make sure your name is typed exactly as it appears in your
+    identification
+  </InlineAlert>
+</Block>;
 ```
 
 ### Warning status
@@ -29,11 +38,13 @@ import { InlineAlert } from 'suomifi-ui-components';
 The warning status of an InlineAlert is used for conveying information which affects users but is not absolutely fatal.
 
 ```js
-import { InlineAlert } from 'suomifi-ui-components';
+import { InlineAlert, Block } from 'suomifi-ui-components';
 
-<InlineAlert status="warning">
-  There are grammar issues in the text
-</InlineAlert>;
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert status="warning">
+    There are grammar issues in the text
+  </InlineAlert>
+</Block>;
 ```
 
 ### Error status
@@ -41,11 +52,13 @@ import { InlineAlert } from 'suomifi-ui-components';
 The error status of an InlineAlert is used for conveying error states and issues.
 
 ```js
-import { InlineAlert } from 'suomifi-ui-components';
+import { InlineAlert, Block } from 'suomifi-ui-components';
 
-<InlineAlert status="error" labelText="Invalid data">
-  Please fill all required fields
-</InlineAlert>;
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert status="error" labelText="Invalid data">
+    Please fill all required fields
+  </InlineAlert>
+</Block>;
 ```
 
 ### Small screen
@@ -53,12 +66,14 @@ import { InlineAlert } from 'suomifi-ui-components';
 Set `smallScreen` to true on narrower screens (mobile devices). This applies less padding to styling.
 
 ```js
-import { InlineAlert } from 'suomifi-ui-components';
+import { InlineAlert, Block } from 'suomifi-ui-components';
 
-<InlineAlert labelText="Info" smallScreen>
-  Make sure your name is typed exactly as it appears in your
-  identification
-</InlineAlert>;
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert labelText="Info" smallScreen>
+    Make sure your name is typed exactly as it appears in your
+    identification
+  </InlineAlert>
+</Block>;
 ```
 
 ### Props & methods

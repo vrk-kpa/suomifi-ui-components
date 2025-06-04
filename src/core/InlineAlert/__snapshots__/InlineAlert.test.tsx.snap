@@ -167,7 +167,6 @@ exports[`children should match snapshot 1`] = `
       class="c2 fi-inline-alert_style-wrapper"
     >
       <div
-        aria-live="assertive"
         class="c2 fi-inline-alert_text-content-wrapper"
         id="3"
       >
