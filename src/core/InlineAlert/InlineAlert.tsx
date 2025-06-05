@@ -38,11 +38,6 @@ export interface InlineAlertProps extends HtmlDivProps, MarginProps {
   smallScreen?: boolean;
   /** Label for the alert */
   labelText?: ReactNode;
-  /** Aria-live mode for the alert's text content and label.
-   * Should not be turned completely off for dynamically appearing alerts
-   * @default 'assertive'
-   */
-  ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
@@ -52,7 +47,6 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
     const {
       className,
       status = 'neutral',
-      ariaLiveMode = 'assertive',
       labelText,
       children,
       smallScreen,
@@ -88,11 +82,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
             />
           )}
 
-          <HtmlDiv
-            className={inlineAlertClassNames.textContentWrapper}
-            id={id}
-            aria-live={ariaLiveMode}
-          >
+          <HtmlDiv className={inlineAlertClassNames.textContentWrapper} id={id}>
             {labelText && (
               <HtmlDiv className={inlineAlertClassNames.label}>
                 {labelText}
