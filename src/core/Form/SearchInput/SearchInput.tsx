@@ -46,7 +46,7 @@ export type SearchInputStatus = Exclude<InputStatus, 'success'>;
 export type SearchSuggestionItem = {
   uniqueId: string;
   label: string;
-  [key: string]: string;
+  [key: string]: any;
 };
 
 type AutoSuggestProps =
@@ -57,12 +57,12 @@ type AutoSuggestProps =
       autosuggest?: false | never;
       /** Callback when a suggestion is selected */
       onSuggestionSelected?: (suggestionId: string) => void;
-      /** List of suggestions to show */
-      suggestions?: SearchSuggestionItem[];
       /** Text to show during loading state */
       suggestionHintText?: string;
       /** Text to let the user know how many suggestions are available */
       ariaOptionsAvailableText?: string;
+      /** List of suggestions to show */
+      suggestions?: SearchSuggestionItem[];
     }
   | {
       /** Enable search suggestions
@@ -71,12 +71,12 @@ type AutoSuggestProps =
       autosuggest: true;
       /** Callback when a suggestion is selected */
       onSuggestionSelected: (suggestionId: string) => void;
-      /** List of suggestions to show */
-      suggestions: SearchSuggestionItem[];
       /** Hint text to let the users know that the suggestions will appear below the input */
       suggestionHintText: string;
       /** Text to let the user know how many suggestions are available */
       ariaOptionsAvailableText: string;
+      /** List of suggestions to show */
+      suggestions?: SearchSuggestionItem[];
     };
 
 export type SearchInputProps = StatusTextCommonProps &
@@ -177,25 +177,51 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
   componentDidMount() {
-    if (this.props.autosuggest && this.props.suggestions?.length > 0) {
+    if (
+      this.props.autosuggest &&
+      this.props.suggestions &&
+      this.props.suggestions?.length > 0
+    ) {
       this.setState({ showPopover: true });
     }
   }
 
-  componentDidUpdate(prevProps: SearchInputProps) {
+  componentDidUpdate(prevProps: SearchInputProps, prevState: SearchInputState) {
+    if (!this.props.autosuggest) {
+      return;
+    }
     const suggestionsChanged =
       JSON.stringify(prevProps.suggestions) !==
       JSON.stringify(this.props.suggestions);
 
+    const valueChanged =
+      this.props.value !== prevProps.value ||
+      (this.state.value !== prevState.value &&
+        this.state.displayValue !== prevState.displayValue);
+
+    const suggestionsPresentButHidden =
+      !!this.props.suggestions &&
+      this.props.suggestions?.length > 0 &&
+      !this.state.showPopover;
     if (
       prevProps.autosuggest !== this.props.autosuggest ||
       suggestionsChanged
     ) {
-      this.setState((prevState: SearchInputState) => ({
+      this.setState({
         showPopover:
-          this.props.autosuggest && this.props.suggestions?.length > 0,
+          (!!this.props.autosuggest &&
+            this.props.suggestions &&
+            this.props.suggestions?.length > 0) ||
+          (suggestionsPresentButHidden && valueChanged),
         displayValue: this.props.value || prevState.value || '',
-      }));
+        focusedDescendantId: null,
+      });
+    }
+    if (valueChanged && suggestionsPresentButHidden) {
+      this.setState({
+        showPopover: true,
+        focusedDescendantId: null,
+      });
     }
   }
 
@@ -278,14 +304,18 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         event?.key === 'Enter' &&
         this.state.focusedDescendantId === null
       ) {
-        onSearch(this.state.value);
+        onSearch(this.state.displayValue);
       }
     };
 
     const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
-      this.setState({
-        showPopover: false,
-        focusedDescendantId: null,
+      this.setState((prevState: SearchInputState) => {
+        const inputValue = this.props.value || prevState.displayValue;
+        return {
+          showPopover: false,
+          focusedDescendantId: null,
+          value: inputValue,
+        };
       });
       if (this.props.onBlur) {
         this.props.onBlur(event);
@@ -351,7 +381,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           this.setState({
             focusedDescendantId: popoverItems[nextIndex].uniqueId,
             showPopover: true,
-            displayValue: popoverItems[nextIndex].label,
+            displayValue: this.props.value || popoverItems[nextIndex].label,
           });
         }
       }
@@ -363,7 +393,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           this.setState({
             focusedDescendantId: popoverItems[previousIndex].uniqueId,
             showPopover: true,
-            displayValue: popoverItems[previousIndex].label,
+            displayValue: this.props.value || popoverItems[previousIndex].label,
           });
         }
       }
@@ -377,7 +407,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         searchInputClassNames.searchButton,
       ),
       ...(!!this.state.value
-        ? { onClick: onSearch }
+        ? { onClick: () => onSearch(this.state.displayValue) }
         : { tabIndex: -1, hidden: true }),
     };
     const clearButtonProps = {
