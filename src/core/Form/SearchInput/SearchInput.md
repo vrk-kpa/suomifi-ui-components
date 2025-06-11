@@ -180,13 +180,15 @@ You can provide search suggestions for the user using the `autosuggest` and `sug
 
 When the user selects a suggestion from the list, the `onSuggestionSelected` callback gets called with the `uniqueId` of the element.
 
-It's recommended to use debounce on fetching the suggestions to avoid unnecessary fetches. Below is an example demonstrating how to implement debounce for fetching suggestions.
+The `onBlur` callback gets the currently shown input value as a second argument, as it may differ from the actual input value. This is due to browsing suggestions updating the shown value while the actual user input is stored in the background.
+
+It's recommended to use `debounce` prop to avoid fetching suggestions on every keypress.
 
 ```jsx
 import { SearchInput } from 'suomifi-ui-components';
 import { useState, useEffect } from 'react';
 
-const [inputValue, setInputValue] = useState('');
+const [filterValue, setFilterValue] = useState('');
 const [suggestions, setSuggestions] = useState([]);
 
 // Mock suggestions that would be residing in backend
@@ -202,14 +204,14 @@ const potentialSearches = [
 ];
 
 useEffect(() => {
-  if (inputValue.length >= 3) {
+  if (filterValue.length >= 3) {
     // Fetching suggestions from backend would happen here
     const filteredItems = potentialSearches.filter((item) =>
-      item.label.toLowerCase().includes(inputValue.toLowerCase())
+      item.label.toLowerCase().includes(filterValue.toLowerCase())
     );
     setSuggestions(filteredItems);
   } else setSuggestions([]);
-}, [inputValue]);
+}, [filterValue]);
 
 const handleSuggestionSelection = (id) => {
   console.log(
@@ -223,10 +225,12 @@ const handleSuggestionSelection = (id) => {
   searchButtonLabel="Search"
   clearButtonLabel="Clear"
   visualPlaceholder="Write search terms..."
-  onSearch={(value) => console.log(`Searching for ${inputValue}...`)}
+  onSearch={(value) => console.log(`Searching for ${value}...`)}
+  debounce={500}
   onChange={(newValue) => {
-    setInputValue(newValue);
+    setFilterValue(newValue);
   }}
+  onBlur={(event, value) => setFilterValue(value)}
   autosuggest={true}
   suggestions={suggestions}
   onSuggestionSelected={(id) => handleSuggestionSelection(id)}
