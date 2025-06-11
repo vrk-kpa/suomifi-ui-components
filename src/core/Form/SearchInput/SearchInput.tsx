@@ -131,7 +131,7 @@ export type SearchInputProps = StatusTextCommonProps &
     /** Callback fired when input text changes */
     onChange?: (value: string) => void;
     /** Callback fired on input blur */
-    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+    onBlur?: (event: FocusEvent<HTMLInputElement>, value: string) => void;
     /** Callback fired on search button click */
     onSearch?: (value: string) => void;
     /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
@@ -190,9 +190,18 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     if (!this.props.autosuggest) {
       return;
     }
+
+    const hasSuggestions =
+      this.props.suggestions && this.props.suggestions.length > 0;
+    const hadSuggestions =
+      prevProps.suggestions && prevProps.suggestions.length > 0;
+    const focusInInput =
+      this.inputRef.current && this.inputRef.current === document.activeElement;
+
     const suggestionsChanged =
+      (hasSuggestions || hadSuggestions) &&
       JSON.stringify(prevProps.suggestions) !==
-      JSON.stringify(this.props.suggestions);
+        JSON.stringify(this.props.suggestions);
 
     const valueChanged =
       this.props.value !== prevProps.value ||
@@ -200,24 +209,20 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         this.state.displayValue !== prevState.displayValue);
 
     const suggestionsPresentButHidden =
-      !!this.props.suggestions &&
-      this.props.suggestions?.length > 0 &&
-      !this.state.showPopover;
+      hasSuggestions && !this.state.showPopover;
+
     if (
       prevProps.autosuggest !== this.props.autosuggest ||
       suggestionsChanged
     ) {
       this.setState({
         showPopover:
-          (!!this.props.autosuggest &&
-            this.props.suggestions &&
-            this.props.suggestions?.length > 0) ||
-          (suggestionsPresentButHidden && valueChanged),
+          focusInInput &&
+          (hasSuggestions || (suggestionsPresentButHidden && valueChanged)),
         displayValue: this.props.value || prevState.value || '',
         focusedDescendantId: null,
       });
-    }
-    if (valueChanged && suggestionsPresentButHidden) {
+    } else if (valueChanged && suggestionsPresentButHidden && focusInInput) {
       this.setState({
         showPopover: true,
         focusedDescendantId: null,
@@ -309,6 +314,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     };
 
     const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
+      const currentValue = this.state.displayValue;
       this.setState((prevState: SearchInputState) => {
         const inputValue = this.props.value || prevState.displayValue;
         return {
@@ -318,7 +324,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         };
       });
       if (this.props.onBlur) {
-        this.props.onBlur(event);
+        this.props.onBlur(event, currentValue);
       }
     };
 
