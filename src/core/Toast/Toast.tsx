@@ -22,10 +22,6 @@ import { getConditionalAriaProp } from '../../utils/aria';
 
 export type InternalToastProps = MarginProps &
   HtmlDivWithRefProps & {
-    /** Sets aria-live mode for the Toast text content and label.
-     * @default 'polite'
-     */
-    ariaLiveMode?: 'polite' | 'assertive' | 'off';
     /** Heading for the Toast */
     headingText?: string;
     /** Main content of the Toast. */
@@ -77,7 +73,6 @@ export const toastClassNames = {
 };
 const BaseToast = (props: ToastProps) => {
   const {
-    ariaLiveMode = 'polite',
     children,
     className,
     headingText,
@@ -102,7 +97,6 @@ const BaseToast = (props: ToastProps) => {
   return (
     <HtmlDivWithRef
       className={classnames(baseClassName, className)}
-      asProp="section"
       {...passProps}
       style={style}
     >
@@ -111,11 +105,7 @@ const BaseToast = (props: ToastProps) => {
           <IconCheckCircle className={toastClassNames.icon} />
         </HtmlDiv>
 
-        <HtmlDiv
-          className={toastClassNames.contentWrapper}
-          id={id}
-          aria-live={ariaLiveMode}
-        >
+        <HtmlDiv className={toastClassNames.contentWrapper} id={id}>
           {headingText && (
             <Heading
               variant={headingVariant}

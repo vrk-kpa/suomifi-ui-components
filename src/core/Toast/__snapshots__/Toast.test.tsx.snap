@@ -191,7 +191,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 <div>
-  <section
+  <div
     class="c0 fi-toast c1"
   >
     <div
@@ -218,7 +218,6 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        aria-live="polite"
         class="c2 fi-toast-content-wrapper"
       >
         <div>
@@ -226,6 +225,6 @@ exports[`props children should match snapshot 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </div>
 `;
