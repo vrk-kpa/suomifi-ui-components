@@ -1,6 +1,8 @@
-`<Alert>` is used at the top of a web page to convey information regarding the entire page or web service. It has the ARIA role `'alert'`, which ensures the component's content is read by screen readers immediately on page load.
+`<Alert>` is used at the top of a web page to convey information regarding the entire page or web service. It has the ARIA role `'alert'`, which ensures the component's content is read by most screen readers immediately on page load.
 
-If you need to show dynamically appearing information regarding a more specific part of the page, use the [InlineAlert](./#/Components/InlineAlert) component instead.
+If you need to show a notification regarding a more specific part of the page, use the [Notification](./#/Components/Notification) component instead.
+
+If you need to show dynamically appearing alert, use the [InlineAlert](./#/Components/InlineAlert) component instead.
 
 Examples:
 

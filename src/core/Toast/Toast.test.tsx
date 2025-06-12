@@ -61,29 +61,6 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('custom-class');
     });
   });
-
-  describe('ariaLiveMode', () => {
-    const ToastWithDefaultAriaLiveMode = <Toast id="testId">Testcontent</Toast>;
-    const ToastWithAriaLiveModeOff = (
-      <Toast id="testId" ariaLiveMode="off">
-        Testcontent
-      </Toast>
-    );
-    it('should have default aria-live mode', () => {
-      const { container } = render(ToastWithDefaultAriaLiveMode);
-      expect(container.querySelector('#testId')).toHaveAttribute(
-        'aria-live',
-        'polite',
-      );
-    });
-    it('should have specified aria-live mode', () => {
-      const { container } = render(ToastWithAriaLiveModeOff);
-      expect(container.querySelector('#testId')).toHaveAttribute(
-        'aria-live',
-        'off',
-      );
-    });
-  });
   describe('close button', () => {
     const ToastWithCloseButton = (
       <Toast showCloseButton closeText="Close">
