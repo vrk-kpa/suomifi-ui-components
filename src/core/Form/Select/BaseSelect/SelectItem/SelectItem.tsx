@@ -45,7 +45,7 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
       );
       return substrings.map((substring, i) => {
         const isMatch = substring.toLowerCase() === query.toLowerCase();
-        if (isMatch) {
+        if (!isMatch && substring.length > 0) {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <HtmlMark className={selectItemClassNames.queryHighlight} key={i}>

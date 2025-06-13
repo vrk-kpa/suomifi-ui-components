@@ -1,4 +1,4 @@
-The `<SearchInput>` component is intended to be used as part of a traditional page search in the header of a website.
+The `<SearchInput>` component is intended for searching the site or a specific section to help users locate content or options more quickly. For filtering items already displayed on the page or for similar inline filtering use cases, use `<TextInput>` instead.
 
 Examples:
 
@@ -10,6 +10,7 @@ Examples:
 - [Debounce](./#/Components/SearchInput?id=debounce)
 - [Full width](./#/Components/SearchInput?id=full-width)
 - [Hidden label](./#/Components/SearchInput?id=hidden-label)
+- [Search suggestions](./#/Components/SearchInput?id=search-suggestions)
 
 <div style="margin-bottom: 40px">
   [Props & methods](./#/Components/SearchInput?id=props--methods)
@@ -90,7 +91,9 @@ const [controlledValue, setControlledValue] = useState('');
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   value={controlledValue}
-  onChange={(newValue) => setControlledValue(newValue)}
+  onChange={(newValue) => {
+    setControlledValue(newValue);
+  }}
 />;
 ```
 
@@ -168,6 +171,71 @@ import { SearchInput } from 'suomifi-ui-components';
   visualPlaceholder="Write search terms..."
   onSearch={(value) => console.log(`Searching for ${value}...`)}
   labelMode="hidden"
+/>;
+```
+
+### Search suggestions
+
+You can provide search suggestions for the user using the `autosuggest` and `suggestions` props. The suggestions are shown in a popover list under the input field. Provide a descriptive `suggestionHintText` to let screen reader users know there will be a suggestion list under the component, as the usual accessible pattern is not available for search input component. Also provide `ariaOptionsAvailableText` to inform screen reader users about the updating amount of suggestions.
+
+When the user selects a suggestion from the list, the `onSuggestionSelected` callback gets called with the `uniqueId` of the element.
+
+The `onBlur` callback gets the currently shown input value as a second argument, as it may differ from the actual input value. This is due to browsing suggestions updating the shown value while the actual user input is stored in the background.
+
+It's recommended to use `debounce` prop to avoid fetching suggestions on every keypress.
+
+```jsx
+import { SearchInput } from 'suomifi-ui-components';
+import { useState, useEffect } from 'react';
+
+const [filterValue, setFilterValue] = useState('');
+const [suggestions, setSuggestions] = useState([]);
+
+// Mock suggestions that would be residing in backend
+const potentialSearches = [
+  { uniqueId: 'abc', label: 'Football' },
+  { uniqueId: 'def', label: 'Badminton' },
+  { uniqueId: 'ghi', label: 'Tennis' },
+  { uniqueId: 'jkl', label: 'Basketball' },
+  { uniqueId: 'mno', label: 'Ice hockey' },
+  { uniqueId: 'pqr', label: 'Ball' },
+  { uniqueId: 'stu', label: 'Ice skating' },
+  { uniqueId: 'vwx', label: 'Figure skating' }
+];
+
+useEffect(() => {
+  if (filterValue.length >= 3) {
+    // Fetching suggestions from backend would happen here
+    const filteredItems = potentialSearches.filter((item) =>
+      item.label.toLowerCase().includes(filterValue.toLowerCase())
+    );
+    setSuggestions(filteredItems);
+  } else setSuggestions([]);
+}, [filterValue]);
+
+const handleSuggestionSelection = (id) => {
+  console.log(
+    'Searching for',
+    suggestions.find((element) => element.uniqueId === id).label
+  );
+};
+
+<SearchInput
+  labelText="Search the site"
+  searchButtonLabel="Search"
+  clearButtonLabel="Clear"
+  visualPlaceholder="Write search terms..."
+  onSearch={(value) => console.log(`Searching for ${value}...`)}
+  debounce={500}
+  onChange={(newValue) => {
+    setFilterValue(newValue);
+  }}
+  onBlur={(event, value) => setFilterValue(value)}
+  autosuggest={true}
+  suggestions={suggestions}
+  onSuggestionSelected={(id) => handleSuggestionSelection(id)}
+  suggestionHintText="Search suggestions open under the input"
+  ariaOptionsAvailableText={`${suggestions.length} suggestions available`}
 />;
 ```
 
