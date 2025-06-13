@@ -301,6 +301,37 @@ describe('autosuggest', () => {
     expect(getByText('cherry')).toBeInTheDocument();
   });
 
+  it('should not display suggestions when autosuggest is false', () => {
+    const { getByRole, queryAllByRole } = render(
+      TestSearchInput({
+        autosuggest: false,
+        suggestions,
+      }),
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+    fireEvent.change(inputElement, { target: { value: 'app' } });
+
+    expect(queryAllByRole('option')).toHaveLength(0);
+  });
+
+  it('should have ariaOptionsAvailableText and suggestionHintText when autosuggest is true', () => {
+    const { getByText } = render(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+        ariaOptionsAvailableText: 'Options are available',
+        suggestionHintText: 'Search suggestion open under the input',
+      }),
+    );
+
+    const hintText = getByText('Search suggestion open under the input');
+    expect(hintText).toBeInTheDocument();
+
+    const optionsAvailableText = getByText('Options are available');
+    expect(optionsAvailableText).toBeInTheDocument();
+  });
+
   it('should call onSuggestionSelect when a suggestion is clicked', async () => {
     const mockOnSuggestionSelect = jest.fn();
     const { getByRole, getByText, getAllByRole } = render(
@@ -385,33 +416,47 @@ describe('autosuggest', () => {
 
   it('should update suggestions dynamically', async () => {
     const updatedSuggestions = [
-      { uniqueId: '3', label: 'kiwi' },
-      { uniqueId: '4', label: 'date' },
+      { uniqueId: '4', label: 'kiwi' },
+      { uniqueId: '5', label: 'date' },
     ];
     const { getByRole, getAllByRole, rerender } = render(
-      TestSearchInput({
-        autosuggest: true,
-        suggestions,
-      }),
+      <TestSearchInput
+        autosuggest={true}
+        suggestions={[
+          { uniqueId: '1', label: 'apple' },
+          { uniqueId: '2', label: 'banana' },
+          { uniqueId: '3', label: 'cherry' },
+        ]}
+      />,
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
     fireEvent.change(inputElement, { target: { value: 'a' } });
 
-    let items = await waitFor(() => getAllByRole('option'));
+    const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(3);
+    expect(items[0]).toHaveTextContent('app');
 
-    rerender(
-      TestSearchInput({
-        autosuggest: true,
-        suggestions: updatedSuggestions,
-      }),
-    );
+    await act(async () => {
+      rerender(
+        <TestSearchInput autosuggest={true} suggestions={updatedSuggestions} />,
+      );
+    });
 
-    items = await waitFor(() => getAllByRole('option'));
-    expect(items).toHaveLength(2);
-    expect(items[0]).toHaveTextContent('kiwi');
-    expect(items[1]).toHaveTextContent('date');
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'abc' } });
+    });
+
+    expect(inputElement.value).toBe('abc');
+
+    fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+
+    const newItems = await waitFor(() => getAllByRole('option'));
+    expect(newItems).toHaveLength(2);
+
+    expect(newItems[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
+    expect(newItems[0]).toHaveTextContent('kiwi');
+    expect(newItems[1]).toHaveTextContent('date');
   });
 });
 
