@@ -1,4 +1,4 @@
-The `<SearchInput>` component is intended to be used as part of a traditional page search in the header of a website.
+The `<SearchInput>` component is intended for searching the site or a specific section to help users locate content or options more quickly. For filtering items already displayed on the page or for similar inline filtering use cases, use `<TextInput>` instead.
 
 Examples:
 
