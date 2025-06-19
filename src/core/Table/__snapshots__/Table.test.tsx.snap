@@ -504,6 +504,11 @@ exports[`Table functionalities matches snapshot 1`] = `
   padding: 5px 20px;
 }
 
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_th .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper,
+.c1.fi-table .fi-table_table.fi-table--condensed .fi-table_td .fi-radio-button .fi-radio-button_input+.fi-radio-button_icon_wrapper {
+  top: 10px;
+}
+
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_skeleton-cell {
   padding: 5px 20px;
   height: 43px;
