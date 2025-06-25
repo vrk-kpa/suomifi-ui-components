@@ -63,6 +63,8 @@ type AutoSuggestProps =
       ariaOptionsAvailableText?: string;
       /** List of suggestions to show */
       suggestions?: SearchSuggestionItem[];
+      /** Popover container div CSS class for custom styles. Can be used to modify popover z-index. */
+      popoverClassName?: string;
     }
   | {
       /** Enable search suggestions
@@ -77,6 +79,8 @@ type AutoSuggestProps =
       ariaOptionsAvailableText: string;
       /** List of suggestions to show */
       suggestions?: SearchSuggestionItem[];
+      /** Popover container div CSS class for custom styles. Can be used to modify popover z-index. */
+      popoverClassName?: string;
     };
 
 export type SearchInputProps = StatusTextCommonProps &
@@ -278,6 +282,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       suggestionHintText,
       ariaOptionsAvailableText,
       onSuggestionSelected,
+      popoverClassName,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -529,6 +534,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             onClickOutside={() => {
               this.setState({ showPopover: false, focusedDescendantId: null });
             }}
+            className={popoverClassName}
           >
             {suggestions && suggestions.length > 0 && (
               <SuggestionList
