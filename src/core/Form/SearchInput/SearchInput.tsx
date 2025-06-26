@@ -335,6 +335,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
     const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
       const currentValue = this.state.displayValue;
+      if (this.props.onBlur) {
+        this.props.onBlur(event, currentValue);
+      }
       const ownerDocument = getOwnerDocument(this.popoverListRef);
       if (!ownerDocument) {
         return;
@@ -359,9 +362,6 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           });
         }
       });
-      if (this.props.onBlur) {
-        this.props.onBlur(event, currentValue);
-      }
     };
 
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
