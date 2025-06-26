@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../../../theme';
-import { font } from '../../../../theme/reset';
+import { SuomifiTheme } from '../../../theme';
+import { font } from '../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
@@ -17,9 +17,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding: 4px 0 0 0;
 
   display: block;
-  width: 100%;
+  width: calc(100% + 26px);
   overflow-y: auto;
   overflow-x: hidden;
+  margin-left: -1px;
   &:focus {
     outline: none;
   }
