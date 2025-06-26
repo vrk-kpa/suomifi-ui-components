@@ -36,7 +36,10 @@ import { IconSearch } from 'suomifi-icons';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';
-import { filterDuplicateKeys } from '../../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  getOwnerDocument,
+} from '../../../utils/common/common';
 import { Popover } from '../../Popover/Popover';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 import { SuggestionList } from './SuggestionList/SuggestionList';
@@ -180,6 +183,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
+  private popoverListRef: React.RefObject<HTMLUListElement> =
+    createRef<HTMLUListElement>();
+
   componentDidMount() {
     if (
       this.props.autosuggest &&
@@ -193,6 +199,15 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   componentDidUpdate(prevProps: SearchInputProps, prevState: SearchInputState) {
     if (!this.props.autosuggest) {
       return;
+    }
+
+    let newDisplayValue = '';
+    if (this.props.value) {
+      newDisplayValue = this.props.value;
+    } else if (this.state.displayValue !== this.state.value) {
+      newDisplayValue = this.state.displayValue;
+    } else {
+      newDisplayValue = this.state.value || '';
     }
 
     const hasSuggestions =
@@ -223,7 +238,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         showPopover:
           focusInInput &&
           (hasSuggestions || (suggestionsPresentButHidden && valueChanged)),
-        displayValue: this.props.value || prevState.value || '',
+        displayValue: newDisplayValue,
         focusedDescendantId: null,
       });
     } else if (valueChanged && suggestionsPresentButHidden && focusInInput) {
@@ -320,13 +335,29 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
     const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
       const currentValue = this.state.displayValue;
-      this.setState((prevState: SearchInputState) => {
-        const inputValue = this.props.value || prevState.displayValue;
-        return {
-          showPopover: false,
-          focusedDescendantId: null,
-          value: inputValue,
-        };
+      const ownerDocument = getOwnerDocument(this.popoverListRef);
+      if (!ownerDocument) {
+        return;
+      }
+      requestAnimationFrame(() => {
+        const focusInPopover = this.popoverListRef.current?.contains(
+          ownerDocument.activeElement,
+        );
+
+        const focusInInput =
+          ownerDocument.activeElement === this.inputRef.current;
+
+        const focusInComponent = focusInPopover || focusInInput;
+        if (!focusInComponent) {
+          this.setState((prevState: SearchInputState) => {
+            const inputValue = this.props.value || prevState.displayValue;
+            return {
+              value: inputValue,
+              showPopover: false,
+              focusedDescendantId: null,
+            };
+          });
+        }
       });
       if (this.props.onBlur) {
         this.props.onBlur(event, currentValue);
@@ -410,6 +441,18 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       }
     };
 
+    const getInputContainerProps = () => {
+      if (autosuggest) {
+        return {
+          role: 'combobox',
+          'aria-owns': `${id}-itemlist`,
+          'aria-expanded': this.state.showPopover,
+          'aria-haspopup': 'listbox',
+        };
+      }
+      return {};
+    };
+
     const searchButtonDerivedProps = {
       ...searchButtonProps,
       className: classnames(
@@ -460,6 +503,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
               <HtmlDiv className={searchInputClassNames.functionalityContainer}>
                 <HtmlDiv
                   className={searchInputClassNames.inputElementContainer}
+                  {...getInputContainerProps()}
+                  aria-haspopup={autosuggest ? 'listbox' : undefined}
                 >
                   <HtmlInput
                     {...passProps}
@@ -541,6 +586,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                 className={searchInputClassNames.suggestions}
                 focusedDescendantId={this.state.focusedDescendantId || ''}
                 id={`${id}-itemlist`}
+                ref={this.popoverListRef}
               >
                 {suggestions.map((item) => (
                   <SelectItem
