@@ -4,6 +4,7 @@ import React, {
   useState,
   useRef,
   ReactElement,
+  ReactNode,
 } from 'react';
 import { styled } from 'styled-components';
 import classnames from 'classnames';
@@ -52,7 +53,7 @@ export type MenuContent =
 export type ActionMenuProps = MarginProps &
   Omit<ButtonProps, keyof ForcedAccessibleNameProps | keyof LoadingProps> & {
     /** Text content for the menu button */
-    buttonText?: string;
+    buttonText?: ReactNode;
     /**
      * `'default'` | `'inverted'` | `'secondary'` | `'secondaryLight'`| `'secondaryNoBorder'`
      *
