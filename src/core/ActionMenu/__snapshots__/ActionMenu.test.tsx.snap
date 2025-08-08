@@ -138,6 +138,21 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 0px);
+}
+
+.c12 {
+  position: absolute;
+}
+
+.c9 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -149,7 +164,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c9.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -159,11 +174,11 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c8.fi-action-menu-popover--hidden {
+.c9.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c9 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: flex;
@@ -174,12 +189,12 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c9 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow::before,
-.c8 .fi-action-menu-popover_floatingui-arrow::after {
+.c9 .fi-action-menu-popover_floatingui-arrow::before,
+.c9 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -189,18 +204,18 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -208,17 +223,17 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -543,7 +558,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c9 {
+.c10 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -555,7 +570,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c9.fi-action-menu-item {
+.c10.fi-action-menu-item {
   position: relative;
   letter-spacing: 0;
   text-decoration: none;
@@ -578,58 +593,58 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item:active,
-.c9.fi-action-menu-item:focus,
-.c9.fi-action-menu-item:hover,
-.c9.fi-action-menu-item:visited {
+.c10.fi-action-menu-item:active,
+.c10.fi-action-menu-item:focus,
+.c10.fi-action-menu-item:hover,
+.c10.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c9.fi-action-menu-item .fi-icon {
+.c10.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--disabled:active,
-.c9.fi-action-menu-item--disabled:focus,
-.c9.fi-action-menu-item--disabled:hover,
-.c9.fi-action-menu-item--disabled:visited {
+.c10.fi-action-menu-item--disabled:active,
+.c10.fi-action-menu-item--disabled:focus,
+.c10.fi-action-menu-item--disabled:hover,
+.c10.fi-action-menu-item--disabled:visited {
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--selected {
+.c10.fi-action-menu-item--selected {
   color: hsl(0, 0%, 100%);
   background: hsl(212, 63%, 45%);
 }
 
-.c9.fi-action-menu-item--selected:active,
-.c9.fi-action-menu-item--selected:focus,
-.c9.fi-action-menu-item--selected:hover,
-.c9.fi-action-menu-item--selected:visited {
+.c10.fi-action-menu-item--selected:active,
+.c10.fi-action-menu-item--selected:focus,
+.c10.fi-action-menu-item--selected:hover,
+.c10.fi-action-menu-item--selected:visited {
   text-decoration: none;
   color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected:after {
+.c10.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -639,7 +654,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c10.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202, 7%, 80%);
@@ -652,13 +667,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected:after {
+  .c10.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -669,13 +684,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -724,9 +739,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         </span>
       </button>
       <div
-        class="c7 c8 fi-action-menu-popover fi-action-menu-popover--hidden"
+        class="c7 c8 c9 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
@@ -737,7 +751,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -746,7 +760,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -755,7 +769,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            class="c0 c10 fi-action-menu-divider"
+            class="c0 c11 fi-action-menu-divider"
             role="presentation"
           >
             <div
@@ -763,7 +777,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             />
           </div>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -774,8 +788,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c7 fi-action-menu-popover_floatingui-arrow"
-          style="position: absolute;"
+          class="c7 c12 fi-action-menu-popover_floatingui-arrow"
         />
       </div>
     </div>
@@ -921,6 +934,21 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 0px);
+}
+
+.c12 {
+  position: absolute;
+}
+
+.c9 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -932,7 +960,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c9.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -942,11 +970,11 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c8.fi-action-menu-popover--hidden {
+.c9.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c9 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: flex;
@@ -957,12 +985,12 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c9 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow::before,
-.c8 .fi-action-menu-popover_floatingui-arrow::after {
+.c9 .fi-action-menu-popover_floatingui-arrow::before,
+.c9 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -972,18 +1000,18 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -991,17 +1019,17 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1326,7 +1354,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c9 {
+.c10 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -1338,7 +1366,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c9.fi-action-menu-item {
+.c10.fi-action-menu-item {
   position: relative;
   letter-spacing: 0;
   text-decoration: none;
@@ -1361,58 +1389,58 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item:active,
-.c9.fi-action-menu-item:focus,
-.c9.fi-action-menu-item:hover,
-.c9.fi-action-menu-item:visited {
+.c10.fi-action-menu-item:active,
+.c10.fi-action-menu-item:focus,
+.c10.fi-action-menu-item:hover,
+.c10.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c9.fi-action-menu-item .fi-icon {
+.c10.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--disabled:active,
-.c9.fi-action-menu-item--disabled:focus,
-.c9.fi-action-menu-item--disabled:hover,
-.c9.fi-action-menu-item--disabled:visited {
+.c10.fi-action-menu-item--disabled:active,
+.c10.fi-action-menu-item--disabled:focus,
+.c10.fi-action-menu-item--disabled:hover,
+.c10.fi-action-menu-item--disabled:visited {
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--selected {
+.c10.fi-action-menu-item--selected {
   color: hsl(0, 0%, 100%);
   background: hsl(212, 63%, 45%);
 }
 
-.c9.fi-action-menu-item--selected:active,
-.c9.fi-action-menu-item--selected:focus,
-.c9.fi-action-menu-item--selected:hover,
-.c9.fi-action-menu-item--selected:visited {
+.c10.fi-action-menu-item--selected:active,
+.c10.fi-action-menu-item--selected:focus,
+.c10.fi-action-menu-item--selected:hover,
+.c10.fi-action-menu-item--selected:visited {
   text-decoration: none;
   color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected:after {
+.c10.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -1422,7 +1450,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c10.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202, 7%, 80%);
@@ -1435,13 +1463,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected:after {
+  .c10.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -1452,13 +1480,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -1507,9 +1535,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         </span>
       </button>
       <div
-        class="c7 c8 fi-action-menu-popover fi-action-menu-popover--hidden"
+        class="c7 c8 c9 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
@@ -1520,7 +1547,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -1529,7 +1556,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -1538,7 +1565,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            class="c0 c10 fi-action-menu-divider"
+            class="c0 c11 fi-action-menu-divider"
             role="presentation"
           >
             <div
@@ -1546,7 +1573,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             />
           </div>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -1557,8 +1584,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c7 fi-action-menu-popover_floatingui-arrow"
-          style="position: absolute;"
+          class="c7 c12 fi-action-menu-popover_floatingui-arrow"
         />
       </div>
     </div>
@@ -1704,6 +1730,21 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 0px);
+}
+
+.c12 {
+  position: absolute;
+}
+
+.c9 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -1715,7 +1756,7 @@ exports[`No borders variant should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c9.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -1725,11 +1766,11 @@ exports[`No borders variant should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c8.fi-action-menu-popover--hidden {
+.c9.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c9 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: flex;
@@ -1740,12 +1781,12 @@ exports[`No borders variant should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c9 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow::before,
-.c8 .fi-action-menu-popover_floatingui-arrow::after {
+.c9 .fi-action-menu-popover_floatingui-arrow::before,
+.c9 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -1755,18 +1796,18 @@ exports[`No borders variant should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1774,17 +1815,17 @@ exports[`No borders variant should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2109,7 +2150,7 @@ exports[`No borders variant should match snapshot 1`] = `
   width: 100%;
 }
 
-.c9 {
+.c10 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -2121,7 +2162,7 @@ exports[`No borders variant should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c9.fi-action-menu-item {
+.c10.fi-action-menu-item {
   position: relative;
   letter-spacing: 0;
   text-decoration: none;
@@ -2144,58 +2185,58 @@ exports[`No borders variant should match snapshot 1`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item:active,
-.c9.fi-action-menu-item:focus,
-.c9.fi-action-menu-item:hover,
-.c9.fi-action-menu-item:visited {
+.c10.fi-action-menu-item:active,
+.c10.fi-action-menu-item:focus,
+.c10.fi-action-menu-item:hover,
+.c10.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c9.fi-action-menu-item .fi-icon {
+.c10.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--disabled:active,
-.c9.fi-action-menu-item--disabled:focus,
-.c9.fi-action-menu-item--disabled:hover,
-.c9.fi-action-menu-item--disabled:visited {
+.c10.fi-action-menu-item--disabled:active,
+.c10.fi-action-menu-item--disabled:focus,
+.c10.fi-action-menu-item--disabled:hover,
+.c10.fi-action-menu-item--disabled:visited {
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--selected {
+.c10.fi-action-menu-item--selected {
   color: hsl(0, 0%, 100%);
   background: hsl(212, 63%, 45%);
 }
 
-.c9.fi-action-menu-item--selected:active,
-.c9.fi-action-menu-item--selected:focus,
-.c9.fi-action-menu-item--selected:hover,
-.c9.fi-action-menu-item--selected:visited {
+.c10.fi-action-menu-item--selected:active,
+.c10.fi-action-menu-item--selected:focus,
+.c10.fi-action-menu-item--selected:hover,
+.c10.fi-action-menu-item--selected:visited {
   text-decoration: none;
   color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected:after {
+.c10.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2205,7 +2246,7 @@ exports[`No borders variant should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c10.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202, 7%, 80%);
@@ -2218,13 +2259,13 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected:after {
+  .c10.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -2235,13 +2276,13 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -2290,9 +2331,8 @@ exports[`No borders variant should match snapshot 1`] = `
         </span>
       </button>
       <div
-        class="c7 c8 fi-action-menu-popover fi-action-menu-popover--hidden"
+        class="c7 c8 c9 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
@@ -2303,7 +2343,7 @@ exports[`No borders variant should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -2312,7 +2352,7 @@ exports[`No borders variant should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -2321,7 +2361,7 @@ exports[`No borders variant should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            class="c0 c10 fi-action-menu-divider"
+            class="c0 c11 fi-action-menu-divider"
             role="presentation"
           >
             <div
@@ -2329,7 +2369,7 @@ exports[`No borders variant should match snapshot 1`] = `
             />
           </div>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -2340,8 +2380,7 @@ exports[`No borders variant should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c7 fi-action-menu-popover_floatingui-arrow"
-          style="position: absolute;"
+          class="c7 c12 fi-action-menu-popover_floatingui-arrow"
         />
       </div>
     </div>
@@ -2487,6 +2526,22 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 10px);
+}
+
+.c12 {
+  position: absolute;
+  left: 0px;
+}
+
+.c9 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -2498,7 +2553,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c9.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -2508,11 +2563,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c8.fi-action-menu-popover--hidden {
+.c9.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c9 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: flex;
@@ -2523,12 +2578,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c9 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow::before,
-.c8 .fi-action-menu-popover_floatingui-arrow::after {
+.c9 .fi-action-menu-popover_floatingui-arrow::before,
+.c9 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -2538,18 +2593,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2557,17 +2612,17 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2892,7 +2947,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   width: 100%;
 }
 
-.c9 {
+.c10 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -2904,7 +2959,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c9.fi-action-menu-item {
+.c10.fi-action-menu-item {
   position: relative;
   letter-spacing: 0;
   text-decoration: none;
@@ -2927,58 +2982,58 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item:active,
-.c9.fi-action-menu-item:focus,
-.c9.fi-action-menu-item:hover,
-.c9.fi-action-menu-item:visited {
+.c10.fi-action-menu-item:active,
+.c10.fi-action-menu-item:focus,
+.c10.fi-action-menu-item:hover,
+.c10.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c9.fi-action-menu-item .fi-icon {
+.c10.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--disabled:active,
-.c9.fi-action-menu-item--disabled:focus,
-.c9.fi-action-menu-item--disabled:hover,
-.c9.fi-action-menu-item--disabled:visited {
+.c10.fi-action-menu-item--disabled:active,
+.c10.fi-action-menu-item--disabled:focus,
+.c10.fi-action-menu-item--disabled:hover,
+.c10.fi-action-menu-item--disabled:visited {
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--selected {
+.c10.fi-action-menu-item--selected {
   color: hsl(0, 0%, 100%);
   background: hsl(212, 63%, 45%);
 }
 
-.c9.fi-action-menu-item--selected:active,
-.c9.fi-action-menu-item--selected:focus,
-.c9.fi-action-menu-item--selected:hover,
-.c9.fi-action-menu-item--selected:visited {
+.c10.fi-action-menu-item--selected:active,
+.c10.fi-action-menu-item--selected:focus,
+.c10.fi-action-menu-item--selected:hover,
+.c10.fi-action-menu-item--selected:visited {
   text-decoration: none;
   color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected:after {
+.c10.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2988,7 +3043,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c10.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202, 7%, 80%);
@@ -3001,13 +3056,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected:after {
+  .c10.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -3018,13 +3073,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -3073,9 +3128,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </span>
       </button>
       <div
-        class="c7 c8 fi-action-menu-popover"
+        class="c7 c8 c9 fi-action-menu-popover"
         role="none"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
         <div
@@ -3086,7 +3140,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -3095,7 +3149,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -3104,7 +3158,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            class="c0 c10 fi-action-menu-divider"
+            class="c0 c11 fi-action-menu-divider"
             role="presentation"
           >
             <div
@@ -3112,7 +3166,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             />
           </div>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -3123,9 +3177,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c7 fi-action-menu-popover_floatingui-arrow"
+          class="c7 c12 fi-action-menu-popover_floatingui-arrow"
           data-floatingui-placement="bottom-end"
-          style="position: absolute; left: 0px;"
         />
       </div>
     </div>
@@ -3271,6 +3324,22 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 10px);
+}
+
+.c12 {
+  position: absolute;
+  left: 0px;
+}
+
+.c9 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -3282,7 +3351,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c9.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -3292,11 +3361,11 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   z-index: 888;
 }
 
-.c8.fi-action-menu-popover--hidden {
+.c9.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c9 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: flex;
@@ -3307,12 +3376,12 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   max-height: 265px;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c9 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow::before,
-.c8 .fi-action-menu-popover_floatingui-arrow::after {
+.c9 .fi-action-menu-popover_floatingui-arrow::before,
+.c9 .fi-action-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -3322,18 +3391,18 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3341,17 +3410,17 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3676,7 +3745,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   width: 100%;
 }
 
-.c9 {
+.c10 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -3688,7 +3757,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c9.fi-action-menu-item {
+.c10.fi-action-menu-item {
   position: relative;
   letter-spacing: 0;
   text-decoration: none;
@@ -3711,58 +3780,58 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item:active,
-.c9.fi-action-menu-item:focus,
-.c9.fi-action-menu-item:hover,
-.c9.fi-action-menu-item:visited {
+.c10.fi-action-menu-item:active,
+.c10.fi-action-menu-item:focus,
+.c10.fi-action-menu-item:hover,
+.c10.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c9.fi-action-menu-item .fi-icon {
+.c10.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--disabled:active,
-.c9.fi-action-menu-item--disabled:focus,
-.c9.fi-action-menu-item--disabled:hover,
-.c9.fi-action-menu-item--disabled:visited {
+.c10.fi-action-menu-item--disabled:active,
+.c10.fi-action-menu-item--disabled:focus,
+.c10.fi-action-menu-item--disabled:hover,
+.c10.fi-action-menu-item--disabled:visited {
   color: hsl(202, 7%, 67%);
 }
 
-.c9.fi-action-menu-item--selected {
+.c10.fi-action-menu-item--selected {
   color: hsl(0, 0%, 100%);
   background: hsl(212, 63%, 45%);
 }
 
-.c9.fi-action-menu-item--selected:active,
-.c9.fi-action-menu-item--selected:focus,
-.c9.fi-action-menu-item--selected:hover,
-.c9.fi-action-menu-item--selected:visited {
+.c10.fi-action-menu-item--selected:active,
+.c10.fi-action-menu-item--selected:focus,
+.c10.fi-action-menu-item--selected:hover,
+.c10.fi-action-menu-item--selected:visited {
   text-decoration: none;
   color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected:after {
+.c10.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202, 7%, 67%);
 }
 
-.c10.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -3772,7 +3841,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   justify-content: center;
 }
 
-.c10.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202, 7%, 80%);
@@ -3785,13 +3854,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected:after {
+  .c10.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -3802,13 +3871,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors: active) {
-  .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c10.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors: active) {
-  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -3857,9 +3926,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         </span>
       </button>
       <div
-        class="c7 c8 fi-action-menu-popover"
+        class="c7 c8 c9 fi-action-menu-popover"
         role="none"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
         <div
@@ -3870,7 +3938,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9 fi-action-menu-item--selected"
+            class="c4 fi-action-menu-item c10 fi-action-menu-item--selected"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="0"
@@ -3879,7 +3947,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             Item 1
           </button>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -3888,7 +3956,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             Item 2
           </button>
           <div
-            class="c0 c10 fi-action-menu-divider"
+            class="c0 c11 fi-action-menu-divider"
             role="presentation"
           >
             <div
@@ -3896,7 +3964,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             />
           </div>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -3907,9 +3975,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c7 fi-action-menu-popover_floatingui-arrow"
+          class="c7 c12 fi-action-menu-popover_floatingui-arrow"
           data-floatingui-placement="bottom-end"
-          style="position: absolute; left: 0px;"
         />
       </div>
     </div>

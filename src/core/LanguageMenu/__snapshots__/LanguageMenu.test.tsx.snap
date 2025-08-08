@@ -110,6 +110,21 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 0px);
+}
+
+.c8 {
+  position: absolute;
+}
+
+.c6 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -121,7 +136,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-language-menu-popover {
+.c6.fi-language-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -129,11 +144,11 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   z-index: 888;
 }
 
-.c5.fi-language-menu-popover--hidden {
+.c6.fi-language-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c5 .fi-language-menu-popover_list {
+.c6 .fi-language-menu-popover_list {
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 0;
@@ -146,12 +161,12 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   max-height: 260px;
 }
 
-.c5 .fi-language-menu-popover_list:focus {
+.c6 .fi-language-menu-popover_list:focus {
   outline: none;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow::before,
-.c5 .fi-language-menu-popover_floatingui-arrow::after {
+.c6 .fi-language-menu-popover_floatingui-arrow::before,
+.c6 .fi-language-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -161,18 +176,18 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   pointer-events: none;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -180,17 +195,17 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   bottom: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -289,7 +304,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   border-color: hsl(202, 7%, 80%);
 }
 
-.c6.fi-language-menu-item {
+.c7.fi-language-menu-item {
   color: hsl(0, 0%, 13%);
   margin: 5px 0;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -304,29 +319,29 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   border-left: 4px solid transparent;
 }
 
-.c6.fi-language-menu-item:active,
-.c6.fi-language-menu-item:focus,
-.c6.fi-language-menu-item:visited {
+.c7.fi-language-menu-item:active,
+.c7.fi-language-menu-item:focus,
+.c7.fi-language-menu-item:visited {
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c6.fi-language-menu-item--isHighlighted {
+.c7.fi-language-menu-item--isHighlighted {
   border-left-color: hsl(212, 63%, 45%);
   position: relative;
 }
 
-.c6.fi-language-menu-item--isHighlighted:after {
+.c7.fi-language-menu-item--isHighlighted:after {
   content: '';
 }
 
-.c6.fi-language-menu-item--selected {
+.c7.fi-language-menu-item--selected {
   font-weight: bold;
   border-left-color: hsl(212, 63%, 45%);
 }
 
 @media (forced-colors: active) {
-  .c6.fi-language-menu-item--isHighlighted:after {
+  .c7.fi-language-menu-item--isHighlighted:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -369,8 +384,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
         </svg>
       </button>
       <div
-        class="c4 c5 fi-language-menu-popover fi-language-menu-popover--hidden"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+        class="c4 c5 c6 fi-language-menu-popover fi-language-menu-popover--hidden"
       >
         <div
           class="c4 fi-language-menu-popover_list"
@@ -379,7 +393,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
           tabindex="-1"
         >
           <button
-            class="c2 fi-language-menu-item c6"
+            class="c2 fi-language-menu-item c7"
             id="1-list-item-0"
             lang="fi"
             role="menuitem"
@@ -389,7 +403,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
             Suomeksi (FI)
           </button>
           <button
-            class="c2 fi-language-menu-item c6"
+            class="c2 fi-language-menu-item c7"
             id="1-list-item-1"
             lang="sv"
             role="menuitem"
@@ -400,7 +414,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
           </button>
           <button
             aria-current="true"
-            class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
+            class="c2 fi-language-menu-item c7 fi-language-menu-item--selected"
             id="1-list-item-2"
             lang="en"
             role="menuitem"
@@ -412,8 +426,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c4 fi-language-menu-popover_floatingui-arrow"
-          style="position: absolute;"
+          class="c4 c8 fi-language-menu-popover_floatingui-arrow"
         />
       </div>
     </div>
@@ -531,6 +544,22 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(0px, 10px);
+}
+
+.c8 {
+  position: absolute;
+  left: 0px;
+}
+
+.c6 {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -542,7 +571,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-language-menu-popover {
+.c6.fi-language-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(0, 0%, 42%);
@@ -550,11 +579,11 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   z-index: 888;
 }
 
-.c5.fi-language-menu-popover--hidden {
+.c6.fi-language-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c5 .fi-language-menu-popover_list {
+.c6 .fi-language-menu-popover_list {
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 0;
@@ -567,12 +596,12 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   max-height: 260px;
 }
 
-.c5 .fi-language-menu-popover_list:focus {
+.c6 .fi-language-menu-popover_list:focus {
   outline: none;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow::before,
-.c5 .fi-language-menu-popover_floatingui-arrow::after {
+.c6 .fi-language-menu-popover_floatingui-arrow::before,
+.c6 .fi-language-menu-popover_floatingui-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -582,18 +611,18 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   pointer-events: none;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -601,17 +630,17 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   bottom: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
   top: 100%;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c5 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -710,7 +739,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   border-color: hsl(202, 7%, 80%);
 }
 
-.c6.fi-language-menu-item {
+.c7.fi-language-menu-item {
   color: hsl(0, 0%, 13%);
   margin: 5px 0;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -725,29 +754,29 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   border-left: 4px solid transparent;
 }
 
-.c6.fi-language-menu-item:active,
-.c6.fi-language-menu-item:focus,
-.c6.fi-language-menu-item:visited {
+.c7.fi-language-menu-item:active,
+.c7.fi-language-menu-item:focus,
+.c7.fi-language-menu-item:visited {
   outline: none;
   color: hsl(0, 0%, 13%);
 }
 
-.c6.fi-language-menu-item--isHighlighted {
+.c7.fi-language-menu-item--isHighlighted {
   border-left-color: hsl(212, 63%, 45%);
   position: relative;
 }
 
-.c6.fi-language-menu-item--isHighlighted:after {
+.c7.fi-language-menu-item--isHighlighted:after {
   content: '';
 }
 
-.c6.fi-language-menu-item--selected {
+.c7.fi-language-menu-item--selected {
   font-weight: bold;
   border-left-color: hsl(212, 63%, 45%);
 }
 
 @media (forced-colors: active) {
-  .c6.fi-language-menu-item--isHighlighted:after {
+  .c7.fi-language-menu-item--isHighlighted:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -790,8 +819,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
         </svg>
       </button>
       <div
-        class="c4 c5 fi-language-menu-popover"
-        style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 10px);"
+        class="c4 c5 c6 fi-language-menu-popover"
       >
         <div
           class="c4 fi-language-menu-popover_list"
@@ -800,7 +828,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
           tabindex="-1"
         >
           <button
-            class="c2 fi-language-menu-item c6 fi-language-menu-item--isHighlighted"
+            class="c2 fi-language-menu-item c7 fi-language-menu-item--isHighlighted"
             id="3-list-item-0"
             lang="fi"
             role="menuitem"
@@ -810,7 +838,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
             Suomeksi (FI)
           </button>
           <button
-            class="c2 fi-language-menu-item c6"
+            class="c2 fi-language-menu-item c7"
             id="3-list-item-1"
             lang="sv"
             role="menuitem"
@@ -821,7 +849,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
           </button>
           <button
             aria-current="true"
-            class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
+            class="c2 fi-language-menu-item c7 fi-language-menu-item--selected"
             id="3-list-item-2"
             lang="en"
             role="menuitem"
@@ -833,9 +861,8 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="c4 fi-language-menu-popover_floatingui-arrow"
+          class="c4 c8 fi-language-menu-popover_floatingui-arrow"
           data-floatingui-placement="bottom-end"
-          style="position: absolute; left: 0px;"
         />
       </div>
     </div>
