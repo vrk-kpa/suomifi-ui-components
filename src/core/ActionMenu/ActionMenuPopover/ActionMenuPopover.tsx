@@ -14,7 +14,6 @@ import {
   shift,
   autoUpdate,
   arrow,
-  size,
 } from '@floating-ui/react-dom';
 
 const baseClassName = 'fi-action-menu-popover';
@@ -69,6 +68,41 @@ const defaultProviderValue: ActionMenuProviderState = {
 const { Provider: ActionMenuProvider, Consumer: ActionMenuConsumer } =
   React.createContext(defaultProviderValue);
 
+const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
+  $floatingStyles: React.CSSProperties;
+  $referenceWidth?: number;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: ${({ $referenceWidth }) =>
+    $referenceWidth !== undefined ? `${$referenceWidth}px` : 'max-content'};
+
+  ${({ $floatingStyles }) => `
+    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
+    ${
+      $floatingStyles.left !== undefined
+        ? `left: ${$floatingStyles.left}px;`
+        : ''
+    }
+    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
+    ${
+      $floatingStyles.transform
+        ? `transform: ${$floatingStyles.transform};`
+        : ''
+    }
+  `}
+`;
+
+const StyledArrow = styled(HtmlDivWithRef)<{
+  $arrowX?: number;
+  $arrowY?: number;
+}>`
+  position: absolute;
+  ${({ $arrowX }) => $arrowX !== undefined && `left: ${$arrowX}px;`}
+  ${({ $arrowY }) => $arrowY !== undefined && `top: ${$arrowY}px;`}
+`;
+
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
@@ -89,6 +123,10 @@ export const BaseActionMenuPopover = (
   const [activeChild, setActiveChild] = useState<number>(-1);
   const divRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+
+  const [referenceWidth, setReferenceWidth] = useState<number | undefined>(
+    undefined,
+  );
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -148,6 +186,24 @@ export const BaseActionMenuPopover = (
       isSubscribed = false;
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (fullWidth && openButtonRef.current) {
+      setReferenceWidth(openButtonRef.current.offsetWidth);
+
+      const resizeObserver = new ResizeObserver(() => {
+        if (openButtonRef.current) {
+          setReferenceWidth(openButtonRef.current.offsetWidth);
+        }
+      });
+
+      resizeObserver.observe(openButtonRef.current);
+
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
+  }, [fullWidth, openButtonRef]);
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
@@ -253,22 +309,6 @@ export const BaseActionMenuPopover = (
       arrow({
         element: arrowRef,
       }),
-      ...(fullWidth
-        ? [
-            size({
-              apply({
-                rects,
-                elements,
-              }: {
-                rects: { reference: { width: number } };
-                elements: { floating: HTMLElement };
-              }) {
-                const floatingElement = elements.floating;
-                floatingElement.style.width = `${rects.reference.width}px`;
-              },
-            }),
-          ]
-        : []),
     ],
     whileElementsMounted: autoUpdate,
     placement: 'bottom-end',
@@ -313,12 +353,14 @@ export const BaseActionMenuPopover = (
   if (!mountNode) {
     return null;
   }
+
   return (
-    <HtmlDivWithRef
+    <StyledPopoverWrapper
+      $floatingStyles={floatingStyles}
+      $referenceWidth={referenceWidth}
       className={classnames(className, baseClassName, {
         [actionMenuClassNames.hidden]: !isOpen,
       })}
-      style={floatingStyles}
       forwardedRef={setDialogElement}
       tabIndex={-1}
       role="none"
@@ -344,18 +386,15 @@ export const BaseActionMenuPopover = (
           {menuItems(children)}
         </HtmlDivWithRef>
       </ActionMenuProvider>
-      <HtmlDivWithRef
+      <StyledArrow
         forwardedRef={arrowRef}
         className={actionMenuClassNames.floatinguiArrow}
         data-floatingui-placement={middlewareData?.offset?.placement}
         aria-hidden={true}
-        style={{
-          position: 'absolute',
-          left: middlewareData.arrow?.x,
-          top: middlewareData.arrow?.y,
-        }}
+        $arrowX={middlewareData.arrow?.x}
+        $arrowY={middlewareData.arrow?.y}
       />
-    </HtmlDivWithRef>
+    </StyledPopoverWrapper>
   );
 };
 

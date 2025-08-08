@@ -93,6 +93,39 @@ const scrollItemList = (
   }
 };
 
+const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
+  $floatingStyles: React.CSSProperties;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+
+  ${({ $floatingStyles }) => `
+    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
+    ${
+      $floatingStyles.left !== undefined
+        ? `left: ${$floatingStyles.left}px;`
+        : ''
+    }
+    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
+    ${
+      $floatingStyles.transform
+        ? `transform: ${$floatingStyles.transform};`
+        : ''
+    }
+  `}
+`;
+
+const StyledArrow = styled(HtmlDivWithRef)<{
+  $arrowX?: number;
+  $arrowY?: number;
+}>`
+  position: absolute;
+  ${({ $arrowX }) => $arrowX !== undefined && `left: ${$arrowX}px;`}
+  ${({ $arrowY }) => $arrowY !== undefined && `top: ${$arrowY}px;`}
+`;
+
 export const BaseLanguageMenuPopover = (
   props: InternalLanguageMenuPopoverProps,
 ) => {
@@ -278,11 +311,11 @@ export const BaseLanguageMenuPopover = (
     });
 
   return (
-    <HtmlDivWithRef
+    <StyledPopoverWrapper
       className={classnames(className, baseClassName, {
         [languageMenuPopoverClassNames.hidden]: !isOpen,
       })}
-      style={floatingStyles}
+      $floatingStyles={floatingStyles}
       forwardedRef={setDialogElement}
     >
       <LanguageMenuProvider
@@ -307,18 +340,15 @@ export const BaseLanguageMenuPopover = (
           {menuItems(children)}
         </HtmlDivWithRef>
       </LanguageMenuProvider>
-      <HtmlDivWithRef
+      <StyledArrow
         forwardedRef={arrowRef}
         className={languageMenuPopoverClassNames.floatinguiArrow}
         data-floatingui-placement={middlewareData?.offset?.placement}
         aria-hidden={true}
-        style={{
-          position: 'absolute',
-          left: middlewareData.arrow?.x,
-          top: middlewareData.arrow?.y,
-        }}
+        $arrowX={middlewareData?.arrow?.x}
+        $arrowY={middlewareData?.arrow?.y}
       />
-    </HtmlDivWithRef>
+    </StyledPopoverWrapper>
   );
 };
 

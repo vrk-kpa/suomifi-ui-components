@@ -76,6 +76,30 @@ export interface InternalDatePickerProps
   position: datePickerAlignment;
 }
 
+const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
+  $floatingStyles: React.CSSProperties;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+
+  ${({ $floatingStyles }) => `
+    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
+    ${
+      $floatingStyles.left !== undefined
+        ? `left: ${$floatingStyles.left}px;`
+        : ''
+    }
+    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
+    ${
+      $floatingStyles.transform
+        ? `transform: ${$floatingStyles.transform};`
+        : ''
+    }
+  `}
+`;
+
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const {
     openButtonRef,
@@ -487,11 +511,11 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   ];
 
   const defaultDialog = (
-    <HtmlDivWithRef
+    <StyledPopoverWrapper
       role="dialog"
       aria-hidden={!isOpen}
       className={classnames(...dialogClasses)}
-      style={floatingStyles}
+      $floatingStyles={floatingStyles}
       forwardedRef={setDialogElement}
       {...passProps}
     >
@@ -507,7 +531,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           top: middlewareData.arrow?.y,
         }}
       />
-    </HtmlDivWithRef>
+    </StyledPopoverWrapper>
   );
 
   const smallScreenDialog = (

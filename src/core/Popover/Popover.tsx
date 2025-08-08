@@ -2,8 +2,9 @@ import React, { useState, ReactNode, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
-import { useFloating, shift, autoUpdate, size } from '@floating-ui/react-dom';
+import { useFloating, shift, autoUpdate } from '@floating-ui/react-dom';
 import classNames from 'classnames';
+import styled from 'styled-components';
 
 export interface PopoverProps extends HtmlDivProps {
   /** Source ref for positioning the Popover */
@@ -38,6 +39,32 @@ const defaultProviderValue: PopoverProviderState = {
   updatePopover: () => null,
 };
 
+const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
+  $floatingStyles: React.CSSProperties;
+  $referenceWidth?: number;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: ${({ $referenceWidth }) =>
+    $referenceWidth !== undefined ? `${$referenceWidth}px` : 'max-content'};
+
+  ${({ $floatingStyles }) => `
+    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
+    ${
+      $floatingStyles.left !== undefined
+        ? `left: ${$floatingStyles.left}px;`
+        : ''
+    }
+    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
+    ${
+      $floatingStyles.transform
+        ? `transform: ${$floatingStyles.transform};`
+        : ''
+    }
+  `}
+`;
+
 const { Provider: PopoverProvider, Consumer: PopoverConsumer } =
   React.createContext(defaultProviderValue);
 
@@ -64,32 +91,17 @@ export const Popover = (props: PopoverProps) => {
 
   const portalRef = useRef<HTMLDivElement>(null);
 
+  const [referenceWidth, setReferenceWidth] = useState<number | undefined>(
+    undefined,
+  );
+
   const {
     refs: floatingUiRefs,
     floatingStyles,
-
     update,
   } = useFloating({
     open: true,
-    middleware: [
-      shift(),
-      ...(matchWidth
-        ? [
-            size({
-              apply({
-                rects,
-                elements,
-              }: {
-                rects: { reference: { width: number } };
-                elements: { floating: HTMLElement };
-              }) {
-                const floatingEl = elements.floating;
-                floatingEl.style.width = `${rects.reference.width}px`;
-              },
-            }),
-          ]
-        : []),
-    ],
+    middleware: [shift()],
     whileElementsMounted: autoUpdate,
     placement: 'bottom',
   });
@@ -105,6 +117,24 @@ export const Popover = (props: PopoverProps) => {
       floatingUiRefs.setFloating(floatingElement);
     }
   }, [floatingUiRefs, floatingElement]);
+
+  useEffect(() => {
+    if (matchWidth && sourceRef.current) {
+      setReferenceWidth(sourceRef.current.offsetWidth);
+
+      const resizeObserver = new ResizeObserver(() => {
+        if (sourceRef.current) {
+          setReferenceWidth(sourceRef.current.offsetWidth);
+        }
+      });
+
+      resizeObserver.observe(sourceRef.current);
+
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
+  }, [matchWidth, sourceRef]);
 
   useEffect(() => {
     const globalClickHandler = (nativeEvent: MouseEvent) => {
@@ -138,10 +168,13 @@ export const Popover = (props: PopoverProps) => {
     return (
       <>
         {ReactDOM.createPortal(
-          <div
-            className={classNames('fi-portal', className)}
-            ref={setFloatingElement}
-            style={floatingStyles}
+          <StyledPopoverWrapper
+            className={classNames('fi-portal', className, {
+              'fi-popover-match-width': matchWidth,
+            })}
+            forwardedRef={setFloatingElement}
+            $floatingStyles={floatingStyles}
+            $referenceWidth={referenceWidth}
             tabIndex={-1}
             role="presentation"
           >
@@ -154,17 +187,20 @@ export const Popover = (props: PopoverProps) => {
                 {children}
               </PopoverProvider>
             </HtmlDivWithRef>
-          </div>,
+          </StyledPopoverWrapper>,
           mountNode,
         )}
       </>
     );
   }
   return (
-    <div
-      className={className}
-      ref={setFloatingElement}
-      style={floatingStyles}
+    <StyledPopoverWrapper
+      className={classNames(className, {
+        'fi-popover-match-width': matchWidth,
+      })}
+      forwardedRef={setFloatingElement}
+      $floatingStyles={floatingStyles}
+      $referenceWidth={referenceWidth}
       tabIndex={-1}
       role="presentation"
     >
@@ -177,6 +213,6 @@ export const Popover = (props: PopoverProps) => {
           {children}
         </PopoverProvider>
       </HtmlDivWithRef>
-    </div>
+    </StyledPopoverWrapper>
   );
 };
