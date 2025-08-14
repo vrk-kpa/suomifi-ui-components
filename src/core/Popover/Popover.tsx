@@ -39,15 +39,18 @@ const defaultProviderValue: PopoverProviderState = {
   updatePopover: () => null,
 };
 
+// This styled component is a workaround to make floating UI work without inline styles
 const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   $floatingStyles: React.CSSProperties;
   $referenceWidth?: number;
 }>`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
   width: ${({ $referenceWidth }) =>
-    $referenceWidth !== undefined ? `${$referenceWidth}px` : 'max-content'};
+    $referenceWidth !== undefined
+      ? `${$referenceWidth}px`
+      : 'max-content'} !important;
 
   ${({ $floatingStyles }) => `
     ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}

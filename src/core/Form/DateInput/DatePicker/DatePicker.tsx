@@ -76,6 +76,7 @@ export interface InternalDatePickerProps
   position: datePickerAlignment;
 }
 
+// This is a workaround to make floating UI work without inline styles
 const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   $floatingStyles: React.CSSProperties;
 }>`

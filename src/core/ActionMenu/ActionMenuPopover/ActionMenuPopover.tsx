@@ -68,6 +68,7 @@ const defaultProviderValue: ActionMenuProviderState = {
 const { Provider: ActionMenuProvider, Consumer: ActionMenuConsumer } =
   React.createContext(defaultProviderValue);
 
+// These styled components are a workaround to make floating UI work without inline styles
 const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   $floatingStyles: React.CSSProperties;
   $referenceWidth?: number;
