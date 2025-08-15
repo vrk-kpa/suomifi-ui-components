@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import { render, fireEvent, cleanup, waitFor } from '@testing-library/react';
 import { DateInput } from './DateInput';
 
@@ -355,7 +355,9 @@ describe('props', () => {
         );
         const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
         if (dropdownButton) {
-          fireEvent.click(dropdownButton);
+          await act(async () => {
+            fireEvent.click(dropdownButton);
+          });
           const lis = dropdown?.querySelectorAll('li');
           await waitFor(() => {
             expect(lis?.[0]).toHaveTextContent('Tammikuu');

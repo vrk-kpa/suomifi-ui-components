@@ -104,28 +104,32 @@ describe('props', () => {
   });
 
   describe('onBlur', () => {
-    test('should notice when leaving area', () => {
+    test('should notice when leaving area', async () => {
       const mockOnBlur = jest.fn();
       const { getByRole } = render(TestSearchInput({ onBlur: mockOnBlur }));
       const inputElement = getByRole('searchbox');
-      fireEvent.blur(inputElement);
+      await act(async () => {
+        fireEvent.blur(inputElement);
+      });
       expect(mockOnBlur).toBeCalledTimes(1);
     });
   });
 
   describe('onChange', () => {
-    it('should notice change and have the given text', () => {
+    it('should notice change and have the given text', async () => {
       const mockOnChange = jest.fn();
       const { getByRole } = render(TestSearchInput({ onChange: mockOnChange }));
       const inputElement = getByRole('searchbox') as HTMLTextAreaElement;
-      fireEvent.change(inputElement, { target: { value: 'abc' } });
+      await act(async () => {
+        fireEvent.change(inputElement, { target: { value: 'abc' } });
+      });
       expect(mockOnChange).toBeCalledTimes(1);
       expect(inputElement.value).toBe('abc');
     });
   });
 
   describe('onSearch', () => {
-    it('should trigger onSearch callback', () => {
+    it('should trigger onSearch callback', async () => {
       const mockOnSearch = jest.fn();
       const { getAllByRole } = render(
         TestSearchInput({
@@ -134,13 +138,15 @@ describe('props', () => {
         }),
       );
       const searchButton = getAllByRole('button')[1];
-      fireEvent.click(searchButton);
+      await act(async () => {
+        fireEvent.click(searchButton);
+      });
       expect(mockOnSearch).toBeCalledTimes(1);
     });
   });
 
   describe('onClear', () => {
-    it('should trigger onChange and clear input value', () => {
+    it('should trigger onChange and clear input value', async () => {
       const mockOnChange = jest.fn();
       const { getAllByRole } = render(
         TestSearchInput({
@@ -149,7 +155,9 @@ describe('props', () => {
         }),
       );
       const clearButton = getAllByRole('button')[0];
-      fireEvent.click(clearButton);
+      await act(async () => {
+        fireEvent.click(clearButton);
+      });
       expect(mockOnChange).toBeCalledTimes(1);
       const inputElement = getAllByRole('searchbox')[0] as HTMLInputElement;
       expect(inputElement.value).toBe('');
@@ -234,7 +242,7 @@ describe('props', () => {
   });
 
   describe('debounce', () => {
-    it('delays the running of onChange by the given time', () => {
+    it('delays the running of onChange by the given time', async () => {
       jest.useFakeTimers();
       const mockOnChange = jest.fn();
       const searchInput = (
@@ -249,11 +257,21 @@ describe('props', () => {
       const { getByRole } = render(searchInput);
 
       const inputElement = getByRole('searchbox') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      await act(async () => {
+        fireEvent.change(inputElement, { target: { value: 'new value' } });
+      });
+
       expect(mockOnChange).not.toBeCalled();
-      jest.advanceTimersByTime(1000);
+
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+
       expect(mockOnChange).toBeCalledTimes(1);
       expect(inputElement.value).toBe('new value');
+
+      jest.runAllTimers();
+      jest.useRealTimers();
     });
   });
 
@@ -291,17 +309,19 @@ describe('autosuggest', () => {
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'app' } });
+
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'app' } });
+    });
 
     const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(3);
-
     expect(getByText('app')).toBeInTheDocument();
     expect(getByText('banana')).toBeInTheDocument();
     expect(getByText('cherry')).toBeInTheDocument();
   });
 
-  it('should not display suggestions when autosuggest is false', () => {
+  it('should not display suggestions when autosuggest is false', async () => {
     const { getByRole, queryAllByRole } = render(
       TestSearchInput({
         autosuggest: false,
@@ -310,12 +330,14 @@ describe('autosuggest', () => {
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'app' } });
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'app' } });
+    });
 
     expect(queryAllByRole('option')).toHaveLength(0);
   });
 
-  it('should have ariaOptionsAvailableText and suggestionHintText when autosuggest is true', () => {
+  it('should have ariaOptionsAvailableText and suggestionHintText when autosuggest is true', async () => {
     const { getByText } = render(
       TestSearchInput({
         autosuggest: true,
@@ -326,10 +348,13 @@ describe('autosuggest', () => {
     );
 
     const hintText = getByText('Search suggestion open under the input');
+
     expect(hintText).toBeInTheDocument();
 
     const optionsAvailableText = getByText('Options are available');
-    expect(optionsAvailableText).toBeInTheDocument();
+    await waitFor(() => {
+      expect(optionsAvailableText).toBeInTheDocument();
+    });
   });
 
   it('should call onSuggestionSelect when a suggestion is clicked', async () => {
@@ -352,7 +377,9 @@ describe('autosuggest', () => {
     });
 
     const suggestion = getByText('app');
-    fireEvent.click(suggestion);
+    await act(async () => {
+      fireEvent.click(suggestion);
+    });
 
     expect(mockOnSuggestionSelect).toBeCalledWith('1');
   });
@@ -366,17 +393,25 @@ describe('autosuggest', () => {
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'a' } });
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'a' } });
+    });
 
     const items = await waitFor(() => getAllByRole('option'));
-    fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    await act(async () => {
+      fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    });
     expect(items[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
 
-    fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    await act(async () => {
+      fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    });
     expect(items[1]).toHaveClass('fi-select-item--hasKeyboardFocus');
     expect(items[0]).not.toHaveClass('fi-select-item--hasKeyboardFocus');
 
-    fireEvent.keyDown(inputElement, { key: 'ArrowUp' });
+    await act(async () => {
+      fireEvent.keyDown(inputElement, { key: 'ArrowUp' });
+    });
     expect(items[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
   });
 
@@ -393,7 +428,9 @@ describe('autosuggest', () => {
     const items = await waitFor(() => queryAllByRole('option'));
     expect(items).toHaveLength(3);
 
-    fireEvent.keyDown(inputElement, { key: 'Escape' });
+    await act(async () => {
+      fireEvent.keyDown(inputElement, { key: 'Escape' });
+    });
     expect(queryAllByRole('option')).toHaveLength(0);
   });
 
@@ -407,7 +444,9 @@ describe('autosuggest', () => {
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
 
-    fireEvent.keyDown(inputElement, { key: 'Escape' });
+    await act(async () => {
+      fireEvent.keyDown(inputElement, { key: 'Escape' });
+    });
 
     await waitFor(() => {
       expect(inputElement).toHaveFocus();
@@ -431,7 +470,10 @@ describe('autosuggest', () => {
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'a' } });
+
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'a' } });
+    });
 
     const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(3);
@@ -449,11 +491,12 @@ describe('autosuggest', () => {
 
     expect(inputElement.value).toBe('abc');
 
-    fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    await act(async () => {
+      fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
+    });
 
     const newItems = await waitFor(() => getAllByRole('option'));
     expect(newItems).toHaveLength(2);
-
     expect(newItems[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
     expect(newItems[0]).toHaveTextContent('kiwi');
     expect(newItems[1]).toHaveTextContent('date');
@@ -468,7 +511,7 @@ describe('states', () => {
       expect(buttons).toHaveLength(0);
     });
 
-    it('should not react to enter before adding text to input', () => {
+    it('should not react to enter before adding text to input', async () => {
       const mockOnSearch = jest.fn();
       const { getByRole, getAllByRole } = render(
         TestSearchInput({
@@ -477,21 +520,27 @@ describe('states', () => {
         }),
       );
       const inputElement = getByRole('searchbox') as HTMLTextAreaElement;
-      fireEvent.keyPress(inputElement, {
-        key: 'Enter',
-        code: 13,
-        charCode: 13,
+      await act(async () => {
+        fireEvent.keyPress(inputElement, {
+          key: 'Enter',
+          code: 13,
+          charCode: 13,
+        });
       });
       expect(mockOnSearch).toBeCalledTimes(0);
-      fireEvent.change(inputElement, { target: { value: 'abc' } });
-      fireEvent.keyPress(inputElement, {
-        key: 'Enter',
-        code: 13,
-        charCode: 13,
+      await act(async () => {
+        fireEvent.change(inputElement, { target: { value: 'abc' } });
+        fireEvent.keyPress(inputElement, {
+          key: 'Enter',
+          code: 13,
+          charCode: 13,
+        });
       });
       expect(mockOnSearch).toBeCalledTimes(1);
       const searchButton = getAllByRole('button')[1];
-      fireEvent.click(searchButton);
+      await act(async () => {
+        fireEvent.click(searchButton);
+      });
       expect(mockOnSearch).toBeCalledTimes(2);
     });
   });
