@@ -73,26 +73,12 @@ const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   $floatingStyles: React.CSSProperties;
   $referenceWidth?: number;
 }>`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: ${({ $floatingStyles }) => $floatingStyles.position || 'absolute'};
+  top: ${({ $floatingStyles }) => `${$floatingStyles.top ?? 0}px`};
+  left: ${({ $floatingStyles }) => `${$floatingStyles.left ?? 0}px`};
   width: ${({ $referenceWidth }) =>
-    $referenceWidth !== undefined ? `${$referenceWidth}px` : 'max-content'};
-
-  ${({ $floatingStyles }) => `
-    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
-    ${
-      $floatingStyles.left !== undefined
-        ? `left: ${$floatingStyles.left}px;`
-        : ''
-    }
-    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
-    ${
-      $floatingStyles.transform
-        ? `transform: ${$floatingStyles.transform};`
-        : ''
-    }
-  `}
+    $referenceWidth ? `${$referenceWidth}px` : 'max-content'};
+  transform: ${({ $floatingStyles }) => $floatingStyles.transform || 'none'};
 `;
 
 const StyledArrow = styled(HtmlDivWithRef)<{

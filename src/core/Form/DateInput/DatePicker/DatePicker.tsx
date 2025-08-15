@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
@@ -80,24 +80,20 @@ export interface InternalDatePickerProps
 const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   $floatingStyles: React.CSSProperties;
 }>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: max-content !important;
 
-  ${({ $floatingStyles }) => `
-    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
-    ${
-      $floatingStyles.left !== undefined
-        ? `left: ${$floatingStyles.left}px;`
-        : ''
-    }
-    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
-    ${
-      $floatingStyles.transform
-        ? `transform: ${$floatingStyles.transform};`
-        : ''
-    }
+  ${({ $floatingStyles }) => css`
+    ${$floatingStyles.position &&
+    `position: ${$floatingStyles.position} !important;`}
+    ${$floatingStyles.left !== undefined &&
+    `left: ${$floatingStyles.left}px !important;`}
+    ${$floatingStyles.top !== undefined &&
+    `top: ${$floatingStyles.top}px !important;`}
+    ${$floatingStyles.transform &&
+    `transform: ${$floatingStyles.transform} !important;`}
   `}
 `;
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -97,24 +97,16 @@ const scrollItemList = (
 const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   $floatingStyles: React.CSSProperties;
 }>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: max-content !important;
 
-  ${({ $floatingStyles }) => `
-    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
-    ${
-      $floatingStyles.left !== undefined
-        ? `left: ${$floatingStyles.left}px;`
-        : ''
-    }
-    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
-    ${
-      $floatingStyles.transform
-        ? `transform: ${$floatingStyles.transform};`
-        : ''
-    }
+  ${({ $floatingStyles: { position, left, top, transform } }) => css`
+    ${position && `position: ${position} !important;`}
+    ${left !== undefined && `left: ${left}px !important;`}
+    ${top !== undefined && `top: ${top}px !important;`}
+    ${transform && `transform: ${transform} !important;`}
   `}
 `;
 
@@ -122,9 +114,9 @@ const StyledArrow = styled(HtmlDivWithRef)<{
   $arrowX?: number;
   $arrowY?: number;
 }>`
-  position: absolute;
-  ${({ $arrowX }) => $arrowX !== undefined && `left: ${$arrowX}px;`}
-  ${({ $arrowY }) => $arrowY !== undefined && `top: ${$arrowY}px;`}
+  position: absolute !important;
+  ${({ $arrowX }) => $arrowX !== undefined && `left: ${$arrowX}px !important;`}
+  ${({ $arrowY }) => $arrowY !== undefined && `top: ${$arrowY}px !important;`}
 `;
 
 export const BaseLanguageMenuPopover = (

@@ -4,7 +4,7 @@ import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
 import { useFloating, shift, autoUpdate } from '@floating-ui/react-dom';
 import classNames from 'classnames';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface PopoverProps extends HtmlDivProps {
   /** Source ref for positioning the Popover */
@@ -48,23 +48,15 @@ const StyledPopoverWrapper = styled(HtmlDivWithRef)<{
   top: 0 !important;
   left: 0 !important;
   width: ${({ $referenceWidth }) =>
-    $referenceWidth !== undefined
-      ? `${$referenceWidth}px`
-      : 'max-content'} !important;
+    $referenceWidth
+      ? `${$referenceWidth}px !important`
+      : 'max-content !important'};
 
-  ${({ $floatingStyles }) => `
-    ${$floatingStyles.position ? `position: ${$floatingStyles.position};` : ''}
-    ${
-      $floatingStyles.left !== undefined
-        ? `left: ${$floatingStyles.left}px;`
-        : ''
-    }
-    ${$floatingStyles.top !== undefined ? `top: ${$floatingStyles.top}px;` : ''}
-    ${
-      $floatingStyles.transform
-        ? `transform: ${$floatingStyles.transform};`
-        : ''
-    }
+  ${({ $floatingStyles }) => css`
+    position: ${$floatingStyles.position || 'absolute'} !important;
+    left: ${$floatingStyles.left ?? 0}px !important;
+    top: ${$floatingStyles.top ?? 0}px !important;
+    transform: ${$floatingStyles.transform || 'none'} !important;
   `}
 `;
 
