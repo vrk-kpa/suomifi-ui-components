@@ -3541,9 +3541,24 @@ exports[`snapshots match date input with datepicker with controlled input value 
   padding-bottom: 8px;
 }
 
+.c13.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c13.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c13.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c13.fi-dropdown--italicize .fi-dropdown_button {
@@ -4097,6 +4112,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               aria-haspopup="listbox"
               aria-labelledby="16-displayValue 16-label"
               class="c6 fi-dropdown_button"
+              data-floating-ui-placement="bottom"
               id="16_button"
               tabindex="0"
               type="button"
@@ -4145,6 +4161,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               aria-haspopup="listbox"
               aria-labelledby="17-displayValue 17-label"
               class="c6 fi-dropdown_button"
+              data-floating-ui-placement="bottom"
               id="17_button"
               tabindex="0"
               type="button"
@@ -5690,9 +5707,24 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   padding-bottom: 8px;
 }
 
+.c12.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c12.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c12.fi-dropdown--italicize .fi-dropdown_button {
@@ -6245,6 +6277,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 aria-haspopup="listbox"
                 aria-labelledby="9-displayValue 9-label"
                 class="c6 fi-dropdown_button"
+                data-floating-ui-placement="bottom"
                 id="9_button"
                 tabindex="0"
                 type="button"
@@ -6293,6 +6326,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 aria-haspopup="listbox"
                 aria-labelledby="10-displayValue 10-label"
                 class="c6 fi-dropdown_button"
+                data-floating-ui-placement="bottom"
                 id="10_button"
                 tabindex="0"
                 type="button"

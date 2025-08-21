@@ -1,8 +1,14 @@
-import React, { useState, ReactNode, useEffect, useRef } from 'react';
+import React, { useState, ReactNode, useEffect, useRef, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
-import { useFloating, shift, autoUpdate } from '@floating-ui/react-dom';
+import {
+  useFloating,
+  shift,
+  autoUpdate,
+  flip,
+  offset,
+} from '@floating-ui/react-dom';
 import classNames from 'classnames';
 import styled, { css } from 'styled-components';
 
@@ -33,10 +39,12 @@ export interface PopoverProps extends HtmlDivProps {
 
 export interface PopoverProviderState {
   updatePopover: () => void;
+  popoverPlacement: string | undefined;
 }
 
 const defaultProviderValue: PopoverProviderState = {
   updatePopover: () => null,
+  popoverPlacement: 'bottom',
 };
 
 // This styled component is a workaround to make floating UI work without inline styles
@@ -86,17 +94,18 @@ export const Popover = (props: PopoverProps) => {
 
   const portalRef = useRef<HTMLDivElement>(null);
 
-  const [referenceWidth, setReferenceWidth] = useState<number | undefined>(
-    undefined,
-  );
+  // Track reference width without inline styles (CSP-safe)
+  const [referenceWidth, setReferenceWidth] = useState<number>();
+  const lastWidthRef = useRef<number | undefined>(undefined);
 
   const {
     refs: floatingUiRefs,
     floatingStyles,
     update,
+    placement: resolvedPlacement,
   } = useFloating({
     open: true,
-    middleware: [shift()],
+    middleware: [offset(0), flip(), shift()],
     whileElementsMounted: autoUpdate,
     placement: 'bottom',
   });
@@ -113,23 +122,43 @@ export const Popover = (props: PopoverProps) => {
     }
   }, [floatingUiRefs, floatingElement]);
 
+  // Safe ResizeObserver that defers state and avoids redundant updates
   useEffect(() => {
-    if (matchWidth && sourceRef.current) {
-      setReferenceWidth(sourceRef.current.offsetWidth);
+    if (!matchWidth || !sourceRef.current) return;
 
-      const resizeObserver = new ResizeObserver(() => {
-        if (sourceRef.current) {
-          setReferenceWidth(sourceRef.current.offsetWidth);
-        }
+    const ro = new ResizeObserver(() => {
+      const node = sourceRef.current;
+      if (!node) return;
+      const width = node.offsetWidth;
+      if (width === lastWidthRef.current) return;
+      requestAnimationFrame(() => {
+        lastWidthRef.current = width;
+        setReferenceWidth(width);
       });
+    });
 
-      resizeObserver.observe(sourceRef.current);
-
-      return () => {
-        resizeObserver.disconnect();
-      };
-    }
+    ro.observe(sourceRef.current);
+    return () => ro.disconnect();
   }, [matchWidth, sourceRef]);
+
+  // ✨ Critical fix: defer placement propagation to consumers until next frame
+  const [consumerPlacement, setConsumerPlacement] = useState<
+    string | undefined
+  >(undefined);
+  useEffect(() => {
+    const id = requestAnimationFrame(() =>
+      setConsumerPlacement(resolvedPlacement),
+    );
+    return () => cancelAnimationFrame(id);
+  }, [resolvedPlacement]);
+
+  const providerValue = useMemo(
+    () => ({
+      updatePopover: () => update?.(),
+      popoverPlacement: consumerPlacement,
+    }),
+    [update, consumerPlacement],
+  );
 
   useEffect(() => {
     const globalClickHandler = (nativeEvent: MouseEvent) => {
@@ -174,11 +203,7 @@ export const Popover = (props: PopoverProps) => {
             role="presentation"
           >
             <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-              <PopoverProvider
-                value={{
-                  updatePopover: () => update?.(),
-                }}
-              >
+              <PopoverProvider value={providerValue}>
                 {children}
               </PopoverProvider>
             </HtmlDivWithRef>
@@ -200,13 +225,7 @@ export const Popover = (props: PopoverProps) => {
       role="presentation"
     >
       <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-        <PopoverProvider
-          value={{
-            updatePopover: () => update?.(),
-          }}
-        >
-          {children}
-        </PopoverProvider>
+        <PopoverProvider value={providerValue}>{children}</PopoverProvider>
       </HtmlDivWithRef>
     </StyledPopoverWrapper>
   );

@@ -30,6 +30,8 @@ export interface SelectItemListProps {
   id: string;
   /** Prevents scrollItemList() function from running */
   preventScrolling?: boolean;
+  /** Floating-ui popover placement */
+  popoverPlacement?: string;
 }
 
 interface InnerRef {
@@ -99,6 +101,7 @@ class BaseSelectItemList extends Component<
       id,
       focusedDescendantId,
       preventScrolling,
+      popoverPlacement,
       ...passProps
     } = this.props;
 
@@ -113,6 +116,7 @@ class BaseSelectItemList extends Component<
         onBlur={onBlur}
         onKeyDown={onKeyDown}
         aria-activedescendant={focusedDescendantId}
+        data-floating-ui-placement={popoverPlacement}
       >
         {children}
       </HtmlUlWithRef>

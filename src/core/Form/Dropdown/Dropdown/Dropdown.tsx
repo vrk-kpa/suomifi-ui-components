@@ -29,7 +29,7 @@ import {
   forkRefs,
   getOwnerDocument,
 } from '../../../../utils/common/common';
-import { Popover } from '../../../../core/Popover/Popover';
+import { Popover, PopoverConsumer } from '../../../../core/Popover/Popover';
 import { SelectItemList } from '../../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
 import { HintText } from '../../../Form/HintText/HintText';
 import { StatusText } from '../../../Form/StatusText/StatusText';
@@ -100,6 +100,7 @@ interface DropdownState<T> {
    * This prevents scrolling bugs
    */
   preventListScrolling: boolean;
+  popoverPlacement: string | undefined;
 }
 
 export interface DropdownProps<T extends string = string>
@@ -204,6 +205,7 @@ class BaseDropdown<T extends string = string> extends Component<
         ? this.props.defaultValue
         : this.getFirstItemValue(),
     preventListScrolling: false,
+    popoverPlacement: 'bottom',
   };
 
   buttonRef: React.RefObject<HTMLButtonElement>;
@@ -527,6 +529,16 @@ class BaseDropdown<T extends string = string> extends Component<
     }, 200);
   }
 
+  private updatePopoverPlacement = (placement: string | undefined) => {
+    if (placement !== this.state.popoverPlacement) {
+      requestAnimationFrame(() => {
+        if (this.componentIsMounted) {
+          this.setState({ popoverPlacement: placement });
+        }
+      });
+    }
+  };
+
   render() {
     const {
       id,
@@ -643,6 +655,7 @@ class BaseDropdown<T extends string = string> extends Component<
             }}
             onKeyDown={this.handleKeyDown}
             onBlur={this.handleOnBlur}
+            data-floating-ui-placement={this.state.popoverPlacement}
             {...passProps}
           >
             <HtmlSpan
@@ -685,38 +698,47 @@ class BaseDropdown<T extends string = string> extends Component<
               portal={portal}
               className={popoverClassName}
             >
-              <DropdownProvider
-                value={{
-                  onItemClick: (itemValue: T) =>
-                    this.handleItemSelection(itemValue),
-                  selectedDropdownValue: selectedValue,
-                  id,
-                  focusedItemValue: focusedDescendantId,
-                  noSelectedStyles: alwaysShowVisualPlaceholder,
-                  onItemTabPress: () => this.focusToButtonAndClosePopover(),
-                  onItemMouseOver: (itemValue) =>
-                    this.setState({
-                      preventListScrolling: true,
-                      focusedDescendantId: itemValue,
-                    }),
+              <PopoverConsumer>
+                {(consumer) => {
+                  this.updatePopoverPlacement(consumer?.popoverPlacement);
+                  return (
+                    <DropdownProvider
+                      value={{
+                        onItemClick: (itemValue: T) =>
+                          this.handleItemSelection(itemValue),
+                        selectedDropdownValue: selectedValue,
+                        id,
+                        focusedItemValue: focusedDescendantId,
+                        noSelectedStyles: alwaysShowVisualPlaceholder,
+                        onItemTabPress: () =>
+                          this.focusToButtonAndClosePopover(),
+                        onItemMouseOver: (itemValue) =>
+                          this.setState({
+                            preventListScrolling: true,
+                            focusedDescendantId: itemValue,
+                          }),
+                      }}
+                    >
+                      <SelectItemList
+                        id={popoverItemListId}
+                        ref={this.popoverRef}
+                        focusedDescendantId={ariaActiveDescendant}
+                        className={dropdownClassNames.itemList}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Tab') {
+                            event.preventDefault();
+                            this.focusToButtonAndClosePopover();
+                          }
+                        }}
+                        preventScrolling={preventListScrolling}
+                        popoverPlacement={consumer?.popoverPlacement}
+                      >
+                        {children || []}
+                      </SelectItemList>
+                    </DropdownProvider>
+                  );
                 }}
-              >
-                <SelectItemList
-                  id={popoverItemListId}
-                  ref={this.popoverRef}
-                  focusedDescendantId={ariaActiveDescendant}
-                  className={dropdownClassNames.itemList}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Tab') {
-                      event.preventDefault();
-                      this.focusToButtonAndClosePopover();
-                    }
-                  }}
-                  preventScrolling={preventListScrolling}
-                >
-                  {children || []}
-                </SelectItemList>
-              </DropdownProvider>
+              </PopoverConsumer>
             </Popover>
           )}
         </HtmlDiv>

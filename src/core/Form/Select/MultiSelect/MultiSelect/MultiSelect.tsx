@@ -247,6 +247,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   focusedDescendantId: string | null;
   selectedItems: Array<T & MultiSelectData>;
   chipRemovalAnnounceText: string;
+  popoverPlacement?: string;
 }
 
 class BaseMultiSelect<T> extends Component<
@@ -283,6 +284,7 @@ class BaseMultiSelect<T> extends Component<
       : this.props.defaultSelectedItems || [],
     chipRemovalAnnounceText: '',
     computedItems: this.props.items,
+    popoverPlacement: 'bottom',
   };
 
   static getDerivedStateFromProps<U>(
@@ -619,6 +621,14 @@ class BaseMultiSelect<T> extends Component<
           this.state.filterInputValue.toLowerCase(),
     );
 
+  private updatePopoverPlacement = (placement: string | undefined) => {
+    if (placement !== this.state.popoverPlacement) {
+      requestAnimationFrame(() => {
+        this.setState({ popoverPlacement: placement });
+      });
+    }
+  };
+
   render() {
     const {
       filteredItems,
@@ -764,6 +774,7 @@ class BaseMultiSelect<T> extends Component<
                   aria-controls={popoverItemListId}
                   disabled={disabled}
                   tooltipComponent={tooltipComponent}
+                  data-floating-ui-placement={this.state.popoverPlacement}
                 >
                   <InputToggleButton
                     open={showPopover}
@@ -789,87 +800,92 @@ class BaseMultiSelect<T> extends Component<
                 className={popoverClassName}
               >
                 <PopoverConsumer>
-                  {(consumer) => (
-                    <SelectItemList
-                      id={popoverItemListId}
-                      ref={this.popoverListRef}
-                      focusedDescendantId={ariaActiveDescendant}
-                      aria-multiselectable="true"
-                      {...listProps}
-                    >
-                      <>
-                        {!loading &&
-                          filteredItemsWithChecked.length > 0 &&
-                          filteredItemsWithChecked.map((item) => {
-                            const isCurrentlySelected =
-                              item.uniqueItemId === focusedDescendantId;
-                            return (
-                              <SelectItem
-                                hasKeyboardFocus={isCurrentlySelected}
-                                key={`${item.uniqueItemId}_${item.checked}`}
-                                id={`${id}-${item.uniqueItemId}`}
-                                checked={item.checked}
-                                disabled={item.disabled}
-                                onClick={() => {
-                                  this.handleItemSelection(item);
-                                  consumer.updatePopover();
-                                }}
-                                hightlightQuery={
-                                  this.filterInputRef.current?.value
+                  {(consumer) => {
+                    this.updatePopoverPlacement(consumer.popoverPlacement);
+                    return (
+                      <SelectItemList
+                        id={popoverItemListId}
+                        ref={this.popoverListRef}
+                        focusedDescendantId={ariaActiveDescendant}
+                        aria-multiselectable="true"
+                        popoverPlacement={consumer.popoverPlacement}
+                        {...listProps}
+                      >
+                        <>
+                          {!loading &&
+                            filteredItemsWithChecked.length > 0 &&
+                            filteredItemsWithChecked.map((item) => {
+                              const isCurrentlySelected =
+                                item.uniqueItemId === focusedDescendantId;
+                              return (
+                                <SelectItem
+                                  hasKeyboardFocus={isCurrentlySelected}
+                                  key={`${item.uniqueItemId}_${item.checked}`}
+                                  id={`${id}-${item.uniqueItemId}`}
+                                  checked={item.checked}
+                                  disabled={item.disabled}
+                                  onClick={() => {
+                                    this.handleItemSelection(item);
+                                    consumer.updatePopover();
+                                  }}
+                                  hightlightQuery={
+                                    this.filterInputRef.current?.value
+                                  }
+                                  {...item.listItemProps}
+                                >
+                                  {item.labelText}
+                                </SelectItem>
+                              );
+                            })}
+
+                          {!loading &&
+                            filteredItemsWithChecked.length === 0 &&
+                            !allowItemAddition && (
+                              <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                            )}
+
+                          {!loading &&
+                            filterInputValue !== '' &&
+                            !this.inputValueInItems() &&
+                            allowItemAddition && (
+                              <SelectItemAddition
+                                hintText={itemAdditionHelpText}
+                                hasKeyboardFocus={
+                                  filterInputValue === focusedDescendantId
                                 }
-                                {...item.listItemProps}
+                                id={`${id}-${filterInputValue.toLowerCase()}`}
+                                onClick={() => {
+                                  // @ts-expect-error: Cannot create an object which implements unknown generic type T
+                                  const item: T & MultiSelectData = {
+                                    labelText: filterInputValue,
+                                    uniqueItemId:
+                                      filterInputValue.toLowerCase(),
+                                  };
+                                  this.handleItemSelection(item);
+                                  this.setState({
+                                    focusedDescendantId:
+                                      filterInputValue.toLowerCase(),
+                                  });
+                                }}
                               >
-                                {item.labelText}
-                              </SelectItem>
-                            );
-                          })}
+                                {filterInputValue}
+                              </SelectItemAddition>
+                            )}
 
-                        {!loading &&
-                          filteredItemsWithChecked.length === 0 &&
-                          !allowItemAddition && (
-                            <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                          {loading && (
+                            <SelectEmptyItem className="loading">
+                              <LoadingSpinner
+                                status="loading"
+                                variant="small"
+                                textAlign="right"
+                                text={loadingText}
+                              />
+                            </SelectEmptyItem>
                           )}
-
-                        {!loading &&
-                          filterInputValue !== '' &&
-                          !this.inputValueInItems() &&
-                          allowItemAddition && (
-                            <SelectItemAddition
-                              hintText={itemAdditionHelpText}
-                              hasKeyboardFocus={
-                                filterInputValue === focusedDescendantId
-                              }
-                              id={`${id}-${filterInputValue.toLowerCase()}`}
-                              onClick={() => {
-                                // @ts-expect-error: Cannot create an object which implements unknown generic type T
-                                const item: T & MultiSelectData = {
-                                  labelText: filterInputValue,
-                                  uniqueItemId: filterInputValue.toLowerCase(),
-                                };
-                                this.handleItemSelection(item);
-                                this.setState({
-                                  focusedDescendantId:
-                                    filterInputValue.toLowerCase(),
-                                });
-                              }}
-                            >
-                              {filterInputValue}
-                            </SelectItemAddition>
-                          )}
-
-                        {loading && (
-                          <SelectEmptyItem className="loading">
-                            <LoadingSpinner
-                              status="loading"
-                              variant="small"
-                              textAlign="right"
-                              text={loadingText}
-                            />
-                          </SelectEmptyItem>
-                        )}
-                      </>
-                    </SelectItemList>
-                  )}
+                        </>
+                      </SelectItemList>
+                    );
+                  }}
                 </PopoverConsumer>
               </Popover>
             )}
