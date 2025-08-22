@@ -122,7 +122,6 @@ export const Popover = (props: PopoverProps) => {
     }
   }, [floatingUiRefs, floatingElement]);
 
-  // Safe ResizeObserver that defers state and avoids redundant updates
   useEffect(() => {
     if (!matchWidth || !sourceRef.current) return;
 
@@ -141,7 +140,6 @@ export const Popover = (props: PopoverProps) => {
     return () => ro.disconnect();
   }, [matchWidth, sourceRef]);
 
-  // ✨ Critical fix: defer placement propagation to consumers until next frame
   const [consumerPlacement, setConsumerPlacement] = useState<
     string | undefined
   >(undefined);
