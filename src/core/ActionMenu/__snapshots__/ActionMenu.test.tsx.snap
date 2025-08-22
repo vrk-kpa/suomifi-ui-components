@@ -139,12 +139,9 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c8 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  position: absolute;
-  left: 0px;
   top: 0px;
+  left: 0px;
+  width: max-content;
   transform: translate(0px, 0px);
 }
 
@@ -935,12 +932,9 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c8 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  position: absolute;
-  left: 0px;
   top: 0px;
+  left: 0px;
+  width: max-content;
   transform: translate(0px, 0px);
 }
 
@@ -1731,12 +1725,9 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c8 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  position: absolute;
-  left: 0px;
   top: 0px;
+  left: 0px;
+  width: max-content;
   transform: translate(0px, 0px);
 }
 
@@ -2527,12 +2518,9 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c8 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  position: absolute;
-  left: 0px;
   top: 0px;
+  left: 0px;
+  width: max-content;
   transform: translate(0px, 10px);
 }
 
@@ -3140,10 +3128,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c10"
+            class="c4 fi-action-menu-item c10 fi-action-menu-item--selected"
             id="test-id-menu-list-item-0"
             role="menuitem"
-            tabindex="-1"
+            tabindex="0"
             type="button"
           >
             Item 1
@@ -3325,12 +3313,9 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c8 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  position: absolute;
-  left: 0px;
   top: 0px;
+  left: 0px;
+  width: max-content;
   transform: translate(0px, 10px);
 }
 

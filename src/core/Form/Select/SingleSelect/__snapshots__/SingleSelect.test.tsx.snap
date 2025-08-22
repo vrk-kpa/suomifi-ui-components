@@ -224,14 +224,14 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c15 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  transform: translate(0px, 0px);
+  position: absolute!important;
+  top: 0!important;
+  left: 0!important;
+  width: max-content!important;
+  position: absolute!important;
+  left: 0px!important;
+  top: 0px!important;
+  transform: translate(0px, 0px)!important;
 }
 
 .c10 {
