@@ -622,6 +622,7 @@ class BaseMultiSelect<T> extends Component<
     );
 
   private updatePopoverPlacement = (placement: string | undefined) => {
+    if (!placement) return;
     if (placement !== this.state.popoverPlacement) {
       requestAnimationFrame(() => {
         this.setState({ popoverPlacement: placement });
