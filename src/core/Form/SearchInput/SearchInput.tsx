@@ -413,6 +413,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
               onSuggestionSelected(selectedItem.uniqueId);
             }
           }
+        } else if (!!this.state.value) {
+          onSearch(this.state.displayValue);
         }
       }
 
