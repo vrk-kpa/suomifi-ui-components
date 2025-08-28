@@ -142,11 +142,12 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   top: 0px;
   left: 0px;
   width: max-content;
-  transform: translate(0px, 0px);
+  transform: translate(0px, 10px);
 }
 
 .c12 {
   position: absolute;
+  left: 0px;
 }
 
 .c9 {
@@ -786,6 +787,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         <div
           aria-hidden="true"
           class="c7 c12 fi-action-menu-popover_floatingui-arrow"
+          data-floatingui-placement="bottom-end"
         />
       </div>
     </div>
@@ -935,11 +937,12 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   top: 0px;
   left: 0px;
   width: max-content;
-  transform: translate(0px, 0px);
+  transform: translate(0px, 10px);
 }
 
 .c12 {
   position: absolute;
+  left: 0px;
 }
 
 .c9 {
@@ -1579,6 +1582,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         <div
           aria-hidden="true"
           class="c7 c12 fi-action-menu-popover_floatingui-arrow"
+          data-floatingui-placement="bottom-end"
         />
       </div>
     </div>
@@ -1728,11 +1732,12 @@ exports[`No borders variant should match snapshot 1`] = `
   top: 0px;
   left: 0px;
   width: max-content;
-  transform: translate(0px, 0px);
+  transform: translate(0px, 10px);
 }
 
 .c12 {
   position: absolute;
+  left: 0px;
 }
 
 .c9 {
@@ -2372,6 +2377,7 @@ exports[`No borders variant should match snapshot 1`] = `
         <div
           aria-hidden="true"
           class="c7 c12 fi-action-menu-popover_floatingui-arrow"
+          data-floatingui-placement="bottom-end"
         />
       </div>
     </div>
@@ -3128,10 +3134,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c10 fi-action-menu-item--selected"
+            class="c4 fi-action-menu-item c10"
             id="test-id-menu-list-item-0"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
             type="button"
           >
             Item 1

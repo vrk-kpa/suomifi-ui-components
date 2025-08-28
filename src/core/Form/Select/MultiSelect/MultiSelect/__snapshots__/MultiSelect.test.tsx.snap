@@ -1268,6 +1268,7 @@ exports[`has matching snapshot 1`] = `
                   autocapitalize="none"
                   autocomplete="off"
                   class="c6 fi-filter-input_input"
+                  data-floating-ui-placement="bottom"
                   id="1"
                   placeholder="Choose your tool(s)"
                   spellcheck="false"
