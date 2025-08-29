@@ -3,6 +3,9 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const waitForPosition = () => act(async () => {});
+
 const tools = [
   {
     name: 'Jackhammer',
@@ -118,6 +121,7 @@ it('should not have basic accessibility issues', async () => {
 
 it('has matching snapshot', async () => {
   const { baseElement, getByRole } = render(BasicMultiSelect);
+  await waitForPosition();
   const textfield = getByRole('textbox') as HTMLInputElement;
   await act(async () => {
     fireEvent.focus(textfield);
@@ -249,6 +253,7 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
+    await waitForPosition();
     const textfield = getByRole('textbox') as HTMLInputElement;
     await act(async () => {
       fireEvent.change(textfield, { target: { value: 'hammer' } });
@@ -285,6 +290,7 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
+    await waitForPosition();
     let chips = container.querySelectorAll('.fi-chip');
     expect(chips).toHaveLength(0);
 
@@ -306,6 +312,7 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
+    await waitForPosition();
     const hammerItem = getByText('Hammer');
 
     await act(async () => {
@@ -356,6 +363,7 @@ describe('Controlled', () => {
     );
 
     const { container } = render(multiselect);
+    await waitForPosition();
     await waitFor(() => {
       expect(container.querySelectorAll('.fi-chip')).toHaveLength(2);
 
@@ -409,7 +417,7 @@ describe('Controlled', () => {
         ariaOptionChipRemovedText="removed"
       />
     );
-
+    await waitForPosition();
     const { getByText, getAllByText } = render(multiselect);
     const turtleChip = getByText('Turtle');
     await act(async () => {
@@ -480,6 +488,7 @@ describe('Controlled', () => {
     );
 
     const { getByRole, rerender, findAllByRole } = render(multiMutti);
+    await waitForPosition();
     const textfield = getByRole('textbox') as HTMLInputElement;
     await act(async () => {
       fireEvent.change(textfield, { target: { value: 'sn' } });
@@ -509,6 +518,7 @@ describe('Controlled', () => {
           id="mutti"
         />,
       );
+      await waitForPosition();
       const allOptions = await findAllByRole('option');
       expect(allOptions).toHaveLength(1);
     });
@@ -701,6 +711,7 @@ describe('custom item addition mode', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
+    await waitForPosition();
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.change(input, { target: { value: 'hamm' } });
@@ -794,6 +805,7 @@ describe('listProps', () => {
         }}
       />,
     );
+    await waitForPosition();
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.focus(input);
@@ -821,6 +833,7 @@ describe('listItemProps', () => {
         ariaOptionChipRemovedText=""
       />,
     );
+    await waitForPosition();
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.focus(input);

@@ -5,6 +5,9 @@ import { LanguageMenu, LanguageMenuProps } from './LanguageMenu';
 import { LanguageMenuItem } from './LanguageMenuItem/LanguageMenuItem';
 import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const waitForPosition = () => act(async () => {});
+
 type MenuProps = LanguageMenuProps &
   HTMLAttributesIncludingDataAttributes<HTMLButtonElement>;
 
@@ -41,13 +44,12 @@ describe('Basic LanguageMenu', () => {
     const { baseElement, getByRole } = render(
       TestLanguageMenu(languageMenuProps),
     );
+    await waitForPosition();
     const menuButton = getByRole('button');
     await act(async () => {
       fireEvent.click(menuButton);
-      await new Promise((resolve) => {
-        setTimeout(resolve, 100);
-      });
     });
+    await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
 });
@@ -58,6 +60,7 @@ describe('LanguageMenuItem', () => {
       const { getByRole, getAllByRole } = render(
         TestLanguageMenu(languageMenuProps),
       );
+      await waitForPosition();
       fireEvent.click(getByRole('button'));
       const item = getAllByRole('menuitem')[0];
       fireEvent.click(item);
@@ -172,6 +175,7 @@ describe('callbacks', () => {
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
+      await waitForPosition();
       fireEvent.click(getByRole('button'));
       await waitFor(() => {
         expect(mockOnOpen).toBeCalledTimes(1);
@@ -183,6 +187,7 @@ describe('callbacks', () => {
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
+      await waitForPosition();
       fireEvent.keyDown(getByRole('button'), { key: 'Enter' });
       await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
@@ -192,6 +197,7 @@ describe('callbacks', () => {
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
+      await waitForPosition();
       fireEvent.keyDown(getByRole('button'), { key: ' ' });
       await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
@@ -201,6 +207,7 @@ describe('callbacks', () => {
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
+      await waitForPosition();
       fireEvent.keyDown(getByRole('button'), { key: 'ArrowUp' });
       await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
@@ -210,6 +217,7 @@ describe('callbacks', () => {
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onOpen: mockOnOpen }),
       );
+      await waitForPosition();
       fireEvent.keyDown(getByRole('button'), { key: 'ArrowDown' });
       await waitFor(() => expect(mockOnOpen).toBeCalledTimes(1));
     });
@@ -221,6 +229,7 @@ describe('callbacks', () => {
       const { getByRole, getAllByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onClose: mockOnClose }),
       );
+      await waitForPosition();
       fireEvent.click(getByRole('button'));
       const item = getAllByRole('menuitem')[0];
       fireEvent.click(item);
@@ -233,6 +242,7 @@ describe('callbacks', () => {
       const { getByRole } = render(
         TestLanguageMenu({ ...languageMenuProps, onClose: mockOnClose }),
       );
+      await waitForPosition();
       fireEvent.click(getByRole('button'));
       await waitFor(() => expect(getByRole('menu')).toBeVisible());
       fireEvent.click(getByRole('button'));
