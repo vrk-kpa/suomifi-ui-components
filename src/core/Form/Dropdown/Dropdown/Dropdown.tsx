@@ -174,7 +174,7 @@ export interface DropdownProps<T extends string = string>
   /** Set component's width to 100% */
   fullWidth?: boolean;
   /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLButtonElement>;
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 class BaseDropdown<T extends string = string> extends Component<
@@ -773,12 +773,12 @@ const DropdownInner = <T extends string = string>(
 };
 
 // Not directly exporting the DropdownInner as styleguidist was not showing props then.
-export const Dropdown = React.forwardRef(DropdownInner) as <
-  T extends string = string,
->(
-  props: DropdownProps<T>,
-  ref: React.RefObject<HTMLButtonElement>,
-) => ReturnType<typeof DropdownInner>;
+export const Dropdown = React.forwardRef<
+  HTMLButtonElement,
+  DropdownProps<string>
+>(DropdownInner) as <T extends string = string>(
+  props: DropdownProps<T> & { ref?: React.Ref<HTMLButtonElement> },
+) => React.ReactElement | null;
 
 DropdownInner.displayName = 'Dropdown';
 export { DropdownProvider, DropdownConsumer };
