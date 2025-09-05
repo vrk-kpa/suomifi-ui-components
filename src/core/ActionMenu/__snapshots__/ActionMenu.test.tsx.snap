@@ -201,18 +201,18 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -220,17 +220,17 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -994,18 +994,18 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1013,17 +1013,17 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1787,18 +1787,18 @@ exports[`No borders variant should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1806,17 +1806,17 @@ exports[`No borders variant should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2581,18 +2581,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2600,17 +2600,17 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3376,18 +3376,18 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   pointer-events: none;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3395,17 +3395,17 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   bottom: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c9 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;

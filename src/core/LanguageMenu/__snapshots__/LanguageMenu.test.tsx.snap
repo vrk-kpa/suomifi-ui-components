@@ -176,18 +176,18 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   pointer-events: none;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -195,17 +195,17 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   bottom: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -611,18 +611,18 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   pointer-events: none;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
   bottom: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-bottom-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
   border-bottom-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
@@ -630,17 +630,17 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   bottom: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end'] {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
   top: 100%;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::before {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-top-color: hsl(0, 0%, 42%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top-end']::after {
+.c6 .fi-language-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
   border-top-color: hsl(0, 0%, 100%);
   border-width: 8px;
   margin-right: -9px;
