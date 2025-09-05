@@ -252,13 +252,49 @@ const BaseDateInput = (props: DateInputProps) => {
     language = defaultLanguage,
     dateAdapter = defaultDateAdapter(),
     shouldDisableDate,
-    minDate = moveYears(firstDayOfMonth(new Date()), -10),
-    maxDate = moveYears(lastDayOfMonth(new Date()), 10),
+    minDate: userMinDate,
+    maxDate: userMaxDate,
     initialDate,
     tooltipComponent,
     style,
     ...rest
   } = props;
+
+  // Calculate default date range
+  const defaultMinDate = moveYears(firstDayOfMonth(new Date()), -10);
+  const defaultMaxDate = moveYears(lastDayOfMonth(new Date()), 10);
+
+  // Use user-provided dates if available, otherwise use defaults
+  const userProvidedMinDate = userMinDate;
+  const userProvidedMaxDate = userMaxDate;
+
+  // Calculate effective min and max dates ensuring they form a valid range
+  let effectiveMinDate: Date;
+  let effectiveMaxDate: Date;
+
+  if (userProvidedMinDate && userProvidedMaxDate) {
+    // Both provided - use them directly
+    effectiveMinDate = userProvidedMinDate;
+    effectiveMaxDate = userProvidedMaxDate;
+  } else if (userProvidedMinDate && !userProvidedMaxDate) {
+    // Only minDate provided - extend maxDate if needed
+    effectiveMinDate = userProvidedMinDate;
+    effectiveMaxDate =
+      userProvidedMinDate > defaultMaxDate
+        ? moveYears(userProvidedMinDate, 10)
+        : defaultMaxDate;
+  } else if (!userProvidedMinDate && userProvidedMaxDate) {
+    // Only maxDate provided - extend minDate if needed
+    effectiveMaxDate = userProvidedMaxDate;
+    effectiveMinDate =
+      userProvidedMaxDate < defaultMinDate
+        ? moveYears(userProvidedMaxDate, -10)
+        : defaultMinDate;
+  } else {
+    // Neither provided - use defaults
+    effectiveMinDate = defaultMinDate;
+    effectiveMaxDate = defaultMaxDate;
+  }
   const [_marginProps, passProps] = separateMarginProps(rest);
 
   const hintTextId = `${id}-hintText`;
@@ -337,7 +373,7 @@ const BaseDateInput = (props: DateInputProps) => {
       );
       return null;
     }
-    if (!dayIsInRange(date, minDate, maxDate)) {
+    if (!dayIsInRange(date, effectiveMinDate, effectiveMaxDate)) {
       getLogger().warn(
         `Date input value "${newValue}" is not within interval [minDate, maxDate]`,
       );
@@ -455,8 +491,8 @@ const BaseDateInput = (props: DateInputProps) => {
                 initialDate={initialDate}
                 inputValue={inputValueAsDate}
                 texts={texts}
-                minDate={minDate}
-                maxDate={maxDate}
+                minDate={effectiveMinDate}
+                maxDate={effectiveMaxDate}
                 smallScreen={smallScreen}
                 userProps={customDatePickerProps}
                 position={datePickerPosition}
