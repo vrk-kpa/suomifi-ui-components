@@ -961,7 +961,7 @@ describe('props', () => {
 
   describe('dates outside default range', () => {
     it('should handle minDate beyond default +10 year range', () => {
-      const futureMinDate = new Date(2034, 0, 1); // January 1, 2034 - over 10 years from now
+      const futureMinDate = new Date(2100, 0, 1); // January 1, 2100 - over 10 years from now
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Future date"
@@ -982,7 +982,7 @@ describe('props', () => {
       const yearDropdown = baseElement.querySelector(
         '.fi-date-selectors_year-select button',
       );
-      expect(yearDropdown).toHaveTextContent('2034');
+      expect(yearDropdown).toHaveTextContent('2100');
       cleanup();
     });
 
@@ -1013,8 +1013,8 @@ describe('props', () => {
     });
 
     it('should handle user date range that spans outside defaults', () => {
-      const futureMinDate = new Date(2035, 0, 1); // January 1, 2035
-      const futureMaxDate = new Date(2040, 11, 31); // December 31, 2040
+      const futureMinDate = new Date(2100, 0, 1); // January 1, 2100
+      const futureMaxDate = new Date(2140, 11, 31); // December 31, 2140
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Far future date range"
@@ -1036,7 +1036,7 @@ describe('props', () => {
       const yearDropdown = baseElement.querySelector(
         '.fi-date-selectors_year-select button',
       );
-      expect(yearDropdown).toHaveTextContent('2035');
+      expect(yearDropdown).toHaveTextContent('2100');
       cleanup();
     });
   });
