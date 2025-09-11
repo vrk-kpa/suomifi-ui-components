@@ -37,6 +37,23 @@ export const baseStyles = (
       border-bottom: 0;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+
+      &[data-floating-ui-placement^='top'] {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: ${theme.radiuses.basic};
+        border-bottom-right-radius: ${theme.radiuses.basic};
+        border-top: 0;
+        border-bottom: 1px solid ${theme.colors.depthDark3};
+      }
+    }
+
+    .fi-filter-input--error {
+      .fi-filter-input_input {
+        &[data-floating-ui-placement^='top'] {
+          border-bottom: 2px solid ${theme.colors.alertBase};
+        }
+      }
     }
   }
 
