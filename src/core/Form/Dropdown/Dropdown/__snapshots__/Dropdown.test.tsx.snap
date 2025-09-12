@@ -280,6 +280,15 @@ exports[`Basic dropdown should match snapshot 1`] = `
   outline: none;
 }
 
+.c9[data-floating-ui-placement^='top'] {
+  border-width: 1px 1px 0 1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 0;
+}
+
 .c7 {
   letter-spacing: 0;
   text-decoration: none;
@@ -446,9 +455,24 @@ exports[`Basic dropdown should match snapshot 1`] = `
   padding-bottom: 8px;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c1.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
@@ -584,6 +608,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
           class="c5 fi-dropdown_button"
+          data-floating-ui-placement="bottom"
           id="test-id_button"
           tabindex="0"
           type="button"
@@ -622,6 +647,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
       <ul
         aria-activedescendant="test-id-item-1"
         class="c8 fi-select-item-list c9 fi-dropdown_item-list"
+        data-floating-ui-placement="bottom"
         id="test-id-popover"
         role="listbox"
         tabindex="0"
@@ -932,6 +958,15 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   outline: none;
 }
 
+.c9[data-floating-ui-placement^='top'] {
+  border-width: 1px 1px 0 1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 0;
+}
+
 .c12 {
   vertical-align: baseline;
 }
@@ -1122,9 +1157,24 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   padding-bottom: 8px;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c1.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
@@ -1260,6 +1310,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
           class="c5 fi-dropdown_button"
+          data-floating-ui-placement="bottom"
           id="test-id_button"
           tabindex="0"
           type="button"
@@ -1299,6 +1350,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       <ul
         aria-activedescendant="test-id-item-2"
         class="c8 fi-select-item-list c9 fi-dropdown_item-list"
+        data-floating-ui-placement="bottom"
         id="test-id-popover"
         role="listbox"
         tabindex="0"
@@ -1625,6 +1677,15 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   outline: none;
 }
 
+.c9[data-floating-ui-placement^='top'] {
+  border-width: 1px 1px 0 1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 0;
+}
+
 .c7 {
   letter-spacing: 0;
   text-decoration: none;
@@ -1791,9 +1852,24 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   padding-bottom: 8px;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c1.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
@@ -1929,6 +2005,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue additional-label-id test-id-label"
           class="c5 fi-dropdown_button"
+          data-floating-ui-placement="bottom"
           id="test-id_button"
           tabindex="0"
           type="button"
@@ -1967,6 +2044,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       <ul
         aria-activedescendant="test-id-item-1"
         class="c8 fi-select-item-list c9 fi-dropdown_item-list"
+        data-floating-ui-placement="bottom"
         id="test-id-popover"
         role="listbox"
         tabindex="0"
@@ -2369,9 +2447,24 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   padding-bottom: 8px;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c1.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c1.fi-dropdown--italicize .fi-dropdown_button {
@@ -2441,6 +2534,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
           class="c6 fi-dropdown_button"
+          data-floating-ui-placement="bottom"
           id="test-id_button"
           tabindex="0"
           type="button"

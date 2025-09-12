@@ -115,6 +115,17 @@ export const baseStyles = (
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         padding-bottom: 8px;
+
+        &[data-floating-ui-placement^='top'] {
+          border-bottom: 1px solid ${theme.colors.depthDark3};
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-left-radius: ${theme.radiuses.basic};
+          border-bottom-right-radius: ${theme.radiuses.basic};
+          border-top: 0;
+          padding-top: 8px;
+          box-shadow: none;
+        }
       }
     }
 
@@ -122,6 +133,10 @@ export const baseStyles = (
       .fi-dropdown_button {
         border-color: ${theme.colors.alertBase};
         border-width: 2px;
+
+        &[data-floating-ui-placement^='top'] {
+          border-bottom: 2px solid ${theme.colors.alertBase};
+        }
       }
     }
 
