@@ -958,4 +958,86 @@ describe('props', () => {
       });
     });
   });
+
+  describe('dates outside default range', () => {
+    it('should handle minDate beyond default +10 year range', () => {
+      const futureMinDate = new Date(2100, 0, 1); // January 1, 2100 - over 10 years from now
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Future date"
+          hintText="Use format D.M.YYYY"
+          language="en"
+          datePickerEnabled
+          minDate={futureMinDate}
+        />,
+      );
+
+      // Should not crash when opening calendar
+      fireEvent.click(getByRole('button'));
+
+      // Calendar should be visible
+      expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+
+      // Year dropdown should contain the future year
+      const yearDropdown = baseElement.querySelector(
+        '.fi-date-selectors_year-select button',
+      );
+      expect(yearDropdown).toHaveTextContent('2100');
+      cleanup();
+    });
+
+    it('should handle maxDate before default -10 year range', () => {
+      const pastMaxDate = new Date(2013, 11, 31); // December 31, 2013 - over 10 years ago
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Past date"
+          hintText="Use format D.M.YYYY"
+          language="en"
+          datePickerEnabled
+          maxDate={pastMaxDate}
+        />,
+      );
+
+      // Should not crash when opening calendar
+      fireEvent.click(getByRole('button'));
+
+      // Calendar should be visible
+      expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+
+      // Year dropdown should contain the past year
+      const yearDropdown = baseElement.querySelector(
+        '.fi-date-selectors_year-select button',
+      );
+      expect(yearDropdown).toHaveTextContent('2013');
+      cleanup();
+    });
+
+    it('should handle user date range that spans outside defaults', () => {
+      const futureMinDate = new Date(2100, 0, 1); // January 1, 2100
+      const futureMaxDate = new Date(2140, 11, 31); // December 31, 2140
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Far future date range"
+          hintText="Use format D.M.YYYY"
+          language="en"
+          datePickerEnabled
+          minDate={futureMinDate}
+          maxDate={futureMaxDate}
+        />,
+      );
+
+      // Should not crash when opening calendar
+      fireEvent.click(getByRole('button'));
+
+      // Calendar should be visible
+      expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+
+      // Should start with the minDate year
+      const yearDropdown = baseElement.querySelector(
+        '.fi-date-selectors_year-select button',
+      );
+      expect(yearDropdown).toHaveTextContent('2100');
+      cleanup();
+    });
+  });
 });
