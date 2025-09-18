@@ -143,6 +143,8 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Breakpoints
 
+Breakpoint tokens use pixel values and range from `s` (576px) to `xxl` (1400px) and follow the values of bootstrap for easy implementation. Breakpoint tokens are of type _`BreakpointDesignTokens`_.
+
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
 import { ThemeProps } from '../src/docs/Theme/ThemeProps';
