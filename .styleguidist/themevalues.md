@@ -141,6 +141,22 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 </SuomifiThemeConsumer>;
 ```
 
+### Breakpoints
+
+```js noeditor
+import { SuomifiThemeConsumer } from '../src/core/theme';
+import { ThemeProps } from '../src/docs/Theme/ThemeProps';
+
+<SuomifiThemeConsumer>
+  {({ suomifiTheme }) => (
+    <ThemeProps
+      title="breakpoints:"
+      values={suomifiTheme.breakpoints}
+    />
+  )}
+</SuomifiThemeConsumer>;
+```
+
 ### Raw token values
 
 Theme values is of type _`RawDesignTokens`_ and provides colors, typograhpy and spacing design tokens in more granular format for use with custom styles. Values have no effect on the theme and are only provided for further use.
