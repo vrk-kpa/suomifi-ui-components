@@ -30,6 +30,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-bottom-right-radius: 0;
     border-top-left-radius: ${theme.radiuses.basic};
     border-top-right-radius: ${theme.radiuses.basic};
-    padding: 0;
+    padding: 0 0 4px 0;
   }
 `;
