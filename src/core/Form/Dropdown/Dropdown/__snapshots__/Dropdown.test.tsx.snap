@@ -286,7 +286,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-bottom-right-radius: 0;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  padding: 0;
+  padding: 0 0 4px 0;
 }
 
 .c7 {
@@ -964,7 +964,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   border-bottom-right-radius: 0;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  padding: 0;
+  padding: 0 0 4px 0;
 }
 
 .c12 {
@@ -1683,7 +1683,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-bottom-right-radius: 0;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  padding: 0;
+  padding: 0 0 4px 0;
 }
 
 .c7 {
