@@ -17,12 +17,10 @@ export const baseStyles = (
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
   ${fixInternalMargins()}
-  width: 290px;
 
   & .fi-search-input {
     &_wrapper {
       width: 100%;
-      min-width: 105px;
       display: inline-block;
 
       & .fi-search-input_label--visible {
@@ -36,15 +34,11 @@ export const baseStyles = (
 
     &_functionality-container {
       position: relative;
-    }
+      display: flex;
+      width: 100%;
+      min-width: 0;
 
-    &_input-element-container {
-      background-color: ${theme.colors.whiteBase};
-      color: ${theme.colors.blackBase};
-      ${containerIEFocus(theme)}
-
-      &:focus-within {
-        position: relative;
+      &:has(.fi-search-input_input:focus) {
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         ${theme.focuses.highContrastFocus}
         &:after {
@@ -54,24 +48,40 @@ export const baseStyles = (
           right: -3px;
           left: -3px;
         }
-        > input:focus {
+        .fi-search-input_input:focus {
           outline: none;
         }
       }
-      width: 100%;
+    }
+
+    &_input-element-container {
+      background-color: ${theme.colors.whiteBase};
+      color: ${theme.colors.blackBase};
+      ${containerIEFocus(theme)}
+      min-width: 105px;
       height: 40px;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};
-      border-radius: ${theme.radiuses.basic};
+      border-radius: ${theme.radiuses.basic} 0 0 ${theme.radiuses.basic};
+
+      & .fi-search-input_search-icon {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: ${theme.spacing.insetL};
+        right: ${theme.spacing.insetL};
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.depthDark1};
+        }
+      }
     }
 
     &_input {
       ${input(theme)}
       padding-top: ${theme.spacing.insetS};
       padding-bottom: ${theme.spacing.insetS};
-      width: calc(100% - 24px);
-      min-width: 65px;
       border: 0;
+      max-width: 250px;
       min-height: 36px;
       margin-top: 1px;
       margin-bottom: 1px;
@@ -100,18 +110,36 @@ export const baseStyles = (
     }
 
     &_button {
-      position: absolute;
-      top: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
       outline: none;
       box-shadow: none;
+      white-space: nowrap;
       cursor: default;
-      pointer-events: none;
+      /* Support for high contrast mode */
+      @media (forced-colors: active) {
+        border: solid 1px ButtonBorder;
+      }
+      &:hover {
+        background: ${theme.gradients.highlightLight1ToHighlightBase};
+      }
+      &:active {
+        background-color: ${theme.colors.highlightDark1};
+      }
+      & .fi-icon-base-fill {
+        fill: ${theme.colors.whiteBase};
+
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
+      }
+
       &-clear {
-        right: 40px;
+        position: absolute;
+        top: 0;
+        right: 0px;
         clip: rect(0 0 0 0);
         height: 1px;
         width: 1px;
@@ -131,11 +159,7 @@ export const baseStyles = (
           }
         }
       }
-
       &-search {
-        right: 0px;
-        height: 40px;
-        width: 40px;
         border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
         border: 0;
         &-icon {
@@ -151,6 +175,11 @@ export const baseStyles = (
 
   &.fi-search-input--full-width {
     width: 100%;
+    max-width: none;
+    & .fi-search-input_input-element-container {
+      max-width: none;
+      width: 100%;
+    }
   }
 
   &.fi-search-input--error {
@@ -166,14 +195,7 @@ export const baseStyles = (
 
   &.fi-search-input--not-empty {
     & .fi-search-input_input-element-container {
-      width: calc(100% - 40px);
-      border-radius: ${theme.radiuses.basic} 0 0 ${theme.radiuses.basic};
-      border-right: 0;
-    }
-
-    & .fi-search-input_button {
-      cursor: pointer;
-      pointer-events: all;
+      position: relative;
     }
 
     & .fi-search-input_button-clear {
@@ -181,7 +203,7 @@ export const baseStyles = (
       overflow: visible;
       height: 20px;
       width: 20px;
-      margin: 10px;
+      margin: 9px;
 
       & .fi-icon-base-fill {
         @media (forced-colors: active) {
@@ -190,34 +212,10 @@ export const baseStyles = (
       }
     }
 
-    & .fi-search-input_button-search {
-      background: ${theme.gradients.highlightBaseToHighlightDark1};
-
-      /* Support for high contrast mode */
-      @media (forced-colors: active) {
-        border: solid 1px ButtonBorder;
-      }
-
-      &:focus {
-        &:after {
-          ${theme.focuses.absoluteFocus}
-        }
-
-        ${theme.focuses.highContrastFocus}/* For high contrast mode */
-      }
-      &:hover {
-        background: ${theme.gradients.highlightLight1ToHighlightBase};
-      }
-      &:active {
-        background-color: ${theme.colors.highlightDark1};
-      }
-      & .fi-search-input_button-search-icon .fi-icon-base-fill {
-        fill: ${theme.colors.whiteBase};
-
-        @media (forced-colors: active) {
-          fill: ButtonText;
-        }
-      }
+    &
+      .fi-search-input_functionality-container:has(.fi-search-input_search-icon)
+      .fi-search-input_button-clear {
+      right: 32px;
     }
   }
 `;

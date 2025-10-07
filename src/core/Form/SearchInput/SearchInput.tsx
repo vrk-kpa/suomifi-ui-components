@@ -162,7 +162,7 @@ const searchInputClassNames = {
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
-  searchIcon: `${baseClassName}_button-search-icon`,
+  searchIcon: `${baseClassName}_search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
   suggestions: `${baseClassName}_suggestions`,
@@ -549,7 +549,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                       cancelDebounce();
                     }}
                   />
-                  {!this.props.onSearch && <IconSearch className="iconyeah" />}
+                  {!this.props.onSearch && (
+                    <IconSearch className={searchInputClassNames.searchIcon} />
+                  )}
                 </HtmlDiv>
                 {this.props.onSearch && (
                   <Button
