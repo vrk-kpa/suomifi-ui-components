@@ -26,7 +26,6 @@ import {
   HtmlInputProps,
   HtmlSpan,
   HtmlDiv,
-  HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
@@ -43,6 +42,7 @@ import {
 import { Popover } from '../../Popover/Popover';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 import { SuggestionList } from './SuggestionList/SuggestionList';
+import { Button } from '../../Button/Button';
 
 export type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
@@ -145,6 +145,8 @@ export type SearchInputProps = StatusTextCommonProps &
     debounce?: number;
     /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
     forwardedRef?: React.RefObject<HTMLInputElement>;
+    /** Make the button content visible */
+    showButtonText?: boolean;
   };
 
 const baseClassName = 'fi-search-input';
@@ -298,6 +300,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ariaOptionsAvailableText,
       onSuggestionSelected,
       popoverClassName,
+      showButtonText = true,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -458,13 +461,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     const searchButtonDerivedProps = {
       ...searchButtonProps,
       className: classnames(
-        searchButtonProps?.className,
         searchInputClassNames.button,
         searchInputClassNames.searchButton,
+        searchButtonProps?.className,
       ),
-      ...(!!this.state.value
-        ? { onClick: () => onSearch(this.state.displayValue) }
-        : { tabIndex: -1, hidden: true }),
+      onClick: this.state.value
+        ? () => onSearch(this.state.displayValue)
+        : undefined,
     };
     const clearButtonProps = {
       className: classnames(
@@ -538,22 +541,32 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     onKeyPress={onKeyPress}
                     onKeyDown={onKeyDown}
                   />
-                </HtmlDiv>
-                <InputClearButton
-                  {...clearButtonProps}
-                  label={clearButtonLabel}
-                  onClick={() => {
-                    onClear();
-                    cancelDebounce();
-                  }}
-                />
-                <HtmlButton {...searchButtonDerivedProps}>
-                  <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-                  <IconSearch
-                    aria-hidden={true}
-                    className={searchInputClassNames.searchIcon}
+                  <InputClearButton
+                    {...clearButtonProps}
+                    label={clearButtonLabel}
+                    onClick={() => {
+                      onClear();
+                      cancelDebounce();
+                    }}
                   />
-                </HtmlButton>
+                  {!this.props.onSearch && <IconSearch className="iconyeah" />}
+                </HtmlDiv>
+                {this.props.onSearch && (
+                  <Button
+                    {...{
+                      ...searchButtonDerivedProps,
+                      forwardedRef: undefined,
+                    }}
+                    aria-disabled={!!searchButtonDerivedProps.disabled}
+                    icon={<IconSearch />}
+                  >
+                    {showButtonText ? (
+                      searchButtonLabel
+                    ) : (
+                      <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+                    )}
+                  </Button>
+                )}
               </HtmlDiv>
             )}
           </Debounce>
