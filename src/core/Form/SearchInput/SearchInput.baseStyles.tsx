@@ -112,8 +112,6 @@ export const baseStyles = (
 
     &_button {
       flex: 0 0 auto;
-      justify-content: center;
-      align-items: center;
       box-sizing: border-box;
       outline: none;
       box-shadow: none;
@@ -179,11 +177,9 @@ export const baseStyles = (
     max-width: none;
     & .fi-search-input_wrapper {
       max-width: none;
-      width: 100%;
     }
     & .fi-search-input_input-element-container {
       max-width: none;
-      width: 100%;
     }
   }
 
