@@ -22,6 +22,7 @@ export const baseStyles = (
     &_wrapper {
       width: 100%;
       display: inline-block;
+      max-width: 320px;
 
       & .fi-search-input_label--visible {
         margin-bottom: ${theme.spacing.xs};
@@ -35,8 +36,6 @@ export const baseStyles = (
     &_functionality-container {
       position: relative;
       display: flex;
-      width: 100%;
-      min-width: 0;
 
       &:has(.fi-search-input_input:focus) {
         box-shadow: ${theme.shadows.actionElementBoxShadow};
@@ -58,7 +57,7 @@ export const baseStyles = (
       background-color: ${theme.colors.whiteBase};
       color: ${theme.colors.blackBase};
       ${containerIEFocus(theme)}
-      min-width: 105px;
+      flex-grow: 3;
       height: 40px;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};
@@ -81,7 +80,7 @@ export const baseStyles = (
       padding-top: ${theme.spacing.insetS};
       padding-bottom: ${theme.spacing.insetS};
       border: 0;
-      max-width: 250px;
+      min-width: unset;
       min-height: 36px;
       margin-top: 1px;
       margin-bottom: 1px;
@@ -176,6 +175,10 @@ export const baseStyles = (
   &.fi-search-input--full-width {
     width: 100%;
     max-width: none;
+    & .fi-search-input_wrapper {
+      max-width: none;
+      width: 100%;
+    }
     & .fi-search-input_input-element-container {
       max-width: none;
       width: 100%;

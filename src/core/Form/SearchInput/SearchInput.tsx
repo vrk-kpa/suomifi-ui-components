@@ -27,6 +27,7 @@ import {
   HtmlSpan,
   HtmlDiv,
   HtmlButtonProps,
+  HtmlDivWithRef,
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
@@ -184,6 +185,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   };
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
+
+  private wrapperRef = createRef<HTMLDivElement>();
 
   private popoverListRef: React.RefObject<HTMLUListElement> =
     createRef<HTMLUListElement>();
@@ -480,13 +483,14 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     };
 
     return (
-      <HtmlDiv
+      <HtmlDivWithRef
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
         style={style}
+        forwardedRef={this.wrapperRef}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
           <Label
@@ -590,7 +594,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         </HtmlSpan>
         {this.state.showPopover && (
           <Popover
-            sourceRef={this.inputRef}
+            sourceRef={this.wrapperRef}
             matchWidth={true}
             onKeyDown={onKeyDown}
             onClickOutside={() => {
@@ -634,7 +638,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             )}
           </Popover>
         )}
-      </HtmlDiv>
+      </HtmlDivWithRef>
     );
   }
 }
