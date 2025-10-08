@@ -116,7 +116,9 @@ export type SearchInputProps = StatusTextCommonProps &
     visualPlaceholder?: string;
     /** Screen reader label for the 'Clear' button */
     clearButtonLabel: string;
-    /** Screen reader label for the 'Search' button */
+    /** Label for the 'Search' button. Set as aria-label by default and
+     * used as visible button content when showSearchButtonLabel is set to true.
+     */
     searchButtonLabel: string;
     /** Props passed to the 'Search' button */
     searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
@@ -146,8 +148,10 @@ export type SearchInputProps = StatusTextCommonProps &
     debounce?: number;
     /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
     forwardedRef?: React.RefObject<HTMLInputElement>;
-    /** Make the button content visible */
-    showButtonText?: boolean;
+    /** Make the button content visible
+     * @default false
+     */
+    showSearchButtonLabel?: boolean;
   };
 
 const baseClassName = 'fi-search-input';
@@ -303,7 +307,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ariaOptionsAvailableText,
       onSuggestionSelected,
       popoverClassName,
-      showButtonText = true,
+      showSearchButtonLabel = false,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -471,6 +475,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       onClick: this.state.value
         ? () => onSearch(this.state.displayValue)
         : undefined,
+      ariaLabel: showSearchButtonLabel ? null : searchButtonLabel,
     };
     const clearButtonProps = {
       className: classnames(
@@ -566,11 +571,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     aria-disabled={!!searchButtonDerivedProps.disabled}
                     icon={<IconSearch />}
                   >
-                    {showButtonText ? (
-                      searchButtonLabel
-                    ) : (
-                      <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-                    )}
+                    {showSearchButtonLabel && searchButtonLabel}
                   </Button>
                 )}
               </HtmlDiv>
