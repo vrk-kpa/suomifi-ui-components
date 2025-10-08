@@ -7,7 +7,6 @@ import {
   fixInternalMargins,
 } from '../../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../../theme/utils/spacing';
-
 export const baseStyles = (
   theme: SuomifiTheme,
   globalMargins?: MarginProps,
@@ -17,12 +16,12 @@ export const baseStyles = (
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
   ${fixInternalMargins()}
+  width: 290px;
 
   & .fi-search-input {
     &_wrapper {
       width: 100%;
       display: inline-block;
-      max-width: 320px;
 
       & .fi-search-input_label--visible {
         margin-bottom: ${theme.spacing.xs};
@@ -36,6 +35,7 @@ export const baseStyles = (
     &_functionality-container {
       position: relative;
       display: flex;
+      width: 100%;
 
       &:has(.fi-search-input_input:focus) {
         box-shadow: ${theme.shadows.actionElementBoxShadow};
@@ -57,8 +57,8 @@ export const baseStyles = (
       background-color: ${theme.colors.whiteBase};
       color: ${theme.colors.blackBase};
       ${containerIEFocus(theme)}
-      flex-grow: 3;
       height: 40px;
+      width: 100%;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};
       border-radius: ${theme.radiuses.basic} 0 0 ${theme.radiuses.basic};
@@ -80,7 +80,9 @@ export const baseStyles = (
       padding-top: ${theme.spacing.insetS};
       padding-bottom: ${theme.spacing.insetS};
       border: 0;
-      min-width: unset;
+      flex-grow: 3;
+      min-width: 105px;
+      width: 100%;
       min-height: 36px;
       margin-top: 1px;
       margin-bottom: 1px;
@@ -109,7 +111,7 @@ export const baseStyles = (
     }
 
     &_button {
-      display: flex;
+      flex: 0 0 auto;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
