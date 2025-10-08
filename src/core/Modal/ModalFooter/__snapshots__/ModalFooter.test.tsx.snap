@@ -182,6 +182,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   padding-right: 15px;
   padding-bottom: 20px;
   padding-left: 30px;
+  display: flex;
 }
 
 .c2.fi-modal_footer .fi-modal_footer_content>* {
@@ -207,6 +208,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   padding-right: 0;
   padding-bottom: 15px;
   padding-left: 15px;
+  flex-direction: column;
 }
 
 .c2.fi-modal_footer--small-screen .fi-modal_footer_content>* {
