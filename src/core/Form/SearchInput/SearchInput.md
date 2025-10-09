@@ -3,7 +3,7 @@ The `<SearchInput>` component is intended for searching the site or a specific s
 Examples:
 
 - [Basic use](./#/Components/SearchInput?id=basic-use)
-- [Inside a form](./#/Components/SearchInput?id=inside-a-form)
+- [Without search button](./#/Components/SearchInput?id=without-search-button)
 - [Default value](./#/Components/SearchInput?id=default-value)
 - [Controlled value](./#/Components/SearchInput?id=controlled-value)
 - [Error status](./#/Components/SearchInput?id=error-status)
@@ -21,25 +21,34 @@ Examples:
 - Provide a visible `labelText` and accessible button texts with `searchButtonLabel` and `clearButtonLabel`
 - The `visualPlaceholder` prop is used to apply a placeholder text to the input. For accessibility reasons, do not use placeholders for instructions
 - Use the `onSearch()` function to run search logic
-- Clear button and search button appear when text is inserted into the input
+- Clear button appears when text is inserted into the input
+- You can set the `searchButtonLabel` as the visible button content by using the `showSearchButtonLabel` prop
 
 ```jsx
 import { SearchInput } from 'suomifi-ui-components';
+<>
+  <SearchInput
+    labelText="Search the site"
+    searchButtonLabel="Search"
+    clearButtonLabel="Clear"
+    visualPlaceholder="Write search terms..."
+    onSearch={(value) => console.log(`Searching for ${value}...`)}
+  />
 
-<SearchInput
-  labelText="Search the site"
-  searchButtonLabel="Search"
-  clearButtonLabel="Clear"
-  visualPlaceholder="Write search terms..."
-  onSearch={(value) => console.log(`Searching for ${value}...`)}
-/>;
+  <SearchInput
+    labelText="Search the site"
+    searchButtonLabel="Search"
+    showSearchButtonLabel
+    clearButtonLabel="Clear"
+    visualPlaceholder="Write search terms..."
+    onSearch={(value) => console.log(`Searching for ${value}...`)}
+  />
+</>;
 ```
 
-### Inside a form
+### Without search button
 
-SearchInput can easily be used inside a HTML form. In this use case, provide the `name` prop instead of `onSearch()`.
-
-The example below takes you to the Suomi.fi page search.
+SearchInput can easily be used as a regular search input without the built-in button. Simply omit the `onSearch()` prop, and provide a `name` prop if desired. This makes it easy to use the component e.g. in a form.
 
 ```jsx
 import { SearchInput } from 'suomifi-ui-components';
@@ -50,7 +59,7 @@ import { SearchInput } from 'suomifi-ui-components';
     searchButtonLabel="Search"
     clearButtonLabel="Clear"
     visualPlaceholder="Write search terms..."
-    name="q"
+    name="site-search"
   />
 </form>;
 ```
