@@ -72,7 +72,7 @@ describe('props', () => {
         TestSearchInput({ onSearch: jest.fn(), defaultValue: '' }),
       );
       const buttons = queryAllByRole('button');
-      expect(buttons).toHaveLength(2);
+      expect(buttons).toHaveLength(1);
     });
 
     it('should have two buttons present when onSearch is defined and input has value', () => {

@@ -53,34 +53,6 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4 ::before,
-.c4 ::after {
-  box-sizing: border-box;
-}
-
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -106,6 +78,34 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c0 ::before,
 .c0 ::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
@@ -261,7 +261,7 @@ exports[`snapshot should have matching default structure 1`] = `
   fill: hsl(166, 90%, 34%);
 }
 
-.c3.fi-label .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
@@ -276,14 +276,14 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(0, 0%, 13%);
 }
 
-.c3.fi-label .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c3.fi-label .fi-label_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -594,6 +594,25 @@ exports[`snapshot should have matching default structure 1`] = `
   right: 32px;
 }
 
+.c1.fi-search-input--suggestions-open .fi-search-input_functionality-container[data-floating-ui-placement^='top']>* {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+}
+
+.c1.fi-search-input--suggestions-open .fi-search-input_functionality-container>* {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c1.fi-search-input--suggestions-open .fi-search-input--error .fi-search-input_functionality-container>*[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
+}
+
 @media (forced-colors: active) {
   .c1 .fi-search-input_button {
     border: solid 1px ButtonBorder;
@@ -619,7 +638,7 @@ exports[`snapshot should have matching default structure 1`] = `
     class="c2 fi-search-input_wrapper"
   >
     <div
-      class="c0 c3 fi-search-input_label--visible fi-label"
+      class="c3 c4 fi-search-input_label--visible fi-label"
     >
       <label
         class="c2 fi-label_label-span"
@@ -629,10 +648,11 @@ exports[`snapshot should have matching default structure 1`] = `
       </label>
     </div>
     <div
-      class="c4 fi-search-input_functionality-container"
+      class="c3 fi-search-input_functionality-container"
+      data-floating-ui-placement="bottom"
     >
       <div
-        class="c4 fi-search-input_input-element-container"
+        class="c0 fi-search-input_input-element-container"
       >
         <input
           aria-invalid="false"
