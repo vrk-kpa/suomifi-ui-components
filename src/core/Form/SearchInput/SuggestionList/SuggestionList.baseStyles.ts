@@ -20,8 +20,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-left: -1px;
   &:focus {
     outline: none;
+  }
+
+  &[data-floating-ui-placement^='top'] {
+    border-width: 1px 1px 0 1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: ${theme.radiuses.basic};
+    border-top-right-radius: ${theme.radiuses.basic};
+    padding: 0 0 4px 0;
   }
 `;

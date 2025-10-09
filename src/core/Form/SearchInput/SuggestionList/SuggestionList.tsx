@@ -30,6 +30,8 @@ export interface SuggestionListProps {
   id: string;
   /** Prevents scrollItemList() function from running */
   preventScrolling?: boolean;
+  /** Floating-ui popover placement */
+  popoverPlacement?: string;
 }
 
 interface InnerRef {
@@ -99,6 +101,7 @@ class BaseSuggestionList extends Component<
       id,
       focusedDescendantId,
       preventScrolling,
+      popoverPlacement,
       ...passProps
     } = this.props;
 
@@ -107,12 +110,13 @@ class BaseSuggestionList extends Component<
         id={id}
         tabIndex={0}
         forwardRef={forkRefs(this.wrapperRef, forwardedRef)}
-        className={classnames(baseClassName, className, {})}
-        {...passProps}
+        className={classnames(baseClassName, className)}
         role="listbox"
         onBlur={onBlur}
         onKeyDown={onKeyDown}
         aria-activedescendant={focusedDescendantId}
+        data-floating-ui-placement={popoverPlacement}
+        {...passProps}
       >
         {children}
       </HtmlUlWithRef>

@@ -40,7 +40,7 @@ import {
   filterDuplicateKeys,
   getOwnerDocument,
 } from '../../../utils/common/common';
-import { Popover } from '../../Popover/Popover';
+import { Popover, PopoverConsumer } from '../../Popover/Popover';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 import { SuggestionList } from './SuggestionList/SuggestionList';
 import { Button } from '../../Button/Button';
@@ -171,6 +171,7 @@ const searchInputClassNames = {
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
   suggestions: `${baseClassName}_suggestions`,
+  suggestionsOpen: `${baseClassName}--suggestions-open`,
 };
 
 interface SearchInputState {
@@ -178,6 +179,7 @@ interface SearchInputState {
   showPopover: boolean;
   focusedDescendantId: string | null;
   displayValue: string;
+  popoverPlacement?: string;
 }
 
 class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
@@ -186,11 +188,12 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     displayValue: this.props.value || this.props.defaultValue || '',
     showPopover: false,
     focusedDescendantId: null,
+    popoverPlacement: 'bottom',
   };
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
-  private wrapperRef = createRef<HTMLDivElement>();
+  private functionalityWrapperRef = createRef<HTMLDivElement>();
 
   private popoverListRef: React.RefObject<HTMLUListElement> =
     createRef<HTMLUListElement>();
@@ -274,6 +277,15 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       this.setState({ value: newValue, displayValue: newValue });
     } else {
       this.setState({ displayValue: newValue });
+    }
+  };
+
+  private updatePopoverPlacement = (placement: string | undefined) => {
+    if (!placement) return;
+    if (placement !== this.state.popoverPlacement) {
+      requestAnimationFrame(() =>
+        this.setState({ popoverPlacement: placement }),
+      );
     }
   };
 
@@ -488,14 +500,14 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     };
 
     return (
-      <HtmlDivWithRef
+      <HtmlDiv
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
+          [searchInputClassNames.suggestionsOpen]: this.state.showPopover,
         })}
         style={style}
-        forwardedRef={this.wrapperRef}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
           <Label
@@ -514,7 +526,11 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           )}
           <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
-              <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+              <HtmlDivWithRef
+                className={searchInputClassNames.functionalityContainer}
+                forwardedRef={this.functionalityWrapperRef}
+                data-floating-ui-placement={this.state.popoverPlacement}
+              >
                 <HtmlDiv
                   className={searchInputClassNames.inputElementContainer}
                   {...getInputContainerProps()}
@@ -574,7 +590,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     {showSearchButtonLabel && searchButtonLabel}
                   </Button>
                 )}
-              </HtmlDiv>
+              </HtmlDivWithRef>
             )}
           </Debounce>
           <StatusText
@@ -595,7 +611,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         </HtmlSpan>
         {this.state.showPopover && (
           <Popover
-            sourceRef={this.wrapperRef}
+            sourceRef={this.functionalityWrapperRef}
             matchWidth={true}
             onKeyDown={onKeyDown}
             onClickOutside={() => {
@@ -603,43 +619,54 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             }}
             className={popoverClassName}
           >
-            {suggestions && suggestions.length > 0 && (
-              <SuggestionList
-                className={searchInputClassNames.suggestions}
-                focusedDescendantId={this.state.focusedDescendantId || ''}
-                id={`${id}-itemlist`}
-                ref={this.popoverListRef}
-              >
-                {suggestions.map((item) => (
-                  <SelectItem
-                    key={item.uniqueId}
-                    id={item.uniqueId}
-                    hasKeyboardFocus={
-                      this.state.focusedDescendantId === item.uniqueId
-                    }
-                    hightlightQuery={
-                      !!this.state.value ? String(this.state.value) : undefined
-                    }
-                    checked={false}
-                    onClick={() => {
-                      this.setState({
-                        showPopover: false,
-                        value: item.label,
-                        displayValue: item.label,
-                      });
-                      if (onSuggestionSelected) {
-                        onSuggestionSelected(item.uniqueId);
-                      }
-                    }}
-                  >
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SuggestionList>
-            )}
+            <PopoverConsumer>
+              {(consumer) => {
+                this.updatePopoverPlacement(consumer?.popoverPlacement);
+                if (suggestions && suggestions.length > 0) {
+                  return (
+                    <SuggestionList
+                      className={searchInputClassNames.suggestions}
+                      focusedDescendantId={this.state.focusedDescendantId || ''}
+                      id={`${id}-itemlist`}
+                      ref={this.popoverListRef}
+                      popoverPlacement={consumer?.popoverPlacement}
+                    >
+                      {suggestions.map((item) => (
+                        <SelectItem
+                          key={item.uniqueId}
+                          id={item.uniqueId}
+                          hasKeyboardFocus={
+                            this.state.focusedDescendantId === item.uniqueId
+                          }
+                          hightlightQuery={
+                            !!this.state.value
+                              ? String(this.state.value)
+                              : undefined
+                          }
+                          checked={false}
+                          onClick={() => {
+                            this.setState({
+                              showPopover: false,
+                              value: item.label,
+                              displayValue: item.label,
+                            });
+                            if (onSuggestionSelected) {
+                              onSuggestionSelected(item.uniqueId);
+                            }
+                          }}
+                        >
+                          {item.label}
+                        </SelectItem>
+                      ))}
+                    </SuggestionList>
+                  );
+                }
+                return null;
+              }}
+            </PopoverConsumer>
           </Popover>
         )}
-      </HtmlDivWithRef>
+      </HtmlDiv>
     );
   }
 }
