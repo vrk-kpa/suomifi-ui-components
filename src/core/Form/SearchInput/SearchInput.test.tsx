@@ -61,6 +61,28 @@ describe('props', () => {
       expect(label).toHaveAttribute('for', 'test-id');
     });
 
+    it('should have no buttons present when onChange is not defined and input empty', () => {
+      const { queryAllByRole } = render(TestSearchInput());
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(0);
+    });
+
+    it('should have one button present when onSearch is defined and input empty', () => {
+      const { queryAllByRole } = render(
+        TestSearchInput({ onSearch: jest.fn(), defaultValue: '' }),
+      );
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(2);
+    });
+
+    it('should have two buttons present when onSearch is defined and input has value', () => {
+      const { queryAllByRole } = render(
+        TestSearchInput({ onSearch: jest.fn(), defaultValue: 'some value' }),
+      );
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(2);
+    });
+
     it(
       'should not have basic accessibility issues',
       axeTest(TestSearchInput()),

@@ -487,7 +487,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       onClick: this.state.value
         ? () => onSearch(this.state.displayValue)
         : undefined,
-      ariaLabel: showSearchButtonLabel ? null : searchButtonLabel,
+      'aria-label': showSearchButtonLabel ? undefined : searchButtonLabel,
     };
     const clearButtonProps = {
       className: classnames(
