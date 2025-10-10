@@ -141,6 +141,24 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 </SuomifiThemeConsumer>;
 ```
 
+### Breakpoints
+
+Breakpoint tokens use pixel values and range from `s` (576px) to `xxl` (1400px) and follow the values of bootstrap for easy implementation. Breakpoint tokens are of type _`BreakpointDesignTokens`_.
+
+```js noeditor
+import { SuomifiThemeConsumer } from '../src/core/theme';
+import { ThemeProps } from '../src/docs/Theme/ThemeProps';
+
+<SuomifiThemeConsumer>
+  {({ suomifiTheme }) => (
+    <ThemeProps
+      title="breakpoints:"
+      values={suomifiTheme.breakpoints}
+    />
+  )}
+</SuomifiThemeConsumer>;
+```
+
 ### Raw token values
 
 Theme values is of type _`RawDesignTokens`_ and provides colors, typograhpy and spacing design tokens in more granular format for use with custom styles. Values have no effect on the theme and are only provided for further use.
