@@ -152,6 +152,10 @@ export type SearchInputProps = StatusTextCommonProps &
      * @default false
      */
     showSearchButtonLabel?: boolean;
+    /** Show the search icon when onSearch is not used
+     * @default true
+     */
+    showSearchIcon?: boolean;
   };
 
 const baseClassName = 'fi-search-input';
@@ -320,6 +324,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       onSuggestionSelected,
       popoverClassName,
       showSearchButtonLabel = false,
+      showSearchIcon = true,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -574,7 +579,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                       cancelDebounce();
                     }}
                   />
-                  {!this.props.onSearch && (
+                  {!this.props.onSearch && showSearchIcon && (
                     <IconSearch className={searchInputClassNames.searchIcon} />
                   )}
                 </HtmlDiv>
