@@ -199,12 +199,19 @@ export const baseStyles = (
       position: relative;
     }
 
+    & .fi-search-input_input {
+      padding-right: 38px;
+    }
+
     & .fi-search-input_button-clear {
       clip: auto;
       overflow: visible;
       height: 20px;
       width: 20px;
       margin: 9px;
+      &:hover {
+        background: ${theme.colors.highlightLight3};
+      }
 
       & .fi-icon-base-fill {
         @media (forced-colors: active) {

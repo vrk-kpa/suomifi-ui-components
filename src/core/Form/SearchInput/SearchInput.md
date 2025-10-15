@@ -50,6 +50,8 @@ import { SearchInput } from 'suomifi-ui-components';
 
 SearchInput can easily be used as a regular search input without the built-in button. Simply omit the `onSearch()` prop, and provide a `name` prop if desired. This makes it easy to use the component e.g. in a form.
 
+The magnifying glass icon can be hidden via the `showSearchIcon` prop.
+
 ```jsx
 import { SearchInput } from 'suomifi-ui-components';
 
