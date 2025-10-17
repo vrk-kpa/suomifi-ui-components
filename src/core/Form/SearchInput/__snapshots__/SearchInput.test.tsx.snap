@@ -582,12 +582,20 @@ exports[`snapshot should have matching default structure 1`] = `
   position: relative;
 }
 
+.c1.fi-search-input--not-empty .fi-search-input_input {
+  padding-right: 38px;
+}
+
 .c1.fi-search-input--not-empty .fi-search-input_button-clear {
   clip: auto;
   overflow: visible;
   height: 20px;
   width: 20px;
   margin: 9px;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-clear:hover {
+  background: hsl(212, 63%, 95%);
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_functionality-container:has(.fi-search-input_search-icon) .fi-search-input_button-clear {
