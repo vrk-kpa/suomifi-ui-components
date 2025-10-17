@@ -338,6 +338,7 @@ exports[`props children has matching snapshot 1`] = `
   <label
     class="c3 fi-checkbox_label"
     for="test"
+    id="test-label"
   >
     Regular
   </label>
