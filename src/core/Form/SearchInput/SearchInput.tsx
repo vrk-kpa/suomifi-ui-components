@@ -26,8 +26,8 @@ import {
   HtmlInputProps,
   HtmlSpan,
   HtmlDiv,
-  HtmlButton,
   HtmlButtonProps,
+  HtmlDivWithRef,
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
@@ -40,9 +40,10 @@ import {
   filterDuplicateKeys,
   getOwnerDocument,
 } from '../../../utils/common/common';
-import { Popover } from '../../Popover/Popover';
+import { Popover, PopoverConsumer } from '../../Popover/Popover';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 import { SuggestionList } from './SuggestionList/SuggestionList';
+import { Button } from '../../Button/Button';
 
 export type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
@@ -115,7 +116,9 @@ export type SearchInputProps = StatusTextCommonProps &
     visualPlaceholder?: string;
     /** Screen reader label for the 'Clear' button */
     clearButtonLabel: string;
-    /** Screen reader label for the 'Search' button */
+    /** Label for the 'Search' button. Set as aria-label by default and
+     * used as visible button content when showSearchButtonLabel is set to true.
+     */
     searchButtonLabel: string;
     /** Props passed to the 'Search' button */
     searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
@@ -145,6 +148,14 @@ export type SearchInputProps = StatusTextCommonProps &
     debounce?: number;
     /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
     forwardedRef?: React.RefObject<HTMLInputElement>;
+    /** Make the button content visible
+     * @default false
+     */
+    showSearchButtonLabel?: boolean;
+    /** Show the search icon when onSearch is not used
+     * @default true
+     */
+    showSearchIcon?: boolean;
   };
 
 const baseClassName = 'fi-search-input';
@@ -160,10 +171,11 @@ const searchInputClassNames = {
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
-  searchIcon: `${baseClassName}_button-search-icon`,
+  searchIcon: `${baseClassName}_search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
   suggestions: `${baseClassName}_suggestions`,
+  suggestionsOpen: `${baseClassName}--suggestions-open`,
 };
 
 interface SearchInputState {
@@ -171,6 +183,7 @@ interface SearchInputState {
   showPopover: boolean;
   focusedDescendantId: string | null;
   displayValue: string;
+  popoverPlacement?: string;
 }
 
 class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
@@ -179,9 +192,12 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     displayValue: this.props.value || this.props.defaultValue || '',
     showPopover: false,
     focusedDescendantId: null,
+    popoverPlacement: 'bottom',
   };
 
   private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
+
+  private functionalityWrapperRef = createRef<HTMLDivElement>();
 
   private popoverListRef: React.RefObject<HTMLUListElement> =
     createRef<HTMLUListElement>();
@@ -268,6 +284,15 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     }
   };
 
+  private updatePopoverPlacement = (placement: string | undefined) => {
+    if (!placement) return;
+    if (placement !== this.state.popoverPlacement) {
+      requestAnimationFrame(() =>
+        this.setState({ popoverPlacement: placement }),
+      );
+    }
+  };
+
   render() {
     const {
       value,
@@ -298,6 +323,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ariaOptionsAvailableText,
       onSuggestionSelected,
       popoverClassName,
+      showSearchButtonLabel = false,
+      showSearchIcon = true,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -458,13 +485,14 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     const searchButtonDerivedProps = {
       ...searchButtonProps,
       className: classnames(
-        searchButtonProps?.className,
         searchInputClassNames.button,
         searchInputClassNames.searchButton,
+        searchButtonProps?.className,
       ),
-      ...(!!this.state.value
-        ? { onClick: () => onSearch(this.state.displayValue) }
-        : { tabIndex: -1, hidden: true }),
+      onClick: this.state.value
+        ? () => onSearch(this.state.displayValue)
+        : undefined,
+      'aria-label': showSearchButtonLabel ? undefined : searchButtonLabel,
     };
     const clearButtonProps = {
       className: classnames(
@@ -482,6 +510,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
+          [searchInputClassNames.suggestionsOpen]: this.state.showPopover,
         })}
         style={style}
       >
@@ -502,7 +531,11 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           )}
           <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
-              <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+              <HtmlDivWithRef
+                className={searchInputClassNames.functionalityContainer}
+                forwardedRef={this.functionalityWrapperRef}
+                data-floating-ui-placement={this.state.popoverPlacement}
+              >
                 <HtmlDiv
                   className={searchInputClassNames.inputElementContainer}
                   {...getInputContainerProps()}
@@ -538,23 +571,31 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     onKeyPress={onKeyPress}
                     onKeyDown={onKeyDown}
                   />
-                </HtmlDiv>
-                <InputClearButton
-                  {...clearButtonProps}
-                  label={clearButtonLabel}
-                  onClick={() => {
-                    onClear();
-                    cancelDebounce();
-                  }}
-                />
-                <HtmlButton {...searchButtonDerivedProps}>
-                  <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-                  <IconSearch
-                    aria-hidden={true}
-                    className={searchInputClassNames.searchIcon}
+                  <InputClearButton
+                    {...clearButtonProps}
+                    label={clearButtonLabel}
+                    onClick={() => {
+                      onClear();
+                      cancelDebounce();
+                    }}
                   />
-                </HtmlButton>
-              </HtmlDiv>
+                  {!this.props.onSearch && showSearchIcon && (
+                    <IconSearch className={searchInputClassNames.searchIcon} />
+                  )}
+                </HtmlDiv>
+                {this.props.onSearch && (
+                  <Button
+                    {...{
+                      ...searchButtonDerivedProps,
+                      forwardedRef: undefined,
+                    }}
+                    aria-disabled={!!searchButtonDerivedProps.disabled}
+                    icon={<IconSearch />}
+                  >
+                    {showSearchButtonLabel && searchButtonLabel}
+                  </Button>
+                )}
+              </HtmlDivWithRef>
             )}
           </Debounce>
           <StatusText
@@ -575,7 +616,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         </HtmlSpan>
         {this.state.showPopover && (
           <Popover
-            sourceRef={this.inputRef}
+            sourceRef={this.functionalityWrapperRef}
             matchWidth={true}
             onKeyDown={onKeyDown}
             onClickOutside={() => {
@@ -583,40 +624,51 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
             }}
             className={popoverClassName}
           >
-            {suggestions && suggestions.length > 0 && (
-              <SuggestionList
-                className={searchInputClassNames.suggestions}
-                focusedDescendantId={this.state.focusedDescendantId || ''}
-                id={`${id}-itemlist`}
-                ref={this.popoverListRef}
-              >
-                {suggestions.map((item) => (
-                  <SelectItem
-                    key={item.uniqueId}
-                    id={item.uniqueId}
-                    hasKeyboardFocus={
-                      this.state.focusedDescendantId === item.uniqueId
-                    }
-                    hightlightQuery={
-                      !!this.state.value ? String(this.state.value) : undefined
-                    }
-                    checked={false}
-                    onClick={() => {
-                      this.setState({
-                        showPopover: false,
-                        value: item.label,
-                        displayValue: item.label,
-                      });
-                      if (onSuggestionSelected) {
-                        onSuggestionSelected(item.uniqueId);
-                      }
-                    }}
-                  >
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SuggestionList>
-            )}
+            <PopoverConsumer>
+              {(consumer) => {
+                this.updatePopoverPlacement(consumer?.popoverPlacement);
+                if (suggestions && suggestions.length > 0) {
+                  return (
+                    <SuggestionList
+                      className={searchInputClassNames.suggestions}
+                      focusedDescendantId={this.state.focusedDescendantId || ''}
+                      id={`${id}-itemlist`}
+                      ref={this.popoverListRef}
+                      popoverPlacement={consumer?.popoverPlacement}
+                    >
+                      {suggestions.map((item) => (
+                        <SelectItem
+                          key={item.uniqueId}
+                          id={item.uniqueId}
+                          hasKeyboardFocus={
+                            this.state.focusedDescendantId === item.uniqueId
+                          }
+                          hightlightQuery={
+                            !!this.state.value
+                              ? String(this.state.value)
+                              : undefined
+                          }
+                          checked={false}
+                          onClick={() => {
+                            this.setState({
+                              showPopover: false,
+                              value: item.label,
+                              displayValue: item.label,
+                            });
+                            if (onSuggestionSelected) {
+                              onSuggestionSelected(item.uniqueId);
+                            }
+                          }}
+                        >
+                          {item.label}
+                        </SelectItem>
+                      ))}
+                    </SuggestionList>
+                  );
+                }
+                return null;
+              }}
+            </PopoverConsumer>
           </Popover>
         )}
       </HtmlDiv>

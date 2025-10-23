@@ -61,6 +61,47 @@ describe('props', () => {
       expect(label).toHaveAttribute('for', 'test-id');
     });
 
+    it('should have no buttons present when onChange is not defined and input empty', () => {
+      const { queryAllByRole } = render(TestSearchInput());
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(0);
+    });
+
+    it('should have one button present when onSearch is defined and input empty', () => {
+      const { queryAllByRole } = render(
+        TestSearchInput({ onSearch: jest.fn(), defaultValue: '' }),
+      );
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(1);
+    });
+
+    it('should have two buttons present when onSearch is defined and input has value', () => {
+      const { queryAllByRole } = render(
+        TestSearchInput({ onSearch: jest.fn(), defaultValue: 'some value' }),
+      );
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(2);
+    });
+
+    it('should only have search icon visible when input is empty and icon not set to be hidden', () => {
+      const { container: containerWithIcon } = render(
+        TestSearchInput({ defaultValue: '' }),
+      );
+      const searchIcons = containerWithIcon.getElementsByClassName(
+        'fi-search-input_search-icon',
+      );
+      expect(searchIcons).toHaveLength(1);
+      expect(searchIcons[0]).toHaveClass('fi-search-input_search-icon');
+
+      const { container: containerWithoutIcon } = render(
+        TestSearchInput({ defaultValue: '', showSearchIcon: false }),
+      );
+      const searchIcon = containerWithoutIcon.getElementsByClassName(
+        'fi-search-input_search-icon',
+      );
+      expect(searchIcon).toHaveLength(0);
+    });
+
     it(
       'should not have basic accessibility issues',
       axeTest(TestSearchInput()),
