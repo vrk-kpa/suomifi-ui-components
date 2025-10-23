@@ -493,6 +493,7 @@ exports[`default, with only required props should match snapshot 1`] = `
           <label
             class="c9 fi-checkbox_label"
             for="test-id-1"
+            id="test-id-1-label"
           >
             Label text 1
           </label>
@@ -514,6 +515,7 @@ exports[`default, with only required props should match snapshot 1`] = `
           <label
             class="c9 fi-checkbox_label"
             for="test-id-2"
+            id="test-id-2-label"
           >
             Label text 2
           </label>
@@ -535,6 +537,7 @@ exports[`default, with only required props should match snapshot 1`] = `
           <label
             class="c9 fi-checkbox_label"
             for="test-id-3"
+            id="test-id-3-label"
           >
             Label text 3
           </label>
