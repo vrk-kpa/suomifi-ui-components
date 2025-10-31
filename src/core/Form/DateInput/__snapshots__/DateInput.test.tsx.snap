@@ -2999,7 +2999,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   cursor: not-allowed;
 }
 
-.c13.fi-button--disabled::after {
+.c13.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -5155,7 +5155,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   cursor: not-allowed;
 }
 
-.c13.fi-button--disabled::after {
+.c13.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }

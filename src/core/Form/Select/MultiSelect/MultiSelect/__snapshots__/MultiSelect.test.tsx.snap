@@ -849,7 +849,7 @@ exports[`has matching snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c15.fi-button--disabled::after {
+.c15.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
