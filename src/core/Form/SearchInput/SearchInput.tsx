@@ -350,16 +350,6 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       }, 100);
     };
 
-    const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (
-        !!this.state.value &&
-        event?.key === 'Enter' &&
-        this.state.focusedDescendantId === null
-      ) {
-        onSearch(this.state.displayValue);
-      }
-    };
-
     const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
       const currentValue = this.state.displayValue;
       if (this.props.onBlur) {
@@ -420,13 +410,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       }
 
       if (event.key === 'Enter') {
-        event.preventDefault();
         if (
           autosuggest &&
           suggestions &&
           suggestions.length > 0 &&
           focusedDescendantId
         ) {
+          event.preventDefault();
           const selectedItem = popoverItems.find(
             ({ uniqueId }) => uniqueId === focusedDescendantId,
           );
@@ -435,12 +425,14 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
               showPopover: false,
               value: selectedItem.label,
               displayValue: selectedItem.label,
+              focusedDescendantId: null,
             });
             if (onSuggestionSelected) {
               onSuggestionSelected(selectedItem.uniqueId);
             }
           }
-        } else if (!!this.state.value) {
+        } else if (!!this.state.value && propOnSearch) {
+          event.preventDefault();
           onSearch(this.state.displayValue);
         }
       }
@@ -568,7 +560,6 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                         debouncer(propOnChange, eventValue);
                       }
                     }}
-                    onKeyPress={onKeyPress}
                     onKeyDown={onKeyDown}
                   />
                   <InputClearButton

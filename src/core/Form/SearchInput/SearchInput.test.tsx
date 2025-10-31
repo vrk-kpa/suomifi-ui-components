@@ -562,18 +562,18 @@ describe('states', () => {
       );
       const inputElement = getByRole('searchbox') as HTMLTextAreaElement;
       await act(async () => {
-        fireEvent.keyPress(inputElement, {
+        fireEvent.keyDown(inputElement, {
           key: 'Enter',
-          code: 13,
+          code: 'Enter',
           charCode: 13,
         });
       });
       expect(mockOnSearch).toBeCalledTimes(0);
       await act(async () => {
         fireEvent.change(inputElement, { target: { value: 'abc' } });
-        fireEvent.keyPress(inputElement, {
+        fireEvent.keyDown(inputElement, {
           key: 'Enter',
-          code: 13,
+          code: 'Enter',
           charCode: 13,
         });
       });
