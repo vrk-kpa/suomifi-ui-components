@@ -169,7 +169,7 @@ export const baseStyles = (
     cursor: not-allowed;
   }
 
-  &.fi-button--disabled::after {
+  &.fi-button--disabled:not([aria-disabled='true'])::after {
     border: none;
     box-shadow: none;
   }

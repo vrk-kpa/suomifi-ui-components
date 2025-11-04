@@ -592,7 +592,7 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: not-allowed;
 }
 
-.c6.fi-button--disabled::after {
+.c6.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }

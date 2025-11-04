@@ -586,7 +586,7 @@ exports[`Basic modal should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c10.fi-button--disabled::after {
+.c10.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }

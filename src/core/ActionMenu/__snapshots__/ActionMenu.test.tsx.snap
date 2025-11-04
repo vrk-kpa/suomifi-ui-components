@@ -323,7 +323,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-button--disabled::after {
+.c5.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -1106,7 +1106,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-button--disabled::after {
+.c5.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -1889,7 +1889,7 @@ exports[`No borders variant should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-button--disabled::after {
+.c5.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -2672,7 +2672,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-button--disabled::after {
+.c5.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -3456,7 +3456,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-button--disabled::after {
+.c5.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }

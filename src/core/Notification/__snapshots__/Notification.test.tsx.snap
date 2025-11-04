@@ -481,7 +481,7 @@ exports[`props children should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c9.fi-button--disabled::after {
+.c9.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
