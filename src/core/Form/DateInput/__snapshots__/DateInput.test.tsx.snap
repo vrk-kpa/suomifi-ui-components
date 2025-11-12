@@ -2999,7 +2999,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   cursor: not-allowed;
 }
 
-.c13.fi-button--disabled::after {
+.c13.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -3541,9 +3541,24 @@ exports[`snapshots match date input with datepicker with controlled input value 
   padding-bottom: 8px;
 }
 
+.c12.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c12.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c12.fi-dropdown--italicize .fi-dropdown_button {
@@ -3730,33 +3745,33 @@ exports[`snapshots match date input with datepicker with controlled input value 
   touch-action: auto;
 }
 
-.c10 .fi-date-picker_popper-arrow,
-.c10 .fi-date-picker_popper-arrow::before {
+.c10 .fi-date-picker_floatingui-arrow,
+.c10 .fi-date-picker_floatingui-arrow::before {
   position: absolute;
   width: 11px;
   height: 11px;
 }
 
-.c10 .fi-date-picker_popper-arrow::before {
+.c10 .fi-date-picker_floatingui-arrow::before {
   content: '';
   background-color: hsl(0, 0%, 100%);
   transform: rotate(45deg);
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end'] {
-  top: -7px;
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='bottom'] {
+  top: -6px;
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-top: 1px solid hsl(0, 0%, 42%);
   border-left: 1px solid hsl(0, 0%, 42%);
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='top'] {
   bottom: -6px;
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-bottom: 1px solid hsl(0, 0%, 42%);
   border-right: 1px solid hsl(0, 0%, 42%);
 }
@@ -4055,7 +4070,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
     aria-hidden="false"
     class="c2 c10 fi-date-picker"
     role="dialog"
-    style="position: fixed; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="c0 fi-date-picker_application"
@@ -4087,6 +4102,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               aria-haspopup="listbox"
               aria-labelledby="16-displayValue 16-label"
               class="c6 fi-dropdown_button"
+              data-floating-ui-placement="bottom"
               id="16_button"
               tabindex="0"
               type="button"
@@ -4135,6 +4151,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               aria-haspopup="listbox"
               aria-labelledby="17-displayValue 17-label"
               class="c6 fi-dropdown_button"
+              data-floating-ui-placement="bottom"
               id="17_button"
               tabindex="0"
               type="button"
@@ -4815,9 +4832,9 @@ exports[`snapshots match date input with datepicker with controlled input value 
       </div>
     </div>
     <div
-      class="fi-date-picker_popper-arrow"
-      data-popper-arrow="true"
-      style="position: absolute;"
+      aria-hidden="true"
+      class="c2 fi-date-picker_floatingui-arrow"
+      tabindex="-1"
     />
   </div>
 </body>
@@ -5138,7 +5155,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   cursor: not-allowed;
 }
 
-.c13.fi-button--disabled::after {
+.c13.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }
@@ -5680,9 +5697,24 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   padding-bottom: 8px;
 }
 
+.c12.fi-dropdown--open .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  padding-top: 8px;
+  box-shadow: none;
+}
+
 .c12.fi-dropdown--error .fi-dropdown_button {
   border-color: hsl(3, 59%, 43%);
   border-width: 2px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
 }
 
 .c12.fi-dropdown--italicize .fi-dropdown_button {
@@ -5869,33 +5901,33 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   touch-action: auto;
 }
 
-.c10 .fi-date-picker_popper-arrow,
-.c10 .fi-date-picker_popper-arrow::before {
+.c10 .fi-date-picker_floatingui-arrow,
+.c10 .fi-date-picker_floatingui-arrow::before {
   position: absolute;
   width: 11px;
   height: 11px;
 }
 
-.c10 .fi-date-picker_popper-arrow::before {
+.c10 .fi-date-picker_floatingui-arrow::before {
   content: '';
   background-color: hsl(0, 0%, 100%);
   transform: rotate(45deg);
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end'] {
-  top: -7px;
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='bottom'] {
+  top: -6px;
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='bottom']::before {
   border-top: 1px solid hsl(0, 0%, 42%);
   border-left: 1px solid hsl(0, 0%, 42%);
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='top'] {
   bottom: -6px;
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
+.c10 .fi-date-picker_floatingui-arrow[data-floatingui-placement^='top']::before {
   border-bottom: 1px solid hsl(0, 0%, 42%);
   border-right: 1px solid hsl(0, 0%, 42%);
 }
@@ -6235,6 +6267,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 aria-haspopup="listbox"
                 aria-labelledby="9-displayValue 9-label"
                 class="c6 fi-dropdown_button"
+                data-floating-ui-placement="bottom"
                 id="9_button"
                 tabindex="0"
                 type="button"
@@ -6283,6 +6316,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 aria-haspopup="listbox"
                 aria-labelledby="10-displayValue 10-label"
                 class="c6 fi-dropdown_button"
+                data-floating-ui-placement="bottom"
                 id="10_button"
                 tabindex="0"
                 type="button"

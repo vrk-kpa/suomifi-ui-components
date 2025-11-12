@@ -212,7 +212,11 @@ class BaseCheckbox extends Component<CheckboxProps> {
           {...(value ? { value } : {})}
           {...passProps}
         />
-        <HtmlLabel htmlFor={id} className={checkboxClassNames.label}>
+        <HtmlLabel
+          htmlFor={id}
+          className={checkboxClassNames.label}
+          id={`${id}-label`}
+        >
           {!!checkedState && <IconCheck className={checkboxClassNames.icon} />}
           {children}
         </HtmlLabel>

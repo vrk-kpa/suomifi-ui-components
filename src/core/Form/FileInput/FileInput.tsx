@@ -203,10 +203,6 @@ export interface Metadata {
    */
   fileType: string;
   /**
-   * URL to the file
-   */
-  fileURL?: string;
-  /**
    * id of the file
    */
   id?: string;
@@ -248,6 +244,11 @@ const BaseFileInput = (props: InternalFileInputProps) => {
 
   const dragAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const onChangeRef = useRef(propOnChange);
+  useEffect(() => {
+    onChangeRef.current = propOnChange;
+  }, [propOnChange]);
 
   const buildFileItemRefs = (fileList: FileList) => {
     const newFileItemRefs = [];
@@ -346,13 +347,13 @@ const BaseFileInput = (props: InternalFileInputProps) => {
     if (!controlledValue && incomingFiles.length > 0) {
       setFilesToStateAndInput(newFileList.files);
     }
-    if (propOnChange) {
+    if (onChangeRef.current) {
       const filteredFiles = Array.from(newFileList.files).filter(
         (file) => file.lastModified !== -1,
       );
       const filteredFileList = new DataTransfer();
       filteredFiles.forEach((file) => filteredFileList.items.add(file));
-      propOnChange(filteredFileList.files || new FileList());
+      onChangeRef.current(filteredFileList.files || new FileList());
     }
   };
 
@@ -512,13 +513,13 @@ const BaseFileInput = (props: InternalFileInputProps) => {
           newFileList.items.add(file);
         });
       }
-      if (propOnChange) {
+      if (onChangeRef.current) {
         const filteredFiles = Array.from(newFileList.files).filter(
           (file) => file.lastModified !== -1,
         );
         const filteredFileList = new DataTransfer();
         filteredFiles.forEach((file) => filteredFileList.items.add(file));
-        propOnChange(filteredFileList.files);
+        onChangeRef.current(filteredFileList.files);
       }
     }
   };

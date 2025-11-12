@@ -1,13 +1,20 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import { styled } from 'styled-components';
-import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
+import { HtmlDivWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './LanguageMenuPopover.baseStyles';
 import { MenuContent } from '../LanguageMenu';
+import {
+  useFloating,
+  offset,
+  flip,
+  shift,
+  autoUpdate,
+  arrow,
+} from '@floating-ui/react-dom';
 
 const baseClassName = 'fi-language-menu-popover';
 
@@ -15,7 +22,7 @@ export const languageMenuPopoverClassNames = {
   baseClassName,
   hidden: `${baseClassName}--hidden`,
   list: `${baseClassName}_list`,
-  popperArrow: `${baseClassName}_popper-arrow`,
+  floatinguiArrow: `${baseClassName}_floatingui-arrow`,
 };
 
 export type InitialActiveDescendant = 'first' | 'last' | 'none';
@@ -106,6 +113,7 @@ export const BaseLanguageMenuPopover = (
   const [preventScroll, setPreventScroll] = useState<boolean>(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -211,38 +219,35 @@ export const BaseLanguageMenuPopover = (
     }
   };
 
-  // Popper options modifiers
-  const defaultModifiers = [
-    { name: 'eventListeners', enabled: isOpen },
-    {
-      name: 'offset',
-      options: {
-        offset: [0, 15],
-      },
-    },
-    {
-      name: 'flip',
-      options: {
-        fallbackPlacements: ['top-end'],
-      },
-    },
-    {
-      name: 'preventOverflow',
-      options: {
-        padding: 5,
-      },
-    },
-  ];
+  const {
+    refs: floatingUiRefs,
+    floatingStyles,
+    middlewareData,
+  } = useFloating({
+    open: isOpen,
+    middleware: [
+      offset(10),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowRef,
+      }),
+    ],
+    whileElementsMounted: autoUpdate,
+    placement: 'bottom-end',
+  });
 
-  const { styles, attributes } = usePopper(
-    openButtonRef.current,
-    dialogElement,
-    {
-      strategy: 'fixed',
-      modifiers: defaultModifiers,
-      placement: 'bottom-end',
-    },
-  );
+  useEffect(() => {
+    if (openButtonRef.current) {
+      floatingUiRefs.setReference(openButtonRef.current);
+    }
+  }, [floatingUiRefs, openButtonRef]);
+
+  useEffect(() => {
+    if (dialogElement) {
+      floatingUiRefs.setFloating(dialogElement);
+    }
+  }, [floatingUiRefs, dialogElement]);
 
   const handleClose = (moveFocus: boolean): void => {
     onClose(moveFocus);
@@ -277,7 +282,7 @@ export const BaseLanguageMenuPopover = (
       className={classnames(className, baseClassName, {
         [languageMenuPopoverClassNames.hidden]: !isOpen,
       })}
-      style={styles.popper}
+      style={floatingStyles}
       forwardedRef={setDialogElement}
     >
       <LanguageMenuProvider
@@ -302,11 +307,16 @@ export const BaseLanguageMenuPopover = (
           {menuItems(children)}
         </HtmlDivWithRef>
       </LanguageMenuProvider>
-      <HtmlDiv
-        className={languageMenuPopoverClassNames.popperArrow}
-        style={styles.arrow}
-        data-popper-arrow
-        data-popper-placement={attributes.popper?.['data-popper-placement']}
+      <HtmlDivWithRef
+        forwardedRef={arrowRef}
+        className={languageMenuPopoverClassNames.floatinguiArrow}
+        data-floatingui-placement={middlewareData?.offset?.placement}
+        aria-hidden={true}
+        style={{
+          position: 'absolute',
+          left: middlewareData.arrow?.x,
+          top: middlewareData.arrow?.y,
+        }}
       />
     </HtmlDivWithRef>
   );

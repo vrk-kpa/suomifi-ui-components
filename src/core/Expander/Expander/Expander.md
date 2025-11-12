@@ -436,6 +436,8 @@ If you need to have interactive elements in the Expander title, use `<ExpanderTi
 
 ExpanderTitle creates a smaller toggle button to the right side of the Expander. For screen readers, it is recommended to provide a descriptive label for the button using `toggleButtonAriaLabel`. State is communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology. Screenreader reads `toggleButtonAriaLabel` and `toggleButtonAriaDescribedBy` together.
 
+Checkbox label can be accessed by adding the `-label` suffix to the given id.
+
 ```jsx
 import {
   Expander,
@@ -448,7 +450,7 @@ import {
 <Expander>
   <ExpanderTitle
     toggleButtonAriaLabel="Additional information"
-    toggleButtonAriaDescribedBy="checkbox-id"
+    toggleButtonAriaDescribedBy="checkbox-id-label"
   >
     <Checkbox id="checkbox-id">Guardianship</Checkbox>
   </ExpanderTitle>

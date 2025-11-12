@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "16.0.1",
+  "version": "17.0.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -150,15 +150,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
-    "@popperjs/core": "2.11.8",
-    "@types/react-modal": "3.16.0",
+    "@floating-ui/react-dom": "2.1.2",
+    "@types/react-modal": "3.16.3",
     "classnames": "2.3.2",
     "date-fns": "2.30.0",
     "polished": "4.2.2",
-    "react-modal": "3.16.1",
-    "react-popper": "2.3.0",
-    "suomifi-design-tokens": "6.0.0",
-    "suomifi-icons": "7.5.0"
+    "react-modal": "3.16.3",
+    "suomifi-design-tokens": "6.1.0",
+    "suomifi-icons": "7.7.0"
   },
   "peerDependencies": {
     "@types/styled-components": ">=5.1.9",

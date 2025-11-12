@@ -5,6 +5,9 @@ import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { axeTest } from '../../../../utils/test';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const waitForPosition = () => act(async () => {});
+
 const dropdownProps = {
   labelText: 'Dropdown test',
   name: 'dropdown-test',
@@ -77,6 +80,7 @@ describe('Basic dropdown', () => {
 
   it('should match snapshot', async () => {
     const { baseElement, getByRole } = render(BasicDropdown);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -147,6 +151,7 @@ describe('Controlled Dropdown', () => {
 
   it('should match snapshot', async () => {
     const { baseElement, getByRole } = render(ControlledDropdown);
+    await waitForPosition();
     const button = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(button);
@@ -172,6 +177,7 @@ describe('Dropdown with additional aria-label', () => {
 
   it('should match snapshot', async () => {
     const { baseElement, getByRole } = render(DropdownWithExtraLabel);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -186,6 +192,7 @@ describe('Children', () => {
       labelText: 'Dropdown',
     });
     const { getByRole, getAllByRole } = render(NestedDropdown);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -203,6 +210,7 @@ describe('Children', () => {
       visualPlaceholder: 'Select',
     });
     const { getByRole, getAllByRole } = render(NestedDropdown);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -217,6 +225,7 @@ describe('Children', () => {
   it('should select item when item is clicked', async () => {
     const NestedDropdown = TestNestedDropdown({ labelText: 'Dropdown' });
     const { getByRole, getAllByRole } = render(NestedDropdown);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -233,6 +242,7 @@ describe('DropdownItem', () => {
   it('should be selected when item is clicked', async () => {
     const BasicDropdown = TestDropdown({ labelText: 'Dropdown' });
     const { getByRole, getAllByRole } = render(BasicDropdown);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -254,6 +264,7 @@ describe('DropdownItem', () => {
       </Dropdown>
     );
     const { getByRole, getAllByRole } = render(BasicDropdown);
+    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(menuButton);
@@ -267,7 +278,7 @@ describe('DropdownItem', () => {
 });
 
 describe('statusText', () => {
-  it('has status text defined by prop', () => {
+  it('has status text defined by prop', async () => {
     const statusTextProps: DropdownProps = {
       ...dropdownProps,
       statusText: 'Test status',
@@ -279,7 +290,7 @@ describe('statusText', () => {
 });
 
 describe('statusTextAriaLiveMode', () => {
-  it('has assertive aria-live by default', () => {
+  it('has assertive aria-live by default', async () => {
     const statusTextProps: DropdownProps = {
       ...dropdownProps,
       statusText: 'Test status',
@@ -288,7 +299,7 @@ describe('statusTextAriaLiveMode', () => {
     const { getByText } = render(DropdownWithStatusText);
     expect(getByText('Test status')).toHaveAttribute('aria-live', 'assertive');
   });
-  it('has aria-live defined by prop', () => {
+  it('has aria-live defined by prop', async () => {
     const statusTextProps: DropdownProps = {
       ...dropdownProps,
       statusText: 'Test status',
@@ -302,7 +313,7 @@ describe('statusTextAriaLiveMode', () => {
 });
 
 describe('hintText', () => {
-  it('has hint text', () => {
+  it('has hint text', async () => {
     const hintTextProps: DropdownProps = {
       ...dropdownProps,
       hintText: 'Test hint text',
@@ -315,7 +326,7 @@ describe('hintText', () => {
 });
 
 describe('margin', () => {
-  it('should have margin style from margin prop', () => {
+  it('should have margin style from margin prop', async () => {
     const props: DropdownProps = {
       ...dropdownProps,
       margin: 'xs',
@@ -325,7 +336,7 @@ describe('margin', () => {
     expect(div).toHaveStyle('margin: 10px');
   });
 
-  it('should have margin style overwritten by style prop', () => {
+  it('should have margin style overwritten by style prop', async () => {
     const props: DropdownProps = {
       ...dropdownProps,
       margin: 'xs',

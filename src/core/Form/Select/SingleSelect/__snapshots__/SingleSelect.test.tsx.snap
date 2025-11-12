@@ -613,6 +613,15 @@ exports[`has matching snapshot 1`] = `
   outline: none;
 }
 
+.c16[data-floating-ui-placement^='top'] {
+  border-width: 1px 1px 0 1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 0 0 4px 0;
+}
+
 .c18 {
   position: relative;
   padding: 8px 32px 8px 10px;
@@ -769,6 +778,19 @@ exports[`has matching snapshot 1`] = `
   border-bottom-right-radius: 0;
 }
 
+.c1.fi-single-select--open .fi-filter-input_input[data-floating-ui-placement^='top'] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  border-bottom: 1px solid hsl(201, 7%, 58%);
+}
+
+.c1.fi-single-select--open .fi-filter-input--error .fi-filter-input_input[data-floating-ui-placement^='top'] {
+  border-bottom: 2px solid hsl(3, 59%, 43%);
+}
+
 @media (forced-colors: active) {
   .c18.fi-select-item .fi-select-item--query_highlight {
     background-color: Highlight;
@@ -860,6 +882,7 @@ exports[`has matching snapshot 1`] = `
                 autocapitalize="none"
                 autocomplete="off"
                 class="c7 fi-filter-input_input"
+                data-floating-ui-placement="bottom"
                 id="1"
                 placeholder=""
                 spellcheck="false"
@@ -951,7 +974,7 @@ exports[`has matching snapshot 1`] = `
   <div
     class="fi-portal"
     role="presentation"
-    style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 0px);"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px); width: 0px;"
     tabindex="-1"
   >
     <div
@@ -960,6 +983,7 @@ exports[`has matching snapshot 1`] = `
       <ul
         aria-activedescendant=""
         class="c15 fi-select-item-list c16"
+        data-floating-ui-placement="bottom"
         id="2-popover"
         role="listbox"
         tabindex="0"

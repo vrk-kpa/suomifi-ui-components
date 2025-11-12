@@ -9,6 +9,7 @@ import {
   ShadowDesignTokens,
   FocusDesignTokens,
   TransitionDesignTokens,
+  BreakpointDesignTokens,
 } from 'suomifi-design-tokens';
 import { zindexes } from './zindexes';
 export type ZIndexDesignTokens = typeof zindexes;
@@ -22,6 +23,7 @@ export type RadiusProp = keyof RadiusDesignTokens;
 export type ShadowProp = keyof ShadowDesignTokens;
 export type FocusProp = keyof FocusDesignTokens;
 export type TransitionProp = keyof TransitionDesignTokens;
+export type BreakpointProp = keyof BreakpointDesignTokens;
 
 /**
  * SuomifiTheme
@@ -53,6 +55,7 @@ export interface SuomifiTheme {
   values: RawDesignTokens;
   /** Z-idnex design tokens as [key:string]: CSS string format with z-index type name as key */
   zindexes: ZIndexDesignTokens;
+  breakpoints: BreakpointDesignTokens;
 }
 
 export interface SuomifiThemeProp {
@@ -70,6 +73,7 @@ const designTokens = {
   typography: suomifiDesignTokens.typography,
   gradients: suomifiDesignTokens.gradients,
   values: suomifiDesignTokens.values,
+  breakpoints: suomifiDesignTokens.breakpoints,
 };
 
 /** SuomifiTheme with default values */
@@ -88,6 +92,7 @@ export interface PartialSuomifiTheme {
   transitions?: Partial<TransitionDesignTokens>;
   typography?: Partial<TypographyDesignTokens>;
   zindexes?: Partial<ZIndexDesignTokens>;
+  breakpoints?: Partial<BreakpointDesignTokens>;
 }
 
 export interface SuomifiCustomThemeProps {
@@ -140,6 +145,10 @@ export const getSuomifiTheme = (
     shadows: mergeTokens({
       defaultTokens: defaultTheme.shadows,
       customTokens: customTheme?.shadows,
+    }),
+    breakpoints: mergeTokens({
+      defaultTokens: defaultTheme.breakpoints,
+      customTokens: customTheme?.breakpoints,
     }),
     values: defaultTheme.values,
   };

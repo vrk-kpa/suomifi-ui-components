@@ -2,6 +2,8 @@ The `<Notification>` component provides users noteworthy information about a spe
 
 Notification should not be used dynamically. For dynamic use cases, use the [InlineAlert](./#/Components/InlineAlert) component instead.
 
+If you need to show site-wide information at the top of the page, use the [Alert](./#/Components/Alert) component instead.
+
 Examples:
 
 - [Basic use](./#/Components/Notification?id=basic-use)

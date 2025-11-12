@@ -36,8 +36,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   /* Arrow base */
-  & .fi-action-menu-popover_popper-arrow::before,
-  & .fi-action-menu-popover_popper-arrow::after {
+  & .fi-action-menu-popover_floatingui-arrow::before,
+  & .fi-action-menu-popover_floatingui-arrow::after {
     content: '';
     position: absolute;
     left: -9px;
@@ -48,12 +48,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   /* Arrow on top side */
-  & .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+  &
+    .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom'] {
     bottom: 100%;
   }
 
   &
-    .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+    .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
     border-bottom-color: ${theme.colors.blackLight1};
     border-width: 9px;
     margin-right: -9px;
@@ -61,7 +62,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   &
-    .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+    .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::after {
     border-bottom-color: ${theme.colors.whiteBase};
     border-width: 8px;
     margin-right: -9px;
@@ -70,19 +71,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   /* Arrow on bottom side */
-  & .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+  & .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top'] {
     top: 100%;
   }
 
   &
-    .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+    .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
     border-top-color: ${theme.colors.blackLight1};
     border-width: 9px;
     margin-right: -9px;
   }
 
   &
-    .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+    .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::after {
     border-top-color: ${theme.colors.whiteBase};
     border-width: 8px;
     margin-right: -9px;

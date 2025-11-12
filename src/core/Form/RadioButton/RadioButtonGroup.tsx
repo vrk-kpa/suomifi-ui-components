@@ -167,7 +167,7 @@ class BaseRadioButtonGroup extends Component<
             })}
           >
             <Label
-              htmlFor={id}
+              asProp="span"
               labelMode={labelMode}
               optionalText={optionalText}
               className={classnames({

@@ -506,12 +506,11 @@ exports[`default, with only required props should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -1178,12 +1177,11 @@ exports[`props className should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -1850,12 +1848,11 @@ exports[`props defaultValue should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -2558,12 +2555,11 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="9"
           >
             Label
-          </label>
+          </span>
         </div>
         <span
           aria-labelledby="9-statusText"
@@ -3270,12 +3266,11 @@ exports[`props hintText should match snapshot 1`] = `
         <div
           class="c0 c4 fi-radio-button-group_label--with-margin fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label
-          </label>
+          </span>
         </div>
         <span
           class="c5 c6 fi-hint-text"
@@ -3947,12 +3942,11 @@ exports[`props id should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="good-id"
           >
             Label
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -4619,12 +4613,11 @@ exports[`props label should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label here
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -5302,12 +5295,11 @@ exports[`props labelMode should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 c6 fi-visually-hidden"
-            for="test-id"
           >
             Label here
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -5974,12 +5966,11 @@ exports[`props name should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label
-          </label>
+          </span>
         </div>
       </legend>
       <div
@@ -6647,12 +6638,11 @@ exports[`props value should match snapshot 1`] = `
         <div
           class="c0 c4 fi-label"
         >
-          <label
+          <span
             class="c5 fi-label_label-span"
-            for="test-id"
           >
             Label
-          </label>
+          </span>
         </div>
       </legend>
       <div

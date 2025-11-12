@@ -5,6 +5,9 @@ import { ActionMenuItem } from '../ActionMenu/ActionMenuItem';
 import { ActionMenuDivider } from '../ActionMenu/ActionMenuDivider/ActionMenuDivider';
 import { axeTest } from '../../utils/test';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const waitForPosition = () => act(async () => {});
+
 const actionMenuProps: ActionMenuProps = {
   buttonText: 'Actions',
   name: 'am-test-name',
@@ -44,6 +47,7 @@ describe('Basic ActionMenu', () => {
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BasicActionMenu);
+
     await waitFor(() => {
       expect(baseElement).toMatchSnapshot();
     });
@@ -60,6 +64,7 @@ describe('Disabled ActionMenu', () => {
 
   it('should have disabled attributes when disabled', async () => {
     const { findByRole } = render(BasicActionMenu);
+
     const button = await findByRole('button');
     await waitFor(() => {
       expect(button).toHaveClass('fi-button--disabled');
@@ -70,6 +75,7 @@ describe('Disabled ActionMenu', () => {
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BasicActionMenu);
+
     await waitFor(() => {
       expect(baseElement).toMatchSnapshot();
     });
@@ -127,11 +133,9 @@ describe('movement in ActionMenu', () => {
 
     await act(async () => {
       fireEvent.click(menuButton);
-
-      await new Promise((resolve) => {
-        setTimeout(resolve, 10);
-      });
     });
+
+    await waitForPosition();
 
     await waitFor(() => {
       expect(baseElement).toMatchSnapshot();
@@ -140,10 +144,6 @@ describe('movement in ActionMenu', () => {
     await act(async () => {
       fireEvent.keyPress(baseElement, {
         key: 'ArrowDown',
-      });
-
-      await new Promise((resolve) => {
-        setTimeout(resolve, 10);
       });
     });
 

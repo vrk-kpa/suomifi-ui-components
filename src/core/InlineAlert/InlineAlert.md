@@ -1,4 +1,6 @@
-`<InlineAlert>` is used inside the main content of a web page to convey information regarding a specific part of the site. Typically used in forms to, for example, provide information about a specific field or show centralized form errors. The content is read out to screen readers by default using `aria-live="assertive"`.
+`<InlineAlert>` is used inside the main content of a web page to convey information regarding a specific part of the site.
+
+The component is intended for dynamically appearing use cases. In case of a static visual notification, use the <a href="#/Components/Notification">Notification</a> component instead.
 
 If you need to show site-wide information at the top of the page, use the <a href="#/Components/Alert">Alert</a> component instead.
 
@@ -15,13 +17,22 @@ Examples:
 
 ### Basic use
 
-```js
-import { InlineAlert } from 'suomifi-ui-components';
+<div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
+#### Important!
 
-<InlineAlert labelText="Info">
-  Make sure your name is typed exactly as it appears in your
-  identification
-</InlineAlert>;
+To ensure accessibility, always wrap a dynamically appearing InlineAlert in an aria-live region as shown in the examples below. The element which has an aria-live attribute must be present in the HTML document before the InlineAlert component is rendered for assistive technology to notice the dynamically appearing content.
+
+</div>
+
+```js
+import { InlineAlert, Block } from 'suomifi-ui-components';
+
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert labelText="Info">
+    Make sure your name is typed exactly as it appears in your
+    identification
+  </InlineAlert>
+</Block>;
 ```
 
 ### Warning status
@@ -29,11 +40,13 @@ import { InlineAlert } from 'suomifi-ui-components';
 The warning status of an InlineAlert is used for conveying information which affects users but is not absolutely fatal.
 
 ```js
-import { InlineAlert } from 'suomifi-ui-components';
+import { InlineAlert, Block } from 'suomifi-ui-components';
 
-<InlineAlert status="warning">
-  There are grammar issues in the text
-</InlineAlert>;
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert status="warning">
+    There are grammar issues in the text
+  </InlineAlert>
+</Block>;
 ```
 
 ### Error status
@@ -41,11 +54,13 @@ import { InlineAlert } from 'suomifi-ui-components';
 The error status of an InlineAlert is used for conveying error states and issues.
 
 ```js
-import { InlineAlert } from 'suomifi-ui-components';
+import { InlineAlert, Block } from 'suomifi-ui-components';
 
-<InlineAlert status="error" labelText="Invalid data">
-  Please fill all required fields
-</InlineAlert>;
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert status="error" labelText="Invalid data">
+    Please fill all required fields
+  </InlineAlert>
+</Block>;
 ```
 
 ### Small screen
@@ -53,12 +68,14 @@ import { InlineAlert } from 'suomifi-ui-components';
 Set `smallScreen` to true on narrower screens (mobile devices). This applies less padding to styling.
 
 ```js
-import { InlineAlert } from 'suomifi-ui-components';
+import { InlineAlert, Block } from 'suomifi-ui-components';
 
-<InlineAlert labelText="Info" smallScreen>
-  Make sure your name is typed exactly as it appears in your
-  identification
-</InlineAlert>;
+<Block aria-live="polite" style={{ width: '100%' }}>
+  <InlineAlert labelText="Info" smallScreen>
+    Make sure your name is typed exactly as it appears in your
+    identification
+  </InlineAlert>
+</Block>;
 ```
 
 ### Props & methods

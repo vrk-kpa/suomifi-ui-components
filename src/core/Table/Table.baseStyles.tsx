@@ -184,6 +184,12 @@ export const baseStyles = (
         .fi-table_th,
         .fi-table_td {
           padding: ${theme.spacing.xxs} ${theme.spacing.m};
+
+          .fi-radio-button {
+            .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+              top: 10px;
+            }
+          }
         }
         .fi-table_skeleton-row {
           .fi-table_skeleton-cell {

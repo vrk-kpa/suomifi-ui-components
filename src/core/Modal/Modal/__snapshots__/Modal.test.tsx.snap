@@ -477,6 +477,7 @@ exports[`Basic modal should match snapshot 1`] = `
   padding-right: 15px;
   padding-bottom: 20px;
   padding-left: 30px;
+  display: flex;
 }
 
 .c7.fi-modal_footer .fi-modal_footer_content>* {
@@ -502,6 +503,7 @@ exports[`Basic modal should match snapshot 1`] = `
   padding-right: 0;
   padding-bottom: 15px;
   padding-left: 15px;
+  flex-direction: column;
 }
 
 .c7.fi-modal_footer--small-screen .fi-modal_footer_content>* {
@@ -584,7 +586,7 @@ exports[`Basic modal should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c10.fi-button--disabled::after {
+.c10.fi-button--disabled:not([aria-disabled='true'])::after {
   border: none;
   box-shadow: none;
 }

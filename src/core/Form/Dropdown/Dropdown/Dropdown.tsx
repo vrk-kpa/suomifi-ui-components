@@ -29,7 +29,7 @@ import {
   forkRefs,
   getOwnerDocument,
 } from '../../../../utils/common/common';
-import { Popover } from '../../../../core/Popover/Popover';
+import { Popover, PopoverConsumer } from '../../../../core/Popover/Popover';
 import { SelectItemList } from '../../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
 import { HintText } from '../../../Form/HintText/HintText';
 import { StatusText } from '../../../Form/StatusText/StatusText';
@@ -100,12 +100,13 @@ interface DropdownState<T> {
    * This prevents scrolling bugs
    */
   preventListScrolling: boolean;
+  popoverPlacement: string | undefined;
 }
 
 export interface DropdownProps<T extends string = string>
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlButtonProps, 'onChange'> {
+    Omit<HtmlButtonProps, 'onChange' | 'value'> {
   /**
    * HTML id attribute
    * If no id is specified, one will be generated automatically
@@ -116,7 +117,7 @@ export interface DropdownProps<T extends string = string>
   /** Sets a default, initially selected value for non controlled Dropdown */
   defaultValue?: T;
   /** Controlled selected value, overrides `defaultValue` if provided. */
-  value?: T;
+  value?: T | null;
   /** Label for the Dropdown component. */
   labelText: ReactNode;
   /** Hint text to be shown below the label */
@@ -169,10 +170,12 @@ export interface DropdownProps<T extends string = string>
    * @default true
    */
   portal?: boolean;
+  /** Popover container div CSS class for custom styles. Can be used to modify popover z-index. */
+  popoverClassName?: string;
   /** Set component's width to 100% */
   fullWidth?: boolean;
   /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLButtonElement>;
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 class BaseDropdown<T extends string = string> extends Component<
@@ -202,6 +205,7 @@ class BaseDropdown<T extends string = string> extends Component<
         ? this.props.defaultValue
         : this.getFirstItemValue(),
     preventListScrolling: false,
+    popoverPlacement: 'bottom',
   };
 
   buttonRef: React.RefObject<HTMLButtonElement>;
@@ -255,7 +259,7 @@ class BaseDropdown<T extends string = string> extends Component<
   }
 
   static getSelectedValueNode<U extends string>(
-    selectedValue: string | undefined,
+    selectedValue: string | undefined | null,
     children:
       | Array<
           | ReactElement<DropdownItemProps<U>>
@@ -302,6 +306,16 @@ class BaseDropdown<T extends string = string> extends Component<
 
   componentWillUnmount(): void {
     this.componentIsMounted = false;
+  }
+
+  componentDidUpdate(prevProps: Readonly<DropdownProps<T>>): void {
+    // Case nullifying value by setting it from a defined value to undefined
+    if (this.props.value === undefined && prevProps.value !== undefined) {
+      this.setState({
+        selectedValue: undefined,
+        selectedValueNode: undefined,
+      });
+    }
   }
 
   private isOutsideClick(event: MouseEvent) {
@@ -515,6 +529,17 @@ class BaseDropdown<T extends string = string> extends Component<
     }, 200);
   }
 
+  private updatePopoverPlacement = (placement: string | undefined) => {
+    if (!placement) return;
+    if (placement !== this.state.popoverPlacement) {
+      requestAnimationFrame(() => {
+        if (this.componentIsMounted) {
+          this.setState({ popoverPlacement: placement });
+        }
+      });
+    }
+  };
+
   render() {
     const {
       id,
@@ -536,6 +561,7 @@ class BaseDropdown<T extends string = string> extends Component<
       onBlur,
       tooltipComponent,
       portal = true,
+      popoverClassName,
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
       style,
@@ -630,6 +656,7 @@ class BaseDropdown<T extends string = string> extends Component<
             }}
             onKeyDown={this.handleKeyDown}
             onBlur={this.handleOnBlur}
+            data-floating-ui-placement={this.state.popoverPlacement}
             {...passProps}
           >
             <HtmlSpan
@@ -670,39 +697,49 @@ class BaseDropdown<T extends string = string> extends Component<
               matchWidth={true}
               onKeyDown={this.handleKeyDown}
               portal={portal}
+              className={popoverClassName}
             >
-              <DropdownProvider
-                value={{
-                  onItemClick: (itemValue: T) =>
-                    this.handleItemSelection(itemValue),
-                  selectedDropdownValue: selectedValue,
-                  id,
-                  focusedItemValue: focusedDescendantId,
-                  noSelectedStyles: alwaysShowVisualPlaceholder,
-                  onItemTabPress: () => this.focusToButtonAndClosePopover(),
-                  onItemMouseOver: (itemValue) =>
-                    this.setState({
-                      preventListScrolling: true,
-                      focusedDescendantId: itemValue,
-                    }),
+              <PopoverConsumer>
+                {(consumer) => {
+                  this.updatePopoverPlacement(consumer?.popoverPlacement);
+                  return (
+                    <DropdownProvider
+                      value={{
+                        onItemClick: (itemValue: T) =>
+                          this.handleItemSelection(itemValue),
+                        selectedDropdownValue: selectedValue,
+                        id,
+                        focusedItemValue: focusedDescendantId,
+                        noSelectedStyles: alwaysShowVisualPlaceholder,
+                        onItemTabPress: () =>
+                          this.focusToButtonAndClosePopover(),
+                        onItemMouseOver: (itemValue) =>
+                          this.setState({
+                            preventListScrolling: true,
+                            focusedDescendantId: itemValue,
+                          }),
+                      }}
+                    >
+                      <SelectItemList
+                        id={popoverItemListId}
+                        ref={this.popoverRef}
+                        focusedDescendantId={ariaActiveDescendant}
+                        className={dropdownClassNames.itemList}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Tab') {
+                            event.preventDefault();
+                            this.focusToButtonAndClosePopover();
+                          }
+                        }}
+                        preventScrolling={preventListScrolling}
+                        popoverPlacement={consumer?.popoverPlacement}
+                      >
+                        {children || []}
+                      </SelectItemList>
+                    </DropdownProvider>
+                  );
                 }}
-              >
-                <SelectItemList
-                  id={popoverItemListId}
-                  ref={this.popoverRef}
-                  focusedDescendantId={ariaActiveDescendant}
-                  className={dropdownClassNames.itemList}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Tab') {
-                      event.preventDefault();
-                      this.focusToButtonAndClosePopover();
-                    }
-                  }}
-                  preventScrolling={preventListScrolling}
-                >
-                  {children || []}
-                </SelectItemList>
-              </DropdownProvider>
+              </PopoverConsumer>
             </Popover>
           )}
         </HtmlDiv>
@@ -759,12 +796,12 @@ const DropdownInner = <T extends string = string>(
 };
 
 // Not directly exporting the DropdownInner as styleguidist was not showing props then.
-export const Dropdown = React.forwardRef(DropdownInner) as <
-  T extends string = string,
->(
-  props: DropdownProps<T>,
-  ref: React.RefObject<HTMLButtonElement>,
-) => ReturnType<typeof DropdownInner>;
+export const Dropdown = React.forwardRef<
+  HTMLButtonElement,
+  DropdownProps<string>
+>(DropdownInner) as <T extends string = string>(
+  props: DropdownProps<T> & { ref?: React.Ref<HTMLButtonElement> },
+) => React.ReactElement | null;
 
 DropdownInner.displayName = 'Dropdown';
 export { DropdownProvider, DropdownConsumer };

@@ -10,6 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       padding-right: ${theme.spacing.s};
       padding-bottom: ${theme.spacing.m};
       padding-left: ${theme.spacing.xl};
+      display: flex;
       & > * {
         margin-top: ${theme.spacing.m};
         margin-right: ${theme.spacing.s};
@@ -38,6 +39,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding-right: 0;
         padding-bottom: ${theme.spacing.s};
         padding-left: ${theme.spacing.s};
+        flex-direction: column;
         & > * {
           display: block;
           width: calc(100% - ${theme.spacing.s});
