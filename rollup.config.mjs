@@ -56,7 +56,7 @@ const babelConfig = {
   ],
 };
 
-const plugins = (tsConfig, extractCSS, outputFormat) =>
+const plugins = (tsConfig, extractCSS) =>
   [
     progress(),
     nodeResolve(),
@@ -81,9 +81,8 @@ const plugins = (tsConfig, extractCSS, outputFormat) =>
       extract: !!extractCSS,
     }),
     analyze &&
-      outputFormat === 'es' &&
       bundleStats({
-        outDir: '../../',
+        outDir: '',
         html: true,
         baseline: false,
         compare: false,
@@ -96,7 +95,7 @@ const plugins = (tsConfig, extractCSS, outputFormat) =>
 const bundle = (output, tsConfig, extractCSS) => ({
   input: 'src/index.tsx',
   output: output,
-  plugins: plugins(tsConfig, extractCSS, output.format),
+  plugins: plugins(tsConfig, extractCSS),
   external: analyze
     ? [
         /@babel\/runtime/,
@@ -112,9 +111,7 @@ const bundle = (output, tsConfig, extractCSS) => ({
 });
 
 export default [
-  // separate calls to only analyze ES build
-  bundle(output['js'][0], {}, false),
-  bundle(output['js'][1], {}, false),
+  bundle(output['js'], {}, false),
   {
     input: 'src/index.tsx',
     output: output['types'],
