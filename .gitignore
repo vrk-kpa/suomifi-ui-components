@@ -2,6 +2,7 @@
 *.log
 0-stage
 yarn.lock
+bundle-stats.html
 
 # build output
 dist
