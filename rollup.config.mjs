@@ -8,6 +8,7 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import dts from 'rollup-plugin-dts';
 import { babel } from '@rollup/plugin-babel';
+import { bundleStats } from 'rollup-plugin-bundle-stats';
 
 import pkg from './package.json' with { type: 'json' };
 
@@ -15,6 +16,8 @@ const typesTsConfig = {
   declaration: true,
   emitDeclarationOnly: true,
 };
+
+const analyze = process.env.ANALYZE === 'true';
 
 const output = {
   js: [
@@ -53,47 +56,64 @@ const babelConfig = {
   ],
 };
 
-const plugins = (tsConfig, extractCSS) => [
-  progress(),
-  nodeResolve(),
-  commonjs(),
-  typescript(tsConfig),
-  babel({
-    babelHelpers: 'runtime',
-    ...babelConfig,
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    include: ['src/**/*'],
-  }),
-  postcss({
-    extensions: ['.css', '.scss'],
-    plugins: [
-      cssImport(),
-      autoprefixer(),
-      cssnano({
-        preset: ['default', { normalizeWhitespace: false }],
+const plugins = (tsConfig, extractCSS) =>
+  [
+    progress(),
+    nodeResolve(),
+    commonjs(),
+    typescript(tsConfig),
+    babel({
+      babelHelpers: 'runtime',
+      ...babelConfig,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      include: ['src/**/*'],
+    }),
+    postcss({
+      extensions: ['.css', '.scss'],
+      plugins: [
+        cssImport(),
+        autoprefixer(),
+        cssnano({
+          preset: ['default', { normalizeWhitespace: false }],
+        }),
+      ],
+      inject: false,
+      extract: !!extractCSS,
+    }),
+    analyze &&
+      bundleStats({
+        outDir: '',
+        html: true,
+        baseline: false,
+        compare: false,
+        silent: false,
+        open: true,
       }),
-    ],
-    inject: false,
-    extract: !!extractCSS,
-  }),
-];
+    ,
+  ].filter(Boolean);
 
 const bundle = (output, tsConfig, extractCSS) => ({
   input: 'src/index.tsx',
   output: output,
   plugins: plugins(tsConfig, extractCSS),
-  external: [
-    /@babel\/runtime/,
-    ...(!!pkg.dependencies ? Object.keys(pkg.dependencies) : []),
-    ...(!!pkg.devDependencies ? Object.keys(pkg.devDependencies) : []),
-    ...(!!pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : []),
-  ],
+  external: analyze
+    ? [
+        /@babel\/runtime/,
+        ...(!!pkg.devDependencies ? Object.keys(pkg.devDependencies) : []),
+        ...(!!pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : []),
+      ]
+    : [
+        /@babel\/runtime/,
+        ...(!!pkg.dependencies ? Object.keys(pkg.dependencies) : []),
+        ...(!!pkg.devDependencies ? Object.keys(pkg.devDependencies) : []),
+        ...(!!pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : []),
+      ],
 });
 
 export default [
   bundle(output['js'], {}, false),
   {
-    input: 'src/index.tsx', // Updated the path to a valid TypeScript entry file
+    input: 'src/index.tsx',
     output: output['types'],
     plugins: [dts()],
   },
