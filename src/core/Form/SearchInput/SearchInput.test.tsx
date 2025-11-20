@@ -4,6 +4,9 @@ import { axeTest } from '../../../utils/test';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const waitForPosition = () => act(async () => {});
+
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
   const {
     labelText = 'Test search input',
@@ -463,11 +466,13 @@ describe('autosuggest', () => {
         suggestions,
       }),
     );
-
+    await waitForPosition();
     const inputElement = getByRole('searchbox') as HTMLInputElement;
 
     const items = await waitFor(() => queryAllByRole('option'));
-    expect(items).toHaveLength(3);
+    await waitFor(() => {
+      expect(items).toHaveLength(3);
+    });
 
     await act(async () => {
       fireEvent.keyDown(inputElement, { key: 'Escape' });

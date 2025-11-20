@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent, waitFor } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
@@ -178,7 +178,9 @@ describe('Dropdown with additional aria-label', () => {
   it('should match snapshot', async () => {
     const { baseElement, getByRole } = render(DropdownWithExtraLabel);
     await waitForPosition();
-    const menuButton = getByRole('button') as HTMLButtonElement;
+    const menuButton = await waitFor(
+      () => getByRole('button') as HTMLButtonElement,
+    );
     await act(async () => {
       fireEvent.click(menuButton);
     });
@@ -197,7 +199,7 @@ describe('Children', () => {
     await act(async () => {
       fireEvent.click(menuButton);
     });
-    const option = getAllByRole('option')[0];
+    const option = await waitFor(() => getAllByRole('option')[0]);
     await act(async () => {
       fireEvent.click(option);
     });
@@ -215,7 +217,7 @@ describe('Children', () => {
     await act(async () => {
       fireEvent.click(menuButton);
     });
-    const option = getAllByRole('option')[2];
+    const option = await waitFor(() => getAllByRole('option')[2]);
     await act(async () => {
       fireEvent.click(option);
     });
@@ -230,7 +232,7 @@ describe('Children', () => {
     await act(async () => {
       fireEvent.click(menuButton);
     });
-    const option = getAllByRole('option')[3];
+    const option = await waitFor(() => getAllByRole('option')[3]);
     await act(async () => {
       fireEvent.click(option);
     });
@@ -247,7 +249,7 @@ describe('DropdownItem', () => {
     await act(async () => {
       fireEvent.click(menuButton);
     });
-    const option = getAllByRole('option')[0];
+    const option = await waitFor(() => getAllByRole('option')[0]);
     await act(async () => {
       fireEvent.click(option);
     });
@@ -265,11 +267,13 @@ describe('DropdownItem', () => {
     );
     const { getByRole, getAllByRole } = render(BasicDropdown);
     await waitForPosition();
-    const menuButton = getByRole('button') as HTMLButtonElement;
+    const menuButton = await waitFor(
+      () => getByRole('button') as HTMLButtonElement,
+    );
     await act(async () => {
       fireEvent.click(menuButton);
     });
-    const option = getAllByRole('option')[0];
+    const option = await waitFor(() => getAllByRole('option')[0]);
     await act(async () => {
       fireEvent.click(option);
     });
