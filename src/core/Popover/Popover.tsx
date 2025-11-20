@@ -70,6 +70,8 @@ export const Popover = (props: PopoverProps) => {
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
 
+  const [isPositioned, setIsPositioned] = useState(false);
+
   const portalRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -117,11 +119,12 @@ export const Popover = (props: PopoverProps) => {
 
   const [consumerPlacement, setConsumerPlacement] = useState<
     string | undefined
-  >(undefined);
+  >(placement);
   useEffect(() => {
-    const id = requestAnimationFrame(() =>
-      setConsumerPlacement(resolvedPlacement),
-    );
+    const id = requestAnimationFrame(() => {
+      setConsumerPlacement(resolvedPlacement);
+      setIsPositioned(true);
+    });
     return () => cancelAnimationFrame(id);
   }, [resolvedPlacement]);
 
@@ -168,7 +171,10 @@ export const Popover = (props: PopoverProps) => {
           <div
             className={classNames('fi-portal', className)}
             ref={setFloatingElement}
-            style={floatingStyles}
+            style={{
+              ...floatingStyles,
+              visibility: isPositioned ? 'visible' : 'hidden',
+            }}
             tabIndex={-1}
             role="presentation"
           >
@@ -183,11 +189,15 @@ export const Popover = (props: PopoverProps) => {
       </>
     );
   }
+
   return (
     <div
       className={className}
       ref={setFloatingElement}
-      style={floatingStyles}
+      style={{
+        ...floatingStyles,
+        visibility: isPositioned ? 'visible' : 'hidden',
+      }}
       tabIndex={-1}
       role="presentation"
     >
