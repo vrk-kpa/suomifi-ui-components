@@ -176,7 +176,9 @@ describe('Dropdown with additional aria-label', () => {
   });
 
   it('should match snapshot', async () => {
-    const { baseElement, getByRole } = render(DropdownWithExtraLabel);
+    const { baseElement, getByRole, queryByRole } = render(
+      DropdownWithExtraLabel,
+    );
     await waitForPosition();
     const menuButton = await waitFor(
       () => getByRole('button') as HTMLButtonElement,
@@ -184,6 +186,7 @@ describe('Dropdown with additional aria-label', () => {
     await act(async () => {
       fireEvent.click(menuButton);
     });
+    await waitFor(() => queryByRole('listbox'));
     expect(baseElement).toMatchSnapshot();
   });
 });

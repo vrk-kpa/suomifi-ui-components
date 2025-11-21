@@ -607,11 +607,11 @@ describe('listItemProps', () => {
       />,
     );
     await waitForPosition();
-    const input = getByRole('textbox');
+    const input = await waitFor(() => getByRole('textbox'));
     await act(async () => {
       fireEvent.focus(input);
     });
-    const option = getByRole('option');
+    const option = await waitFor(() => getByRole('option'));
 
     expect(option).toHaveAttribute('data-test-id', 'abc');
   });

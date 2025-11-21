@@ -467,7 +467,9 @@ describe('autosuggest', () => {
       }),
     );
     await waitForPosition();
-    const inputElement = getByRole('searchbox') as HTMLInputElement;
+    const inputElement = await waitFor(
+      () => getByRole('searchbox') as HTMLInputElement,
+    );
 
     const items = await waitFor(() => queryAllByRole('option'));
     await waitFor(() => {
