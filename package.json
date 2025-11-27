@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -157,7 +157,7 @@
     "polished": "4.2.2",
     "react-modal": "3.16.3",
     "suomifi-design-tokens": "6.1.0",
-    "suomifi-icons": "7.7.0"
+    "suomifi-icons": "7.8.0"
   },
   "peerDependencies": {
     "@types/styled-components": ">=5.1.9",
