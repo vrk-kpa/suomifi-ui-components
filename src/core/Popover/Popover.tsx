@@ -1,4 +1,11 @@
-import React, { useState, ReactNode, useEffect, useRef, useMemo } from 'react';
+import React, {
+  useState,
+  ReactNode,
+  useEffect,
+  useRef,
+  useMemo,
+  useLayoutEffect,
+} from 'react';
 import ReactDOM from 'react-dom';
 import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
@@ -117,15 +124,17 @@ export const Popover = (props: PopoverProps) => {
     }
   }, [floatingUiRefs, floatingElement]);
 
+  useLayoutEffect(() => {
+    if (floatingElement && floatingStyles.position) {
+      setIsPositioned(true);
+    }
+  }, [floatingElement, floatingStyles.position]);
+
   const [consumerPlacement, setConsumerPlacement] = useState<
     string | undefined
   >(placement);
   useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      setConsumerPlacement(resolvedPlacement);
-      setIsPositioned(true);
-    });
-    return () => cancelAnimationFrame(id);
+    setConsumerPlacement(resolvedPlacement);
   }, [resolvedPlacement]);
 
   const providerValue = useMemo(
