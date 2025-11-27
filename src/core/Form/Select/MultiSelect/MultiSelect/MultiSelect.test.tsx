@@ -806,11 +806,11 @@ describe('listProps', () => {
       />,
     );
     await waitForPosition();
-    const input = getByRole('textbox');
+    const input = await waitFor(async () => getByRole('textbox'));
     await act(async () => {
       fireEvent.focus(input);
     });
-    const menu = getByRole('listbox');
+    const menu = await waitFor(() => getByRole('listbox'));
     expect(menu).toHaveAttribute('data-test-id', 'custom-attr');
   });
 });
@@ -834,11 +834,11 @@ describe('listItemProps', () => {
       />,
     );
     await waitForPosition();
-    const input = getByRole('textbox');
+    const input = await waitFor(() => getByRole('textbox'));
     await act(async () => {
       fireEvent.focus(input);
     });
-    const option = getByRole('option');
+    const option = await waitFor(() => getByRole('option'));
     expect(option).toHaveAttribute('data-test-id', 'apple');
   });
 });

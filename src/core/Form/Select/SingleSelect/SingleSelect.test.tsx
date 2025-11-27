@@ -578,9 +578,9 @@ describe('listProps', () => {
       />,
     );
     await waitForPosition();
-    const input = getByRole('textbox');
-    fireEvent.focus(input);
-    const menu = getByRole('listbox');
+    const input = await waitFor(() => getByRole('textbox'));
+    await act(() => fireEvent.focus(input));
+    const menu = await waitFor(() => getByRole('listbox'));
     await waitFor(() =>
       expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr'),
     );
@@ -607,11 +607,11 @@ describe('listItemProps', () => {
       />,
     );
     await waitForPosition();
-    const input = getByRole('textbox');
+    const input = await waitFor(() => getByRole('textbox'));
     await act(async () => {
       fireEvent.focus(input);
     });
-    const option = getByRole('option');
+    const option = await waitFor(() => getByRole('option'));
 
     expect(option).toHaveAttribute('data-test-id', 'abc');
   });
