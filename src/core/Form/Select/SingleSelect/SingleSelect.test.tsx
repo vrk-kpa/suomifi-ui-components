@@ -1,11 +1,14 @@
+/* eslint-disable no-promise-executor-return */
 import React from 'react';
 import { render, act, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { axeTest } from '../../../../utils/test/axe';
 import { SingleSelect, SingleSelectData } from './SingleSelect';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const waitForPosition = () => act(async () => {});
+export async function waitForPosition() {
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+}
 
 const tools = [
   {
@@ -109,6 +112,7 @@ it('has matching snapshot', async () => {
   await act(async () => {
     fireEvent.focus(textfield);
   });
+  await waitForPosition();
   expect(baseElement).toMatchSnapshot();
 });
 
