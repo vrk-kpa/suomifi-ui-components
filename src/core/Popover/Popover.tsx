@@ -126,7 +126,11 @@ export const Popover = (props: PopoverProps) => {
 
   useLayoutEffect(() => {
     if (floatingElement && floatingStyles.position) {
-      setIsPositioned(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsPositioned(true);
+        });
+      });
     }
   }, [floatingElement, floatingStyles.position]);
 

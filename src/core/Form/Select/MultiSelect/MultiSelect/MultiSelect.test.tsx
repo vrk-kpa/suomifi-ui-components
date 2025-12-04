@@ -1,10 +1,13 @@
+/* eslint-disable no-promise-executor-return */
 import React, { act } from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const waitForPosition = () => act(async () => {});
+export async function waitForPosition() {
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+}
 
 const tools = [
   {
@@ -126,7 +129,11 @@ it('has matching snapshot', async () => {
   await act(async () => {
     fireEvent.focus(textfield);
   });
-  expect(baseElement).toMatchSnapshot();
+
+  await waitForPosition();
+  await waitFor(() => {
+    expect(baseElement).toMatchSnapshot();
+  });
 });
 
 describe('Chips', () => {
@@ -493,7 +500,8 @@ describe('Controlled', () => {
     await act(async () => {
       fireEvent.change(textfield, { target: { value: 'sn' } });
     });
-    const snailItem = getByRole('option');
+
+    const snailItem = await waitFor(() => getByRole('option'));
     expect(snailItem).toHaveTextContent('Snail');
 
     await act(async () => {

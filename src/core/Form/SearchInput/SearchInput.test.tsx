@@ -1,11 +1,14 @@
+/* eslint-disable no-promise-executor-return */
 import React, { act } from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const waitForPosition = () => act(async () => {});
+export async function waitForPosition() {
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+}
 
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
   const {

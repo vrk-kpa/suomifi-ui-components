@@ -1,3 +1,4 @@
+/* eslint-disable no-promise-executor-return */
 import React from 'react';
 import { render, act, fireEvent, waitFor } from '@testing-library/react';
 
@@ -5,8 +6,10 @@ import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { axeTest } from '../../../../utils/test';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const waitForPosition = () => act(async () => {});
+export async function waitForPosition() {
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+}
 
 const dropdownProps = {
   labelText: 'Dropdown test',
@@ -85,6 +88,7 @@ describe('Basic dropdown', () => {
     await act(async () => {
       fireEvent.click(menuButton);
     });
+    await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
 });
@@ -156,6 +160,7 @@ describe('Controlled Dropdown', () => {
     await act(async () => {
       fireEvent.click(button);
     });
+    await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
 });
@@ -187,6 +192,7 @@ describe('Dropdown with additional aria-label', () => {
       fireEvent.click(menuButton);
     });
     await waitFor(() => queryByRole('listbox'));
+    await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
 });
