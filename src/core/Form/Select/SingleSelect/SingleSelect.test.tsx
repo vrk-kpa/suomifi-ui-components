@@ -699,3 +699,60 @@ describe('margin', () => {
     expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });
+
+describe('keyboard interactions', () => {
+  it('should reset input value to selected item when pressing Escape after typing', async () => {
+    const { getByRole, getByText } = render(BasicSingleSelect);
+    await waitForPosition();
+
+    const input = getByRole('textbox');
+
+    // First, select an item
+    fireEvent.click(input);
+    const option = await waitFor(() => getByText('Rake'));
+    fireEvent.click(option);
+    expect(input).toHaveValue('Rake');
+
+    // Then type something different in the input
+    await act(async () => {
+      fireEvent.click(input);
+      fireEvent.change(input, { target: { value: 'something else' } });
+    });
+    expect(input).toHaveValue('something else');
+
+    // Press Escape - should reset to selected item
+    await act(async () => {
+      fireEvent.keyDown(input, { key: 'Escape' });
+    });
+    expect(input).toHaveValue('Rake');
+  });
+
+  it('should clear input when pressing Escape with no selected item', async () => {
+    const { getByRole } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool"
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    await waitForPosition();
+
+    const input = getByRole('textbox');
+
+    // Type something in the input without selecting
+    await act(async () => {
+      fireEvent.click(input);
+      fireEvent.change(input, { target: { value: 'something' } });
+    });
+    expect(input).toHaveValue('something');
+
+    // Press Escape - should clear input since no item is selected
+    await act(async () => {
+      fireEvent.keyDown(input, { key: 'Escape' });
+    });
+    expect(input).toHaveValue('');
+  });
+});
