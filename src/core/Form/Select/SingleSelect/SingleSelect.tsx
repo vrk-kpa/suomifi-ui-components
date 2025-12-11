@@ -370,8 +370,7 @@ class BaseSingleSelect<T> extends Component<
       showPopover: false,
       filterMode: false,
       focusedDescendantId: null,
-      filterInputValue:
-        prevState.selectedItem?.labelText || prevState.filterInputValue,
+      filterInputValue: prevState.selectedItem?.labelText || '',
     }));
   };
 
@@ -507,9 +506,6 @@ class BaseSingleSelect<T> extends Component<
         if (this.state.showPopover) {
           event.stopPropagation();
         }
-        this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
-          filterInputValue: prevState.selectedItem?.labelText || '',
-        }));
         this.focusToInputAndCloseMenu();
         break;
       }
