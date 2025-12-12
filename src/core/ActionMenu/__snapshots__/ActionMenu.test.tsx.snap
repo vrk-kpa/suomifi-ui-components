@@ -152,7 +152,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -194,7 +194,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -213,7 +213,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -935,7 +935,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -977,7 +977,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -996,7 +996,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -1718,7 +1718,7 @@ exports[`No borders variant should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1760,7 +1760,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -1779,7 +1779,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -2501,7 +2501,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -2543,7 +2543,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -2562,7 +2562,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -3285,7 +3285,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -3327,7 +3327,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -3346,7 +3346,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }

@@ -71,7 +71,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           justify-content: center;
           align-items: center;
           border-radius: 50%;
-          border: 1px solid ${theme.colors.blackLight1};
+          border: 1px solid ${theme.colors.depthDark3};
           width: 26px;
           height: 26px;
           line-height: 26px;
@@ -112,7 +112,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           justify-content: center;
           align-items: center;
           border-radius: 50%;
-          border: 1px solid ${theme.colors.blackLight1};
+          border: 1px solid ${theme.colors.depthDark3};
           width: 26px;
           height: 26px;
           line-height: 26px;
