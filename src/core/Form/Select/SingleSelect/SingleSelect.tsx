@@ -366,11 +366,12 @@ class BaseSingleSelect<T> extends Component<
 
   private focusToInputAndCloseMenu = () => {
     this.focusToInputAndSelectText();
-    this.setState({
+    this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
       showPopover: false,
       filterMode: false,
       focusedDescendantId: null,
-    });
+      filterInputValue: prevState.selectedItem?.labelText || '',
+    }));
   };
 
   private handleItemSelection = (item: (T & SingleSelectData) | null) => {
@@ -504,9 +505,6 @@ class BaseSingleSelect<T> extends Component<
       case 'Escape': {
         if (this.state.showPopover) {
           event.stopPropagation();
-        }
-        if (!this.state.selectedItem) {
-          this.setState({ filterInputValue: '' });
         }
         this.focusToInputAndCloseMenu();
         break;
