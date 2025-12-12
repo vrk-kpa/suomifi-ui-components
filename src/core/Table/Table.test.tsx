@@ -142,4 +142,101 @@ describe('Table functionalities', () => {
       expect(row).toHaveClass('fi-table_skeleton-row');
     });
   });
+
+  describe('Default sorting', () => {
+    it('applies default sort on mount with ascending order', () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'name', direction: 'asc' },
+      });
+      const rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('Jane Smith');
+      expect(rows[2]).toHaveTextContent('John Doe');
+    });
+
+    it('applies default sort on mount with descending order', () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'name', direction: 'desc' },
+      });
+      const rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('John Doe');
+      expect(rows[2]).toHaveTextContent('Jane Smith');
+    });
+
+    it('applies default sort on numeric column', () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'age', direction: 'asc' },
+      });
+      const rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('28');
+      expect(rows[2]).toHaveTextContent('34');
+    });
+
+    it('sets aria-sort attribute correctly for default sorted column', () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'name', direction: 'asc' },
+      });
+      const nameHeader = screen.getByRole('columnheader', { name: /Name/i });
+      expect(nameHeader).toHaveAttribute('aria-sort', 'ascending');
+    });
+
+    it('displays correct sort icon for default ascending sort', () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'name', direction: 'asc' },
+      });
+      const nameButton = screen.getByRole('button', { name: /Name/i });
+      expect(nameButton).toBeInTheDocument();
+    });
+
+    it('allows manual re-sorting after default sort is applied', async () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'name', direction: 'asc' },
+      });
+      // Initially sorted ascending by name
+      let rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('Jane Smith');
+
+      // Click to reverse sort
+      const nameHeader = screen.getByText('Name');
+      await userEvent.click(nameHeader);
+      rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('John Doe');
+      expect(rows[2]).toHaveTextContent('Jane Smith');
+    });
+
+    it('does not sort if column is not sortable', () => {
+      const nonSortableColumns = [
+        { key: 'name', labelText: 'Name', sortable: false },
+        { key: 'age', labelText: 'Age', sortable: true },
+      ];
+      render(
+        <Table
+          caption="People in the project"
+          columns={nonSortableColumns}
+          data={data}
+          defaultSort={{ columnKey: 'name', direction: 'asc' }}
+        />,
+      );
+      // Data should remain in original order
+      const rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('John Doe');
+      expect(rows[2]).toHaveTextContent('Jane Smith');
+    });
+
+    it('ignores invalid column key in defaultSort', () => {
+      renderTable({
+        caption: 'People in the project',
+        defaultSort: { columnKey: 'nonexistent', direction: 'asc' },
+      });
+      // Data should remain in original order
+      const rows = screen.getAllByRole('row');
+      expect(rows[1]).toHaveTextContent('John Doe');
+      expect(rows[2]).toHaveTextContent('Jane Smith');
+    });
+  });
 });
