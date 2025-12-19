@@ -1,6 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 import React, { act } from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
@@ -123,9 +124,10 @@ it('should not have basic accessibility issues', async () => {
 });
 
 it('has matching snapshot', async () => {
+  const user = userEvent.setup();
   const { baseElement, getByRole } = render(BasicMultiSelect);
   const textfield = getByRole('textbox') as HTMLInputElement;
-  fireEvent.focus(textfield);
+  await user.click(textfield);
   await waitForPosition();
   expect(baseElement).toMatchSnapshot();
 });
@@ -137,12 +139,13 @@ describe('Chips', () => {
   });
 
   it('second Chip should be removable and removed when clicked', async () => {
+    const user = userEvent.setup();
     const { getByText, queryByText } = render(BasicMultiSelect);
     const hammerChip = getByText('Hammer');
     expect(queryByText('Hammer')).not.toBeNull();
 
     expect(hammerChip.classList).toContain('fi-chip--content');
-    fireEvent.click(hammerChip);
+    await user.click(hammerChip);
     await waitForPosition();
 
     const removedHammerChip = queryByText('Hammer');
@@ -150,6 +153,7 @@ describe('Chips', () => {
   });
 
   test('onItemSelect: called with uniqueItem id, when clicking non-disabled Chip', async () => {
+    const user = userEvent.setup();
     const mockOnItemSelect = jest.fn();
     const { container } = render(
       <MultiSelect
@@ -168,7 +172,7 @@ describe('Chips', () => {
       />,
     );
     const hammerChip = container.querySelectorAll('.fi-chip')[1];
-    fireEvent.click(hammerChip);
+    await user.click(hammerChip);
     await waitForPosition();
     expect(mockOnItemSelect).toBeCalledWith('h9823523');
   });
@@ -182,13 +186,14 @@ describe('Chips', () => {
   });
 
   it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
+    const user = userEvent.setup();
     const { container } = render(BasicMultiSelect);
     expect(container.querySelectorAll('.fi-chip')).toHaveLength(3);
     const removeAllButton = container.querySelector(
       '.fi-multiselect_removeAllButton',
     );
     if (removeAllButton) {
-      fireEvent.click(removeAllButton);
+      await user.click(removeAllButton);
       await waitForPosition();
     }
     const chips = container.querySelectorAll('.fi-chip');
@@ -196,6 +201,7 @@ describe('Chips', () => {
   });
 
   test('onRemoveAll: should be called when pressing "Remove all" button', async () => {
+    const user = userEvent.setup();
     const mockOnRemoveAll = jest.fn();
     const { container } = render(
       <MultiSelect
@@ -217,7 +223,7 @@ describe('Chips', () => {
       '.fi-multiselect_removeAllButton',
     );
     if (removeAllButton) {
-      fireEvent.click(removeAllButton);
+      await user.click(removeAllButton);
     }
     await waitForPosition();
     expect(mockOnRemoveAll).toBeCalledTimes(1);
@@ -226,6 +232,7 @@ describe('Chips', () => {
 
 describe('Non-controlled', () => {
   it('has correct amount of items are shown on filtering and after selection', async () => {
+    const user = userEvent.setup();
     const { getByRole, findAllByRole, getByText } = render(
       <MultiSelect
         labelText="MultiSelect"
@@ -241,7 +248,7 @@ describe('Non-controlled', () => {
       />,
     );
     const textfield = getByRole('textbox') as HTMLInputElement;
-    fireEvent.change(textfield, { target: { value: 'hammer' } });
+    await user.type(textfield, 'hammer');
     await waitForPosition();
 
     const hammerItem = getByText('Hammer');
@@ -250,7 +257,7 @@ describe('Non-controlled', () => {
     const opts = await findAllByRole('option');
     expect(opts).toHaveLength(3);
 
-    fireEvent.click(hammerItem);
+    await user.click(hammerItem);
     await waitForPosition();
 
     const allOptions = await findAllByRole('option');
@@ -258,6 +265,7 @@ describe('Non-controlled', () => {
   });
 
   it('has possibility to select item', async () => {
+    const user = userEvent.setup();
     const { getByRole, container, getByText, rerender } = render(
       <MultiSelect
         labelText="MultiSelect"
@@ -276,7 +284,7 @@ describe('Non-controlled', () => {
     expect(chips).toHaveLength(0);
 
     const textfield = getByRole('textbox') as HTMLInputElement;
-    fireEvent.focus(textfield);
+    await user.click(textfield);
     await waitForPosition();
     rerender(
       <MultiSelect
@@ -294,7 +302,7 @@ describe('Non-controlled', () => {
     );
     const hammerItem = getByText('Hammer');
 
-    fireEvent.click(hammerItem);
+    await user.click(hammerItem);
     await waitForPosition();
 
     chips = container.querySelectorAll('.fi-chip');
@@ -353,6 +361,7 @@ describe('Controlled', () => {
   });
 
   it('does not allow removing of items by clicking', async () => {
+    const user = userEvent.setup();
     const animals = [
       {
         age: 2,
@@ -392,7 +401,7 @@ describe('Controlled', () => {
     );
     const { getByText, getAllByText } = render(multiselect);
     const turtleChip = getByText('Turtle');
-    fireEvent.click(turtleChip);
+    await user.click(turtleChip);
     await waitForPosition();
     expect(mockItemSelectionsChange).toBeCalledTimes(1);
     expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
@@ -401,6 +410,7 @@ describe('Controlled', () => {
   });
 
   it('shows correct amount of items after filtering and selecting', async () => {
+    const user = userEvent.setup();
     let selectedAnimals: Array<MultiSelectData> = [];
 
     const animals: Array<MultiSelectData> = [
@@ -458,13 +468,13 @@ describe('Controlled', () => {
 
     const { getByRole, rerender, findAllByRole } = render(multiMutti);
     const textfield = getByRole('textbox') as HTMLInputElement;
-    fireEvent.change(textfield, { target: { value: 'sn' } });
+    await user.type(textfield, 'sn');
     await waitForPosition();
 
     const snailItem = getByRole('option');
     expect(snailItem).toHaveTextContent('Snail');
 
-    fireEvent.click(snailItem);
+    await user.click(snailItem);
     await waitForPosition();
 
     rerender(
@@ -633,6 +643,7 @@ describe('status', () => {
 
 describe('disabled', () => {
   it('should not be interactive while disabled', async () => {
+    const user = userEvent.setup();
     const { getAllByRole, container } = render(
       <MultiSelect
         disabled={true}
@@ -648,7 +659,7 @@ describe('disabled', () => {
     const toggleBtn = container.querySelector('.fi-input-toggle-button');
     expect(toggleBtn).not.toBe(null);
     if (toggleBtn) {
-      fireEvent.click(toggleBtn);
+      await user.click(toggleBtn);
       await waitForPosition();
       expect(() => getAllByRole('option')).toThrowError();
     }
@@ -657,6 +668,7 @@ describe('disabled', () => {
 
 describe('custom item addition mode', () => {
   it('should allow user to add & remove their own options as selected values', async () => {
+    const user = userEvent.setup();
     const { container, getByRole, getAllByRole } = render(
       <MultiSelect
         allowItemAddition={true}
@@ -670,7 +682,7 @@ describe('custom item addition mode', () => {
       />,
     );
     const input = getByRole('textbox');
-    fireEvent.change(input, { target: { value: 'hamm' } });
+    await user.type(input, 'hamm');
     await waitForPosition();
 
     const items = await getAllByRole('option');
@@ -678,19 +690,20 @@ describe('custom item addition mode', () => {
     const hammItem = items.find((item) => item.textContent === 'hamm');
 
     if (hammItem) {
-      fireEvent.click(hammItem);
+      await user.click(hammItem);
       await waitForPosition();
 
-      fireEvent.change(input, { target: { value: 'ha' } });
+      await user.clear(input);
+      await user.type(input, 'ha');
       await waitForPosition();
       const modifiedItems = getAllByRole('option');
       expect(modifiedItems).toHaveLength(5);
       const haItem = modifiedItems.find((item) => item.textContent === 'ha');
 
       if (haItem) {
-        fireEvent.click(haItem);
+        await user.click(haItem);
         await waitForPosition();
-        fireEvent.change(input, { target: { value: '' } });
+        await user.clear(input);
         await waitForPosition();
 
         const appendedItems = getAllByRole('option');
@@ -705,7 +718,7 @@ describe('custom item addition mode', () => {
         const removeAllButton = container.querySelectorAll(
           '.fi-multiselect_removeAllButton',
         )[0];
-        fireEvent.click(removeAllButton);
+        await user.click(removeAllButton);
         await waitForPosition();
 
         const resetItems = getAllByRole('option');
@@ -743,6 +756,7 @@ describe('forward ref', () => {
 
 describe('listProps', () => {
   it('adds data-test-id to unordered list element', async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(
       <MultiSelect
         labelText="Test"
@@ -757,7 +771,7 @@ describe('listProps', () => {
       />,
     );
     const input = getByRole('textbox');
-    fireEvent.focus(input);
+    await user.click(input);
     await waitForPosition();
     const menu = getByRole('listbox');
     expect(menu).toHaveAttribute('data-test-id', 'custom-attr');
@@ -766,6 +780,7 @@ describe('listProps', () => {
 
 describe('listItemProps', () => {
   it('adds data-test-id to list item ', async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(
       <MultiSelect
         labelText="Test"
@@ -783,7 +798,7 @@ describe('listItemProps', () => {
       />,
     );
     const input = getByRole('textbox');
-    fireEvent.focus(input);
+    await user.click(input);
     await waitForPosition();
     const option = getByRole('option');
     expect(option).toHaveAttribute('data-test-id', 'apple');
