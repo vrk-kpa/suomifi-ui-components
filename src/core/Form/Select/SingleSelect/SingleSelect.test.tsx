@@ -107,7 +107,6 @@ it('should not have basic accessibility issues', async () => {
 
 it('has matching snapshot', async () => {
   const { baseElement, getByRole } = render(BasicSingleSelect);
-  await waitForPosition();
   const textfield = getByRole('textbox') as HTMLInputElement;
   await act(async () => {
     fireEvent.focus(textfield);
@@ -144,7 +143,6 @@ describe('Controlled', () => {
     );
 
     const { getByRole, getByText, rerender } = render(singleSelect);
-    await waitForPosition();
     expect(getByRole('textbox')).toHaveValue('Powersaw');
     const input = getByRole('textbox');
     fireEvent.click(input);
@@ -164,7 +162,6 @@ describe('Controlled', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const rerenderedInput = getByRole('textbox');
     expect(rerenderedInput).toHaveValue('');
   });
@@ -206,7 +203,6 @@ describe('Controlled', () => {
     );
 
     const { getByText, getByRole } = render(singleSelect);
-    await waitForPosition();
     const clearButton = getByText('Clear selection');
     await act(async () => {
       fireEvent.click(clearButton, {});
@@ -237,7 +233,6 @@ test('className: has given custom classname', async () => {
 describe('filter', () => {
   it('should be available with default selection', async () => {
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
-    await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
     fireEvent.change(input, { target: { value: 'h' } });
@@ -257,7 +252,6 @@ describe('filter', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
     fireEvent.change(input, { target: { value: 'h' } });
     expect(input).toHaveValue('h');
@@ -267,7 +261,6 @@ describe('filter', () => {
 
   it('should be removed onBlur', async () => {
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
-    await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
     fireEvent.change(input, { target: { value: 'h' } });
@@ -286,7 +279,6 @@ describe('filter', () => {
 
 test('option: should be selected when clicked', async () => {
   const { getByText, getByRole } = render(BasicSingleSelect);
-  await waitForPosition();
   const input = getByRole('textbox');
   fireEvent.click(input);
 
@@ -445,7 +437,6 @@ describe('custom item addition mode', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.change(input, { target: { value: 'hamm' } });
@@ -507,7 +498,6 @@ describe('ariaOptionsAvailable', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.change(input, { target: { value: 'M' } });
@@ -531,7 +521,6 @@ describe('ariaOptionsAvailable', () => {
         }
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.change(input, { target: { value: 'V' } });
@@ -581,7 +570,6 @@ describe('listProps', () => {
         }}
       />,
     );
-    await waitForPosition();
     const input = await waitFor(() => getByRole('textbox'));
     await act(() => fireEvent.focus(input));
     const menu = await waitFor(() => getByRole('listbox'));
@@ -610,7 +598,6 @@ describe('listItemProps', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = await waitFor(() => getByRole('textbox'));
     await act(async () => {
       fireEvent.focus(input);
@@ -657,7 +644,6 @@ describe('External update to item array', () => {
 
   it('updated item array should be visible in input', async () => {
     const { getByRole, getByTestId } = render(<ModalWithSiblings />);
-    await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveDisplayValue('Mercury');
 

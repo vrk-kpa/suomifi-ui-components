@@ -1,6 +1,6 @@
 /* eslint-disable no-promise-executor-return */
 import React, { act } from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
@@ -124,24 +124,16 @@ it('should not have basic accessibility issues', async () => {
 
 it('has matching snapshot', async () => {
   const { baseElement, getByRole } = render(BasicMultiSelect);
-  await waitForPosition();
   const textfield = getByRole('textbox') as HTMLInputElement;
-  await act(async () => {
-    fireEvent.focus(textfield);
-  });
-
+  fireEvent.focus(textfield);
   await waitForPosition();
-  await waitFor(() => {
-    expect(baseElement).toMatchSnapshot();
-  });
+  expect(baseElement).toMatchSnapshot();
 });
 
 describe('Chips', () => {
   it('should have selected Chips shown', async () => {
     const { container } = render(BasicMultiSelect);
-    await waitFor(() => {
-      expect(container.querySelectorAll('.fi-chip')).toHaveLength(3);
-    });
+    expect(container.querySelectorAll('.fi-chip')).toHaveLength(3);
   });
 
   it('second Chip should be removable and removed when clicked', async () => {
@@ -150,14 +142,11 @@ describe('Chips', () => {
     expect(queryByText('Hammer')).not.toBeNull();
 
     expect(hammerChip.classList).toContain('fi-chip--content');
-    await act(async () => {
-      fireEvent.click(hammerChip);
-    });
+    fireEvent.click(hammerChip);
+    await waitForPosition();
 
-    await waitFor(() => {
-      const removedHammerChip = queryByText('Hammer');
-      expect(removedHammerChip).toBeNull();
-    });
+    const removedHammerChip = queryByText('Hammer');
+    expect(removedHammerChip).toBeNull();
   });
 
   test('onItemSelect: called with uniqueItem id, when clicking non-disabled Chip', async () => {
@@ -179,12 +168,9 @@ describe('Chips', () => {
       />,
     );
     const hammerChip = container.querySelectorAll('.fi-chip')[1];
-    await act(async () => {
-      fireEvent.click(hammerChip);
-    });
-    await waitFor(() => {
-      expect(mockOnItemSelect).toBeCalledWith('h9823523');
-    });
+    fireEvent.click(hammerChip);
+    await waitForPosition();
+    expect(mockOnItemSelect).toBeCalledWith('h9823523');
   });
 
   it('first Chip should be aria-disabled', () => {
@@ -202,14 +188,11 @@ describe('Chips', () => {
       '.fi-multiselect_removeAllButton',
     );
     if (removeAllButton) {
-      await act(async () => {
-        fireEvent.click(removeAllButton);
-      });
+      fireEvent.click(removeAllButton);
+      await waitForPosition();
     }
-    await waitFor(() => {
-      const chips = container.querySelectorAll('.fi-chip');
-      expect(chips).toHaveLength(1);
-    });
+    const chips = container.querySelectorAll('.fi-chip');
+    expect(chips).toHaveLength(1);
   });
 
   test('onRemoveAll: should be called when pressing "Remove all" button', async () => {
@@ -234,13 +217,10 @@ describe('Chips', () => {
       '.fi-multiselect_removeAllButton',
     );
     if (removeAllButton) {
-      await act(async () => {
-        fireEvent.click(removeAllButton);
-      });
+      fireEvent.click(removeAllButton);
     }
-    await waitFor(() => {
-      expect(mockOnRemoveAll).toBeCalledTimes(1);
-    });
+    await waitForPosition();
+    expect(mockOnRemoveAll).toBeCalledTimes(1);
   });
 });
 
@@ -260,11 +240,9 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    await waitForPosition();
     const textfield = getByRole('textbox') as HTMLInputElement;
-    await act(async () => {
-      fireEvent.change(textfield, { target: { value: 'hammer' } });
-    });
+    fireEvent.change(textfield, { target: { value: 'hammer' } });
+    await waitForPosition();
 
     const hammerItem = getByText('Hammer');
     expect(hammerItem).toHaveTextContent('Hammer');
@@ -272,14 +250,11 @@ describe('Non-controlled', () => {
     const opts = await findAllByRole('option');
     expect(opts).toHaveLength(3);
 
-    await act(async () => {
-      fireEvent.click(hammerItem);
-    });
+    fireEvent.click(hammerItem);
+    await waitForPosition();
 
-    await waitFor(async () => {
-      const allOptions = await findAllByRole('option');
-      expect(allOptions).toHaveLength(3);
-    });
+    const allOptions = await findAllByRole('option');
+    expect(allOptions).toHaveLength(3);
   });
 
   it('has possibility to select item', async () => {
@@ -297,14 +272,12 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    await waitForPosition();
     let chips = container.querySelectorAll('.fi-chip');
     expect(chips).toHaveLength(0);
 
     const textfield = getByRole('textbox') as HTMLInputElement;
-    await act(async () => {
-      fireEvent.focus(textfield);
-    });
+    fireEvent.focus(textfield);
+    await waitForPosition();
     rerender(
       <MultiSelect
         labelText="MultiSelect"
@@ -319,17 +292,13 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    await waitForPosition();
     const hammerItem = getByText('Hammer');
 
-    await act(async () => {
-      fireEvent.click(hammerItem);
-    });
+    fireEvent.click(hammerItem);
+    await waitForPosition();
 
-    await waitFor(() => {
-      chips = container.querySelectorAll('.fi-chip');
-      expect(chips).toHaveLength(1);
-    });
+    chips = container.querySelectorAll('.fi-chip');
+    expect(chips).toHaveLength(1);
   });
 });
 
@@ -370,20 +339,17 @@ describe('Controlled', () => {
     );
 
     const { container } = render(multiselect);
-    await waitForPosition();
-    await waitFor(() => {
-      expect(container.querySelectorAll('.fi-chip')).toHaveLength(2);
+    expect(container.querySelectorAll('.fi-chip')).toHaveLength(2);
 
-      const chips = container.querySelectorAll('.fi-chip');
+    const chips = container.querySelectorAll('.fi-chip');
 
-      const disabledChip = chips[0];
-      expect(disabledChip).toHaveTextContent('Shovel');
-      expect(disabledChip).toHaveClass('fi-chip--disabled');
-      expect(disabledChip).toHaveAttribute('aria-disabled');
+    const disabledChip = chips[0];
+    expect(disabledChip).toHaveTextContent('Shovel');
+    expect(disabledChip).toHaveClass('fi-chip--disabled');
+    expect(disabledChip).toHaveAttribute('aria-disabled');
 
-      const otherChip = chips[1];
-      expect(otherChip).toHaveTextContent('Sledgehammer');
-    });
+    const otherChip = chips[1];
+    expect(otherChip).toHaveTextContent('Sledgehammer');
   });
 
   it('does not allow removing of items by clicking', async () => {
@@ -424,18 +390,14 @@ describe('Controlled', () => {
         ariaOptionChipRemovedText="removed"
       />
     );
-    await waitForPosition();
     const { getByText, getAllByText } = render(multiselect);
     const turtleChip = getByText('Turtle');
-    await act(async () => {
-      fireEvent.click(turtleChip);
-    });
-    await waitFor(() => {
-      expect(mockItemSelectionsChange).toBeCalledTimes(1);
-      expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
-      // Popover is open, so therefore two
-      expect(getAllByText('Turtle')).toHaveLength(2);
-    });
+    fireEvent.click(turtleChip);
+    await waitForPosition();
+    expect(mockItemSelectionsChange).toBeCalledTimes(1);
+    expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
+    // Popover is open, so therefore two
+    expect(getAllByText('Turtle')).toHaveLength(2);
   });
 
   it('shows correct amount of items after filtering and selecting', async () => {
@@ -495,49 +457,42 @@ describe('Controlled', () => {
     );
 
     const { getByRole, rerender, findAllByRole } = render(multiMutti);
-    await waitForPosition();
     const textfield = getByRole('textbox') as HTMLInputElement;
-    await act(async () => {
-      fireEvent.change(textfield, { target: { value: 'sn' } });
-    });
+    fireEvent.change(textfield, { target: { value: 'sn' } });
+    await waitForPosition();
 
-    const snailItem = await waitFor(() => getByRole('option'));
+    const snailItem = getByRole('option');
     expect(snailItem).toHaveTextContent('Snail');
 
-    await act(async () => {
-      fireEvent.click(snailItem);
-    });
+    fireEvent.click(snailItem);
+    await waitForPosition();
 
-    await waitFor(async () => {
-      rerender(
-        <MultiSelect
-          items={animals}
-          selectedItems={selectedAnimals}
-          onItemSelect={onItemSelect}
-          labelText="Animals"
-          hintText="You can filter options by typing in the field"
-          noItemsText="No animals"
-          chipListVisible={true}
-          visualPlaceholder="Try to choose animals"
-          ariaChipActionLabel="Remove"
-          ariaSelectedAmountText="animals selected"
-          ariaOptionsAvailableText="options available"
-          ariaOptionChipRemovedText="removed"
-          id="mutti"
-        />,
-      );
-      await waitForPosition();
-      const allOptions = await findAllByRole('option');
-      expect(allOptions).toHaveLength(1);
-    });
+    rerender(
+      <MultiSelect
+        items={animals}
+        selectedItems={selectedAnimals}
+        onItemSelect={onItemSelect}
+        labelText="Animals"
+        hintText="You can filter options by typing in the field"
+        noItemsText="No animals"
+        chipListVisible={true}
+        visualPlaceholder="Try to choose animals"
+        ariaChipActionLabel="Remove"
+        ariaSelectedAmountText="animals selected"
+        ariaOptionsAvailableText="options available"
+        ariaOptionChipRemovedText="removed"
+        id="mutti"
+      />,
+    );
+    await waitForPosition();
+    const allOptions = await findAllByRole('option');
+    expect(allOptions).toHaveLength(1);
   });
 });
 
 it('should have correct baseClassName', async () => {
   const { container } = render(BasicMultiSelect);
-  await waitFor(() => {
-    expect(container.firstChild).toHaveClass('fi-multiselect');
-  });
+  expect(container.firstChild).toHaveClass('fi-multiselect');
 });
 
 test('className: has given custom classname', async () => {
@@ -553,9 +508,7 @@ test('className: has given custom classname', async () => {
     />,
   );
 
-  await waitFor(() => {
-    expect(container.firstChild).toHaveClass('custom-class');
-  });
+  expect(container.firstChild).toHaveClass('custom-class');
 });
 
 test('labelText: has the given text as label', async () => {
@@ -569,9 +522,7 @@ test('labelText: has the given text as label', async () => {
       ariaOptionChipRemovedText=""
     />,
   );
-  await waitFor(() => {
-    expect(queryByText('MultiSelect')).not.toBeNull();
-  });
+  expect(queryByText('MultiSelect')).not.toBeNull();
 });
 
 test('visualPlaceholder: has the given text as placeholder attribute', () => {
@@ -698,9 +649,8 @@ describe('disabled', () => {
     expect(toggleBtn).not.toBe(null);
     if (toggleBtn) {
       fireEvent.click(toggleBtn);
-      await waitFor(() => {
-        expect(() => getAllByRole('option')).toThrowError();
-      });
+      await waitForPosition();
+      expect(() => getAllByRole('option')).toThrowError();
     }
   });
 });
@@ -719,37 +669,31 @@ describe('custom item addition mode', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'hamm' } });
-    });
+    fireEvent.change(input, { target: { value: 'hamm' } });
+    await waitForPosition();
 
-    const items = await waitFor(() => getAllByRole('option'));
+    const items = await getAllByRole('option');
     expect(items).toHaveLength(4);
     const hammItem = items.find((item) => item.textContent === 'hamm');
 
     if (hammItem) {
-      await act(async () => {
-        fireEvent.click(hammItem);
-      });
+      fireEvent.click(hammItem);
+      await waitForPosition();
 
-      await act(async () => {
-        fireEvent.change(input, { target: { value: 'ha' } });
-      });
-      const modifiedItems = await waitFor(() => getAllByRole('option'));
+      fireEvent.change(input, { target: { value: 'ha' } });
+      await waitForPosition();
+      const modifiedItems = getAllByRole('option');
       expect(modifiedItems).toHaveLength(5);
       const haItem = modifiedItems.find((item) => item.textContent === 'ha');
 
       if (haItem) {
-        await act(async () => {
-          fireEvent.click(haItem);
-        });
-        await act(async () => {
-          fireEvent.change(input, { target: { value: '' } });
-        });
+        fireEvent.click(haItem);
+        await waitForPosition();
+        fireEvent.change(input, { target: { value: '' } });
+        await waitForPosition();
 
-        const appendedItems = await waitFor(() => getAllByRole('option'));
+        const appendedItems = getAllByRole('option');
         expect(appendedItems).toHaveLength(11);
         const secondToLastItem = appendedItems[9];
         const lastItem = appendedItems[10];
@@ -761,11 +705,10 @@ describe('custom item addition mode', () => {
         const removeAllButton = container.querySelectorAll(
           '.fi-multiselect_removeAllButton',
         )[0];
-        await act(async () => {
-          fireEvent.click(removeAllButton);
-        });
+        fireEvent.click(removeAllButton);
+        await waitForPosition();
 
-        const resetItems = await waitFor(() => getAllByRole('option'));
+        const resetItems = getAllByRole('option');
         expect(resetItems).toHaveLength(9);
       } else {
         throw new Error('No custom item "ha" found');
@@ -813,18 +756,16 @@ describe('listProps', () => {
         }}
       />,
     );
+    const input = getByRole('textbox');
+    fireEvent.focus(input);
     await waitForPosition();
-    const input = await waitFor(async () => getByRole('textbox'));
-    await act(async () => {
-      fireEvent.focus(input);
-    });
-    const menu = await waitFor(() => getByRole('listbox'));
+    const menu = getByRole('listbox');
     expect(menu).toHaveAttribute('data-test-id', 'custom-attr');
   });
 });
 
 describe('listItemProps', () => {
-  it('adds data-test-id to unordered list element', async () => {
+  it('adds data-test-id to list item ', async () => {
     const { getByRole } = render(
       <MultiSelect
         labelText="Test"
@@ -841,12 +782,10 @@ describe('listItemProps', () => {
         ariaOptionChipRemovedText=""
       />,
     );
+    const input = getByRole('textbox');
+    fireEvent.focus(input);
     await waitForPosition();
-    const input = await waitFor(() => getByRole('textbox'));
-    await act(async () => {
-      fireEvent.focus(input);
-    });
-    const option = await waitFor(() => getByRole('option'));
+    const option = getByRole('option');
     expect(option).toHaveAttribute('data-test-id', 'apple');
   });
 });
