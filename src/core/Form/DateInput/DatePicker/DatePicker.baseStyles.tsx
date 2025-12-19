@@ -9,7 +9,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-date-picker {
     background-color: ${theme.colors.whiteBase};
     box-shadow: ${theme.shadows.wideBoxShadow};
-    border: 1px solid ${theme.colors.blackLight1};
+    border: 1px solid ${theme.colors.depthDark3};
 
     & .fi-button {
       margin: 0;
@@ -77,7 +77,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     max-height: 100%;
     overscroll-behavior: contain;
     background-color: ${theme.colors.whiteBase};
-    border-top: 1px solid ${theme.colors.blackLight1};
+    border-top: 1px solid ${theme.colors.depthDark3};
     border-radius: 10px 10px 0 0;
     position: absolute;
     bottom: 0;
@@ -106,16 +106,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-date-picker_floatingui-arrow[data-floatingui-placement^='bottom'] {
     top: -6px;
     &::before {
-      border-top: 1px solid ${theme.colors.blackLight1};
-      border-left: 1px solid ${theme.colors.blackLight1};
+      border-top: 1px solid ${theme.colors.depthDark3};
+      border-left: 1px solid ${theme.colors.depthDark3};
     }
   }
 
   & .fi-date-picker_floatingui-arrow[data-floatingui-placement^='top'] {
     bottom: -6px;
     &::before {
-      border-bottom: 1px solid ${theme.colors.blackLight1};
-      border-right: 1px solid ${theme.colors.blackLight1};
+      border-bottom: 1px solid ${theme.colors.depthDark3};
+      border-right: 1px solid ${theme.colors.depthDark3};
     }
   }
 `;
