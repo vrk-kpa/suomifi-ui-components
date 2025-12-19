@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Chip } from './Chip';
 
 describe('disabled', () => {
@@ -86,7 +87,7 @@ describe('variant specifics', () => {
 });
 
 describe('onClick', () => {
-  it('is called when clicked', () => {
+  it('is called when clicked', async () => {
     const mockClick = jest.fn();
     const { getByRole } = render(
       <Chip onClick={mockClick} actionLabel="Unselect">
@@ -94,7 +95,7 @@ describe('onClick', () => {
       </Chip>,
     );
     const chip = getByRole('button');
-    fireEvent.click(chip);
+    await userEvent.click(chip);
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../utils/test';
 
 import { TimeInput } from './TimeInput';
@@ -204,7 +205,7 @@ describe('props', () => {
   });
 
   describe('debounce', () => {
-    it('delays the running of onChange by the given time', () => {
+    it('delays the running of onChange by the given time', async () => {
       jest.useFakeTimers();
       const mockOnChange = jest.fn();
       const textInput = (
@@ -215,123 +216,122 @@ describe('props', () => {
         />
       );
       const { getByRole } = render(textInput);
+      const user = userEvent.setup({ delay: null });
 
       const inputElement = getByRole('textbox') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: '12.00' } });
+      await user.clear(inputElement);
+      await user.type(inputElement, '12.00');
       expect(mockOnChange).not.toBeCalled();
-      jest.advanceTimersByTime(1000);
+      await jest.advanceTimersByTimeAsync(1000);
       expect(mockOnChange).toBeCalledTimes(1);
       expect(inputElement.value).toBe('12.00');
+      jest.useRealTimers();
     });
-    it('resolves right when no onChange is given', () => {
+    it('resolves right when no onChange is given', async () => {
+      jest.useFakeTimers();
       const textInput = (
         <TimeInput labelText="Debounced input" debounce={1000} />
       );
       const { getByRole } = render(textInput);
+      const user = userEvent.setup({ delay: null });
 
       const inputElement = getByRole('textbox') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: '12.00' } });
+      await user.clear(inputElement);
+      await user.type(inputElement, '12.00');
+      await jest.advanceTimersByTimeAsync(1000);
       expect(inputElement.value).toBe('12.00');
+      jest.useRealTimers();
     });
   });
 });
 
 describe('autocomplete features', () => {
-  it('should turn a valid 2-digit input into full time', () => {
+  it('should turn a valid 2-digit input into full time', async () => {
     const { getByRole } = render(<TimeInput labelText="Test input" />);
+    const user = userEvent.setup();
     const inputElement = getByRole('textbox') as HTMLInputElement;
 
-    fireEvent.change(inputElement, {
-      target: { value: '12' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '12');
+    await user.tab();
     expect(inputElement.value).toBe('12.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '02' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '02');
+    await user.tab();
     expect(inputElement.value).toBe('2.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '2' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '2');
+    await user.tab();
     expect(inputElement.value).toBe('2.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '42' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '42');
+    await user.tab();
     expect(inputElement.value).not.toBe('42.00');
   });
 
-  it('should turn a valid "military time" into full time', () => {
+  it('should turn a valid "military time" into full time', async () => {
     const { getByRole } = render(<TimeInput labelText="Test input" />);
+    const user = userEvent.setup();
     const inputElement = getByRole('textbox') as HTMLInputElement;
 
-    fireEvent.change(inputElement, {
-      target: { value: '1200' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '1200');
+    await user.tab();
     expect(inputElement.value).toBe('12.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '0200' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '0200');
+    await user.tab();
     expect(inputElement.value).toBe('2.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '1954' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '1954');
+    await user.tab();
     expect(inputElement.value).toBe('19.54');
 
-    fireEvent.change(inputElement, {
-      target: { value: '4200' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '4200');
+    await user.tab();
     expect(inputElement.value).not.toBe('42.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '094' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '094');
+    await user.tab();
     expect(inputElement.value).toBe('094');
   });
 
-  it('should replace : with . in an otherwise valid time', () => {
+  it('should replace : with . in an otherwise valid time', async () => {
     const { getByRole } = render(<TimeInput labelText="Test input" />);
+    const user = userEvent.setup();
     const inputElement = getByRole('textbox') as HTMLInputElement;
 
-    fireEvent.change(inputElement, {
-      target: { value: '12:00' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '12:00');
+    await user.tab();
     expect(inputElement.value).toBe('12.00');
 
-    fireEvent.change(inputElement, {
-      target: { value: '42:78' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '42:78');
+    await user.tab();
     expect(inputElement.value).not.toBe('42.78');
   });
 
-  it('should remove leading zeros from an otherwise valid time', () => {
+  it('should remove leading zeros from an otherwise valid time', async () => {
     const { getByRole } = render(<TimeInput labelText="Test input" />);
+    const user = userEvent.setup();
     const inputElement = getByRole('textbox') as HTMLInputElement;
 
-    fireEvent.change(inputElement, {
-      target: { value: '07.35' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '07.35');
+    await user.tab();
     expect(inputElement.value).toBe('7.35');
 
-    fireEvent.change(inputElement, {
-      target: { value: '07:35' },
-    });
-    fireEvent.blur(inputElement);
+    await user.clear(inputElement);
+    await user.type(inputElement, '07:35');
+    await user.tab();
     expect(inputElement.value).toBe('7.35');
   });
 });

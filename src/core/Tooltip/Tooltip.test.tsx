@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Tooltip } from './Tooltip';
 import { axeTest } from '../../utils/test';
 
@@ -11,7 +12,8 @@ describe('props', () => {
       `const toggleButton = screen.getAllByRole('button')[0];`
  */
   describe('children', () => {
-    it('should have the given text', () => {
+    it('should have the given text', async () => {
+      const user = userEvent.setup();
       render(
         <Tooltip
           ariaCloseButtonLabelText="Close tooltip"
@@ -21,7 +23,7 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      fireEvent.click(toggleButton);
+      await user.click(toggleButton);
       expect(screen.getByText('Children of the component')).toBeInTheDocument();
     });
   });
@@ -42,7 +44,8 @@ describe('props', () => {
   });
 
   describe('ariaCloseButtonLabelText', () => {
-    it('should have the given value', () => {
+    it('should have the given value', async () => {
+      const user = userEvent.setup();
       render(
         <Tooltip
           ariaCloseButtonLabelText="Close tooltip"
@@ -52,7 +55,7 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      fireEvent.click(toggleButton);
+      await user.click(toggleButton);
       const closeButton = screen.getAllByRole('button')[1];
       expect(closeButton).toHaveAttribute('aria-label', 'Close tooltip');
     });
@@ -75,7 +78,8 @@ describe('props', () => {
   });
 
   describe('contentClassName', () => {
-    test('content should have the given className', () => {
+    test('content should have the given className', async () => {
+      const user = userEvent.setup();
       render(
         <Tooltip
           ariaCloseButtonLabelText="Close tooltip"
@@ -86,14 +90,15 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      fireEvent.click(toggleButton);
+      await user.click(toggleButton);
       const contentDiv = screen.getAllByRole('button')[1].parentElement;
       expect(contentDiv).toHaveClass('custom-class');
     });
   });
 
   describe('onToggleButtonClick', () => {
-    it('is clicked; given method called', () => {
+    it('is clicked; given method called', async () => {
+      const user = userEvent.setup();
       const mockClickHandler = jest.fn();
       render(
         <Tooltip
@@ -105,13 +110,14 @@ describe('props', () => {
         </Tooltip>,
       );
       const toggleButton = screen.getAllByRole('button')[0];
-      fireEvent.click(toggleButton);
+      await user.click(toggleButton);
       expect(mockClickHandler).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('onCloseButtonClick', () => {
     it('is clicked; given method called', async () => {
+      const user = userEvent.setup();
       const mockClickHandler = jest.fn();
       render(
         <Tooltip
@@ -124,9 +130,9 @@ describe('props', () => {
       );
 
       const toggleButton = screen.getAllByRole('button')[0];
-      fireEvent.click(toggleButton);
+      await user.click(toggleButton);
       const closeButton = screen.getAllByRole('button')[1];
-      fireEvent.click(closeButton);
+      await user.click(closeButton);
 
       await waitFor(() => {
         expect(mockClickHandler).toHaveBeenCalledTimes(1);
@@ -148,7 +154,8 @@ describe('accessibility', () => {
 });
 
 describe('Basic tooltip', () => {
-  it('should match snapshot', () => {
+  it('should match snapshot', async () => {
+    const user = userEvent.setup();
     const BasicTooltip = (
       <Tooltip
         ariaCloseButtonLabelText="Close tooltip"
@@ -159,7 +166,7 @@ describe('Basic tooltip', () => {
     );
     const { container } = render(BasicTooltip);
     const toggleButton = screen.getAllByRole('button')[0];
-    fireEvent.click(toggleButton);
+    await user.click(toggleButton);
     expect(container).toMatchSnapshot();
   });
 });

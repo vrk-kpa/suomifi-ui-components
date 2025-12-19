@@ -1,11 +1,15 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Debounce } from '../Debounce/Debounce';
 import { HtmlInput } from '../../../reset/HtmlInput/HtmlInput';
 
 describe('debounce', () => {
-  it('runs given function immediately when no debounce time is specified', () => {
+  jest.useFakeTimers();
+
+  it('runs given function immediately when no debounce time is specified', async () => {
     const mockFunction = jest.fn();
+    const user = userEvent.setup({ delay: null });
     const { getByRole } = render(
       <Debounce>
         {(debouncer: Function) => (
@@ -16,14 +20,14 @@ describe('debounce', () => {
 
     const inputElement = getByRole('textbox') as HTMLInputElement;
     expect(mockFunction).not.toBeCalled();
-    fireEvent.change(inputElement, { target: { value: 'new value' } });
-    expect(mockFunction).toBeCalledTimes(1);
+    await user.type(inputElement, 'new value');
+    expect(mockFunction).toBeCalledTimes(9);
     expect(inputElement.value).toBe('new value');
   });
 
-  jest.useFakeTimers();
-  it('should be applied to function given to debouncer', () => {
+  it('should be applied to function given to debouncer', async () => {
     const mockOnChange = jest.fn();
+    const user = userEvent.setup({ delay: null });
     const { getByRole } = render(
       <Debounce waitFor={1000}>
         {(debouncer: Function) => (
@@ -33,7 +37,7 @@ describe('debounce', () => {
     );
 
     const inputElement = getByRole('textbox') as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'new value' } });
+    await user.type(inputElement, 'new value');
     expect(mockOnChange).not.toBeCalled();
     jest.advanceTimersByTime(500);
     expect(mockOnChange).not.toBeCalled();

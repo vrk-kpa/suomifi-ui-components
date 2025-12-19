@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../utils/test';
 import {
   ExpanderGroup,
@@ -125,7 +126,7 @@ describe('default behaviour', () => {
     ],
     { toggleAllButtonProps: { 'data-testid': 'open-all-button' } },
   );
-  it('open/close all should open/close the Expanders', () => {
+  it('open/close all should open/close the Expanders', async () => {
     const { getByTestId } = render(DefaultGroup);
     const titleDiv = getByTestId('expander-title-2');
     const button = getByTestId('expander-title-2-button');
@@ -133,12 +134,12 @@ describe('default behaviour', () => {
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-button-icon--open',
     );
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).toHaveClass(
       'fi-expander_title-button-icon--open',
     );
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-button-icon--open',
@@ -151,7 +152,7 @@ describe('default behaviour', () => {
     const buttonAriaText = getByText('Open all expanders');
     expect(buttonAriaText).toHaveClass('fi-visually-hidden');
     const openAllbutton = getByTestId('open-all-button');
-    fireEvent.click(openAllbutton);
+    await userEvent.click(openAllbutton);
     const buttonVisibleCloseText = getByText('Close all');
     expect(buttonVisibleCloseText).toHaveAttribute('aria-hidden', 'true');
     const buttonAriaCloseText = getByText('Close all expanders');
@@ -229,7 +230,7 @@ describe('defaultOpen', () => {
     );
   });
 
-  it('classnames will be removed when clicked', () => {
+  it('classnames will be removed when clicked', async () => {
     const mockClickHandler = jest.fn();
     const { getByTestId } = render(
       TestExpanderGroup([
@@ -263,7 +264,7 @@ describe('defaultOpen', () => {
     const button = getByTestId('expander-title-2-button');
     const titleDiv = getByTestId('expander-title-2');
     expect(titleDiv).toHaveClass('fi-expander_title-button--open');
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-button-icon--open',
     );
@@ -271,7 +272,7 @@ describe('defaultOpen', () => {
 });
 
 describe('onOpenChange', () => {
-  it('is called', () => {
+  it('is called', async () => {
     const mockClickHandler = jest.fn();
     const { getByTestId } = render(
       TestExpanderGroup([
@@ -298,7 +299,7 @@ describe('onOpenChange', () => {
       ]),
     );
     const button = getByTestId('expander-title-2-button');
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
   });
 });
@@ -371,7 +372,7 @@ describe('open', () => {
     expect(titleDiv.querySelector('svg')).toHaveClass(
       'fi-expander_title-button-icon--open',
     );
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     expect(titleDiv.querySelector('svg')).toHaveClass(
@@ -379,7 +380,7 @@ describe('open', () => {
     );
   });
 
-  it('open/close all clicked should not force the state to change.', () => {
+  it('open/close all clicked should not force the state to change.', async () => {
     const { getByTestId } = render(
       TestExpanderGroup(
         [
@@ -424,7 +425,7 @@ describe('open', () => {
     );
     const openAllButton = getByTestId('open-all-button');
 
-    fireEvent.click(openAllButton);
+    await userEvent.click(openAllButton);
     expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-button-icon--open',

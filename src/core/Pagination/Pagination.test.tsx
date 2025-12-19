@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../utils/test';
 import { Pagination, PaginationProps } from './Pagination';
 import { Link } from '../Link';
@@ -85,39 +86,42 @@ describe('props', () => {
       const inputElement = getByPlaceholderText(
         'placeholder text',
       ) as HTMLTextAreaElement;
-      fireEvent.change(inputElement, { target: { value: '3' } });
+      const user = userEvent.setup({ delay: null });
+      await user.clear(inputElement);
+      await user.type(inputElement, '3');
       const actionButton = getAllByRole('button')[2];
-      fireEvent.click(actionButton);
-      await waitFor(async () => {
-        expect(mockOnChange).not.toBeCalled();
-      });
+      await user.click(actionButton);
+      expect(mockOnChange).not.toBeCalled();
       jest.advanceTimersByTime(200);
-      await waitFor(async () => {
+      await waitFor(() => {
         expect(mockOnChange).toBeCalledTimes(1);
         expect(mockOnChange).toBeCalledWith(3);
       });
+      jest.useRealTimers();
     });
 
-    it('should notice next button click', () => {
+    it('should notice next button click', async () => {
+      const user = userEvent.setup();
       const mockOnChange = jest.fn();
       const { getAllByRole } = render(
         TestPagination({ onChange: mockOnChange, currentPage: 3 }),
       );
 
       const nextButton = getAllByRole('button')[1];
-      fireEvent.click(nextButton);
+      await user.click(nextButton);
       expect(mockOnChange).toBeCalledTimes(1);
       expect(mockOnChange).toBeCalledWith(4);
     });
 
-    it('should notice previous button click', () => {
+    it('should notice previous button click', async () => {
+      const user = userEvent.setup();
       const mockOnChange = jest.fn();
       const { getAllByRole } = render(
         TestPagination({ onChange: mockOnChange, currentPage: 3 }),
       );
 
       const previousButton = getAllByRole('button')[0];
-      fireEvent.click(previousButton);
+      await user.click(previousButton);
       expect(mockOnChange).toBeCalledTimes(1);
       expect(mockOnChange).toBeCalledWith(2);
     });
