@@ -38,6 +38,37 @@ interface TableColumn {
 
 - Define table data (rows) by providing an array of objects where each column key is present. Each row must also have a unique id. In case of empty cell, provide an empty string `''` for that column key
 
+#### TypeScript type safety
+
+If you're using TypeScript, you can get compile-time validation to ensure all column keys are present in your data rows:
+
+```tsx static
+import { Table, TableRow } from 'suomifi-ui-components';
+
+// 1. Define columns with 'as const' to preserve literal types
+const columns = [
+  { key: 'firstName', labelText: 'First name' },
+  { key: 'lastName', labelText: 'Last name' },
+  { key: 'title', labelText: 'Title' }
+] as const;
+
+// 2. Explicitly type your data array with TableRow<typeof columns>
+const data: TableRow<typeof columns>[] = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    title: 'Developer'
+    // TypeScript will show an error if you forget any column key
+  }
+];
+
+// 3. Use in component
+<Table columns={columns} data={data} caption="Team" />;
+```
+
+This ensures TypeScript will show an error if you forget to include any column key in your data objects.
+
 ```jsx
 import { Table, Link } from 'suomifi-ui-components';
 import React from 'react';
@@ -296,6 +327,8 @@ Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessi
 
 You can pass additional props to the row selection Checkbox or RadioButton elements using the `rowSelectionLabelProps` property on each row. This is useful for adding test identifiers like `data-testid`.
 
+Individual rows can be disabled from selection by adding `rowSelectionDisabled: true` to the row data object.
+
 You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
 ```jsx
@@ -349,7 +382,8 @@ const data = [
     rowSelectionCheckboxLabel: 'Select row Jane Doe',
     rowSelectionLabelProps: {
       'data-testid': 'jane-doe-selection'
-    }
+    },
+    rowSelectionDisabled: true
   },
   {
     id: '3',
@@ -361,7 +395,8 @@ const data = [
     rowSelectionCheckboxLabel: 'Select row Bruce Willis',
     rowSelectionLabelProps: {
       'data-testid': 'bruce-willis-selection'
-    }
+    },
+    rowSelectionDisabled: true
   },
   {
     id: '4',
