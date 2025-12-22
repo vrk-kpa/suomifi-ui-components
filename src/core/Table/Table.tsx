@@ -13,7 +13,10 @@ import {
   GlobalMargins,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Table.baseStyles';
-import { filterDuplicateKeys } from '../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  HTMLAttributesIncludingDataAttributes,
+} from '../../utils/common/common';
 import { AutoId } from '../utils/AutoId/AutoId';
 import {
   HtmlButton,
@@ -77,13 +80,24 @@ export interface TableColumn {
   className?: string;
 }
 
+interface TableRowSelectionElementProps
+  extends Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLInputElement>,
+    'onClick' | 'onChange' | 'checked' | 'value'
+  > {}
+
 // Infer the literal types from columns
 export type TableRow<TColumns extends readonly TableColumn[]> = {
   [K in TColumns[number]['key']]:
     | string
     | number
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-} & { id: string; rowSelectionCheckboxLabel?: string };
+} & {
+  id: string;
+  rowSelectionCheckboxLabel?: string;
+  /** Props to pass to the row selection Checkbox or RadioButton element */
+  rowSelectionElementProps?: TableRowSelectionElementProps;
+};
 
 export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   extends MarginProps,
@@ -439,6 +453,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             checkedVal.checkboxState ? 'add' : 'remove',
                           )
                         }
+                        {...row.rowSelectionElementProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}
@@ -462,6 +477,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             newValue ? 'add' : 'remove',
                           )
                         }
+                        {...row.rowSelectionElementProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}

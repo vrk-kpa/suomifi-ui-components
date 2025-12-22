@@ -294,6 +294,8 @@ Alternatively, you can use the `enableSingleRowSelection` prop to allow single r
 
 Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection Checkbox/RadioButton.
 
+You can pass additional props to the row selection Checkbox or RadioButton elements using the `rowSelectionElementProps` property on each row. This is useful for adding test identifiers like `data-testid`.
+
 You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
 ```jsx
@@ -332,7 +334,10 @@ const data = [
     hours_worked: 125,
     title: 'Developer',
     country: 'United Kingdom',
-    rowSelectionCheckboxLabel: 'Select row John Doe'
+    rowSelectionCheckboxLabel: 'Select row John Doe',
+    rowSelectionElementProps: {
+      'data-testid': 'john-doe-selection'
+    }
   },
   {
     id: '2',
@@ -341,7 +346,10 @@ const data = [
     hours_worked: 150,
     title: 'Architect',
     country: 'Norway',
-    rowSelectionCheckboxLabel: 'Select row Jane Doe'
+    rowSelectionCheckboxLabel: 'Select row Jane Doe',
+    rowSelectionElementProps: {
+      'data-testid': 'jane-doe-selection'
+    }
   },
   {
     id: '3',
@@ -350,7 +358,10 @@ const data = [
     hours_worked: 10,
     title: 'Project manager',
     country: 'United States of America',
-    rowSelectionCheckboxLabel: 'Select row Bruce Willis'
+    rowSelectionCheckboxLabel: 'Select row Bruce Willis',
+    rowSelectionElementProps: {
+      'data-testid': 'bruce-willis-selection'
+    }
   },
   {
     id: '4',
@@ -359,7 +370,10 @@ const data = [
     hours_worked: '',
     title: 'Security consultant',
     country: <Link href="https://suomi.fi">Germany</Link>,
-    rowSelectionCheckboxLabel: 'Select row Harriet Ackermann'
+    rowSelectionCheckboxLabel: 'Select row Harriet Ackermann',
+    rowSelectionElementProps: {
+      'data-testid': 'harriet-ackermann-selection'
+    }
   },
   {
     id: '5',
@@ -368,7 +382,10 @@ const data = [
     hours_worked: 2543,
     title: 'President',
     country: 'Finland',
-    rowSelectionCheckboxLabel: 'Select row Alexander Stubb'
+    rowSelectionCheckboxLabel: 'Select row Alexander Stubb',
+    rowSelectionElementProps: {
+      'data-testid': 'alexander-stubb-selection'
+    }
   }
 ];
 
