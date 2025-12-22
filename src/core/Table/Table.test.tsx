@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Table, TableColumn, TableProps } from './Table';
+import { Table, TableColumn, TableProps, TableRow } from './Table';
 import { axeTest } from '../../utils/test';
 
 const columns: TableColumn[] = [
@@ -141,6 +141,64 @@ describe('Table functionalities', () => {
     skeletonRows.forEach((row) => {
       expect(row).toHaveClass('fi-table_skeleton-row');
     });
+  });
+
+  it('passes rowSelectionElementProps to checkboxes including data-testid', () => {
+    const dataWithTestIds = [
+      {
+        id: '1',
+        name: 'John Doe',
+        age: 28,
+        rowSelectionCheckboxLabel: 'Select row John Doe',
+        rowSelectionElementProps: { 'data-testid': 'checkbox-john' },
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        age: 34,
+        rowSelectionCheckboxLabel: 'Select row Jane Doe',
+        rowSelectionElementProps: { 'data-testid': 'checkbox-jane' },
+      },
+    ] as any as TableRow<typeof columns>[];
+    render(
+      <Table
+        caption="People in the project"
+        columns={columns}
+        data={dataWithTestIds}
+        enableRowSelection
+      />,
+    );
+    expect(screen.getByTestId('checkbox-john')).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox-jane')).toBeInTheDocument();
+  });
+
+  it('passes rowSelectionElementProps to radiobuttons including data-testid', () => {
+    const dataWithTestIds = [
+      {
+        id: '1',
+        name: 'John Doe',
+        age: 28,
+        rowSelectionCheckboxLabel: 'Select row John Doe',
+        rowSelectionElementProps: { 'data-testid': 'radio-john' },
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        age: 34,
+        rowSelectionCheckboxLabel: 'Select row Jane Doe',
+        rowSelectionElementProps: { 'data-testid': 'radio-jane' },
+      },
+    ] as any as TableRow<typeof columns>[];
+    render(
+      <Table
+        caption="People in the project"
+        columns={columns}
+        data={dataWithTestIds}
+        enableSingleRowSelection
+      />,
+    );
+    expect(screen.getByTestId('radio-john')).toBeInTheDocument();
+    expect(screen.getByTestId('radio-jane')).toBeInTheDocument();
   });
 
   describe('Default sorting', () => {
