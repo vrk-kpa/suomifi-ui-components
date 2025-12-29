@@ -50,11 +50,9 @@ export {
   type ErrorSummaryProps,
   type ErrorSummaryItemProps,
 } from './ErrorSummary/ErrorSummary';
-export { Dropdown, type DropdownProps } from './Dropdown/Dropdown/Dropdown';
-export {
-  DropdownItem,
-  type DropdownItemProps,
-} from './Dropdown/DropdownItem/DropdownItem';
+export { Dropdown, type DropdownProps } from './Dropdown';
+export { DropdownItem, type DropdownItemProps } from './Dropdown';
+export { DropdownItemGroup, type DropdownItemGroupProps } from './Dropdown';
 export {
   FileInput,
   type FileInputProps,

@@ -69,14 +69,26 @@ class BaseSelectItemList extends Component<
     // 4px reduction to scroll position is required due to container padding.
     const wrapperOffsetPx = 4;
     if (this.wrapperRef !== null && this.wrapperRef.current !== null) {
-      const elementOffsetTop =
-        document.getElementById(elementId)?.offsetTop || 0;
-      const elementOffsetHeight =
-        document.getElementById(elementId)?.offsetHeight || 0;
+      const element = document.getElementById(elementId);
+      if (!element) return;
+
+      let elementOffsetTop = element.offsetTop || 0;
+      const elementOffsetHeight = element.offsetHeight || 0;
+
+      // Check if the element is inside a group and adjust offsetTop accordingly
+      const groupParent = element.closest('[role="group"]');
+      if (
+        groupParent &&
+        groupParent.parentElement === this.wrapperRef.current
+      ) {
+        const groupOffsetTop = (groupParent as HTMLElement).offsetTop || 0;
+        elementOffsetTop = Math.min(elementOffsetTop, groupOffsetTop);
+      }
+
       if (elementOffsetTop < this.wrapperRef.current.scrollTop) {
         this.wrapperRef.current.scrollTop = elementOffsetTop - wrapperOffsetPx;
       } else {
-        const offsetBottom = elementOffsetTop + elementOffsetHeight;
+        const offsetBottom = element.offsetTop + elementOffsetHeight;
         const scrollBottom =
           this.wrapperRef.current.scrollTop +
           this.wrapperRef.current.offsetHeight;

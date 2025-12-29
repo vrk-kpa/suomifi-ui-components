@@ -84,6 +84,8 @@ export {
   type DropdownProps,
   DropdownItem,
   type DropdownItemProps,
+  DropdownItemGroup,
+  type DropdownItemGroupProps,
   FileInput,
   type FileInputProps,
   type ControlledFileItem,
