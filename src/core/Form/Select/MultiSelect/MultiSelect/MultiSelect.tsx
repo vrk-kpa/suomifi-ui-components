@@ -206,6 +206,11 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   popoverClassName?: string;
   /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
+  /**
+   * Whether the component's popover is rendered in a portal
+   * @default true
+   */
+  portal?: boolean;
 }
 
 type AllowItemAdditionProps =
@@ -437,20 +442,25 @@ class BaseMultiSelect<T> extends Component<
       : false;
 
   private handleBlur = () => {
-    if (!!this.props.onBlur) {
-      this.props.onBlur();
-    }
-    const ownerDocument = getOwnerDocument(this.popoverListRef);
+    const ownerDocument = getOwnerDocument(this.filterInputRef);
     if (!ownerDocument) {
       return;
     }
     requestAnimationFrame(() => {
       const focusInPopover = this.focusInPopover(ownerDocument);
+      // If focus was moved to an element inside the popover, it's not really a blur event
+      if (focusInPopover) {
+        return;
+      }
+
+      if (!!this.props.onBlur) {
+        this.props.onBlur();
+      }
+
       const focusInInput = this.focusInInput(ownerDocument);
       const focusInToggleButton = this.focusInToggleButton(ownerDocument);
 
-      const focusInMultiSelect =
-        focusInPopover || focusInInput || focusInToggleButton;
+      const focusInMultiSelect = focusInInput || focusInToggleButton;
 
       const userAddedSelectedItems: Array<T & MultiSelectData> =
         this.state.selectedItems.filter((si) =>
@@ -506,7 +516,9 @@ class BaseMultiSelect<T> extends Component<
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        this.setState({ showPopover: true });
+        if (!this.state.showPopover) {
+          this.openPopover();
+        }
         const nextItem =
           this.props.allowItemAddition &&
           (index === items.length - 1 || items.length === 0) &&
@@ -525,7 +537,9 @@ class BaseMultiSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        this.setState({ showPopover: true });
+        if (!this.state.showPopover) {
+          this.openPopover();
+        }
         const previousItem =
           this.props.allowItemAddition &&
           (index === null || index === 0) &&
@@ -566,17 +580,17 @@ class BaseMultiSelect<T> extends Component<
       case 'Escape': {
         if (this.state.showPopover) {
           event.stopPropagation();
+          this.setState(
+            (
+              _prevState: MultiSelectState<T & MultiSelectData>,
+              prevProps: MultiSelectProps<T & MultiSelectData>,
+            ) => ({
+              filterInputValue: '',
+              filteredItems: prevProps.items,
+            }),
+          );
+          this.focusToInputAndClosePopover();
         }
-        this.setState(
-          (
-            _prevState: MultiSelectState<T & MultiSelectData>,
-            prevProps: MultiSelectProps<T & MultiSelectData>,
-          ) => ({
-            filterInputValue: '',
-            filteredItems: prevProps.items,
-          }),
-        );
-        this.setState({ showPopover: false, focusedDescendantId: null });
         break;
       }
 
@@ -595,15 +609,14 @@ class BaseMultiSelect<T> extends Component<
 
   private handleToggleButtonClick(event: React.MouseEvent<HTMLElement>) {
     event.preventDefault();
-    if (!!this.filterInputRef && this.filterInputRef.current) {
-      if (document.activeElement !== this.filterInputRef.current) {
-        this.filterInputRef.current.focus();
-      } else {
-        this.setState((prevState: MultiSelectState<T & MultiSelectData>) => ({
-          showPopover: !prevState.showPopover,
-          showOptionsAvailableText: !prevState.showOptionsAvailableText,
-        }));
-      }
+    if (!this.state.showPopover) {
+      this.openPopoverAndFocusFirstItem();
+    } else {
+      this.setState({
+        showPopover: false,
+        showOptionsAvailableText: false,
+        focusedDescendantId: null,
+      });
     }
   }
 
@@ -629,6 +642,49 @@ class BaseMultiSelect<T> extends Component<
       });
     }
   };
+
+  private openPopover() {
+    this.setState({ showPopover: true, showOptionsAvailableText: true });
+    /**
+     * Timeout is used here to ensure the popover
+     * exists when setting focus
+     */
+    setTimeout(() => {
+      this.popoverListRef.current?.focus();
+    }, 200);
+  }
+
+  private openPopoverAndFocusFirstItem() {
+    const firstItemValue = this.getFirstItemValue();
+    this.setState({
+      showPopover: true,
+      showOptionsAvailableText: true,
+      focusedDescendantId: firstItemValue,
+    });
+    /**
+     * Timeout is used here to ensure the popover
+     * exists when setting focus
+     */
+    setTimeout(() => {
+      this.popoverListRef.current?.focus();
+    }, 200);
+  }
+
+  private focusToInputAndClosePopover = () => {
+    this.setState({
+      showPopover: false,
+      focusedDescendantId: null,
+      showOptionsAvailableText: false,
+    });
+    this.filterInputRef.current?.focus();
+  };
+
+  private getFirstItemValue() {
+    if (this.props.items && this.props.items.length > 0) {
+      return this.props.items[0].uniqueItemId;
+    }
+    return null;
+  }
 
   render() {
     const {
@@ -681,6 +737,7 @@ class BaseMultiSelect<T> extends Component<
       popoverClassName,
       style,
       fullWidth,
+      portal = true,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -748,12 +805,7 @@ class BaseMultiSelect<T> extends Component<
                   }}
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
-                  onFocus={() =>
-                    this.setState({
-                      showPopover: true,
-                      showOptionsAvailableText: true,
-                    })
-                  }
+                  onClick={() => this.openPopoverAndFocusFirstItem()}
                   onKeyDown={this.handleKeyDown}
                   onBlur={this.handleBlur}
                   value={filterInputValue}
@@ -799,6 +851,7 @@ class BaseMultiSelect<T> extends Component<
                   }
                 }}
                 className={popoverClassName}
+                portal={portal}
               >
                 <PopoverConsumer>
                   {(consumer) => {
@@ -829,6 +882,7 @@ class BaseMultiSelect<T> extends Component<
                                     this.handleItemSelection(item);
                                     consumer.updatePopover();
                                   }}
+                                  onTabPress={this.focusToInputAndClosePopover}
                                   hightlightQuery={
                                     this.filterInputRef.current?.value
                                   }

@@ -106,11 +106,13 @@ it('should not have basic accessibility issues', async () => {
 });
 
 it('has matching snapshot', async () => {
-  const { baseElement, getByRole } = render(BasicSingleSelect);
+  const { baseElement, container } = render(BasicSingleSelect);
   await waitForPosition();
-  const textfield = getByRole('textbox') as HTMLInputElement;
+  const toggleButton = container.querySelector(
+    '.fi-input-toggle-button',
+  ) as HTMLButtonElement;
   await act(async () => {
-    fireEvent.focus(textfield);
+    fireEvent.click(toggleButton);
   });
   await waitForPosition();
   expect(baseElement).toMatchSnapshot();
@@ -143,11 +145,13 @@ describe('Controlled', () => {
       />
     );
 
-    const { getByRole, getByText, rerender } = render(singleSelect);
+    const { getByRole, getByText, container, rerender } = render(singleSelect);
     await waitForPosition();
     expect(getByRole('textbox')).toHaveValue('Powersaw');
-    const input = getByRole('textbox');
-    fireEvent.click(input);
+    const toggleButton = container.querySelector(
+      '.fi-input-toggle-button',
+    ) as HTMLButtonElement;
+    fireEvent.click(toggleButton);
     const item = await waitFor(() => getByText('Powersaw'));
     expect(item).toHaveAttribute('aria-disabled');
     expect(item).toHaveClass('fi-select-item--disabled');
@@ -266,7 +270,7 @@ describe('filter', () => {
   });
 
   it('should be removed onBlur', async () => {
-    const { getByRole, getAllByRole } = render(BasicSingleSelect);
+    const { getByRole, getAllByRole, container } = render(BasicSingleSelect);
     await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
@@ -278,17 +282,23 @@ describe('filter', () => {
     await waitFor(() => {
       expect(input).toHaveValue('Hammer');
     });
-    fireEvent.focus(input);
+    const toggleButton = container.querySelector(
+      '.fi-input-toggle-button',
+    ) as HTMLButtonElement;
+    fireEvent.click(toggleButton);
     const options = await waitFor(() => getAllByRole('option'));
     expect(options).toHaveLength(9);
   });
 });
 
 test('option: should be selected when clicked', async () => {
-  const { getByText, getByRole } = render(BasicSingleSelect);
+  const { getByText, getByRole, container } = render(BasicSingleSelect);
   await waitForPosition();
   const input = getByRole('textbox');
-  fireEvent.click(input);
+  const toggleButton = container.querySelector(
+    '.fi-input-toggle-button',
+  ) as HTMLButtonElement;
+  fireEvent.click(toggleButton);
 
   const option = await waitFor(() => getByText('Rake'));
 
@@ -435,7 +445,7 @@ describe('disabled', () => {
 
 describe('custom item addition mode', () => {
   it('should allow user to add & remove their own option as the selected value', async () => {
-    const { getByRole, getAllByRole, getByText } = render(
+    const { getByRole, getAllByRole, getByText, container } = render(
       <SingleSelect
         allowItemAddition={true}
         itemAdditionHelpText="Add custom item"
@@ -463,7 +473,10 @@ describe('custom item addition mode', () => {
         fireEvent.blur(input);
       });
       await act(async () => {
-        fireEvent.focus(input);
+        const toggleButton = container.querySelector(
+          '.fi-input-toggle-button',
+        ) as HTMLButtonElement;
+        fireEvent.click(toggleButton);
       });
       const appendedItems = await waitFor(() => getAllByRole('option'));
       expect(appendedItems).toHaveLength(10);
@@ -478,7 +491,10 @@ describe('custom item addition mode', () => {
       expect(input).toHaveValue('');
 
       await act(async () => {
-        fireEvent.click(input);
+        const toggleButton = container.querySelector(
+          '.fi-input-toggle-button',
+        ) as HTMLButtonElement;
+        fireEvent.click(toggleButton);
       });
       const resetItems = await waitFor(() => getAllByRole('option'));
       expect(resetItems).toHaveLength(9);
@@ -569,7 +585,7 @@ describe('forward ref', () => {
 
 describe('listProps', () => {
   it('adds data-test-id to unordered list element', async () => {
-    const { getByRole } = render(
+    const { container } = render(
       <SingleSelect
         labelText="Test"
         clearButtonLabel="Clear selection"
@@ -582,18 +598,20 @@ describe('listProps', () => {
       />,
     );
     await waitForPosition();
-    const input = await waitFor(() => getByRole('textbox'));
-    await act(() => fireEvent.focus(input));
-    const menu = await waitFor(() => getByRole('listbox'));
-    await waitFor(() =>
-      expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr'),
-    );
+    const toggleButton = container.querySelector(
+      '.fi-input-toggle-button',
+    ) as HTMLButtonElement;
+    fireEvent.click(toggleButton);
+    await waitForPosition();
+    const menu = document.querySelector('[data-test-id="custom-data-attr"]');
+    expect(menu).toBeInTheDocument();
+    expect(menu).toHaveAttribute('role', 'listbox');
   });
 });
 
 describe('listItemProps', () => {
   it('adds data-test-id to list item element', async () => {
-    const { getByRole } = render(
+    const { getByRole, container } = render(
       <SingleSelect
         labelText="Test"
         clearButtonLabel="Clear selection"
@@ -611,9 +629,11 @@ describe('listItemProps', () => {
       />,
     );
     await waitForPosition();
-    const input = await waitFor(() => getByRole('textbox'));
+    const toggleButton = container.querySelector(
+      '.fi-input-toggle-button',
+    ) as HTMLButtonElement;
     await act(async () => {
-      fireEvent.focus(input);
+      fireEvent.click(toggleButton);
     });
     const option = await waitFor(() => getByRole('option'));
 
@@ -702,18 +722,15 @@ describe('margin', () => {
 
 describe('keyboard interactions', () => {
   it('should reset input value to selected item when pressing Escape after typing', async () => {
-    const { getByRole, getByText } = render(BasicSingleSelect);
+    const { getByRole } = render(BasicSingleSelect);
     await waitForPosition();
 
     const input = getByRole('textbox');
 
-    // First, select an item
-    fireEvent.click(input);
-    const option = await waitFor(() => getByText('Rake'));
-    fireEvent.click(option);
-    expect(input).toHaveValue('Rake');
+    // BasicSingleSelect already has 'Hammer' selected by default
+    expect(input).toHaveValue('Hammer');
 
-    // Then type something different in the input
+    // Type something different in the input
     await act(async () => {
       fireEvent.click(input);
       fireEvent.change(input, { target: { value: 'something else' } });
@@ -724,7 +741,7 @@ describe('keyboard interactions', () => {
     await act(async () => {
       fireEvent.keyDown(input, { key: 'Escape' });
     });
-    expect(input).toHaveValue('Rake');
+    expect(input).toHaveValue('Hammer');
   });
 
   it('should clear input when pressing Escape with no selected item', async () => {

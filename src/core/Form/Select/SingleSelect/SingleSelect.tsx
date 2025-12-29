@@ -140,6 +140,11 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   popoverClassName?: string;
   /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
+  /**
+   * Whether the component's popover is rendered in a portal
+   * @default true
+   */
+  portal?: boolean;
 }
 
 type LoadingProps =
@@ -207,7 +212,7 @@ class BaseSingleSelect<T> extends Component<
 
   private clearButtonRef: React.RefObject<HTMLButtonElement>;
 
-  private preventShowPopoverOnInputFocus = false;
+  // private preventShowPopoverOnInputFocus = false;
 
   constructor(
     props: SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp,
@@ -307,10 +312,7 @@ class BaseSingleSelect<T> extends Component<
     data.labelText.toLowerCase().includes(query.toLowerCase());
 
   private handleBlur = () => {
-    if (!!this.props.onBlur) {
-      this.props.onBlur();
-    }
-    const ownerDocument = getOwnerDocument(this.popoverListRef);
+    const ownerDocument = getOwnerDocument(this.filterInputRef);
     if (!ownerDocument) {
       return;
     }
@@ -318,18 +320,26 @@ class BaseSingleSelect<T> extends Component<
       const focusInPopover = this.popoverListRef.current?.contains(
         ownerDocument.activeElement,
       );
+      // If focus was moved to an element inside the popover, it's not really a blur event
+      if (focusInPopover) {
+        return;
+      }
+
+      if (!!this.props.onBlur) {
+        this.props.onBlur();
+      }
+
       const focusInToggleButton = this.toggleButtonRef.current?.contains(
         ownerDocument.activeElement,
       );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
-      const focusInSingleSelect =
-        focusInPopover || focusInInput || focusInToggleButton;
+      const focusInSingleSelect = focusInInput || focusInToggleButton;
       if (!focusInSingleSelect) {
         this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText || '',
           filterMode: false,
-          showPopover: focusInSingleSelect,
+          showPopover: false,
           focusedDescendantId: null,
         }));
       }
@@ -443,7 +453,7 @@ class BaseSingleSelect<T> extends Component<
       case 'ArrowDown': {
         event.preventDefault();
         if (!this.state.showPopover) {
-          this.setState({ showPopover: true });
+          this.openPopover();
         }
         const nextItem =
           this.props.allowItemAddition &&
@@ -464,7 +474,7 @@ class BaseSingleSelect<T> extends Component<
       case 'ArrowUp': {
         event.preventDefault();
         if (!this.state.showPopover) {
-          this.setState({ showPopover: true });
+          this.openPopover();
         }
         const previousItem =
           this.props.allowItemAddition &&
@@ -531,6 +541,37 @@ class BaseSingleSelect<T> extends Component<
           this.state.filterInputValue.toLowerCase(),
     );
 
+  private openPopover() {
+    this.setState({ showPopover: true });
+    /**
+     * Timeout is used here to ensure the popover
+     * exists when setting focus
+     */
+    setTimeout(() => {
+      this.popoverListRef.current?.focus();
+    }, 200);
+  }
+
+  private openPopoverAndFocusFirstItem() {
+    const firstItemValue = this.getFirstItemValue();
+    this.setState({
+      showPopover: true,
+      focusedDescendantId: firstItemValue,
+    });
+    /**
+     * Timeout is used here to ensure the popover
+     * exists when setting focus
+     */
+    setTimeout(() => {
+      this.popoverListRef.current?.focus();
+    }, 200);
+  }
+
+  private focusToInputAndClosePopover = () => {
+    this.setState({ showPopover: false, focusedDescendantId: null });
+    this.filterInputRef.current?.focus();
+  };
+
   private updatePopoverPlacement = (placement: string | undefined) => {
     if (!placement) return;
     if (placement !== this.state.popoverPlacement) {
@@ -539,6 +580,13 @@ class BaseSingleSelect<T> extends Component<
       });
     }
   };
+
+  private getFirstItemValue() {
+    if (this.props.items && this.props.items.length > 0) {
+      return this.props.items[0].uniqueItemId;
+    }
+    return null;
+  }
 
   render() {
     const {
@@ -585,6 +633,7 @@ class BaseSingleSelect<T> extends Component<
       popoverClassName,
       style,
       fullWidth,
+      portal = true,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -645,17 +694,9 @@ class BaseSingleSelect<T> extends Component<
               }}
               filterFunc={this.filter}
               forwardedRef={this.filterInputRef}
-              onFocus={() => {
-                if (!this.preventShowPopoverOnInputFocus) {
-                  this.setState({ showPopover: true });
-                }
-                this.preventShowPopoverOnInputFocus = false;
-              }}
               onClick={() => {
                 this.focusToInputAndSelectText();
-                this.setState({
-                  showPopover: true,
-                });
+                this.openPopoverAndFocusFirstItem();
               }}
               onKeyDown={this.handleKeyDown}
               onBlur={this.handleBlur}
@@ -692,13 +733,12 @@ class BaseSingleSelect<T> extends Component<
                 ref={this.toggleButtonRef}
                 onClick={(event) => {
                   event.preventDefault();
-                  this.setState(
-                    (prevState: SingleSelectState<T & SingleSelectData>) => ({
-                      showPopover: !prevState.showPopover,
-                    }),
-                  );
-                  this.preventShowPopoverOnInputFocus = true;
-                  this.focusToInputAndSelectText();
+                  if (!showPopover) {
+                    this.openPopoverAndFocusFirstItem();
+                  } else {
+                    this.setState({ showPopover: false });
+                    this.focusToInputAndSelectText();
+                  }
                 }}
                 aria-hidden={true}
                 tabIndex={-1}
@@ -718,6 +758,7 @@ class BaseSingleSelect<T> extends Component<
               }
             }}
             className={popoverClassName}
+            portal={portal}
           >
             <PopoverConsumer>
               {(consumer) => {
@@ -750,6 +791,7 @@ class BaseSingleSelect<T> extends Component<
                               onClick={() => {
                                 this.handleItemSelection(item);
                               }}
+                              onTabPress={this.focusToInputAndClosePopover}
                               hightlightQuery={
                                 filterMode
                                   ? this.filterInputRef.current?.value

@@ -872,7 +872,7 @@ exports[`has matching snapshot 1`] = `
               role="combobox"
             >
               <input
-                aria-activedescendant=""
+                aria-activedescendant="2-jh2435626"
                 aria-autocomplete="list"
                 aria-controls="2-popover"
                 aria-describedby="1-hintText"
@@ -981,7 +981,7 @@ exports[`has matching snapshot 1`] = `
       class="c3"
     >
       <ul
-        aria-activedescendant=""
+        aria-activedescendant="2-jh2435626"
         class="c15 fi-select-item-list c16"
         data-floating-ui-placement="bottom"
         id="2-popover"
@@ -991,10 +991,10 @@ exports[`has matching snapshot 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="c17 fi-select-item c18"
+          class="c17 fi-select-item c18 fi-select-item--hasKeyboardFocus"
           id="2-jh2435626"
           role="option"
-          tabindex="-1"
+          tabindex="0"
         >
           Jackhammer
         </li>

@@ -127,7 +127,7 @@ it('has matching snapshot', async () => {
   await waitForPosition();
   const textfield = getByRole('textbox') as HTMLInputElement;
   await act(async () => {
-    fireEvent.focus(textfield);
+    fireEvent.click(textfield);
   });
 
   await waitForPosition();
@@ -303,7 +303,7 @@ describe('Non-controlled', () => {
 
     const textfield = getByRole('textbox') as HTMLInputElement;
     await act(async () => {
-      fireEvent.focus(textfield);
+      fireEvent.click(textfield);
     });
     rerender(
       <MultiSelect
@@ -433,8 +433,8 @@ describe('Controlled', () => {
     await waitFor(() => {
       expect(mockItemSelectionsChange).toBeCalledTimes(1);
       expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
-      // Popover is open, so therefore two
-      expect(getAllByText('Turtle')).toHaveLength(2);
+      // Chip is visible, popover is not open
+      expect(getAllByText('Turtle')).toHaveLength(1);
     });
   });
 
@@ -765,6 +765,11 @@ describe('custom item addition mode', () => {
           fireEvent.click(removeAllButton);
         });
 
+        // Click the input to reopen the popover
+        await act(async () => {
+          fireEvent.click(input);
+        });
+
         const resetItems = await waitFor(() => getAllByRole('option'));
         expect(resetItems).toHaveLength(9);
       } else {
@@ -816,7 +821,7 @@ describe('listProps', () => {
     await waitForPosition();
     const input = await waitFor(async () => getByRole('textbox'));
     await act(async () => {
-      fireEvent.focus(input);
+      fireEvent.click(input);
     });
     const menu = await waitFor(() => getByRole('listbox'));
     expect(menu).toHaveAttribute('data-test-id', 'custom-attr');
@@ -844,7 +849,7 @@ describe('listItemProps', () => {
     await waitForPosition();
     const input = await waitFor(() => getByRole('textbox'));
     await act(async () => {
-      fireEvent.focus(input);
+      fireEvent.click(input);
     });
     const option = await waitFor(() => getByRole('option'));
     expect(option).toHaveAttribute('data-test-id', 'apple');
