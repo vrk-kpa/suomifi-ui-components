@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../utils/test';
@@ -92,7 +92,9 @@ describe('props', () => {
       const actionButton = getAllByRole('button')[2];
       await user.click(actionButton);
       expect(mockOnChange).not.toBeCalled();
-      jest.advanceTimersByTime(200);
+      act(() => {
+        jest.advanceTimersByTime(200);
+      });
       await waitFor(() => {
         expect(mockOnChange).toBeCalledTimes(1);
         expect(mockOnChange).toBeCalledWith(3);
