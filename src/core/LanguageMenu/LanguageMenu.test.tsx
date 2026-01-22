@@ -1,4 +1,3 @@
-/* eslint-disable no-promise-executor-return */
 import React, { act } from 'react';
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -8,8 +7,18 @@ import { LanguageMenuItem } from './LanguageMenuItem/LanguageMenuItem';
 import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const waitForPosition = async () => {
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+  await act(
+    () =>
+      new Promise((r) => {
+        requestAnimationFrame(() => r(null));
+      }),
+  );
+  await act(
+    () =>
+      new Promise((r) => {
+        requestAnimationFrame(() => r(null));
+      }),
+  );
 };
 
 type MenuProps = LanguageMenuProps &

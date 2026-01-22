@@ -1,4 +1,3 @@
-/* eslint-disable no-promise-executor-return */
 import React from 'react';
 import { render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -8,8 +7,18 @@ import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { axeTest } from '../../../../utils/test';
 
 export async function waitForPosition() {
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+  await act(
+    () =>
+      new Promise((r) => {
+        requestAnimationFrame(() => r(null));
+      }),
+  );
+  await act(
+    () =>
+      new Promise((r) => {
+        requestAnimationFrame(() => r(null));
+      }),
+  );
 }
 
 const dropdownProps = {
