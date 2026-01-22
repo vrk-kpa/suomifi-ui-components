@@ -47,6 +47,12 @@ const SimpleFormWithErrorSummary: React.FC = () => {
     setErrorSummaryItems(errorItems);
   }, [firstNameErrorMessage, lastNameErrorMessage, emailAddressErrorMessage]);
 
+  useEffect(() => {
+    if (errorSummaryItems.length > 0) {
+      errorSummaryHeadingRef.current?.focus();
+    }
+  }, [errorSummaryItems]);
+
   const validateForm = () => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -69,20 +75,6 @@ const SimpleFormWithErrorSummary: React.FC = () => {
     setFirstNameErrorMessage(firstNameError);
     setLastNameErrorMessage(lastNameError);
     setEmailAddressErrorMessage(emailAddressError);
-
-    if (
-      firstNameError !== '' ||
-      lastNameError !== '' ||
-      emailAddressError !== ''
-    ) {
-      /* 
-      Timeout is used to make sure ErrorSummary component 
-      has had time to render before focusing on the heading 
-      */
-      setTimeout(() => {
-        errorSummaryHeadingRef.current?.focus();
-      }, 100);
-    }
   };
 
   return (
