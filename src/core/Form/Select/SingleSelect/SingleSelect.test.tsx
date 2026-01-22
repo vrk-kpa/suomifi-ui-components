@@ -684,32 +684,32 @@ describe('margin', () => {
 
 describe('keyboard interactions', () => {
   it('should reset input value to selected item when pressing Escape after typing', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { getByRole, getByText } = render(BasicSingleSelect);
-    await waitForPosition();
 
     const input = getByRole('textbox');
 
     // First, select an item
-    fireEvent.click(input);
-    const option = await waitFor(() => getByText('Rake'));
-    fireEvent.click(option);
+    await user.click(input);
+    const option = getByText('Rake');
+    await user.click(option);
     expect(input).toHaveValue('Rake');
 
-    // Then type something different in the input
-    await act(async () => {
-      fireEvent.click(input);
-      fireEvent.change(input, { target: { value: 'something else' } });
-    });
+    await user.click(input);
+    // Wait for the select timeout in the component to complete before typing
+    act(() => jest.advanceTimersByTime(150));
+    await user.type(input, 'something else');
     expect(input).toHaveValue('something else');
 
     // Press Escape - should reset to selected item
-    await act(async () => {
-      fireEvent.keyDown(input, { key: 'Escape' });
-    });
+    await user.keyboard('{Escape}');
     expect(input).toHaveValue('Rake');
+    jest.useRealTimers();
   });
 
   it('should clear input when pressing Escape with no selected item', async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -725,16 +725,13 @@ describe('keyboard interactions', () => {
     const input = getByRole('textbox');
 
     // Type something in the input without selecting
-    await act(async () => {
-      fireEvent.click(input);
-      fireEvent.change(input, { target: { value: 'something' } });
-    });
+    await user.click(input);
+    await user.clear(input);
+    await user.type(input, 'something');
     expect(input).toHaveValue('something');
 
     // Press Escape - should clear input since no item is selected
-    await act(async () => {
-      fireEvent.keyDown(input, { key: 'Escape' });
-    });
+    await user.keyboard('{Escape}');
     expect(input).toHaveValue('');
   });
 });
