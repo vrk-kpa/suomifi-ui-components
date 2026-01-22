@@ -39,6 +39,31 @@ describe('snapshot', () => {
     const { container } = searchInputRendered;
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should have matching structure with suggestions open', async () => {
+    const suggestions = [
+      { uniqueId: '1', label: 'apple' },
+      { uniqueId: '2', label: 'banana' },
+      { uniqueId: '3', label: 'cherry' },
+    ];
+    const { baseElement, getByRole, getAllByRole } = render(
+      TestSearchInput({
+        autosuggest: true,
+        suggestions,
+        ariaOptionsAvailableText: 'Options are available',
+        suggestionHintText: 'Search suggestions available',
+      }),
+    );
+
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: 'app' } });
+    });
+
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(3);
+    expect(baseElement).toMatchSnapshot();
+  });
 });
 
 describe('props', () => {
