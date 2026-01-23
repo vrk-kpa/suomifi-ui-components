@@ -57,15 +57,8 @@ describe('snapshots match', () => {
   });
 
   describe('date input with datepicker', () => {
-    beforeAll(() => {
-      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-    });
-
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
     test('with smallScreen', async () => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
       const user = userEvent.setup({ delay: null });
       const { baseElement, getByRole } = render(
         <DateInput
@@ -82,6 +75,7 @@ describe('snapshots match', () => {
     });
 
     test('with controlled input value', async () => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
       const user = userEvent.setup({ delay: null });
       const { baseElement, getByRole } = render(
         <DateInput
@@ -103,6 +97,11 @@ describe('keyboard events', () => {
     jest.useFakeTimers().setSystemTime(new Date('2010-01-01'));
   });
 
+  // Re-establish fake timers after each test since global cleanup resets them
+  afterEach(() => {
+    jest.useFakeTimers().setSystemTime(new Date('2010-01-01'));
+  });
+
   afterAll(() => {
     jest.useRealTimers();
   });
@@ -121,14 +120,6 @@ describe('keyboard events', () => {
 });
 
 describe('callbacks', () => {
-  beforeAll(() => {
-    jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   describe('shouldDisableDate', () => {
     it('has date disabled', async () => {
       const user = userEvent.setup({ delay: null });
@@ -151,6 +142,7 @@ describe('callbacks', () => {
   describe('onChange', () => {
     it('calls onChange when input value is changed', async () => {
       const user = userEvent.setup({ delay: null });
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
       const mockOnChange = jest.fn();
       const { getByRole } = render(
         <DateInput labelText="Date" onChange={mockOnChange} />,
@@ -166,6 +158,7 @@ describe('callbacks', () => {
 
     it('calls onChange when date is selected', async () => {
       const user = userEvent.setup({ delay: null });
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
       const mockOnChange = jest.fn();
       const { getByRole, getAllByText } = render(
         <DateInput
@@ -306,14 +299,6 @@ describe('props', () => {
     });
 
     describe('maxDate', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
       it('has next date as table cell (instead of button)', async () => {
         const user = userEvent.setup({ delay: null });
         const { getByRole, getByText } = render(
@@ -331,6 +316,7 @@ describe('props', () => {
 
       it('has next years removed from dropdown', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -397,16 +383,9 @@ describe('props', () => {
     });
 
     describe('minDate', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
       it('has previous date as table cell (instead of button)', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -422,6 +401,7 @@ describe('props', () => {
 
       it('has previous years removed from dropdown', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -445,6 +425,7 @@ describe('props', () => {
 
       it('has previous months removed from dropdown', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -468,6 +449,7 @@ describe('props', () => {
 
       it('has previous month button disabled', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -487,16 +469,9 @@ describe('props', () => {
     });
 
     describe('initialDate', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
       it('has correct date', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -515,6 +490,7 @@ describe('props', () => {
 
       it('has focus', async () => {
         const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -543,15 +519,8 @@ describe('props', () => {
         },
       };
 
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
       it('parses date from input field', async () => {
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const user = userEvent.setup({ delay: null });
         const { baseElement, getByRole } = render(
           <DateInput
@@ -574,6 +543,8 @@ describe('props', () => {
       });
 
       it('formats selected date to input field', async () => {
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+
         const user = userEvent.setup({ delay: null });
         const { getByRole, getByText } = render(
           <DateInput
@@ -640,14 +611,6 @@ describe('props', () => {
       });
 
       describe('datePickerTexts', () => {
-        beforeAll(() => {
-          jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-        });
-
-        afterAll(() => {
-          jest.useRealTimers();
-        });
-
         it('overwrites text in open button', () => {
           const { getByRole } = render(
             <DateInput
@@ -771,14 +734,6 @@ describe('props', () => {
       });
 
       describe('smallScreen', () => {
-        beforeAll(() => {
-          jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
-        });
-
-        afterAll(() => {
-          jest.useRealTimers();
-        });
-
         describe('not enabled', () => {
           it('has position absolute', () => {
             const { baseElement } = render(
@@ -804,6 +759,7 @@ describe('props', () => {
 
           it('has current date focused in smallScreen variant', async () => {
             const user = userEvent.setup({ delay: null });
+            jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
             const { getByRole, getByText } = render(
               <DateInput labelText="Date" smallScreen datePickerEnabled />,
             );
@@ -822,14 +778,6 @@ describe('props', () => {
       });
 
       describe('value', () => {
-        beforeAll(() => {
-          jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-        });
-
-        afterAll(() => {
-          jest.useRealTimers();
-        });
-
         it('has user given value in input', () => {
           const { getByRole } = render(
             <DateInput labelText="Date" value="1.5.2020" />,
@@ -896,7 +844,6 @@ describe('props', () => {
           beforeAll(() => {
             jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
           });
-
           afterAll(() => {
             jest.useRealTimers();
           });
