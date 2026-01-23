@@ -718,7 +718,8 @@ describe('keyboard interactions', () => {
   });
 
   it('should clear input when pressing Escape with no selected item', async () => {
-    const user = userEvent.setup();
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { getByRole } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -729,18 +730,18 @@ describe('keyboard interactions', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
 
     const input = getByRole('textbox');
 
     // Type something in the input without selecting
     await user.click(input);
-    await user.clear(input);
+    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'something');
     expect(input).toHaveValue('something');
 
     // Press Escape - should clear input since no item is selected
     await user.keyboard('{Escape}');
     expect(input).toHaveValue('');
+    jest.useRealTimers();
   });
 });
