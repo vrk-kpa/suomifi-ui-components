@@ -442,7 +442,8 @@ describe('disabled', () => {
 
 describe('custom item addition mode', () => {
   it('should allow user to add & remove their own option as the selected value', async () => {
-    const user = userEvent.setup();
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { getByRole, getAllByRole, getByText } = render(
       <SingleSelect
         allowItemAddition={true}
@@ -454,34 +455,32 @@ describe('custom item addition mode', () => {
       />,
     );
     const input = getByRole('textbox');
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'hamm');
-    await waitForPosition();
     const items = getAllByRole('option');
     expect(items).toHaveLength(4);
-    const extraItem = items.find((item) => item.textContent === 'hamm');
+    const extraItem = items[3];
+    expect(extraItem).toHaveTextContent('hamm');
+    await user.click(extraItem);
+    await user.tab();
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
+    const appendedItems = getAllByRole('option');
+    expect(appendedItems).toHaveLength(10);
+    const lastItem = appendedItems[9];
+    expect(lastItem).toHaveTextContent('hamm');
+    expect(lastItem).toHaveClass('fi-select-item--selected');
 
-    if (extraItem) {
-      await user.click(extraItem);
-      await user.tab();
-      await user.click(input);
-      await waitForPosition();
-      const appendedItems = getAllByRole('option');
-      expect(appendedItems).toHaveLength(10);
-      const lastItem = appendedItems[9];
-      expect(lastItem).toHaveTextContent('hamm');
-      expect(lastItem).toHaveClass('fi-select-item--selected');
+    const clearButton = getByText('Clear selection');
+    await user.click(clearButton);
+    expect(input).toHaveValue('');
 
-      const clearButton = getByText('Clear selection');
-      await user.click(clearButton);
-      expect(input).toHaveValue('');
-
-      await user.click(input);
-      await waitForPosition();
-      const resetItems = getAllByRole('option');
-      expect(resetItems).toHaveLength(9);
-    } else {
-      throw new Error('No custom item found');
-    }
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
+    const resetItems = getAllByRole('option');
+    expect(resetItems).toHaveLength(9);
+    jest.useRealTimers();
   });
 });
 
