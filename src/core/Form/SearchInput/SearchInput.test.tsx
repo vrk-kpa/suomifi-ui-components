@@ -1,14 +1,9 @@
-/* eslint-disable no-promise-executor-return */
 import React, { act } from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
-import { axeTest } from '../../../utils/test';
+import { render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axeTest, waitForPosition } from '../../../utils/test';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
-
-export async function waitForPosition() {
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-}
 
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
   const {
@@ -153,11 +148,11 @@ describe('props', () => {
   describe('onBlur', () => {
     test('should notice when leaving area', async () => {
       const mockOnBlur = jest.fn();
+      const user = userEvent.setup();
       const { getByRole } = render(TestSearchInput({ onBlur: mockOnBlur }));
       const inputElement = getByRole('searchbox');
-      await act(async () => {
-        fireEvent.blur(inputElement);
-      });
+      await user.click(inputElement);
+      await user.tab();
       expect(mockOnBlur).toBeCalledTimes(1);
     });
   });
@@ -165,12 +160,11 @@ describe('props', () => {
   describe('onChange', () => {
     it('should notice change and have the given text', async () => {
       const mockOnChange = jest.fn();
+      const user = userEvent.setup();
       const { getByRole } = render(TestSearchInput({ onChange: mockOnChange }));
       const inputElement = getByRole('searchbox') as HTMLTextAreaElement;
-      await act(async () => {
-        fireEvent.change(inputElement, { target: { value: 'abc' } });
-      });
-      expect(mockOnChange).toBeCalledTimes(1);
+      await user.type(inputElement, 'abc');
+      expect(mockOnChange).toBeCalledTimes(3);
       expect(inputElement.value).toBe('abc');
     });
   });
@@ -178,6 +172,7 @@ describe('props', () => {
   describe('onSearch', () => {
     it('should trigger onSearch callback', async () => {
       const mockOnSearch = jest.fn();
+      const user = userEvent.setup();
       const { getAllByRole } = render(
         TestSearchInput({
           onSearch: mockOnSearch,
@@ -185,9 +180,7 @@ describe('props', () => {
         }),
       );
       const searchButton = getAllByRole('button')[1];
-      await act(async () => {
-        fireEvent.click(searchButton);
-      });
+      await user.click(searchButton);
       expect(mockOnSearch).toBeCalledTimes(1);
     });
   });
@@ -195,6 +188,7 @@ describe('props', () => {
   describe('onClear', () => {
     it('should trigger onChange and clear input value', async () => {
       const mockOnChange = jest.fn();
+      const user = userEvent.setup();
       const { getAllByRole } = render(
         TestSearchInput({
           onChange: mockOnChange,
@@ -202,9 +196,7 @@ describe('props', () => {
         }),
       );
       const clearButton = getAllByRole('button')[0];
-      await act(async () => {
-        fireEvent.click(clearButton);
-      });
+      await user.click(clearButton);
       expect(mockOnChange).toBeCalledTimes(1);
       const inputElement = getAllByRole('searchbox')[0] as HTMLInputElement;
       expect(inputElement.value).toBe('');
@@ -292,6 +284,7 @@ describe('props', () => {
     it('delays the running of onChange by the given time', async () => {
       jest.useFakeTimers();
       const mockOnChange = jest.fn();
+      const user = userEvent.setup({ delay: null });
       const searchInput = (
         <SearchInput
           labelText="Debounced search"
@@ -304,9 +297,7 @@ describe('props', () => {
       const { getByRole } = render(searchInput);
 
       const inputElement = getByRole('searchbox') as HTMLInputElement;
-      await act(async () => {
-        fireEvent.change(inputElement, { target: { value: 'new value' } });
-      });
+      await user.type(inputElement, 'new value');
 
       expect(mockOnChange).not.toBeCalled();
 
@@ -348,6 +339,7 @@ describe('autosuggest', () => {
   ];
 
   it('should display suggestions based on input value', async () => {
+    const user = userEvent.setup();
     const { getByRole, getByText, getAllByRole } = render(
       TestSearchInput({
         autosuggest: true,
@@ -357,11 +349,10 @@ describe('autosuggest', () => {
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
 
-    await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'app' } });
-    });
+    await user.type(inputElement, 'app');
+    await waitForPosition();
 
-    const items = await waitFor(() => getAllByRole('option'));
+    const items = getAllByRole('option');
     expect(items).toHaveLength(3);
     expect(getByText('app')).toBeInTheDocument();
     expect(getByText('banana')).toBeInTheDocument();
@@ -369,6 +360,7 @@ describe('autosuggest', () => {
   });
 
   it('should not display suggestions when autosuggest is false', async () => {
+    const user = userEvent.setup();
     const { getByRole, queryAllByRole } = render(
       TestSearchInput({
         autosuggest: false,
@@ -377,9 +369,7 @@ describe('autosuggest', () => {
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
-    await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'app' } });
-    });
+    await user.type(inputElement, 'app');
 
     expect(queryAllByRole('option')).toHaveLength(0);
   });
@@ -399,13 +389,12 @@ describe('autosuggest', () => {
     expect(hintText).toBeInTheDocument();
 
     const optionsAvailableText = getByText('Options are available');
-    await waitFor(() => {
-      expect(optionsAvailableText).toBeInTheDocument();
-    });
+    expect(optionsAvailableText).toBeInTheDocument();
   });
 
   it('should call onSuggestionSelect when a suggestion is clicked', async () => {
     const mockOnSuggestionSelect = jest.fn();
+    const user = userEvent.setup();
     const { getByRole, getByText, getAllByRole } = render(
       TestSearchInput({
         autosuggest: true,
@@ -419,19 +408,17 @@ describe('autosuggest', () => {
     const options = await waitFor(() => getAllByRole('option'));
     expect(options).toHaveLength(3);
 
-    await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'app' } });
-    });
+    await user.type(inputElement, 'app');
+    await waitForPosition();
 
     const suggestion = getByText('app');
-    await act(async () => {
-      fireEvent.click(suggestion);
-    });
+    await user.click(suggestion);
 
     expect(mockOnSuggestionSelect).toBeCalledWith('1');
   });
 
   it('should allow keyboard navigation through suggestions', async () => {
+    const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(
       TestSearchInput({
         autosuggest: true,
@@ -440,29 +427,23 @@ describe('autosuggest', () => {
     );
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
-    await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'a' } });
-    });
+    await user.type(inputElement, 'a');
+    await waitForPosition();
 
-    const items = await waitFor(() => getAllByRole('option'));
-    await act(async () => {
-      fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
-    });
+    const items = getAllByRole('option');
+    await user.keyboard('{ArrowDown}');
     expect(items[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
 
-    await act(async () => {
-      fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
-    });
+    await user.keyboard('{ArrowDown}');
     expect(items[1]).toHaveClass('fi-select-item--hasKeyboardFocus');
     expect(items[0]).not.toHaveClass('fi-select-item--hasKeyboardFocus');
 
-    await act(async () => {
-      fireEvent.keyDown(inputElement, { key: 'ArrowUp' });
-    });
+    await user.keyboard('{ArrowUp}');
     expect(items[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
   });
 
   it('should close suggestions on Escape key press', async () => {
+    const user = userEvent.setup();
     const { getByRole, queryAllByRole } = render(
       TestSearchInput({
         autosuggest: true,
@@ -470,22 +451,20 @@ describe('autosuggest', () => {
       }),
     );
     await waitForPosition();
-    const inputElement = await waitFor(
-      () => getByRole('searchbox') as HTMLInputElement,
-    );
+    const inputElement = getByRole('searchbox') as HTMLInputElement;
 
-    const items = await waitFor(() => queryAllByRole('option'));
-    await waitFor(() => {
-      expect(items).toHaveLength(3);
-    });
+    const items = queryAllByRole('option');
+    expect(items).toHaveLength(3);
 
-    await act(async () => {
-      fireEvent.keyDown(inputElement, { key: 'Escape' });
-    });
+    await user.click(inputElement);
+    await user.keyboard('{Escape}');
+    await waitForPosition();
+
     expect(queryAllByRole('option')).toHaveLength(0);
   });
 
   it('should retain focus on input after Escape key press', async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(
       TestSearchInput({
         autosuggest: true,
@@ -495,9 +474,8 @@ describe('autosuggest', () => {
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
 
-    await act(async () => {
-      fireEvent.keyDown(inputElement, { key: 'Escape' });
-    });
+    await user.click(inputElement);
+    await user.keyboard('{Escape}');
 
     await waitFor(() => {
       expect(inputElement).toHaveFocus();
@@ -509,6 +487,7 @@ describe('autosuggest', () => {
       { uniqueId: '4', label: 'kiwi' },
       { uniqueId: '5', label: 'date' },
     ];
+    const user = userEvent.setup();
     const { getByRole, getAllByRole, rerender } = render(
       <TestSearchInput
         autosuggest={true}
@@ -522,31 +501,26 @@ describe('autosuggest', () => {
 
     const inputElement = getByRole('searchbox') as HTMLInputElement;
 
-    await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'a' } });
-    });
+    await user.type(inputElement, 'a');
+    await waitForPosition();
 
-    const items = await waitFor(() => getAllByRole('option'));
+    const items = getAllByRole('option');
     expect(items).toHaveLength(3);
     expect(items[0]).toHaveTextContent('app');
 
-    await act(async () => {
-      rerender(
-        <TestSearchInput autosuggest={true} suggestions={updatedSuggestions} />,
-      );
-    });
+    rerender(
+      <TestSearchInput autosuggest={true} suggestions={updatedSuggestions} />,
+    );
 
-    await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'abc' } });
-    });
+    await user.clear(inputElement);
+    await user.type(inputElement, 'abc');
+    await waitForPosition();
 
     expect(inputElement.value).toBe('abc');
 
-    await act(async () => {
-      fireEvent.keyDown(inputElement, { key: 'ArrowDown' });
-    });
+    await user.keyboard('{ArrowDown}');
 
-    const newItems = await waitFor(() => getAllByRole('option'));
+    const newItems = getAllByRole('option');
     expect(newItems).toHaveLength(2);
     expect(newItems[0]).toHaveClass('fi-select-item--hasKeyboardFocus');
     expect(newItems[0]).toHaveTextContent('kiwi');
@@ -564,6 +538,7 @@ describe('states', () => {
 
     it('should not react to enter before adding text to input', async () => {
       const mockOnSearch = jest.fn();
+      const user = userEvent.setup();
       const { getByRole, getAllByRole } = render(
         TestSearchInput({
           onSearch: mockOnSearch,
@@ -571,27 +546,19 @@ describe('states', () => {
         }),
       );
       const inputElement = getByRole('searchbox') as HTMLTextAreaElement;
-      await act(async () => {
-        fireEvent.keyDown(inputElement, {
-          key: 'Enter',
-          code: 'Enter',
-          charCode: 13,
-        });
-      });
+
+      await user.keyboard('{Enter}');
+
       expect(mockOnSearch).toBeCalledTimes(0);
-      await act(async () => {
-        fireEvent.change(inputElement, { target: { value: 'abc' } });
-        fireEvent.keyDown(inputElement, {
-          key: 'Enter',
-          code: 'Enter',
-          charCode: 13,
-        });
-      });
+
+      await user.type(inputElement, 'abc');
+      await user.keyboard('{Enter}');
+
       expect(mockOnSearch).toBeCalledTimes(1);
+
       const searchButton = getAllByRole('button')[1];
-      await act(async () => {
-        fireEvent.click(searchButton);
-      });
+      await user.click(searchButton);
+
       expect(mockOnSearch).toBeCalledTimes(2);
     });
   });

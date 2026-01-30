@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Table, TableColumn, TableProps } from './Table';
 import { axeTest } from '../../utils/test';
 
@@ -72,10 +73,11 @@ describe('Table functionalities', () => {
     expect(screen.getByText('Jane Smith')).toBeInTheDocument();
   });
 
-  it('sorts data by column when header is clicked', () => {
+  it('sorts data by column when header is clicked', async () => {
+    const user = userEvent.setup();
     renderTable({ caption: 'People in the project' });
     const nameHeader = screen.getByText('Name');
-    fireEvent.click(nameHeader);
+    await user.click(nameHeader);
     const rows = screen.getAllByRole('row');
     expect(rows[1]).toHaveTextContent('Jane Smith');
     expect(rows[2]).toHaveTextContent('John Doe');
@@ -95,7 +97,8 @@ describe('Table functionalities', () => {
     expect(checkboxes[1]).toHaveAccessibleName('Select row Jane Doe');
   });
 
-  it('calls onSelectedRowsChange when a row is selected', () => {
+  it('calls onSelectedRowsChange when a row is selected', async () => {
+    const user = userEvent.setup();
     const onSelectedRowsChange = jest.fn();
     renderTable({
       caption: 'People in the project',
@@ -103,7 +106,7 @@ describe('Table functionalities', () => {
       onSelectedRowsChange,
     });
     const checkbox = screen.getAllByRole('checkbox')[1];
-    fireEvent.click(checkbox);
+    await user.click(checkbox);
     expect(onSelectedRowsChange).toHaveBeenCalledWith(['2']);
   });
 

@@ -1,5 +1,6 @@
 import React, { act } from 'react';
-import { render, fireEvent, cleanup, waitFor } from '@testing-library/react';
+import { render, cleanup, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DateInput } from './DateInput';
 
 describe('snapshots match', () => {
@@ -56,15 +57,9 @@ describe('snapshots match', () => {
   });
 
   describe('date input with datepicker', () => {
-    beforeAll(() => {
+    test('with smallScreen', async () => {
       jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-    });
-
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
-    test('with smallScreen', () => {
+      const user = userEvent.setup({ delay: null });
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Date"
@@ -74,12 +69,14 @@ describe('snapshots match', () => {
           value="15.1.2020"
         />,
       );
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
       expect(baseElement).toMatchSnapshot();
       cleanup();
     });
 
-    test('with controlled input value', () => {
+    test('with controlled input value', async () => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+      const user = userEvent.setup({ delay: null });
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Date"
@@ -88,7 +85,7 @@ describe('snapshots match', () => {
           value="15.1.2020"
         />,
       );
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
       expect(baseElement).toMatchSnapshot();
       cleanup();
     });
@@ -100,35 +97,32 @@ describe('keyboard events', () => {
     jest.useFakeTimers().setSystemTime(new Date('2010-01-01'));
   });
 
+  // Re-establish fake timers after each test since global cleanup resets them
+  afterEach(() => {
+    jest.useFakeTimers().setSystemTime(new Date('2010-01-01'));
+  });
+
   afterAll(() => {
     jest.useRealTimers();
   });
 
-  it('closes dialog with Escape', () => {
+  it('closes dialog with Escape', async () => {
+    const user = userEvent.setup({ delay: null });
     const { baseElement, getByRole } = render(
       <DateInput labelText="Date" datePickerEnabled />,
     );
-    fireEvent.click(getByRole('button'));
+    await user.click(getByRole('button'));
     expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
-    fireEvent.keyDown(baseElement, {
-      key: 'Escape',
-    });
+    await user.keyboard('{Escape}');
     expect(baseElement.querySelector('[role="dialog"]')).not.toBeVisible();
     cleanup();
   });
 });
 
 describe('callbacks', () => {
-  beforeAll(() => {
-    jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   describe('shouldDisableDate', () => {
-    it('has date disabled', () => {
+    it('has date disabled', async () => {
+      const user = userEvent.setup({ delay: null });
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Date"
@@ -136,7 +130,7 @@ describe('callbacks', () => {
           shouldDisableDate={(date) => date.getDate() === 18}
         />,
       );
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
       const dateButton = baseElement.querySelector(
         '.fi-month-day_button--disabled',
       );
@@ -146,12 +140,15 @@ describe('callbacks', () => {
   });
 
   describe('onChange', () => {
-    it('calls onChange when input value is changed', () => {
+    it('calls onChange when input value is changed', async () => {
+      const user = userEvent.setup({ delay: null });
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
       const mockOnChange = jest.fn();
       const { getByRole } = render(
         <DateInput labelText="Date" onChange={mockOnChange} />,
       );
-      fireEvent.change(getByRole('textbox'), { target: { value: '1.1.2020' } });
+      await user.clear(getByRole('textbox'));
+      await user.type(getByRole('textbox'), '1.1.2020');
       expect(mockOnChange).toBeCalledWith({
         value: '1.1.2020',
         date: new Date(2020, 0, 1),
@@ -159,7 +156,9 @@ describe('callbacks', () => {
       cleanup();
     });
 
-    it('calls onChange when date is selected', () => {
+    it('calls onChange when date is selected', async () => {
+      const user = userEvent.setup({ delay: null });
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
       const mockOnChange = jest.fn();
       const { getByRole, getAllByText } = render(
         <DateInput
@@ -168,11 +167,11 @@ describe('callbacks', () => {
           onChange={mockOnChange}
         />,
       );
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
       const dateButton = getAllByText('1')[0].closest(
         'button',
       ) as HTMLButtonElement;
-      fireEvent.click(dateButton);
+      await user.click(dateButton);
       expect(mockOnChange).toBeCalledWith({
         value: '1.1.2020',
         date: new Date(2020, 0, 1),
@@ -182,32 +181,35 @@ describe('callbacks', () => {
   });
 
   describe('onClick', () => {
-    it('calls onClick when input is clicked', () => {
+    it('calls onClick when input is clicked', async () => {
+      const user = userEvent.setup({ delay: null });
       const mockOnClick = jest.fn();
       const { getByRole } = render(
         <DateInput labelText="Date" onClick={mockOnClick} />,
       );
-      fireEvent.click(getByRole('textbox'));
+      await user.click(getByRole('textbox'));
       expect(mockOnClick).toBeCalledTimes(1);
       cleanup();
     });
   });
 
   describe('onBlur', () => {
-    it('calls onBlur when input is blurred', () => {
+    it('calls onBlur when input is blurred', async () => {
+      const user = userEvent.setup({ delay: null });
       const mockOnBlur = jest.fn();
       const { getByRole } = render(
         <DateInput labelText="Date" onBlur={mockOnBlur} />,
       );
-      fireEvent.click(getByRole('textbox'));
-      fireEvent.blur(getByRole('textbox'));
+      await user.click(getByRole('textbox'));
+      await user.tab();
       expect(mockOnBlur).toBeCalledTimes(1);
       cleanup();
     });
   });
 
   describe('onDatePickerButtonBlur', () => {
-    it('calls onBlur when date picker button is blurred', () => {
+    it('calls onBlur when date picker button is blurred', async () => {
+      const user = userEvent.setup({ delay: null });
       const mockOnBlur = jest.fn();
       const { getByRole } = render(
         <DateInput
@@ -216,8 +218,8 @@ describe('callbacks', () => {
           onDatePickerButtonBlur={mockOnBlur}
         />,
       );
-      fireEvent.focus(getByRole('button'));
-      fireEvent.blur(getByRole('button'));
+      getByRole('button').focus();
+      await user.tab();
       expect(mockOnBlur).toBeCalledTimes(1);
       cleanup();
     });
@@ -297,15 +299,8 @@ describe('props', () => {
     });
 
     describe('maxDate', () => {
-      beforeAll(() => {
-        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      it('has next date as table cell (instead of button)', () => {
+      it('has next date as table cell (instead of button)', async () => {
+        const user = userEvent.setup({ delay: null });
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -313,13 +308,15 @@ describe('props', () => {
             maxDate={new Date(2020, 0, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dateCell = getByText('16');
         expect(dateCell.tagName).toBe('TD');
         cleanup();
       });
 
-      it('has next years removed from dropdown', () => {
+      it('has next years removed from dropdown', async () => {
+        const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -327,13 +324,13 @@ describe('props', () => {
             maxDate={new Date(2020, 0, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dropdown = baseElement.querySelector(
           '.fi-date-selectors_year-select',
         );
         const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
         if (dropdownButton) {
-          fireEvent.click(dropdownButton);
+          await user.click(dropdownButton);
           const lis = dropdown?.querySelectorAll('li');
           expect(lis?.length).toBe(11);
           expect(lis?.[10]).toHaveTextContent('2020');
@@ -342,6 +339,7 @@ describe('props', () => {
       });
 
       it('has next months removed from dropdown', async () => {
+        const user = userEvent.setup({ delay: null });
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -349,14 +347,14 @@ describe('props', () => {
             maxDate={new Date(2020, 0, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dropdown = baseElement.querySelector(
           '.fi-date-selectors_month-select',
         );
         const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
         if (dropdownButton) {
           await act(async () => {
-            fireEvent.click(dropdownButton);
+            await user.click(dropdownButton);
           });
           const lis = dropdown?.querySelectorAll('li');
           await waitFor(() => {
@@ -366,7 +364,8 @@ describe('props', () => {
         }
       });
 
-      it('has next month button disabled', () => {
+      it('has next month button disabled', async () => {
+        const user = userEvent.setup({ delay: null });
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -374,7 +373,7 @@ describe('props', () => {
             maxDate={new Date(2020, 0, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const button = baseElement.querySelectorAll(
           '.fi-date-selectors_month-button',
         )[1];
@@ -384,15 +383,9 @@ describe('props', () => {
     });
 
     describe('minDate', () => {
-      beforeAll(() => {
+      it('has previous date as table cell (instead of button)', async () => {
+        const user = userEvent.setup({ delay: null });
         jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      it('has previous date as table cell (instead of button)', () => {
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -400,13 +393,15 @@ describe('props', () => {
             minDate={new Date(2020, 6, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dateCell = getByText('14');
         expect(dateCell.tagName).toBe('TD');
         cleanup();
       });
 
-      it('has previous years removed from dropdown', () => {
+      it('has previous years removed from dropdown', async () => {
+        const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -414,13 +409,13 @@ describe('props', () => {
             minDate={new Date(2020, 6, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dropdown = baseElement.querySelector(
           '.fi-date-selectors_year-select',
         );
         const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
         if (dropdownButton) {
-          fireEvent.click(dropdownButton);
+          await user.click(dropdownButton);
           const lis = dropdown?.querySelectorAll('li');
           expect(lis?.[0]).toHaveTextContent('2020');
           expect(lis?.length).toBe(11);
@@ -428,7 +423,9 @@ describe('props', () => {
         cleanup();
       });
 
-      it('has previous months removed from dropdown', () => {
+      it('has previous months removed from dropdown', async () => {
+        const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -436,13 +433,13 @@ describe('props', () => {
             minDate={new Date(2020, 6, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dropdown = baseElement.querySelector(
           '.fi-date-selectors_month-select',
         );
         const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
         if (dropdownButton) {
-          fireEvent.click(dropdownButton);
+          await user.click(dropdownButton);
           const lis = dropdown?.querySelectorAll('li');
           expect(lis?.[0]).toHaveTextContent('Heinäkuu');
           expect(lis?.length).toBe(6);
@@ -451,6 +448,8 @@ describe('props', () => {
       });
 
       it('has previous month button disabled', async () => {
+        const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -458,7 +457,7 @@ describe('props', () => {
             minDate={new Date(2020, 6, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const button = baseElement.querySelectorAll(
           '.fi-date-selectors_month-button',
         )[0];
@@ -470,15 +469,9 @@ describe('props', () => {
     });
 
     describe('initialDate', () => {
-      beforeAll(() => {
+      it('has correct date', async () => {
+        const user = userEvent.setup({ delay: null });
         jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      it('has correct date', () => {
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -486,7 +479,7 @@ describe('props', () => {
             initialDate={new Date(2015, 5, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dateButton = getByText('15').closest('button');
         expect(dateButton).toHaveAttribute(
           'aria-label',
@@ -495,7 +488,9 @@ describe('props', () => {
         cleanup();
       });
 
-      it('has focus', () => {
+      it('has focus', async () => {
+        const user = userEvent.setup({ delay: null });
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -503,7 +498,7 @@ describe('props', () => {
             initialDate={new Date(2015, 5, 15)}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dateButton = getByText('15').closest('button');
         expect(dateButton).toHaveFocus();
         cleanup();
@@ -524,15 +519,9 @@ describe('props', () => {
         },
       };
 
-      beforeAll(() => {
+      it('parses date from input field', async () => {
         jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-      });
-
-      afterAll(() => {
-        jest.useRealTimers();
-      });
-
-      it('parses date from input field', () => {
+        const user = userEvent.setup({ delay: null });
         const { baseElement, getByRole } = render(
           <DateInput
             labelText="Date"
@@ -540,10 +529,9 @@ describe('props', () => {
             dateAdapter={dateAdapter}
           />,
         );
-        fireEvent.change(getByRole('textbox'), {
-          target: { value: '2020-8-15' },
-        });
-        fireEvent.click(getByRole('button'));
+        await user.clear(getByRole('textbox'));
+        await user.type(getByRole('textbox'), '2020-8-15');
+        await user.click(getByRole('button'));
         const dateButton = baseElement.querySelector(
           '.fi-month-day_button--selected',
         );
@@ -554,7 +542,10 @@ describe('props', () => {
         cleanup();
       });
 
-      it('formats selected date to input field', () => {
+      it('formats selected date to input field', async () => {
+        jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+
+        const user = userEvent.setup({ delay: null });
         const { getByRole, getByText } = render(
           <DateInput
             labelText="Date"
@@ -562,11 +553,11 @@ describe('props', () => {
             dateAdapter={dateAdapter}
           />,
         );
-        fireEvent.click(getByRole('button'));
+        await user.click(getByRole('button'));
         const dateButton = getByText('16').closest(
           'button',
         ) as HTMLButtonElement;
-        fireEvent.click(dateButton);
+        await user.click(dateButton);
         expect(getByRole('textbox')).toHaveValue('2020-1-16');
         cleanup();
       });
@@ -620,14 +611,6 @@ describe('props', () => {
       });
 
       describe('datePickerTexts', () => {
-        beforeAll(() => {
-          jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-        });
-
-        afterAll(() => {
-          jest.useRealTimers();
-        });
-
         it('overwrites text in open button', () => {
           const { getByRole } = render(
             <DateInput
@@ -640,7 +623,8 @@ describe('props', () => {
           cleanup();
         });
 
-        it('overwrites texts in previous month button', () => {
+        it('overwrites texts in previous month button', async () => {
+          const user = userEvent.setup({ delay: null });
           const { baseElement, getByRole } = render(
             <DateInput
               labelText="Date"
@@ -648,7 +632,7 @@ describe('props', () => {
               datePickerTexts={{ prevMonthButtonLabel: 'vorheriger Monat' }}
             />,
           );
-          fireEvent.click(getByRole('button'));
+          await user.click(getByRole('button'));
           const button = baseElement.querySelectorAll(
             '.fi-date-selectors_month-button',
           )[0];
@@ -661,8 +645,9 @@ describe('props', () => {
       });
 
       describe('debounce', () => {
-        it('delays the running of onChange by the given time', () => {
+        it('delays the running of onChange by the given time', async () => {
           jest.useFakeTimers();
+          const user = userEvent.setup({ delay: null });
           const mockOnChange = jest.fn();
           const { getByRole } = render(
             <DateInput
@@ -671,10 +656,10 @@ describe('props', () => {
               onChange={mockOnChange}
             />,
           );
-          fireEvent.change(getByRole('textbox'), { target: { value: '1.1.' } });
-          fireEvent.change(getByRole('textbox'), {
-            target: { value: '1.1.2022' },
-          });
+          await user.clear(getByRole('textbox'));
+          await user.type(getByRole('textbox'), '1.1.');
+          await user.clear(getByRole('textbox'));
+          await user.type(getByRole('textbox'), '1.1.2022');
           expect(getByRole('textbox')).toHaveValue('1.1.2022');
           expect(mockOnChange).not.toBeCalled();
           jest.advanceTimersByTime(1000);
@@ -682,16 +667,17 @@ describe('props', () => {
           cleanup();
         });
 
-        it('resolves right away when no debounce is given', () => {
+        it('resolves right away when no debounce is given', async () => {
+          const user = userEvent.setup({ delay: null });
           const mockOnChange = jest.fn();
           const { getByRole } = render(
             <DateInput labelText="Date" onChange={mockOnChange} />,
           );
-          fireEvent.change(getByRole('textbox'), { target: { value: '1.1.' } });
-          fireEvent.change(getByRole('textbox'), {
-            target: { value: '1.1.2022' },
-          });
-          expect(mockOnChange).toBeCalledTimes(2);
+          await user.clear(getByRole('textbox'));
+          await user.type(getByRole('textbox'), '1.1.');
+          await user.clear(getByRole('textbox'));
+          await user.type(getByRole('textbox'), '1.1.2022');
+          expect(mockOnChange).toBeCalledTimes(13);
           cleanup();
         });
       });
@@ -748,14 +734,6 @@ describe('props', () => {
       });
 
       describe('smallScreen', () => {
-        beforeAll(() => {
-          jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
-        });
-
-        afterAll(() => {
-          jest.useRealTimers();
-        });
-
         describe('not enabled', () => {
           it('has position absolute', () => {
             const { baseElement } = render(
@@ -779,11 +757,13 @@ describe('props', () => {
             cleanup();
           });
 
-          it('has current date focused in smallScreen variant', () => {
+          it('has current date focused in smallScreen variant', async () => {
+            const user = userEvent.setup({ delay: null });
+            jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
             const { getByRole, getByText } = render(
               <DateInput labelText="Date" smallScreen datePickerEnabled />,
             );
-            fireEvent.click(getByRole('button'));
+            await user.click(getByRole('button'));
             const dateButton = getByText('15').closest(
               'button',
             ) as HTMLButtonElement;
@@ -798,14 +778,6 @@ describe('props', () => {
       });
 
       describe('value', () => {
-        beforeAll(() => {
-          jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-        });
-
-        afterAll(() => {
-          jest.useRealTimers();
-        });
-
         it('has user given value in input', () => {
           const { getByRole } = render(
             <DateInput labelText="Date" value="1.5.2020" />,
@@ -814,11 +786,12 @@ describe('props', () => {
           cleanup();
         });
 
-        it('has user given value selected in calendar', () => {
+        it('has user given value selected in calendar', async () => {
+          const user = userEvent.setup({ delay: null });
           const { getByRole, baseElement } = render(
             <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
           );
-          fireEvent.click(getByRole('button'));
+          await user.click(getByRole('button'));
           const dateButton = baseElement.querySelector(
             '.fi-month-day_button--selected',
           );
@@ -829,11 +802,12 @@ describe('props', () => {
           cleanup();
         });
 
-        it('has user given value focused in calendar', () => {
+        it('has user given value focused in calendar', async () => {
+          const user = userEvent.setup({ delay: null });
           const { getByRole, baseElement } = render(
             <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
           );
-          fireEvent.click(getByRole('button'));
+          await user.click(getByRole('button'));
           const dateButton = baseElement.querySelector(
             '.fi-month-day_button--selected',
           );
@@ -870,7 +844,6 @@ describe('props', () => {
           beforeAll(() => {
             jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
           });
-
           afterAll(() => {
             jest.useRealTimers();
           });
@@ -883,7 +856,8 @@ describe('props', () => {
             cleanup();
           });
 
-          it('has user given defaultValue selected in calendar', () => {
+          it('has user given defaultValue selected in calendar', async () => {
+            const user = userEvent.setup({ delay: null });
             const { getByRole, baseElement } = render(
               <DateInput
                 labelText="Date"
@@ -891,7 +865,7 @@ describe('props', () => {
                 defaultValue="31.1.2020"
               />,
             );
-            fireEvent.click(getByRole('button'));
+            await user.click(getByRole('button'));
             const dateButton = baseElement.querySelector(
               '.fi-month-day_button--selected',
             );
@@ -902,7 +876,8 @@ describe('props', () => {
             cleanup();
           });
 
-          it('has user given defaultValue focused in calendar', () => {
+          it('has user given defaultValue focused in calendar', async () => {
+            const user = userEvent.setup({ delay: null });
             const { getByRole, baseElement } = render(
               <DateInput
                 labelText="Date"
@@ -910,7 +885,7 @@ describe('props', () => {
                 defaultValue="31.1.2020"
               />,
             );
-            fireEvent.click(getByRole('button'));
+            await user.click(getByRole('button'));
             const dateButton = baseElement.querySelector(
               '.fi-month-day_button--selected',
             );
@@ -960,7 +935,8 @@ describe('props', () => {
   });
 
   describe('dates outside default range', () => {
-    it('should handle minDate beyond default +10 year range', () => {
+    it('should handle minDate beyond default +10 year range', async () => {
+      const user = userEvent.setup({ delay: null });
       const futureMinDate = new Date(2100, 0, 1); // January 1, 2100 - over 10 years from now
       const { baseElement, getByRole } = render(
         <DateInput
@@ -973,7 +949,7 @@ describe('props', () => {
       );
 
       // Should not crash when opening calendar
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
 
       // Calendar should be visible
       expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
@@ -986,7 +962,8 @@ describe('props', () => {
       cleanup();
     });
 
-    it('should handle maxDate before default -10 year range', () => {
+    it('should handle maxDate before default -10 year range', async () => {
+      const user = userEvent.setup({ delay: null });
       const pastMaxDate = new Date(2013, 11, 31); // December 31, 2013 - over 10 years ago
       const { baseElement, getByRole } = render(
         <DateInput
@@ -999,7 +976,7 @@ describe('props', () => {
       );
 
       // Should not crash when opening calendar
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
 
       // Calendar should be visible
       expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
@@ -1012,7 +989,8 @@ describe('props', () => {
       cleanup();
     });
 
-    it('should handle user date range that spans outside defaults', () => {
+    it('should handle user date range that spans outside defaults', async () => {
+      const user = userEvent.setup({ delay: null });
       const futureMinDate = new Date(2100, 0, 1); // January 1, 2100
       const futureMaxDate = new Date(2140, 11, 31); // December 31, 2140
       const { baseElement, getByRole } = render(
@@ -1027,7 +1005,7 @@ describe('props', () => {
       );
 
       // Should not crash when opening calendar
-      fireEvent.click(getByRole('button'));
+      await user.click(getByRole('button'));
 
       // Calendar should be visible
       expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();

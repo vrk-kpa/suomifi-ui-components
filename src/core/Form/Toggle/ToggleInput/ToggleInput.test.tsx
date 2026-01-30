@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../../utils/test';
 
 import { ToggleInput } from './ToggleInput';
@@ -31,13 +32,13 @@ describe('Basic ToggleInput', () => {
       <ToggleInput onChange={mockClickHandler}>Test two</ToggleInput>,
     );
     const toggle = getByRole('checkbox');
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     expect(toggle).toBeChecked();
     const svgClassList = container.querySelector('svg')?.classList;
     expect(svgClassList).toContain('fi-toggle_icon');
     expect(svgClassList).toContain('fi-toggle_icon--checked');
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(svgClassList).not.toContain('fi-toggle_icon--checked');
     expect(toggle).not.toBeChecked();
   });
@@ -50,7 +51,7 @@ describe('Basic ToggleInput', () => {
       </ToggleInput>,
     );
     const toggle = getByRole('checkbox');
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     expect(toggle).not.toBeChecked();
     const svgClassList = container.querySelector('svg')?.classList;

@@ -6,7 +6,8 @@ import {
   Block,
   ErrorSummaryItemProps,
 } from '../../../index';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
 const SimpleFormWithErrorSummary: React.FC = () => {
@@ -46,6 +47,12 @@ const SimpleFormWithErrorSummary: React.FC = () => {
     setErrorSummaryItems(errorItems);
   }, [firstNameErrorMessage, lastNameErrorMessage, emailAddressErrorMessage]);
 
+  useEffect(() => {
+    if (errorSummaryItems.length > 0) {
+      errorSummaryHeadingRef.current?.focus();
+    }
+  }, [errorSummaryItems]);
+
   const validateForm = () => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -68,20 +75,6 @@ const SimpleFormWithErrorSummary: React.FC = () => {
     setFirstNameErrorMessage(firstNameError);
     setLastNameErrorMessage(lastNameError);
     setEmailAddressErrorMessage(emailAddressError);
-
-    if (
-      firstNameError !== '' ||
-      lastNameError !== '' ||
-      emailAddressError !== ''
-    ) {
-      /* 
-      Timeout is used to make sure ErrorSummary component 
-      has had time to render before focusing on the heading 
-      */
-      setTimeout(() => {
-        errorSummaryHeadingRef.current?.focus();
-      }, 100);
-    }
   };
 
   return (
@@ -128,9 +121,10 @@ const SimpleFormWithErrorSummary: React.FC = () => {
 
 describe('funcionality', () => {
   it('should render ErrorSummary and focus on the heading when invalid inputs are submitted', async () => {
+    const user = userEvent.setup();
     const { getByText, getAllByText } = render(<SimpleFormWithErrorSummary />);
     const submitButton = getByText('Submit');
-    fireEvent.click(submitButton);
+    await user.click(submitButton);
     expect(
       getByText('The following problems were found in the form'),
     ).toBeInTheDocument();
@@ -146,31 +140,32 @@ describe('funcionality', () => {
     expect(getAllByText('Email address is a required field')).toHaveLength(2);
   });
 
-  it('should focus on corresponding inputs when ErrorSummary items are clicked', () => {
+  it('should focus on corresponding inputs when ErrorSummary items are clicked', async () => {
+    const user = userEvent.setup();
     const { getByText, getByRole, getByTestId } = render(
       <SimpleFormWithErrorSummary />,
     );
     const submitButton = getByText('Submit');
-    fireEvent.click(submitButton);
+    await user.click(submitButton);
 
     const firstNameLink = getByRole('link', {
       name: 'First name is a required field',
     });
-    fireEvent.click(firstNameLink);
+    await user.click(firstNameLink);
     const firstNameInput = getByTestId('first-name');
     expect(firstNameInput).toHaveFocus();
 
     const lastNameLink = getByRole('link', {
       name: 'Last name is a required field',
     });
-    fireEvent.click(lastNameLink);
+    await user.click(lastNameLink);
     const lastNameInput = getByTestId('last-name');
     expect(lastNameInput).toHaveFocus();
 
     const emailAddressLink = getByRole('link', {
       name: 'Email address is a required field',
     });
-    fireEvent.click(emailAddressLink);
+    await user.click(emailAddressLink);
     const emailAddressInput = getByTestId('email-address');
     expect(emailAddressInput).toHaveFocus();
   });

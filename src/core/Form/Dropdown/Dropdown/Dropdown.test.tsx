@@ -1,15 +1,10 @@
-/* eslint-disable no-promise-executor-return */
 import React from 'react';
-import { render, act, fireEvent, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
-import { axeTest } from '../../../../utils/test';
-
-export async function waitForPosition() {
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-}
+import { axeTest, waitForPosition } from '../../../../utils/test';
 
 const dropdownProps = {
   labelText: 'Dropdown test',
@@ -82,12 +77,11 @@ describe('Basic dropdown', () => {
   });
 
   it('should match snapshot', async () => {
+    const user = userEvent.setup();
     const { baseElement, getByRole } = render(BasicDropdown);
     await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
+    await user.click(menuButton);
     await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
@@ -131,22 +125,21 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should use value instead of internal state', async () => {
+    const user = userEvent.setup();
     const { findByRole, rerender, findByDisplayValue, baseElement } =
       render(ControlledDropdown);
     const button = await findByRole('button');
     const input = await findByDisplayValue('item-2');
 
-    fireEvent.click(button);
+    await user.click(button);
     const option = baseElement.querySelector('.fi-dropdown_item'); // Item 1
     if (option) {
-      fireEvent.click(option);
+      await user.click(option);
       expect(button).toHaveTextContent('Item 2');
       expect(input).toBeTruthy();
     }
 
-    await act(async () => {
-      rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
-    });
+    rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
     const button2 = await findByRole('button');
     const input2 = await findByDisplayValue('item-1');
     expect(button2).toHaveTextContent('Item 1');
@@ -154,12 +147,11 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should match snapshot', async () => {
+    const user = userEvent.setup();
     const { baseElement, getByRole } = render(ControlledDropdown);
     await waitForPosition();
     const button = getByRole('button') as HTMLButtonElement;
-    await act(async () => {
-      fireEvent.click(button);
-    });
+    await user.click(button);
     await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
@@ -181,17 +173,13 @@ describe('Dropdown with additional aria-label', () => {
   });
 
   it('should match snapshot', async () => {
+    const user = userEvent.setup();
     const { baseElement, getByRole, queryByRole } = render(
       DropdownWithExtraLabel,
     );
-    await waitForPosition();
-    const menuButton = await waitFor(
-      () => getByRole('button') as HTMLButtonElement,
-    );
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
-    await waitFor(() => queryByRole('listbox'));
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await user.click(menuButton);
+    queryByRole('listbox');
     await waitForPosition();
     expect(baseElement).toMatchSnapshot();
   });
@@ -199,73 +187,62 @@ describe('Dropdown with additional aria-label', () => {
 
 describe('Children', () => {
   it('should select nested item when item is clicked', async () => {
+    const user = userEvent.setup();
     const NestedDropdown = TestNestedDropdown({
       labelText: 'Dropdown',
     });
     const { getByRole, getAllByRole } = render(NestedDropdown);
-    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
-    const option = await waitFor(() => getAllByRole('option')[0]);
-    await act(async () => {
-      fireEvent.click(option);
-    });
+    await user.click(menuButton);
+    await waitForPosition();
+    const option = getAllByRole('option')[0];
+    await user.click(option);
     expect(menuButton).toHaveTextContent('Dropdown Item 1');
   });
 
   it('should not select disabled nested item when item is clicked', async () => {
+    const user = userEvent.setup();
     const NestedDropdown = TestNestedDropdown({
       labelText: 'Dropdown',
       visualPlaceholder: 'Select',
     });
     const { getByRole, getAllByRole } = render(NestedDropdown);
-    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
-    const option = await waitFor(() => getAllByRole('option')[2]);
-    await act(async () => {
-      fireEvent.click(option);
-    });
+    await user.click(menuButton);
+    await waitForPosition();
+    const option = getAllByRole('option')[2];
+    await user.click(option);
     expect(menuButton).toHaveTextContent('Select');
   });
 
   it('should select item when item is clicked', async () => {
+    const user = userEvent.setup();
     const NestedDropdown = TestNestedDropdown({ labelText: 'Dropdown' });
     const { getByRole, getAllByRole } = render(NestedDropdown);
-    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
-    const option = await waitFor(() => getAllByRole('option')[3]);
-    await act(async () => {
-      fireEvent.click(option);
-    });
+    await user.click(menuButton);
+    await waitForPosition();
+    const option = getAllByRole('option')[3];
+    await user.click(option);
     expect(menuButton).toHaveTextContent('All');
   });
 });
 
 describe('DropdownItem', () => {
   it('should be selected when item is clicked', async () => {
+    const user = userEvent.setup();
     const BasicDropdown = TestDropdown({ labelText: 'Dropdown' });
     const { getByRole, getAllByRole } = render(BasicDropdown);
-    await waitForPosition();
     const menuButton = getByRole('button') as HTMLButtonElement;
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
-    const option = await waitFor(() => getAllByRole('option')[0]);
-    await act(async () => {
-      fireEvent.click(option);
-    });
+    await user.click(menuButton);
+    await waitForPosition();
+    const option = getAllByRole('option')[0];
+    await user.click(option);
     expect(menuButton).toHaveTextContent('Item 1');
   });
 
   it('should not be selected when disabled', async () => {
+    const user = userEvent.setup();
     const BasicDropdown = (
       <Dropdown labelText="Dropdown" visualPlaceholder="Select value">
         <DropdownItem value={'item-1'} disabled>
@@ -275,17 +252,11 @@ describe('DropdownItem', () => {
       </Dropdown>
     );
     const { getByRole, getAllByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await user.click(menuButton);
     await waitForPosition();
-    const menuButton = await waitFor(
-      () => getByRole('button') as HTMLButtonElement,
-    );
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
-    const option = await waitFor(() => getAllByRole('option')[0]);
-    await act(async () => {
-      fireEvent.click(option);
-    });
+    const option = getAllByRole('option')[0];
+    await user.click(option);
     expect(menuButton).toHaveTextContent('Select value');
   });
 });
@@ -371,14 +342,12 @@ describe('margin', () => {
 describe('Dropdown', () => {
   // Don't validate aria-attributes since Portal is not rendered and there is no pair for aria-controls
   it('should not have basic accessibility issues', async () => {
-    await act(async () => {
-      axeTest(TestDropdown(dropdownProps), {
-        rules: {
-          'aria-valid-attr-value': {
-            enabled: false,
-          },
+    axeTest(TestDropdown(dropdownProps), {
+      rules: {
+        'aria-valid-attr-value': {
+          enabled: false,
         },
-      });
+      },
     });
   });
 });

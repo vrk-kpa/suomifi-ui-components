@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { RadioButton, RadioButtonProps } from './RadioButton';
+import userEvent from '@testing-library/user-event';
 
 const Radio = (props: RadioButtonProps) => {
   const { id, children, ...passProps } = props;
@@ -106,11 +107,12 @@ describe('variant', () => {
 });
 
 describe('onChange', () => {
-  it('is called when clicked', () => {
+  const user = userEvent.setup();
+  it('is called when clicked', async () => {
     const mockClick = jest.fn();
     const { getByRole } = render(<Radio value="value" onChange={mockClick} />);
     const radio = getByRole('radio');
-    fireEvent.click(radio);
+    await user.click(radio);
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 });

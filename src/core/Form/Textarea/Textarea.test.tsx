@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../utils/test';
 
 import { Textarea } from './Textarea';
@@ -74,38 +75,42 @@ describe('props', () => {
   });
 
   describe('onBlur', () => {
-    test('should notice when leaving area', () => {
+    test('should notice when leaving area', async () => {
+      const user = userEvent.setup();
       const mockOnBlur = jest.fn();
       const { getByRole } = render(
         <Textarea labelText="label" onBlur={mockOnBlur} />,
       );
       const textarea = getByRole('textbox');
-      fireEvent.blur(textarea);
+      await user.click(textarea);
+      await user.tab();
       expect(mockOnBlur).toBeCalledTimes(1);
     });
   });
 
   describe('onClick', () => {
-    it('should notice click', () => {
+    it('should notice click', async () => {
+      const user = userEvent.setup();
       const mockOnClick = jest.fn();
       const { getByRole } = render(
         <Textarea labelText="label" onClick={mockOnClick} />,
       );
       const textarea = getByRole('textbox');
-      fireEvent.mouseDown(textarea);
+      await user.click(textarea);
       expect(mockOnClick).toBeCalledTimes(1);
     });
   });
 
   describe('onChange', () => {
-    it('should notice change and have the given text', () => {
+    it('should notice change and have the given text', async () => {
+      const user = userEvent.setup();
       const mockOnChange = jest.fn();
       const { getByRole } = render(
         <Textarea labelText="label" onChange={mockOnChange} />,
       );
       const textarea = getByRole('textbox') as HTMLTextAreaElement;
-      fireEvent.change(textarea, { target: { value: 'abc' } });
-      expect(mockOnChange).toBeCalledTimes(1);
+      await user.type(textarea, 'abc');
+      expect(mockOnChange).toBeCalledTimes(3);
       expect(textarea.value).toBe('abc');
     });
   });
@@ -309,7 +314,8 @@ describe('props', () => {
       jest.useRealTimers();
     });
 
-    it('should display character count', () => {
+    it('should display character count', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
       const { container, getByRole } = render(
         <Textarea
           labelText="label"
@@ -333,16 +339,16 @@ describe('props', () => {
       ).toHaveTextContent('11/20');
 
       const textarea = getByRole('textbox') as HTMLTextAreaElement;
-      fireEvent.change(textarea, {
-        target: { value: 'Lorem ipsum dolor sit amet' },
-      });
+      await user.clear(textarea);
+      await user.type(textarea, 'Lorem ipsum dolor sit amet');
 
       expect(
         container.getElementsByClassName('fi-textarea_character-counter')[0],
       ).toHaveTextContent('26/20');
     });
 
-    it('should have correct screen reader status text', () => {
+    it('should have correct screen reader status text', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
       const { container, getByTestId } = render(
         <Textarea
           labelText="label"
@@ -364,8 +370,9 @@ describe('props', () => {
 
       const textInput = getByTestId('cc-textarea') as HTMLTextAreaElement;
 
-      fireEvent.change(textInput, {
-        target: { value: 'Lorem ipsum dolor sit amet' },
+      await act(async () => {
+        await user.clear(textInput);
+        await user.type(textInput, 'Lorem ipsum dolor sit amet');
       });
 
       // Testing if the delayed update works as intended

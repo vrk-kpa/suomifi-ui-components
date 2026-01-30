@@ -1,12 +1,10 @@
 import React from 'react';
-import { render, act, fireEvent, waitFor } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ActionMenu, ActionMenuProps } from '../ActionMenu';
 import { ActionMenuItem } from '../ActionMenu/ActionMenuItem';
 import { ActionMenuDivider } from '../ActionMenu/ActionMenuDivider/ActionMenuDivider';
-import { axeTest } from '../../utils/test';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const waitForPosition = () => act(async () => {});
+import { axeTest, waitForPosition } from '../../utils/test';
 
 const actionMenuProps: ActionMenuProps = {
   buttonText: 'Actions',
@@ -31,26 +29,19 @@ describe('Basic ActionMenu', () => {
   it('should have provided ids', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
-    await waitFor(() => {
-      expect(button).toHaveAttribute('id', 'test-id');
-      expect(button).toHaveAttribute('name', 'am-test-name');
-    });
+    expect(button).toHaveAttribute('id', 'test-id');
+    expect(button).toHaveAttribute('name', 'am-test-name');
   });
 
   it('should have button text', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
-    await waitFor(() => {
-      expect(button).toHaveTextContent('Actions');
-    });
+    expect(button).toHaveTextContent('Actions');
   });
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BasicActionMenu);
-
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -66,19 +57,14 @@ describe('Disabled ActionMenu', () => {
     const { findByRole } = render(BasicActionMenu);
 
     const button = await findByRole('button');
-    await waitFor(() => {
-      expect(button).toHaveClass('fi-button--disabled');
-      expect(button).toHaveAttribute('disabled');
-      expect(button).toHaveAttribute('aria-disabled', 'true');
-    });
+    expect(button).toHaveClass('fi-button--disabled');
+    expect(button).toHaveAttribute('disabled');
+    expect(button).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BasicActionMenu);
-
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -93,9 +79,7 @@ describe('No borders variant', () => {
 
   it('should match snapshot', async () => {
     const { baseElement } = render(BorderlessActionMenu);
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -104,9 +88,7 @@ describe('Margin prop', () => {
     const { container } = render(
       TestActionMenu({ ...actionMenuProps, margin: 'xs' }),
     );
-    await waitFor(() => {
-      expect(container.firstChild).toHaveStyle('margin: 10px');
-    });
+    expect(container.firstChild).toHaveStyle('margin: 10px');
   });
 
   it('should have margin style overridden by style prop', async () => {
@@ -118,9 +100,7 @@ describe('Margin prop', () => {
       },
     };
     const { container } = render(TestActionMenu(modProps));
-    await waitFor(() => {
-      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
-    });
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
 });
 
@@ -128,28 +108,19 @@ describe('movement in ActionMenu', () => {
   const BasicActionMenu = TestActionMenu(actionMenuProps);
 
   it('should match snapshot', async () => {
+    const user = userEvent.setup();
     const { baseElement, getByRole } = render(BasicActionMenu);
     const menuButton = getByRole('button') as HTMLButtonElement;
 
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
+    await user.click(menuButton);
 
     await waitForPosition();
 
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
 
-    await act(async () => {
-      fireEvent.keyPress(baseElement, {
-        key: 'ArrowDown',
-      });
-    });
+    await user.keyboard('{ArrowDown}');
 
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 

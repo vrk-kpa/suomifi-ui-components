@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ExpanderProviderState, ExpanderProvider } from '../Expander/Expander';
 import {
   ExpanderTitleButton,
@@ -160,7 +161,7 @@ describe('Provider open property', () => {
     );
   });
 
-  it('will remove open classnames when false', () => {
+  it('will remove open classnames when false', async () => {
     const mockClickHandler = jest.fn();
     const { getByTestId, getByRole, rerender } = customRender(
       TestExpanderWithProps(),
@@ -173,7 +174,7 @@ describe('Provider open property', () => {
       },
     );
     const buttonToClick = getByRole('button');
-    fireEvent.click(buttonToClick);
+    await userEvent.click(buttonToClick);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     rerender(TestExpanderWithProps(), {
       providerProps: {
