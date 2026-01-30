@@ -4,22 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { ActionMenu, ActionMenuProps } from '../ActionMenu';
 import { ActionMenuItem } from '../ActionMenu/ActionMenuItem';
 import { ActionMenuDivider } from '../ActionMenu/ActionMenuDivider/ActionMenuDivider';
-import { axeTest } from '../../utils/test';
-
-async function waitForPosition() {
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-}
+import { axeTest, waitForPosition } from '../../utils/test';
 
 const actionMenuProps: ActionMenuProps = {
   buttonText: 'Actions',

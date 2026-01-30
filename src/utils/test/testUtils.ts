@@ -26,14 +26,4 @@ export async function waitForPosition() {
         requestAnimationFrame(() => resolve(null));
       }),
   );
-
-  // CRITICAL: Also wait for component setTimeout delays
-  // Components use setTimeout(..., 100) for accessibility (e.g., text selection)
-  // Without this, tests race against these delays causing intermittent failures
-  await act(
-    () =>
-      new Promise((resolve) => {
-        setTimeout(resolve, 150); // 150ms to safely cover the 100ms component delays
-      }),
-  );
 }

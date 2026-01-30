@@ -1,25 +1,10 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
-import { axeTest } from '../../../../utils/test';
-
-export async function waitForPosition() {
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-}
+import { axeTest, waitForPosition } from '../../../../utils/test';
 
 const dropdownProps = {
   labelText: 'Dropdown test',

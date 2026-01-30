@@ -1,23 +1,8 @@
-import React, { act } from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { axeTest } from '../../../../../utils/test';
+import { axeTest, waitForPosition } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
-
-export async function waitForPosition() {
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-}
 
 const tools = [
   {

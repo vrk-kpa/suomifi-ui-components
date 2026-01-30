@@ -4,21 +4,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { axeTest } from '../../../../utils/test/axe';
 import { SingleSelect, SingleSelectData } from './SingleSelect';
-
-export async function waitForPosition() {
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-  await act(
-    () =>
-      new Promise((r) => {
-        requestAnimationFrame(() => r(null));
-      }),
-  );
-}
+import { waitForPosition } from '../../../../utils/test';
 
 const tools = [
   {
