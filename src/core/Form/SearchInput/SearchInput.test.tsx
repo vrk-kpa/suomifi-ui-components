@@ -61,6 +61,9 @@ describe('snapshot', () => {
 
     const items = await waitFor(() => getAllByRole('option'));
     expect(items).toHaveLength(3);
+    expect(items[0]).toHaveTextContent('apple');
+    expect(items[1]).toHaveTextContent('banana');
+    expect(items[2]).toHaveTextContent('cherry');
     expect(baseElement).toMatchSnapshot();
   });
 
