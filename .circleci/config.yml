@@ -5,7 +5,7 @@ executors:
     docker:
       - image: cimg/node:lts
     environment:
-      NODE_OPTIONS: --max_old_space_size=3072
+      NODE_OPTIONS: --max_old_space_size=4096
 
 commands:
   checkout_and_cache:
@@ -33,7 +33,7 @@ commands:
           name: Build Styleguidist
           command: npm run styleguide:build
           environment:
-            NODE_OPTIONS: --max_old_space_size=3072
+            NODE_OPTIONS: --max_old_space_size=4096
   test:
     steps:
       - run:
