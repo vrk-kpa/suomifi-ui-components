@@ -4,6 +4,8 @@ executors:
   build-executor:
     docker:
       - image: cimg/node:lts
+    environment:
+      NODE_OPTIONS: --max_old_space_size=3072
 
 commands:
   checkout_and_cache:
@@ -27,7 +29,11 @@ commands:
             - ~/.cache/npm
   build:
     steps:
-      - run: npm run styleguide:build
+      - run:
+          name: Build Styleguidist
+          command: npm run styleguide:build
+          environment:
+            NODE_OPTIONS: --max_old_space_size=3072
   test:
     steps:
       - run:
