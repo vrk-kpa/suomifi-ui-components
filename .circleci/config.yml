@@ -6,7 +6,7 @@ executors:
       - image: cimg/node:lts
     resource_class: medium # 2 vCPUs, 4GB RAM (free tier)
     environment:
-      NODE_OPTIONS: --max_old_space_size=2048
+      NODE_OPTIONS: --max_old_space_size=4096
 
   build-executor-large:
     docker:
