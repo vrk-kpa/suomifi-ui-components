@@ -55,6 +55,9 @@ module.exports = (env) => ({
         loader: 'ts-loader',
         options: {
           configFile: '.styleguidist/styleguideTsconfig.json',
+          ...(process.env.SKIP_TYPE_CHECK === 'true' && {
+            transpileOnly: true,
+          }),
         },
         exclude: [/node_modules/],
       },
