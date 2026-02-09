@@ -86,12 +86,17 @@ interface TableRowSelectionElementProps
     'onClick' | 'onChange' | 'checked' | 'value'
   > {}
 
+/** Valid types for table cell values */
+export type TableCellValue =
+  | string
+  | number
+  | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+
 // Infer the literal types from columns
 export type TableRow<TColumns extends readonly TableColumn[]> = {
   [K in TColumns[number]['key']]:
-    | string
-    | number
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+    | TableCellValue
+    | TableRowSelectionElementProps;
 } & {
   id: string;
   rowSelectionCheckboxLabel?: string;
@@ -239,8 +244,8 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         : 'desc');
 
     const sortedData = [...data].sort((a, b) => {
-      const aValue = a[key as keyof TableRow<TColumns>];
-      const bValue = b[key as keyof TableRow<TColumns>];
+      const aValue = a[key as keyof TableRow<TColumns>] as TableCellValue;
+      const bValue = b[key as keyof TableRow<TColumns>] as TableCellValue;
 
       const getTextContent = (element: React.ReactNode): string => {
         if (typeof element === 'string' || typeof element === 'number') {
@@ -495,7 +500,11 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                           col.textAlign === 'center',
                       })}
                     >
-                      {row[col.key as keyof TableRow<TColumns>]}
+                      {
+                        row[
+                          col.key as keyof TableRow<TColumns>
+                        ] as TableCellValue
+                      }
                     </HtmlTableCell>
                   ))}
                 </HtmlTableRow>

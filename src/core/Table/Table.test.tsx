@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Table, TableColumn, TableProps, TableRow } from './Table';
+import { Table, TableColumn, TableProps } from './Table';
 import { axeTest } from '../../utils/test';
 
 const columns: TableColumn[] = [
@@ -159,7 +159,7 @@ describe('Table functionalities', () => {
         rowSelectionCheckboxLabel: 'Select row Jane Doe',
         rowSelectionElementProps: { 'data-testid': 'checkbox-jane' },
       },
-    ] as any as TableRow<typeof columns>[];
+    ];
     render(
       <Table
         caption="People in the project"
@@ -188,7 +188,7 @@ describe('Table functionalities', () => {
         rowSelectionCheckboxLabel: 'Select row Jane Doe',
         rowSelectionElementProps: { 'data-testid': 'radio-jane' },
       },
-    ] as any as TableRow<typeof columns>[];
+    ];
     render(
       <Table
         caption="People in the project"
