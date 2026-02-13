@@ -123,6 +123,11 @@ const data = [
 
 You can set `sortable: true` to any column you wish be able to sort the table with. You can either let the component handle the data sorting, or provide a `tableSortCallback()` prop to handle data sorting with a custom logic. The function receives the key of the sorted column and a string of `'asc' | 'desc'` as parameters.
 
+You can also apply a default sort order when the table first renders by using the `defaultSort` prop. The prop accepts an object with two properties:
+
+- `columnKey`: The key of the column to sort by (must match a column with `sortable: true`)
+- `direction`: Either `'asc'` for ascending or `'desc'` for descending order
+
 Always use the `tableSortedAriaLiveText()` function as demonstrated below to give screen readers information about table sorting.
 
 ```jsx
@@ -266,6 +271,17 @@ const customDataSort = (key, dir) => {
     }
     mb="xxl"
     tableSortCallback={customDataSort}
+  />
+  <Table
+    caption="People in the project"
+    columns={columns}
+    data={data}
+    defaultSort={{ columnKey: 'hours_worked', direction: 'desc' }}
+    tableSortedAriaLiveText={(sortedColumn, direction) =>
+      `Table is sorted by ${sortedColumn} ${
+        direction === 'asc' ? 'ascending' : 'descending'
+      }`
+    }
   />
 </div>;
 ```

@@ -119,6 +119,11 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   ) => string;
   /** Optional custom callback which is fired when table is sorted */
   tableSortCallback?: (columnLabel: string, direction: 'asc' | 'desc') => void;
+  /** Default sort configuration to be applied when table is first rendered */
+  defaultSort?: {
+    columnKey: string;
+    direction: 'asc' | 'desc';
+  };
   /** Displays skeleton rows (default of 5) to indicate the table is waiting to receive data */
   loading?: boolean;
   /** Optional override of the default amount (5) of skeleton rows when `loading` is true */
@@ -156,6 +161,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     onSelectedRowsChange,
     tableSortedAriaLiveText,
     tableSortCallback,
+    defaultSort,
     loading,
     loadingRowAmount = 5,
     controlledSelectedRowIds,
@@ -185,6 +191,17 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     setData(propData);
   }, [propData]);
 
+  // Apply default sort on mount or when defaultSort changes
+  useEffect(() => {
+    if (defaultSort && defaultSort.columnKey) {
+      // Verify that the column exists and is sortable
+      const column = columns.find((col) => col.key === defaultSort.columnKey);
+      if (column && column.sortable) {
+        sortData(defaultSort.columnKey, defaultSort.direction);
+      }
+    }
+  }, [defaultSort?.columnKey, defaultSort?.direction]);
+
   useEffect(() => {
     const targetDiv = wrapperRef.current;
     if (!targetDiv) return;
@@ -199,7 +216,14 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     return () => observer.disconnect();
   }, []);
 
-  const sortData = (key: string) => {
+  const sortData = (key: string, forceDirection?: 'asc' | 'desc') => {
+    // Determine the direction to sort
+    const newDirection =
+      forceDirection ||
+      (!sortColumn.includes(key) || sortColumn === `${key}-desc`
+        ? 'asc'
+        : 'desc');
+
     const sortedData = [...data].sort((a, b) => {
       const aValue = a[key as keyof TableRow<TColumns>];
       const bValue = b[key as keyof TableRow<TColumns>];
@@ -225,30 +249,22 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         !Number.isNaN(Number(aValueText)) && !Number.isNaN(Number(bValueText));
 
       if (isNumeric) {
-        return !sortColumn.includes(key) || sortColumn === `${key}-desc`
+        return newDirection === 'asc'
           ? Number(aValueText) - Number(bValueText)
           : Number(bValueText) - Number(aValueText);
       }
 
-      return !sortColumn.includes(key) || sortColumn === `${key}-desc`
+      return newDirection === 'asc'
         ? aValueText.localeCompare(bValueText)
         : bValueText.localeCompare(aValueText);
     });
+
     if (!!tableSortCallback) {
-      tableSortCallback(
-        key,
-        !sortColumn.includes(key) || sortColumn === `${key}-desc`
-          ? 'asc'
-          : 'desc',
-      );
+      tableSortCallback(key, newDirection);
     } else {
       setData(sortedData);
     }
-    if (!sortColumn.includes(key) || sortColumn === `${key}-desc`) {
-      setSortColumn(`${key}-asc`);
-    } else {
-      setSortColumn(`${key}-desc`);
-    }
+    setSortColumn(`${key}-${newDirection}`);
   };
 
   const handleRowSelection = (rowId: string, operation: 'add' | 'remove') => {
