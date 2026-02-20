@@ -13,7 +13,7 @@ module.exports = {
   },
   StyleGuide: {
     '@global body': {
-      fontFamily: '"Source Sans Pro", sans-serif',
+      fontFamily: '"Source Sans 3", sans-serif',
       margin: 0,
       padding: 0,
     },
