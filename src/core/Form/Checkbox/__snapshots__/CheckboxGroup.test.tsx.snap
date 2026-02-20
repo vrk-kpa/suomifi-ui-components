@@ -302,6 +302,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   padding-left: 25px;
   cursor: pointer;
   line-height: 27px;
+  min-height: 18px;
 }
 
 .c7 .fi-checkbox_label::before {

@@ -28,7 +28,10 @@ import {
 } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 import { IconRadioButton, IconRadioButtonLarge } from 'suomifi-icons';
-import { filterDuplicateKeys } from '../../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  HTMLAttributesIncludingDataAttributes,
+} from '../../../utils/common/common';
 
 const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
@@ -88,9 +91,13 @@ export interface RadioButtonProps
    * Screen readers will ignore children as label if this is provided.
    */
   'aria-labelledby'?: string;
-
   /** Ref object is forwarded to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Props to be passed to the label element, for example data attributes */
+  labelProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLLabelElement>,
+    'htmlFor'
+  >;
 }
 
 interface RadioButtonState {
@@ -129,6 +136,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       onChange,
       disabled = false,
       style,
+      labelProps,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -186,7 +194,11 @@ class BaseRadioButton extends Component<RadioButtonProps> {
             />
           )}
         </HtmlSpan>
-        <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
+        <HtmlLabel
+          htmlFor={id}
+          className={radioButtonClassNames.label}
+          {...labelProps}
+        >
           {children}
         </HtmlLabel>
         <HintText className={radioButtonClassNames.hintText} id={hintTextId}>

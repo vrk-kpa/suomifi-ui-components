@@ -160,4 +160,16 @@ describe('margin', () => {
     );
     expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
+
+  describe('labelProps', () => {
+    it('should pass labelProps to the label element', () => {
+      const { container } = render(
+        <RadioButton value="value" labelProps={{ 'data-testid': 'label-test' }}>
+          Text
+        </RadioButton>,
+      );
+      const label = container.querySelector('label');
+      expect(label).toHaveAttribute('data-testid', 'label-test');
+    });
+  });
 });

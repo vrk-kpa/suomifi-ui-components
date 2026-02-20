@@ -138,6 +138,7 @@ export const baseStyles = (
     padding-left: ${theme.spacing.l};
     cursor: pointer;
     line-height: 27px;
+    min-height: 18px; /* Enable clicking when label text is empty */
 
     &::before {
       content: '';
