@@ -130,7 +130,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4 {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -226,7 +226,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content .fi-text {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
