@@ -143,6 +143,64 @@ describe('Table functionalities', () => {
     });
   });
 
+  it('passes rowSelectionLabelProps to checkboxes including data-testid', () => {
+    const dataWithTestIds = [
+      {
+        id: '1',
+        name: 'John Doe',
+        age: 28,
+        rowSelectionCheckboxLabel: 'Select row John Doe',
+        rowSelectionLabelProps: { 'data-testid': 'checkbox-john' },
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        age: 34,
+        rowSelectionCheckboxLabel: 'Select row Jane Doe',
+        rowSelectionLabelProps: { 'data-testid': 'checkbox-jane' },
+      },
+    ];
+    render(
+      <Table
+        caption="People in the project"
+        columns={columns}
+        data={dataWithTestIds}
+        enableRowSelection
+      />,
+    );
+    expect(screen.getByTestId('checkbox-john')).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox-jane')).toBeInTheDocument();
+  });
+
+  it('passes rowSelectionLabelProps to radiobuttons including data-testid', () => {
+    const dataWithTestIds = [
+      {
+        id: '1',
+        name: 'John Doe',
+        age: 28,
+        rowSelectionCheckboxLabel: 'Select row John Doe',
+        rowSelectionLabelProps: { 'data-testid': 'radio-john' },
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        age: 34,
+        rowSelectionCheckboxLabel: 'Select row Jane Doe',
+        rowSelectionLabelProps: { 'data-testid': 'radio-jane' },
+      },
+    ];
+    render(
+      <Table
+        caption="People in the project"
+        columns={columns}
+        data={dataWithTestIds}
+        enableSingleRowSelection
+      />,
+    );
+    expect(screen.getByTestId('radio-john')).toBeInTheDocument();
+    expect(screen.getByTestId('radio-jane')).toBeInTheDocument();
+  });
+
   describe('Default sorting', () => {
     it('applies default sort on mount with ascending order', () => {
       renderTable({

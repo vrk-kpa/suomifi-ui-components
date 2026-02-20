@@ -192,4 +192,16 @@ describe('props', () => {
     );
     expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
   });
+
+  describe('labelProps', () => {
+    it('should pass labelProps to the label element', () => {
+      const { getByText } = render(
+        <Checkbox id="test" labelProps={{ 'data-testid': 'label-test' }}>
+          Text
+        </Checkbox>,
+      );
+      const label = getByText('Text');
+      expect(label).toHaveAttribute('data-testid', 'label-test');
+    });
+  });
 });

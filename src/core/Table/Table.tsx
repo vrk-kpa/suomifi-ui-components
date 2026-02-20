@@ -13,7 +13,10 @@ import {
   GlobalMargins,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Table.baseStyles';
-import { filterDuplicateKeys } from '../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  HTMLAttributesIncludingDataAttributes,
+} from '../../utils/common/common';
 import { AutoId } from '../utils/AutoId/AutoId';
 import {
   HtmlButton,
@@ -77,13 +80,23 @@ export interface TableColumn {
   className?: string;
 }
 
+/** Valid types for table cell values */
+export type TableCellValue =
+  | string
+  | number
+  | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+
 // Infer the literal types from columns
 export type TableRow<TColumns extends readonly TableColumn[]> = {
   [K in TColumns[number]['key']]:
-    | string
-    | number
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-} & { id: string; rowSelectionCheckboxLabel?: string };
+    | TableCellValue
+    | HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
+} & {
+  id: string;
+  rowSelectionCheckboxLabel?: string;
+  /** Props to pass to the row selection Checkbox or RadioButton label */
+  rowSelectionLabelProps?: HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
+};
 
 export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   extends MarginProps,
@@ -225,8 +238,8 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         : 'desc');
 
     const sortedData = [...data].sort((a, b) => {
-      const aValue = a[key as keyof TableRow<TColumns>];
-      const bValue = b[key as keyof TableRow<TColumns>];
+      const aValue = a[key as keyof TableRow<TColumns>] as TableCellValue;
+      const bValue = b[key as keyof TableRow<TColumns>] as TableCellValue;
 
       const getTextContent = (element: React.ReactNode): string => {
         if (typeof element === 'string' || typeof element === 'number') {
@@ -439,6 +452,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             checkedVal.checkboxState ? 'add' : 'remove',
                           )
                         }
+                        labelProps={row.rowSelectionLabelProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}
@@ -462,6 +476,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             newValue ? 'add' : 'remove',
                           )
                         }
+                        labelProps={row.rowSelectionLabelProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}
@@ -479,7 +494,11 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                           col.textAlign === 'center',
                       })}
                     >
-                      {row[col.key as keyof TableRow<TColumns>]}
+                      {
+                        row[
+                          col.key as keyof TableRow<TColumns>
+                        ] as TableCellValue
+                      }
                     </HtmlTableCell>
                   ))}
                 </HtmlTableRow>
