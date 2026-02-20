@@ -9,7 +9,7 @@ import { defaultSuomifiTheme } from '../src/core/theme';
 
 import clipboardCopy from 'clipboard-copy';
 
-const fontFamily = 'Source Sans Pro';
+const fontFamily = 'Source Sans 3';
 const typographyTokens = defaultSuomifiTheme.typography;
 
 const Row = styled(({ mb, code, ...passProps }) => (
