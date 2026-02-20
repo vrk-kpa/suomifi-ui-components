@@ -143,21 +143,21 @@ describe('Table functionalities', () => {
     });
   });
 
-  it('passes rowSelectionElementProps to checkboxes including data-testid', () => {
+  it('passes rowSelectionLabelProps to checkboxes including data-testid', () => {
     const dataWithTestIds = [
       {
         id: '1',
         name: 'John Doe',
         age: 28,
         rowSelectionCheckboxLabel: 'Select row John Doe',
-        rowSelectionElementProps: { 'data-testid': 'checkbox-john' },
+        rowSelectionLabelProps: { 'data-testid': 'checkbox-john' },
       },
       {
         id: '2',
         name: 'Jane Smith',
         age: 34,
         rowSelectionCheckboxLabel: 'Select row Jane Doe',
-        rowSelectionElementProps: { 'data-testid': 'checkbox-jane' },
+        rowSelectionLabelProps: { 'data-testid': 'checkbox-jane' },
       },
     ];
     render(
@@ -172,21 +172,21 @@ describe('Table functionalities', () => {
     expect(screen.getByTestId('checkbox-jane')).toBeInTheDocument();
   });
 
-  it('passes rowSelectionElementProps to radiobuttons including data-testid', () => {
+  it('passes rowSelectionLabelProps to radiobuttons including data-testid', () => {
     const dataWithTestIds = [
       {
         id: '1',
         name: 'John Doe',
         age: 28,
         rowSelectionCheckboxLabel: 'Select row John Doe',
-        rowSelectionElementProps: { 'data-testid': 'radio-john' },
+        rowSelectionLabelProps: { 'data-testid': 'radio-john' },
       },
       {
         id: '2',
         name: 'Jane Smith',
         age: 34,
         rowSelectionCheckboxLabel: 'Select row Jane Doe',
-        rowSelectionElementProps: { 'data-testid': 'radio-jane' },
+        rowSelectionLabelProps: { 'data-testid': 'radio-jane' },
       },
     ];
     render(

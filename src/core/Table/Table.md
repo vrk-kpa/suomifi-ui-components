@@ -294,7 +294,7 @@ Alternatively, you can use the `enableSingleRowSelection` prop to allow single r
 
 Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection Checkbox/RadioButton.
 
-You can pass additional props to the row selection Checkbox or RadioButton elements using the `rowSelectionElementProps` property on each row. This is useful for adding test identifiers like `data-testid`.
+You can pass additional props to the row selection Checkbox or RadioButton elements using the `rowSelectionLabelProps` property on each row. This is useful for adding test identifiers like `data-testid`.
 
 You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
@@ -335,7 +335,7 @@ const data = [
     title: 'Developer',
     country: 'United Kingdom',
     rowSelectionCheckboxLabel: 'Select row John Doe',
-    rowSelectionElementProps: {
+    rowSelectionLabelProps: {
       'data-testid': 'john-doe-selection'
     }
   },
@@ -347,7 +347,7 @@ const data = [
     title: 'Architect',
     country: 'Norway',
     rowSelectionCheckboxLabel: 'Select row Jane Doe',
-    rowSelectionElementProps: {
+    rowSelectionLabelProps: {
       'data-testid': 'jane-doe-selection'
     }
   },
@@ -359,7 +359,7 @@ const data = [
     title: 'Project manager',
     country: 'United States of America',
     rowSelectionCheckboxLabel: 'Select row Bruce Willis',
-    rowSelectionElementProps: {
+    rowSelectionLabelProps: {
       'data-testid': 'bruce-willis-selection'
     }
   },
@@ -371,7 +371,7 @@ const data = [
     title: 'Security consultant',
     country: <Link href="https://suomi.fi">Germany</Link>,
     rowSelectionCheckboxLabel: 'Select row Harriet Ackermann',
-    rowSelectionElementProps: {
+    rowSelectionLabelProps: {
       'data-testid': 'harriet-ackermann-selection'
     }
   },
@@ -383,7 +383,7 @@ const data = [
     title: 'President',
     country: 'Finland',
     rowSelectionCheckboxLabel: 'Select row Alexander Stubb',
-    rowSelectionElementProps: {
+    rowSelectionLabelProps: {
       'data-testid': 'alexander-stubb-selection'
     }
   }

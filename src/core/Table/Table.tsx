@@ -80,12 +80,6 @@ export interface TableColumn {
   className?: string;
 }
 
-interface TableRowSelectionElementProps
-  extends Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLInputElement>,
-    'onClick' | 'onChange' | 'checked' | 'value'
-  > {}
-
 /** Valid types for table cell values */
 export type TableCellValue =
   | string
@@ -96,12 +90,12 @@ export type TableCellValue =
 export type TableRow<TColumns extends readonly TableColumn[]> = {
   [K in TColumns[number]['key']]:
     | TableCellValue
-    | TableRowSelectionElementProps;
+    | HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
 } & {
   id: string;
   rowSelectionCheckboxLabel?: string;
-  /** Props to pass to the row selection Checkbox or RadioButton element */
-  rowSelectionElementProps?: TableRowSelectionElementProps;
+  /** Props to pass to the row selection Checkbox or RadioButton label */
+  rowSelectionLabelProps?: HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
 };
 
 export interface BaseTableProps<TColumns extends readonly TableColumn[]>
@@ -458,7 +452,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             checkedVal.checkboxState ? 'add' : 'remove',
                           )
                         }
-                        {...row.rowSelectionElementProps}
+                        labelProps={row.rowSelectionLabelProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}
@@ -482,7 +476,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             newValue ? 'add' : 'remove',
                           )
                         }
-                        {...row.rowSelectionElementProps}
+                        labelProps={row.rowSelectionLabelProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}
