@@ -30,13 +30,15 @@ To install the component library
 npm install suomifi-ui-components
 ```
 
-Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css.
+Include **required** fonts (Source Sans 3, weights 300, 400, 600) in your application. The recommended way is to use the font hosted by the Suomi.fi Design System:
 
 ```css
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap');
+@import url('https://designsystem.suomi.fi/fonts/source-sans-3.css');
 ```
 
-The following fonts and variants are required: Font-family: 'Source Sans Pro', Font-weight: 300, 400, 600
+This loads the font with access to all needed charsets (Latin, Latin Extended, Cyrillic, Cyrillic Extended, Greek, Greek Extended, Vietnamese). Browsers automatically fetch only the subset files needed for the characters on the page.
+
+**Self-hosting:** If you need to host the fonts yourself, download the font files from https://designsystem.suomi.fi/fonts/SourceSans3.zip and import the CSS locally. The CSS file refers to the font files within the same folder.
 
 ### Peer dependencies
 

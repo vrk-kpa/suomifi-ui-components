@@ -144,7 +144,7 @@ exports[`children should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -155,7 +155,7 @@ exports[`children should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -479,7 +479,7 @@ exports[`className should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -490,7 +490,7 @@ exports[`className should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -814,7 +814,7 @@ exports[`disabled should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -825,7 +825,7 @@ exports[`disabled should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1126,7 +1126,7 @@ exports[`hintText should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1167,7 +1167,7 @@ exports[`hintText should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -1178,7 +1178,7 @@ exports[`hintText should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1509,7 +1509,7 @@ exports[`id should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -1520,7 +1520,7 @@ exports[`id should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1844,7 +1844,7 @@ exports[`name should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -1855,7 +1855,7 @@ exports[`name should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -2180,7 +2180,7 @@ exports[`value should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -2191,7 +2191,7 @@ exports[`value should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -2507,7 +2507,7 @@ exports[`variant should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -2518,7 +2518,7 @@ exports[`variant should match snapshot 1`] = `
   display: block;
   padding-left: 26px;
   color: hsl(202, 7%, 40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;

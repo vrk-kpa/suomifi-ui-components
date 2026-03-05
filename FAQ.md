@@ -2,7 +2,13 @@
 
 ## 1. Fonts don't seem to be correct
 
-Add `@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300:400,600&display=swap');` to your applications CSS.
+Add the Source Sans 3 font to your application's CSS. The intended way is to use the font hosted by the Suomi.fi Design System:
+
+```css
+@import url('https://designsystem.suomi.fi/fonts/source-sans-3.css');
+```
+
+**Self-hosting:** If you need to host the fonts yourself, download the font files from https://designsystem.suomi.fi/fonts/SourceSans3.zip and import the CSS locally. The CSS file refers to the font files within the same folder, so make sure all the font files reside in the same folder.
 
 ## 2. Content-Security-Policy (CSP) problems?
 

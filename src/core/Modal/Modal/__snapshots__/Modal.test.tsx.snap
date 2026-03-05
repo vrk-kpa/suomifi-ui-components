@@ -8,7 +8,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -207,7 +207,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -241,7 +241,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -254,7 +254,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 40px;
   line-height: 48px;
   font-weight: 600;
@@ -266,7 +266,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 40px;
   line-height: 48px;
   font-weight: 300;
@@ -278,7 +278,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 28px;
   line-height: 34px;
   font-weight: 600;
@@ -290,7 +290,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 22px;
   line-height: 28px;
   font-weight: 600;
@@ -302,7 +302,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
@@ -314,7 +314,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
@@ -326,7 +326,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
@@ -338,7 +338,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 32px;
   line-height: 38px;
   font-weight: 300;
@@ -350,7 +350,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 32px;
   line-height: 38px;
   font-weight: 600;
@@ -362,7 +362,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 32px;
   line-height: 38px;
   font-weight: 300;
@@ -374,7 +374,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 26px;
   line-height: 32px;
   font-weight: 600;
@@ -386,7 +386,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 20px;
   line-height: 26px;
   font-weight: 600;
@@ -398,7 +398,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
@@ -410,7 +410,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
@@ -422,7 +422,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
@@ -531,7 +531,7 @@ exports[`Basic modal should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;

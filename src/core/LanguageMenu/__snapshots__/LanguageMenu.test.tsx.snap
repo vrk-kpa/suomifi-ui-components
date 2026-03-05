@@ -115,7 +115,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -227,7 +227,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 
 .c1.fi-language-menu .fi-language-menu_button {
   color: hsl(0, 0%, 13%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -242,7 +242,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_text_wrapper {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -292,7 +292,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
 .c6.fi-language-menu-item {
   color: hsl(0, 0%, 13%);
   margin: 5px 0;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -536,7 +536,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -648,7 +648,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 
 .c1.fi-language-menu .fi-language-menu_button {
   color: hsl(0, 0%, 13%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -663,7 +663,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_text_wrapper {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -713,7 +713,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
 .c6.fi-language-menu-item {
   color: hsl(0, 0%, 13%);
   margin: 5px 0;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;

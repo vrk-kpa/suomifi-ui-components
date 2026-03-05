@@ -59,14 +59,14 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap',
+          href: 'https://designsystem.suomi.fi/fonts/source-sans-3.css',
         },
       ],
     },
   },
   theme: {
     fontFamily: {
-      base: '"Source Sans Pro", sans-serif',
+      base: '"Source Sans 3", sans-serif',
     },
   },
   styleguideDir: buildDirectory(process.env.BUILD_TYPE),
