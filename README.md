@@ -36,7 +36,7 @@ Include **required** fonts (Source Sans 3, weights 300, 400, 600) in your applic
 @import url('https://designsystem.suomi.fi/fonts/source-sans-3.css');
 ```
 
-This loads the font (Latin, Latin Extended, Cyrillic, Cyrillic Extended) from the design system CDN. Browsers automatically fetch only the subset files needed for the characters on the page.
+This loads the font with access to all needed charsets (Latin, Latin Extended, Cyrillic, Cyrillic Extended, Greek, Greek Extended, Vietnamese). Browsers automatically fetch only the subset files needed for the characters on the page.
 
 **Self-hosting:** If you need to host the fonts yourself, download the font files from https://designsystem.suomi.fi/fonts/SourceSans3.zip and import the CSS locally. The CSS file refers to the font files within the same folder.
 
