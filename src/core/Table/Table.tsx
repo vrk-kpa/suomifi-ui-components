@@ -468,14 +468,43 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     highlighted: selectedRowIds.includes(row.id),
                   })}
                 >
-                  {(enableRowSelection || enableSingleRowSelection) &&
+                  {enableRowSelection && row.rowSelectionDisabled === true && (
+                    <HtmlTableCell
+                      className={classnames(
+                        tableClassNames.td,
+                        tableClassNames.selectionTd,
+                      )}
+                    >
+                      <VisuallyHidden>
+                        <Checkbox
+                          checked={false}
+                          disabled={true}
+                          labelProps={row.rowSelectionLabelProps}
+                        >
+                          {row.rowSelectionCheckboxLabel}
+                        </Checkbox>
+                      </VisuallyHidden>
+                    </HtmlTableCell>
+                  )}
+                  {enableSingleRowSelection &&
                     row.rowSelectionDisabled === true && (
                       <HtmlTableCell
                         className={classnames(
                           tableClassNames.td,
                           tableClassNames.selectionTd,
                         )}
-                      />
+                      >
+                        <VisuallyHidden>
+                          <RadioButton
+                            value={`radiobutton-${row.id}`}
+                            checked={false}
+                            disabled={true}
+                            labelProps={row.rowSelectionLabelProps}
+                          >
+                            {row.rowSelectionCheckboxLabel}
+                          </RadioButton>
+                        </VisuallyHidden>
+                      </HtmlTableCell>
                     )}
                   {enableRowSelection && row.rowSelectionDisabled !== true && (
                     <HtmlTableCell
