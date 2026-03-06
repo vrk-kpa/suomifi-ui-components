@@ -323,10 +323,11 @@ describe('Table functionalities', () => {
       />,
     );
     const checkboxes = screen.getAllByRole('checkbox');
-    expect(checkboxes).toHaveLength(1);
+    expect(checkboxes[0]).toBeDisabled();
+    expect(checkboxes).toHaveLength(2);
   });
 
-  it('removes radio button when rowSelectionDisabled is true', () => {
+  it('disables radio button when rowSelectionDisabled is true', () => {
     const dataWithDisabled: TableRow<typeof columns>[] = [
       {
         id: '1',
@@ -351,6 +352,7 @@ describe('Table functionalities', () => {
       />,
     );
     const radioButtons = screen.getAllByRole('radio');
-    expect(radioButtons).toHaveLength(1);
+    expect(radioButtons[0]).toBeDisabled();
+    expect(radioButtons).toHaveLength(2);
   });
 });
