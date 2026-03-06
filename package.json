@@ -160,10 +160,9 @@
     "suomifi-icons": "7.9.0"
   },
   "peerDependencies": {
-    "@types/styled-components": ">=5.1.9",
     "@types/warning": ">=3.0.0",
     "react": ">=16.8.0",
-    "styled-components": ">=5.2.1"
+    "styled-components": ">=6.0.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --check",

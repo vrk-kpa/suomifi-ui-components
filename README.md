@@ -6,12 +6,12 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 
 ## ✨ Features
 
-- Accessibility WCAG 2.1 level AA
+- Accessibility WCAG 2.2 level AA
 - React-components with TypeScript support
 - Suomi.fi brand styles
 - Highly customizable (CSS, CSS-in-JS)
 
-Works with [React >= 16.8.0](https://github.com/facebook/react) (React 19 supported) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
+Works with [React >= 16.8.0](https://github.com/facebook/react) (React 19 supported) and [Styled Components >= 6.0.0](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
 
 ### Supported browser and screenreader combinations
 
@@ -45,7 +45,7 @@ This loads the font with access to all needed charsets (Latin, Latin Extended, C
 You should also install the following peer dependencies.
 
 - [React](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
-- [styled-components](https://www.npmjs.com/package/styled-components) version >=5.2.1 and related dependencies and typings.
+- [styled-components](https://www.npmjs.com/package/styled-components) version >=6.0.0.
 
 - The aim is to keep dependencies up to date and use the latest available versions. We encourage you to use the latest available versions of peer dependencies.
 
