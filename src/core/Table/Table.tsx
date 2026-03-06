@@ -80,22 +80,37 @@ export interface TableColumn {
   className?: string;
 }
 
-/** Valid types for table cell values */
-export type TableCellValue =
-  | string
-  | number
-  | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-
-// Infer the literal types from columns
+/**
+ * TableRow type that enforces all column keys must be present as properties.
+ * Each column key property accepts ReactNode as its value type.
+ *
+ * @example
+ * // For type safety, define columns with 'as const' and explicitly type your data array
+ * const columns = [
+ *   { key: 'name', labelText: 'Name' },
+ *   { key: 'age', labelText: 'Age' }
+ * ] as const;
+ *
+ * // Explicitly type the data array to enforce all column keys are present
+ * const data: TableRow<typeof columns>[] = [
+ *   { id: '1', name: 'John', age: 30 },
+ *   { id: '2', name: 'Jane', age: 25 },
+ * ];
+ * // TypeScript will show an error if you forget a column key (e.g., missing 'age')
+ *
+ * // Then use in the component
+ * <Table columns={columns} data={data} caption="Users" />
+ */
 export type TableRow<TColumns extends readonly TableColumn[]> = {
   [K in TColumns[number]['key']]:
-    | TableCellValue
+    | React.ReactNode
     | HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
 } & {
   id: string;
   rowSelectionCheckboxLabel?: string;
   /** Props to pass to the row selection Checkbox or RadioButton label */
   rowSelectionLabelProps?: HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
+  rowSelectionDisabled?: boolean;
 };
 
 export interface BaseTableProps<TColumns extends readonly TableColumn[]>
@@ -106,13 +121,29 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Table columns and their configurations */
-  columns: TColumns; // Use the generic type parameter for columns
+  /**
+   * Table columns and their configurations.
+   *
+   * @example
+   * // Use 'as const' for type safety
+   * const columns = [
+   *   { key: 'name', labelText: 'Name', sortable: true },
+   *   { key: 'age', labelText: 'Age', sortable: true, textAlign: 'right' }
+   * ] as const;
+   */
+  columns: TColumns;
   /**
    * Rows for the table. Each object must have an `id` property that is unique for the table
-   * plus the key-value pairs that match the `key` properties of the columns.
+   * plus all the key properties defined in columns.
+   *
+   * @example
+   * // Type the data array explicitly to get TypeScript validation
+   * const data: TableRow<typeof columns>[] = [
+   *   { id: '1', name: 'John Doe', age: 28 },
+   *   { id: '2', name: 'Jane Smith', age: 34 }
+   * ];
    */
-  data: TableRow<TColumns>[]; // Use the inferred type for data
+  data: TableRow<TColumns>[];
   /** Condenses the padding of table cells */
   condensed?: boolean;
   /** Enables selection of rows via checkboxes
@@ -238,8 +269,8 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         : 'desc');
 
     const sortedData = [...data].sort((a, b) => {
-      const aValue = a[key as keyof TableRow<TColumns>] as TableCellValue;
-      const bValue = b[key as keyof TableRow<TColumns>] as TableCellValue;
+      const aValue = a[key as keyof TableRow<TColumns>] as React.ReactNode;
+      const bValue = b[key as keyof TableRow<TColumns>] as React.ReactNode;
 
       const getTextContent = (element: React.ReactNode): string => {
         if (typeof element === 'string' || typeof element === 'number') {
@@ -437,7 +468,16 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     highlighted: selectedRowIds.includes(row.id),
                   })}
                 >
-                  {enableRowSelection && (
+                  {(enableRowSelection || enableSingleRowSelection) &&
+                    row.rowSelectionDisabled === true && (
+                      <HtmlTableCell
+                        className={classnames(
+                          tableClassNames.td,
+                          tableClassNames.selectionTd,
+                        )}
+                      />
+                    )}
+                  {enableRowSelection && row.rowSelectionDisabled !== true && (
                     <HtmlTableCell
                       className={classnames(
                         tableClassNames.td,
@@ -460,30 +500,31 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                       </Checkbox>
                     </HtmlTableCell>
                   )}
-                  {enableSingleRowSelection && (
-                    <HtmlTableCell
-                      className={classnames(
-                        tableClassNames.td,
-                        tableClassNames.selectionTd,
-                      )}
-                    >
-                      <RadioButton
-                        value={`radiobutton-${row.id}`}
-                        checked={selectedRowIds.includes(row.id)}
-                        onChange={(newValue) =>
-                          handleRowSelection(
-                            row.id,
-                            newValue ? 'add' : 'remove',
-                          )
-                        }
-                        labelProps={row.rowSelectionLabelProps}
+                  {enableSingleRowSelection &&
+                    row.rowSelectionDisabled !== true && (
+                      <HtmlTableCell
+                        className={classnames(
+                          tableClassNames.td,
+                          tableClassNames.selectionTd,
+                        )}
                       >
-                        <VisuallyHidden>
-                          {row.rowSelectionCheckboxLabel}
-                        </VisuallyHidden>
-                      </RadioButton>
-                    </HtmlTableCell>
-                  )}
+                        <RadioButton
+                          value={`radiobutton-${row.id}`}
+                          checked={selectedRowIds.includes(row.id)}
+                          onChange={(newValue) =>
+                            handleRowSelection(
+                              row.id,
+                              newValue ? 'add' : 'remove',
+                            )
+                          }
+                          labelProps={row.rowSelectionLabelProps}
+                        >
+                          <VisuallyHidden>
+                            {row.rowSelectionCheckboxLabel}
+                          </VisuallyHidden>
+                        </RadioButton>
+                      </HtmlTableCell>
+                    )}
                   {columns.map((col) => (
                     <HtmlTableCell
                       key={`${row.id}-${col.key}`}
@@ -497,7 +538,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                       {
                         row[
                           col.key as keyof TableRow<TColumns>
-                        ] as TableCellValue
+                        ] as React.ReactNode
                       }
                     </HtmlTableCell>
                   ))}

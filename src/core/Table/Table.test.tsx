@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Table, TableColumn, TableProps } from './Table';
+import { Table, TableProps, TableRow } from './Table';
 import { axeTest } from '../../utils/test';
 
-const columns: TableColumn[] = [
+const columns = [
   { key: 'name', labelText: 'Name', sortable: true },
   {
     key: 'age',
@@ -13,9 +13,9 @@ const columns: TableColumn[] = [
     textAlign: 'right',
     sortIcon: 'generic',
   },
-];
+] as const;
 
-const data = [
+const data: TableRow<typeof columns>[] = [
   {
     id: '1',
     name: 'John Doe',
@@ -296,5 +296,61 @@ describe('Table functionalities', () => {
       expect(rows[1]).toHaveTextContent('John Doe');
       expect(rows[2]).toHaveTextContent('Jane Smith');
     });
+  });
+
+  it('removes checkbox when rowSelectionDisabled is true', () => {
+    const dataWithDisabled: TableRow<typeof columns>[] = [
+      {
+        id: '1',
+        name: 'John Doe',
+        age: 28,
+        rowSelectionCheckboxLabel: 'Select row John Doe',
+        rowSelectionDisabled: true,
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        age: 34,
+        rowSelectionCheckboxLabel: 'Select row Jane Doe',
+      },
+    ];
+    render(
+      <Table
+        caption="People in the project"
+        columns={columns}
+        data={dataWithDisabled}
+        enableRowSelection
+      />,
+    );
+    const checkboxes = screen.getAllByRole('checkbox');
+    expect(checkboxes).toHaveLength(1);
+  });
+
+  it('removes radio button when rowSelectionDisabled is true', () => {
+    const dataWithDisabled: TableRow<typeof columns>[] = [
+      {
+        id: '1',
+        name: 'John Doe',
+        age: 28,
+        rowSelectionCheckboxLabel: 'Select row John Doe',
+        rowSelectionDisabled: true,
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        age: 34,
+        rowSelectionCheckboxLabel: 'Select row Jane Doe',
+      },
+    ];
+    render(
+      <Table
+        caption="People in the project"
+        columns={columns}
+        data={dataWithDisabled}
+        enableSingleRowSelection
+      />,
+    );
+    const radioButtons = screen.getAllByRole('radio');
+    expect(radioButtons).toHaveLength(1);
   });
 });
