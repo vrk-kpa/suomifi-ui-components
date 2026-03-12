@@ -1,0 +1,115 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+    paths:
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    outputs:
+      should_publish: ${{ steps.result.outputs.should_publish }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if version changed
+        id: result
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          CURRENT=$(node -p "require('./package.json').version")
+          PREVIOUS=$(git show HEAD~1:package.json | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).version")
+          if [ "$CURRENT" != "$PREVIOUS" ]; then
+            echo "Version changed from $PREVIOUS to $CURRENT"
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+          else
+            echo "Version unchanged ($CURRENT). Skipping publish."
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+          fi
+
+  publish:
+    needs: check-version
+    if: needs.check-version.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - run: npm run validate
+
+      - run: npm run build
+
+      - name: Read version from package.json
+        id: version
+        run: echo "version=$(node -p 'require("./package.json").version')" >> $GITHUB_OUTPUT
+
+      - name: Determine publish tag
+        id: publish
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if [[ "$VERSION" == *"beta"* ]]; then
+            echo "npm_tag=--tag beta" >> $GITHUB_OUTPUT
+            echo "is_prerelease=true" >> $GITHUB_OUTPUT
+          else
+            echo "npm_tag=" >> $GITHUB_OUTPUT
+            echo "is_prerelease=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Extract release notes from merged PR
+        id: release_notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PR_BODY=$(gh api "/repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
+            --jq '.[0].body // ""')
+
+          NOTES=$(echo "$PR_BODY" | awk '
+            BEGIN { found=0 }
+            /^#+ [Rr]elease [Nn]otes/ { found=1; next }
+            found && /^#+ / { exit }
+            found { print }
+          ' | sed -e 's/^[[:space:]]*//' -e '/./,$!d' | sed -e :a -e '/^[[:space:]]*$/{ $d; N; ba; }')
+
+          if [ -z "$NOTES" ]; then
+            echo "No release notes found in PR description."
+            echo "found=false" >> $GITHUB_OUTPUT
+          else
+            echo "found=true" >> $GITHUB_OUTPUT
+            {
+              echo "notes<<RELEASE_NOTES_EOF"
+              echo "$NOTES"
+              echo "RELEASE_NOTES_EOF"
+            } >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to npm
+        run: npm publish ${{ steps.publish.outputs.npm_tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          body: ${{ steps.release_notes.outputs.found == 'true' && steps.release_notes.outputs.notes || '' }}
+          generate_release_notes: ${{ steps.release_notes.outputs.found != 'true' }}
+          prerelease: ${{ steps.publish.outputs.is_prerelease }}
