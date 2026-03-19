@@ -168,6 +168,12 @@ export {
   type TableRow,
 } from './core/Table/Table';
 export {
+  ReorderableList,
+  type ReorderableListProps,
+  ReorderableListItem,
+  type ReorderableListItemProps,
+} from './core/ReorderableList';
+export {
   VisuallyHidden,
   type VisuallyHiddenProps,
 } from './core/VisuallyHidden/VisuallyHidden';
