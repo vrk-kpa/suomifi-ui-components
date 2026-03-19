@@ -280,6 +280,13 @@ module.exports = {
             'ActionMenuDivider/ActionMenuDivider',
           ]),
         },
+        {
+          name: 'ReorderableList',
+          components: getComponentWithVariants('ReorderableList')([
+            'ReorderableList/ReorderableList',
+            'ReorderableListItem/ReorderableListItem',
+          ]),
+        },
       ],
       sectionDepth: 1,
       expand: true,
