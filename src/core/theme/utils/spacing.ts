@@ -102,6 +102,7 @@ export type GlobalMargins = {
   toggleInput?: MarginProps;
   toggleButton?: MarginProps;
   tooltip?: MarginProps;
+  reorderableList?: MarginProps;
   wizardNavigation?: MarginProps;
 };
 
