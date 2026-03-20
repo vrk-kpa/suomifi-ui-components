@@ -104,8 +104,6 @@ export interface ReorderableListContextValue {
   unregisterItem: (itemKey: string) => void;
   moveUp: (itemKey: string) => void;
   moveDown: (itemKey: string) => void;
-  focusedItemKey: string | null;
-  setFocusedItemKey: (key: string | null) => void;
   draggedItemKey: string | null;
   setDraggedItemKey: (key: string | null) => void;
   dragOverItemKey: string | null;
@@ -126,8 +124,6 @@ const defaultContextValue: ReorderableListContextValue = {
   unregisterItem: () => null,
   moveUp: () => null,
   moveDown: () => null,
-  focusedItemKey: null,
-  setFocusedItemKey: () => null,
   draggedItemKey: null,
   setDraggedItemKey: () => null,
   dragOverItemKey: null,
@@ -153,7 +149,6 @@ interface BaseReorderableListProps extends ReorderableListProps {
 interface ReorderableListState {
   internalEditMode: boolean;
   itemOrder: string[];
-  focusedItemKey: string | null;
   draggedItemKey: string | null;
   dragOverItemKey: string | null;
   liveAnnouncement: string;
@@ -161,7 +156,8 @@ interface ReorderableListState {
 
 class BaseReorderableList extends Component<
   BaseReorderableListProps & SuomifiThemeProp,
-  ReorderableListState
+  ReorderableListState,
+  Map<string, number> | null
 > {
   private registeredItems: Map<string, RegisteredItem> = new Map();
 
@@ -171,10 +167,11 @@ class BaseReorderableList extends Component<
 
   private announcementTimer: ReturnType<typeof setTimeout> | null = null;
 
+  private shouldAnimateNextReorder = false;
+
   state: ReorderableListState = {
     internalEditMode: false,
     itemOrder: [],
-    focusedItemKey: null,
     draggedItemKey: null,
     dragOverItemKey: null,
     liveAnnouncement: '',
@@ -184,6 +181,62 @@ class BaseReorderableList extends Component<
     if (this.announcementTimer) {
       clearTimeout(this.announcementTimer);
     }
+  }
+
+  getSnapshotBeforeUpdate(
+    _prevProps: BaseReorderableListProps & SuomifiThemeProp,
+    prevState: ReorderableListState,
+  ): Map<string, number> | null {
+    if (!this.shouldAnimateNextReorder) return null;
+    if (prevState.itemOrder === this.state.itemOrder) return null;
+    this.shouldAnimateNextReorder = false;
+    const rects = new Map<string, number>();
+    this.registeredItems.forEach((item, key) => {
+      if (item.ref.current) {
+        rects.set(key, item.ref.current.getBoundingClientRect().top);
+      }
+    });
+    return rects;
+  }
+
+  componentDidUpdate(
+    _prevProps: BaseReorderableListProps & SuomifiThemeProp,
+    _prevState: ReorderableListState,
+    snapshot: Map<string, number> | null,
+  ): void {
+    if (!snapshot) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    snapshot.forEach((oldTop, key) => {
+      const item = this.registeredItems.get(key);
+      if (!item?.ref.current) return;
+      const el = item.ref.current;
+      const delta = oldTop - el.getBoundingClientRect().top;
+      if (delta === 0) return;
+
+      // Place the element at its old visual position with no transition
+      el.style.transition = 'none';
+      el.style.transform = `translateY(${delta}px)`;
+
+      // First rAF: force a reflow so the browser commits the initial
+      // transform as the starting state for the upcoming transition
+      requestAnimationFrame(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        el.getBoundingClientRect();
+
+        // Second rAF: apply the transition and animate to the final position
+        requestAnimationFrame(() => {
+          el.style.transition = 'transform 0.2s ease';
+          el.style.transform = '';
+
+          const onTransitionEnd = () => {
+            el.style.transition = '';
+            el.removeEventListener('transitionend', onTransitionEnd);
+          };
+          el.addEventListener('transitionend', onTransitionEnd);
+        });
+      });
+    });
   }
 
   private get isEditMode(): boolean {
@@ -225,7 +278,6 @@ class BaseReorderableList extends Component<
       this.announce(announcements.editModeActivated());
     } else {
       this.announce(announcements.editModeCancelled());
-      this.setState({ focusedItemKey: null });
     }
   };
 
@@ -262,6 +314,7 @@ class BaseReorderableList extends Component<
     }
 
     [order[idx - 1], order[idx]] = [order[idx], order[idx - 1]];
+    this.shouldAnimateNextReorder = true;
     this.setState({ itemOrder: order });
     this.props.onReorder(order);
     this.announce(this.props.announcements.movedUp(label, idx, order.length));
@@ -279,6 +332,7 @@ class BaseReorderableList extends Component<
     }
 
     [order[idx], order[idx + 1]] = [order[idx + 1], order[idx]];
+    this.shouldAnimateNextReorder = true;
     this.setState({ itemOrder: order });
     this.props.onReorder(order);
     this.announce(
@@ -330,10 +384,6 @@ class BaseReorderableList extends Component<
   private isLastItem = (itemKey: string): boolean =>
     this.currentOrder.indexOf(itemKey) === this.currentOrder.length - 1;
 
-  private setFocusedItemKey = (key: string | null) => {
-    this.setState({ focusedItemKey: key });
-  };
-
   private setDraggedItemKey = (key: string | null) => {
     this.setState({ draggedItemKey: key });
   };
@@ -344,16 +394,12 @@ class BaseReorderableList extends Component<
 
   private handleListKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (!this.isEditMode) return;
-    const { focusedItemKey } = this.state;
 
     if (e.key === 'Escape') {
       e.preventDefault();
       this.toggleEditMode();
       this.editButtonRef.current?.focus();
-      return;
     }
-
-    if (!focusedItemKey) return;
   };
 
   private getSortedChildren = (): ReactNode => {
@@ -408,7 +454,7 @@ class BaseReorderableList extends Component<
 
     const [_marginProps, passProps] = separateMarginProps(rest);
     const editMode = this.isEditMode;
-    const { liveAnnouncement, focusedItemKey } = this.state;
+    const { liveAnnouncement } = this.state;
 
     const contextValue: ReorderableListContextValue = {
       editMode,
@@ -417,8 +463,6 @@ class BaseReorderableList extends Component<
       unregisterItem: this.unregisterItem,
       moveUp: this.moveUp,
       moveDown: this.moveDown,
-      focusedItemKey,
-      setFocusedItemKey: this.setFocusedItemKey,
       draggedItemKey: this.state.draggedItemKey,
       setDraggedItemKey: this.setDraggedItemKey,
       dragOverItemKey: this.state.dragOverItemKey,
@@ -464,8 +508,6 @@ class BaseReorderableList extends Component<
           {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <HtmlDiv
             className={listClassNames.list}
-            role={editMode ? 'application' : undefined}
-            aria-roledescription={editMode ? 'Reorderable list' : undefined}
             aria-label={ariaLabel}
             aria-labelledby={ariaLabelledBy}
             onKeyDown={this.handleListKeyDown}
