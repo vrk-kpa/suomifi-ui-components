@@ -59,8 +59,6 @@ class BaseReorderableListItem extends Component<
 
   private downButtonRef = createRef<HTMLButtonElement>();
 
-  private activeSubFocus: 'item' | 'up' | 'down' = 'item';
-
   componentDidMount() {
     const { consumer, itemKey, ariaLabel } = this.props;
     consumer.registerItem(itemKey, ariaLabel, this.liRef);
@@ -79,46 +77,6 @@ class BaseReorderableListItem extends Component<
     const { consumer, itemKey } = this.props;
     consumer.unregisterItem(itemKey);
   }
-
-  private handleFocus = () => {
-    const { consumer, itemKey } = this.props;
-    consumer.setFocusedItemKey(itemKey);
-    this.activeSubFocus = 'item';
-  };
-
-  private handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>) => {
-    const { consumer } = this.props;
-
-    if (!consumer.editMode) return;
-
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      e.stopPropagation();
-      if (this.activeSubFocus === 'item') {
-        this.activeSubFocus = 'up';
-        this.upButtonRef.current?.focus();
-      } else if (this.activeSubFocus === 'up') {
-        this.activeSubFocus = 'down';
-        this.downButtonRef.current?.focus();
-      } else {
-        this.activeSubFocus = 'item';
-        this.liRef.current?.focus();
-      }
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      e.stopPropagation();
-      if (this.activeSubFocus === 'item') {
-        this.activeSubFocus = 'down';
-        this.downButtonRef.current?.focus();
-      } else if (this.activeSubFocus === 'down') {
-        this.activeSubFocus = 'up';
-        this.upButtonRef.current?.focus();
-      } else {
-        this.activeSubFocus = 'item';
-        this.liRef.current?.focus();
-      }
-    }
-  };
 
   private handleMoveUp = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -200,11 +158,8 @@ class BaseReorderableListItem extends Component<
     const { editMode } = consumer;
     const isDragging = consumer.draggedItemKey === itemKey;
     const isDragOver = consumer.dragOverItemKey === itemKey && !isDragging;
-    const isFocused = consumer.focusedItemKey === itemKey;
     const isFirst = consumer.isFirstItem(itemKey);
     const isLast = consumer.isLastItem(itemKey);
-
-    const liTabIndex = editMode ? (isFocused ? 0 : -1) : undefined;
 
     const combinedRef = (node: HTMLLIElement | null) => {
       (this.liRef as React.MutableRefObject<HTMLLIElement | null>).current =
@@ -220,18 +175,15 @@ class BaseReorderableListItem extends Component<
     return (
       <HtmlLi
         {...passProps}
-        ref={combinedRef}
+        forwardedRef={combinedRef}
         role="listitem"
+        aria-label={editMode ? ariaLabel : undefined}
         className={classnames(baseClassName, className, {
           [itemClassNames.dragging]: isDragging,
           [itemClassNames.dragOver]: isDragOver,
           [itemClassNames.viewMode]: !editMode,
           [itemClassNames.editMode]: editMode,
         })}
-        tabIndex={liTabIndex}
-        aria-label={editMode ? ariaLabel : undefined}
-        onFocus={editMode ? this.handleFocus : undefined}
-        onKeyDown={editMode ? this.handleKeyDown : undefined}
       >
         <HtmlDiv
           className={itemClassNames.inner}
@@ -272,7 +224,6 @@ class BaseReorderableListItem extends Component<
                 onClick={this.handleMoveUp}
                 icon={<IconChevronUp />}
                 forwardedRef={this.upButtonRef}
-                tabIndex={-1}
               />
               <Button
                 variant="secondaryNoBorder"
@@ -283,7 +234,6 @@ class BaseReorderableListItem extends Component<
                 onClick={this.handleMoveDown}
                 icon={<IconChevronDown />}
                 forwardedRef={this.downButtonRef}
-                tabIndex={-1}
               />
             </HtmlDiv>
           )}
