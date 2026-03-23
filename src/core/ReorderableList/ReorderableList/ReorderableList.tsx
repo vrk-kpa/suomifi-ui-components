@@ -28,7 +28,9 @@ import { filterDuplicateKeys } from '../../../utils/common/common';
 const baseClassName = 'fi-reorderable-list';
 const listClassNames = {
   editMode: `${baseClassName}--edit-mode`,
+  buttonRow: `${baseClassName}_button-row`,
   editButton: `${baseClassName}_edit-button`,
+  revertButton: `${baseClassName}_revert-button`,
   instruction: `${baseClassName}_instruction`,
   list: `${baseClassName}_list`,
   liveRegion: `${baseClassName}_live-region`,
@@ -57,6 +59,7 @@ export interface ReorderableListAnnouncements {
   cannotMoveUp: (itemLabel: string) => string;
   cannotMoveDown: (itemLabel: string) => string;
   itemsSwapped: (item1Label: string, item2Label: string) => string;
+  orderReverted?: () => string;
 }
 
 export interface ReorderableListProps
@@ -69,11 +72,13 @@ export interface ReorderableListProps
   onReorder: (newOrder: string[]) => void;
   /** Text for the edit mode toggle button */
   editButtonText: string;
-  /** Text for the cancel button (shown in edit mode) */
-  cancelButtonText: string;
-  /** Heading text for the keyboard instruction shown in edit mode */
+  /** Text for the save/done button shown in edit mode */
+  saveButtonText: string;
+  /** Text for the cancel/revert button shown in edit mode. If omitted, no revert button is shown. */
+  revertButtonText?: string;
+  /** Heading text for the instruction shown in edit mode */
   editModeInstructionHeading: string;
-  /** Keyboard instruction text shown in edit mode */
+  /** Instruction text shown in edit mode */
   editModeInstructionText: string;
   /** Screen reader announcement callbacks (required for i18n) */
   announcements: ReorderableListAnnouncements;
@@ -149,6 +154,7 @@ interface BaseReorderableListProps extends ReorderableListProps {
 interface ReorderableListState {
   internalEditMode: boolean;
   itemOrder: string[];
+  orderBeforeEdit: string[] | null;
   draggedItemKey: string | null;
   dragOverItemKey: string | null;
   liveAnnouncement: string;
@@ -172,6 +178,7 @@ class BaseReorderableList extends Component<
   state: ReorderableListState = {
     internalEditMode: false,
     itemOrder: [],
+    orderBeforeEdit: null,
     draggedItemKey: null,
     dragOverItemKey: null,
     liveAnnouncement: '',
@@ -275,10 +282,34 @@ class BaseReorderableList extends Component<
     }
 
     if (newEditMode) {
+      this.setState({ orderBeforeEdit: [...this.currentOrder] });
       this.announce(announcements.editModeActivated());
     } else {
+      this.setState({ orderBeforeEdit: null });
       this.announce(announcements.editModeCancelled());
     }
+  };
+
+  private handleRevert = () => {
+    const { onEditModeChange, announcements, editMode } = this.props;
+    const { orderBeforeEdit } = this.state;
+    const original = orderBeforeEdit ?? [...this.currentOrder];
+    const controlled = editMode !== undefined;
+
+    this.setState({ itemOrder: original, orderBeforeEdit: null });
+    this.props.onReorder(original);
+
+    if (!controlled) {
+      this.setState({ internalEditMode: false });
+    }
+    if (onEditModeChange) {
+      onEditModeChange(false);
+    }
+    if (announcements.orderReverted) {
+      this.announce(announcements.orderReverted());
+    }
+
+    this.editButtonRef.current?.focus();
   };
 
   private registerItem = (
@@ -438,7 +469,8 @@ class BaseReorderableList extends Component<
       children,
       theme,
       editButtonText,
-      cancelButtonText,
+      saveButtonText,
+      revertButtonText,
       editModeInstructionHeading,
       editModeInstructionText,
       announcements,
@@ -487,14 +519,26 @@ class BaseReorderableList extends Component<
         style={style}
       >
         <ReorderableListProvider value={contextValue}>
-          <Button
-            className={listClassNames.editButton}
-            onClick={this.toggleEditMode}
-            forwardedRef={this.editButtonRef}
-            aria-pressed={editMode}
-          >
-            {editMode ? cancelButtonText : editButtonText}
-          </Button>
+          <HtmlDiv className={listClassNames.buttonRow}>
+            <Button
+              className={listClassNames.editButton}
+              onClick={this.toggleEditMode}
+              forwardedRef={this.editButtonRef}
+              aria-pressed={editMode}
+            >
+              {editMode ? saveButtonText : editButtonText}
+            </Button>
+
+            {editMode && revertButtonText && (
+              <Button
+                variant="secondary"
+                className={listClassNames.revertButton}
+                onClick={this.handleRevert}
+              >
+                {revertButtonText}
+              </Button>
+            )}
+          </HtmlDiv>
 
           {editMode && (
             <InlineAlert

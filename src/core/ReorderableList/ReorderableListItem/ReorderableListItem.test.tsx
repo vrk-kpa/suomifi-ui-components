@@ -22,7 +22,7 @@ const TestItemInList = (
   <ReorderableList
     aria-label="Test list"
     editButtonText="Edit"
-    cancelButtonText="Cancel"
+    saveButtonText="Cancel"
     editModeInstructionHeading="Instructions"
     editModeInstructionText="Use arrows."
     announcements={defaultAnnouncements}

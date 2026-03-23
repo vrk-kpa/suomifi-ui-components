@@ -1,11 +1,13 @@
-ReorderableList provides an accessible way to reorder a list of items. It supports mouse drag-and-drop and keyboard-accessible up/down buttons.
+ReorderableList provides an accessible way to reorder a list of items. It supports mouse drag-and-drop and up/down buttons.
 
 The component has two modes:
 
 - **View mode** (default): Items are displayed as a static list.
-- **Edit mode**: Activated by the edit button. Items become draggable and show up/down buttons for reordering. Keyboard instructions are shown above the list.
+- **Edit mode**: Activated by the edit button. Items become draggable and show up/down buttons for reordering. Instructions are shown above the list.
 
 All text labels and screen reader announcements must be provided by the consumer for full i18n support.
+
+The optional `revertButtonText` prop adds a secondary cancel button in edit mode. When clicked, it restores the order to what it was when edit mode was entered and calls `onReorder` with the original order.
 
 ```jsx
 import {
@@ -30,9 +32,10 @@ const handleReorder = (newOrder) => {
 <ReorderableList
   aria-label="Priority list"
   editButtonText="Edit order"
-  cancelButtonText="Save order"
+  saveButtonText="Save order"
+  revertButtonText="Cancel"
   editModeInstructionHeading="Order change instructions"
-  editModeInstructionText="Drag and drop or use the arrow buttons to move items. Press 'done' when finished."
+  editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated',
     editModeCancelled: () => 'Edit mode cancelled',
@@ -44,7 +47,8 @@ const handleReorder = (newOrder) => {
       `${label} moved to position ${pos} of ${total}`,
     cannotMoveUp: (label) => `${label} is already at the top`,
     cannotMoveDown: (label) => `${label} is already at the bottom`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`
+    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
+    orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
 >
@@ -108,12 +112,12 @@ const handleReorder = (newOrder) => {
 <ReorderableList
   aria-label="Team members"
   editButtonText="Edit order"
-  cancelButtonText="Save order"
+  saveButtonText="Save order"
+  revertButtonText="Cancel"
   editModeInstructionHeading="Order change instructions"
-  editModeInstructionText="Drag and drop or use the arrow buttons to move items. Press 'done' when finished."
+  editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
-    editModeActivated: () =>
-      'Edit mode activated. Use arrow keys to reorder.',
+    editModeActivated: () => 'Edit mode activated.',
     editModeCancelled: () => 'Edit mode cancelled.',
     movedUp: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
@@ -123,7 +127,8 @@ const handleReorder = (newOrder) => {
       `${label} moved to position ${pos} of ${total}`,
     cannotMoveUp: (label) => `${label} is already first`,
     cannotMoveDown: (label) => `${label} is already last`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`
+    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
+    orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
 >
@@ -196,9 +201,9 @@ const handleReorder = (newOrder) => {
 <ReorderableList
   aria-label="Controlled list"
   editButtonText="Edit"
-  cancelButtonText="Save order"
+  saveButtonText="Save order"
   editModeInstructionHeading="Order change instructions"
-  editModeInstructionText="Drag and drop or use the arrow buttons to move items. Press 'done' when finished."
+  editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode on',
     editModeCancelled: () => 'Edit mode off',
