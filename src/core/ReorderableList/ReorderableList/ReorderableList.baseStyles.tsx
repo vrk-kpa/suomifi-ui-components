@@ -15,7 +15,10 @@ export const baseStyles = (
   width: 100%;
 
   &.fi-reorderable-list {
-    & .fi-reorderable-list_edit-button {
+    & .fi-reorderable-list_button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: ${theme.spacing.s};
       margin-bottom: ${theme.spacing.s};
     }
 

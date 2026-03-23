@@ -23,7 +23,7 @@ const TestList = (props: { onReorder?: (order: string[]) => void }) => (
   <ReorderableList
     aria-label="Test list"
     editButtonText="Edit"
-    cancelButtonText="Cancel"
+    saveButtonText="Cancel"
     editModeInstructionHeading="Keyboard instructions"
     editModeInstructionText="Use arrow keys to navigate."
     announcements={defaultAnnouncements}
@@ -181,7 +181,7 @@ describe('ReorderableList', () => {
         id="custom-id"
         aria-label="Custom"
         editButtonText="Edit"
-        cancelButtonText="Cancel"
+        saveButtonText="Cancel"
         editModeInstructionHeading="Instructions"
         editModeInstructionText="Use arrows."
         announcements={defaultAnnouncements}
