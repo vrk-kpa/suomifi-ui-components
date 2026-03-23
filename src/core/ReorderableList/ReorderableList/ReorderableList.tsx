@@ -212,7 +212,6 @@ class BaseReorderableList extends Component<
     snapshot: Map<string, number> | null,
   ): void {
     if (!snapshot) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     snapshot.forEach((oldTop, key) => {
       const item = this.registeredItems.get(key);
@@ -221,26 +220,21 @@ class BaseReorderableList extends Component<
       const delta = oldTop - el.getBoundingClientRect().top;
       if (delta === 0) return;
 
-      // Place the element at its old visual position with no transition
+      // Disable CSS transition temporarily to jump to the old visual position
       el.style.transition = 'none';
       el.style.transform = `translateY(${delta}px)`;
 
-      // First rAF: force a reflow so the browser commits the initial
-      // transform as the starting state for the upcoming transition
+      // First rAF: force a reflow so the browser commits the jump
       requestAnimationFrame(() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         el.getBoundingClientRect();
 
-        // Second rAF: apply the transition and animate to the final position
+        // Second rAF: clear the inline override so the CSS transition takes
+        // over, animating from the old position back to the natural position.
+        // prefers-reduced-motion is handled in CSS (transition: none there).
         requestAnimationFrame(() => {
-          el.style.transition = 'transform 0.2s ease';
+          el.style.transition = '';
           el.style.transform = '';
-
-          const onTransitionEnd = () => {
-            el.style.transition = '';
-            el.removeEventListener('transitionend', onTransitionEnd);
-          };
-          el.addEventListener('transitionend', onTransitionEnd);
         });
       });
     });

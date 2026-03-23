@@ -12,6 +12,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-reorderable-list-item {
     margin-bottom: ${theme.spacing.xs};
+    transition: transform 0.2s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     &:last-child {
       margin-bottom: 0;
