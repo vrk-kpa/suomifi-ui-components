@@ -86,7 +86,7 @@ const StyledHeading = styled(
   ${({ theme, color, globalMargins, ...rest }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
-      globalMargins.button,
+      globalMargins.heading,
       marginProps,
     );
     return baseStyles(theme, color, cleanedGlobalMargins, marginProps);
