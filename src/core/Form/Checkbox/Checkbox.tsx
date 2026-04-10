@@ -21,7 +21,10 @@ import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
 import { baseStyles } from './Checkbox.baseStyles';
 import { IconCheck } from 'suomifi-icons';
-import { filterDuplicateKeys } from '../../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  HTMLAttributesIncludingDataAttributes,
+} from '../../../utils/common/common';
 
 const baseClassName = 'fi-checkbox';
 
@@ -102,6 +105,11 @@ export interface CheckboxProps
   value?: string;
   /** Ref is passed to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Props to be passed to the label element, for example data attributes */
+  labelProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLLabelElement>,
+    'htmlFor' | 'id'
+  >;
 }
 
 class BaseCheckbox extends Component<CheckboxProps> {
@@ -153,6 +161,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       onClick,
       variant,
       style,
+      labelProps,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -216,6 +225,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           htmlFor={id}
           className={checkboxClassNames.label}
           id={`${id}-label`}
+          {...labelProps}
         >
           {!!checkedState && <IconCheck className={checkboxClassNames.icon} />}
           {children}

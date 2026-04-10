@@ -20,7 +20,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   table {
     text-align: left;
     th {
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Source Sans 3', sans-serif;
       font-weight: bold;
     }
     td {

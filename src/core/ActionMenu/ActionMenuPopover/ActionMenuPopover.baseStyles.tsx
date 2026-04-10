@@ -8,7 +8,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-action-menu-popover {
     background-color: ${theme.colors.whiteBase};
     box-shadow: ${theme.shadows.wideBoxShadow};
-    border: 1px solid ${theme.colors.blackLight1};
+    border: 1px solid ${theme.colors.depthDark3};
     border-radius: ${theme.radiuses.basic};
     padding-top: 8px;
     padding-bottom: 8px;
@@ -55,7 +55,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &
     .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-    border-bottom-color: ${theme.colors.blackLight1};
+    border-bottom-color: ${theme.colors.depthDark3};
     border-width: 9px;
     margin-right: -9px;
     bottom: 100%;
@@ -77,7 +77,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &
     .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-    border-top-color: ${theme.colors.blackLight1};
+    border-top-color: ${theme.colors.depthDark3};
     border-width: 9px;
     margin-right: -9px;
   }

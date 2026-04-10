@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Details } from './Details';
 import { axeTest } from '../../utils/test';
@@ -65,7 +66,8 @@ describe('props', () => {
     });
   });
   describe('onClick', () => {
-    it('is called when details is clicked', () => {
+    it('is called when details is clicked', async () => {
+      const user = userEvent.setup();
       const onClick = jest.fn();
       const { container } = render(
         <Details summaryLabel="More information on benefits" onClick={onClick}>
@@ -73,7 +75,7 @@ describe('props', () => {
         </Details>,
       );
       const details = container.getElementsByClassName('fi-details')[0];
-      fireEvent.click(details);
+      await user.click(details);
       expect(onClick).toHaveBeenCalled();
     });
   });

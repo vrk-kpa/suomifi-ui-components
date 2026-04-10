@@ -1,5 +1,6 @@
 import React from 'react';
-import { act, render, fireEvent } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../utils/test';
 
 import { TextInput } from './TextInput';
@@ -138,12 +139,13 @@ describe('props', () => {
 
   describe('type', () => {
     describe('text (default)', () => {
-      const textInput = <TextInput labelText="Test input" type="text" />;
-      const { getByRole } = render(textInput);
-      const textfield = getByRole('textbox') as HTMLInputElement;
+      it('shows the inputted text', async () => {
+        const user = userEvent.setup();
+        const textInput = <TextInput labelText="Test input" type="text" />;
+        const { getByRole } = render(textInput);
+        const textfield = getByRole('textbox') as HTMLInputElement;
 
-      it('shows the inputted text', () => {
-        fireEvent.change(textfield, { target: { value: 'abc 123' } });
+        await user.type(textfield, 'abc 123');
         expect(textfield.value).toBe('abc 123');
       });
     });
@@ -163,20 +165,27 @@ describe('props', () => {
     });
 
     describe('number', () => {
-      const textInput = <TextInput labelText="Number input" type="number" />;
-      const { getByRole } = render(textInput);
-      const numberfield = getByRole('spinbutton') as HTMLInputElement;
+      it('shows the inputted numbers', async () => {
+        const user = userEvent.setup();
+        const textInput = <TextInput labelText="Number input" type="number" />;
+        const { getByRole } = render(textInput);
+        const numberfield = getByRole('spinbutton') as HTMLInputElement;
 
-      it('shows the inputted numbers', () => {
-        fireEvent.change(numberfield, { target: { value: '123' } });
+        await user.type(numberfield, '123');
         expect(numberfield.value).toBe('123');
       });
 
-      it('does not allow text', () => {
-        fireEvent.change(numberfield, { target: { value: 'abc' } });
+      it('does not allow text', async () => {
+        const user = userEvent.setup();
+        const textInput = <TextInput labelText="Number input" type="number" />;
+        const { getByRole } = render(textInput);
+        const numberfield = getByRole('spinbutton') as HTMLInputElement;
+
+        await user.type(numberfield, 'abc');
         expect(numberfield.value).toBe('');
-        fireEvent.change(numberfield, { target: { value: 'abc 123' } });
-        expect(numberfield.value).toBe('');
+        await user.clear(numberfield);
+        await user.type(numberfield, 'abc 123');
+        expect(numberfield.value).toBe('123');
       });
     });
   });
@@ -256,39 +265,15 @@ describe('props', () => {
       expect(container.contains(icon)).toBeTruthy();
     });
   });
-  describe('visualPlaceholder', () => {
-    it('should have the given text', () => {
-      const { getByRole } = render(
-        <TextInput
-          labelText="Test input"
-          visualPlaceholder="Enter text here"
-        />,
-      );
-      const inputField = getByRole('textbox') as HTMLInputElement;
-      expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
-    });
-  });
-
-  describe('icon', () => {
-    it('should have the correct classname when icon prop is given', () => {
-      const { container } = render(
-        <TextInput labelText="Test input" icon={<IconClose />} />,
-      );
-      expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
-    });
-
-    it('should have an icon element when one is specified', () => {
-      const { container } = render(
-        <TextInput labelText="Test input" icon={<IconClose />} />,
-      );
-      const icon = container.querySelector('.fi-icon');
-      expect(container.contains(icon)).toBeTruthy();
-    });
-  });
 
   describe('debounce', () => {
-    it('delays the running of onChange by the given time', () => {
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
+    it('delays the running of onChange by the given time', async () => {
       jest.useFakeTimers();
+      const user = userEvent.setup({ delay: null });
       const mockOnChange = jest.fn();
       const textInput = (
         <TextInput
@@ -300,20 +285,21 @@ describe('props', () => {
       const { getByRole } = render(textInput);
 
       const inputElement = getByRole('textbox') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      await user.type(inputElement, 'new value');
       expect(mockOnChange).not.toBeCalled();
       jest.advanceTimersByTime(1000);
       expect(mockOnChange).toBeCalledTimes(1);
       expect(inputElement.value).toBe('new value');
     });
-    it('resolves right when no onChange is given', () => {
+    it('resolves right when no onChange is given', async () => {
+      const user = userEvent.setup();
       const textInput = (
         <TextInput labelText="Debounced input" debounce={1000} />
       );
       const { getByRole } = render(textInput);
 
       const inputElement = getByRole('textbox') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      await user.type(inputElement, 'new value');
       expect(inputElement.value).toBe('new value');
     });
   });
@@ -328,7 +314,8 @@ describe('Character counter', () => {
     jest.useRealTimers();
   });
 
-  it('should display correct character count', () => {
+  it('should display correct character count', async () => {
+    const user = userEvent.setup({ delay: null });
     const { container, getByTestId } = render(
       <TextInput
         labelText="label"
@@ -352,16 +339,16 @@ describe('Character counter', () => {
     ).toHaveTextContent('11/20');
 
     const textInput = getByTestId('cc-input') as HTMLTextAreaElement;
-    fireEvent.change(textInput, {
-      target: { value: 'Lorem ipsum dolor sit amet' },
-    });
+    await user.clear(textInput);
+    await user.type(textInput, 'Lorem ipsum dolor sit amet');
 
     expect(
       container.getElementsByClassName('fi-text-input_character-counter')[0],
     ).toHaveTextContent('26/20');
   });
 
-  it('should have correct screen reader status text', () => {
+  it('should have correct screen reader status text', async () => {
+    const user = userEvent.setup({ delay: null });
     const { container, getByTestId } = render(
       <TextInput
         labelText="label"
@@ -382,9 +369,8 @@ describe('Character counter', () => {
     ).toHaveTextContent('');
 
     const textInput = getByTestId('cc-input1') as HTMLTextAreaElement;
-    fireEvent.change(textInput, {
-      target: { value: 'Lorem ipsum dolor sit amet' },
-    });
+    await user.clear(textInput);
+    await user.type(textInput, 'Lorem ipsum dolor sit amet');
 
     // Testing if the delayed update works as intended
     expect(

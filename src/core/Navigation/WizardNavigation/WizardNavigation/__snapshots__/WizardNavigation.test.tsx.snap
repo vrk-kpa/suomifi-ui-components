@@ -202,7 +202,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
@@ -241,7 +241,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
@@ -348,7 +348,7 @@ exports[`calling render with the same component on the same container does not r
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   width: 26px;
   height: 26px;
   line-height: 26px;
@@ -363,7 +363,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -399,7 +399,7 @@ exports[`calling render with the same component on the same container does not r
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   width: 26px;
   height: 26px;
   line-height: 26px;
@@ -416,7 +416,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -473,7 +473,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -521,7 +521,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -568,7 +568,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -612,7 +612,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -632,7 +632,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;

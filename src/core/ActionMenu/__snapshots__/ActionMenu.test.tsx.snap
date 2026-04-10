@@ -143,7 +143,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -152,7 +152,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -194,7 +194,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -213,7 +213,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -267,7 +267,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -549,7 +549,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -562,7 +562,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -926,7 +926,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -935,7 +935,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -977,7 +977,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -996,7 +996,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -1050,7 +1050,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -1332,7 +1332,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1345,7 +1345,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1709,7 +1709,7 @@ exports[`No borders variant should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -1718,7 +1718,7 @@ exports[`No borders variant should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -1760,7 +1760,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -1779,7 +1779,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -1833,7 +1833,7 @@ exports[`No borders variant should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -2115,7 +2115,7 @@ exports[`No borders variant should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -2128,7 +2128,7 @@ exports[`No borders variant should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -2492,7 +2492,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -2501,7 +2501,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -2543,7 +2543,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -2562,7 +2562,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -2616,7 +2616,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -2898,7 +2898,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -2911,7 +2911,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -3276,7 +3276,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -3285,7 +3285,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c8.fi-action-menu-popover {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -3327,7 +3327,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='bottom']::before {
-  border-bottom-color: hsl(0, 0%, 42%);
+  border-bottom-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
@@ -3346,7 +3346,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 .c8 .fi-action-menu-popover_floatingui-arrow[data-floatingui-placement^='top']::before {
-  border-top-color: hsl(0, 0%, 42%);
+  border-top-color: hsl(201, 7%, 58%);
   border-width: 9px;
   margin-right: -9px;
 }
@@ -3400,7 +3400,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -3682,7 +3682,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -3695,7 +3695,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -3870,19 +3870,19 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
           tabindex="-1"
         >
           <button
-            class="c4 fi-action-menu-item c9 fi-action-menu-item--selected"
+            class="c4 fi-action-menu-item c9"
             id="test-id-menu-list-item-0"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
             type="button"
           >
             Item 1
           </button>
           <button
-            class="c4 fi-action-menu-item c9"
+            class="c4 fi-action-menu-item c9 fi-action-menu-item--selected"
             id="test-id-menu-list-item-1"
             role="menuitem"
-            tabindex="-1"
+            tabindex="0"
             type="button"
           >
             Item 2

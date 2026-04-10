@@ -38,6 +38,37 @@ interface TableColumn {
 
 - Define table data (rows) by providing an array of objects where each column key is present. Each row must also have a unique id. In case of empty cell, provide an empty string `''` for that column key
 
+#### TypeScript type safety
+
+If you're using TypeScript, you can get compile-time validation to ensure all column keys are present in your data rows:
+
+```tsx static
+import { Table, TableRow } from 'suomifi-ui-components';
+
+// 1. Define columns with 'as const' to preserve literal types
+const columns = [
+  { key: 'firstName', labelText: 'First name' },
+  { key: 'lastName', labelText: 'Last name' },
+  { key: 'title', labelText: 'Title' }
+] as const;
+
+// 2. Explicitly type your data array with TableRow<typeof columns>
+const data: TableRow<typeof columns>[] = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    title: 'Developer'
+    // TypeScript will show an error if you forget any column key
+  }
+];
+
+// 3. Use in component
+<Table columns={columns} data={data} caption="Team" />;
+```
+
+This ensures TypeScript will show an error if you forget to include any column key in your data objects.
+
 ```jsx
 import { Table, Link } from 'suomifi-ui-components';
 import React from 'react';
@@ -122,6 +153,11 @@ const data = [
 ### Sorting
 
 You can set `sortable: true` to any column you wish be able to sort the table with. You can either let the component handle the data sorting, or provide a `tableSortCallback()` prop to handle data sorting with a custom logic. The function receives the key of the sorted column and a string of `'asc' | 'desc'` as parameters.
+
+You can also apply a default sort order when the table first renders by using the `defaultSort` prop. The prop accepts an object with two properties:
+
+- `columnKey`: The key of the column to sort by (must match a column with `sortable: true`)
+- `direction`: Either `'asc'` for ascending or `'desc'` for descending order
 
 Always use the `tableSortedAriaLiveText()` function as demonstrated below to give screen readers information about table sorting.
 
@@ -267,6 +303,17 @@ const customDataSort = (key, dir) => {
     mb="xxl"
     tableSortCallback={customDataSort}
   />
+  <Table
+    caption="People in the project"
+    columns={columns}
+    data={data}
+    defaultSort={{ columnKey: 'hours_worked', direction: 'desc' }}
+    tableSortedAriaLiveText={(sortedColumn, direction) =>
+      `Table is sorted by ${sortedColumn} ${
+        direction === 'asc' ? 'ascending' : 'descending'
+      }`
+    }
+  />
 </div>;
 ```
 
@@ -277,6 +324,10 @@ Use the `enableRowSelection` to allow row selection via Checkboxes on the left h
 Alternatively, you can use the `enableSingleRowSelection` prop to allow single row selection via RadioButton.
 
 Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection Checkbox/RadioButton.
+
+You can pass additional props to the row selection Checkbox or RadioButton elements using the `rowSelectionLabelProps` property on each row. This is useful for adding test identifiers like `data-testid`.
+
+Individual rows can be disabled from selection by adding `rowSelectionDisabled: true` to the row data object.
 
 You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
@@ -316,7 +367,10 @@ const data = [
     hours_worked: 125,
     title: 'Developer',
     country: 'United Kingdom',
-    rowSelectionCheckboxLabel: 'Select row John Doe'
+    rowSelectionCheckboxLabel: 'Select row John Doe',
+    rowSelectionLabelProps: {
+      'data-testid': 'john-doe-selection'
+    }
   },
   {
     id: '2',
@@ -325,7 +379,11 @@ const data = [
     hours_worked: 150,
     title: 'Architect',
     country: 'Norway',
-    rowSelectionCheckboxLabel: 'Select row Jane Doe'
+    rowSelectionCheckboxLabel: 'Select row Jane Doe',
+    rowSelectionLabelProps: {
+      'data-testid': 'jane-doe-selection'
+    },
+    rowSelectionDisabled: true
   },
   {
     id: '3',
@@ -334,7 +392,11 @@ const data = [
     hours_worked: 10,
     title: 'Project manager',
     country: 'United States of America',
-    rowSelectionCheckboxLabel: 'Select row Bruce Willis'
+    rowSelectionCheckboxLabel: 'Select row Bruce Willis',
+    rowSelectionLabelProps: {
+      'data-testid': 'bruce-willis-selection'
+    },
+    rowSelectionDisabled: true
   },
   {
     id: '4',
@@ -343,7 +405,10 @@ const data = [
     hours_worked: '',
     title: 'Security consultant',
     country: <Link href="https://suomi.fi">Germany</Link>,
-    rowSelectionCheckboxLabel: 'Select row Harriet Ackermann'
+    rowSelectionCheckboxLabel: 'Select row Harriet Ackermann',
+    rowSelectionLabelProps: {
+      'data-testid': 'harriet-ackermann-selection'
+    }
   },
   {
     id: '5',
@@ -352,7 +417,10 @@ const data = [
     hours_worked: 2543,
     title: 'President',
     country: 'Finland',
-    rowSelectionCheckboxLabel: 'Select row Alexander Stubb'
+    rowSelectionCheckboxLabel: 'Select row Alexander Stubb',
+    rowSelectionLabelProps: {
+      'data-testid': 'alexander-stubb-selection'
+    }
   }
 ];
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../utils/test';
 import { Expander, ExpanderProps } from './Expander';
 import {
@@ -75,14 +76,14 @@ describe('defaultOpen', () => {
     </Expander>
   );
 
-  it('classnames will be removed when clicked', () => {
+  it('classnames will be removed when clicked', async () => {
     const mockClickHandler = jest.fn();
     const { getByTestId, getByRole } = render(
       DefaultOpenExpander({ onOpenChange: mockClickHandler }),
     );
     const buttonToClick = getByRole('button');
     const titleDiv = getByTestId('expander-open-by-default-title');
-    fireEvent.click(buttonToClick);
+    await userEvent.click(buttonToClick);
     expect(titleDiv).toHaveClass('fi-expander_title-button');
     expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
   });
@@ -98,7 +99,7 @@ describe('onOpenChange', () => {
       </Expander>,
     );
     const button = getByRole('button');
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
   });
 });
@@ -125,7 +126,7 @@ describe('open', () => {
       ControlledExpander({ onOpenChange: mockClickHandler }),
     );
     const button = getByRole('button');
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     const div = getByTestId('expander-title-id');
     expect(div).toHaveClass('fi-expander_title-button--open');

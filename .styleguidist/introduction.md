@@ -2,12 +2,12 @@
 
 ## ✨ Features
 
-- Accessibility WCAG 2.1 level AA. <a href="./#/Accessibility">Read more on accessibility support</a>.
+- Accessibility WCAG 2.2 level AA. <a href="./#/Accessibility">Read more on accessibility support</a>.
 - React-components with TypeScript support
 - Suomi.fi brand styles
 - Highly customizable (CSS, CSS-in-JS)
 
-Works with [React >= 16.8.0](https://github.com/facebook/react) (React 18 supported) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
+Works with [React >= 16.8.0](https://github.com/facebook/react) (React 19 supported) and [Styled Components >= 6.0.0](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
 
 ### Supported browser and screenreader combinations
 
@@ -26,20 +26,22 @@ To install the component library
 npm install suomifi-ui-components
 ```
 
-Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css:
+Include **required** fonts (Source Sans 3, weights 300, 400, 600) as best suited for your project. The intended way is to use the font hosted by the Suomi.fi Design System:
 
 ```css
-@import url('https://designsystem.suomi.fi/fonts/source-sans-pro.css');
+@import url('https://designsystem.suomi.fi/fonts/source-sans-3.css');
 ```
 
-If you wish to include fonts locally in your own bundle, you can download the `.woff2` files by following the paths in the CSS file above.
+This provides Latin, Latin Extended, Cyrillic, Cyrillic Extended, Greek, Greek Extended and Vietnamese subsets. Browsers automatically load only the font files needed for the characters on the page.
+
+**Self-hosting:** If you need to host the fonts yourself, download the font files from https://designsystem.suomi.fi/fonts/SourceSans3.zip and import the CSS locally. The CSS file refers to the font files within the same folder, so make sure all the font files reside in the same folder.
 
 ### Peer dependencies
 
 You should also install the following peer dependencies.
 
 - [React](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
-- [styled-components](https://www.npmjs.com/package/styled-components) version >=5.2.1 and related dependencies and typings.
+- [styled-components](https://www.npmjs.com/package/styled-components) version >=6.0.0.
 
 - The aim is to keep dependencies up to date and use the latest available versions. We encourage you to use the latest available versions of peer dependencies.
 

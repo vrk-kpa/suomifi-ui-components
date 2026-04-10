@@ -79,6 +79,7 @@ export const baseStyles = (
       ${input(theme)}
       padding-top: ${theme.spacing.insetS};
       padding-bottom: ${theme.spacing.insetS};
+      padding-left: ${theme.spacing.insetL};
       border: 0;
       flex-grow: 3;
       min-width: 105px;
@@ -169,6 +170,16 @@ export const baseStyles = (
           }
         }
       }
+    }
+  }
+
+  &.fi-search-input--no-search-button
+    .fi-search-input_functionality-container:has(.fi-search-input_search-icon) {
+    & .fi-search-input_input {
+      padding-right: 68px;
+    }
+    & .fi-search-input_input-element-container {
+      border-radius: ${theme.radiuses.basic};
     }
   }
 

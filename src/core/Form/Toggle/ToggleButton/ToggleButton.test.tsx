@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../../utils/test';
 
 import { ToggleButton } from './ToggleButton';
@@ -31,12 +32,12 @@ describe('Basic ToggleButton', () => {
       <ToggleButton onClick={mockClickHandler}>Test two</ToggleButton>,
     );
     const toggle = getByRole('button');
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     const svgClassList = container.querySelector('svg')?.classList;
     expect(svgClassList).toContain('fi-toggle_icon');
     expect(svgClassList).toContain('fi-toggle_icon--checked');
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(svgClassList).not.toContain('fi-toggle_icon--checked');
   });
 
@@ -48,7 +49,7 @@ describe('Basic ToggleButton', () => {
       </ToggleButton>,
     );
     const toggle = getByRole('button');
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     const svgClassList = container.querySelector('svg')?.classList;
     expect(svgClassList).toContain('fi-toggle_icon');

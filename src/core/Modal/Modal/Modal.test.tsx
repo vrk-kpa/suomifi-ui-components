@@ -1,5 +1,6 @@
 import React, { ReactNode, useRef, useState } from 'react';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axeTest } from '../../../utils/test';
 
 import { Modal, ModalProps } from './Modal';
@@ -103,9 +104,9 @@ describe('Modal sibling DOM nodes', () => {
     expect(appRootNode).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('should preserve aria-hidden and role state after closing modal', () => {
+  it('should preserve aria-hidden and role state after closing modal', async () => {
     const { getByRole, baseElement } = render(<ModalWithSiblings />);
-    fireEvent.click(getByRole('button'));
+    await userEvent.click(getByRole('button'));
     const appRootNode = baseElement.querySelector('#root');
     expect(appRootNode).not.toHaveAttribute('aria-hidden');
   });
@@ -223,7 +224,7 @@ describe('Closing Modal', () => {
     );
   };
 
-  it('should be possible with ESC key', () => {
+  it('should be possible with ESC key', async () => {
     const mockEsc = jest.fn();
     const { getByText } = render(
       <RefTest
@@ -234,15 +235,11 @@ describe('Closing Modal', () => {
       />,
     );
     const openButton = getByText('Toggle modal');
-    fireEvent.click(openButton);
+    await userEvent.click(openButton);
     const content = getByText('Test Content');
     expect(content).toBeTruthy();
 
-    fireEvent.keyDown(content, {
-      key: 'Escape',
-      code: 'Escape',
-      keyCode: 27,
-    });
+    await userEvent.keyboard('{Escape}');
 
     expect(mockEsc).toHaveBeenCalledTimes(1);
   });
@@ -251,20 +248,20 @@ describe('Closing Modal', () => {
     const { getByText } = render(<RefTest focusOnCloseRef={undefined} />);
     const openButton = getByText('Toggle modal');
     openButton.focus();
-    fireEvent.click(openButton);
+    await userEvent.click(openButton);
     const closeButton = getByText('Close modal');
     expect(closeButton).toBeTruthy();
-    fireEvent.click(closeButton);
+    await userEvent.click(closeButton);
     await waitFor(() => expect(openButton).toHaveFocus());
   });
 
   it('should return focus to given element', async () => {
     const { getByText, getByRole } = render(<RefTest />);
     const openButton = getByText('Toggle modal');
-    fireEvent.click(openButton);
+    await userEvent.click(openButton);
     const closeButton = getByText('Close modal');
     expect(closeButton).toBeTruthy();
-    fireEvent.click(closeButton);
+    await userEvent.click(closeButton);
     const input = getByRole('textbox');
     await waitFor(() => expect(input).toHaveFocus());
   });

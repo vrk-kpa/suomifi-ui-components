@@ -61,7 +61,7 @@ type AutoSuggestProps =
       autosuggest?: false | never;
       /** Callback when a suggestion is selected */
       onSuggestionSelected?: (suggestionId: string) => void;
-      /** Text to show during loading state */
+      /** Hint text to let the users know that the suggestions will appear below the input */
       suggestionHintText?: string;
       /** Text to let the user know how many suggestions are available */
       ariaOptionsAvailableText?: string;
@@ -163,6 +163,7 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
+  noSearchButton: `${baseClassName}--no-search-button`,
   labelIsVisible: `${baseClassName}_label--visible`,
   styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
@@ -503,6 +504,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
           [searchInputClassNames.suggestionsOpen]: this.state.showPopover,
+          [searchInputClassNames.noSearchButton]: !propOnSearch,
         })}
         style={style}
       >

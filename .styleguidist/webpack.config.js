@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = (env) => ({
   mode: env.production ? 'production' : 'development',
-  devtool: env.production ? 'inline-source-map' : 'eval',
+  devtool: env.production ? 'source-map' : 'eval',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     fallback: {
@@ -24,6 +24,9 @@ module.exports = (env) => ({
         loader: 'ts-loader',
         options: {
           configFile: '.styleguidist/styleguideTsconfig.json',
+          ...(process.env.SKIP_TYPE_CHECK === 'true' && {
+            transpileOnly: true,
+          }),
         },
         exclude: [/node_modules/],
       },

@@ -13,7 +13,10 @@ import {
   GlobalMargins,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Table.baseStyles';
-import { filterDuplicateKeys } from '../../utils/common/common';
+import {
+  filterDuplicateKeys,
+  HTMLAttributesIncludingDataAttributes,
+} from '../../utils/common/common';
 import { AutoId } from '../utils/AutoId/AutoId';
 import {
   HtmlButton,
@@ -77,13 +80,38 @@ export interface TableColumn {
   className?: string;
 }
 
-// Infer the literal types from columns
+/**
+ * TableRow type that enforces all column keys must be present as properties.
+ * Each column key property accepts ReactNode as its value type.
+ *
+ * @example
+ * // For type safety, define columns with 'as const' and explicitly type your data array
+ * const columns = [
+ *   { key: 'name', labelText: 'Name' },
+ *   { key: 'age', labelText: 'Age' }
+ * ] as const;
+ *
+ * // Explicitly type the data array to enforce all column keys are present
+ * const data: TableRow<typeof columns>[] = [
+ *   { id: '1', name: 'John', age: 30 },
+ *   { id: '2', name: 'Jane', age: 25 },
+ * ];
+ * // TypeScript will show an error if you forget a column key (e.g., missing 'age')
+ *
+ * // Then use in the component
+ * <Table columns={columns} data={data} caption="Users" />
+ */
 export type TableRow<TColumns extends readonly TableColumn[]> = {
   [K in TColumns[number]['key']]:
-    | string
-    | number
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-} & { id: string; rowSelectionCheckboxLabel?: string };
+    | React.ReactNode
+    | HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
+} & {
+  id: string;
+  rowSelectionCheckboxLabel?: string;
+  /** Props to pass to the row selection Checkbox or RadioButton label */
+  rowSelectionLabelProps?: HTMLAttributesIncludingDataAttributes<HTMLLabelElement>;
+  rowSelectionDisabled?: boolean;
+};
 
 export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   extends MarginProps,
@@ -93,13 +121,29 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Table columns and their configurations */
-  columns: TColumns; // Use the generic type parameter for columns
+  /**
+   * Table columns and their configurations.
+   *
+   * @example
+   * // Use 'as const' for type safety
+   * const columns = [
+   *   { key: 'name', labelText: 'Name', sortable: true },
+   *   { key: 'age', labelText: 'Age', sortable: true, textAlign: 'right' }
+   * ] as const;
+   */
+  columns: TColumns;
   /**
    * Rows for the table. Each object must have an `id` property that is unique for the table
-   * plus the key-value pairs that match the `key` properties of the columns.
+   * plus all the key properties defined in columns.
+   *
+   * @example
+   * // Type the data array explicitly to get TypeScript validation
+   * const data: TableRow<typeof columns>[] = [
+   *   { id: '1', name: 'John Doe', age: 28 },
+   *   { id: '2', name: 'Jane Smith', age: 34 }
+   * ];
    */
-  data: TableRow<TColumns>[]; // Use the inferred type for data
+  data: TableRow<TColumns>[];
   /** Condenses the padding of table cells */
   condensed?: boolean;
   /** Enables selection of rows via checkboxes
@@ -119,6 +163,11 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   ) => string;
   /** Optional custom callback which is fired when table is sorted */
   tableSortCallback?: (columnLabel: string, direction: 'asc' | 'desc') => void;
+  /** Default sort configuration to be applied when table is first rendered */
+  defaultSort?: {
+    columnKey: string;
+    direction: 'asc' | 'desc';
+  };
   /** Displays skeleton rows (default of 5) to indicate the table is waiting to receive data */
   loading?: boolean;
   /** Optional override of the default amount (5) of skeleton rows when `loading` is true */
@@ -156,6 +205,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     onSelectedRowsChange,
     tableSortedAriaLiveText,
     tableSortCallback,
+    defaultSort,
     loading,
     loadingRowAmount = 5,
     controlledSelectedRowIds,
@@ -185,6 +235,17 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     setData(propData);
   }, [propData]);
 
+  // Apply default sort on mount or when defaultSort changes
+  useEffect(() => {
+    if (defaultSort && defaultSort.columnKey) {
+      // Verify that the column exists and is sortable
+      const column = columns.find((col) => col.key === defaultSort.columnKey);
+      if (column && column.sortable) {
+        sortData(defaultSort.columnKey, defaultSort.direction);
+      }
+    }
+  }, [defaultSort?.columnKey, defaultSort?.direction]);
+
   useEffect(() => {
     const targetDiv = wrapperRef.current;
     if (!targetDiv) return;
@@ -199,10 +260,17 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     return () => observer.disconnect();
   }, []);
 
-  const sortData = (key: string) => {
+  const sortData = (key: string, forceDirection?: 'asc' | 'desc') => {
+    // Determine the direction to sort
+    const newDirection =
+      forceDirection ||
+      (!sortColumn.includes(key) || sortColumn === `${key}-desc`
+        ? 'asc'
+        : 'desc');
+
     const sortedData = [...data].sort((a, b) => {
-      const aValue = a[key as keyof TableRow<TColumns>];
-      const bValue = b[key as keyof TableRow<TColumns>];
+      const aValue = a[key as keyof TableRow<TColumns>] as React.ReactNode;
+      const bValue = b[key as keyof TableRow<TColumns>] as React.ReactNode;
 
       const getTextContent = (element: React.ReactNode): string => {
         if (typeof element === 'string' || typeof element === 'number') {
@@ -225,30 +293,22 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         !Number.isNaN(Number(aValueText)) && !Number.isNaN(Number(bValueText));
 
       if (isNumeric) {
-        return !sortColumn.includes(key) || sortColumn === `${key}-desc`
+        return newDirection === 'asc'
           ? Number(aValueText) - Number(bValueText)
           : Number(bValueText) - Number(aValueText);
       }
 
-      return !sortColumn.includes(key) || sortColumn === `${key}-desc`
+      return newDirection === 'asc'
         ? aValueText.localeCompare(bValueText)
         : bValueText.localeCompare(aValueText);
     });
+
     if (!!tableSortCallback) {
-      tableSortCallback(
-        key,
-        !sortColumn.includes(key) || sortColumn === `${key}-desc`
-          ? 'asc'
-          : 'desc',
-      );
+      tableSortCallback(key, newDirection);
     } else {
       setData(sortedData);
     }
-    if (!sortColumn.includes(key) || sortColumn === `${key}-desc`) {
-      setSortColumn(`${key}-asc`);
-    } else {
-      setSortColumn(`${key}-desc`);
-    }
+    setSortColumn(`${key}-${newDirection}`);
   };
 
   const handleRowSelection = (rowId: string, operation: 'add' | 'remove') => {
@@ -408,7 +468,16 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     highlighted: selectedRowIds.includes(row.id),
                   })}
                 >
-                  {enableRowSelection && (
+                  {(enableRowSelection || enableSingleRowSelection) &&
+                    row.rowSelectionDisabled === true && (
+                      <HtmlTableCell
+                        className={classnames(
+                          tableClassNames.td,
+                          tableClassNames.selectionTd,
+                        )}
+                      />
+                    )}
+                  {enableRowSelection && row.rowSelectionDisabled !== true && (
                     <HtmlTableCell
                       className={classnames(
                         tableClassNames.td,
@@ -423,6 +492,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                             checkedVal.checkboxState ? 'add' : 'remove',
                           )
                         }
+                        labelProps={row.rowSelectionLabelProps}
                       >
                         <VisuallyHidden>
                           {row.rowSelectionCheckboxLabel}
@@ -430,29 +500,31 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                       </Checkbox>
                     </HtmlTableCell>
                   )}
-                  {enableSingleRowSelection && (
-                    <HtmlTableCell
-                      className={classnames(
-                        tableClassNames.td,
-                        tableClassNames.selectionTd,
-                      )}
-                    >
-                      <RadioButton
-                        value={`radiobutton-${row.id}`}
-                        checked={selectedRowIds.includes(row.id)}
-                        onChange={(newValue) =>
-                          handleRowSelection(
-                            row.id,
-                            newValue ? 'add' : 'remove',
-                          )
-                        }
+                  {enableSingleRowSelection &&
+                    row.rowSelectionDisabled !== true && (
+                      <HtmlTableCell
+                        className={classnames(
+                          tableClassNames.td,
+                          tableClassNames.selectionTd,
+                        )}
                       >
-                        <VisuallyHidden>
-                          {row.rowSelectionCheckboxLabel}
-                        </VisuallyHidden>
-                      </RadioButton>
-                    </HtmlTableCell>
-                  )}
+                        <RadioButton
+                          value={`radiobutton-${row.id}`}
+                          checked={selectedRowIds.includes(row.id)}
+                          onChange={(newValue) =>
+                            handleRowSelection(
+                              row.id,
+                              newValue ? 'add' : 'remove',
+                            )
+                          }
+                          labelProps={row.rowSelectionLabelProps}
+                        >
+                          <VisuallyHidden>
+                            {row.rowSelectionCheckboxLabel}
+                          </VisuallyHidden>
+                        </RadioButton>
+                      </HtmlTableCell>
+                    )}
                   {columns.map((col) => (
                     <HtmlTableCell
                       key={`${row.id}-${col.key}`}
@@ -463,7 +535,11 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                           col.textAlign === 'center',
                       })}
                     >
-                      {row[col.key as keyof TableRow<TColumns>]}
+                      {
+                        row[
+                          col.key as keyof TableRow<TColumns>
+                        ] as React.ReactNode
+                      }
                     </HtmlTableCell>
                   ))}
                 </HtmlTableRow>

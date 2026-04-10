@@ -11,6 +11,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       padding-bottom: ${theme.spacing.m};
       padding-left: ${theme.spacing.xl};
       display: flex;
+      flex-wrap: wrap;
       & > * {
         margin-top: ${theme.spacing.m};
         margin-right: ${theme.spacing.s};

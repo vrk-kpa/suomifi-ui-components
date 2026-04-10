@@ -1,14 +1,10 @@
-/* eslint-disable no-promise-executor-return */
 import React from 'react';
-import { render, act, fireEvent, waitFor } from '@testing-library/react';
+import { render, act, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { axeTest } from '../../../../utils/test/axe';
 import { SingleSelect, SingleSelectData } from './SingleSelect';
-
-export async function waitForPosition() {
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-  await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
-}
+import { waitForPosition } from '../../../../utils/test';
 
 const tools = [
   {
@@ -106,18 +102,17 @@ it('should not have basic accessibility issues', async () => {
 });
 
 it('has matching snapshot', async () => {
+  const user = userEvent.setup();
   const { baseElement, getByRole } = render(BasicSingleSelect);
-  await waitForPosition();
   const textfield = getByRole('textbox') as HTMLInputElement;
-  await act(async () => {
-    fireEvent.focus(textfield);
-  });
+  await user.click(textfield);
   await waitForPosition();
   expect(baseElement).toMatchSnapshot();
 });
 
 describe('Controlled', () => {
   it('has the controlled items as selected', async () => {
+    const user = userEvent.setup();
     const controlledItem: {
       name: string;
       price: number;
@@ -144,11 +139,11 @@ describe('Controlled', () => {
     );
 
     const { getByRole, getByText, rerender } = render(singleSelect);
-    await waitForPosition();
     expect(getByRole('textbox')).toHaveValue('Powersaw');
     const input = getByRole('textbox');
-    fireEvent.click(input);
-    const item = await waitFor(() => getByText('Powersaw'));
+    await user.click(input);
+    await waitForPosition();
+    const item = getByText('Powersaw');
     expect(item).toHaveAttribute('aria-disabled');
     expect(item).toHaveClass('fi-select-item--disabled');
 
@@ -164,12 +159,12 @@ describe('Controlled', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const rerenderedInput = getByRole('textbox');
     expect(rerenderedInput).toHaveValue('');
   });
 
   it('does not allow removing of items by clicking', async () => {
+    const user = userEvent.setup();
     type AnimalData = SingleSelectData & { age: number };
     const animals: AnimalData[] = [
       {
@@ -206,11 +201,8 @@ describe('Controlled', () => {
     );
 
     const { getByText, getByRole } = render(singleSelect);
-    await waitForPosition();
     const clearButton = getByText('Clear selection');
-    await act(async () => {
-      fireEvent.click(clearButton, {});
-    });
+    await user.click(clearButton);
     expect(getByRole('textbox')).toHaveValue('Turtle');
   });
 });
@@ -236,17 +228,19 @@ test('className: has given custom classname', async () => {
 
 describe('filter', () => {
   it('should be available with default selection', async () => {
+    const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
-    await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
-    fireEvent.change(input, { target: { value: 'h' } });
-    expect(input).toHaveValue('h');
-    const items = await waitFor(() => getAllByRole('option'));
+    await user.clear(input);
+    await user.type(input, 'h');
+    await waitForPosition();
+    const items = getAllByRole('option');
     expect(items).toHaveLength(4);
   });
 
   it('should be available when nothing is selected', async () => {
+    const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -257,42 +251,42 @@ describe('filter', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
-    fireEvent.change(input, { target: { value: 'h' } });
-    expect(input).toHaveValue('h');
-    const items = await waitFor(() => getAllByRole('option'));
+    await user.type(input, 'h');
+    await waitForPosition();
+    const items = getAllByRole('option');
     expect(items).toHaveLength(4);
   });
 
   it('should be removed onBlur', async () => {
+    const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
-    await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
-    fireEvent.change(input, { target: { value: 'h' } });
+    await user.clear(input);
+    await user.type(input, 'h');
+    await waitForPosition();
     expect(input).toHaveValue('h');
-    await act(async () => {
-      fireEvent.blur(input);
-    });
+    await user.tab();
     await waitFor(() => {
       expect(input).toHaveValue('Hammer');
     });
-    fireEvent.focus(input);
-    const options = await waitFor(() => getAllByRole('option'));
+    await user.click(input);
+    await waitForPosition();
+    const options = getAllByRole('option');
     expect(options).toHaveLength(9);
   });
 });
 
 test('option: should be selected when clicked', async () => {
+  const user = userEvent.setup();
   const { getByText, getByRole } = render(BasicSingleSelect);
-  await waitForPosition();
   const input = getByRole('textbox');
-  fireEvent.click(input);
+  await user.click(input);
+  await waitForPosition();
+  const option = getByText('Rake');
 
-  const option = await waitFor(() => getByText('Rake'));
-
-  fireEvent.click(option);
+  await user.click(option);
 
   expect(input).toHaveValue('Rake');
 });
@@ -415,6 +409,7 @@ describe('fullWidth', () => {
 
 describe('disabled', () => {
   it('should not be interactive while disabled', async () => {
+    const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(
       <SingleSelect
         disabled={true}
@@ -426,15 +421,15 @@ describe('disabled', () => {
       />,
     );
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.click(input);
-    });
+    await user.click(input);
     expect(() => getAllByRole('option')).toThrowError();
   });
 });
 
 describe('custom item addition mode', () => {
   it('should allow user to add & remove their own option as the selected value', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { getByRole, getAllByRole, getByText } = render(
       <SingleSelect
         allowItemAddition={true}
@@ -445,46 +440,33 @@ describe('custom item addition mode', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'hamm' } });
-    });
-
-    const items = await waitFor(() => getAllByRole('option'));
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
+    await user.type(input, 'hamm');
+    const items = getAllByRole('option');
     expect(items).toHaveLength(4);
-    const extraItem = items.find((item) => item.textContent === 'hamm');
+    const extraItem = items[3];
+    expect(extraItem).toHaveTextContent('hamm');
+    await user.click(extraItem);
+    await user.tab();
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
+    const appendedItems = getAllByRole('option');
+    expect(appendedItems).toHaveLength(10);
+    const lastItem = appendedItems[9];
+    expect(lastItem).toHaveTextContent('hamm');
+    expect(lastItem).toHaveClass('fi-select-item--selected');
 
-    if (extraItem) {
-      await act(async () => {
-        fireEvent.click(extraItem);
-      });
-      await act(async () => {
-        fireEvent.blur(input);
-      });
-      await act(async () => {
-        fireEvent.focus(input);
-      });
-      const appendedItems = await waitFor(() => getAllByRole('option'));
-      expect(appendedItems).toHaveLength(10);
-      const lastItem = appendedItems[9];
-      expect(lastItem).toHaveTextContent('hamm');
-      expect(lastItem).toHaveClass('fi-select-item--selected');
+    const clearButton = getByText('Clear selection');
+    await user.click(clearButton);
+    expect(input).toHaveValue('');
 
-      const clearButton = getByText('Clear selection');
-      await act(async () => {
-        fireEvent.click(clearButton);
-      });
-      expect(input).toHaveValue('');
-
-      await act(async () => {
-        fireEvent.click(input);
-      });
-      const resetItems = await waitFor(() => getAllByRole('option'));
-      expect(resetItems).toHaveLength(9);
-    } else {
-      throw new Error('No custom item found');
-    }
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
+    const resetItems = getAllByRole('option');
+    expect(resetItems).toHaveLength(9);
+    jest.useRealTimers();
   });
 });
 
@@ -497,6 +479,7 @@ describe('ariaOptionsAvailable', () => {
   ];
 
   it('should include ariaOptionsAvailableText', async () => {
+    const user = userEvent.setup();
     const { getByRole, getByText } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -507,16 +490,15 @@ describe('ariaOptionsAvailable', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'M' } });
-    });
+    await user.type(input, 'M');
+    await waitForPosition();
     const ariaText = getByText(`2 Options available`);
     expect(ariaText).toBeInTheDocument();
   });
 
   it('should include text from ariaOptionsAvailableTextFunction', async () => {
+    const user = userEvent.setup();
     const { getByRole, getByText } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -531,16 +513,14 @@ describe('ariaOptionsAvailable', () => {
         }
       />,
     );
-    await waitForPosition();
     const input = getByRole('textbox');
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'V' } });
-    });
+    await user.type(input, 'V');
+    await waitForPosition();
     const ariaText = getByText(`There is 1 option available`);
     expect(ariaText).toBeInTheDocument();
-    await act(async () => {
-      fireEvent.change(input, { target: { value: 'M' } });
-    });
+    await user.clear(input);
+    await user.type(input, 'M');
+    await waitForPosition();
     expect(ariaText).toHaveTextContent('There are 2 options available');
   });
 });
@@ -569,6 +549,7 @@ describe('forward ref', () => {
 
 describe('listProps', () => {
   it('adds data-test-id to unordered list element', async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(
       <SingleSelect
         labelText="Test"
@@ -581,18 +562,17 @@ describe('listProps', () => {
         }}
       />,
     );
+    const input = getByRole('textbox');
+    await user.click(input);
     await waitForPosition();
-    const input = await waitFor(() => getByRole('textbox'));
-    await act(() => fireEvent.focus(input));
-    const menu = await waitFor(() => getByRole('listbox'));
-    await waitFor(() =>
-      expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr'),
-    );
+    const menu = getByRole('listbox');
+    expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr');
   });
 });
 
 describe('listItemProps', () => {
   it('adds data-test-id to list item element', async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(
       <SingleSelect
         labelText="Test"
@@ -610,12 +590,10 @@ describe('listItemProps', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
+    const input = getByRole('textbox');
+    await user.click(input);
     await waitForPosition();
-    const input = await waitFor(() => getByRole('textbox'));
-    await act(async () => {
-      fireEvent.focus(input);
-    });
-    const option = await waitFor(() => getByRole('option'));
+    const option = getByRole('option');
 
     expect(option).toHaveAttribute('data-test-id', 'abc');
   });
@@ -656,15 +634,13 @@ describe('External update to item array', () => {
   };
 
   it('updated item array should be visible in input', async () => {
+    const user = userEvent.setup();
     const { getByRole, getByTestId } = render(<ModalWithSiblings />);
-    await waitForPosition();
     const input = getByRole('textbox');
     expect(input).toHaveDisplayValue('Mercury');
 
     const button = getByTestId('changeState');
-    await act(async () => {
-      fireEvent.click(button);
-    });
+    await user.click(button);
     expect(input).toHaveDisplayValue('Moon');
   });
 });
@@ -697,5 +673,60 @@ describe('margin', () => {
       />,
     );
     expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
+describe('keyboard interactions', () => {
+  it('should reset input value to selected item when pressing Escape after typing', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { getByRole, getByText } = render(BasicSingleSelect);
+
+    const input = getByRole('textbox');
+
+    // First, select an item
+    await user.click(input);
+    const option = getByText('Rake');
+    await user.click(option);
+    expect(input).toHaveValue('Rake');
+
+    await user.click(input);
+    // Wait for the select timeout in the component to complete before typing
+    act(() => jest.advanceTimersByTime(150));
+    await user.type(input, 'something else');
+    expect(input).toHaveValue('something else');
+
+    // Press Escape - should reset to selected item
+    await user.keyboard('{Escape}');
+    expect(input).toHaveValue('Rake');
+    jest.useRealTimers();
+  });
+
+  it('should clear input when pressing Escape with no selected item', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { getByRole } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool"
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+
+    const input = getByRole('textbox');
+
+    // Type something in the input without selecting
+    await user.click(input);
+    act(() => jest.advanceTimersByTime(150));
+    await user.type(input, 'something');
+    expect(input).toHaveValue('something');
+
+    // Press Escape - should clear input since no item is selected
+    await user.keyboard('{Escape}');
+    expect(input).toHaveValue('');
+    jest.useRealTimers();
   });
 });

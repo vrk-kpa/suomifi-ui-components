@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Alert } from './Alert';
 import { axeTest } from '../../utils/test';
 
@@ -115,7 +116,7 @@ describe('props', () => {
     });
   });
 
-  test('onClick event is called when clicked', () => {
+  test('onClick event is called when clicked', async () => {
     const mockClick = jest.fn();
     const { getByRole } = render(
       <Alert closeText="Close" onClick={mockClick}>
@@ -123,7 +124,7 @@ describe('props', () => {
       </Alert>,
     );
     const button = getByRole('button');
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 });

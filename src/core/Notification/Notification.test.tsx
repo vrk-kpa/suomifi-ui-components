@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Notification } from './Notification';
 import { axeTest } from '../../utils/test';
 
@@ -171,7 +172,7 @@ describe('props', () => {
     });
   });
   describe('onClick', () => {
-    test('onClick event is called when clicked', () => {
+    test('onClick event is called when clicked', async () => {
       const mockClick = jest.fn();
       const { getByRole } = render(
         <Notification
@@ -183,7 +184,7 @@ describe('props', () => {
         </Notification>,
       );
       const button = getByRole('button');
-      fireEvent.click(button);
+      await userEvent.click(button);
       expect(mockClick).toHaveBeenCalledTimes(1);
     });
   });

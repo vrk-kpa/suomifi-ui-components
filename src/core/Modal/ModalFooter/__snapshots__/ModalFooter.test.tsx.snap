@@ -8,7 +8,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -183,6 +183,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   padding-bottom: 20px;
   padding-left: 30px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .c2.fi-modal_footer .fi-modal_footer_content>* {
@@ -235,7 +236,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
