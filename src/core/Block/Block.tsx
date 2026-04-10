@@ -74,7 +74,7 @@ const StyledBlock = styled(
   ${({ theme, globalMargins, variant, ...rest }) => {
     const [spacingProps, _passProps] = separateMarginAndPaddingProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
-      globalMargins.textInput,
+      globalMargins.block,
       spacingProps,
     );
     return baseStyles(theme, variant, cleanedGlobalMargins, spacingProps);

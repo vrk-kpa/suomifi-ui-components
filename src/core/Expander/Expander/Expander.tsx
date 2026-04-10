@@ -204,7 +204,7 @@ const StyledExpander = styled(
   ${({ theme, globalMargins, ...rest }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
-      globalMargins.dropdown,
+      globalMargins.expander,
       marginProps,
     );
     return baseStyles(theme, cleanedGlobalMargins, marginProps);

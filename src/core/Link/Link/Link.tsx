@@ -62,7 +62,7 @@ const StyledLink = styled(
   ${({ theme, globalMargins, ...rest }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
-      globalMargins.button,
+      globalMargins.link,
       marginProps,
     );
     return LinkStyles(theme, cleanedGlobalMargins, marginProps);
