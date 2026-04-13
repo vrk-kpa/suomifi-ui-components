@@ -42,7 +42,9 @@ class BaseSelectItemAddition extends Component<
 
     return (
       <HtmlDiv {...passProps}>
-        <HtmlDiv className={classNames.hint_text}>{hintText}</HtmlDiv>
+        <HtmlDiv className={classNames.hint_text} aria-hidden>
+          {hintText}
+        </HtmlDiv>
         <HtmlLi
           className={classnames(classNames.item, {
             [classNames.hasKeyboardFocus]: hasKeyboardFocus,
