@@ -1159,6 +1159,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 }
 
 .c15 {
+  display: block;
   position: relative;
   padding: 8px 32px 8px 10px;
   letter-spacing: 0;

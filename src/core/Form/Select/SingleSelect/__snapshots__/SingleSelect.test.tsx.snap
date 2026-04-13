@@ -623,6 +623,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c18 {
+  display: block;
   position: relative;
   padding: 8px 32px 8px 10px;
   letter-spacing: 0;
