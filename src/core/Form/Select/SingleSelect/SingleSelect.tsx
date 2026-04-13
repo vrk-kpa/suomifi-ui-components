@@ -728,6 +728,7 @@ class BaseSingleSelect<T> extends Component<
                     ref={this.popoverListRef}
                     focusedDescendantId={ariaActiveDescendant}
                     popoverPlacement={consumer?.popoverPlacement}
+                    aria-labelledby={`${id}-label`}
                     {...listProps}
                   >
                     <>
