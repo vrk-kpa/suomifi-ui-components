@@ -207,8 +207,6 @@ class BaseSingleSelect<T> extends Component<
 
   private clearButtonRef: React.RefObject<HTMLButtonElement>;
 
-  private preventShowPopoverOnInputFocus = false;
-
   constructor(
     props: SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp,
   ) {
@@ -357,15 +355,14 @@ class BaseSingleSelect<T> extends Component<
     });
   };
 
-  private focusToInputAndSelectText = () => {
+  private focusToInput = () => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
       this.filterInputRef.current.focus();
-      setTimeout(() => this.filterInputRef.current?.select(), 100);
     }
   };
 
   private focusToInputAndCloseMenu = () => {
-    this.focusToInputAndSelectText();
+    this.focusToInput();
     this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
       showPopover: false,
       filterMode: false,
@@ -411,6 +408,17 @@ class BaseSingleSelect<T> extends Component<
     this.focusToInputAndCloseMenu();
   };
 
+  private setFocusedDescendantAfterPopoverIsVisible = (
+    uniqueItemId: string,
+  ) => {
+    // Popover only becomes visible after two requestAnimationFrames
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.setState({ focusedDescendantId: uniqueItemId });
+      });
+    });
+  };
+
   private handleKeyDown = (event: React.KeyboardEvent) => {
     const { filteredItems, focusedDescendantId, filterMode, filterInputValue } =
       this.state;
@@ -442,9 +450,6 @@ class BaseSingleSelect<T> extends Component<
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        if (!this.state.showPopover) {
-          this.setState({ showPopover: true });
-        }
         const nextItem =
           this.props.allowItemAddition &&
           (index === popoverItems.length - 1 || popoverItems.length === 0) &&
@@ -455,7 +460,17 @@ class BaseSingleSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getNextItem();
-        if (nextItem) {
+
+        if (!this.state.showPopover) {
+          // Open the popover first, then set the focus in the callback after items are in the DOM
+          this.setState({ showPopover: true }, () => {
+            if (nextItem) {
+              this.setFocusedDescendantAfterPopoverIsVisible(
+                nextItem.uniqueItemId,
+              );
+            }
+          });
+        } else if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
         break;
@@ -463,9 +478,6 @@ class BaseSingleSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        if (!this.state.showPopover) {
-          this.setState({ showPopover: true });
-        }
         const previousItem =
           this.props.allowItemAddition &&
           (index === null || index === 0) &&
@@ -476,7 +488,16 @@ class BaseSingleSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getPreviousItem();
-        if (previousItem) {
+
+        if (!this.state.showPopover) {
+          this.setState({ showPopover: true }, () => {
+            if (previousItem) {
+              this.setFocusedDescendantAfterPopoverIsVisible(
+                previousItem.uniqueItemId,
+              );
+            }
+          });
+        } else if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
         break;
@@ -642,14 +663,8 @@ class BaseSingleSelect<T> extends Component<
               }}
               filterFunc={this.filter}
               forwardedRef={this.filterInputRef}
-              onFocus={() => {
-                if (!this.preventShowPopoverOnInputFocus) {
-                  this.setState({ showPopover: true });
-                }
-                this.preventShowPopoverOnInputFocus = false;
-              }}
               onClick={() => {
-                this.focusToInputAndSelectText();
+                this.focusToInput();
                 this.setState({
                   showPopover: true,
                 });
@@ -695,8 +710,7 @@ class BaseSingleSelect<T> extends Component<
                       showPopover: !prevState.showPopover,
                     }),
                   );
-                  this.preventShowPopoverOnInputFocus = true;
-                  this.focusToInputAndSelectText();
+                  this.focusToInput();
                 }}
                 tabIndex={-1}
                 disabled={disabled}
