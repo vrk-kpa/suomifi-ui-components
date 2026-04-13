@@ -616,6 +616,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
               this.setState({ showPopover: false, focusedDescendantId: null });
             }}
             className={popoverClassName}
+            tabIndex={-1}
           >
             <PopoverConsumer>
               {(consumer) => {
