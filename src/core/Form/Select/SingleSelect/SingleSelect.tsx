@@ -609,12 +609,9 @@ class BaseSingleSelect<T> extends Component<
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (
             <FilterInput
-              inputElementContainerProps={{
-                role: 'combobox',
-                'aria-haspopup': 'listbox',
-                'aria-owns': popoverItemListId,
-                'aria-expanded': showPopover,
-              }}
+              role="combobox"
+              aria-haspopup="listbox"
+              aria-expanded={showPopover}
               aria-activedescendant={ariaActiveDescendant}
               id={id}
               aria-controls={popoverItemListId}
