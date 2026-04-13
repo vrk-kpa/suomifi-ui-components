@@ -687,6 +687,7 @@ class BaseSingleSelect<T> extends Component<
               <InputToggleButton
                 open={showPopover}
                 ref={this.toggleButtonRef}
+                aria-expanded={showPopover}
                 onClick={(event) => {
                   event.preventDefault();
                   this.setState(
@@ -697,7 +698,6 @@ class BaseSingleSelect<T> extends Component<
                   this.preventShowPopoverOnInputFocus = true;
                   this.focusToInputAndSelectText();
                 }}
-                aria-hidden={true}
                 tabIndex={-1}
                 disabled={disabled}
               />
