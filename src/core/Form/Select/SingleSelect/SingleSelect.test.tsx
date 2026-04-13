@@ -276,6 +276,51 @@ describe('filter', () => {
     const options = getAllByRole('option');
     expect(options).toHaveLength(9);
   });
+
+  it('should restore selected value when closed with outside click', async () => {
+    const user = userEvent.setup();
+    const { getByRole, queryByRole } = render(BasicSingleSelect);
+    const input = getByRole('combobox');
+
+    expect(input).toHaveValue('Hammer');
+    await user.clear(input);
+    await user.type(input, 'not selected');
+    await waitForPosition();
+    expect(input).toHaveValue('not selected');
+
+    await user.click(document.body);
+
+    await waitFor(() => {
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
+      expect(input).toHaveValue('Hammer');
+    });
+  });
+
+  it('should clear value when closed with outside click and no selected value', async () => {
+    const user = userEvent.setup();
+    const { getByRole, queryByRole } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('combobox');
+
+    await user.type(input, 'not selected');
+    await waitForPosition();
+    expect(input).toHaveValue('not selected');
+
+    await user.click(document.body);
+
+    await waitFor(() => {
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
+      expect(input).toHaveValue('');
+    });
+  });
 });
 
 test('option: should be selected when clicked', async () => {
