@@ -13,6 +13,7 @@ export const baseStyles = (
   ${buildSpacingCSS(propMargins, true)}
   ${fixInternalMargins()}
   width: 290px;
+  z-index: ${theme.zindexes.menu};
 
   &.fi-single-select {
     & .fi-filter-input_input {
