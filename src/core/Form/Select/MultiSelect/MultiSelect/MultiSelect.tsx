@@ -799,6 +799,7 @@ class BaseMultiSelect<T> extends Component<
                   }
                 }}
                 className={popoverClassName}
+                tabIndex={-1}
               >
                 <PopoverConsumer>
                   {(consumer) => {
