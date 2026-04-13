@@ -715,6 +715,7 @@ class BaseSingleSelect<T> extends Component<
               }
             }}
             className={popoverClassName}
+            portal={false}
           >
             <PopoverConsumer>
               {(consumer) => {
