@@ -120,7 +120,7 @@ it('should not have basic accessibility issues', async () => {
 it('has matching snapshot', async () => {
   const user = userEvent.setup();
   const { baseElement, getByRole } = render(BasicMultiSelect);
-  const textfield = getByRole('textbox') as HTMLInputElement;
+  const textfield = getByRole('combobox') as HTMLInputElement;
   await user.click(textfield);
   await waitForPosition();
   expect(baseElement).toMatchSnapshot();
@@ -241,7 +241,7 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    const textfield = getByRole('textbox') as HTMLInputElement;
+    const textfield = getByRole('combobox') as HTMLInputElement;
     await user.type(textfield, 'hammer');
     await waitForPosition();
 
@@ -277,7 +277,7 @@ describe('Non-controlled', () => {
     let chips = container.querySelectorAll('.fi-chip');
     expect(chips).toHaveLength(0);
 
-    const textfield = getByRole('textbox') as HTMLInputElement;
+    const textfield = getByRole('combobox') as HTMLInputElement;
     await user.click(textfield);
     await waitForPosition();
     rerender(
@@ -461,7 +461,7 @@ describe('Controlled', () => {
     );
 
     const { getByRole, rerender, findAllByRole } = render(multiMutti);
-    const textfield = getByRole('textbox') as HTMLInputElement;
+    const textfield = getByRole('combobox') as HTMLInputElement;
     await user.type(textfield, 'sn');
     await waitForPosition();
 
@@ -541,7 +541,7 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
       ariaOptionChipRemovedText=""
     />,
   );
-  const inputfield = getByRole('textbox') as HTMLInputElement;
+  const inputfield = getByRole('combobox') as HTMLInputElement;
   expect(inputfield).toHaveAttribute('placeholder', 'Select item(s)');
 });
 
@@ -573,7 +573,7 @@ test('id: has the given id', () => {
       ariaOptionChipRemovedText=""
     />,
   );
-  expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
+  expect(getByRole('combobox')).toHaveAttribute('id', 'cb-123');
 });
 
 describe('statusText', () => {
@@ -609,7 +609,7 @@ describe('statusText', () => {
         ariaOptionChipRemovedText=""
       />,
     );
-    expect(getByRole('textbox')).toHaveAttribute(
+    expect(getByRole('combobox')).toHaveAttribute(
       'aria-describedby',
       '123-statusText',
     );
@@ -675,7 +675,7 @@ describe('custom item addition mode', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.type(input, 'hamm');
     await waitForPosition();
 
@@ -764,7 +764,7 @@ describe('listProps', () => {
         }}
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const menu = getByRole('listbox');
@@ -791,7 +791,7 @@ describe('listItemProps', () => {
         ariaOptionChipRemovedText=""
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const option = getByRole('option');

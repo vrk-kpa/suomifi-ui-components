@@ -42,6 +42,7 @@ const multiSelectClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   content_wrapper: `${baseClassName}_content_wrapper`,
   removeAllButton: `${baseClassName}_removeAllButton`,
+  popover: `${baseClassName}_popover`,
 };
 
 export interface MultiSelectData {
@@ -715,12 +716,9 @@ class BaseMultiSelect<T> extends Component<
             <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
                 <FilterInput
-                  inputElementContainerProps={{
-                    role: 'combobox',
-                    'aria-haspopup': 'listbox',
-                    'aria-owns': popoverItemListId,
-                    'aria-expanded': showPopover,
-                  }}
+                  role="combobox"
+                  aria-haspopup="listbox"
+                  aria-expanded={showPopover}
                   aria-activedescendant={ariaActiveDescendant}
                   id={id}
                   labelText={labelText}
@@ -780,8 +778,8 @@ class BaseMultiSelect<T> extends Component<
                   <InputToggleButton
                     open={showPopover}
                     ref={this.toggleButtonRef}
+                    aria-expanded={showPopover}
                     onClick={(event) => this.handleToggleButtonClick(event)}
-                    aria-hidden={true}
                     tabIndex={-1}
                     disabled={disabled}
                   />
@@ -798,8 +796,11 @@ class BaseMultiSelect<T> extends Component<
                     this.setState({ showPopover: false });
                   }
                 }}
-                className={popoverClassName}
-                tabIndex={-1}
+                className={classnames(
+                  multiSelectClassNames.popover,
+                  popoverClassName,
+                )}
+                portal={false}
               >
                 <PopoverConsumer>
                   {(consumer) => {
@@ -811,6 +812,7 @@ class BaseMultiSelect<T> extends Component<
                         focusedDescendantId={ariaActiveDescendant}
                         aria-multiselectable="true"
                         popoverPlacement={consumer.popoverPlacement}
+                        aria-labelledby={`${id}-label`}
                         {...listProps}
                       >
                         <>
