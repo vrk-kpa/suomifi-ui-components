@@ -13,7 +13,6 @@ export const baseStyles = (
   ${buildSpacingCSS(propMargins, true)}
   ${fixInternalMargins()}
   width: 290px;
-  z-index: ${theme.zindexes.menu};
 
   &.fi-single-select {
     & .fi-filter-input_input {
@@ -29,6 +28,12 @@ export const baseStyles = (
     &--full-width {
       width: 100%;
     }
+  }
+
+  /* :where() pseudo-class lowers specificity allowing ".<styled-components-hash> :where(.fi-single-select_popover)"
+    to be overridden with popoverClassName prop, unlike ".<styled-components-hash> .fi-single-select_popover" */
+  & :where(.fi-single-select_popover) {
+    z-index: ${theme.zindexes.menu};
   }
 
   &.fi-single-select--open {

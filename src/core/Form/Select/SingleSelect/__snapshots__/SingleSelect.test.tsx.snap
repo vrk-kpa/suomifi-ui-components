@@ -753,7 +753,6 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 290px;
-  z-index: 888;
 }
 
 .c1 .fi-label,
@@ -772,6 +771,10 @@ exports[`has matching snapshot 1`] = `
 
 .c1.fi-single-select--full-width {
   width: 100%;
+}
+
+.c1 :where(.fi-single-select_popover) {
+  z-index: 888;
 }
 
 .c1.fi-single-select--open .fi-filter-input_input {
@@ -960,6 +963,7 @@ exports[`has matching snapshot 1`] = `
         </div>
       </div>
       <div
+        class="fi-single-select_popover"
         role="presentation"
         style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px); width: 0px;"
       >

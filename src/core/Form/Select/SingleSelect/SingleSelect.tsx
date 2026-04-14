@@ -33,6 +33,7 @@ import { SelectItemAddition } from '../BaseSelect/SelectItemAddition/SelectItemA
 
 const baseClassName = 'fi-single-select';
 const singleSelectClassNames = {
+  popover: `${baseClassName}_popover`,
   valueSelected: `${baseClassName}--value-selected`,
   clearButtonWrapper: `${baseClassName}_clear-button_wrapper`,
   open: `${baseClassName}--open`,
@@ -728,7 +729,10 @@ class BaseSingleSelect<T> extends Component<
                 this.setState({ showPopover: false });
               }
             }}
-            className={popoverClassName}
+            className={classnames(
+              singleSelectClassNames.popover,
+              popoverClassName,
+            )}
             portal={false}
           >
             <PopoverConsumer>
