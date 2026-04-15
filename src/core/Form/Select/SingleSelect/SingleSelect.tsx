@@ -325,12 +325,7 @@ class BaseSingleSelect<T> extends Component<
       const focusInSingleSelect =
         focusInPopover || focusInInput || focusInToggleButton;
       if (!focusInSingleSelect) {
-        this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
-          filterInputValue: prevState.selectedItem?.labelText || '',
-          filterMode: false,
-          showPopover: focusInSingleSelect,
-          focusedDescendantId: null,
-        }));
+        this.closeMenu();
       }
     });
   };
@@ -364,11 +359,15 @@ class BaseSingleSelect<T> extends Component<
 
   private focusToInputAndCloseMenu = () => {
     this.focusToInput();
+    this.closeMenu();
+  };
+
+  private closeMenu = () => {
     this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
-      showPopover: false,
-      filterMode: false,
-      focusedDescendantId: null,
       filterInputValue: prevState.selectedItem?.labelText || '',
+      filterMode: false,
+      showPopover: false,
+      focusedDescendantId: null,
     }));
   };
 
@@ -529,6 +528,11 @@ class BaseSingleSelect<T> extends Component<
           event.stopPropagation();
         }
         this.focusToInputAndCloseMenu();
+        break;
+      }
+
+      case 'Tab': {
+        this.closeMenu();
         break;
       }
 
