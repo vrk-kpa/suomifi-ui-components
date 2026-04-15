@@ -437,6 +437,26 @@ class BaseMultiSelect<T> extends Component<
       ? this.toggleButtonRef.current?.contains(ownerDocument.activeElement)
       : false;
 
+  private closeMenu = () => {
+    const userAddedSelectedItems: Array<T & MultiSelectData> =
+      this.state.selectedItems.filter((si) =>
+        this.props.items.every((pi) => pi.uniqueItemId !== si.uniqueItemId),
+      );
+    this.setState(
+      (
+        _prevState: MultiSelectState<T & MultiSelectData>,
+        prevProps: MultiSelectProps<T & MultiSelectData>,
+      ) => ({
+        filterInputValue: '',
+        filteredItems: prevProps.items,
+        showPopover: false,
+        showOptionsAvailableText: false,
+        focusedDescendantId: null,
+        computedItems: prevProps.items.concat(userAddedSelectedItems),
+      }),
+    );
+  };
+
   private handleBlur = () => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
@@ -453,25 +473,8 @@ class BaseMultiSelect<T> extends Component<
       const focusInMultiSelect =
         focusInPopover || focusInInput || focusInToggleButton;
 
-      const userAddedSelectedItems: Array<T & MultiSelectData> =
-        this.state.selectedItems.filter((si) =>
-          this.props.items.every((pi) => pi.uniqueItemId !== si.uniqueItemId),
-        );
-
       if (!focusInMultiSelect) {
-        this.setState(
-          (
-            _prevState: MultiSelectState<T & MultiSelectData>,
-            prevProps: MultiSelectProps<T & MultiSelectData>,
-          ) => ({
-            filterInputValue: '',
-            filteredItems: prevProps.items,
-            showPopover: false,
-            showOptionsAvailableText: false,
-            focusedDescendantId: null,
-            computedItems: prevProps.items.concat(userAddedSelectedItems),
-          }),
-        );
+        this.closeMenu();
       }
     });
   };
@@ -581,6 +584,11 @@ class BaseMultiSelect<T> extends Component<
         break;
       }
 
+      case 'Tab': {
+        this.closeMenu();
+        break;
+      }
+
       default: {
         break;
       }
@@ -599,12 +607,11 @@ class BaseMultiSelect<T> extends Component<
     if (!!this.filterInputRef && this.filterInputRef.current) {
       if (document.activeElement !== this.filterInputRef.current) {
         this.filterInputRef.current.focus();
-      } else {
-        this.setState((prevState: MultiSelectState<T & MultiSelectData>) => ({
-          showPopover: !prevState.showPopover,
-          showOptionsAvailableText: !prevState.showOptionsAvailableText,
-        }));
       }
+      this.setState((prevState: MultiSelectState<T & MultiSelectData>) => ({
+        showPopover: !prevState.showPopover,
+        showOptionsAvailableText: !prevState.showOptionsAvailableText,
+      }));
     }
   }
 
@@ -725,6 +732,12 @@ class BaseMultiSelect<T> extends Component<
                   optionalText={optionalText}
                   hintText={hintText}
                   items={computedItems}
+                  onClick={() => {
+                    this.setState({
+                      showPopover: true,
+                      showOptionsAvailableText: true,
+                    });
+                  }}
                   onFilter={(filtered) => {
                     this.setState(
                       (prevState: MultiSelectState<T & MultiSelectData>) => {
@@ -746,12 +759,6 @@ class BaseMultiSelect<T> extends Component<
                   }}
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
-                  onFocus={() =>
-                    this.setState({
-                      showPopover: true,
-                      showOptionsAvailableText: true,
-                    })
-                  }
                   onKeyDown={this.handleKeyDown}
                   onBlur={this.handleBlur}
                   value={filterInputValue}

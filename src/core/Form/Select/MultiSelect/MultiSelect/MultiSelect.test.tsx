@@ -399,8 +399,7 @@ describe('Controlled', () => {
     await waitForPosition();
     expect(mockItemSelectionsChange).toBeCalledTimes(1);
     expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
-    // Popover is open, so therefore two
-    expect(getAllByText('Turtle')).toHaveLength(2);
+    expect(getAllByText('Turtle')).toHaveLength(1);
   });
 
   it('shows correct amount of items after filtering and selecting', async () => {
@@ -713,6 +712,7 @@ describe('custom item addition mode', () => {
           '.fi-multiselect_removeAllButton',
         )[0];
         await user.click(removeAllButton);
+        await user.click(input);
         await waitForPosition();
 
         const resetItems = getAllByRole('option');
