@@ -542,8 +542,6 @@ class BaseReorderableList extends Component<
               {editModeInstructionText}
             </InlineAlert>
           )}
-
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <HtmlDiv
             className={listClassNames.list}
             aria-label={ariaLabel}

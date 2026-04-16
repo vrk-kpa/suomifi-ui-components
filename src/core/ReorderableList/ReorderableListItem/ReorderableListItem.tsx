@@ -14,6 +14,7 @@ import {
   ReorderableListContextValue,
 } from '../ReorderableList/ReorderableList';
 import { baseStyles } from './ReorderableListItem.baseStyles';
+import { InteractionBlocker } from '../IntearctionBlocker/InteractionBlocker';
 
 const baseClassName = 'fi-reorderable-list-item';
 const itemClassNames = {
@@ -196,24 +197,6 @@ class BaseReorderableListItem extends Component<
           onDrop={editMode ? this.handleDrop : undefined}
         >
           {editMode && (
-            <HtmlDiv className={itemClassNames.dragHandle} aria-hidden="true">
-              <IconOptionsVertical
-                className={`${baseClassName}_drag-handle-icon`}
-              />
-              <IconOptionsVertical
-                className={`${baseClassName}_drag-handle-icon`}
-              />
-            </HtmlDiv>
-          )}
-
-          <HtmlDiv
-            className={itemClassNames.content}
-            {...(editMode ? { inert: '' } : {})}
-          >
-            {children}
-          </HtmlDiv>
-
-          {editMode && (
             <HtmlDiv className={itemClassNames.buttons}>
               <Button
                 variant="secondaryNoBorder"
@@ -234,6 +217,24 @@ class BaseReorderableListItem extends Component<
                 onClick={this.handleMoveDown}
                 icon={<IconChevronDown />}
                 forwardedRef={this.downButtonRef}
+              />
+            </HtmlDiv>
+          )}
+          <InteractionBlocker
+            className={itemClassNames.content}
+            {...(editMode
+              ? { disableInteraction: true }
+              : { disableInteraction: false })}
+          >
+            {children}
+          </InteractionBlocker>
+          {editMode && (
+            <HtmlDiv className={itemClassNames.dragHandle} aria-hidden="true">
+              <IconOptionsVertical
+                className={`${baseClassName}_drag-handle-icon`}
+              />
+              <IconOptionsVertical
+                className={`${baseClassName}_drag-handle-icon`}
               />
             </HtmlDiv>
           )}

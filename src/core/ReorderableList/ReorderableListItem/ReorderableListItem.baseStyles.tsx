@@ -28,6 +28,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border: 1px solid ${theme.colors.depthLight1};
     border-radius: ${theme.radiuses.basic};
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     position: relative;
     transition:
