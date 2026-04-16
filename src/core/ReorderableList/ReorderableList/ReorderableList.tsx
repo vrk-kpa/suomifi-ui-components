@@ -66,7 +66,6 @@ export interface ReorderableListProps
   extends MarginProps,
     Omit<HtmlDivWithRefProps, 'onChange'> {
   children: ReactNode;
-  'aria-label'?: string;
   'aria-labelledby'?: string;
   /** Callback fired when items are reordered. Receives new ordered array of itemKeys. */
   onReorder: (newOrder: string[]) => void;
@@ -473,7 +472,6 @@ class BaseReorderableList extends Component<
       onEditModeChange,
       forwardedRef,
       style,
-      'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       ...rest
     } = this.props;
@@ -544,7 +542,6 @@ class BaseReorderableList extends Component<
           )}
           <HtmlDiv
             className={listClassNames.list}
-            aria-label={ariaLabel}
             aria-labelledby={ariaLabelledBy}
             onKeyDown={this.handleListKeyDown}
           >
