@@ -628,10 +628,14 @@ class BaseMultiSelect<T> extends Component<
       if (document.activeElement !== this.filterInputRef.current) {
         this.filterInputRef.current.focus();
       }
-      this.setState((prevState: MultiSelectState<T & MultiSelectData>) => ({
-        showPopover: !prevState.showPopover,
-        showOptionsAvailableText: !prevState.showOptionsAvailableText,
-      }));
+      if (this.state.showPopover) {
+        this.closeMenu();
+      } else {
+        this.setState(() => ({
+          showPopover: true,
+          showOptionsAvailableText: true,
+        }));
+      }
     }
   }
 

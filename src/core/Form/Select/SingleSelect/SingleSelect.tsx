@@ -377,6 +377,16 @@ class BaseSingleSelect<T> extends Component<
     }));
   };
 
+  private handleToggleButtonClick(event: React.MouseEvent<HTMLElement>) {
+    event.preventDefault();
+    if (this.state.showPopover) {
+      this.closeMenu();
+    } else {
+      this.setState(() => ({ showPopover: true }));
+    }
+    this.focusToInput();
+  }
+
   private handleItemSelection = (item: (T & SingleSelectData) | null) => {
     if (item !== null && item.disabled) return;
     const {
@@ -709,13 +719,7 @@ class BaseSingleSelect<T> extends Component<
                 ref={this.toggleButtonRef}
                 aria-expanded={showPopover}
                 onClick={(event) => {
-                  event.preventDefault();
-                  this.setState(
-                    (prevState: SingleSelectState<T & SingleSelectData>) => ({
-                      showPopover: !prevState.showPopover,
-                    }),
-                  );
-                  this.focusToInput();
+                  this.handleToggleButtonClick(event);
                 }}
                 tabIndex={-1}
                 disabled={disabled}
