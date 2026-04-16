@@ -222,6 +222,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 .c3.fi-link-list-item {
   list-style: none;
   padding: 0;
+  margin-left: 15px;
 }
 
 .c3.fi-link-list-item .fi-link-list-item_icon {
@@ -229,7 +230,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c3.fi-link-list-item .fi-link-list-item_icon .fi-icon {
-  margin-left: -3px;
+  margin-left: -18px;
   font-size: 16px;
   transform: translateY(0.1em);
 }
