@@ -479,6 +479,24 @@ class BaseMultiSelect<T> extends Component<
     });
   };
 
+  private setFocusedDescendantAfterPopoverIsVisible = (
+    item: MultiSelectData,
+  ) => {
+    /** Popover becomes visible after two requestAnimationFrames,
+     * defer setting focused descendant so that screen readers
+     * will read the list item when opening popover with keyboard
+     */
+    this.setState({ showPopover: true }, () => {
+      if (item) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            this.setState({ focusedDescendantId: item.uniqueItemId });
+          });
+        });
+      }
+    });
+  };
+
   private handleKeyDown = (event: React.KeyboardEvent) => {
     const {
       filteredItems: items,
@@ -510,7 +528,6 @@ class BaseMultiSelect<T> extends Component<
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        this.setState({ showPopover: true });
         const nextItem =
           this.props.allowItemAddition &&
           (index === items.length - 1 || items.length === 0) &&
@@ -521,7 +538,9 @@ class BaseMultiSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getNextItem();
-        if (nextItem) {
+        if (!this.state.showPopover) {
+          this.setFocusedDescendantAfterPopoverIsVisible(nextItem);
+        } else if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
         break;
@@ -529,7 +548,6 @@ class BaseMultiSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        this.setState({ showPopover: true });
         const previousItem =
           this.props.allowItemAddition &&
           (index === null || index === 0) &&
@@ -540,7 +558,9 @@ class BaseMultiSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getPreviousItem();
-        if (previousItem) {
+        if (!this.state.showPopover) {
+          this.setFocusedDescendantAfterPopoverIsVisible(previousItem);
+        } else if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
         break;

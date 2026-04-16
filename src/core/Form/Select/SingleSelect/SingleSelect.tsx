@@ -409,13 +409,20 @@ class BaseSingleSelect<T> extends Component<
   };
 
   private setFocusedDescendantAfterPopoverIsVisible = (
-    uniqueItemId: string,
+    item: SingleSelectData,
   ) => {
-    // Popover only becomes visible after two requestAnimationFrames
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        this.setState({ focusedDescendantId: uniqueItemId });
-      });
+    /** Popover becomes visible after two requestAnimationFrames,
+     * defer setting focused descendant so that screen readers
+     * will read the list item when opening popover with keyboard
+     */
+    this.setState({ showPopover: true }, () => {
+      if (item) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            this.setState({ focusedDescendantId: item.uniqueItemId });
+          });
+        });
+      }
     });
   };
 
@@ -462,14 +469,7 @@ class BaseSingleSelect<T> extends Component<
             : getNextItem();
 
         if (!this.state.showPopover) {
-          // Open the popover first, then set the focus in the callback after items are in the DOM
-          this.setState({ showPopover: true }, () => {
-            if (nextItem) {
-              this.setFocusedDescendantAfterPopoverIsVisible(
-                nextItem.uniqueItemId,
-              );
-            }
-          });
+          this.setFocusedDescendantAfterPopoverIsVisible(nextItem);
         } else if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
@@ -490,13 +490,7 @@ class BaseSingleSelect<T> extends Component<
             : getPreviousItem();
 
         if (!this.state.showPopover) {
-          this.setState({ showPopover: true }, () => {
-            if (previousItem) {
-              this.setFocusedDescendantAfterPopoverIsVisible(
-                previousItem.uniqueItemId,
-              );
-            }
-          });
+          this.setFocusedDescendantAfterPopoverIsVisible(previousItem);
         } else if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
