@@ -317,13 +317,19 @@ class BaseSingleSelect<T> extends Component<
       const focusInPopover = this.popoverListRef.current?.contains(
         ownerDocument.activeElement,
       );
+      const focusInClearButton = this.clearButtonRef.current?.contains(
+        ownerDocument.activeElement,
+      );
       const focusInToggleButton = this.toggleButtonRef.current?.contains(
         ownerDocument.activeElement,
       );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
       const focusInSingleSelect =
-        focusInPopover || focusInInput || focusInToggleButton;
+        focusInPopover ||
+        focusInInput ||
+        focusInToggleButton ||
+        focusInClearButton;
       if (!focusInSingleSelect) {
         this.closeMenu();
       }
