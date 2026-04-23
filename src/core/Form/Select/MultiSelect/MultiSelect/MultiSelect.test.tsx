@@ -680,49 +680,43 @@ describe('custom item addition mode', () => {
 
     const items = await getAllByRole('option');
     expect(items).toHaveLength(4);
-    const hammItem = items.find((item) => item.textContent === 'hamm');
+    const hammItem = items[3];
+    expect(hammItem).toHaveTextContent('hamm');
+    await user.click(hammItem);
+    await waitForPosition();
 
-    if (hammItem) {
-      await user.click(hammItem);
-      await waitForPosition();
+    await user.clear(input);
+    await user.type(input, 'ha');
+    await waitForPosition();
+    const modifiedItems = getAllByRole('option');
+    expect(modifiedItems).toHaveLength(5);
 
-      await user.clear(input);
-      await user.type(input, 'ha');
-      await waitForPosition();
-      const modifiedItems = getAllByRole('option');
-      expect(modifiedItems).toHaveLength(5);
-      const haItem = modifiedItems.find((item) => item.textContent === 'ha');
+    const haItem = modifiedItems[4];
+    expect(haItem).toHaveTextContent('ha');
 
-      if (haItem) {
-        await user.click(haItem);
-        await waitForPosition();
-        await user.clear(input);
-        await waitForPosition();
+    await user.click(haItem);
+    await waitForPosition();
+    await user.clear(input);
+    await waitForPosition();
 
-        const appendedItems = getAllByRole('option');
-        expect(appendedItems).toHaveLength(11);
-        const secondToLastItem = appendedItems[9];
-        const lastItem = appendedItems[10];
-        expect(secondToLastItem).toHaveTextContent('hamm');
-        expect(secondToLastItem).toHaveClass('fi-select-item--selected');
-        expect(lastItem).toHaveTextContent('ha');
-        expect(lastItem).toHaveClass('fi-select-item--selected');
+    const appendedItems = getAllByRole('option');
+    expect(appendedItems).toHaveLength(11);
+    const secondToLastItem = appendedItems[9];
+    const lastItem = appendedItems[10];
+    expect(secondToLastItem).toHaveTextContent('hamm');
+    expect(secondToLastItem).toHaveClass('fi-select-item--selected');
+    expect(lastItem).toHaveTextContent('ha');
+    expect(lastItem).toHaveClass('fi-select-item--selected');
 
-        const removeAllButton = container.querySelectorAll(
-          '.fi-multiselect_removeAllButton',
-        )[0];
-        await user.click(removeAllButton);
-        await user.click(input);
-        await waitForPosition();
+    const removeAllButton = container.querySelectorAll(
+      '.fi-multiselect_removeAllButton',
+    )[0];
+    await user.click(removeAllButton);
+    await user.click(input);
+    await waitForPosition();
 
-        const resetItems = getAllByRole('option');
-        expect(resetItems).toHaveLength(9);
-      } else {
-        throw new Error('No custom item "ha" found');
-      }
-    } else {
-      throw new Error('No custom item "hamm" found');
-    }
+    const resetItems = getAllByRole('option');
+    expect(resetItems).toHaveLength(9);
   });
 });
 
