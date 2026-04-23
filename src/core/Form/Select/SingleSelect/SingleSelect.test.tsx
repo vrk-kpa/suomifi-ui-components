@@ -473,8 +473,7 @@ describe('disabled', () => {
 
 describe('custom item addition mode', () => {
   it('should allow user to add & remove their own option as the selected value', async () => {
-    jest.useFakeTimers();
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup();
     const { getByRole, getAllByRole, getByText } = render(
       <SingleSelect
         allowItemAddition={true}
@@ -487,7 +486,6 @@ describe('custom item addition mode', () => {
     );
     const input = getByRole('combobox');
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'hamm');
     const items = getAllByRole('option');
     expect(items).toHaveLength(4);
@@ -496,7 +494,7 @@ describe('custom item addition mode', () => {
     await user.click(extraItem);
     await user.tab();
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
+    await waitForPosition();
     const appendedItems = getAllByRole('option');
     expect(appendedItems).toHaveLength(10);
     const lastItem = appendedItems[9];
@@ -508,10 +506,9 @@ describe('custom item addition mode', () => {
     expect(input).toHaveValue('');
 
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
+    await waitForPosition();
     const resetItems = getAllByRole('option');
     expect(resetItems).toHaveLength(9);
-    jest.useRealTimers();
   });
 });
 
@@ -723,8 +720,7 @@ describe('margin', () => {
 
 describe('keyboard interactions', () => {
   it('should reset input value to selected item when pressing Escape after typing', async () => {
-    jest.useFakeTimers();
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup();
     const { getByRole, getByText } = render(BasicSingleSelect);
 
     const input = getByRole('combobox');
@@ -736,20 +732,16 @@ describe('keyboard interactions', () => {
     expect(input).toHaveValue('Rake');
 
     await user.click(input);
-    // Wait for the select timeout in the component to complete before typing
-    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'something else');
     expect(input).toHaveValue('something else');
 
     // Press Escape - should reset to selected item
     await user.keyboard('{Escape}');
     expect(input).toHaveValue('Rake');
-    jest.useRealTimers();
   });
 
   it('should clear input when pressing Escape with no selected item', async () => {
-    jest.useFakeTimers();
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup();
     const { getByRole } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -765,13 +757,11 @@ describe('keyboard interactions', () => {
 
     // Type something in the input without selecting
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'something');
     expect(input).toHaveValue('something');
 
     // Press Escape - should clear input since no item is selected
     await user.keyboard('{Escape}');
     expect(input).toHaveValue('');
-    jest.useRealTimers();
   });
 });
