@@ -41,6 +41,8 @@ export interface PopoverProps extends HtmlDivProps {
   portal?: boolean;
   /** CSS class for custom styles */
   className?: string;
+  /** Tabindex for the popover container element */
+  TabIndex?: number;
 }
 
 export interface PopoverProviderState {
@@ -68,6 +70,7 @@ export const Popover = (props: PopoverProps) => {
     onClickOutside,
     portal = true,
     className,
+    tabIndex,
     ...passProps
   } = props;
 
@@ -188,7 +191,7 @@ export const Popover = (props: PopoverProps) => {
               ...floatingStyles,
               visibility: isPositioned ? 'visible' : 'hidden',
             }}
-            tabIndex={-1}
+            tabIndex={tabIndex}
             role="presentation"
           >
             <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
@@ -211,7 +214,7 @@ export const Popover = (props: PopoverProps) => {
         ...floatingStyles,
         visibility: isPositioned ? 'visible' : 'hidden',
       }}
-      tabIndex={-1}
+      tabIndex={tabIndex}
       role="presentation"
     >
       <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>

@@ -698,6 +698,7 @@ class BaseDropdown<T extends string = string> extends Component<
               onKeyDown={this.handleKeyDown}
               portal={portal}
               className={popoverClassName}
+              tabIndex={-1}
             >
               <PopoverConsumer>
                 {(consumer) => {

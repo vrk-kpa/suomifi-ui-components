@@ -27,6 +27,12 @@ export const baseStyles = (
     }
   }
 
+  /* :where() pseudo-class lowers specificity allowing ".<styled-components-hash> :where(.fi-multiselect_popover)"
+     to be overridden with popoverClassName prop, unlike ".<styled-components-hash> .fi-multiselect_popover" */
+  & :where(.fi-multiselect_popover) {
+    z-index: ${theme.zindexes.menu};
+  }
+
   & .fi-multiselect_content_wrapper {
     display: inline-block;
     width: 100%;

@@ -42,6 +42,7 @@ const multiSelectClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   content_wrapper: `${baseClassName}_content_wrapper`,
   removeAllButton: `${baseClassName}_removeAllButton`,
+  popover: `${baseClassName}_popover`,
 };
 
 export interface MultiSelectData {
@@ -436,6 +437,26 @@ class BaseMultiSelect<T> extends Component<
       ? this.toggleButtonRef.current?.contains(ownerDocument.activeElement)
       : false;
 
+  private closeMenu = () => {
+    const userAddedSelectedItems: Array<T & MultiSelectData> =
+      this.state.selectedItems.filter((si) =>
+        this.props.items.every((pi) => pi.uniqueItemId !== si.uniqueItemId),
+      );
+    this.setState(
+      (
+        _prevState: MultiSelectState<T & MultiSelectData>,
+        prevProps: MultiSelectProps<T & MultiSelectData>,
+      ) => ({
+        filterInputValue: '',
+        filteredItems: prevProps.items,
+        showPopover: false,
+        showOptionsAvailableText: false,
+        focusedDescendantId: null,
+        computedItems: prevProps.items.concat(userAddedSelectedItems),
+      }),
+    );
+  };
+
   private handleBlur = () => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
@@ -452,25 +473,26 @@ class BaseMultiSelect<T> extends Component<
       const focusInMultiSelect =
         focusInPopover || focusInInput || focusInToggleButton;
 
-      const userAddedSelectedItems: Array<T & MultiSelectData> =
-        this.state.selectedItems.filter((si) =>
-          this.props.items.every((pi) => pi.uniqueItemId !== si.uniqueItemId),
-        );
-
       if (!focusInMultiSelect) {
-        this.setState(
-          (
-            _prevState: MultiSelectState<T & MultiSelectData>,
-            prevProps: MultiSelectProps<T & MultiSelectData>,
-          ) => ({
-            filterInputValue: '',
-            filteredItems: prevProps.items,
-            showPopover: false,
-            showOptionsAvailableText: false,
-            focusedDescendantId: null,
-            computedItems: prevProps.items.concat(userAddedSelectedItems),
-          }),
-        );
+        this.closeMenu();
+      }
+    });
+  };
+
+  private setFocusedDescendantAfterPopoverIsVisible = (
+    item: MultiSelectData,
+  ) => {
+    /** Popover becomes visible after two requestAnimationFrames,
+     * defer setting focused descendant so that screen readers
+     * will read the list item when opening popover with keyboard
+     */
+    this.setState({ showPopover: true }, () => {
+      if (item) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            this.setState({ focusedDescendantId: item.uniqueItemId });
+          });
+        });
       }
     });
   };
@@ -506,7 +528,6 @@ class BaseMultiSelect<T> extends Component<
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        this.setState({ showPopover: true });
         const nextItem =
           this.props.allowItemAddition &&
           (index === items.length - 1 || items.length === 0) &&
@@ -517,7 +538,9 @@ class BaseMultiSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getNextItem();
-        if (nextItem) {
+        if (!this.state.showPopover) {
+          this.setFocusedDescendantAfterPopoverIsVisible(nextItem);
+        } else if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
         break;
@@ -525,7 +548,6 @@ class BaseMultiSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        this.setState({ showPopover: true });
         const previousItem =
           this.props.allowItemAddition &&
           (index === null || index === 0) &&
@@ -536,7 +558,9 @@ class BaseMultiSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getPreviousItem();
-        if (previousItem) {
+        if (!this.state.showPopover) {
+          this.setFocusedDescendantAfterPopoverIsVisible(previousItem);
+        } else if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
         break;
@@ -580,6 +604,11 @@ class BaseMultiSelect<T> extends Component<
         break;
       }
 
+      case 'Tab': {
+        this.closeMenu();
+        break;
+      }
+
       default: {
         break;
       }
@@ -598,10 +627,13 @@ class BaseMultiSelect<T> extends Component<
     if (!!this.filterInputRef && this.filterInputRef.current) {
       if (document.activeElement !== this.filterInputRef.current) {
         this.filterInputRef.current.focus();
+      }
+      if (this.state.showPopover) {
+        this.closeMenu();
       } else {
-        this.setState((prevState: MultiSelectState<T & MultiSelectData>) => ({
-          showPopover: !prevState.showPopover,
-          showOptionsAvailableText: !prevState.showOptionsAvailableText,
+        this.setState(() => ({
+          showPopover: true,
+          showOptionsAvailableText: true,
         }));
       }
     }
@@ -715,18 +747,21 @@ class BaseMultiSelect<T> extends Component<
             <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
                 <FilterInput
-                  inputElementContainerProps={{
-                    role: 'combobox',
-                    'aria-haspopup': 'listbox',
-                    'aria-owns': popoverItemListId,
-                    'aria-expanded': showPopover,
-                  }}
+                  role="combobox"
+                  aria-haspopup="listbox"
+                  aria-expanded={showPopover}
                   aria-activedescendant={ariaActiveDescendant}
                   id={id}
                   labelText={labelText}
                   optionalText={optionalText}
                   hintText={hintText}
                   items={computedItems}
+                  onClick={() => {
+                    this.setState({
+                      showPopover: true,
+                      showOptionsAvailableText: true,
+                    });
+                  }}
                   onFilter={(filtered) => {
                     this.setState(
                       (prevState: MultiSelectState<T & MultiSelectData>) => {
@@ -748,12 +783,6 @@ class BaseMultiSelect<T> extends Component<
                   }}
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
-                  onFocus={() =>
-                    this.setState({
-                      showPopover: true,
-                      showOptionsAvailableText: true,
-                    })
-                  }
                   onKeyDown={this.handleKeyDown}
                   onBlur={this.handleBlur}
                   value={filterInputValue}
@@ -780,8 +809,10 @@ class BaseMultiSelect<T> extends Component<
                   <InputToggleButton
                     open={showPopover}
                     ref={this.toggleButtonRef}
+                    aria-labelledby={`${id}-label`}
+                    aria-expanded={showPopover}
+                    aria-controls={popoverItemListId}
                     onClick={(event) => this.handleToggleButtonClick(event)}
-                    aria-hidden={true}
                     tabIndex={-1}
                     disabled={disabled}
                   />
@@ -798,7 +829,11 @@ class BaseMultiSelect<T> extends Component<
                     this.setState({ showPopover: false });
                   }
                 }}
-                className={popoverClassName}
+                className={classnames(
+                  multiSelectClassNames.popover,
+                  popoverClassName,
+                )}
+                portal={false}
               >
                 <PopoverConsumer>
                   {(consumer) => {
@@ -810,6 +845,7 @@ class BaseMultiSelect<T> extends Component<
                         focusedDescendantId={ariaActiveDescendant}
                         aria-multiselectable="true"
                         popoverPlacement={consumer.popoverPlacement}
+                        aria-labelledby={`${id}-label`}
                         {...listProps}
                       >
                         <>

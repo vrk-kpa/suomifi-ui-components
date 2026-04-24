@@ -120,7 +120,7 @@ it('should not have basic accessibility issues', async () => {
 it('has matching snapshot', async () => {
   const user = userEvent.setup();
   const { baseElement, getByRole } = render(BasicMultiSelect);
-  const textfield = getByRole('textbox') as HTMLInputElement;
+  const textfield = getByRole('combobox') as HTMLInputElement;
   await user.click(textfield);
   await waitForPosition();
   expect(baseElement).toMatchSnapshot();
@@ -241,7 +241,7 @@ describe('Non-controlled', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    const textfield = getByRole('textbox') as HTMLInputElement;
+    const textfield = getByRole('combobox') as HTMLInputElement;
     await user.type(textfield, 'hammer');
     await waitForPosition();
 
@@ -277,7 +277,7 @@ describe('Non-controlled', () => {
     let chips = container.querySelectorAll('.fi-chip');
     expect(chips).toHaveLength(0);
 
-    const textfield = getByRole('textbox') as HTMLInputElement;
+    const textfield = getByRole('combobox') as HTMLInputElement;
     await user.click(textfield);
     await waitForPosition();
     rerender(
@@ -399,8 +399,7 @@ describe('Controlled', () => {
     await waitForPosition();
     expect(mockItemSelectionsChange).toBeCalledTimes(1);
     expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
-    // Popover is open, so therefore two
-    expect(getAllByText('Turtle')).toHaveLength(2);
+    expect(getAllByText('Turtle')).toHaveLength(1);
   });
 
   it('shows correct amount of items after filtering and selecting', async () => {
@@ -461,7 +460,7 @@ describe('Controlled', () => {
     );
 
     const { getByRole, rerender, findAllByRole } = render(multiMutti);
-    const textfield = getByRole('textbox') as HTMLInputElement;
+    const textfield = getByRole('combobox') as HTMLInputElement;
     await user.type(textfield, 'sn');
     await waitForPosition();
 
@@ -541,7 +540,7 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
       ariaOptionChipRemovedText=""
     />,
   );
-  const inputfield = getByRole('textbox') as HTMLInputElement;
+  const inputfield = getByRole('combobox') as HTMLInputElement;
   expect(inputfield).toHaveAttribute('placeholder', 'Select item(s)');
 });
 
@@ -573,7 +572,7 @@ test('id: has the given id', () => {
       ariaOptionChipRemovedText=""
     />,
   );
-  expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
+  expect(getByRole('combobox')).toHaveAttribute('id', 'cb-123');
 });
 
 describe('statusText', () => {
@@ -609,7 +608,7 @@ describe('statusText', () => {
         ariaOptionChipRemovedText=""
       />,
     );
-    expect(getByRole('textbox')).toHaveAttribute(
+    expect(getByRole('combobox')).toHaveAttribute(
       'aria-describedby',
       '123-statusText',
     );
@@ -675,54 +674,49 @@ describe('custom item addition mode', () => {
         ariaOptionChipRemovedText="removed"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.type(input, 'hamm');
     await waitForPosition();
 
     const items = await getAllByRole('option');
     expect(items).toHaveLength(4);
-    const hammItem = items.find((item) => item.textContent === 'hamm');
+    const hammItem = items[3];
+    expect(hammItem).toHaveTextContent('hamm');
+    await user.click(hammItem);
+    await waitForPosition();
 
-    if (hammItem) {
-      await user.click(hammItem);
-      await waitForPosition();
+    await user.clear(input);
+    await user.type(input, 'ha');
+    await waitForPosition();
+    const modifiedItems = getAllByRole('option');
+    expect(modifiedItems).toHaveLength(5);
 
-      await user.clear(input);
-      await user.type(input, 'ha');
-      await waitForPosition();
-      const modifiedItems = getAllByRole('option');
-      expect(modifiedItems).toHaveLength(5);
-      const haItem = modifiedItems.find((item) => item.textContent === 'ha');
+    const haItem = modifiedItems[4];
+    expect(haItem).toHaveTextContent('ha');
 
-      if (haItem) {
-        await user.click(haItem);
-        await waitForPosition();
-        await user.clear(input);
-        await waitForPosition();
+    await user.click(haItem);
+    await waitForPosition();
+    await user.clear(input);
+    await waitForPosition();
 
-        const appendedItems = getAllByRole('option');
-        expect(appendedItems).toHaveLength(11);
-        const secondToLastItem = appendedItems[9];
-        const lastItem = appendedItems[10];
-        expect(secondToLastItem).toHaveTextContent('hamm');
-        expect(secondToLastItem).toHaveClass('fi-select-item--selected');
-        expect(lastItem).toHaveTextContent('ha');
-        expect(lastItem).toHaveClass('fi-select-item--selected');
+    const appendedItems = getAllByRole('option');
+    expect(appendedItems).toHaveLength(11);
+    const secondToLastItem = appendedItems[9];
+    const lastItem = appendedItems[10];
+    expect(secondToLastItem).toHaveTextContent('hamm');
+    expect(secondToLastItem).toHaveClass('fi-select-item--selected');
+    expect(lastItem).toHaveTextContent('ha');
+    expect(lastItem).toHaveClass('fi-select-item--selected');
 
-        const removeAllButton = container.querySelectorAll(
-          '.fi-multiselect_removeAllButton',
-        )[0];
-        await user.click(removeAllButton);
-        await waitForPosition();
+    const removeAllButton = container.querySelectorAll(
+      '.fi-multiselect_removeAllButton',
+    )[0];
+    await user.click(removeAllButton);
+    await user.click(input);
+    await waitForPosition();
 
-        const resetItems = getAllByRole('option');
-        expect(resetItems).toHaveLength(9);
-      } else {
-        throw new Error('No custom item "ha" found');
-      }
-    } else {
-      throw new Error('No custom item "hamm" found');
-    }
+    const resetItems = getAllByRole('option');
+    expect(resetItems).toHaveLength(9);
   });
 });
 
@@ -764,7 +758,7 @@ describe('listProps', () => {
         }}
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const menu = getByRole('listbox');
@@ -791,7 +785,7 @@ describe('listItemProps', () => {
         ariaOptionChipRemovedText=""
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const option = getByRole('option');
