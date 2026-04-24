@@ -28,6 +28,7 @@ const itemClassNames = {
   dragOver: `${baseClassName}--drag-over`,
   viewMode: `${baseClassName}--view-mode`,
   editMode: `${baseClassName}--edit-mode`,
+  smallScreen: `${baseClassName}--small-screen`,
 };
 
 export interface ReorderableListItemProps extends Omit<HtmlLiProps, 'ref'> {
@@ -156,7 +157,7 @@ class BaseReorderableListItem extends Component<
       ...passProps
     } = this.props;
 
-    const { editMode } = consumer;
+    const { editMode, smallScreen } = consumer;
     const isDragging = consumer.draggedItemKey === itemKey;
     const isDragOver = consumer.dragOverItemKey === itemKey && !isDragging;
     const isFirst = consumer.isFirstItem(itemKey);
@@ -184,6 +185,7 @@ class BaseReorderableListItem extends Component<
           [itemClassNames.dragOver]: isDragOver,
           [itemClassNames.viewMode]: !editMode,
           [itemClassNames.editMode]: editMode,
+          [itemClassNames.smallScreen]: smallScreen,
         })}
       >
         <HtmlDiv

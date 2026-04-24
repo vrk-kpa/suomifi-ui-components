@@ -28,6 +28,7 @@ import { filterDuplicateKeys } from '../../../utils/common/common';
 const baseClassName = 'fi-reorderable-list';
 const listClassNames = {
   editMode: `${baseClassName}--edit-mode`,
+  smallScreen: `${baseClassName}--small-screen`,
   buttonRow: `${baseClassName}_button-row`,
   editButton: `${baseClassName}_edit-button`,
   revertButton: `${baseClassName}_revert-button`,
@@ -85,6 +86,8 @@ export interface ReorderableListProps
   editMode?: boolean;
   /** Callback when edit mode changes */
   onEditModeChange?: (editMode: boolean) => void;
+  /** Use small screen styling */
+  smallScreen?: boolean;
   /** CSS class for custom styles */
   className?: string;
   /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
@@ -99,6 +102,7 @@ interface RegisteredItem {
 
 export interface ReorderableListContextValue {
   editMode: boolean;
+  smallScreen: boolean;
   itemOrder: string[];
   registerItem: (
     itemKey: string,
@@ -123,6 +127,7 @@ export interface ReorderableListContextValue {
 
 const defaultContextValue: ReorderableListContextValue = {
   editMode: false,
+  smallScreen: false,
   itemOrder: [],
   registerItem: () => null,
   unregisterItem: () => null,
@@ -470,6 +475,7 @@ class BaseReorderableList extends Component<
       onReorder,
       editMode: controlledEditMode,
       onEditModeChange,
+      smallScreen,
       forwardedRef,
       style,
       'aria-labelledby': ariaLabelledBy,
@@ -482,6 +488,7 @@ class BaseReorderableList extends Component<
 
     const contextValue: ReorderableListContextValue = {
       editMode,
+      smallScreen: !!smallScreen,
       itemOrder: this.currentOrder,
       registerItem: this.registerItem,
       unregisterItem: this.unregisterItem,
@@ -507,6 +514,7 @@ class BaseReorderableList extends Component<
         forwardedRef={forwardedRef}
         className={classnames(baseClassName, className, {
           [listClassNames.editMode]: editMode,
+          [listClassNames.smallScreen]: !!smallScreen,
         })}
         style={style}
       >

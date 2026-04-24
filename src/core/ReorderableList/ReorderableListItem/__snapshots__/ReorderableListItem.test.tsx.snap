@@ -482,6 +482,14 @@ exports[`ReorderableListItem should match snapshot 1`] = `
   padding: 0;
 }
 
+.c1.fi-reorderable-list.fi-reorderable-list--small-screen .fi-reorderable-list_button-row {
+  flex-direction: column;
+}
+
+.c1.fi-reorderable-list.fi-reorderable-list--small-screen .fi-reorderable-list_button-row .fi-button {
+  width: 100%;
+}
+
 .c8 {
   color: hsl(0, 0%, 13%);
   letter-spacing: 0;
@@ -513,6 +521,7 @@ exports[`ReorderableListItem should match snapshot 1`] = `
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   position: relative;
   transition: box-shadow 0.2s ease,transform 0.2s ease,border-color 0.2s ease;
@@ -584,7 +593,6 @@ exports[`ReorderableListItem should match snapshot 1`] = `
 .c8 .fi-reorderable-list-item_content {
   flex: 1;
   min-width: 0;
-  pointer-events: none;
 }
 
 .c8 .fi-reorderable-list-item_buttons {
@@ -653,6 +661,36 @@ exports[`ReorderableListItem should match snapshot 1`] = `
   background-color: hsl(212, 63%, 98%);
 }
 
+.c8.fi-reorderable-list-item--small-screen {
+  margin-bottom: 15px;
+}
+
+.c8.fi-reorderable-list-item--small-screen .fi-reorderable-list-item_inner {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.c8.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--view-mode .fi-reorderable-list-item_inner {
+  padding: 15px;
+}
+
+.c8.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_inner {
+  padding: 15px 15px 15px 30px;
+}
+
+.c8.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_inner .fi-reorderable-list-item_content {
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+.c8.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_buttons {
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
 @media (prefers-reduced-motion) {
   .c6.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
     animation: rotation 10s infinite linear;
@@ -678,6 +716,7 @@ exports[`ReorderableListItem should match snapshot 1`] = `
 }
 
 <div
+  aria-label="Test list"
   class="c0 fi-reorderable-list c1"
   id="3"
 >
@@ -699,7 +738,6 @@ exports[`ReorderableListItem should match snapshot 1`] = `
     </button>
   </div>
   <div
-    aria-label="Test list"
     class="c2 fi-reorderable-list_list"
   >
     <ul>
@@ -713,7 +751,7 @@ exports[`ReorderableListItem should match snapshot 1`] = `
           draggable="false"
         >
           <div
-            class="c2 fi-reorderable-list-item_content"
+            class="c0 fi-reorderable-list-item_content"
           >
             <div>
               <strong>
@@ -736,7 +774,7 @@ exports[`ReorderableListItem should match snapshot 1`] = `
           draggable="false"
         >
           <div
-            class="c2 fi-reorderable-list-item_content"
+            class="c0 fi-reorderable-list-item_content"
           >
             <div>
               Second item content

@@ -33,5 +33,15 @@ export const baseStyles = (
         padding: 0;
       }
     }
+
+    &.fi-reorderable-list--small-screen {
+      & .fi-reorderable-list_button-row {
+        flex-direction: column;
+
+        & .fi-button {
+          width: 100%;
+        }
+      }
+    }
   }
 `;

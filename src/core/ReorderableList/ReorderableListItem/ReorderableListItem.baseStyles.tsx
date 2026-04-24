@@ -78,7 +78,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  /* Drag handle (two vertical option icons) */
   & .fi-reorderable-list-item_drag-handle {
     position: absolute;
     left: ${theme.spacing.xxs};
@@ -106,10 +105,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-reorderable-list-item_content {
     flex: 1;
     min-width: 0;
-    pointer-events: none;
   }
 
-  /* Buttons container */
+  /* Move buttons container */
   & .fi-reorderable-list-item_buttons {
     display: flex;
     gap: ${theme.spacing.xxs};
@@ -166,6 +164,42 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border-style: dashed;
       border-width: 2px;
       background-color: ${theme.colors.highlightLight4};
+    }
+  }
+
+  /* Small screen variant */
+  &.fi-reorderable-list-item--small-screen {
+    margin-bottom: ${theme.spacing.s};
+
+    & .fi-reorderable-list-item_inner {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &.fi-reorderable-list-item--view-mode {
+      & .fi-reorderable-list-item_inner {
+        padding: ${theme.spacing.s};
+      }
+    }
+
+    &.fi-reorderable-list-item--edit-mode {
+      & .fi-reorderable-list-item_inner {
+        padding: ${theme.spacing.s} ${theme.spacing.s} ${theme.spacing.s}
+          ${theme.spacing.xl};
+
+        & .fi-reorderable-list-item_content {
+          padding-left: ${theme.spacing.xs};
+          padding-right: 0;
+        }
+      }
+
+      & .fi-reorderable-list-item_buttons {
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: ${theme.spacing.xs};
+        margin-left: ${theme.spacing.xs};
+      }
     }
   }
 `;
