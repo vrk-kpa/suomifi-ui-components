@@ -1273,7 +1273,9 @@ exports[`has matching snapshot 1`] = `
                 class="c0 fi-filter-input_action-elements-container"
               >
                 <button
+                  aria-controls="3-popover"
                   aria-expanded="true"
+                  aria-labelledby="3-label"
                   class="c7 fi-input-toggle-button c8"
                   tabindex="-1"
                   type="button"

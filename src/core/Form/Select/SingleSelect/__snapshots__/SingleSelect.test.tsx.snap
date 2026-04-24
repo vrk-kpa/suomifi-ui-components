@@ -928,7 +928,9 @@ exports[`has matching snapshot 1`] = `
                 </button>
               </div>
               <button
+                aria-controls="2-popover"
                 aria-expanded="true"
+                aria-labelledby="2-label"
                 class="c8 fi-input-toggle-button c12"
                 tabindex="-1"
                 type="button"

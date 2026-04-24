@@ -717,7 +717,9 @@ class BaseSingleSelect<T> extends Component<
               <InputToggleButton
                 open={showPopover}
                 ref={this.toggleButtonRef}
+                aria-labelledby={`${id}-label`}
                 aria-expanded={showPopover}
+                aria-controls={popoverItemListId}
                 onClick={(event) => {
                   this.handleToggleButtonClick(event);
                 }}
