@@ -78,7 +78,8 @@ export const baseStyles = (
       width: 100%;
       height: 100%;
       display: inline-block;
-      line-height: 1.5;
+      line-height: 24px;
+      vertical-align: top;
       overflow: hidden;
     }
 
