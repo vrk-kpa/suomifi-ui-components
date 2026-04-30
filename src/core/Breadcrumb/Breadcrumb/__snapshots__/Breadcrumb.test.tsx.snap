@@ -155,7 +155,6 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  height: 1.5em;
 }
 
 .c1 .fi-breadcrumb_list {
