@@ -28,8 +28,11 @@ Examples:
 
 ```jsx
 import {
+  Block,
   ReorderableList,
-  ReorderableListItem
+  ReorderableListItem,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
 
 const [items, setItems] = React.useState([
@@ -77,10 +80,10 @@ const handleReorder = (newOrder) => {
       moveUpButtonAriaLabel={`Move ${item.title} up`}
       moveDownButtonAriaLabel={`Move ${item.title} down`}
     >
-      <div>
-        <strong>{item.title}</strong>
-        <p style={{ margin: '4px 0 0' }}>{item.description}</p>
-      </div>
+      <Block>
+        <Text variant="bold">{item.title}</Text>
+        <Paragraph>{item.description}</Paragraph>
+      </Block>
     </ReorderableListItem>
   ))}
 </ReorderableList>;
@@ -90,13 +93,18 @@ const handleReorder = (newOrder) => {
 
 Each item can contain arbitrary content, including form elements. The component wraps whatever ReactNode is passed as children.
 
+For long content, use `editModeChildren` to provide shorter content that is shown only in edit mode. The abbreviated content should still include enough information to identify the item while reordering, such as a name and one or two stable details.
+
 ```jsx
 import {
+  Block,
   ReorderableList,
   ReorderableListItem,
   TextInput,
   Dropdown,
-  DropdownItem
+  DropdownItem,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
 
 const [members, setMembers] = React.useState([
@@ -156,36 +164,35 @@ const handleReorder = (newOrder) => {
       ariaLabel={member.name}
       moveUpButtonAriaLabel={`Move ${member.name} up`}
       moveDownButtonAriaLabel={`Move ${member.name} down`}
+      editModeChildren={
+        <Block>
+          <Text variant="bold">{member.name}</Text>
+          <Paragraph>{member.email}</Paragraph>
+          <Paragraph>Role: {member.role}</Paragraph>
+        </Block>
+      }
     >
-      <div
+      <Block
         style={{
           display: 'flex',
-          gap: '16px',
-          flexWrap: 'wrap',
+          flexDirection: 'column',
+          gap: '12px',
           flex: 1,
           padding: '8px 0'
         }}
       >
-        <TextInput
-          labelText="Name"
-          defaultValue={member.name}
-          style={{ flex: '1 1 200px' }}
-        />
-        <TextInput
-          labelText="Email"
-          defaultValue={member.email}
-          style={{ flex: '1 1 200px' }}
-        />
-        <Dropdown
-          labelText="Role"
-          defaultValue={member.role}
-          style={{ flex: '0 1 160px' }}
-        >
+        <TextInput labelText="Name" defaultValue={member.name} />
+        <TextInput labelText="Email" defaultValue={member.email} />
+        <Dropdown labelText="Role" defaultValue={member.role}>
           <DropdownItem value="admin">Admin</DropdownItem>
           <DropdownItem value="editor">Editor</DropdownItem>
           <DropdownItem value="viewer">Viewer</DropdownItem>
         </Dropdown>
-      </div>
+        <TextInput
+          labelText="Notes"
+          defaultValue={`Additional notes for ${member.name}`}
+        />
+      </Block>
     </ReorderableListItem>
   ))}
 </ReorderableList>;
@@ -197,8 +204,11 @@ Set `smallScreen` to `true` on narrower screens. In the small screen layout the 
 
 ```jsx
 import {
+  Block,
   ReorderableList,
-  ReorderableListItem
+  ReorderableListItem,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
 
 const [items, setItems] = React.useState([
@@ -247,10 +257,10 @@ const handleReorder = (newOrder) => {
       moveUpButtonAriaLabel={`Move ${item.title} up`}
       moveDownButtonAriaLabel={`Move ${item.title} down`}
     >
-      <div>
-        <strong>{item.title}</strong>
-        <p style={{ margin: '4px 0 0' }}>{item.description}</p>
-      </div>
+      <Block>
+        <Text variant="bold">{item.title}</Text>
+        <Paragraph>{item.description}</Paragraph>
+      </Block>
     </ReorderableListItem>
   ))}
 </ReorderableList>;
@@ -262,6 +272,7 @@ The `smallScreen` layout also works with form elements inside items. The stacked
 
 ```jsx
 import {
+  Block,
   ReorderableList,
   ReorderableListItem,
   TextInput,
@@ -366,7 +377,7 @@ const handleReorder = (newOrder) => {
       moveUpButtonAriaLabel={`Move ${member.name} up`}
       moveDownButtonAriaLabel={`Move ${member.name} down`}
     >
-      <div
+      <Block
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -396,7 +407,7 @@ const handleReorder = (newOrder) => {
           <RadioButton value="fixed-term">Fixed-term</RadioButton>
           <RadioButton value="part-time">Part-time</RadioButton>
         </RadioButtonGroup>
-      </div>
+      </Block>
     </ReorderableListItem>
   ))}
 </ReorderableList>;
@@ -408,8 +419,11 @@ Enable direct top and bottom movement buttons with `showMoveToTopButton` and `sh
 
 ```jsx
 import {
+  Block,
   ReorderableList,
-  ReorderableListItem
+  ReorderableListItem,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
 
 const [items, setItems] = React.useState([
@@ -462,10 +476,10 @@ const handleReorder = (newOrder) => {
       moveToTopButtonAriaLabel={`Move ${item.title} to top`}
       moveToBottomButtonAriaLabel={`Move ${item.title} to bottom`}
     >
-      <div>
-        <strong>{item.title}</strong>
-        <p style={{ margin: '4px 0 0' }}>{item.description}</p>
-      </div>
+      <Block>
+        <Text variant="bold">{item.title}</Text>
+        <Paragraph>{item.description}</Paragraph>
+      </Block>
     </ReorderableListItem>
   ))}
 </ReorderableList>;

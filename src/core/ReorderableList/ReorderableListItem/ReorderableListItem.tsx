@@ -54,6 +54,8 @@ export interface ReorderableListItemProps extends Omit<HtmlLiProps, 'ref'> {
   moveToBottomButtonAriaLabel?: string;
   /** Item content - any ReactNode */
   children: ReactNode;
+  /** Optional item content shown in edit mode instead of children */
+  editModeChildren?: ReactNode;
   /** CSS class for custom styles */
   className?: string;
   /** Ref is placed to the li element. Alternative for React `ref` attribute. */
@@ -259,6 +261,7 @@ class BaseReorderableListItem extends Component<
       moveToTopButtonAriaLabel,
       moveToBottomButtonAriaLabel,
       children,
+      editModeChildren,
       className,
       consumer,
       theme,
@@ -271,6 +274,8 @@ class BaseReorderableListItem extends Component<
     const isDragOver = consumer.dragOverItemKey === itemKey && !isDragging;
     const isFirst = consumer.isFirstItem(itemKey);
     const isLast = consumer.isLastItem(itemKey);
+    const content =
+      editMode && editModeChildren !== undefined ? editModeChildren : children;
 
     const combinedRef = (node: HTMLLIElement | null) => {
       (this.liRef as React.MutableRefObject<HTMLLIElement | null>).current =
@@ -326,7 +331,7 @@ class BaseReorderableListItem extends Component<
               ? { disableInteraction: true }
               : { disableInteraction: false })}
           >
-            {children}
+            {content}
           </InteractionBlocker>
           {editMode && (
             <HtmlDiv className={itemClassNames.dragHandle} aria-hidden="true">
