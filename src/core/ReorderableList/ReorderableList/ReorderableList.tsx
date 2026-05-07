@@ -39,6 +39,8 @@ const listClassNames = {
   gapActive: `${baseClassName}_gap--active`,
 };
 
+export type ReorderableListMoveButtonsPlacement = 'inline' | 'top';
+
 export interface ReorderableListAnnouncements {
   editModeActivated: () => string;
   editModeCancelled: () => string;
@@ -88,6 +90,12 @@ export interface ReorderableListProps
   onEditModeChange?: (editMode: boolean) => void;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** Show move to top buttons for list items in edit mode */
+  showMoveToTopButton?: boolean;
+  /** Show move to bottom buttons for list items in edit mode */
+  showMoveToBottomButton?: boolean;
+  /** Placement of reorder buttons in list items */
+  moveButtonsPlacement?: ReorderableListMoveButtonsPlacement;
   /** CSS class for custom styles */
   className?: string;
   /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
@@ -112,6 +120,11 @@ export interface ReorderableListContextValue {
   unregisterItem: (itemKey: string) => void;
   moveUp: (itemKey: string) => void;
   moveDown: (itemKey: string) => void;
+  moveToTop: (itemKey: string) => void;
+  moveToBottom: (itemKey: string) => void;
+  showMoveToTopButton: boolean;
+  showMoveToBottomButton: boolean;
+  moveButtonsPlacement: ReorderableListMoveButtonsPlacement;
   draggedItemKey: string | null;
   setDraggedItemKey: (key: string | null) => void;
   dragOverItemKey: string | null;
@@ -133,6 +146,11 @@ const defaultContextValue: ReorderableListContextValue = {
   unregisterItem: () => null,
   moveUp: () => null,
   moveDown: () => null,
+  moveToTop: () => null,
+  moveToBottom: () => null,
+  showMoveToTopButton: false,
+  showMoveToBottomButton: false,
+  moveButtonsPlacement: 'inline',
   draggedItemKey: null,
   setDraggedItemKey: () => null,
   dragOverItemKey: null,
@@ -369,6 +387,52 @@ class BaseReorderableList extends Component<
     );
   };
 
+  private moveToTop = (itemKey: string) => {
+    const order = [...this.currentOrder];
+    const idx = order.indexOf(itemKey);
+    const item = this.registeredItems.get(itemKey);
+    const label = item?.ariaLabel || itemKey;
+
+    if (idx <= 0) {
+      this.announce(this.props.announcements.cannotMoveUp(label));
+      return;
+    }
+
+    order.splice(idx, 1);
+    order.unshift(itemKey);
+    this.shouldAnimateNextReorder = true;
+    this.setState({ itemOrder: order });
+    this.props.onReorder(order);
+    this.announce(
+      this.props.announcements.movedToPosition(label, 1, order.length),
+    );
+  };
+
+  private moveToBottom = (itemKey: string) => {
+    const order = [...this.currentOrder];
+    const idx = order.indexOf(itemKey);
+    const item = this.registeredItems.get(itemKey);
+    const label = item?.ariaLabel || itemKey;
+
+    if (idx >= order.length - 1) {
+      this.announce(this.props.announcements.cannotMoveDown(label));
+      return;
+    }
+
+    order.splice(idx, 1);
+    order.push(itemKey);
+    this.shouldAnimateNextReorder = true;
+    this.setState({ itemOrder: order });
+    this.props.onReorder(order);
+    this.announce(
+      this.props.announcements.movedToPosition(
+        label,
+        order.length,
+        order.length,
+      ),
+    );
+  };
+
   private handleItemDrop = (targetKey: string) => {
     const { draggedItemKey } = this.state;
     if (!draggedItemKey || draggedItemKey === targetKey) {
@@ -476,6 +540,9 @@ class BaseReorderableList extends Component<
       editMode: controlledEditMode,
       onEditModeChange,
       smallScreen,
+      showMoveToTopButton,
+      showMoveToBottomButton,
+      moveButtonsPlacement,
       forwardedRef,
       style,
       'aria-labelledby': ariaLabelledBy,
@@ -494,6 +561,11 @@ class BaseReorderableList extends Component<
       unregisterItem: this.unregisterItem,
       moveUp: this.moveUp,
       moveDown: this.moveDown,
+      moveToTop: this.moveToTop,
+      moveToBottom: this.moveToBottom,
+      showMoveToTopButton: !!showMoveToTopButton,
+      showMoveToBottomButton: !!showMoveToBottomButton,
+      moveButtonsPlacement: moveButtonsPlacement || 'inline',
       draggedItemKey: this.state.draggedItemKey,
       setDraggedItemKey: this.setDraggedItemKey,
       dragOverItemKey: this.state.dragOverItemKey,

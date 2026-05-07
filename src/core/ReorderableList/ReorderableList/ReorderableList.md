@@ -9,12 +9,15 @@ All text labels and screen reader announcements must be provided by the consumer
 
 The optional `revertButtonText` prop adds a secondary cancel button in edit mode. When clicked, it restores the order to what it was when edit mode was entered and calls `onReorder` with the original order.
 
+Set `showMoveToTopButton` and/or `showMoveToBottomButton` to add direct top and bottom movement buttons. When these are enabled, provide `moveToTopButtonAriaLabel` and/or `moveToBottomButtonAriaLabel` for each `ReorderableListItem`. Set `moveButtonsPlacement="top"` to show the movement buttons as a toolbar above each item's content. The default placement is `inline`.
+
 Examples:
 
 - [Basic use](./#/Components/ReorderableList?id=basic-use)
 - [Items with form content](./#/Components/ReorderableList?id=items-with-form-content)
 - [Small screen](./#/Components/ReorderableList?id=small-screen)
 - [Small screen with form content](./#/Components/ReorderableList?id=small-screen-with-form-content)
+- [Top and bottom controls](./#/Components/ReorderableList?id=top-and-bottom-controls)
 - [Controlled edit mode](./#/Components/ReorderableList?id=controlled-edit-mode)
 
 <div style="margin-bottom: 40px">
@@ -393,6 +396,75 @@ const handleReorder = (newOrder) => {
           <RadioButton value="fixed-term">Fixed-term</RadioButton>
           <RadioButton value="part-time">Part-time</RadioButton>
         </RadioButtonGroup>
+      </div>
+    </ReorderableListItem>
+  ))}
+</ReorderableList>;
+```
+
+### Top and bottom controls
+
+Enable direct top and bottom movement buttons with `showMoveToTopButton` and `showMoveToBottomButton`. The example below also uses `moveButtonsPlacement="top"` so the buttons are shown as a toolbar above each item's content.
+
+```jsx
+import {
+  ReorderableList,
+  ReorderableListItem
+} from 'suomifi-ui-components';
+
+const [items, setItems] = React.useState([
+  { id: 'a', title: 'Item A', description: 'Description for item A' },
+  { id: 'b', title: 'Item B', description: 'Description for item B' },
+  { id: 'c', title: 'Item C', description: 'Description for item C' },
+  { id: 'd', title: 'Item D', description: 'Description for item D' }
+]);
+
+const handleReorder = (newOrder) => {
+  const reordered = newOrder.map((key) =>
+    items.find((item) => item.id === key)
+  );
+  setItems(reordered);
+};
+
+<ReorderableList
+  aria-label="Priority list"
+  editButtonText="Edit order"
+  saveButtonText="Save order"
+  revertButtonText="Cancel"
+  editModeInstructionHeading="Order change instructions"
+  editModeInstructionText="Use the buttons to move items."
+  showMoveToTopButton
+  showMoveToBottomButton
+  moveButtonsPlacement="top"
+  announcements={{
+    editModeActivated: () => 'Edit mode activated',
+    editModeCancelled: () => 'Edit mode cancelled',
+    movedUp: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`,
+    movedDown: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`,
+    movedToPosition: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`,
+    cannotMoveUp: (label) => `${label} is already at the top`,
+    cannotMoveDown: (label) => `${label} is already at the bottom`,
+    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
+    orderReverted: () => 'Order reverted to original'
+  }}
+  onReorder={handleReorder}
+>
+  {items.map((item) => (
+    <ReorderableListItem
+      key={item.id}
+      itemKey={item.id}
+      ariaLabel={item.title}
+      moveUpButtonAriaLabel={`Move ${item.title} up`}
+      moveDownButtonAriaLabel={`Move ${item.title} down`}
+      moveToTopButtonAriaLabel={`Move ${item.title} to top`}
+      moveToBottomButtonAriaLabel={`Move ${item.title} to bottom`}
+    >
+      <div>
+        <strong>{item.title}</strong>
+        <p style={{ margin: '4px 0 0' }}>{item.description}</p>
       </div>
     </ReorderableListItem>
   ))}

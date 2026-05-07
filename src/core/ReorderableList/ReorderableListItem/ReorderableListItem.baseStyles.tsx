@@ -114,8 +114,21 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     flex-shrink: 0;
     justify-content: flex-end;
 
+    &.fi-reorderable-list-item_buttons--top {
+      align-self: stretch;
+      justify-content: flex-start;
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    &.fi-reorderable-list-item_buttons--top
+      + .fi-reorderable-list-item_content {
+      width: 100%;
+    }
+
+    & .fi-reorderable-list-item_button-to-top,
     & .fi-reorderable-list-item_button-up,
-    & .fi-reorderable-list-item_button-down {
+    & .fi-reorderable-list-item_button-down,
+    & .fi-reorderable-list-item_button-to-bottom {
       min-width: 40px;
       min-height: 40px;
       background-color: ${theme.colors.whiteBase};
@@ -140,6 +153,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           ${theme.focuses.absoluteFocus}
           ${theme.focuses.highContrastFocus}
         }
+      }
+    }
+  }
+
+  &.fi-reorderable-list-item--buttons-top {
+    &.fi-reorderable-list-item--edit-mode {
+      & .fi-reorderable-list-item_inner {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   }

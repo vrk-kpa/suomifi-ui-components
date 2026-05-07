@@ -19,7 +19,12 @@ const defaultAnnouncements = {
   itemsSwapped: (a: string, b: string) => `${a} and ${b} swapped`,
 };
 
-const TestList = (props: { onReorder?: (order: string[]) => void }) => (
+const TestList = (props: {
+  onReorder?: (order: string[]) => void;
+  showMoveToTopButton?: boolean;
+  showMoveToBottomButton?: boolean;
+  moveButtonsPlacement?: 'inline' | 'top';
+}) => (
   <ReorderableList
     aria-label="Test list"
     editButtonText="Edit"
@@ -28,6 +33,9 @@ const TestList = (props: { onReorder?: (order: string[]) => void }) => (
     editModeInstructionText="Use arrow keys to navigate."
     announcements={defaultAnnouncements}
     onReorder={props.onReorder || jest.fn()}
+    showMoveToTopButton={props.showMoveToTopButton}
+    showMoveToBottomButton={props.showMoveToBottomButton}
+    moveButtonsPlacement={props.moveButtonsPlacement}
     data-testid="reorderable-list"
   >
     <ReorderableListItem
@@ -35,6 +43,8 @@ const TestList = (props: { onReorder?: (order: string[]) => void }) => (
       ariaLabel="Item A"
       moveUpButtonAriaLabel="Move Item A up"
       moveDownButtonAriaLabel="Move Item A down"
+      moveToTopButtonAriaLabel="Move Item A to top"
+      moveToBottomButtonAriaLabel="Move Item A to bottom"
     >
       <span>Item A content</span>
     </ReorderableListItem>
@@ -43,6 +53,8 @@ const TestList = (props: { onReorder?: (order: string[]) => void }) => (
       ariaLabel="Item B"
       moveUpButtonAriaLabel="Move Item B up"
       moveDownButtonAriaLabel="Move Item B down"
+      moveToTopButtonAriaLabel="Move Item B to top"
+      moveToBottomButtonAriaLabel="Move Item B to bottom"
     >
       <span>Item B content</span>
     </ReorderableListItem>
@@ -51,6 +63,8 @@ const TestList = (props: { onReorder?: (order: string[]) => void }) => (
       ariaLabel="Item C"
       moveUpButtonAriaLabel="Move Item C up"
       moveDownButtonAriaLabel="Move Item C down"
+      moveToTopButtonAriaLabel="Move Item C to top"
+      moveToBottomButtonAriaLabel="Move Item C to bottom"
     >
       <span>Item C content</span>
     </ReorderableListItem>
@@ -100,6 +114,32 @@ describe('ReorderableList', () => {
     expect(screen.getByLabelText('Move Item C down')).toBeInTheDocument();
   });
 
+  it('should hide move to top and bottom buttons by default', async () => {
+    const user = userEvent.setup();
+    render(<TestList />);
+
+    await user.click(screen.getByText('Edit'));
+
+    expect(
+      screen.queryByLabelText('Move Item A to top'),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('Move Item A to bottom'),
+    ).not.toBeInTheDocument();
+  });
+
+  it('should show move to top and bottom buttons when enabled', async () => {
+    const user = userEvent.setup();
+    render(<TestList showMoveToTopButton showMoveToBottomButton />);
+
+    await user.click(screen.getByText('Edit'));
+
+    expect(screen.getByLabelText('Move Item A to top')).toBeInTheDocument();
+    expect(screen.getByLabelText('Move Item A to bottom')).toBeInTheDocument();
+    expect(screen.getByLabelText('Move Item B to top')).toBeInTheDocument();
+    expect(screen.getByLabelText('Move Item C to bottom')).toBeInTheDocument();
+  });
+
   it('should style boundary buttons differently', async () => {
     const user = userEvent.setup();
     render(<TestList />);
@@ -128,6 +168,25 @@ describe('ReorderableList', () => {
     expect(onReorder).toHaveBeenCalledWith(['b', 'a', 'c']);
   });
 
+  it('should reorder items when move to top and bottom buttons are clicked', async () => {
+    const onReorder = jest.fn();
+    const user = userEvent.setup();
+    render(
+      <TestList
+        onReorder={onReorder}
+        showMoveToTopButton
+        showMoveToBottomButton
+      />,
+    );
+
+    await user.click(screen.getByText('Edit'));
+    await user.click(screen.getByLabelText('Move Item C to top'));
+    await user.click(screen.getByLabelText('Move Item A to bottom'));
+
+    expect(onReorder).toHaveBeenNthCalledWith(1, ['c', 'a', 'b']);
+    expect(onReorder).toHaveBeenNthCalledWith(2, ['c', 'b', 'a']);
+  });
+
   it('should announce when moved', async () => {
     const user = userEvent.setup();
     render(<TestList />);
@@ -140,6 +199,23 @@ describe('ReorderableList', () => {
     );
     await waitFor(() => {
       expect(liveRegion?.textContent).toContain('Item B moved to position');
+    });
+  });
+
+  it('should announce when moved to top or bottom', async () => {
+    const user = userEvent.setup();
+    render(<TestList showMoveToTopButton showMoveToBottomButton />);
+
+    await user.click(screen.getByText('Edit'));
+    await user.click(screen.getByLabelText('Move Item C to top'));
+
+    const liveRegion = document.querySelector(
+      '.fi-reorderable-list_live-region',
+    );
+    await waitFor(() => {
+      expect(liveRegion?.textContent).toContain(
+        'Item C moved to position 1 of 3',
+      );
     });
   });
 
@@ -161,6 +237,55 @@ describe('ReorderableList', () => {
         document.querySelector('.fi-reorderable-list_live-region')?.textContent,
       ).toContain('Item A is already at the top');
     });
+  });
+
+  it('should announce when item cannot move to top or bottom', async () => {
+    const user = userEvent.setup();
+    render(<TestList showMoveToTopButton showMoveToBottomButton />);
+
+    await user.click(screen.getByText('Edit'));
+    await waitFor(() => {
+      expect(
+        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
+      ).toContain('Edit mode activated');
+    });
+
+    await user.click(screen.getByLabelText('Move Item A to top'));
+
+    await waitFor(() => {
+      expect(
+        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
+      ).toContain('Item A is already at the top');
+    });
+
+    await user.click(screen.getByLabelText('Move Item C to bottom'));
+
+    await waitFor(() => {
+      expect(
+        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
+      ).toContain('Item C is already at the bottom');
+    });
+  });
+
+  it('should render toolbar buttons first in DOM when top placement is used', async () => {
+    const user = userEvent.setup();
+    render(
+      <TestList
+        showMoveToTopButton
+        showMoveToBottomButton
+        moveButtonsPlacement="top"
+      />,
+    );
+
+    await user.click(screen.getByText('Edit'));
+
+    const item = screen.getByLabelText('Item A');
+    const inner = item.querySelector('.fi-reorderable-list-item_inner');
+    const buttons = item.querySelector('.fi-reorderable-list-item_buttons');
+
+    expect(item).toHaveClass('fi-reorderable-list-item--buttons-top');
+    expect(buttons).toHaveClass('fi-reorderable-list-item_buttons--top');
+    expect(inner?.firstElementChild).toBe(buttons);
   });
 
   it('should return to view mode on cancel', async () => {

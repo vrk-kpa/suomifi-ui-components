@@ -8,6 +8,8 @@ import {
   IconOptionsVertical,
   IconChevronUp,
   IconChevronDown,
+  IconArrowUp,
+  IconArrowDown,
 } from 'suomifi-icons';
 import {
   ReorderableListConsumer,
@@ -22,13 +24,19 @@ const itemClassNames = {
   dragHandle: `${baseClassName}_drag-handle`,
   content: `${baseClassName}_content`,
   buttons: `${baseClassName}_buttons`,
+  buttonsInline: `${baseClassName}_buttons--inline`,
+  buttonsTop: `${baseClassName}_buttons--top`,
+  buttonToTop: `${baseClassName}_button-to-top`,
   buttonUp: `${baseClassName}_button-up`,
   buttonDown: `${baseClassName}_button-down`,
+  buttonToBottom: `${baseClassName}_button-to-bottom`,
   dragging: `${baseClassName}--dragging`,
   dragOver: `${baseClassName}--drag-over`,
   viewMode: `${baseClassName}--view-mode`,
   editMode: `${baseClassName}--edit-mode`,
   smallScreen: `${baseClassName}--small-screen`,
+  buttonsInlinePlacement: `${baseClassName}--buttons-inline`,
+  buttonsTopPlacement: `${baseClassName}--buttons-top`,
 };
 
 export interface ReorderableListItemProps extends Omit<HtmlLiProps, 'ref'> {
@@ -40,6 +48,10 @@ export interface ReorderableListItemProps extends Omit<HtmlLiProps, 'ref'> {
   moveUpButtonAriaLabel: string;
   /** Accessible label for move down button */
   moveDownButtonAriaLabel: string;
+  /** Accessible label for move to top button */
+  moveToTopButtonAriaLabel?: string;
+  /** Accessible label for move to bottom button */
+  moveToBottomButtonAriaLabel?: string;
   /** Item content - any ReactNode */
   children: ReactNode;
   /** CSS class for custom styles */
@@ -60,6 +72,10 @@ class BaseReorderableListItem extends Component<
   private upButtonRef = createRef<HTMLButtonElement>();
 
   private downButtonRef = createRef<HTMLButtonElement>();
+
+  private topButtonRef = createRef<HTMLButtonElement>();
+
+  private bottomButtonRef = createRef<HTMLButtonElement>();
 
   componentDidMount() {
     const { consumer, itemKey, ariaLabel } = this.props;
@@ -92,6 +108,18 @@ class BaseReorderableListItem extends Component<
     }
   };
 
+  private handleMoveToTop = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const { consumer, itemKey } = this.props;
+    const wasFirst = consumer.isFirstItem(itemKey);
+    consumer.moveToTop(itemKey);
+    if (!wasFirst) {
+      requestAnimationFrame(() => {
+        this.topButtonRef.current?.focus();
+      });
+    }
+  };
+
   private handleMoveDown = (e: React.MouseEvent) => {
     e.stopPropagation();
     const { consumer, itemKey } = this.props;
@@ -102,6 +130,85 @@ class BaseReorderableListItem extends Component<
         this.downButtonRef.current?.focus();
       });
     }
+  };
+
+  private handleMoveToBottom = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const { consumer, itemKey } = this.props;
+    const wasLast = consumer.isLastItem(itemKey);
+    consumer.moveToBottom(itemKey);
+    if (!wasLast) {
+      requestAnimationFrame(() => {
+        this.bottomButtonRef.current?.focus();
+      });
+    }
+  };
+
+  private renderMoveButtons = (
+    isFirst: boolean,
+    isLast: boolean,
+    moveUpButtonAriaLabel: string,
+    moveDownButtonAriaLabel: string,
+    moveToTopButtonAriaLabel?: string,
+    moveToBottomButtonAriaLabel?: string,
+  ): React.ReactNode => {
+    const { consumer } = this.props;
+    const placementClassName =
+      consumer.moveButtonsPlacement === 'top'
+        ? itemClassNames.buttonsTop
+        : itemClassNames.buttonsInline;
+    const boundaryClassName = `${baseClassName}_button--boundary`;
+
+    return (
+      <HtmlDiv
+        className={classnames(itemClassNames.buttons, placementClassName)}
+      >
+        <Button
+          variant="secondaryNoBorder"
+          className={classnames(itemClassNames.buttonUp, {
+            [boundaryClassName]: isFirst,
+          })}
+          aria-label={moveUpButtonAriaLabel}
+          onClick={this.handleMoveUp}
+          icon={<IconChevronUp />}
+          forwardedRef={this.upButtonRef}
+        />
+        <Button
+          variant="secondaryNoBorder"
+          className={classnames(itemClassNames.buttonDown, {
+            [boundaryClassName]: isLast,
+          })}
+          aria-label={moveDownButtonAriaLabel}
+          onClick={this.handleMoveDown}
+          icon={<IconChevronDown />}
+          forwardedRef={this.downButtonRef}
+        />
+        {consumer.showMoveToTopButton && moveToTopButtonAriaLabel && (
+          <Button
+            variant="secondaryNoBorder"
+            className={classnames(itemClassNames.buttonToTop, {
+              [boundaryClassName]: isFirst,
+            })}
+            aria-label={moveToTopButtonAriaLabel}
+            onClick={this.handleMoveToTop}
+            icon={<IconArrowUp />}
+            forwardedRef={this.topButtonRef}
+          />
+        )}
+        {consumer.showMoveToBottomButton && moveToBottomButtonAriaLabel && (
+          <Button
+            variant="secondaryNoBorder"
+            className={classnames(itemClassNames.buttonToBottom, {
+              [boundaryClassName]: isLast,
+            })}
+            aria-label={moveToBottomButtonAriaLabel}
+            onClick={this.handleMoveToBottom}
+            icon={<IconArrowDown />}
+            forwardedRef={this.bottomButtonRef}
+          />
+        )}
+      </HtmlDiv>
+    );
   };
 
   private handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
@@ -149,6 +256,8 @@ class BaseReorderableListItem extends Component<
       ariaLabel,
       moveUpButtonAriaLabel,
       moveDownButtonAriaLabel,
+      moveToTopButtonAriaLabel,
+      moveToBottomButtonAriaLabel,
       children,
       className,
       consumer,
@@ -186,6 +295,10 @@ class BaseReorderableListItem extends Component<
           [itemClassNames.viewMode]: !editMode,
           [itemClassNames.editMode]: editMode,
           [itemClassNames.smallScreen]: smallScreen,
+          [itemClassNames.buttonsInlinePlacement]:
+            editMode && consumer.moveButtonsPlacement === 'inline',
+          [itemClassNames.buttonsTopPlacement]:
+            editMode && consumer.moveButtonsPlacement === 'top',
         })}
       >
         <HtmlDiv
@@ -198,30 +311,15 @@ class BaseReorderableListItem extends Component<
           onDragLeave={editMode ? this.handleDragLeave : undefined}
           onDrop={editMode ? this.handleDrop : undefined}
         >
-          {editMode && (
-            <HtmlDiv className={itemClassNames.buttons}>
-              <Button
-                variant="secondaryNoBorder"
-                className={classnames(itemClassNames.buttonUp, {
-                  [`${baseClassName}_button--boundary`]: isFirst,
-                })}
-                aria-label={moveUpButtonAriaLabel}
-                onClick={this.handleMoveUp}
-                icon={<IconChevronUp />}
-                forwardedRef={this.upButtonRef}
-              />
-              <Button
-                variant="secondaryNoBorder"
-                className={classnames(itemClassNames.buttonDown, {
-                  [`${baseClassName}_button--boundary`]: isLast,
-                })}
-                aria-label={moveDownButtonAriaLabel}
-                onClick={this.handleMoveDown}
-                icon={<IconChevronDown />}
-                forwardedRef={this.downButtonRef}
-              />
-            </HtmlDiv>
-          )}
+          {editMode &&
+            this.renderMoveButtons(
+              isFirst,
+              isLast,
+              moveUpButtonAriaLabel,
+              moveDownButtonAriaLabel,
+              moveToTopButtonAriaLabel,
+              moveToBottomButtonAriaLabel,
+            )}
           <InteractionBlocker
             className={itemClassNames.content}
             {...(editMode

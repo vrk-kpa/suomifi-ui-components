@@ -602,8 +602,20 @@ exports[`ReorderableListItem should match snapshot 1`] = `
   justify-content: flex-end;
 }
 
+.c8 .fi-reorderable-list-item_buttons.fi-reorderable-list-item_buttons--top {
+  align-self: stretch;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.c8 .fi-reorderable-list-item_buttons.fi-reorderable-list-item_buttons--top+.fi-reorderable-list-item_content {
+  width: 100%;
+}
+
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-top,
 .c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-up,
-.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down {
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down,
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-bottom {
   min-width: 40px;
   min-height: 40px;
   background-color: hsl(0, 0%, 100%);
@@ -612,26 +624,34 @@ exports[`ReorderableListItem should match snapshot 1`] = `
   border-radius: 2px;
 }
 
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-top.fi-reorderable-list-item_button--boundary,
 .c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-up.fi-reorderable-list-item_button--boundary,
-.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down.fi-reorderable-list-item_button--boundary {
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down.fi-reorderable-list-item_button--boundary,
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-bottom.fi-reorderable-list-item_button--boundary {
   border-color: hsl(202, 7%, 67%);
   color: hsl(202, 7%, 67%);
   cursor: default;
 }
 
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-top.fi-reorderable-list-item_button--boundary .fi-icon .fi-icon-base-fill,
 .c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-up.fi-reorderable-list-item_button--boundary .fi-icon .fi-icon-base-fill,
-.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down.fi-reorderable-list-item_button--boundary .fi-icon .fi-icon-base-fill {
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down.fi-reorderable-list-item_button--boundary .fi-icon .fi-icon-base-fill,
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-bottom.fi-reorderable-list-item_button--boundary .fi-icon .fi-icon-base-fill {
   fill: hsl(202, 7%, 67%);
 }
 
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-top:focus-visible,
 .c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-up:focus-visible,
-.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down:focus-visible {
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down:focus-visible,
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-bottom:focus-visible {
   position: relative;
   outline: 0;
 }
 
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-top:focus-visible:after,
 .c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-up:focus-visible:after,
-.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down:focus-visible:after {
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-down:focus-visible:after,
+.c8 .fi-reorderable-list-item_buttons .fi-reorderable-list-item_button-to-bottom:focus-visible:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -646,6 +666,11 @@ exports[`ReorderableListItem should match snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196, 77%, 44%);
   z-index: 9999;
   outline: 3px solid transparent;
+}
+
+.c8.fi-reorderable-list-item--buttons-top.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_inner {
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .c8.fi-reorderable-list-item--dragging .fi-reorderable-list-item_inner {
