@@ -9,9 +9,11 @@ The `<WizardNavigation>` component is used for user interactions that progress i
 A `<WizardNavigationItem>` can have one of these 6 statuses:
 
 - `'default'`: An incomplete step which the user can reach
-- `'current'`: Currently active step
 - `'completed'`: A step where the user has filled all required information
+- `'error'`: Step that is invalid
+- `'current'`: Currently active step
 - `'current-completed'`: Combination of current and completed statuses
+- `'current-error'`: Combination of current and error statuses
 - `'coming'`: A step which is not reachable at the moment (but will become available when e.g. the previous steps have been completed)
 - `'disabled'`: A disabled step which will not become reachable. In most cases you should use `'coming'` instead of this
 
@@ -78,6 +80,52 @@ const Comp = (props) => {
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
       <RouterLink aria-disabled role="link">
+        5. Summary and validation
+      </RouterLink>
+    </WizardNavigationItem>
+  </WizardNavigation>
+</div>;
+```
+
+### Error and disabled states
+
+```js
+import {
+  WizardNavigation,
+  WizardNavigationItem,
+  RouterLink
+} from 'suomifi-ui-components';
+
+const Comp = (props) => {
+  const { children, ...passProps } = props;
+  return <div {...passProps}>{props.children}</div>;
+};
+
+<div style={{ width: '350px' }}>
+  <WizardNavigation heading="Steps" aria-label="Steps">
+    <WizardNavigationItem status="completed">
+      <RouterLink
+        href="https://suomi.fi"
+        aria-label="1. Parties. This step is completed"
+      >
+        1. Parties
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="error">
+      <RouterLink href="#">2. Mandate themes</RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="current-error">
+      <RouterLink aria-current="step" href="#">
+        3. Selected mandate themes
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="disabled">
+      <RouterLink aria-disabled role="link" href="#">
+        4. Validity
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
+      <RouterLink aria-disabled role="link" href="#">
         5. Summary and validation
       </RouterLink>
     </WizardNavigationItem>

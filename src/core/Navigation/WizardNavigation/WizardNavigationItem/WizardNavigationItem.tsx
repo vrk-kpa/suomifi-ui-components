@@ -4,7 +4,7 @@ import { HtmlDiv, HtmlLi, HtmlSpan } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './WizardNavigationItem.baseStyles';
 import { styled } from 'styled-components';
-import { IconCheck } from 'suomifi-icons';
+import { IconCheckCircleFilled, IconErrorFilled } from 'suomifi-icons';
 
 export interface WizardNavigationItemProps {
   /** CSS class for custom styles */
@@ -16,7 +16,9 @@ export interface WizardNavigationItemProps {
     | 'default'
     | 'current'
     | 'current-completed'
+    | 'current-error'
     | 'completed'
+    | 'error'
     | 'coming'
     | 'disabled';
 }
@@ -25,7 +27,9 @@ const baseClassName = 'fi-wizard-navigation-item';
 const defaultClassName = `${baseClassName}--default`;
 const currentClassName = `${baseClassName}--current`;
 const currentCompletedClassName = `${baseClassName}--current-completed`;
+const currentErrorClassName = `${baseClassName}--current-error`;
 const completedClassName = `${baseClassName}--completed`;
+const errorClassName = `${baseClassName}--error`;
 const comingClassName = `${baseClassName}--coming`;
 const disabledClassName = `${baseClassName}--disabled`;
 
@@ -43,7 +47,9 @@ const BaseWizardNavigationItem = ({
       [defaultClassName]: status === 'default',
       [currentClassName]: status === 'current',
       [currentCompletedClassName]: status === 'current-completed',
+      [currentErrorClassName]: status === 'current-error',
       [completedClassName]: status === 'completed',
+      [errorClassName]: status === 'error',
       [comingClassName]: status === 'coming',
       [disabledClassName]: status === 'disabled',
     })}
@@ -53,7 +59,10 @@ const BaseWizardNavigationItem = ({
     <HtmlDiv className={innerWrapperClassName}>
       <HtmlSpan className={leftIconClassName}>
         {(status === 'completed' || status === 'current-completed') && (
-          <IconCheck />
+          <IconCheckCircleFilled />
+        )}
+        {(status === 'error' || status === 'current-error') && (
+          <IconErrorFilled />
         )}
       </HtmlSpan>
       {children}

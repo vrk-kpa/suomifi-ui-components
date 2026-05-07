@@ -325,7 +325,6 @@ exports[`calling render with the same component on the same container does not r
   border: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 1px;
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
@@ -344,17 +343,12 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--default .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid hsl(201, 7%, 58%);
   width: 26px;
   height: 26px;
-  line-height: 26px;
-  font-size: 18px;
   margin-right: 10px;
+  border: 1px solid hsl(201, 7%, 58%);
   background: hsl(0, 0%, 100%);
+  border-radius: 50%;
 }
 
 .c5.fi-wizard-navigation-item--default .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
@@ -384,28 +378,18 @@ exports[`calling render with the same component on the same container does not r
   padding-left: calc(20px - 4px);
 }
 
-.c5.fi-wizard-navigation-item--current:hover {
-  border-left: 4px solid hsl(212, 63%, 45%);
-  padding-left: calc(20px - 4px);
-}
-
 .c5.fi-wizard-navigation-item--current:after {
   left: 29px;
   height: 10px;
 }
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid hsl(201, 7%, 58%);
   width: 26px;
   height: 26px;
-  line-height: 26px;
-  font-size: 18px;
   margin-right: 10px;
+  border: 1px solid hsl(201, 7%, 58%);
   background: hsl(0, 0%, 100%);
+  border-radius: 50%;
 }
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
@@ -420,7 +404,6 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  margin-bottom: 1px;
 }
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
@@ -435,11 +418,6 @@ exports[`calling render with the same component on the same container does not r
   padding-left: calc(20px - 4px);
 }
 
-.c5.fi-wizard-navigation-item--current-completed:hover {
-  border-left: 4px solid hsl(212, 63%, 45%);
-  padding-left: calc(20px - 4px);
-}
-
 .c5.fi-wizard-navigation-item--current-completed:after {
   left: 29px;
   height: 10px;
@@ -447,22 +425,15 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid hsl(165, 90%, 27%);
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  font-size: 18px;
   margin-right: 10px;
-  background: hsl(165, 90%, 27%);
-  color: hsl(0, 0%, 100%);
 }
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
-  width: 10px;
-  height: 10px;
+  color: hsl(165, 90%, 27%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
 }
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
@@ -477,11 +448,54 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  margin-bottom: 1px;
 }
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
+  text-decoration: none;
+  color: hsl(0, 0%, 13%);
+}
+
+.c5.fi-wizard-navigation-item--current-error {
+  background: hsl(212, 63%, 95%);
+  border-left: 4px solid hsl(212, 63%, 45%);
+  padding-left: calc(20px - 4px);
+}
+
+.c5.fi-wizard-navigation-item--current-error:after {
+  left: 29px;
+  height: 10px;
+}
+
+.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
+  display: flex;
+  margin-right: 10px;
+}
+
+.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
+  color: hsl(3, 59%, 43%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  pointer-events: none;
+  color: hsl(0, 0%, 13%);
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
+.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
   text-decoration: none;
   color: hsl(0, 0%, 13%);
 }
@@ -497,22 +511,15 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid hsl(165, 90%, 27%);
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  font-size: 18px;
   margin-right: 10px;
-  background: hsl(165, 90%, 27%);
-  color: hsl(0, 0%, 100%);
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
-  width: 10px;
-  height: 10px;
+  color: hsl(165, 90%, 27%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
 }
 
 .c5.fi-wizard-navigation-item--completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
@@ -536,12 +543,53 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(212, 63%, 45%);
 }
 
+.c5.fi-wizard-navigation-item--error:hover {
+  border-left: 4px solid hsl(212, 63%, 45%);
+  padding-left: calc(20px - 4px);
+}
+
+.c5.fi-wizard-navigation-item--error:hover:after {
+  left: 29px;
+}
+
+.c5.fi-wizard-navigation-item--error .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
+  display: flex;
+  margin-right: 10px;
+}
+
+.c5.fi-wizard-navigation-item--error .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
+  color: hsl(3, 59%, 43%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.c5.fi-wizard-navigation-item--error .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.c5.fi-wizard-navigation-item--error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
+  text-decoration: underline;
+}
+
+.c5.fi-wizard-navigation-item--error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
+  color: hsl(212, 63%, 45%);
+}
+
 .c5.fi-wizard-navigation-item--coming .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
   position: relative;
   width: 26px;
   height: 26px;
-  line-height: 26px;
-  font-size: 18px;
   margin-right: 10px;
 }
 
@@ -586,8 +634,6 @@ exports[`calling render with the same component on the same container does not r
   position: relative;
   width: 26px;
   height: 26px;
-  line-height: 26px;
-  font-size: 18px;
   margin-right: 10px;
 }
 
@@ -750,13 +796,13 @@ exports[`calling render with the same component on the same container does not r
               class="fi-icon c9"
               focusable="false"
               height="1em"
-              viewBox="0 0 20 20"
+              viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 class="fi-icon-base-fill"
-                d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
+                d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm5.65 8.24a1 1 0 0 0-1.41.11l-5.296 6.18-2.237-2.237a1 1 0 1 0-1.414 1.414l3 3a1 1 0 0 0 1.466-.056l6-7a1 1 0 0 0-.108-1.41Z"
                 fill="#222"
                 fill-rule="evenodd"
               />
