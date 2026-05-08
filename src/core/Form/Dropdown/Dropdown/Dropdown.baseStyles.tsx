@@ -37,19 +37,14 @@ export const baseStyles = (
       ${input(theme)}
       position: relative;
       display: inline-block;
-      word-break: break-word;
       width: 100%;
-      overflow-wrap: break-word;
-      height: 40px;
       padding: 7px 38px 7px 7px;
       border-color: ${theme.colors.depthDark3};
       text-align: left;
-      line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
       box-shadow: ${theme.shadows.actionElementBoxShadow};
       cursor: pointer;
       user-select: none;
-      white-space: nowrap;
 
       /* stylelint-disable no-descending-specificity */
       &:focus-visible {
@@ -76,10 +71,13 @@ export const baseStyles = (
 
     .fi-dropdown_display-value {
       width: 100%;
-      height: 100%;
+      min-height: 1.5em;
       display: inline-block;
-      line-height: 1.5;
+      line-height: 1;
+      padding: ${theme.spacing.insetXs} 0;
       overflow: hidden;
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     .fi-dropdown_popover {

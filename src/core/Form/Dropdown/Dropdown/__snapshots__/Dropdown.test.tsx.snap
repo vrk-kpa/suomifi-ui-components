@@ -375,19 +375,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
-  word-break: break-word;
   width: 100%;
-  overflow-wrap: break-word;
-  height: 40px;
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
   user-select: none;
-  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_button:focus-visible {
@@ -412,10 +407,13 @@ exports[`Basic dropdown should match snapshot 1`] = `
 
 .c1.fi-dropdown .fi-dropdown_display-value {
   width: 100%;
-  height: 100%;
+  min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
@@ -1077,19 +1075,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
-  word-break: break-word;
   width: 100%;
-  overflow-wrap: break-word;
-  height: 40px;
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
   user-select: none;
-  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_button:focus-visible {
@@ -1114,10 +1107,13 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 
 .c1.fi-dropdown .fi-dropdown_display-value {
   width: 100%;
-  height: 100%;
+  min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
@@ -1772,19 +1768,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
-  word-break: break-word;
   width: 100%;
-  overflow-wrap: break-word;
-  height: 40px;
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
   user-select: none;
-  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_button:focus-visible {
@@ -1809,10 +1800,13 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 
 .c1.fi-dropdown .fi-dropdown_display-value {
   width: 100%;
-  height: 100%;
+  min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
@@ -2367,19 +2361,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
-  word-break: break-word;
   width: 100%;
-  overflow-wrap: break-word;
-  height: 40px;
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
   user-select: none;
-  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_button:focus-visible {
@@ -2404,10 +2393,13 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 
 .c1.fi-dropdown .fi-dropdown_display-value {
   width: 100%;
-  height: 100%;
+  min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .c1.fi-dropdown .fi-dropdown_popover {
