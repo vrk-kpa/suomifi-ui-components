@@ -379,7 +379,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
@@ -410,7 +409,8 @@ exports[`Basic dropdown should match snapshot 1`] = `
   width: 100%;
   min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5em;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
   vertical-align: middle;
   white-space: nowrap;
@@ -1079,7 +1079,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
@@ -1110,7 +1109,8 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   width: 100%;
   min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5em;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
   vertical-align: middle;
   white-space: nowrap;
@@ -1772,7 +1772,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
@@ -1803,7 +1802,8 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   width: 100%;
   min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5em;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
   vertical-align: middle;
   white-space: nowrap;
@@ -2365,7 +2365,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   padding: 7px 38px 7px 7px;
   border-color: hsl(201, 7%, 58%);
   text-align: left;
-  line-height: 1.5;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 1px 2px 0 hsla(214, 100%, 24%, 0.1) inset;
   cursor: pointer;
@@ -2396,7 +2395,8 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   width: 100%;
   min-height: 1.5em;
   display: inline-block;
-  line-height: 1.5em;
+  line-height: 1;
+  padding: 4px 0;
   overflow: hidden;
   vertical-align: middle;
   white-space: nowrap;

@@ -41,7 +41,6 @@ export const baseStyles = (
       padding: 7px 38px 7px 7px;
       border-color: ${theme.colors.depthDark3};
       text-align: left;
-      line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
       box-shadow: ${theme.shadows.actionElementBoxShadow};
       cursor: pointer;
@@ -74,7 +73,8 @@ export const baseStyles = (
       width: 100%;
       min-height: 1.5em;
       display: inline-block;
-      line-height: 1.5em;
+      line-height: 1;
+      padding: ${theme.spacing.insetXs} 0;
       overflow: hidden;
       vertical-align: middle;
       white-space: nowrap;
