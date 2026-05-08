@@ -18,11 +18,9 @@ Using the Suomi.fi component library does not automatically make your project ac
 
 ## Known issues
 
-Updated 24th April 2026.
+Updated May 8th, 2026.
 
 - **SingleSelect**: The selected state of an option is not read out by JAWS.
-- **Breadcrumb**: Height does not adjust when only text is resized 200%.
-- **Dropdown**: Line-height does not adjust when only text is resized 200%.
 
 ## Our accessibility checklist
 
