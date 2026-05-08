@@ -25,6 +25,30 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
 }
 
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
+}
+
+.c10 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c10 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -407,7 +431,8 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
-.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
+.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus,
+.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
   text-decoration: none;
   color: hsl(0, 0%, 13%);
 }
@@ -451,51 +476,8 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
-.c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
-  text-decoration: none;
-  color: hsl(0, 0%, 13%);
-}
-
-.c5.fi-wizard-navigation-item--current-error {
-  background: hsl(212, 63%, 95%);
-  border-left: 4px solid hsl(212, 63%, 45%);
-  padding-left: calc(20px - 4px);
-}
-
-.c5.fi-wizard-navigation-item--current-error:after {
-  left: 29px;
-  height: 10px;
-}
-
-.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
-  display: flex;
-  margin-right: 10px;
-}
-
-.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon .fi-icon {
-  color: hsl(3, 59%, 43%);
-  background: hsl(0, 0%, 100%);
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-}
-
-.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
-  pointer-events: none;
-  color: hsl(0, 0%, 13%);
-  letter-spacing: 0;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-}
-
-.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
-.c5.fi-wizard-navigation-item--current-error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
+.c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus,
+.c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
   text-decoration: none;
   color: hsl(0, 0%, 13%);
 }
@@ -584,6 +566,38 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--error .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
   color: hsl(212, 63%, 45%);
+}
+
+.c5.fi-wizard-navigation-item--active {
+  background: hsl(212, 63%, 95%);
+  border-left: 4px solid hsl(212, 63%, 45%);
+  padding-left: calc(20px - 4px);
+}
+
+.c5.fi-wizard-navigation-item--active:after {
+  left: 29px;
+  height: 10px;
+}
+
+.c5.fi-wizard-navigation-item--active .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  pointer-events: none;
+  color: hsl(0, 0%, 13%);
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c5.fi-wizard-navigation-item--active .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
+.c5.fi-wizard-navigation-item--active .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus,
+.c5.fi-wizard-navigation-item--active .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
+  text-decoration: none;
+  color: hsl(0, 0%, 13%);
 }
 
 .c5.fi-wizard-navigation-item--coming .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_left-icon {
@@ -818,7 +832,42 @@ exports[`calling render with the same component on the same container does not r
         </div>
       </li>
       <li
-        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--current"
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--error"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_left-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="fi-icon c10"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm.71 17.29c-.38-.37-1.05-.37-1.42 0-.181.19-.29.44-.29.71 0 .26.109.52.29.71.189.18.45.29.71.29.26 0 .52-.11.71-.29.18-.19.29-.45.29-.71 0-.27-.11-.52-.29-.71ZM12 5a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1Z"
+                fill="#222"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <a
+            aria-label="Step 3. This step has an error"
+            class="c7 fi-link fi-link--router c8"
+            href="#"
+          >
+            3. Step
+          </a>
+        </div>
+      </li>
+      <li
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--default fi-wizard-navigation-item--active"
       >
         <div
           class="c0 fi-wizard-navigation-item_inner-wrapper"
@@ -830,25 +879,6 @@ exports[`calling render with the same component on the same container does not r
             aria-current="step"
             class="c7 fi-link fi-link--router c8"
             href="#"
-          >
-            3. Step
-          </a>
-        </div>
-      </li>
-      <li
-        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--coming"
-      >
-        <div
-          class="c0 fi-wizard-navigation-item_inner-wrapper"
-        >
-          <span
-            class="c6 fi-wizard-navigation-item_left-icon"
-          />
-          <a
-            aria-disabled="true"
-            class="c7 fi-link fi-link--router c8"
-            href="#"
-            tabindex="-1"
           >
             4. Step
           </a>
@@ -874,8 +904,7 @@ exports[`calling render with the same component on the same container does not r
         </div>
       </li>
       <li
-        aria-disabled="true"
-        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--disabled"
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--coming"
       >
         <div
           class="c0 fi-wizard-navigation-item_inner-wrapper"
@@ -894,6 +923,26 @@ exports[`calling render with the same component on the same container does not r
         </div>
       </li>
       <li
+        aria-disabled="true"
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--disabled"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_left-icon"
+          />
+          <a
+            aria-disabled="true"
+            class="c7 fi-link fi-link--router c8"
+            href="#"
+            tabindex="-1"
+          >
+            7. Step
+          </a>
+        </div>
+      </li>
+      <li
         class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--coming"
       >
         <div
@@ -907,7 +956,7 @@ exports[`calling render with the same component on the same container does not r
             class="fi-link fi-link--router c8"
             tabindex="-1"
           >
-            7. Step
+            8. Step
           </button>
         </div>
       </li>

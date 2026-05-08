@@ -6,25 +6,27 @@ The `<WizardNavigation>` component is used for user interactions that progress i
 - Provide the navigation a descriptive `heading` and use the correct heading level depending on the navigation's location in the page structure.
 - When page content changes along with the phases, make sure this gets conveyed to screen reader users as well
 
-A `<WizardNavigationItem>` can have one of these 6 statuses:
+A `<WizardNavigationItem>` can have one of these statuses:
 
 - `'default'`: An incomplete step which the user can reach
 - `'completed'`: A step where the user has filled all required information
 - `'error'`: Step that is invalid
-- `'current'`: Currently active step
-- `'current-completed'`: Combination of current and completed statuses
-- `'current-error'`: Combination of current and error statuses
 - `'coming'`: A step which is not reachable at the moment (but will become available when e.g. the previous steps have been completed)
 - `'disabled'`: A disabled step which will not become reachable. In most cases you should use `'coming'` instead of this
+- `'current'`: Currently active step - **deprecated, use status `'default'` with prop `active`**
+- `'current-completed'`: Combination of current and completed statuses - **deprecated, use status `'completed'` with prop `active`**
+
+A `<WizardNavigationItem>` has boolean prop `active` to indicate item being the current step.
 
 <div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
 #### Important!
 
 To ensure accessibility, the following aria-attributes must be manually added to the inner `<RouterLink>` components:
 
-- `aria-current="step"` when the wrapping item has `status="current"`
+- `aria-current="step"` when the wrapping item has prop `active` (or deprecated status `current`/`current-completed`)
 - `aria-disabled` when the wrapping item has `status="coming"` or `status="disabled"`
 - A descriptive `aria-label` for any link where the wrapping item has `status="completed"`. The aria-label should indicate that the step is completed
+- A descriptive `aria-label` for any link where the wrapping item has `status="error"`. The aria-label should indicate that the step is invalid
 
 Please refer to the code below for examples.
 
@@ -68,7 +70,7 @@ const Comp = (props) => {
     <WizardNavigationItem status="default">
       <RouterLink href="#">2. Mandate themes</RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="current">
+    <WizardNavigationItem status="default" active>
       <RouterLink aria-current="step" href="#">
         3. Selected mandate themes
       </RouterLink>
@@ -114,7 +116,7 @@ const Comp = (props) => {
     <WizardNavigationItem status="error">
       <RouterLink href="#">2. Mandate themes</RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="current-error">
+    <WizardNavigationItem status="error" active>
       <RouterLink aria-current="step" href="#">
         3. Selected mandate themes
       </RouterLink>
@@ -168,7 +170,7 @@ const Comp = (props) => {
     <WizardNavigationItem status="default">
       <RouterLink href="#">2. Mandate themes</RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="current">
+    <WizardNavigationItem status="default" active>
       <RouterLink aria-current="step" href="#">
         3. Selected mandate themes
       </RouterLink>

@@ -2,7 +2,7 @@ import { font } from '../../../theme/reset';
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
 
-export const currentHighlight = (theme: SuomifiTheme) => css`
+const currentHighlight = (theme: SuomifiTheme) => css`
   background: ${theme.colors.highlightLight3};
   border-left: 4px solid ${theme.colors.highlightBase};
   padding-left: calc(${theme.spacing.m} - 4px);
@@ -13,7 +13,7 @@ export const currentHighlight = (theme: SuomifiTheme) => css`
   }
 `;
 
-export const hoverHighlight = (theme: SuomifiTheme) => css`
+const hoverHighlight = (theme: SuomifiTheme) => css`
   &:hover {
     border-left: 4px solid ${theme.colors.highlightBase};
     padding-left: calc(${theme.spacing.m} - 4px);
@@ -24,7 +24,7 @@ export const hoverHighlight = (theme: SuomifiTheme) => css`
   }
 `;
 
-export const defaultLink = (theme: SuomifiTheme) => css`
+const defaultLink = (theme: SuomifiTheme) => css`
   ${font(theme)('actionElementInnerText')}
   cursor: pointer;
   &:hover {
@@ -35,31 +35,32 @@ export const defaultLink = (theme: SuomifiTheme) => css`
   }
 `;
 
-export const currentLink = (theme: SuomifiTheme) => css`
+const currentLink = (theme: SuomifiTheme) => css`
   pointer-events: none;
   color: ${theme.colors.blackBase};
   ${font(theme)('actionElementInnerTextBold')}
   &:hover,
-  &:focus {
+  &:focus,
+  &:visited {
     text-decoration: none;
     color: ${theme.colors.blackBase};
   }
 `;
 
-export const stepBase = (theme: SuomifiTheme) => css`
+const stepBase = (theme: SuomifiTheme) => css`
   width: 26px;
   height: 26px;
   margin-right: ${theme.spacing.xs};
 `;
 
-export const stepCircle = (theme: SuomifiTheme) => css`
+const stepCircle = (theme: SuomifiTheme) => css`
   ${stepBase(theme)};
   border: 1px solid ${theme.colors.depthDark3};
   background: ${theme.colors.whiteBase};
   border-radius: 50%;
 `;
 
-export const stepIcon = (theme: SuomifiTheme, color: string) => css`
+const stepIcon = (theme: SuomifiTheme, color: string) => css`
   .fi-wizard-navigation-item_left-icon {
     display: flex;
     margin-right: ${theme.spacing.xs};
@@ -164,18 +165,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--current-error {
-      ${currentHighlight(theme)};
-
-      .fi-wizard-navigation-item_inner-wrapper {
-        ${stepIcon(theme, theme.colors.alertBase)};
-
-        .fi-link--router {
-          ${currentLink(theme)};
-        }
-      }
-    }
-
     &--completed {
       ${hoverHighlight(theme)};
 
@@ -196,6 +185,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         .fi-link--router {
           ${defaultLink(theme)};
+        }
+      }
+    }
+
+    &--active {
+      ${currentHighlight(theme)};
+
+      .fi-wizard-navigation-item_inner-wrapper {
+        .fi-link--router {
+          ${currentLink(theme)};
         }
       }
     }
