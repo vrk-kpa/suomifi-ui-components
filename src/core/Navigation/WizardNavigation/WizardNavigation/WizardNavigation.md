@@ -6,23 +6,27 @@ The `<WizardNavigation>` component is used for user interactions that progress i
 - Provide the navigation a descriptive `heading` and use the correct heading level depending on the navigation's location in the page structure.
 - When page content changes along with the phases, make sure this gets conveyed to screen reader users as well
 
-A `<WizardNavigationItem>` can have one of these 6 statuses:
+A `<WizardNavigationItem>` can have one of these statuses:
 
 - `'default'`: An incomplete step which the user can reach
-- `'current'`: Currently active step
 - `'completed'`: A step where the user has filled all required information
-- `'current-completed'`: Combination of current and completed statuses
+- `'error'`: Step that is invalid
 - `'coming'`: A step which is not reachable at the moment (but will become available when e.g. the previous steps have been completed)
 - `'disabled'`: A disabled step which will not become reachable. In most cases you should use `'coming'` instead of this
+- `'current'`: Currently active step - **deprecated, use status `'default'` with prop `active`**
+- `'current-completed'`: Combination of current and completed statuses - **deprecated, use status `'completed'` with prop `active`**
+
+A `<WizardNavigationItem>` has boolean prop `active` to indicate item being the current step.
 
 <div style="border: 1px solid #c8cdd0; padding: 20px 20px 4px 20px; background: #eaf2fa; margin-bottom: 30px;">
 #### Important!
 
 To ensure accessibility, the following aria-attributes must be manually added to the inner `<RouterLink>` components:
 
-- `aria-current="step"` when the wrapping item has `status="current"`
+- `aria-current="step"` when the wrapping item has prop `active` (or deprecated status `current`/`current-completed`)
 - `aria-disabled` when the wrapping item has `status="coming"` or `status="disabled"`
 - A descriptive `aria-label` for any link where the wrapping item has `status="completed"`. The aria-label should indicate that the step is completed
+- A descriptive `aria-label` for any link where the wrapping item has `status="error"`. The aria-label should indicate that the step is invalid
 
 Please refer to the code below for examples.
 
@@ -66,7 +70,7 @@ const Comp = (props) => {
     <WizardNavigationItem status="default">
       <RouterLink href="#">2. Mandate themes</RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="current">
+    <WizardNavigationItem status="default" active>
       <RouterLink aria-current="step" href="#">
         3. Selected mandate themes
       </RouterLink>
@@ -78,6 +82,52 @@ const Comp = (props) => {
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
       <RouterLink aria-disabled role="link">
+        5. Summary and validation
+      </RouterLink>
+    </WizardNavigationItem>
+  </WizardNavigation>
+</div>;
+```
+
+### Error and disabled states
+
+```js
+import {
+  WizardNavigation,
+  WizardNavigationItem,
+  RouterLink
+} from 'suomifi-ui-components';
+
+const Comp = (props) => {
+  const { children, ...passProps } = props;
+  return <div {...passProps}>{props.children}</div>;
+};
+
+<div style={{ width: '350px' }}>
+  <WizardNavigation heading="Steps" aria-label="Steps">
+    <WizardNavigationItem status="completed">
+      <RouterLink
+        href="https://suomi.fi"
+        aria-label="1. Parties. This step is completed"
+      >
+        1. Parties
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="error">
+      <RouterLink href="#">2. Mandate themes</RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="error" active>
+      <RouterLink aria-current="step" href="#">
+        3. Selected mandate themes
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="disabled">
+      <RouterLink aria-disabled role="link" href="#">
+        4. Validity
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
+      <RouterLink aria-disabled role="link" href="#">
         5. Summary and validation
       </RouterLink>
     </WizardNavigationItem>
@@ -120,7 +170,7 @@ const Comp = (props) => {
     <WizardNavigationItem status="default">
       <RouterLink href="#">2. Mandate themes</RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="current">
+    <WizardNavigationItem status="default" active>
       <RouterLink aria-current="step" href="#">
         3. Selected mandate themes
       </RouterLink>
