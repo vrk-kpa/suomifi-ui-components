@@ -10,7 +10,7 @@ export interface HtmlPProps
 
 interface InnerRef {
   /** Forwarded ref object for the paragraph element */
-  forwardedRef: React.Ref<HTMLParagraphElement>;
+  forwardedRef?: React.Ref<HTMLParagraphElement>;
 }
 
 const spanResets = css`

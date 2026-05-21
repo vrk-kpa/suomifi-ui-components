@@ -52,7 +52,7 @@ const StyledLinkListItem = styled(
  * Used as a wrapper for links in LinkList to add correct styling.
  */
 const LinkListItem = forwardRef(
-  (props: LinkListItemProps, ref: React.Ref<HTMLElement>) => (
+  (props: LinkListItemProps, ref: React.Ref<HTMLLIElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledLinkListItem
