@@ -58,7 +58,7 @@ interface InternalModalProps extends ModalProps, SuomifiThemeProp {
 }
 
 export interface ModalProviderState {
-  titleRef: React.RefObject<HTMLHeadElement> | null;
+  titleRef: React.RefObject<HTMLHeadingElement> | null;
   focusTitleOnOpen: boolean;
   variant: ModalVariant;
   scrollable: boolean;
@@ -89,7 +89,7 @@ const modalClassNames = {
 class BaseModal extends Component<InternalModalProps> {
   state = { bodyScrollDisabled: false, scrollTop: 0, scrollLeft: 0 };
 
-  private titleRef = createRef<HTMLHeadElement>();
+  private titleRef = createRef<HTMLHeadingElement>();
 
   constructor(props: InternalModalProps) {
     super(props);
