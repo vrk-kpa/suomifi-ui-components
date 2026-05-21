@@ -13,7 +13,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "removeComments": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2019", "dom"],
     "pretty": true,
     "skipLibCheck": false,
     "moduleResolution": "node",
@@ -21,7 +21,7 @@
     "paths": {
       "*": ["src/*", "node_modules/*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom", "node"]
   },
   "include": ["./src/**/*", "./types/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
