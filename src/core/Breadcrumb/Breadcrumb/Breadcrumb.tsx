@@ -1,7 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { styled } from 'styled-components';
 import classnames from 'classnames';
-import { getConditionalAriaProp } from '../../../utils/aria';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
@@ -82,8 +81,8 @@ const Breadcrumb = (props: BreadcrumbProps) => {
             <StyledBreadcrumb
               theme={suomifiTheme}
               globalMargins={margins}
+              aria-label={ariaLabel}
               {...passProps}
-              {...getConditionalAriaProp('aria-label', [ariaLabel])}
             />
           )}
         </SuomifiThemeConsumer>
