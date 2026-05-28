@@ -22,6 +22,7 @@ const baseClassName = 'fi-reorderable-list-item';
 const itemClassNames = {
   inner: `${baseClassName}_inner`,
   dragHandle: `${baseClassName}_drag-handle`,
+  contentWrapper: `${baseClassName}_content-wrapper`,
   content: `${baseClassName}_content`,
   buttons: `${baseClassName}_buttons`,
   buttonsInline: `${baseClassName}_buttons--inline`,
@@ -165,29 +166,9 @@ class BaseReorderableListItem extends Component<
       <HtmlDiv
         className={classnames(itemClassNames.buttons, placementClassName)}
       >
-        <Button
-          variant="secondaryNoBorder"
-          className={classnames(itemClassNames.buttonUp, {
-            [boundaryClassName]: isFirst,
-          })}
-          aria-label={moveUpButtonAriaLabel}
-          onClick={this.handleMoveUp}
-          icon={<IconChevronUp />}
-          forwardedRef={this.upButtonRef}
-        />
-        <Button
-          variant="secondaryNoBorder"
-          className={classnames(itemClassNames.buttonDown, {
-            [boundaryClassName]: isLast,
-          })}
-          aria-label={moveDownButtonAriaLabel}
-          onClick={this.handleMoveDown}
-          icon={<IconChevronDown />}
-          forwardedRef={this.downButtonRef}
-        />
         {consumer.showMoveToTopButton && moveToTopButtonAriaLabel && (
           <Button
-            variant="secondaryNoBorder"
+            variant="secondary"
             className={classnames(itemClassNames.buttonToTop, {
               [boundaryClassName]: isFirst,
             })}
@@ -197,9 +178,29 @@ class BaseReorderableListItem extends Component<
             forwardedRef={this.topButtonRef}
           />
         )}
+        <Button
+          variant="secondary"
+          className={classnames(itemClassNames.buttonUp, {
+            [boundaryClassName]: isFirst,
+          })}
+          aria-label={moveUpButtonAriaLabel}
+          onClick={this.handleMoveUp}
+          icon={<IconChevronUp />}
+          forwardedRef={this.upButtonRef}
+        />
+        <Button
+          variant="secondary"
+          className={classnames(itemClassNames.buttonDown, {
+            [boundaryClassName]: isLast,
+          })}
+          aria-label={moveDownButtonAriaLabel}
+          onClick={this.handleMoveDown}
+          icon={<IconChevronDown />}
+          forwardedRef={this.downButtonRef}
+        />
         {consumer.showMoveToBottomButton && moveToBottomButtonAriaLabel && (
           <Button
-            variant="secondaryNoBorder"
+            variant="secondary"
             className={classnames(itemClassNames.buttonToBottom, {
               [boundaryClassName]: isLast,
             })}
@@ -276,6 +277,28 @@ class BaseReorderableListItem extends Component<
     const isLast = consumer.isLastItem(itemKey);
     const content =
       editMode && editModeChildren !== undefined ? editModeChildren : children;
+    const buttonsBeforeContent =
+      consumer.moveButtonsPlacement === 'top' || smallScreen;
+    const contentElement = (
+      <InteractionBlocker
+        className={itemClassNames.content}
+        {...(editMode
+          ? { disableInteraction: true }
+          : { disableInteraction: false })}
+      >
+        {content}
+      </InteractionBlocker>
+    );
+    const moveButtons =
+      editMode &&
+      this.renderMoveButtons(
+        isFirst,
+        isLast,
+        moveUpButtonAriaLabel,
+        moveDownButtonAriaLabel,
+        moveToTopButtonAriaLabel,
+        moveToBottomButtonAriaLabel,
+      );
 
     const combinedRef = (node: HTMLLIElement | null) => {
       (this.liRef as React.MutableRefObject<HTMLLIElement | null>).current =
@@ -316,23 +339,6 @@ class BaseReorderableListItem extends Component<
           onDragLeave={editMode ? this.handleDragLeave : undefined}
           onDrop={editMode ? this.handleDrop : undefined}
         >
-          {editMode &&
-            this.renderMoveButtons(
-              isFirst,
-              isLast,
-              moveUpButtonAriaLabel,
-              moveDownButtonAriaLabel,
-              moveToTopButtonAriaLabel,
-              moveToBottomButtonAriaLabel,
-            )}
-          <InteractionBlocker
-            className={itemClassNames.content}
-            {...(editMode
-              ? { disableInteraction: true }
-              : { disableInteraction: false })}
-          >
-            {content}
-          </InteractionBlocker>
           {editMode && (
             <HtmlDiv className={itemClassNames.dragHandle} aria-hidden="true">
               <IconOptionsVertical
@@ -342,6 +348,23 @@ class BaseReorderableListItem extends Component<
                 className={`${baseClassName}_drag-handle-icon`}
               />
             </HtmlDiv>
+          )}
+          {editMode ? (
+            <HtmlDiv className={itemClassNames.contentWrapper}>
+              {buttonsBeforeContent ? (
+                <>
+                  {moveButtons}
+                  {contentElement}
+                </>
+              ) : (
+                <>
+                  {contentElement}
+                  {moveButtons}
+                </>
+              )}
+            </HtmlDiv>
+          ) : (
+            contentElement
           )}
         </HtmlDiv>
       </HtmlLi>

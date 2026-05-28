@@ -267,7 +267,7 @@ describe('ReorderableList', () => {
     });
   });
 
-  it('should render toolbar buttons first in DOM when top placement is used', async () => {
+  it('should render toolbar buttons first in content wrapper when top placement is used', async () => {
     const user = userEvent.setup();
     render(
       <TestList
@@ -281,11 +281,19 @@ describe('ReorderableList', () => {
 
     const item = screen.getByLabelText('Item A');
     const inner = item.querySelector('.fi-reorderable-list-item_inner');
+    const dragHandle = item.querySelector(
+      '.fi-reorderable-list-item_drag-handle',
+    );
+    const contentWrapper = item.querySelector(
+      '.fi-reorderable-list-item_content-wrapper',
+    );
     const buttons = item.querySelector('.fi-reorderable-list-item_buttons');
 
     expect(item).toHaveClass('fi-reorderable-list-item--buttons-top');
     expect(buttons).toHaveClass('fi-reorderable-list-item_buttons--top');
-    expect(inner?.firstElementChild).toBe(buttons);
+    expect(inner?.firstElementChild).toBe(dragHandle);
+    expect(inner?.lastElementChild).toBe(contentWrapper);
+    expect(contentWrapper?.firstElementChild).toBe(buttons);
   });
 
   it('should return to view mode on cancel', async () => {

@@ -542,7 +542,7 @@ class BaseReorderableList extends Component<
       smallScreen,
       showMoveToTopButton,
       showMoveToBottomButton,
-      moveButtonsPlacement,
+      moveButtonsPlacement = 'top',
       forwardedRef,
       style,
       'aria-labelledby': ariaLabelledBy,

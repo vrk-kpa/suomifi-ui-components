@@ -24,12 +24,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-reorderable-list-item_inner {
-    background-color: ${theme.colors.infoLight1};
+    background-color: ${theme.colors.highlightLight4};
     border: 1px solid ${theme.colors.depthLight1};
     border-radius: ${theme.radiuses.basic};
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    align-items: stretch;
     position: relative;
     transition:
       box-shadow 0.2s ease,
@@ -53,38 +52,30 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-reorderable-list-item_inner {
       box-shadow: ${theme.shadows.panelShadow};
       cursor: grab;
-      padding: ${theme.spacing.s} ${theme.spacing.s} ${theme.spacing.s}
-        ${theme.spacing.xl};
-      & .fi-reorderable-list-item_content {
-        padding-left: ${theme.spacing.xs};
-        padding-right: ${theme.spacing.s};
-      }
     }
 
     &:focus {
       & .fi-reorderable-list-item_inner {
-        border-color: ${theme.colors.highlightBase};
+        border-color: ${theme.colors.depthLight1};
+        padding: ${theme.spacing.s} ${theme.spacing.m};
         &:after {
           ${theme.focuses.absoluteFocus}
           ${theme.focuses.highContrastFocus}
         }
       }
     }
-
-    &:focus-within {
-      & .fi-reorderable-list-item_inner {
-        border-color: ${theme.colors.highlightBase};
-      }
-    }
   }
 
   & .fi-reorderable-list-item_drag-handle {
-    position: absolute;
-    left: ${theme.spacing.xxs};
-    top: 50%;
-    transform: translateY(-50%);
+    align-items: center;
+    align-self: stretch;
+    border-right: 1px solid ${theme.colors.depthLight1};
     display: flex;
+    background-color: ${theme.colors.depthLight2};
+    flex: 0 0 ${theme.spacing.xl};
+    justify-content: center;
     pointer-events: none;
+    padding: 0 ${theme.spacing.xxs};
 
     & .fi-reorderable-list-item_drag-handle-icon {
       width: 16px;
@@ -96,9 +87,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
 
       & .fi-icon-base-fill {
-        fill: ${theme.colors.depthBase};
+        fill: ${theme.colors.depthDark1};
       }
     }
+  }
+
+  & .fi-reorderable-list-item_content-wrapper {
+    display: flex;
+    flex: 1;
+    min-width: 0;
   }
 
   /* Content area */
@@ -113,29 +110,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     gap: ${theme.spacing.xxs};
     flex-shrink: 0;
     justify-content: flex-end;
+    padding: 0 ${theme.spacing.s};
 
     &.fi-reorderable-list-item_buttons--top {
-      align-self: stretch;
       justify-content: flex-start;
-      margin-bottom: ${theme.spacing.xs};
-    }
-
-    &.fi-reorderable-list-item_buttons--top
-      + .fi-reorderable-list-item_content {
-      width: 100%;
+      margin: 0 ${theme.spacing.s} 0 ${theme.spacing.s};
+      padding: ${theme.spacing.s} 0 ${theme.spacing.s} 0;
     }
 
     & .fi-reorderable-list-item_button-to-top,
     & .fi-reorderable-list-item_button-up,
     & .fi-reorderable-list-item_button-down,
     & .fi-reorderable-list-item_button-to-bottom {
-      min-width: 40px;
-      min-height: 40px;
-      background-color: ${theme.colors.whiteBase};
-      padding: ${theme.spacing.xs};
-      border: 1px solid ${theme.colors.highlightBase};
-      border-radius: ${theme.radiuses.basic};
-
       &.fi-reorderable-list-item_button--boundary {
         border-color: ${theme.colors.depthBase};
         color: ${theme.colors.depthBase};
@@ -145,23 +131,40 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           fill: ${theme.colors.depthBase};
         }
       }
-
-      &:focus-visible {
-        position: relative;
-        outline: 0;
-        &:after {
-          ${theme.focuses.absoluteFocus}
-          ${theme.focuses.highContrastFocus}
-        }
-      }
     }
   }
 
   &.fi-reorderable-list-item--buttons-top {
     &.fi-reorderable-list-item--edit-mode {
-      & .fi-reorderable-list-item_inner {
+      & .fi-reorderable-list-item_content-wrapper {
         flex-direction: column;
-        align-items: stretch;
+      }
+
+      & .fi-reorderable-list-item_buttons {
+        border-bottom: 1px solid ${theme.colors.depthLight1};
+      }
+
+      & .fi-reorderable-list-item_content {
+        padding: ${theme.spacing.s};
+      }
+    }
+  }
+
+  &.fi-reorderable-list-item--buttons-inline {
+    &.fi-reorderable-list-item--edit-mode {
+      & .fi-reorderable-list-item_content-wrapper {
+        flex-direction: row;
+      }
+
+      & .fi-reorderable-list-item_content {
+        padding: ${theme.spacing.s};
+      }
+
+      & .fi-reorderable-list-item_buttons {
+        border-left: 1px solid ${theme.colors.depthLight1};
+        align-items: center;
+        justify-content: center;
+        margin: ${theme.spacing.s} 0;
       }
     }
   }
@@ -185,18 +188,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border-color: ${theme.colors.highlightBase};
       border-style: dashed;
       border-width: 2px;
-      background-color: ${theme.colors.highlightLight4};
+      background-color: ${theme.colors.infoLight1};
     }
   }
 
   /* Small screen variant */
   &.fi-reorderable-list-item--small-screen {
     margin-bottom: ${theme.spacing.s};
-
-    & .fi-reorderable-list-item_inner {
-      flex-direction: column;
-      align-items: stretch;
-    }
 
     &.fi-reorderable-list-item--view-mode {
       & .fi-reorderable-list-item_inner {
@@ -205,22 +203,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &.fi-reorderable-list-item--edit-mode {
-      & .fi-reorderable-list-item_inner {
-        padding: ${theme.spacing.s} ${theme.spacing.s} ${theme.spacing.s}
-          ${theme.spacing.xl};
+      & .fi-reorderable-list-item_content-wrapper {
+        flex-direction: column;
+      }
 
-        & .fi-reorderable-list-item_content {
-          padding-left: ${theme.spacing.xs};
-          padding-right: 0;
-        }
+      & .fi-reorderable-list-item_content {
+        padding: ${theme.spacing.s};
       }
 
       & .fi-reorderable-list-item_buttons {
-        flex-direction: row;
+        border-bottom: 1px solid ${theme.colors.depthLight1};
+        border-left: none;
         justify-content: flex-start;
-        width: 100%;
-        margin-bottom: ${theme.spacing.xs};
-        margin-left: ${theme.spacing.xs};
       }
     }
   }
