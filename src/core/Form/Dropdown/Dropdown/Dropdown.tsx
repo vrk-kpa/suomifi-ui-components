@@ -106,7 +106,7 @@ interface DropdownState<T> {
 export interface DropdownProps<T extends string = string>
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlButtonProps, 'onChange' | 'value'> {
+    Omit<HtmlButtonProps, 'defaultValue' | 'onChange' | 'value'> {
   /**
    * HTML id attribute
    * If no id is specified, one will be generated automatically
@@ -565,6 +565,8 @@ class BaseDropdown<T extends string = string> extends Component<
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
       style,
+      value,
+      defaultValue,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -657,6 +659,7 @@ class BaseDropdown<T extends string = string> extends Component<
             onKeyDown={this.handleKeyDown}
             onBlur={this.handleOnBlur}
             data-floating-ui-placement={this.state.popoverPlacement}
+            value={selectedValue ?? undefined}
             {...passProps}
           >
             <HtmlSpan
