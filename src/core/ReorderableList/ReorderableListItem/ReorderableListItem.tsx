@@ -239,7 +239,12 @@ class BaseReorderableListItem extends Component<
     }
   };
 
-  private handleDragLeave = () => {
+  private handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    const nextTarget = e.relatedTarget as Node | null;
+    if (nextTarget && e.currentTarget.contains(nextTarget)) {
+      return;
+    }
+
     const { consumer, itemKey } = this.props;
     if (consumer.dragOverItemKey === itemKey) {
       consumer.setDragOverItemKey(null);
