@@ -2,6 +2,96 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
+const editModeStyles = (theme: SuomifiTheme) => css`
+  &.fi-reorderable-list-item--edit-mode {
+    & .fi-reorderable-list-item_inner {
+      box-shadow: ${theme.shadows.panelShadow};
+      cursor: grab;
+    }
+
+    &:focus {
+      & .fi-reorderable-list-item_inner {
+        border-color: ${theme.colors.depthLight1};
+        &:after {
+          ${theme.focuses.absoluteFocus}
+          ${theme.focuses.highContrastFocus}
+        }
+      }
+    }
+
+    &.fi-reorderable-list-item--buttons-top {
+      & .fi-reorderable-list-item_content-wrapper {
+        flex-direction: column;
+      }
+      & .fi-reorderable-list-item_buttons {
+        border-bottom: 1px solid ${theme.colors.depthLight1};
+      }
+    }
+
+    &.fi-reorderable-list-item--buttons-inline {
+      & .fi-reorderable-list-item_content-wrapper {
+        flex-direction: row;
+      }
+      & .fi-reorderable-list-item_content {
+        padding: ${theme.spacing.s};
+      }
+      & .fi-reorderable-list-item_buttons {
+        border-left: 1px solid ${theme.colors.depthLight1};
+        align-items: center;
+        justify-content: center;
+        margin: ${theme.spacing.s} 0;
+      }
+    }
+  }
+`;
+
+const draggingStyles = (theme: SuomifiTheme) => css`
+  &.fi-reorderable-list-item--dragging {
+    & .fi-reorderable-list-item_inner {
+      opacity: 0.5;
+      box-shadow: ${theme.shadows.wideBoxShadow};
+      transform: rotate(-2deg);
+
+      @media (prefers-reduced-motion: reduce) {
+        transform: none;
+      }
+    }
+  }
+`;
+
+const dragOverStyles = (theme: SuomifiTheme) => css`
+  &.fi-reorderable-list-item--drag-over {
+    & .fi-reorderable-list-item_inner {
+      border-color: ${theme.colors.highlightBase};
+      border-style: dashed;
+      border-width: 2px;
+      background-color: ${theme.colors.infoLight1};
+    }
+  }
+`;
+
+const smallScreenStyles = (theme: SuomifiTheme) => css`
+  &.fi-reorderable-list-item--small-screen {
+    margin-bottom: ${theme.spacing.s};
+
+    & .fi-reorderable-list-item_content {
+      padding: ${theme.spacing.s};
+    }
+
+    &.fi-reorderable-list-item--edit-mode {
+      & .fi-reorderable-list-item_content-wrapper {
+        flex-direction: column;
+      }
+      & .fi-reorderable-list-item_buttons {
+        border-bottom: 1px solid ${theme.colors.depthLight1};
+        border-left: none;
+        justify-content: flex-start;
+        margin: 0 ${theme.spacing.s};
+      }
+    }
+  }
+`;
+
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
@@ -9,18 +99,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   margin: 0;
   padding: 0;
   outline: none;
+  margin-bottom: ${theme.spacing.xs};
+  transition: transform 0.2s ease;
 
-  &.fi-reorderable-list-item {
-    margin-bottom: ${theme.spacing.xs};
-    transition: transform 0.2s ease;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 
   & .fi-reorderable-list-item_inner {
@@ -37,32 +124,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     @media (prefers-reduced-motion: reduce) {
       transition: none;
-    }
-  }
-
-  /* View mode */
-  &.fi-reorderable-list-item--view-mode {
-    & .fi-reorderable-list-item_inner {
-      padding: ${theme.spacing.s} ${theme.spacing.m};
-    }
-  }
-
-  /* Edit mode */
-  &.fi-reorderable-list-item--edit-mode {
-    & .fi-reorderable-list-item_inner {
-      box-shadow: ${theme.shadows.panelShadow};
-      cursor: grab;
-    }
-
-    &:focus {
-      & .fi-reorderable-list-item_inner {
-        border-color: ${theme.colors.depthLight1};
-        padding: ${theme.spacing.s} ${theme.spacing.m};
-        &:after {
-          ${theme.focuses.absoluteFocus}
-          ${theme.focuses.highContrastFocus}
-        }
-      }
     }
   }
 
@@ -98,13 +159,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     min-width: 0;
   }
 
-  /* Content area */
   & .fi-reorderable-list-item_content {
     flex: 1;
     min-width: 0;
+    padding: ${theme.spacing.m};
   }
 
-  /* Move buttons container */
   & .fi-reorderable-list-item_buttons {
     display: flex;
     gap: ${theme.spacing.xxs};
@@ -114,8 +174,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-reorderable-list-item_buttons--top {
       justify-content: flex-start;
-      margin: 0 ${theme.spacing.s} 0 ${theme.spacing.s};
-      padding: ${theme.spacing.s} 0 ${theme.spacing.s} 0;
+      margin: 0 ${theme.spacing.m};
+      padding: ${theme.spacing.m} 0;
     }
 
     & .fi-reorderable-list-item_button-to-top,
@@ -134,88 +194,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  &.fi-reorderable-list-item--buttons-top {
-    &.fi-reorderable-list-item--edit-mode {
-      & .fi-reorderable-list-item_content-wrapper {
-        flex-direction: column;
-      }
-
-      & .fi-reorderable-list-item_buttons {
-        border-bottom: 1px solid ${theme.colors.depthLight1};
-      }
-
-      & .fi-reorderable-list-item_content {
-        padding: ${theme.spacing.s};
-      }
-    }
-  }
-
-  &.fi-reorderable-list-item--buttons-inline {
-    &.fi-reorderable-list-item--edit-mode {
-      & .fi-reorderable-list-item_content-wrapper {
-        flex-direction: row;
-      }
-
-      & .fi-reorderable-list-item_content {
-        padding: ${theme.spacing.s};
-      }
-
-      & .fi-reorderable-list-item_buttons {
-        border-left: 1px solid ${theme.colors.depthLight1};
-        align-items: center;
-        justify-content: center;
-        margin: ${theme.spacing.s} 0;
-      }
-    }
-  }
-
-  /* Dragging state */
-  &.fi-reorderable-list-item--dragging {
-    & .fi-reorderable-list-item_inner {
-      opacity: 0.5;
-      box-shadow: ${theme.shadows.wideBoxShadow};
-      transform: rotate(-2deg);
-
-      @media (prefers-reduced-motion: reduce) {
-        transform: none;
-      }
-    }
-  }
-
-  /* Drag over target state */
-  &.fi-reorderable-list-item--drag-over {
-    & .fi-reorderable-list-item_inner {
-      border-color: ${theme.colors.highlightBase};
-      border-style: dashed;
-      border-width: 2px;
-      background-color: ${theme.colors.infoLight1};
-    }
-  }
-
-  /* Small screen variant */
-  &.fi-reorderable-list-item--small-screen {
-    margin-bottom: ${theme.spacing.s};
-
-    &.fi-reorderable-list-item--view-mode {
-      & .fi-reorderable-list-item_inner {
-        padding: ${theme.spacing.s};
-      }
-    }
-
-    &.fi-reorderable-list-item--edit-mode {
-      & .fi-reorderable-list-item_content-wrapper {
-        flex-direction: column;
-      }
-
-      & .fi-reorderable-list-item_content {
-        padding: ${theme.spacing.s};
-      }
-
-      & .fi-reorderable-list-item_buttons {
-        border-bottom: 1px solid ${theme.colors.depthLight1};
-        border-left: none;
-        justify-content: flex-start;
-      }
-    }
-  }
+  ${editModeStyles(theme)}
+  ${draggingStyles(theme)}
+  ${dragOverStyles(theme)}
+  ${smallScreenStyles(theme)}
 `;
