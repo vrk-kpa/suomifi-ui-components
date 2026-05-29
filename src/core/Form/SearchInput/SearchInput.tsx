@@ -548,7 +548,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     onBlur={handleOnBlur}
                     className={searchInputClassNames.inputElement}
                     type="search"
-                    aria-activedescendant={this.state.focusedDescendantId}
+                    aria-activedescendant={
+                      this.state.focusedDescendantId || undefined
+                    }
                     aria-controls={
                       this.state.showPopover ? `${id}-itemlist` : undefined
                     }
