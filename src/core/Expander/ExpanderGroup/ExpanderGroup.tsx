@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, forwardRef } from 'react';
+import React, { ReactNode, forwardRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlSpan, HtmlDivProps } from '../../../reset';
@@ -75,13 +75,6 @@ type ExpanderGroupTargetOpenState = {
   targetOpenState: boolean;
 };
 
-interface ExpanderGroupState {
-  /** Current combined open state of all expanders */
-  allOpen: boolean | undefined;
-  /** State change transition request */
-  expanderGroupOpenState: ExpanderGroupTargetOpenState;
-}
-
 export interface ExpanderGroupProviderState {
   onExpanderOpenChange: (id: string, newState: boolean | undefined) => void;
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
@@ -97,129 +90,110 @@ const defaultProviderValue: ExpanderGroupProviderState = {
 const { Provider, Consumer: ExpanderGroupConsumer } =
   React.createContext(defaultProviderValue);
 
-class BaseExpanderGroup extends Component<
-  ExpanderGroupProps & SuomifiThemeProp
-> {
-  state: ExpanderGroupState = {
-    allOpen: undefined,
-    expanderGroupOpenState: {
+const BaseExpanderGroup = (props: ExpanderGroupProps) => {
+  const {
+    className,
+    children,
+    openAllText,
+    ariaOpenAllText,
+    closeAllText,
+    ariaCloseAllText,
+    showToggleAllButton = true,
+    toggleAllButtonProps,
+    forwardedRef,
+    style,
+    ...rest
+  } = props;
+
+  const [_marginProps, passProps] = separateMarginProps(rest);
+
+  const [expanderGroupOpenState, setExpanderGroupOpenState] =
+    React.useState<ExpanderGroupTargetOpenState>({
       targetOpenState: false,
-    },
-  };
+    });
+  const [expanders, setExpanders] = React.useState<ExpanderOpenStates>({});
+  const [hasOpenExpander, setHasOpenExpander] = React.useState<
+    boolean | undefined
+  >(false);
+  const [allOpen, setAllOpen] = React.useState<boolean | undefined>(undefined);
 
-  /** Expanders by id with current open state */
-  private expanders: ExpanderOpenStates = {};
-
-  /** Number of currently open Expanders */
-  private openExpanderCount = 0;
-
-  /** Number of Expanders inside the ExpanderGroup */
-  private expanderCount = 0;
-
-  /**
-   * This function keeps track of number of expander, number of open expanders
-   * and current state of each expander. Updating is done in granular level
-   * for each change to avoid iterating over the whole Expander set on updates.
-   */
-  handleExpanderOpenChange = (id: string, newState: boolean | undefined) => {
-    if (newState !== undefined) {
-      // change or add new expander state
-      if (this.expanders[id] !== undefined && this.expanders[id] !== newState) {
-        if (newState === true) {
-          this.openExpanderCount += 1;
-        } else {
-          this.openExpanderCount -= 1;
-        }
-      }
-      // add new expander
-      if (this.expanders[id] === undefined) {
-        this.expanderCount += 1;
-        if (newState === true) {
-          this.openExpanderCount += 1;
-        }
-      }
-      this.expanders[id] = newState;
+  useEffect(() => {
+    if (expanders && Object.keys(expanders).length > 0) {
+      const allExpandersOpen = Object.values(expanders).every(
+        (isOpen) => isOpen === true,
+      );
+      setAllOpen(allExpandersOpen);
+      const someOpen = Object.values(expanders).some(
+        (isOpen) => isOpen === true,
+      );
+      setHasOpenExpander(someOpen);
     } else {
-      // remove expander
-      if (this.expanders[id] === true) {
-        this.openExpanderCount -= 1;
+      setHasOpenExpander(false);
+      setAllOpen(false);
+    }
+  }, [expanders]);
+
+  const handleExpanderOpenChange = (
+    id: string,
+    newState: boolean | undefined,
+  ) => {
+    setExpanders((prevExpanders) => {
+      const next = { ...prevExpanders };
+      if (newState !== undefined) {
+        next[id] = newState;
+      } else {
+        delete next[id];
       }
-      this.expanderCount -= 1;
-      delete this.expanders[id];
-    }
-    const allOpen = this.openExpanderCount === this.expanderCount;
-    if (this.state.allOpen !== allOpen) {
-      this.setState({ allOpen });
-    }
+      return next;
+    });
   };
 
-  handleAllToggleClick = () => {
-    this.setState((prevState: ExpanderGroupState) => ({
-      expanderGroupOpenState: {
-        targetOpenState: !prevState.allOpen,
-      },
+  const handleAllToggleClick = () => {
+    setExpanderGroupOpenState(() => ({
+      targetOpenState: !allOpen,
     }));
   };
-
-  render() {
-    const {
-      className,
-      theme,
-      children,
-      openAllText,
-      ariaOpenAllText,
-      closeAllText,
-      ariaCloseAllText,
-      showToggleAllButton = true,
-      toggleAllButtonProps,
-      forwardedRef,
-      style,
-      ...rest
-    } = this.props;
-    const [_marginProps, passProps] = separateMarginProps(rest);
-    const { expanderGroupOpenState, allOpen } = this.state;
-    return (
-      <HtmlDiv
-        {...passProps}
-        className={classnames(className, baseClassName, {
-          [openClassName]: this.openExpanderCount > 0,
-        })}
-        style={style}
-      >
-        {!!showToggleAllButton && (
-          <HtmlButton
-            {...toggleAllButtonProps}
-            onClick={this.handleAllToggleClick}
-            className={classnames(
-              toggleAllButtonProps?.className,
-              openAllButtonClassName,
-            )}
-            forwardedRef={forwardedRef}
-          >
-            <HtmlSpan aria-hidden={true}>
-              {allOpen ? closeAllText : openAllText}
-            </HtmlSpan>
-            <VisuallyHidden>
-              {allOpen
-                ? ariaCloseAllText || closeAllText
-                : ariaOpenAllText || openAllText}
-            </VisuallyHidden>
-          </HtmlButton>
-        )}
-        <HtmlDiv className={expandersContainerClassName}>
-          <Provider
-            value={{
-              onExpanderOpenChange: this.handleExpanderOpenChange,
-              expanderGroupOpenState,
-            }}
-          >
-            {children}
-          </Provider>
-        </HtmlDiv>
+  return (
+    <HtmlDiv
+      {...passProps}
+      className={classnames(className, baseClassName, {
+        [openClassName]: hasOpenExpander,
+      })}
+      style={style}
+    >
+      {!!showToggleAllButton && (
+        <HtmlButton
+          {...toggleAllButtonProps}
+          onClick={handleAllToggleClick}
+          className={classnames(
+            toggleAllButtonProps?.className,
+            openAllButtonClassName,
+          )}
+          forwardedRef={forwardedRef}
+        >
+          <HtmlSpan aria-hidden={true}>
+            {allOpen ? closeAllText : openAllText}
+          </HtmlSpan>
+          <VisuallyHidden>
+            {allOpen
+              ? ariaCloseAllText || closeAllText
+              : ariaOpenAllText || openAllText}
+          </VisuallyHidden>
+        </HtmlButton>
+      )}
+      <HtmlDiv className={expandersContainerClassName}>
+        <Provider
+          value={{
+            onExpanderOpenChange: handleExpanderOpenChange,
+            expanderGroupOpenState,
+          }}
+        >
+          {children}
+        </Provider>
       </HtmlDiv>
-    );
-  }
-}
+    </HtmlDiv>
+  );
+};
 
 const StyledExpanderGroup = styled(
   (props: ExpanderGroupProps & SuomifiThemeProp & GlobalMarginProps) => {
