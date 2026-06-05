@@ -3,7 +3,8 @@ import { styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { asPropType } from '../../utils/typescript';
 
-export interface HtmlLiProps extends Omit<HTMLProps<HTMLLIElement>, 'as'> {
+export interface HtmlLiProps
+  extends Omit<HTMLProps<HTMLLIElement>, 'ref' | 'as'> {
   as?: asPropType;
   /** Ref for the input element */
   forwardedRef?: React.Ref<HTMLLIElement>;

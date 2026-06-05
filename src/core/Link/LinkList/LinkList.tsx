@@ -43,7 +43,7 @@ const StyledLinkList = styled(
 
     return (
       <HtmlUlWithRef
-        ref={forwardedRef}
+        forwardRef={forwardedRef}
         {...passProps}
         className={classnames(className, LinkListClassName, {
           [SmallScreenClassName]: smallScreen,
