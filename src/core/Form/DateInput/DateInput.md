@@ -118,7 +118,7 @@ Use the `minDate` and `maxDate` props to control the available dates in the date
 import { DateInput } from 'suomifi-ui-components';
 
 const minDate = new Date(2023, 1, 2);
-const maxDate = new Date(2024, 11, 31);
+const maxDate = new Date(2030, 11, 31);
 
 <DateInput
   labelText="Beginning date"
@@ -142,7 +142,7 @@ import { isWithinInterval } from 'date-fns';
 import { useState } from 'react';
 
 const minDate = new Date(2023, 1, 2);
-const maxDate = new Date(2024, 11, 31);
+const maxDate = new Date(2030, 11, 31);
 const [statusText, setStatusText] = React.useState('');
 const [status, setStatus] = React.useState('default');
 const validate = ({ value, date }) => {
