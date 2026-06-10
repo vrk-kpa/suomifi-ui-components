@@ -86,6 +86,9 @@ describe('snapshots match', () => {
         />,
       );
       await user.click(getByRole('button'));
+      await waitFor(() => {
+        expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+      });
       expect(baseElement).toMatchSnapshot();
       cleanup();
     });
@@ -112,9 +115,11 @@ describe('keyboard events', () => {
       <DateInput labelText="Date" datePickerEnabled />,
     );
     await user.click(getByRole('button'));
-    expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+    await waitFor(() => {
+      expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+    });
     await user.keyboard('{Escape}');
-    expect(baseElement.querySelector('[role="dialog"]')).not.toBeVisible();
+    expect(baseElement.querySelector('[role="dialog"]')).toBe(null);
     cleanup();
   });
 });
@@ -281,8 +286,9 @@ describe('props', () => {
   });
 
   describe('datePickerProps', () => {
-    it('has user given className', () => {
-      const { baseElement } = render(
+    it('has user given className', async () => {
+      const user = userEvent.setup({ delay: null });
+      const { baseElement, getByRole } = render(
         <DateInput
           labelText="Date"
           datePickerEnabled
@@ -292,6 +298,7 @@ describe('props', () => {
           }}
         />,
       );
+      await user.click(getByRole('button'));
       const datePicker = baseElement.querySelector('.fi-date-picker');
       expect(datePicker).toHaveClass('custom-datePicker-class');
       expect(datePicker).toHaveAttribute('aria-disabled');
@@ -491,7 +498,7 @@ describe('props', () => {
       it('has focus', async () => {
         const user = userEvent.setup({ delay: null });
         jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
-        const { getByRole, getByText } = render(
+        const { baseElement, getByRole, getByText } = render(
           <DateInput
             labelText="Date"
             datePickerEnabled
@@ -499,6 +506,9 @@ describe('props', () => {
           />,
         );
         await user.click(getByRole('button'));
+        await waitFor(() => {
+          expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+        });
         const dateButton = getByText('15').closest('button');
         expect(dateButton).toHaveFocus();
         cleanup();
@@ -532,6 +542,9 @@ describe('props', () => {
         await user.clear(getByRole('textbox'));
         await user.type(getByRole('textbox'), '2020-8-15');
         await user.click(getByRole('button'));
+        await waitFor(() => {
+          expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+        });
         const dateButton = baseElement.querySelector(
           '.fi-month-day_button--selected',
         );
@@ -735,10 +748,12 @@ describe('props', () => {
 
       describe('smallScreen', () => {
         describe('not enabled', () => {
-          it('has position absolute', () => {
-            const { baseElement } = render(
+          it('has position absolute', async () => {
+            const user = userEvent.setup({ delay: null });
+            const { baseElement, getByRole } = render(
               <DateInput labelText="Date" datePickerEnabled />,
             );
+            await user.click(getByRole('button'));
             const dialog = baseElement.querySelector('[role="dialog"]');
             expect(dialog).toHaveClass('fi-date-picker');
             expect(dialog).toHaveStyle('position: absolute');
@@ -747,10 +762,12 @@ describe('props', () => {
         });
 
         describe('enabled', () => {
-          it('does not have position absolute', () => {
-            const { baseElement } = render(
+          it('does not have position absolute', async () => {
+            const user = userEvent.setup({ delay: null });
+            const { baseElement, getByRole } = render(
               <DateInput labelText="Date" smallScreen datePickerEnabled />,
             );
+            await user.click(getByRole('button'));
             const dialog = baseElement.querySelector('.fi-date-picker');
             expect(dialog).toHaveClass('fi-date-picker--small-screen');
             expect(dialog).not.toHaveAttribute('style');
@@ -760,10 +777,15 @@ describe('props', () => {
           it('has current date focused in smallScreen variant', async () => {
             const user = userEvent.setup({ delay: null });
             jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
-            const { getByRole, getByText } = render(
+            const { baseElement, getByRole, getByText } = render(
               <DateInput labelText="Date" smallScreen datePickerEnabled />,
             );
             await user.click(getByRole('button'));
+            await waitFor(() => {
+              expect(
+                baseElement.querySelector('[role="dialog"]'),
+              ).toBeVisible();
+            });
             const dateButton = getByText('15').closest(
               'button',
             ) as HTMLButtonElement;
@@ -792,6 +814,9 @@ describe('props', () => {
             <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
           );
           await user.click(getByRole('button'));
+          await waitFor(() => {
+            expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+          });
           const dateButton = baseElement.querySelector(
             '.fi-month-day_button--selected',
           );
@@ -808,6 +833,9 @@ describe('props', () => {
             <DateInput labelText="Date" datePickerEnabled value="1.5.2020" />,
           );
           await user.click(getByRole('button'));
+          await waitFor(() => {
+            expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+          });
           const dateButton = baseElement.querySelector(
             '.fi-month-day_button--selected',
           );
@@ -866,6 +894,11 @@ describe('props', () => {
               />,
             );
             await user.click(getByRole('button'));
+            await waitFor(() => {
+              expect(
+                baseElement.querySelector('[role="dialog"]'),
+              ).toBeVisible();
+            });
             const dateButton = baseElement.querySelector(
               '.fi-month-day_button--selected',
             );
@@ -886,6 +919,11 @@ describe('props', () => {
               />,
             );
             await user.click(getByRole('button'));
+            await waitFor(() => {
+              expect(
+                baseElement.querySelector('[role="dialog"]'),
+              ).toBeVisible();
+            });
             const dateButton = baseElement.querySelector(
               '.fi-month-day_button--selected',
             );

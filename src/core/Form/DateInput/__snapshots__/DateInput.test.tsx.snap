@@ -3702,10 +3702,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   padding-bottom: 30px;
 }
 
-.c10.fi-date-picker--hidden {
-  visibility: hidden;
-}
-
 .c10.fi-date-picker--small-screen-hidden {
   transform: translateZ(0) translateY(100%);
   transition: transform 200ms cubic-bezier(0.28, 0.84, 0.42, 1),visibility 200ms cubic-bezier(0.28, 0.84, 0.42, 1);
@@ -4004,7 +4000,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
         >
           <label
             class="c4 fi-label_label-span"
-            for="15"
+            for="11"
           >
             Date
           </label>
@@ -4018,7 +4014,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <input
               autocomplete="off"
               class="c5 fi-date-input_input"
-              id="15"
+              id="11"
               placeholder="DateInput"
               type="text"
               value="15.1.2020"
@@ -4059,16 +4055,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
           aria-atomic="true"
           aria-live="assertive"
           class="c4 c9 fi-status-text"
-          id="15-statusText"
+          id="11-statusText"
         />
       </div>
     </div>
   </div>
   <div
-    aria-hidden="false"
     class="c2 c10 fi-date-picker"
     role="dialog"
-    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+    style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 10px);"
   >
     <div
       class="c0 fi-date-picker_application"
@@ -4079,14 +4074,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
       >
         <div
           class="c0 c12 fi-date-selectors_year-select fi-dropdown"
-          id="16"
+          id="12"
         >
           <div
             class="c2 c3 fi-label"
           >
             <label
               class="c4 c7 fi-visually-hidden"
-              id="16-label"
+              id="12-label"
             >
               Valitse vuosi
             </label>
@@ -4095,20 +4090,20 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c0 fi-dropdown_input-wrapper"
           >
             <button
-              aria-controls="16-popover"
+              aria-controls="12-popover"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="16-displayValue 16-label"
+              aria-labelledby="12-displayValue 12-label"
               class="c6 fi-dropdown_button"
               data-floating-ui-placement="bottom"
-              id="16_button"
+              id="12_button"
               tabindex="0"
               type="button"
               value="2020"
             >
               <span
                 class="c4 fi-dropdown_display-value"
-                id="16-displayValue"
+                id="12-displayValue"
               >
                 2020
               </span>
@@ -4128,14 +4123,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
         </div>
         <div
           class="c0 c12 fi-date-selectors_month-select fi-dropdown"
-          id="17"
+          id="13"
         >
           <div
             class="c2 c3 fi-label"
           >
             <label
               class="c4 c7 fi-visually-hidden"
-              id="17-label"
+              id="13-label"
             >
               Valitse kuukausi
             </label>
@@ -4144,20 +4139,20 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c0 fi-dropdown_input-wrapper"
           >
             <button
-              aria-controls="17-popover"
+              aria-controls="13-popover"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="17-displayValue 17-label"
+              aria-labelledby="13-displayValue 13-label"
               class="c6 fi-dropdown_button"
               data-floating-ui-placement="bottom"
-              id="17_button"
+              id="13_button"
               tabindex="0"
               type="button"
               value="0"
             >
               <span
                 class="c4 fi-dropdown_display-value"
-                id="17-displayValue"
+                id="13-displayValue"
               >
                 Tammikuu
               </span>
@@ -4832,6 +4827,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
     <div
       aria-hidden="true"
       class="c2 fi-date-picker_floatingui-arrow"
+      data-floatingui-placement="bottom-end"
+      style="left: 0px;"
       tabindex="-1"
     />
   </div>
@@ -5856,10 +5853,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   padding-bottom: 30px;
 }
 
-.c10.fi-date-picker--hidden {
-  visibility: hidden;
-}
-
 .c10.fi-date-picker--small-screen-hidden {
   transform: translateZ(0) translateY(100%);
   transition: transform 200ms cubic-bezier(0.28, 0.84, 0.42, 1),visibility 200ms cubic-bezier(0.28, 0.84, 0.42, 1);
@@ -6219,12 +6212,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
     </div>
   </div>
   <div
-    aria-hidden="false"
-    class="c0 c10 fi-date-picker fi-date-picker--small-screen"
+    class="c0 c10 fi-date-picker fi-date-picker--small-screen fi-date-picker--small-screen-hidden"
   >
     <div
       class="c2 fi-date-picker_small-screen-container"
       role="dialog"
+      style="visibility: hidden;"
     >
       <div
         class="c2 fi-date-picker_slide-indicator-wrapper"

@@ -254,7 +254,7 @@ const BaseDateInput = (props: DateInputProps) => {
     shouldDisableDate,
     minDate: userMinDate,
     maxDate: userMaxDate,
-    initialDate,
+    initialDate = new Date(),
     tooltipComponent,
     style,
     ...rest
@@ -482,21 +482,22 @@ const BaseDateInput = (props: DateInputProps) => {
                   aria-hidden={true}
                 />
               </HtmlButton>
-              <DatePicker
-                openButtonRef={openButtonRef}
-                isOpen={calendarVisible}
-                onClose={(focus) => toggleCalendar(false, focus)}
-                onChange={(eventValue) => onDatePickerChange(eventValue)}
-                shouldDisableDate={shouldDisableDate}
-                initialDate={initialDate}
-                inputValue={inputValueAsDate}
-                texts={texts}
-                minDate={effectiveMinDate}
-                maxDate={effectiveMaxDate}
-                smallScreen={smallScreen}
-                userProps={customDatePickerProps}
-                position={datePickerPosition}
-              />
+              {calendarVisible && (
+                <DatePicker
+                  openButtonRef={openButtonRef}
+                  onClose={(focus) => toggleCalendar(false, focus)}
+                  onChange={(eventValue) => onDatePickerChange(eventValue)}
+                  shouldDisableDate={shouldDisableDate}
+                  initialDate={initialDate}
+                  inputValue={inputValueAsDate}
+                  texts={texts}
+                  minDate={effectiveMinDate}
+                  maxDate={effectiveMaxDate}
+                  smallScreen={smallScreen}
+                  userProps={customDatePickerProps}
+                  position={datePickerPosition}
+                />
+              )}
             </HtmlDiv>
           )}
         </HtmlDiv>
