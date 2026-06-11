@@ -3,21 +3,18 @@ ReorderableList provides an accessible way to reorder a list of items. It suppor
 The component has two modes:
 
 - **View mode** (default): Items are displayed as a static list.
-- **Edit mode**: Activated by the edit button. Items become draggable and show up/down buttons for reordering. Instructions are shown above the list.
+- **Edit mode**: Activated by the edit button. Items become draggable and show buttons for reordering. Instructions are shown above the list if given.
 
-All text labels and screen reader announcements must be provided by the consumer for full i18n support.
+All text labels and screen reader announcements must be provided by the consumer for accessibility and i18n support.
 
 The optional `revertButtonText` prop adds a secondary cancel button in edit mode. When clicked, it restores the order to what it was when edit mode was entered and calls `onReorder` with the original order.
-
-Set `showMoveToTopButton` and/or `showMoveToBottomButton` to add direct top and bottom movement buttons. When these are enabled, provide `moveToTopButtonAriaLabel` and/or `moveToBottomButtonAriaLabel` for each `ReorderableListItem`. Set `moveButtonsPlacement="top"` to show the movement buttons as a toolbar above each item's content. The default placement is `inline`.
 
 Examples:
 
 - [Basic use](./#/Components/ReorderableList?id=basic-use)
 - [Items with form content](./#/Components/ReorderableList?id=items-with-form-content)
 - [Small screen](./#/Components/ReorderableList?id=small-screen)
-- [Small screen with form content](./#/Components/ReorderableList?id=small-screen-with-form-content)
-- [Top and bottom controls](./#/Components/ReorderableList?id=top-and-bottom-controls)
+- [Move to top/bottom controls](./#/Components/ReorderableList?id=move-to-top/bottom-controls)
 - [Controlled edit mode](./#/Components/ReorderableList?id=controlled-edit-mode)
 
 <div style="margin-bottom: 40px">
@@ -25,6 +22,75 @@ Examples:
 </div>
 
 ### Basic use
+
+```jsx
+import {
+  Block,
+  ReorderableList,
+  ReorderableListItem,
+  Paragraph,
+  Text,
+  SpacingProvider
+} from 'suomifi-ui-components';
+
+const [items, setItems] = React.useState([
+  { id: 'a', title: 'Item A', description: 'Description for item A' },
+  { id: 'b', title: 'Item B', description: 'Description for item B' },
+  { id: 'c', title: 'Item C', description: 'Description for item C' },
+  { id: 'd', title: 'Item D', description: 'Description for item D' }
+]);
+
+const handleReorder = (newOrder) => {
+  const reordered = newOrder.map((key) =>
+    items.find((item) => item.id === key)
+  );
+  setItems(reordered);
+};
+<SpacingProvider margins={{ button: { margin: 'l' } }}>
+  <ReorderableList
+    aria-label="Priority list"
+    editButtonText="Edit order"
+    saveButtonText="Save order"
+    revertButtonText="Cancel"
+    editModeInstructionHeading="Order change instructions"
+    editModeInstructionText="Drag and drop or use the up/down buttons to move items."
+    announcements={{
+      editModeActivated: () => 'Edit mode activated',
+      editModeCancelled: () => 'Edit mode cancelled',
+      movedUp: (label, pos, total) =>
+        `${label} moved to position ${pos} of ${total}`,
+      movedDown: (label, pos, total) =>
+        `${label} moved to position ${pos} of ${total}`,
+      movedToPosition: (label, pos, total) =>
+        `${label} moved to position ${pos} of ${total}`,
+      cannotMoveUp: (label) => `${label} is already at the top`,
+      cannotMoveDown: (label) => `${label} is already at the bottom`,
+      itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
+      orderReverted: () => 'Order reverted to original'
+    }}
+    onReorder={handleReorder}
+  >
+    {items.map((item) => (
+      <ReorderableListItem
+        key={item.id}
+        itemKey={item.id}
+        ariaLabel={item.title}
+        moveUpButtonAriaLabel={`Move ${item.title} up`}
+        moveDownButtonAriaLabel={`Move ${item.title} down`}
+      >
+        <Block>
+          <Text variant="bold">{item.title}</Text>
+          <Paragraph>{item.description}</Paragraph>
+        </Block>
+      </ReorderableListItem>
+    ))}
+  </ReorderableList>
+</SpacingProvider>;
+```
+
+### Inline move buttons
+
+When the items only have a little content, it might be better to show the move up/down buttons inline with the content on the right side of the list item. This can be toggled by setting `moveButtonsPlacement="inline"`
 
 ```jsx
 import {
@@ -53,6 +119,7 @@ const handleReorder = (newOrder) => {
   aria-label="Priority list"
   editButtonText="Edit order"
   saveButtonText="Save order"
+  moveButtonsPlacement="inline"
   revertButtonText="Cancel"
   editModeInstructionHeading="Order change instructions"
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
@@ -139,6 +206,7 @@ const handleReorder = (newOrder) => {
   editButtonText="Edit order"
   saveButtonText="Save order"
   revertButtonText="Cancel"
+  moveButtonsPlacement="inline"
   editModeInstructionHeading="Order change instructions"
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
@@ -200,75 +268,7 @@ const handleReorder = (newOrder) => {
 
 ### Small screen
 
-Set `smallScreen` to `true` on narrower screens. In the small screen layout the edit mode buttons span the full width and the move buttons are placed above the item content.
-
-```jsx
-import {
-  Block,
-  ReorderableList,
-  ReorderableListItem,
-  Paragraph,
-  Text
-} from 'suomifi-ui-components';
-
-const [items, setItems] = React.useState([
-  { id: 'a', title: 'Item A', description: 'Description for item A' },
-  { id: 'b', title: 'Item B', description: 'Description for item B' },
-  { id: 'c', title: 'Item C', description: 'Description for item C' },
-  { id: 'd', title: 'Item D', description: 'Description for item D' }
-]);
-
-const handleReorder = (newOrder) => {
-  const reordered = newOrder.map((key) =>
-    items.find((item) => item.id === key)
-  );
-  setItems(reordered);
-};
-
-<ReorderableList
-  smallScreen
-  aria-label="Priority list"
-  editButtonText="Edit order"
-  saveButtonText="Save order"
-  revertButtonText="Cancel"
-  editModeInstructionHeading="Order change instructions"
-  editModeInstructionText="Use the up/down buttons to move items."
-  announcements={{
-    editModeActivated: () => 'Edit mode activated',
-    editModeCancelled: () => 'Edit mode cancelled',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedToPosition: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already at the top`,
-    cannotMoveDown: (label) => `${label} is already at the bottom`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
-    orderReverted: () => 'Order reverted to original'
-  }}
-  onReorder={handleReorder}
->
-  {items.map((item) => (
-    <ReorderableListItem
-      key={item.id}
-      itemKey={item.id}
-      ariaLabel={item.title}
-      moveUpButtonAriaLabel={`Move ${item.title} up`}
-      moveDownButtonAriaLabel={`Move ${item.title} down`}
-    >
-      <Block>
-        <Text variant="bold">{item.title}</Text>
-        <Paragraph>{item.description}</Paragraph>
-      </Block>
-    </ReorderableListItem>
-  ))}
-</ReorderableList>;
-```
-
-### Small screen with form content
-
-The `smallScreen` layout also works with form elements inside items. The stacked layout gives each form control room to breathe on narrow viewports.
+Set `smallScreen` to `true` on narrower screens. This reduces the spacing slightly to save horizontal space. In the small screen layout always keep the move button placement at the default value of `top`.
 
 ```jsx
 import {
@@ -276,65 +276,30 @@ import {
   ReorderableList,
   ReorderableListItem,
   TextInput,
-  SingleSelect,
-  RadioButton,
-  RadioButtonGroup,
-  Paragraph
+  Dropdown,
+  DropdownItem,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
-
-const departmentItems = [
-  { labelText: 'Engineering', uniqueItemId: 'engineering' },
-  { labelText: 'Design', uniqueItemId: 'design' },
-  { labelText: 'Marketing', uniqueItemId: 'marketing' },
-  { labelText: 'Finance', uniqueItemId: 'finance' },
-  { labelText: 'Operations', uniqueItemId: 'operations' }
-];
 
 const [members, setMembers] = React.useState([
   {
     id: 'member-1',
     name: 'Matti Meikäläinen',
-    email: 'matti@example.fi',
-    department: 'engineering',
-    contract: 'permanent',
-    description:
-      'Backend developer specialising in cloud infrastructure and DevOps practices.'
+    role: 'admin',
+    email: 'matti@example.fi'
   },
   {
     id: 'member-2',
     name: 'Maija Meikäläinen',
-    email: 'maija@example.fi',
-    department: 'design',
-    contract: 'permanent',
-    description:
-      'UX designer with a focus on accessible and inclusive digital services.'
+    role: 'editor',
+    email: 'maija@example.fi'
   },
   {
     id: 'member-3',
     name: 'Teppo Testaaja',
-    email: 'teppo@example.fi',
-    department: 'engineering',
-    contract: 'fixed-term',
-    description:
-      'Quality assurance engineer responsible for automated test coverage.'
-  },
-  {
-    id: 'member-4',
-    name: 'Liisa Liiketoiminta',
-    email: 'liisa@example.fi',
-    department: 'marketing',
-    contract: 'part-time',
-    description:
-      'Communications lead managing external campaigns and social media presence.'
-  },
-  {
-    id: 'member-5',
-    name: 'Pekka Projekti',
-    email: 'pekka@example.fi',
-    department: 'operations',
-    contract: 'permanent',
-    description:
-      'Project manager coordinating cross-functional initiatives and stakeholder relations.'
+    role: 'viewer',
+    email: 'teppo@example.fi'
   }
 ]);
 
@@ -344,7 +309,6 @@ const handleReorder = (newOrder) => {
   );
   setMembers(reordered);
 };
-
 <ReorderableList
   smallScreen
   aria-label="Team members"
@@ -352,10 +316,10 @@ const handleReorder = (newOrder) => {
   saveButtonText="Save order"
   revertButtonText="Cancel"
   editModeInstructionHeading="Order change instructions"
-  editModeInstructionText="Use the up/down buttons to move items."
+  editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
-    editModeActivated: () => 'Edit mode activated',
-    editModeCancelled: () => 'Edit mode cancelled',
+    editModeActivated: () => 'Edit mode activated.',
+    editModeCancelled: () => 'Edit mode cancelled.',
     movedUp: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
     movedDown: (label, pos, total) =>
@@ -376,44 +340,41 @@ const handleReorder = (newOrder) => {
       ariaLabel={member.name}
       moveUpButtonAriaLabel={`Move ${member.name} up`}
       moveDownButtonAriaLabel={`Move ${member.name} down`}
+      editModeChildren={
+        <Block>
+          <Text variant="bold">{member.name}</Text>
+          <Paragraph>{member.email}</Paragraph>
+          <Paragraph>Role: {member.role}</Paragraph>
+        </Block>
+      }
     >
       <Block
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px',
-          padding: '4px 0'
+          gap: '12px',
+          flex: 1,
+          padding: '8px 0'
         }}
       >
-        <Paragraph>{member.description}</Paragraph>
         <TextInput labelText="Name" defaultValue={member.name} />
         <TextInput labelText="Email" defaultValue={member.email} />
-        <SingleSelect
-          labelText="Department"
-          items={departmentItems}
-          defaultSelectedItem={departmentItems.find(
-            (d) => d.uniqueItemId === member.department
-          )}
-          clearButtonLabel="Clear department"
-          noItemsText="No departments found"
-          ariaOptionsAvailableText="options available"
+        <Dropdown labelText="Role" defaultValue={member.role}>
+          <DropdownItem value="admin">Admin</DropdownItem>
+          <DropdownItem value="editor">Editor</DropdownItem>
+          <DropdownItem value="viewer">Viewer</DropdownItem>
+        </Dropdown>
+        <TextInput
+          labelText="Notes"
+          defaultValue={`Additional notes for ${member.name}`}
         />
-        <RadioButtonGroup
-          labelText="Contract type"
-          name={`contract-${member.id}`}
-          defaultValue={member.contract}
-        >
-          <RadioButton value="permanent">Permanent</RadioButton>
-          <RadioButton value="fixed-term">Fixed-term</RadioButton>
-          <RadioButton value="part-time">Part-time</RadioButton>
-        </RadioButtonGroup>
       </Block>
     </ReorderableListItem>
   ))}
 </ReorderableList>;
 ```
 
-### Top and bottom controls
+### Move to top/bottom controls
 
 Enable direct top and bottom movement buttons with `showMoveToTopButton` and `showMoveToBottomButton`. The example below also uses `moveButtonsPlacement="top"` so the buttons are shown as a toolbar above each item's content.
 
