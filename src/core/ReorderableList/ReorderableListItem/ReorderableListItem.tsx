@@ -3,13 +3,13 @@ import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlLi, HtmlLiProps } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { Button } from '../../Button/Button';
+import { InternalButton } from '../../Button/Button';
 import {
-  IconOptionsVertical,
   IconChevronUp,
   IconChevronDown,
-  IconArrowUp,
-  IconArrowDown,
+  IconToTop,
+  IconToBottom,
+  IconDragHandle,
 } from 'suomifi-icons';
 import {
   ReorderableListConsumer,
@@ -167,28 +167,26 @@ class BaseReorderableListItem extends Component<
         className={classnames(itemClassNames.buttons, placementClassName)}
       >
         {consumer.showMoveToTopButton && moveToTopButtonAriaLabel && (
-          <Button
+          <InternalButton
             variant="secondary"
-            className={classnames(itemClassNames.buttonToTop, {
-              [boundaryClassName]: isFirst,
-            })}
+            className={classnames(itemClassNames.buttonToTop)}
             aria-label={moveToTopButtonAriaLabel}
             onClick={this.handleMoveToTop}
-            icon={<IconArrowUp />}
+            icon={<IconToTop />}
+            aria-disabled={isFirst}
             forwardedRef={this.topButtonRef}
           />
         )}
-        <Button
+        <InternalButton
           variant="secondary"
-          className={classnames(itemClassNames.buttonUp, {
-            [boundaryClassName]: isFirst,
-          })}
+          className={classnames(itemClassNames.buttonUp)}
           aria-label={moveUpButtonAriaLabel}
+          aria-disabled={isFirst}
           onClick={this.handleMoveUp}
           icon={<IconChevronUp />}
           forwardedRef={this.upButtonRef}
         />
-        <Button
+        <InternalButton
           variant="secondary"
           className={classnames(itemClassNames.buttonDown, {
             [boundaryClassName]: isLast,
@@ -199,14 +197,14 @@ class BaseReorderableListItem extends Component<
           forwardedRef={this.downButtonRef}
         />
         {consumer.showMoveToBottomButton && moveToBottomButtonAriaLabel && (
-          <Button
+          <InternalButton
             variant="secondary"
             className={classnames(itemClassNames.buttonToBottom, {
               [boundaryClassName]: isLast,
             })}
             aria-label={moveToBottomButtonAriaLabel}
             onClick={this.handleMoveToBottom}
-            icon={<IconArrowDown />}
+            icon={<IconToBottom />}
             forwardedRef={this.bottomButtonRef}
           />
         )}
@@ -346,12 +344,7 @@ class BaseReorderableListItem extends Component<
         >
           {editMode && (
             <HtmlDiv className={itemClassNames.dragHandle} aria-hidden="true">
-              <IconOptionsVertical
-                className={`${baseClassName}_drag-handle-icon`}
-              />
-              <IconOptionsVertical
-                className={`${baseClassName}_drag-handle-icon`}
-              />
+              <IconDragHandle className={`${baseClassName}_drag-handle-icon`} />
             </HtmlDiv>
           )}
           {editMode ? (
