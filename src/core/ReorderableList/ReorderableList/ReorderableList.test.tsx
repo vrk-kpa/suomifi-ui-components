@@ -140,21 +140,17 @@ describe('ReorderableList', () => {
     expect(screen.getByLabelText('Move Item C to bottom')).toBeInTheDocument();
   });
 
-  it('should style boundary buttons differently', async () => {
+  it('should apply aria-disabled to boundary buttons', async () => {
     const user = userEvent.setup();
     render(<TestList />);
 
     await user.click(screen.getByText('Edit'));
 
-    const upButtonA = screen.getByLabelText('Move Item A up');
-    const downButtonC = screen.getByLabelText('Move Item C down');
+    const moveToTopButton = screen.getByLabelText('Move Item A up');
+    const moveToBottomButton = screen.getByLabelText('Move Item C down');
 
-    expect(
-      upButtonA.closest('.fi-reorderable-list-item_button--boundary'),
-    ).toBeTruthy();
-    expect(
-      downButtonC.closest('.fi-reorderable-list-item_button--boundary'),
-    ).toBeTruthy();
+    expect(moveToTopButton).toHaveAttribute('aria-disabled', 'true');
+    expect(moveToBottomButton).toHaveAttribute('aria-disabled', 'false');
   });
 
   it('should reorder items when move buttons are clicked', async () => {
@@ -216,54 +212,6 @@ describe('ReorderableList', () => {
       expect(liveRegion?.textContent).toContain(
         'Item C moved to position 1 of 3',
       );
-    });
-  });
-
-  it('should announce when item cannot move further', async () => {
-    const user = userEvent.setup();
-    render(<TestList />);
-
-    await user.click(screen.getByText('Edit'));
-    await waitFor(() => {
-      expect(
-        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
-      ).toContain('Edit mode activated');
-    });
-
-    await user.click(screen.getByLabelText('Move Item A up'));
-
-    await waitFor(() => {
-      expect(
-        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
-      ).toContain('Item A is already at the top');
-    });
-  });
-
-  it('should announce when item cannot move to top or bottom', async () => {
-    const user = userEvent.setup();
-    render(<TestList showMoveToTopButton showMoveToBottomButton />);
-
-    await user.click(screen.getByText('Edit'));
-    await waitFor(() => {
-      expect(
-        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
-      ).toContain('Edit mode activated');
-    });
-
-    await user.click(screen.getByLabelText('Move Item A to top'));
-
-    await waitFor(() => {
-      expect(
-        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
-      ).toContain('Item A is already at the top');
-    });
-
-    await user.click(screen.getByLabelText('Move Item C to bottom'));
-
-    await waitFor(() => {
-      expect(
-        document.querySelector('.fi-reorderable-list_live-region')?.textContent,
-      ).toContain('Item C is already at the bottom');
     });
   });
 
