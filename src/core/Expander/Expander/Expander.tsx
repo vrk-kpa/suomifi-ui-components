@@ -93,12 +93,11 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
     openState: this.props.defaultOpen || false,
   };
 
-  constructor(props: BaseExpanderProps & SuomifiThemeProp) {
-    super(props);
-    if (!!props.id) {
-      const defaultOpen =
-        props.open !== undefined ? props.open : props.defaultOpen || false;
-      props.consumer.onExpanderOpenChange(props.id, defaultOpen);
+  componentDidMount(): void {
+    const { consumer, id, open, defaultOpen } = this.props;
+    if (!!id) {
+      const isOpen = open !== undefined ? open : defaultOpen || false;
+      consumer.onExpanderOpenChange(id, isOpen);
     }
   }
 
