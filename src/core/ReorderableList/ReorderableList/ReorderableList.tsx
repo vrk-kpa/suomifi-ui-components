@@ -20,7 +20,7 @@ import {
   GlobalMarginProps,
 } from '../../theme/utils/spacing';
 import { InlineAlert } from '../../InlineAlert/InlineAlert';
-import { Button } from '../../Button/Button';
+import { InternalButton } from '../../Button/Button';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ReorderableList.baseStyles';
 import { filterDuplicateKeys } from '../../../utils/common/common';
@@ -35,8 +35,6 @@ const listClassNames = {
   instruction: `${baseClassName}_instruction`,
   list: `${baseClassName}_list`,
   liveRegion: `${baseClassName}_live-region`,
-  gapElement: `${baseClassName}_gap`,
-  gapActive: `${baseClassName}_gap--active`,
 };
 
 export type ReorderableListMoveButtonsPlacement = 'inline' | 'top';
@@ -59,8 +57,6 @@ export interface ReorderableListAnnouncements {
     newPosition: number,
     totalItems: number,
   ) => string;
-  cannotMoveUp: (itemLabel: string) => string;
-  cannotMoveDown: (itemLabel: string) => string;
   itemsSwapped: (item1Label: string, item2Label: string) => string;
   orderReverted?: () => string;
 }
@@ -356,7 +352,6 @@ class BaseReorderableList extends Component<
     const label = item?.ariaLabel || itemKey;
 
     if (idx <= 0) {
-      this.announce(this.props.announcements.cannotMoveUp(label));
       return;
     }
 
@@ -374,7 +369,6 @@ class BaseReorderableList extends Component<
     const label = item?.ariaLabel || itemKey;
 
     if (idx >= order.length - 1) {
-      this.announce(this.props.announcements.cannotMoveDown(label));
       return;
     }
 
@@ -394,7 +388,6 @@ class BaseReorderableList extends Component<
     const label = item?.ariaLabel || itemKey;
 
     if (idx <= 0) {
-      this.announce(this.props.announcements.cannotMoveUp(label));
       return;
     }
 
@@ -415,7 +408,6 @@ class BaseReorderableList extends Component<
     const label = item?.ariaLabel || itemKey;
 
     if (idx >= order.length - 1) {
-      this.announce(this.props.announcements.cannotMoveDown(label));
       return;
     }
 
@@ -448,10 +440,8 @@ class BaseReorderableList extends Component<
 
     const draggedLabel =
       this.registeredItems.get(draggedItemKey)?.ariaLabel || draggedItemKey;
-    const targetLabel =
-      this.registeredItems.get(targetKey)?.ariaLabel || targetKey;
 
-    [order[fromIdx], order[toIdx]] = [order[toIdx], order[fromIdx]];
+    order.splice(toIdx, 0, order.splice(fromIdx, 1)[0]);
     this.setState({
       itemOrder: order,
       draggedItemKey: null,
@@ -459,7 +449,11 @@ class BaseReorderableList extends Component<
     });
     this.props.onReorder(order);
     this.announce(
-      this.props.announcements.itemsSwapped(draggedLabel, targetLabel),
+      this.props.announcements.movedToPosition(
+        draggedLabel,
+        toIdx + 1,
+        order.length,
+      ),
     );
   };
 
@@ -592,23 +586,23 @@ class BaseReorderableList extends Component<
       >
         <ReorderableListProvider value={contextValue}>
           <HtmlDiv className={listClassNames.buttonRow}>
-            <Button
+            <InternalButton
               className={listClassNames.editButton}
               onClick={this.toggleEditMode}
               forwardedRef={this.editButtonRef}
               aria-pressed={editMode}
             >
               {editMode ? saveButtonText : editButtonText}
-            </Button>
+            </InternalButton>
 
             {editMode && revertButtonText && (
-              <Button
+              <InternalButton
                 variant="secondary"
                 className={listClassNames.revertButton}
                 onClick={this.handleRevert}
               >
                 {revertButtonText}
-              </Button>
+              </InternalButton>
             )}
           </HtmlDiv>
 
