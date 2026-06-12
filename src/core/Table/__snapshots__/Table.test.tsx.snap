@@ -637,7 +637,7 @@ exports[`Table functionalities matches snapshot 1`] = `
                 <g
                   class="fi-icon-base-fill"
                   clip-rule="evenodd"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 >
                   <path
@@ -669,7 +669,7 @@ exports[`Table functionalities matches snapshot 1`] = `
                 <g
                   class="fi-icon-base-fill"
                   clip-rule="evenodd"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 >
                   <path

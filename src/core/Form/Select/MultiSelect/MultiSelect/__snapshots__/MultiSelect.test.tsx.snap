@@ -1295,7 +1295,7 @@ exports[`has matching snapshot 1`] = `
                     <path
                       class="fi-icon-base-fill"
                       d="M5 2 1 8h8z"
-                      fill="#222"
+                      fill="#212121"
                       fill-rule="evenodd"
                     />
                   </svg>
@@ -1358,7 +1358,7 @@ exports[`has matching snapshot 1`] = `
                   <path
                     class="fi-icon-base-fill"
                     d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
-                    fill="#222"
+                    fill="#212121"
                     fill-rule="evenodd"
                   />
                 </svg>
@@ -1404,7 +1404,7 @@ exports[`has matching snapshot 1`] = `
                   <path
                     class="fi-icon-base-fill"
                     d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
-                    fill="#222"
+                    fill="#212121"
                     fill-rule="evenodd"
                   />
                 </svg>
@@ -1450,7 +1450,7 @@ exports[`has matching snapshot 1`] = `
                   <path
                     class="fi-icon-base-fill"
                     d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
-                    fill="#222"
+                    fill="#212121"
                     fill-rule="evenodd"
                   />
                 </svg>
@@ -1497,7 +1497,7 @@ exports[`has matching snapshot 1`] = `
                 <path
                   class="fi-icon-base-fill"
                   d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -1529,7 +1529,7 @@ exports[`has matching snapshot 1`] = `
                 <path
                   class="fi-icon-base-fill"
                   d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -1561,7 +1561,7 @@ exports[`has matching snapshot 1`] = `
                 <path
                   class="fi-icon-base-fill"
                   d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -1598,7 +1598,7 @@ exports[`has matching snapshot 1`] = `
               <path
                 class="fi-icon-base-fill"
                 d="M13 0c1.654 0 3 1.346 3 3v1h5a1 1 0 0 1 0 2h-1.091l-1.804 16.117A2.143 2.143 0 0 1 16 24H8a2.141 2.141 0 0 1-2.104-1.885L4.119 6H3a1 1 0 0 1 0-2h5V3c0-1.654 1.346-3 3-3h2Zm4.898 6H6.132l1.753 15.896c.004.04.075.104.115.104h8c.041 0 .113-.065.118-.105L17.898 6ZM13 2h-2c-.551 0-1 .448-1 1v1h4V3c0-.552-.449-1-1-1Z"
-                fill="#222"
+                fill="#212121"
                 fill-rule="evenodd"
               />
             </svg>
