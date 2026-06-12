@@ -254,11 +254,13 @@ const BaseDateInput = (props: DateInputProps) => {
     shouldDisableDate,
     minDate: userMinDate,
     maxDate: userMaxDate,
-    initialDate = new Date(),
+    initialDate,
     tooltipComponent,
     style,
     ...rest
   } = props;
+
+  const initialDateRef = useRef<Date>(new Date());
 
   // Calculate default date range
   const defaultMinDate = moveYears(firstDayOfMonth(new Date()), -10);
@@ -488,7 +490,7 @@ const BaseDateInput = (props: DateInputProps) => {
                   onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
                   shouldDisableDate={shouldDisableDate}
-                  initialDate={initialDate}
+                  initialDate={initialDate || initialDateRef.current}
                   inputValue={inputValueAsDate}
                   texts={texts}
                   minDate={effectiveMinDate}

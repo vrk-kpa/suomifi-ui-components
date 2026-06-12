@@ -71,7 +71,7 @@ export interface InternalDatePickerProps
     'onChange' | 'style' | 'aria-hidden' | 'ref'
   >;
   position: datePickerAlignment;
-  /** Defaults to current date if not provided */
+  /** Initial date to focus when date picker is opened */
   initialDate: Date;
 }
 
