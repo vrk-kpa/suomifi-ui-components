@@ -160,7 +160,6 @@ class BaseReorderableListItem extends Component<
       consumer.moveButtonsPlacement === 'top'
         ? itemClassNames.buttonsTop
         : itemClassNames.buttonsInline;
-    const boundaryClassName = `${baseClassName}_button--boundary`;
 
     return (
       <HtmlDiv
@@ -188,9 +187,8 @@ class BaseReorderableListItem extends Component<
         />
         <InternalButton
           variant="secondary"
-          className={classnames(itemClassNames.buttonDown, {
-            [boundaryClassName]: isLast,
-          })}
+          className={classnames(itemClassNames.buttonDown)}
+          aria-disabled={isLast}
           aria-label={moveDownButtonAriaLabel}
           onClick={this.handleMoveDown}
           icon={<IconChevronDown />}
@@ -199,9 +197,8 @@ class BaseReorderableListItem extends Component<
         {consumer.showMoveToBottomButton && moveToBottomButtonAriaLabel && (
           <InternalButton
             variant="secondary"
-            className={classnames(itemClassNames.buttonToBottom, {
-              [boundaryClassName]: isLast,
-            })}
+            className={classnames(itemClassNames.buttonToBottom)}
+            aria-disabled={isLast}
             aria-label={moveToBottomButtonAriaLabel}
             onClick={this.handleMoveToBottom}
             icon={<IconToBottom />}

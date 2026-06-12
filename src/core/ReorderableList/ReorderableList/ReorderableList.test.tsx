@@ -150,7 +150,7 @@ describe('ReorderableList', () => {
     const moveToBottomButton = screen.getByLabelText('Move Item C down');
 
     expect(moveToTopButton).toHaveAttribute('aria-disabled', 'true');
-    expect(moveToBottomButton).toHaveAttribute('aria-disabled', 'false');
+    expect(moveToBottomButton).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should reorder items when move buttons are clicked', async () => {
