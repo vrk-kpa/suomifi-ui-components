@@ -177,21 +177,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin: 0 ${theme.spacing.m};
       padding: ${theme.spacing.m} 0;
     }
-
-    & .fi-reorderable-list-item_button-to-top,
-    & .fi-reorderable-list-item_button-up,
-    & .fi-reorderable-list-item_button-down,
-    & .fi-reorderable-list-item_button-to-bottom {
-      &.fi-reorderable-list-item_button--boundary {
-        border-color: ${theme.colors.depthBase};
-        color: ${theme.colors.depthBase};
-        cursor: default;
-
-        & .fi-icon .fi-icon-base-fill {
-          fill: ${theme.colors.depthBase};
-        }
-      }
-    }
   }
 
   ${editModeStyles(theme)}
