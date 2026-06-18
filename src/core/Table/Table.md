@@ -70,7 +70,7 @@ const data: TableRow<typeof columns>[] = [
 This ensures TypeScript will show an error if you forget to include any column key in your data objects.
 
 ```jsx
-import { Table, Link } from 'suomifi-ui-components';
+import { Table, Link, Block } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -141,13 +141,13 @@ const data = [
   }
 ];
 
-<div style={{ width: '900px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
     data={data}
   />
-</div>;
+</Block>;
 ```
 
 ### Sorting
@@ -162,7 +162,7 @@ You can also apply a default sort order when the table first renders by using th
 Always use the `tableSortedAriaLiveText()` function as demonstrated below to give screen readers information about table sorting.
 
 ```jsx
-import { Table, Link } from 'suomifi-ui-components';
+import { Table, Link, Block } from 'suomifi-ui-components';
 import React, { useState } from 'react';
 
 const columns = [
@@ -279,7 +279,7 @@ const customDataSort = (key, dir) => {
   setData(sortedData);
 };
 
-<div style={{ width: '920px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
@@ -314,7 +314,7 @@ const customDataSort = (key, dir) => {
       }`
     }
   />
-</div>;
+</Block>;
 ```
 
 ### Selecting rows
@@ -332,7 +332,7 @@ Individual rows can be disabled from selection by adding `rowSelectionDisabled: 
 You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
 
 ```jsx
-import { Table, Link, Button } from 'suomifi-ui-components';
+import { Table, Link, Button, Block } from 'suomifi-ui-components';
 import React, { useState } from 'react';
 
 const columns = [
@@ -427,7 +427,7 @@ const data = [
 const [controlledSelectedRowIds, setControlledSelectedRowIds] =
   useState([]);
 
-<div style={{ width: '1000px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
@@ -466,7 +466,7 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
     }
     mt="xl"
   />
-</div>;
+</Block>;
 ```
 
 ### Condensed table
@@ -474,7 +474,7 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
 Use the `condensed` prop to decrease vertical padding in table cells
 
 ```jsx
-import { Table, Link } from 'suomifi-ui-components';
+import { Table, Link, Block } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -544,14 +544,14 @@ const data = [
   }
 ];
 
-<div style={{ width: '900px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
     data={data}
     condensed
   />
-</div>;
+</Block>;
 ```
 
 ### Horizontal scroll (mobile)
@@ -561,7 +561,7 @@ By default, the `<Table>` component does not wrap its content to multiple rows b
 It is important to set `overflow: auto` to the table's container element. On mobile screens it is also recommended to give the table's heading as a separate element instead of using the `caption` prop. This makes it so that only the table scrolls and the heading stays in place.
 
 ```jsx
-import { Table, Link, Heading } from 'suomifi-ui-components';
+import { Table, Link, Heading, Block } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -635,14 +635,14 @@ const data = [
   <Heading variant="h3" id="table-heading">
     People in the project
   </Heading>
-  <div style={{ width: '350px', overflowX: 'auto' }}>
+  <Block style={{ width: '350px', overflowX: 'auto' }}>
     <Table
       columns={columns}
       data={data}
       condensed
       aria-labelledby="table-heading"
     />
-  </div>
+  </Block>
 </>;
 ```
 
@@ -810,7 +810,7 @@ const [data, setData] = useState(fullData.slice(0, 5));
 const [currentPage, setCurrentPage] = React.useState(1);
 
 <>
-  <div style={{ width: '900px' }}>
+  <Block>
     <Table
       caption="People in the project"
       columns={columns}
@@ -843,7 +843,7 @@ const [currentPage, setCurrentPage] = React.useState(1);
         style={{ textAlign: 'center' }}
       />
     </Block>
-  </div>
+  </Block>
 </>;
 ```
 
@@ -943,7 +943,7 @@ const simulateLoading = () => {
   setTimeout(() => setLoading(false), 3000);
 };
 
-<div style={{ width: '900px' }}>
+<div>
   <Button onClick={simulateLoading} disabled={loading} mb="l">
     Simulate loading
   </Button>
