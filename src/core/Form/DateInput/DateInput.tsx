@@ -260,6 +260,8 @@ const BaseDateInput = (props: DateInputProps) => {
     ...rest
   } = props;
 
+  const initialDateRef = useRef<Date>(new Date());
+
   // Calculate default date range
   const defaultMinDate = moveYears(firstDayOfMonth(new Date()), -10);
   const defaultMaxDate = moveYears(lastDayOfMonth(new Date()), 10);
@@ -482,21 +484,22 @@ const BaseDateInput = (props: DateInputProps) => {
                   aria-hidden={true}
                 />
               </HtmlButton>
-              <DatePicker
-                openButtonRef={openButtonRef}
-                isOpen={calendarVisible}
-                onClose={(focus) => toggleCalendar(false, focus)}
-                onChange={(eventValue) => onDatePickerChange(eventValue)}
-                shouldDisableDate={shouldDisableDate}
-                initialDate={initialDate}
-                inputValue={inputValueAsDate}
-                texts={texts}
-                minDate={effectiveMinDate}
-                maxDate={effectiveMaxDate}
-                smallScreen={smallScreen}
-                userProps={customDatePickerProps}
-                position={datePickerPosition}
-              />
+              {calendarVisible && (
+                <DatePicker
+                  openButtonRef={openButtonRef}
+                  onClose={(focus) => toggleCalendar(false, focus)}
+                  onChange={(eventValue) => onDatePickerChange(eventValue)}
+                  shouldDisableDate={shouldDisableDate}
+                  initialDate={initialDate || initialDateRef.current}
+                  inputValue={inputValueAsDate}
+                  texts={texts}
+                  minDate={effectiveMinDate}
+                  maxDate={effectiveMaxDate}
+                  smallScreen={smallScreen}
+                  userProps={customDatePickerProps}
+                  position={datePickerPosition}
+                />
+              )}
             </HtmlDiv>
           )}
         </HtmlDiv>
