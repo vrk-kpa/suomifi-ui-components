@@ -20,7 +20,7 @@ import { Heading } from '../../Heading/Heading';
 import { Link } from '../../Link';
 
 const baseClassName = 'fi-error-summary';
-const inlineAlertClassNames = {
+const errorSummaryClassNames = {
   styleWrapper: `${baseClassName}_style-wrapper`,
   content: `${baseClassName}_content`,
   heading: `${baseClassName}_heading`,
@@ -106,23 +106,23 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
       asProp="section"
       {...passProps}
       className={classnames(baseClassName, className, {
-        [inlineAlertClassNames.smallScreen]: !!smallScreen,
+        [errorSummaryClassNames.smallScreen]: !!smallScreen,
       })}
       style={{ ...passProps?.style }}
     >
-      <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
-        <IconErrorFilled className={classnames(inlineAlertClassNames.icon)} />
+      <HtmlDiv className={errorSummaryClassNames.styleWrapper}>
+        <IconErrorFilled className={classnames(errorSummaryClassNames.icon)} />
 
-        <HtmlDiv className={inlineAlertClassNames.textContentWrapper} id={id}>
+        <HtmlDiv className={errorSummaryClassNames.textContentWrapper} id={id}>
           <Heading
             variant={headingVariant}
-            className={inlineAlertClassNames.heading}
+            className={errorSummaryClassNames.heading}
             ref={headingRef}
             tabIndex={0}
           >
             {headingText}
           </Heading>
-          <HtmlDiv className={inlineAlertClassNames.content}>
+          <HtmlDiv className={errorSummaryClassNames.content}>
             {items && (
               <ul>
                 {items.map((item) => (
