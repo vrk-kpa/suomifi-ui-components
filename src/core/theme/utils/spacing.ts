@@ -70,6 +70,7 @@ export type GlobalMargins = {
   dropdown?: MarginProps;
   expander?: MarginProps;
   expanderGroup?: MarginProps;
+  errorSummary?: MarginProps;
   externalLink?: MarginProps;
   fileInput?: MarginProps;
   heading?: MarginProps;

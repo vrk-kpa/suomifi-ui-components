@@ -4,8 +4,17 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivProps, hLevels } from '../../../reset';
 import { IconErrorFilled } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { separateMarginProps, MarginProps } from '../../theme/utils/spacing';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../theme';
+import {
+  separateMarginProps,
+  MarginProps,
+  GlobalMarginProps,
+} from '../../theme/utils/spacing';
+import { filterDuplicateKeys } from '../../../utils/common/common';
 import { baseStyles } from './ErrorSummary.baseStyles';
 import { Heading } from '../../Heading/Heading';
 import { Link } from '../../Link';
@@ -138,32 +147,44 @@ const BaseErrorSummary = (props: ErrorSummaryProps) => {
 };
 
 const StyledErrorSummary = styled(
-  (props: ErrorSummaryProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
+  (props: ErrorSummaryProps & SuomifiThemeProp & GlobalMarginProps) => {
+    const { theme, globalMargins, ...passProps } = props;
     return <BaseErrorSummary {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins, ...rest }) => {
+    const [marginProps, _passProps] = separateMarginProps(rest);
+    const cleanedGlobalMargins = filterDuplicateKeys(
+      globalMargins.errorSummary,
+      marginProps,
+    );
+    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+  }}
 `;
 
 const ErrorSummary = forwardRef<HTMLDivElement, ErrorSummaryProps>(
   (props: ErrorSummaryProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledErrorSummary
-                forwardedRef={ref}
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
+      <SpacingConsumer>
+        {({ margins }) => (
+          <SuomifiThemeConsumer>
+            {({ suomifiTheme }) => (
+              <AutoId id={propId}>
+                {(id) => (
+                  <StyledErrorSummary
+                    forwardedRef={ref}
+                    theme={suomifiTheme}
+                    globalMargins={margins}
+                    id={id}
+                    {...passProps}
+                  />
+                )}
+              </AutoId>
             )}
-          </AutoId>
+          </SuomifiThemeConsumer>
         )}
-      </SuomifiThemeConsumer>
+      </SpacingConsumer>
     );
   },
 );
