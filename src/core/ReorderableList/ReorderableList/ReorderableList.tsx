@@ -8,7 +8,12 @@ import React, {
 import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
+import {
+  HtmlDiv,
+  HtmlDivWithRef,
+  HtmlDivWithRefProps,
+  HtmlUl,
+} from '../../../reset';
 import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,
@@ -35,6 +40,7 @@ const listClassNames = {
   instruction: `${baseClassName}_instruction`,
   list: `${baseClassName}_list`,
   liveRegion: `${baseClassName}_live-region`,
+  listElement: `${baseClassName}_list-element`,
 };
 
 export type ReorderableListMoveButtonsPlacement = 'inline' | 'top';
@@ -78,7 +84,32 @@ export interface ReorderableListProps
   editModeInstructionHeading: string;
   /** Instruction text shown in edit mode */
   editModeInstructionText: string;
-  /** Screen reader announcement callbacks (required for i18n) */
+  /**
+   * Screen reader announcement callbacks (required for i18n).
+   * <pre>
+   * ReorderableListAnnouncements {
+   *   editModeActivated: () => string;
+   *   editModeCancelled: () => string;
+   *   movedUp: (
+   *     itemLabel: string,
+   *     newPosition: number,
+   *     totalItems: number,
+   *   ) => string;
+   *   movedDown: (
+   *     itemLabel: string,
+   *     newPosition: number,
+   *     totalItems: number,
+   *   ) => string;
+   *   movedToPosition: (
+   *     itemLabel: string,
+   *     newPosition: number,
+   *     totalItems: number,
+   *   ) => string;
+   *   itemsSwapped: (item1Label: string, item2Label: string) => string;
+   *   orderReverted?: () => string;
+   * }
+   * </pre>
+   */
   announcements: ReorderableListAnnouncements;
   /** Controlled edit mode state */
   editMode?: boolean;
@@ -619,7 +650,9 @@ class BaseReorderableList extends Component<
             aria-labelledby={ariaLabelledBy}
             onKeyDown={this.handleListKeyDown}
           >
-            <ul>{this.getSortedChildren()}</ul>
+            <HtmlUl className={listClassNames.listElement}>
+              {this.getSortedChildren()}
+            </HtmlUl>
           </HtmlDiv>
 
           <VisuallyHidden

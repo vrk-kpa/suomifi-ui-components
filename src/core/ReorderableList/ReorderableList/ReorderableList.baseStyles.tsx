@@ -27,7 +27,7 @@ export const baseStyles = (
     }
 
     & .fi-reorderable-list_list {
-      & > ul {
+      & .fi-reorderable-list_list-element {
         list-style: none;
         margin: 0;
         padding: 0;
