@@ -121,7 +121,7 @@ const validateForm = () => {
   }
 };
 
-<Block style={{ width: '700px' }}>
+<Block style={{ width: '100%' }}>
   {errorSummaryItems.length > 0 && (
     <ErrorSummary
       headingText="The following problems were found in the form"
