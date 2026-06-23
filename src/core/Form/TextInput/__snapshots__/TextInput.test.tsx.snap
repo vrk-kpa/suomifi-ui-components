@@ -314,7 +314,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -363,15 +363,15 @@ exports[`snapshots match error status with statustext 1`] = `
 .c1.fi-text-input--error .fi-text-input_input {
   border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
   border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -745,7 +745,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -794,15 +794,15 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 .c1.fi-text-input--error .fi-text-input_input {
   border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
   border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -1146,7 +1146,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -1195,15 +1195,15 @@ exports[`snapshots match minimal implementation 1`] = `
 .c1.fi-text-input--error .fi-text-input_input {
   border: 2px solid hsl(3, 59%, 43%);
   padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
   border: 2px solid hsl(166, 90%, 34%);
   padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
