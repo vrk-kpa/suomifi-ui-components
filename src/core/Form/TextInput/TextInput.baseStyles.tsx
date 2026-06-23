@@ -125,16 +125,16 @@ export const baseStyles = (
     & .fi-text-input_input {
       border: 2px solid ${theme.colors.alertBase};
       padding-left: 9px;
-      padding-top: 7px;
-      padding-bottom: 7px;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
   }
   &.fi-text-input--success {
     & .fi-text-input_input {
       border: 2px solid ${theme.colors.successBase};
       padding-left: 9px;
-      padding-top: 7px;
-      padding-bottom: 7px;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
   }
   &.fi-text-input--disabled {

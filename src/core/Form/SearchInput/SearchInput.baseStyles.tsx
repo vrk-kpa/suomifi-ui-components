@@ -57,7 +57,7 @@ export const baseStyles = (
       background-color: ${theme.colors.whiteBase};
       color: ${theme.colors.blackBase};
       ${containerIEFocus(theme)}
-      height: 40px;
+      min-height: 40px;
       width: 100%;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};

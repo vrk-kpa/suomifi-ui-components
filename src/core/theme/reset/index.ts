@@ -24,7 +24,7 @@ export const input = (theme: SuomifiTheme) => css`
   ${font(theme)('actionElementInnerText')}
   min-width: 245px;
   max-width: 100%;
-  padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
+  padding: ${theme.spacing.insetS} ${theme.spacing.insetXl};
   border: 1px solid ${theme.colors.depthLight1};
   border-radius: ${theme.radiuses.basic};
   line-height: 1;
