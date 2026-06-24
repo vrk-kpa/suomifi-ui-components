@@ -7,6 +7,7 @@ If there are only 2-3 options, consider using the <a href="./#/Components/RadioB
 Examples:
 
 - [Basic use](./#/Components/Dropdown?id=basic-use)
+- [Grouped items](./#/Components/Dropdown?id=grouped-items)
 - [Default value](./#/Components/Dropdown?id=default-value)
 - [Controlled value](./#/Components/Dropdown?id=controlled-value)
 - [Accessing the component with ref](./#/Components/Dropdown?id=accessing-the-component-with-ref)
@@ -18,8 +19,11 @@ Examples:
 <div style="margin-bottom: 5px">
   [Props & methods (Dropdown)](./#/Components/Dropdown?id=props--methods)
 </div>
-<div style="margin-bottom: 40px">
+<div style="margin-bottom: 5px">
   [Props & methods (DropdownItem)](./#/Components/Dropdown?id=dropdownitem)
+</div>
+<div style="margin-bottom: 40px">
+  [Props & methods (DropdownItemGroup)](./#/Components/Dropdown?id=dropdownitemgroup)
 </div>
 
 ### Basic use
@@ -66,6 +70,35 @@ const countries = [
       {country.name}
     </DropdownItem>
   ))}
+</Dropdown>;
+```
+
+### Grouped items
+
+You can use `<DropdownItemGroup>` components to organize items into groups with headings, similar to native HTML `<optgroup>` elements.
+
+The component uses proper ARIA attributes (`role="group"` and `aria-labelledby`) to ensure screen readers can navigate the grouped structure correctly. Group headings are not interactive and cannot be selected.
+
+```js
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownItemGroup
+} from 'suomifi-ui-components';
+
+<Dropdown labelText="Food" visualPlaceholder="Choose a food">
+  <DropdownItemGroup label="Fruits">
+    <DropdownItem value="apple">Apple</DropdownItem>
+    <DropdownItem value="banana">Banana</DropdownItem>
+    <DropdownItem value="orange">Orange</DropdownItem>
+    <DropdownItem value="strawberry">Strawberry</DropdownItem>
+  </DropdownItemGroup>
+  <DropdownItemGroup label="Vegetables">
+    <DropdownItem value="carrot">Carrot</DropdownItem>
+    <DropdownItem value="broccoli">Broccoli</DropdownItem>
+    <DropdownItem value="tomato">Tomato</DropdownItem>
+    <DropdownItem value="cucumber">Cucumber</DropdownItem>
+  </DropdownItemGroup>
 </Dropdown>;
 ```
 

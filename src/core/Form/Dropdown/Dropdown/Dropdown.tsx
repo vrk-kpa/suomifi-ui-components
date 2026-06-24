@@ -13,6 +13,7 @@ import {
 } from '../../../../reset';
 import { Label, LabelMode } from '../../Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
+import { DropdownItemGroupProps } from '../DropdownItemGroup/DropdownItemGroup';
 import { baseStyles } from './Dropdown.baseStyles';
 import {
   SuomifiThemeProp,
@@ -152,13 +153,15 @@ export interface DropdownProps<T extends string = string>
   className?: string;
   /** Disables the component */
   disabled?: boolean;
-  /** Use `<DropdownItem>` components as children */
+  /** Use `<DropdownItem>` or `<DropdownItemGroup>` components as children */
   children?:
     | Array<
         | ReactElement<DropdownItemProps<T>>
+        | ReactElement<DropdownItemGroupProps<T>>
         | Array<ReactElement<DropdownItemProps<T>>>
       >
-    | ReactElement<DropdownItemProps<T>>;
+    | ReactElement<DropdownItemProps<T>>
+    | ReactElement<DropdownItemGroupProps<T>>;
   /** Callback that fires when the Dropdown value changes. */
   onChange?(value: T): void;
   /** Callback that fires on blur */
@@ -258,30 +261,71 @@ class BaseDropdown<T extends string = string> extends Component<
     return null;
   }
 
+  /**
+   * Flattens children to get all DropdownItem elements, extracting items from groups
+   */
+  static getFlattenedItems<U extends string>(
+    children:
+      | Array<
+          | ReactElement<DropdownItemProps<U>>
+          | ReactElement<DropdownItemGroupProps<U>>
+          | Array<ReactElement<DropdownItemProps<U>>>
+        >
+      | ReactElement<DropdownItemProps<U>>
+      | ReactElement<DropdownItemGroupProps<U>>
+      | undefined,
+  ): Array<ReactElement<DropdownItemProps<U>>> {
+    if (!children) return [];
+
+    const items: Array<ReactElement<DropdownItemProps<U>>> = [];
+    const childArray = Array.isArray(children) ? children.flat() : [children];
+
+    childArray.forEach((child) => {
+      if (
+        child.type &&
+        (child.type as any).displayName === 'DropdownItemGroup'
+      ) {
+        // Extract items from group
+        const groupChildren = (child as ReactElement<DropdownItemGroupProps<U>>)
+          .props.children;
+        if (Array.isArray(groupChildren)) {
+          items.push(...groupChildren);
+        } else if (groupChildren) {
+          items.push(groupChildren);
+        }
+      } else if (
+        (child as ReactElement<DropdownItemProps<U>>).props?.value !== undefined
+      ) {
+        // Regular DropdownItem
+        items.push(child as ReactElement<DropdownItemProps<U>>);
+      }
+    });
+
+    return items;
+  }
+
   static getSelectedValueNode<U extends string>(
     selectedValue: string | undefined | null,
     children:
       | Array<
           | ReactElement<DropdownItemProps<U>>
+          | ReactElement<DropdownItemGroupProps<U>>
           | Array<ReactElement<DropdownItemProps<U>>>
         >
       | ReactElement<DropdownItemProps<U>>
+      | ReactElement<DropdownItemGroupProps<U>>
       | undefined,
   ): ReactNode | undefined {
     if (selectedValue === undefined || children === undefined) return undefined;
 
-    if (Array.isArray(children)) {
-      const flatChildren = children.flat();
-      for (let index = 0; index < flatChildren.length; index += 1) {
-        const element = flatChildren[index];
-
-        if (element.props.value === selectedValue) {
-          return element.props.children;
-        }
+    const flatItems = BaseDropdown.getFlattenedItems(children);
+    for (let index = 0; index < flatItems.length; index += 1) {
+      const element = flatItems[index];
+      if (element.props.value === selectedValue) {
+        return element.props.children;
       }
-    } else {
-      return children.props.children;
     }
+    return undefined;
   }
 
   static valueExistsInChildren<U extends string>(
@@ -289,15 +333,14 @@ class BaseDropdown<T extends string = string> extends Component<
     children:
       | Array<
           | ReactElement<DropdownItemProps<U>>
+          | ReactElement<DropdownItemGroupProps<U>>
           | Array<ReactElement<DropdownItemProps<U>>>
         >
-      | ReactElement<DropdownItemProps<U>>,
+      | ReactElement<DropdownItemProps<U>>
+      | ReactElement<DropdownItemGroupProps<U>>,
   ) {
-    if (Array.isArray(children)) {
-      const flatChildren = children.flat();
-      return flatChildren.some((child) => child.props.value === value);
-    }
-    return children.props.value === value;
+    const flatItems = BaseDropdown.getFlattenedItems(children);
+    return flatItems.some((child) => child.props.value === value);
   }
 
   componentDidMount(): void {
@@ -350,8 +393,8 @@ class BaseDropdown<T extends string = string> extends Component<
   }
 
   private handleSpaceAndEnter = (
-    popoverItems: Array<ReactElement<DropdownItemProps<T>>>,
-    getNextItem: () => ReactElement<DropdownItemProps<T>>,
+    popoverItems: Array<ReactElement<DropdownItemProps<any>>>,
+    getNextItem: () => ReactElement<DropdownItemProps<any>>,
   ) => {
     const { focusedDescendantId, showPopover } = this.state;
     if (!showPopover) {
@@ -377,14 +420,8 @@ class BaseDropdown<T extends string = string> extends Component<
     this.setState({ preventListScrolling: false });
 
     const { focusedDescendantId, ariaExpanded, showPopover } = this.state;
-    const items = Array.isArray(this.props.children)
-      ? this.props.children
-      : this.props.children !== undefined
-      ? [this.props.children]
-      : undefined;
-    if (!items) return;
-    const popoverItems: Array<ReactElement<DropdownItemProps<T>>> =
-      items.flat();
+    const popoverItems = BaseDropdown.getFlattenedItems<T>(this.props.children);
+    if (popoverItems.length === 0) return;
     const index = !!focusedDescendantId
       ? popoverItems.findIndex(
           (item) => item?.props.value === focusedDescendantId,
@@ -490,19 +527,8 @@ class BaseDropdown<T extends string = string> extends Component<
   };
 
   private getFirstItemValue() {
-    if (Array.isArray(this.props.children)) {
-      const element = this.props.children[0];
-
-      if (Array.isArray(element)) {
-        return element[0].props.value;
-      }
-
-      return element.props.value;
-    }
-    if (!!this.props.children) {
-      return this.props.children.props.value;
-    }
-    return null;
+    const flatItems = BaseDropdown.getFlattenedItems(this.props.children);
+    return flatItems.length > 0 ? flatItems[0].props.value : null;
   }
 
   private getDisplayValue() {
