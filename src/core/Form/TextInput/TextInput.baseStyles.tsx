@@ -116,7 +116,8 @@ export const baseStyles = (
       position: absolute;
       width: 18px;
       height: 18px;
-      top: ${theme.spacing.insetL};
+      top: 50%;
+      transform: translateY(-50%);
       right: ${theme.spacing.insetL};
     }
   }

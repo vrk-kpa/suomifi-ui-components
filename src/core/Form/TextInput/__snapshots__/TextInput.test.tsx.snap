@@ -356,7 +356,8 @@ exports[`snapshots match error status with statustext 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 
@@ -787,7 +788,8 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 
@@ -1188,7 +1190,8 @@ exports[`snapshots match minimal implementation 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 

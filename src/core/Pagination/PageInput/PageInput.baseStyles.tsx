@@ -82,7 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: default;
       pointer-events: none;
       right: 0px;
-      height: 40px;
+      height: 100%;
       width: 40px;
       border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
       border: 0;
