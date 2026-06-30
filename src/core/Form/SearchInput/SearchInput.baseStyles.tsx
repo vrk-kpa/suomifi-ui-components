@@ -57,7 +57,7 @@ export const baseStyles = (
       background-color: ${theme.colors.whiteBase};
       color: ${theme.colors.blackBase};
       ${containerIEFocus(theme)}
-      height: 40px;
+      min-height: 40px;
       width: 100%;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};
@@ -67,7 +67,8 @@ export const baseStyles = (
         position: absolute;
         width: 18px;
         height: 18px;
-        top: ${theme.spacing.insetL};
+        top: 50%;
+        transform: translateY(-50%);
         right: ${theme.spacing.insetL};
         & .fi-icon-base-fill {
           fill: ${theme.colors.depthDark1};
@@ -138,7 +139,8 @@ export const baseStyles = (
 
       &-clear {
         position: absolute;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
         right: 0px;
         clip: rect(0 0 0 0);
         height: 1px;
@@ -219,7 +221,7 @@ export const baseStyles = (
       overflow: visible;
       height: 20px;
       width: 20px;
-      margin: 9px;
+      margin: 0 9px;
       &:hover {
         background: ${theme.colors.highlightLight3};
       }

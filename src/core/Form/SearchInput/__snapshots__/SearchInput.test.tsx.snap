@@ -410,7 +410,7 @@ exports[`snapshot should have matching default structure 1`] = `
 .c1 .fi-search-input_input-element-container {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 13%);
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid hsl(201, 7%, 58%);
@@ -432,7 +432,8 @@ exports[`snapshot should have matching default structure 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 
@@ -453,7 +454,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -518,7 +519,8 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c1 .fi-search-input_button-clear {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0px;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -600,7 +602,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: visible;
   height: 20px;
   width: 20px;
-  margin: 9px;
+  margin: 0 9px;
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-clear:hover {
@@ -1354,7 +1356,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 .c1 .fi-search-input_input-element-container {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 13%);
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid hsl(201, 7%, 58%);
@@ -1376,7 +1378,8 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 
@@ -1397,7 +1400,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -1462,7 +1465,8 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 
 .c1 .fi-search-input_button-clear {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0px;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1544,7 +1548,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   overflow: visible;
   height: 20px;
   width: 20px;
-  margin: 9px;
+  margin: 0 9px;
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-clear:hover {

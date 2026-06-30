@@ -369,7 +369,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -1069,7 +1069,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -1762,7 +1762,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -2355,7 +2355,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;

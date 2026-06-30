@@ -208,7 +208,7 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
   position: absolute;
-  height: 40px;
+  height: 100%;
   right: 0;
   top: 0;
   display: flex;
@@ -277,7 +277,7 @@ exports[`snapshot matches 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
