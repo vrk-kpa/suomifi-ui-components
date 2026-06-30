@@ -109,7 +109,7 @@ exports[`ReorderableList should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -128,8 +128,8 @@ exports[`ReorderableList should match snapshot 1`] = `
   display: list-item;
 }
 
-.c7 ::before,
-.c7 ::after {
+.c8 ::before,
+.c8 ::after {
   box-sizing: border-box;
 }
 
@@ -158,6 +158,36 @@ exports[`ReorderableList should match snapshot 1`] = `
 
 .c3 ::before,
 .c3 ::after {
+  box-sizing: border-box;
+}
+
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.c7 ::before,
+.c7 ::after {
   box-sizing: border-box;
 }
 
@@ -476,7 +506,7 @@ exports[`ReorderableList should match snapshot 1`] = `
   margin-bottom: 20px;
 }
 
-.c1.fi-reorderable-list .fi-reorderable-list_list>ul {
+.c1.fi-reorderable-list .fi-reorderable-list_list .fi-reorderable-list_list-element {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -490,7 +520,7 @@ exports[`ReorderableList should match snapshot 1`] = `
   width: 100%;
 }
 
-.c8 {
+.c9 {
   color: hsl(0, 0%, 13%);
   letter-spacing: 0;
   text-decoration: none;
@@ -509,11 +539,11 @@ exports[`ReorderableList should match snapshot 1`] = `
   transition: transform 0.2s ease;
 }
 
-.c8:last-child {
+.c9:last-child {
   margin-bottom: 0;
 }
 
-.c8 .fi-reorderable-list-item_inner {
+.c9 .fi-reorderable-list-item_inner {
   background-color: hsl(212, 63%, 98%);
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
@@ -523,7 +553,7 @@ exports[`ReorderableList should match snapshot 1`] = `
   transition: box-shadow 0.2s ease,transform 0.2s ease,border-color 0.2s ease;
 }
 
-.c8 .fi-reorderable-list-item_drag-handle {
+.c9 .fi-reorderable-list-item_drag-handle {
   align-items: center;
   align-self: stretch;
   border-right: 1px solid hsl(202, 7%, 80%);
@@ -535,33 +565,33 @@ exports[`ReorderableList should match snapshot 1`] = `
   padding: 0 5px;
 }
 
-.c8 .fi-reorderable-list-item_drag-handle .fi-reorderable-list-item_drag-handle-icon {
+.c9 .fi-reorderable-list-item_drag-handle .fi-reorderable-list-item_drag-handle-icon {
   width: 16px;
   height: 16px;
   margin-left: -6px;
 }
 
-.c8 .fi-reorderable-list-item_drag-handle .fi-reorderable-list-item_drag-handle-icon:first-child {
+.c9 .fi-reorderable-list-item_drag-handle .fi-reorderable-list-item_drag-handle-icon:first-child {
   margin-left: 0;
 }
 
-.c8 .fi-reorderable-list-item_drag-handle .fi-reorderable-list-item_drag-handle-icon .fi-icon-base-fill {
+.c9 .fi-reorderable-list-item_drag-handle .fi-reorderable-list-item_drag-handle-icon .fi-icon-base-fill {
   fill: hsl(202, 7%, 40%);
 }
 
-.c8 .fi-reorderable-list-item_content-wrapper {
+.c9 .fi-reorderable-list-item_content-wrapper {
   display: flex;
   flex: 1;
   min-width: 0;
 }
 
-.c8 .fi-reorderable-list-item_content {
+.c9 .fi-reorderable-list-item_content {
   flex: 1;
   min-width: 0;
   padding: 20px;
 }
 
-.c8 .fi-reorderable-list-item_buttons {
+.c9 .fi-reorderable-list-item_buttons {
   display: flex;
   gap: 5px;
   flex-shrink: 0;
@@ -569,22 +599,22 @@ exports[`ReorderableList should match snapshot 1`] = `
   padding: 0 15px;
 }
 
-.c8 .fi-reorderable-list-item_buttons.fi-reorderable-list-item_buttons--top {
+.c9 .fi-reorderable-list-item_buttons.fi-reorderable-list-item_buttons--top {
   justify-content: flex-start;
   margin: 0 20px;
   padding: 20px 0;
 }
 
-.c8.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_inner {
+.c9.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_inner {
   box-shadow: 0 1px 2px 0 hsla(0, 0%, 13%, 0.14),0 1px 5px 0 hsla(0, 0%, 13%, 0.12);
   cursor: grab;
 }
 
-.c8.fi-reorderable-list-item--edit-mode:focus .fi-reorderable-list-item_inner {
+.c9.fi-reorderable-list-item--edit-mode:focus .fi-reorderable-list-item_inner {
   border-color: hsl(202, 7%, 80%);
 }
 
-.c8.fi-reorderable-list-item--edit-mode:focus .fi-reorderable-list-item_inner:after {
+.c9.fi-reorderable-list-item--edit-mode:focus .fi-reorderable-list-item_inner:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -601,55 +631,55 @@ exports[`ReorderableList should match snapshot 1`] = `
   outline: 3px solid transparent;
 }
 
-.c8.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-top .fi-reorderable-list-item_content-wrapper {
+.c9.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-top .fi-reorderable-list-item_content-wrapper {
   flex-direction: column;
 }
 
-.c8.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-top .fi-reorderable-list-item_buttons {
+.c9.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-top .fi-reorderable-list-item_buttons {
   border-bottom: 1px solid hsl(202, 7%, 80%);
 }
 
-.c8.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-inline .fi-reorderable-list-item_content-wrapper {
+.c9.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-inline .fi-reorderable-list-item_content-wrapper {
   flex-direction: row;
 }
 
-.c8.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-inline .fi-reorderable-list-item_content {
+.c9.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-inline .fi-reorderable-list-item_content {
   padding: 15px;
 }
 
-.c8.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-inline .fi-reorderable-list-item_buttons {
+.c9.fi-reorderable-list-item--edit-mode.fi-reorderable-list-item--buttons-inline .fi-reorderable-list-item_buttons {
   border-left: 1px solid hsl(202, 7%, 80%);
   align-items: center;
   justify-content: center;
   margin: 15px 0;
 }
 
-.c8.fi-reorderable-list-item--dragging .fi-reorderable-list-item_inner {
+.c9.fi-reorderable-list-item--dragging .fi-reorderable-list-item_inner {
   opacity: 0.5;
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   transform: rotate(-2deg);
 }
 
-.c8.fi-reorderable-list-item--drag-over .fi-reorderable-list-item_inner {
+.c9.fi-reorderable-list-item--drag-over .fi-reorderable-list-item_inner {
   border-color: hsl(212, 63%, 45%);
   border-style: dashed;
   border-width: 2px;
   background-color: hsl(216, 100%, 96%);
 }
 
-.c8.fi-reorderable-list-item--small-screen {
+.c9.fi-reorderable-list-item--small-screen {
   margin-bottom: 15px;
 }
 
-.c8.fi-reorderable-list-item--small-screen .fi-reorderable-list-item_content {
+.c9.fi-reorderable-list-item--small-screen .fi-reorderable-list-item_content {
   padding: 15px;
 }
 
-.c8.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_content-wrapper {
+.c9.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_content-wrapper {
   flex-direction: column;
 }
 
-.c8.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_buttons {
+.c9.fi-reorderable-list-item--small-screen.fi-reorderable-list-item--edit-mode .fi-reorderable-list-item_buttons {
   border-bottom: 1px solid hsl(202, 7%, 80%);
   border-left: none;
   justify-content: flex-start;
@@ -663,19 +693,19 @@ exports[`ReorderableList should match snapshot 1`] = `
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c8 {
+  .c9 {
     transition: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c8 .fi-reorderable-list-item_inner {
+  .c9 .fi-reorderable-list-item_inner {
     transition: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c8.fi-reorderable-list-item--dragging .fi-reorderable-list-item_inner {
+  .c9.fi-reorderable-list-item--dragging .fi-reorderable-list-item_inner {
     transform: none;
   }
 }
@@ -706,9 +736,11 @@ exports[`ReorderableList should match snapshot 1`] = `
   <div
     class="c2 fi-reorderable-list_list"
   >
-    <ul>
+    <ul
+      class="c7 fi-reorderable-list_list-element"
+    >
       <li
-        class="c7 fi-reorderable-list-item c8 fi-reorderable-list-item--view-mode"
+        class="c8 fi-reorderable-list-item c9 fi-reorderable-list-item--view-mode"
         role="listitem"
       >
         <div
@@ -725,7 +757,7 @@ exports[`ReorderableList should match snapshot 1`] = `
         </div>
       </li>
       <li
-        class="c7 fi-reorderable-list-item c8 fi-reorderable-list-item--view-mode"
+        class="c8 fi-reorderable-list-item c9 fi-reorderable-list-item--view-mode"
         role="listitem"
       >
         <div
@@ -742,7 +774,7 @@ exports[`ReorderableList should match snapshot 1`] = `
         </div>
       </li>
       <li
-        class="c7 fi-reorderable-list-item c8 fi-reorderable-list-item--view-mode"
+        class="c8 fi-reorderable-list-item c9 fi-reorderable-list-item--view-mode"
         role="listitem"
       >
         <div
