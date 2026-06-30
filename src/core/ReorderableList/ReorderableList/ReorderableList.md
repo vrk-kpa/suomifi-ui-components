@@ -14,11 +14,14 @@ Examples:
 - [Basic use](./#/Components/ReorderableList?id=basic-use)
 - [Items with form content](./#/Components/ReorderableList?id=items-with-form-content)
 - [Small screen](./#/Components/ReorderableList?id=small-screen)
-- [Move to top/bottom controls](./#/Components/ReorderableList?id=move-to-top/bottom-controls)
+- [Move to top and move to bottom controls](./#/Components/ReorderableList?id=move-to-top-and-move-to-bottom-controls)
 - [Controlled edit mode](./#/Components/ReorderableList?id=controlled-edit-mode)
 
+<div style="margin-bottom: 5px">
+  [Props & methods (ReorderableList)](./#/Components/ReorderableList?id=props--methods)
+</div>
 <div style="margin-bottom: 40px">
-  [Props & methods](./#/Components/ReorderableList?id=props--methods)
+  [Props & methods (ReorderableListItem)](./#/Components/ReorderableList?id=reorderablelistitem)
 </div>
 
 ### Basic use
@@ -374,7 +377,7 @@ const handleReorder = (newOrder) => {
 </ReorderableList>;
 ```
 
-### Move to top/bottom controls
+### Move to top and move to bottom controls
 
 Enable direct top and bottom movement buttons with `showMoveToTopButton` and `showMoveToBottomButton`. The example below also uses `moveButtonsPlacement="top"` so the buttons are shown as a toolbar above each item's content.
 
@@ -504,3 +507,7 @@ const handleReorder = (newOrder) => {
   ))}
 </ReorderableList>;
 ```
+
+### Props & methods
+
+ReorderableList component supports [margin props](./#/Spacing/Margin%20props) for spacing.

@@ -44,16 +44,20 @@ The following components support margin props
 
 - ActionMenu
 - Alert
+- Block
 - Breadcrumb
 - Button
 - Checkbox
 - CheckboxGroup
 - Chip
 - DateInput
+- Details
 - Dropdown
+- ErrorSummary
 - Expander
 - ExpanderGroup
 - ExternalLink
+- FileInput
 - Heading
 - HintText
 - InlineAlert
@@ -65,8 +69,10 @@ The following components support margin props
 - MultiSelect
 - Notification
 - Pagination
+- Paragraph
 - RadioButton
 - RadioButtonGroup
+- ReorderableList
 - RouterLink
 - SearchInput
 - ServiceNavigation
@@ -74,6 +80,7 @@ The following components support margin props
 - SingleSelect
 - StaticChip
 - StatusText
+- Table
 - Text
 - Textarea
 - TextInput
