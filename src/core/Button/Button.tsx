@@ -166,18 +166,14 @@ class BaseButton extends Component<ButtonProps> {
 }
 
 const StyledButton = styled(
-  ({
-    theme,
-    globalMargins,
-    ...passProps
-  }: ButtonProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
+  ({ theme, globalMargins, ...passProps }: ButtonProps & SuomifiThemeProp) => (
     <BaseButton {...passProps} />
   ),
 )`
   ${({ theme, globalMargins, ...rest }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
-      globalMargins.button,
+      globalMargins?.button || {},
       marginProps,
     );
     return baseStyles(theme, cleanedGlobalMargins, marginProps);

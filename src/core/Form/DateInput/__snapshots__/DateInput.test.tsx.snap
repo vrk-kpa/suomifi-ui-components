@@ -458,7 +458,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm.71 17.29c-.38-.37-1.05-.37-1.42 0-.181.19-.29.44-.29.71 0 .26.109.52.29.71.189.18.45.29.71.29.26 0 .52-.11.71-.29.18-.19.29-.45.29-.71 0-.27-.11-.52-.29-.71ZM12 5a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1Z"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -2672,7 +2672,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm5.65 8.24a1 1 0 0 0-1.41.11l-5.296 6.18-2.237-2.237a1 1 0 1 0-1.414 1.414l3 3a1 1 0 0 0 1.466-.056l6-7a1 1 0 0 0-.108-1.41Z"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -4044,7 +4044,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 <path
                   class="fi-icon-base-fill"
                   d="M16 0a1 1 0 0 1 .993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 0 1-1.851 1.995L22 24H2a2.002 2.002 0 0 1-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 0 1 8.992.883L9 1v1h6V1a1 1 0 0 1 1-1ZM7 4H2v18h19.997L22 4h-5v1a1 1 0 0 1-1.993.117L15 5V4H9v1a1 1 0 0 1-1.993.117L7 5V4Zm12 10a1 1 0 0 1 .993.883L20 15v2a1 1 0 0 1-.883.993L19 18h-2a1 1 0 0 1-.993-.883L16 17v-2a1 1 0 0 1 .883-.993L17 14h2ZM7 14a1 1 0 0 1 .993.883L8 15v2a1 1 0 0 1-.883.993L7 18H5a1 1 0 0 1-.993-.883L4 17v-2a1 1 0 0 1 .883-.993L5 14h2Zm6 0a1 1 0 0 1 .993.883L14 15v2a1 1 0 0 1-.883.993L13 18h-2a1 1 0 0 1-.993-.883L10 17v-2a1 1 0 0 1 .883-.993L11 14h2Zm6-6a1 1 0 0 1 .993.883L20 9v2a1 1 0 0 1-.883.993L19 12h-2a1 1 0 0 1-.993-.883L16 11V9a1 1 0 0 1 .883-.993L17 8h2ZM7 8a1 1 0 0 1 .993.883L8 9v2a1 1 0 0 1-.883.993L7 12H5a1 1 0 0 1-.993-.883L4 11V9a1 1 0 0 1 .883-.993L5 8h2Zm6 0a1 1 0 0 1 .993.883L14 9v2a1 1 0 0 1-.883.993L13 12h-2a1 1 0 0 1-.993-.883L10 11V9a1 1 0 0 1 .883-.993L11 8h2Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -4187,6 +4187,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <svg
               aria-hidden="true"
               class="fi-icon c14 fi-date-selectors_month-button_icon"
+              fill="none"
               focusable="false"
               height="1em"
               viewBox="0 0 24 24"
@@ -4195,9 +4196,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <path
                 class="fi-icon-base-fill"
-                d="M8.41 12.61a1.298 1.298 0 0 1-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 0 1 1.98 0 1.287 1.287 0 0 1 0 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 0 1 0 1.885 1.448 1.448 0 0 1-1.98 0l-5.6-5.333Z"
-                fill="#222"
-                fill-rule="evenodd"
+                d="M15.707 18.707a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414l6-6a1 1 0 1 1 1.414 1.414L10.414 12l5.293 5.293a1 1 0 0 1 0 1.414Z"
+                fill="#212121"
               />
             </svg>
           </button>
@@ -4215,6 +4215,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <svg
               aria-hidden="true"
               class="fi-icon c15 fi-date-selectors_month-button_icon"
+              fill="none"
               focusable="false"
               height="1em"
               viewBox="0 0 24 24"
@@ -4223,9 +4224,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <path
                 class="fi-icon-base-fill"
-                d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
-                fill="#222"
-                fill-rule="evenodd"
+                d="M8.293 5.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L13.586 12 8.293 6.707a1 1 0 0 1 0-1.414Z"
+                fill="#212121"
               />
             </svg>
           </button>
@@ -6195,7 +6195,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 <path
                   class="fi-icon-base-fill"
                   d="M16 0a1 1 0 0 1 .993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 0 1-1.851 1.995L22 24H2a2.002 2.002 0 0 1-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 0 1 8.992.883L9 1v1h6V1a1 1 0 0 1 1-1ZM7 4H2v18h19.997L22 4h-5v1a1 1 0 0 1-1.993.117L15 5V4H9v1a1 1 0 0 1-1.993.117L7 5V4Zm12 10a1 1 0 0 1 .993.883L20 15v2a1 1 0 0 1-.883.993L19 18h-2a1 1 0 0 1-.993-.883L16 17v-2a1 1 0 0 1 .883-.993L17 14h2ZM7 14a1 1 0 0 1 .993.883L8 15v2a1 1 0 0 1-.883.993L7 18H5a1 1 0 0 1-.993-.883L4 17v-2a1 1 0 0 1 .883-.993L5 14h2Zm6 0a1 1 0 0 1 .993.883L14 15v2a1 1 0 0 1-.883.993L13 18h-2a1 1 0 0 1-.993-.883L10 17v-2a1 1 0 0 1 .883-.993L11 14h2Zm6-6a1 1 0 0 1 .993.883L20 9v2a1 1 0 0 1-.883.993L19 12h-2a1 1 0 0 1-.993-.883L16 11V9a1 1 0 0 1 .883-.993L17 8h2ZM7 8a1 1 0 0 1 .993.883L8 9v2a1 1 0 0 1-.883.993L7 12H5a1 1 0 0 1-.993-.883L4 11V9a1 1 0 0 1 .883-.993L5 8h2Zm6 0a1 1 0 0 1 .993.883L14 9v2a1 1 0 0 1-.883.993L13 12h-2a1 1 0 0 1-.993-.883L10 11V9a1 1 0 0 1 .883-.993L11 8h2Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -6348,6 +6348,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               <svg
                 aria-hidden="true"
                 class="fi-icon c14 fi-date-selectors_month-button_icon"
+                fill="none"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -6356,9 +6357,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M8.41 12.61a1.298 1.298 0 0 1-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 0 1 1.98 0 1.287 1.287 0 0 1 0 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 0 1 0 1.885 1.448 1.448 0 0 1-1.98 0l-5.6-5.333Z"
-                  fill="#222"
-                  fill-rule="evenodd"
+                  d="M15.707 18.707a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414l6-6a1 1 0 1 1 1.414 1.414L10.414 12l5.293 5.293a1 1 0 0 1 0 1.414Z"
+                  fill="#212121"
                 />
               </svg>
             </button>
@@ -6376,6 +6376,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               <svg
                 aria-hidden="true"
                 class="fi-icon c15 fi-date-selectors_month-button_icon"
+                fill="none"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -6384,9 +6385,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
-                  fill="#222"
-                  fill-rule="evenodd"
+                  d="M8.293 5.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L13.586 12 8.293 6.707a1 1 0 0 1 0-1.414Z"
+                  fill="#212121"
                 />
               </svg>
             </button>
