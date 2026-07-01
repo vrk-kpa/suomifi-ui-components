@@ -162,6 +162,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -497,6 +498,7 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -832,6 +834,7 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -1185,6 +1188,7 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -1527,6 +1531,7 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -1862,6 +1867,7 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -2198,6 +2204,7 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -2525,6 +2532,7 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
