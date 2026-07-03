@@ -24,7 +24,6 @@ export const baseStyles = (
 
       & .fi-pagination_arrow-button {
         min-width: 40px;
-        height: 40px;
         width: 40px;
         padding-left: 0;
         padding-right: 0;
