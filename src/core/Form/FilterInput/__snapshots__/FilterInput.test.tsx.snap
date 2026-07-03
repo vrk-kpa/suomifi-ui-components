@@ -234,6 +234,10 @@ exports[`snapshot matches 1`] = `
   margin-top: 5px;
 }
 
+.c1 .fi-filter-input_input-element-container {
+  position: relative;
+}
+
 .c1 .fi-filter-input_input-element-container >input:focus {
   outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
@@ -243,10 +247,6 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input_input-element-container:focus-within >input:focus {
   outline: none;
-}
-
-.c1 .fi-filter-input_input-element-container:focus-within {
-  position: relative;
 }
 
 .c1 .fi-filter-input_input-element-container:focus-within::after {

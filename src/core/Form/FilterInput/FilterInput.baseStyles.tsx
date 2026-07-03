@@ -50,11 +50,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-filter-input_input-element-container {
+    position: relative;
     ${containerIEFocus(theme)}
 
     &:focus-within {
-      position: relative;
-
       &::after {
         ${theme.focuses.absoluteFocus}
       }
