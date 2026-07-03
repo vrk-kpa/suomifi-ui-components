@@ -24,10 +24,16 @@ export const baseStyles = (
 
       & .fi-pagination_arrow-button {
         min-width: 40px;
+        height: 40px;
         width: 40px;
         padding-left: 0;
         padding-right: 0;
         margin: 0;
+
+        & .fi-button_icon {
+          display: flex;
+          margin-top: 2px;
+        }
 
         & > .fi-button_icon > .fi-icon {
           margin-right: auto;
