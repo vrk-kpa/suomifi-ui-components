@@ -25,7 +25,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-select-item_icon {
       position: absolute;
-      top: 14px;
+      top: calc(50% - 6px);
       right: 10px;
       height: 12px;
       width: 12px;

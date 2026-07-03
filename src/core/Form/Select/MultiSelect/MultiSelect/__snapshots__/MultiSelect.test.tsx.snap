@@ -607,7 +607,7 @@ exports[`has matching snapshot 1`] = `
 
 .c15.fi-select-item .fi-select-item_icon {
   position: absolute;
-  top: 14px;
+  top: calc(50% - 6px);
   right: 10px;
   height: 12px;
   width: 12px;
