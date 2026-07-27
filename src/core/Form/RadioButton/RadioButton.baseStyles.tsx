@@ -108,6 +108,7 @@ export const baseStyles = (
       ${theme.typography.bodyTextSmall};
     }
     & .fi-radio-button_label {
+      display: block;
       font-size: 16px;
       position: relative;
       cursor: pointer;
