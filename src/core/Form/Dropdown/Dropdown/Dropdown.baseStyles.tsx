@@ -9,6 +9,7 @@ export const baseStyles = (
   propMargins?: MarginProps,
 ) => css`
   width: 290px;
+  min-width: 100px;
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
   ${fixInternalMargins()}
@@ -35,6 +36,7 @@ export const baseStyles = (
 
     .fi-dropdown_button {
       ${input(theme)}
+      min-width: 100px;
       position: relative;
       display: inline-block;
       width: 100%;
