@@ -157,10 +157,13 @@ const BaseTextInput = (props: InternalTextInputProps) => {
   const [_marginProps, passProps] = separateMarginProps(rest);
 
   useEffect(() => {
-    if (characterLimit !== undefined && inputRef.current?.value.length) {
+    if (
+      characterLimit !== undefined &&
+      inputRef.current?.value.length !== undefined
+    ) {
       setCharCount(inputRef.current?.value.length);
     }
-  }, []);
+  }, [characterLimit, passProps?.value]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 

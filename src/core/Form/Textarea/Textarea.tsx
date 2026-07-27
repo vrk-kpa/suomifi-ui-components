@@ -163,10 +163,13 @@ const BaseTextarea = (props: TextareaProps) => {
   const hintTextId = hintText ? `${id}-hintText` : undefined;
 
   useEffect(() => {
-    if (characterLimit !== undefined && inputRef.current?.value.length) {
+    if (
+      characterLimit !== undefined &&
+      inputRef.current?.value.length !== undefined
+    ) {
       setCharCount(inputRef.current?.value.length);
     }
-  }, []);
+  }, [characterLimit, passProps?.value]);
 
   const handleOnChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     if (typingTimer) {
