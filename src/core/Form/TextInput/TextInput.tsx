@@ -152,6 +152,8 @@ const BaseTextInput = (props: InternalTextInputProps) => {
     characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
+    value,
+    disabled,
     ...rest
   } = props;
   const [_marginProps, passProps] = separateMarginProps(rest);
@@ -163,7 +165,7 @@ const BaseTextInput = (props: InternalTextInputProps) => {
     ) {
       setCharCount(inputRef.current?.value.length);
     }
-  }, [characterLimit, passProps?.value]);
+  }, [characterLimit, value]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -205,7 +207,7 @@ const BaseTextInput = (props: InternalTextInputProps) => {
   return (
     <HtmlDiv
       className={classnames(baseClassName, className, {
-        [textInputClassNames.disabled]: !!passProps.disabled,
+        [textInputClassNames.disabled]: !!disabled,
         [textInputClassNames.icon]: !!icon,
         [textInputClassNames.error]: status === 'error',
         [textInputClassNames.success]: status === 'success',
@@ -231,6 +233,8 @@ const BaseTextInput = (props: InternalTextInputProps) => {
             {(debouncer: Function) => (
               <HtmlInput
                 {...passProps}
+                value={value}
+                disabled={disabled}
                 id={id}
                 className={textInputClassNames.inputElement}
                 type={type}
@@ -258,7 +262,7 @@ const BaseTextInput = (props: InternalTextInputProps) => {
             })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
-            disabled={passProps.disabled}
+            disabled={disabled}
           >
             {characterLimit && (
               <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>

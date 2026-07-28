@@ -138,6 +138,7 @@ const BaseTextarea = (props: TextareaProps) => {
     characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
+    value,
     ...rest
   } = props;
   const [_marginProps, passProps] = separateMarginProps(rest);
@@ -169,7 +170,7 @@ const BaseTextarea = (props: TextareaProps) => {
     ) {
       setCharCount(inputRef.current?.value.length);
     }
-  }, [characterLimit, passProps?.value]);
+  }, [characterLimit, value]);
 
   const handleOnChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     if (typingTimer) {
@@ -239,6 +240,7 @@ const BaseTextarea = (props: TextareaProps) => {
             ariaDescribedBy,
           ])}
           onChange={handleOnChange}
+          value={value}
           {...passProps}
           {...onClickProps}
         />
