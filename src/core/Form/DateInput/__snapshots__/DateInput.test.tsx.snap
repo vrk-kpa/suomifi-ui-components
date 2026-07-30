@@ -3410,6 +3410,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c12 {
   width: 290px;
+  min-width: 160px;
 }
 
 .c12 .fi-label,
@@ -3459,6 +3460,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
+  min-width: 160px;
   position: relative;
   display: inline-block;
   width: 100%;
@@ -3611,6 +3613,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin: 0;
   margin-right: 10px;
   width: 0px;
+  min-width: 90px;
 }
 
 .c11 .fi-date-selectors_year-select .fi-dropdown_button {
@@ -3621,6 +3624,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin: 0;
   margin-right: 5px;
   width: 0px;
+  min-width: 145px;
 }
 
 .c11 .fi-date-selectors_month-select .fi-dropdown_button {
@@ -5561,6 +5565,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c12 {
   width: 290px;
+  min-width: 160px;
 }
 
 .c12 .fi-label,
@@ -5610,6 +5615,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
+  min-width: 160px;
   position: relative;
   display: inline-block;
   width: 100%;
@@ -5762,6 +5768,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   margin: 0;
   margin-right: 10px;
   width: 0px;
+  min-width: 90px;
 }
 
 .c11 .fi-date-selectors_year-select .fi-dropdown_button {
@@ -5772,6 +5779,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   margin: 0;
   margin-right: 5px;
   width: 0px;
+  min-width: 145px;
 }
 
 .c11 .fi-date-selectors_month-select .fi-dropdown_button {

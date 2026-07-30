@@ -8,6 +8,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-filter-input_wrapper {
     display: inline-block;
     width: 100%;
+    min-width: 160px;
 
     & .fi-filter-input_label--visible {
       margin-bottom: ${theme.spacing.xs};
@@ -63,7 +64,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-filter-input_input {
     ${input(theme)}
     background-color: ${theme.colors.whiteBase};
-    min-width: 40px;
+    min-width: 160px;
     width: 100%;
     min-height: 40px;
     padding-left: ${theme.spacing.insetL};

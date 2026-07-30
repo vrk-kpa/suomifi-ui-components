@@ -16,6 +16,7 @@ export const baseStyles = (
     margin: 0;
     margin-right: ${theme.spacing.xs};
     width: ${yearSelectWidth}px;
+    min-width: 90px;
     .fi-dropdown_button {
       min-width: 90px;
     }
@@ -25,6 +26,7 @@ export const baseStyles = (
     margin: 0;
     margin-right: ${theme.spacing.xxs};
     width: ${monthSelectWidth}px;
+    min-width: 145px;
     .fi-dropdown_button {
       min-width: 145px;
     }

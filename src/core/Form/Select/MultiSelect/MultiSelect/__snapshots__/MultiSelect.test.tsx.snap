@@ -404,6 +404,7 @@ exports[`has matching snapshot 1`] = `
 .c2 .fi-filter-input_wrapper {
   display: inline-block;
   width: 100%;
+  min-width: 160px;
 }
 
 .c2 .fi-filter-input_wrapper .fi-filter-input_label--visible {
@@ -495,7 +496,7 @@ exports[`has matching snapshot 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0, 0%, 100%);
-  min-width: 40px;
+  min-width: 160px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
