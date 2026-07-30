@@ -845,6 +845,11 @@ exports[`snapshot should have matching default structure 1`] = `
   margin: 0;
 }
 
+.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button .fi-button_icon {
+  display: flex;
+  margin-top: 2px;
+}
+
 .c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button>.fi-button_icon>.fi-icon {
   margin-right: auto;
   margin-left: auto;

@@ -541,7 +541,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 
 .c11.fi-dropdown_item .fi-dropdown_item_icon {
   position: absolute;
-  top: 14px;
+  top: calc(50% - 6px);
   right: 10px;
   height: 12px;
   width: 12px;
@@ -1243,7 +1243,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 
 .c11.fi-dropdown_item .fi-dropdown_item_icon {
   position: absolute;
-  top: 14px;
+  top: calc(50% - 6px);
   right: 10px;
   height: 12px;
   width: 12px;
@@ -1938,7 +1938,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 
 .c11.fi-dropdown_item .fi-dropdown_item_icon {
   position: absolute;
-  top: 14px;
+  top: calc(50% - 6px);
   right: 10px;
   height: 12px;
   width: 12px;

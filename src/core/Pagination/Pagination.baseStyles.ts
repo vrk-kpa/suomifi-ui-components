@@ -30,6 +30,11 @@ export const baseStyles = (
         padding-right: 0;
         margin: 0;
 
+        & .fi-button_icon {
+          display: flex;
+          margin-top: 2px;
+        }
+
         & > .fi-button_icon > .fi-icon {
           margin-right: auto;
           margin-left: auto;

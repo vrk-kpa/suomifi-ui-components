@@ -196,6 +196,12 @@ export const baseStyles = (
     }
   }
 
+  &.fi-search-input--no-search-button.fi-search-input--error {
+    & .fi-search-input_input-element-container {
+      border-right: 1px solid ${theme.colors.alertBase};
+    }
+  }
+
   &.fi-search-input--error {
     & .fi-search-input_input-element-container {
       border: 1px solid ${theme.colors.alertBase};

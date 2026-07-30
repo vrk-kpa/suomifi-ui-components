@@ -233,7 +233,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c1 {
-  display: inline;
+  display: inline-flex;
   height: 16px;
   width: 16px;
   margin-left: 5px;
@@ -399,7 +399,7 @@ exports[`margin should have margin style from margin prop 1`] = `
 }
 
 .c1 {
-  display: inline;
+  display: inline-flex;
   height: 16px;
   width: 16px;
   margin-left: 5px;

@@ -215,18 +215,18 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 onChange={onChangeHandler}
                 aria-multiline={false}
               />
+              {React.Children.count(children) > 0 && (
+                <HtmlDiv
+                  className={filterInputClassNames.actionElementsContainer}
+                  onMouseDownCapture={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }}
+                >
+                  {children}
+                </HtmlDiv>
+              )}
             </HtmlDiv>
-            {React.Children.count(children) > 0 && (
-              <HtmlDiv
-                className={filterInputClassNames.actionElementsContainer}
-                onMouseDownCapture={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }}
-              >
-                {children}
-              </HtmlDiv>
-            )}
             <StatusText
               id={statusTextId}
               className={classnames({
