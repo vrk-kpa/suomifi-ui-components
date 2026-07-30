@@ -144,7 +144,7 @@ export const baseStyles = (
       content: '';
       position: absolute;
       left: 0px;
-      top: ${theme.spacing.xxs};
+      top: 0.25em;
       box-sizing: border-box;
       height: 18px;
       width: 18px;
@@ -169,7 +169,7 @@ export const baseStyles = (
         content: '';
         position: absolute;
         pointer-events: none;
-        top: 4px;
+        top: calc(0.25em - 1px);
         left: -1px;
         border-radius: 2px;
         background-color: transparent;
