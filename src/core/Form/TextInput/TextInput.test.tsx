@@ -347,6 +347,49 @@ describe('Character counter', () => {
     ).toHaveTextContent('26/20');
   });
 
+  it('should display correct character count when controlled value is changed', async () => {
+    const { container, rerender } = render(
+      <TextInput
+        labelText="label"
+        data-testid="cc-input"
+        characterLimit={20}
+        ariaCharactersRemainingText={(amount) =>
+          `You have ${amount} characters remaining`
+        }
+        ariaCharactersExceededText={(amount) =>
+          `You have ${amount} characters too many`
+        }
+        value="Lorem ipsum dolor"
+      />,
+    );
+    expect(
+      container.getElementsByClassName('fi-text-input_character-counter')
+        .length,
+    ).toBe(1);
+    expect(
+      container.getElementsByClassName('fi-text-input_character-counter')[0],
+    ).toHaveTextContent('17/20');
+
+    rerender(
+      <TextInput
+        labelText="label"
+        data-testid="cc-input"
+        characterLimit={20}
+        ariaCharactersRemainingText={(amount) =>
+          `You have ${amount} characters remaining`
+        }
+        ariaCharactersExceededText={(amount) =>
+          `You have ${amount} characters too many`
+        }
+        value=""
+      />,
+    );
+
+    expect(
+      container.getElementsByClassName('fi-text-input_character-counter')[0],
+    ).toHaveTextContent('0/20');
+  });
+
   it('should have correct screen reader status text', async () => {
     const user = userEvent.setup({ delay: null });
     const { container, getByTestId } = render(

@@ -347,6 +347,47 @@ describe('props', () => {
       ).toHaveTextContent('26/20');
     });
 
+    it('should update character count when controlled value is changed', async () => {
+      const { container, rerender } = render(
+        <Textarea
+          labelText="label"
+          characterLimit={20}
+          ariaCharactersRemainingText={(amount) =>
+            `You have ${amount} characters remaining`
+          }
+          ariaCharactersExceededText={(amount) =>
+            `You have ${amount} characters too many`
+          }
+          value="Lorem ipsum dolor"
+        />,
+      );
+      expect(
+        container.getElementsByClassName('fi-textarea_character-counter')
+          .length,
+      ).toBe(1);
+      expect(
+        container.getElementsByClassName('fi-textarea_character-counter')[0],
+      ).toHaveTextContent('17/20');
+
+      rerender(
+        <Textarea
+          labelText="label"
+          characterLimit={20}
+          ariaCharactersRemainingText={(amount) =>
+            `You have ${amount} characters remaining`
+          }
+          ariaCharactersExceededText={(amount) =>
+            `You have ${amount} characters too many`
+          }
+          value=""
+        />,
+      );
+
+      expect(
+        container.getElementsByClassName('fi-textarea_character-counter')[0],
+      ).toHaveTextContent('0/20');
+    });
+
     it('should have correct screen reader status text', async () => {
       const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
       const { container, getByTestId } = render(
