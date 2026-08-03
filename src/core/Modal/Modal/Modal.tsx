@@ -162,7 +162,7 @@ class BaseModal extends Component<InternalModalProps> {
           [modalClassNames.noScroll]: scrollable === false,
         })}
         ariaHideApp={!!appElementId}
-        aria={{ modal: false, labelledby: ariaLabelledBy }}
+        aria={{ labelledby: ariaLabelledBy }}
         isOpen={visible}
         onAfterOpen={() => {
           this.toggleBodyScroll();
