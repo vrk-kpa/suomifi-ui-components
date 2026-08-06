@@ -27,6 +27,7 @@
   "ignorePatterns": [
     "**/*.config.*",
     "jest/*.js",
+    "scripts/*.js",
     "node_modules/",
     "dist/**/*"
   ],

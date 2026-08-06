@@ -43,7 +43,8 @@
     "a11y"
   ],
   "scripts": {
-    "prepare": "npm-run-all husky:install build",
+    "prepare": "npm-run-all check:npm-version husky:install build",
+    "check:npm-version": "node scripts/check-npm-version.js",
     "husky:install": "husky install",
     "pre-commit": "lint-staged",
     "pre-push": "npm run validate",
