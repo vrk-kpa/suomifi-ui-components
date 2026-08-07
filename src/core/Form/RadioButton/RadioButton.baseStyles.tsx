@@ -124,7 +124,7 @@ export const baseStyles = (
       top: 5px;
       left: 2px;
       + .fi-radio-button_icon_wrapper {
-        top: 3px;
+        top: 0.1em;
         left: 0;
         margin: 2px;
         height: 18px;

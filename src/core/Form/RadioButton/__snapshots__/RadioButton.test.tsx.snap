@@ -181,7 +181,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -517,7 +517,7 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -853,7 +853,7 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -1207,7 +1207,7 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -1550,7 +1550,7 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -1886,7 +1886,7 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -2223,7 +2223,7 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -2551,7 +2551,7 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
