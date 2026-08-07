@@ -6,7 +6,7 @@
 
 For testing: [React-testing-library](https://github.com/kentcdodds/react-testing-library) run by [Jest](https://github.com/facebook/jest) with [ts-jest](https://github.com/kulshekhar/ts-jest) (code coverage with built-in [Istanbul](https://github.com/istanbuljs)). Code style with [Prettier](https://github.com/prettier/prettier).
 
-**Note!** Before installing dependencies, make sure you are using npm v11.19.0 or newer in order to utilize `min-release-age` as a safety measure.
+**Note!** Before installing dependencies, make sure you are using npm version 11.10.0 or newer in order to utilize `min-release-age` as a safety measure.
 
 After cloning suomifi-ui-components, run `npm install` to fetch its dependencies. Then, you can run several commands:
 
