@@ -26,21 +26,21 @@ export const baseStyles = (
   }
 
   &.fi-chip--removable {
-    padding-top: ${theme.spacing.insetXxs};
-    padding-right: 22px;
-    padding-bottom: ${theme.spacing.insetXxs};
-    padding-left: ${theme.spacing.insetL};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
     position: relative;
 
     & .fi-chip--icon {
-      position: absolute;
-      top: 8px;
-      right: 10px;
+      flex-shrink: 0;
+      margin-left: ${theme.spacing.xs};
       height: 12px;
       width: 12px;
     }
 
     & .fi-chip--content {
+      flex-grow: 1;
       margin-right: ${theme.spacing.xs};
     }
 
