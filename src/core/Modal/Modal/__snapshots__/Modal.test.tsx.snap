@@ -835,7 +835,7 @@ exports[`Basic modal should match snapshot 1`] = `
     >
       <div
         aria-labelledby="test12"
-        aria-modal="false"
+        aria-modal="true"
         class="ReactModal__Content fi-modal"
         role="dialog"
         tabindex="-1"
