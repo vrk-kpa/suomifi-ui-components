@@ -753,6 +753,10 @@ exports[`Basic modal should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c10 .fi-button_icon {
+  display: inline-block;
+}
+
 .c10>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;

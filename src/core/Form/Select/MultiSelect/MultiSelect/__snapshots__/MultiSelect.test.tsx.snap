@@ -1017,6 +1017,10 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c20 .fi-button_icon {
+  display: inline-block;
+}
+
 .c20>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
