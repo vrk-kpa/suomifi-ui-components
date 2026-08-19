@@ -226,7 +226,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 }
 
 .c3.fi-link-list-item .fi-link-list-item_icon {
-  margin-right: 2px;
+  display: inline-block;
 }
 
 .c3.fi-link-list-item .fi-link-list-item_icon .fi-icon {

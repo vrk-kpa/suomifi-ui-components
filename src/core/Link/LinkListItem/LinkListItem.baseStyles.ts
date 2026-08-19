@@ -9,7 +9,7 @@ export const LinkListItemStyles = (theme: SuomifiTheme) => css`
     padding: 0;
     margin-left: 15px;
     & .fi-link-list-item_icon {
-      margin-right: 2px;
+      display: inline-block;
       & .fi-icon {
         margin-left: -18px;
         font-size: 16px;
