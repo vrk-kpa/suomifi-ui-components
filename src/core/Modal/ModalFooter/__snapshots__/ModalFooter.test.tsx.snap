@@ -458,6 +458,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c6 .fi-button_icon {
+  display: inline-block;
+}
+
 .c6>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;

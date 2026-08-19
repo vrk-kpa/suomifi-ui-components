@@ -3165,6 +3165,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   fill: hsl(202, 7%, 67%);
 }
 
+.c13 .fi-button_icon {
+  display: inline-block;
+}
+
 .c13>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -5318,6 +5322,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c13.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
+}
+
+.c13 .fi-button_icon {
+  display: inline-block;
 }
 
 .c13>.fi-button_icon>.fi-icon {

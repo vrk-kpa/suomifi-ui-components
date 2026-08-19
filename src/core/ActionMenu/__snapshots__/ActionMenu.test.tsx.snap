@@ -489,6 +489,10 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -1270,6 +1274,10 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
+}
+
+.c5 .fi-button_icon {
+  display: inline-block;
 }
 
 .c5>.fi-button_icon>.fi-icon {
@@ -2055,6 +2063,10 @@ exports[`No borders variant should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -2836,6 +2848,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
+}
+
+.c5 .fi-button_icon {
+  display: inline-block;
 }
 
 .c5>.fi-button_icon>.fi-icon {
@@ -3620,6 +3636,10 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c5.fi-button--secondary-light .fi-button_loading-icon .fi-icon-component-brand-fill {
   fill: hsl(202, 7%, 67%);
+}
+
+.c5 .fi-button_icon {
+  display: inline-block;
 }
 
 .c5>.fi-button_icon>.fi-icon {
