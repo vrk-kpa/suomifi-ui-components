@@ -33,7 +33,6 @@ import {
   ReorderableListItem,
   Paragraph,
   Text,
-  SpacingProvider
 } from 'suomifi-ui-components';
 
 const [items, setItems] = React.useState([
@@ -49,7 +48,6 @@ const handleReorder = (newOrder) => {
   );
   setItems(reordered);
 };
-<SpacingProvider margins={{ button: { margin: 'l' } }}>
   <ReorderableList
     aria-label="Priority list"
     editButtonText="Edit order"
@@ -66,8 +64,6 @@ const handleReorder = (newOrder) => {
         `${label} moved to position ${pos} of ${total}`,
       movedToPosition: (label, pos, total) =>
         `${label} moved to position ${pos} of ${total}`,
-      cannotMoveUp: (label) => `${label} is already at the top`,
-      cannotMoveDown: (label) => `${label} is already at the bottom`,
       itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
       orderReverted: () => 'Order reverted to original'
     }}
@@ -87,7 +83,6 @@ const handleReorder = (newOrder) => {
         </Block>
       </ReorderableListItem>
     ))}
-  </ReorderableList>
 </SpacingProvider>;
 ```
 
@@ -135,8 +130,6 @@ const handleReorder = (newOrder) => {
       `${label} moved to position ${pos} of ${total}`,
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already at the top`,
-    cannotMoveDown: (label) => `${label} is already at the bottom`,
     itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
@@ -221,8 +214,6 @@ const handleReorder = (newOrder) => {
       `${label} moved to position ${pos} of ${total}`,
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already first`,
-    cannotMoveDown: (label) => `${label} is already last`,
     itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
@@ -329,8 +320,6 @@ const handleReorder = (newOrder) => {
       `${label} moved to position ${pos} of ${total}`,
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already first`,
-    cannotMoveDown: (label) => `${label} is already last`,
     itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
@@ -423,8 +412,6 @@ const handleReorder = (newOrder) => {
       `${label} moved to position ${pos} of ${total}`,
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already at the top`,
-    cannotMoveDown: (label) => `${label} is already at the bottom`,
     itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
@@ -486,8 +473,6 @@ const handleReorder = (newOrder) => {
     movedDown: (label, pos) => `${label} is now at position ${pos}`,
     movedToPosition: (label, pos) =>
       `${label} is now at position ${pos}`,
-    cannotMoveUp: (label) => `${label} cannot move up`,
-    cannotMoveDown: (label) => `${label} cannot move down`,
     itemsSwapped: (a, b) => `Swapped ${a} and ${b}`
   }}
   editMode={editMode}

@@ -14,8 +14,6 @@ const defaultAnnouncements = {
     `${label} moved to position ${pos} of ${total}`,
   movedToPosition: (label: string, pos: number, total: number) =>
     `${label} moved to position ${pos} of ${total}`,
-  cannotMoveUp: (label: string) => `${label} is already at the top`,
-  cannotMoveDown: (label: string) => `${label} is already at the bottom`,
   itemsSwapped: (a: string, b: string) => `${a} and ${b} swapped`,
 };
 
