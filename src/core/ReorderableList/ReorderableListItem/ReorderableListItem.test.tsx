@@ -21,7 +21,8 @@ const TestItemInList = (
   <ReorderableList
     aria-label="Test list"
     editButtonText="Edit"
-    saveButtonText="Cancel"
+    saveButtonText="Save order"
+    revertButtonText="Cancel"
     editModeInstructionHeading="Instructions"
     editModeInstructionText="Use arrows."
     announcements={defaultAnnouncements}
@@ -78,7 +79,8 @@ describe('ReorderableListItem', () => {
       <ReorderableList
         aria-label="Test list"
         editButtonText="Edit"
-        saveButtonText="Done"
+        saveButtonText="Save order"
+        revertButtonText="Cancel"
         editModeInstructionHeading="Instructions"
         editModeInstructionText="Use arrows."
         announcements={defaultAnnouncements}

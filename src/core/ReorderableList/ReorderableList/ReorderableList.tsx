@@ -68,7 +68,7 @@ export interface ReorderableListProps
   /** Text for the save/done button shown in edit mode */
   saveButtonText: string;
   /** Text for the cancel/revert button shown in edit mode. If omitted, no revert button is shown. */
-  revertButtonText?: string;
+  revertButtonText: string;
   /** Heading text for the instruction shown in edit mode */
   editModeInstructionHeading: string;
   /** Instruction text shown in edit mode */
