@@ -32,7 +32,7 @@ import {
   ReorderableList,
   ReorderableListItem,
   Paragraph,
-  Text,
+  Text
 } from 'suomifi-ui-components';
 
 const [items, setItems] = React.useState([
@@ -48,42 +48,37 @@ const handleReorder = (newOrder) => {
   );
   setItems(reordered);
 };
-  <ReorderableList
-    aria-label="Priority list"
-    editButtonText="Edit order"
-    saveButtonText="Save order"
-    revertButtonText="Cancel"
-    editModeInstructionHeading="Order change instructions"
-    editModeInstructionText="Drag and drop or use the up/down buttons to move items."
-    announcements={{
-      editModeActivated: () => 'Edit mode activated',
-      editModeCancelled: () => 'Edit mode cancelled',
-      movedUp: (label, pos, total) =>
-        `${label} moved to position ${pos} of ${total}`,
-      movedDown: (label, pos, total) =>
-        `${label} moved to position ${pos} of ${total}`,
-      movedToPosition: (label, pos, total) =>
-        `${label} moved to position ${pos} of ${total}`,
-      itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
-      orderReverted: () => 'Order reverted to original'
-    }}
-    onReorder={handleReorder}
-  >
-    {items.map((item) => (
-      <ReorderableListItem
-        key={item.id}
-        itemKey={item.id}
-        ariaLabel={item.title}
-        moveUpButtonAriaLabel={`Move ${item.title} up`}
-        moveDownButtonAriaLabel={`Move ${item.title} down`}
-      >
-        <Block>
-          <Text variant="bold">{item.title}</Text>
-          <Paragraph>{item.description}</Paragraph>
-        </Block>
-      </ReorderableListItem>
-    ))}
-</SpacingProvider>;
+<ReorderableList
+  aria-label="Priority list"
+  editButtonText="Edit order"
+  saveButtonText="Save order"
+  revertButtonText="Cancel"
+  editModeInstructionHeading="Order change instructions"
+  editModeInstructionText="Drag and drop or use the up/down buttons to move items."
+  announcements={{
+    editModeActivated: () => 'Edit mode activated',
+    editModeCancelled: () => 'Edit mode off',
+    movedToPosition: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`,
+    orderReverted: () => 'Order reverted to original'
+  }}
+  onReorder={handleReorder}
+>
+  {items.map((item) => (
+    <ReorderableListItem
+      key={item.id}
+      itemKey={item.id}
+      ariaLabel={item.title}
+      moveUpButtonAriaLabel={`Move ${item.title} up`}
+      moveDownButtonAriaLabel={`Move ${item.title} down`}
+    >
+      <Block>
+        <Text variant="bold">{item.title}</Text>
+        <Paragraph>{item.description}</Paragraph>
+      </Block>
+    </ReorderableListItem>
+  ))}
+</ReorderableList>;
 ```
 
 ### Inline move buttons
@@ -123,14 +118,9 @@ const handleReorder = (newOrder) => {
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated',
-    editModeCancelled: () => 'Edit mode cancelled',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -207,14 +197,9 @@ const handleReorder = (newOrder) => {
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated.',
-    editModeCancelled: () => 'Edit mode cancelled.',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off.',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -313,14 +298,9 @@ const handleReorder = (newOrder) => {
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated.',
-    editModeCancelled: () => 'Edit mode cancelled.',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off.',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -405,14 +385,9 @@ const handleReorder = (newOrder) => {
   moveButtonsPlacement="top"
   announcements={{
     editModeActivated: () => 'Edit mode activated',
-    editModeCancelled: () => 'Edit mode cancelled',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -467,13 +442,10 @@ const handleReorder = (newOrder) => {
   editModeInstructionHeading="Order change instructions"
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
-    editModeActivated: () => 'Edit mode on',
+    editModeActivated: () => 'Edit mode activated',
     editModeCancelled: () => 'Edit mode off',
-    movedUp: (label, pos) => `${label} is now at position ${pos}`,
-    movedDown: (label, pos) => `${label} is now at position ${pos}`,
-    movedToPosition: (label, pos) =>
-      `${label} is now at position ${pos}`,
-    itemsSwapped: (a, b) => `Swapped ${a} and ${b}`
+    movedToPosition: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`
   }}
   editMode={editMode}
   onEditModeChange={setEditMode}

@@ -48,22 +48,11 @@ export type ReorderableListMoveButtonsPlacement = 'inline' | 'top';
 export interface ReorderableListAnnouncements {
   editModeActivated: () => string;
   editModeCancelled: () => string;
-  movedUp: (
-    itemLabel: string,
-    newPosition: number,
-    totalItems: number,
-  ) => string;
-  movedDown: (
-    itemLabel: string,
-    newPosition: number,
-    totalItems: number,
-  ) => string;
   movedToPosition: (
     itemLabel: string,
     newPosition: number,
     totalItems: number,
   ) => string;
-  itemsSwapped: (item1Label: string, item2Label: string) => string;
   orderReverted?: () => string;
 }
 
@@ -90,22 +79,11 @@ export interface ReorderableListProps
    * ReorderableListAnnouncements {
    *   editModeActivated: () => string;
    *   editModeCancelled: () => string;
-   *   movedUp: (
-   *     itemLabel: string,
-   *     newPosition: number,
-   *     totalItems: number,
-   *   ) => string;
-   *   movedDown: (
-   *     itemLabel: string,
-   *     newPosition: number,
-   *     totalItems: number,
-   *   ) => string;
    *   movedToPosition: (
    *     itemLabel: string,
    *     newPosition: number,
    *     totalItems: number,
    *   ) => string;
-   *   itemsSwapped: (item1Label: string, item2Label: string) => string;
    *   orderReverted?: () => string;
    * }
    * </pre>
@@ -275,12 +253,10 @@ class BaseReorderableList extends Component<
 
       // First rAF: force a reflow so the browser commits the jump
       requestAnimationFrame(() => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         el.getBoundingClientRect();
 
         // Second rAF: clear the inline override so the CSS transition takes
         // over, animating from the old position back to the natural position.
-        // prefers-reduced-motion is handled in CSS (transition: none there).
         requestAnimationFrame(() => {
           el.style.transition = '';
           el.style.transform = '';
@@ -379,8 +355,6 @@ class BaseReorderableList extends Component<
   private moveUp = (itemKey: string) => {
     const order = [...this.currentOrder];
     const idx = order.indexOf(itemKey);
-    const item = this.registeredItems.get(itemKey);
-    const label = item?.ariaLabel || itemKey;
 
     if (idx <= 0) {
       return;
@@ -390,14 +364,11 @@ class BaseReorderableList extends Component<
     this.shouldAnimateNextReorder = true;
     this.setState({ itemOrder: order });
     this.props.onReorder(order);
-    this.announce(this.props.announcements.movedUp(label, idx, order.length));
   };
 
   private moveDown = (itemKey: string) => {
     const order = [...this.currentOrder];
     const idx = order.indexOf(itemKey);
-    const item = this.registeredItems.get(itemKey);
-    const label = item?.ariaLabel || itemKey;
 
     if (idx >= order.length - 1) {
       return;
@@ -407,9 +378,6 @@ class BaseReorderableList extends Component<
     this.shouldAnimateNextReorder = true;
     this.setState({ itemOrder: order });
     this.props.onReorder(order);
-    this.announce(
-      this.props.announcements.movedDown(label, idx + 2, order.length),
-    );
   };
 
   private moveToTop = (itemKey: string) => {
