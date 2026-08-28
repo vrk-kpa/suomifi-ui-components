@@ -8,10 +8,6 @@ import { ReorderableListItem } from '../ReorderableListItem/ReorderableListItem'
 const defaultAnnouncements = {
   editModeActivated: () => 'Edit mode activated',
   editModeCancelled: () => 'Edit mode cancelled',
-  movedUp: (label: string, pos: number, total: number) =>
-    `${label} moved to position ${pos} of ${total}`,
-  movedDown: (label: string, pos: number, total: number) =>
-    `${label} moved to position ${pos} of ${total}`,
   movedToPosition: (label: string, pos: number, total: number) =>
     `${label} moved to position ${pos} of ${total}`,
   itemsSwapped: (a: string, b: string) => `${a} and ${b} swapped`,

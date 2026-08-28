@@ -79,6 +79,16 @@ export interface ReorderableListProps
    * ReorderableListAnnouncements {
    *   editModeActivated: () => string;
    *   editModeCancelled: () => string;
+   *   movedUp: (
+   *     itemLabel: string,
+   *     newPosition: number,
+   *     totalItems: number,
+   *   ) => string;
+   *   movedDown: (
+   *     itemLabel: string,
+   *     newPosition: number,
+   *     totalItems: number,
+   *   ) => string;
    *   movedToPosition: (
    *     itemLabel: string,
    *     newPosition: number,
@@ -355,6 +365,8 @@ class BaseReorderableList extends Component<
   private moveUp = (itemKey: string) => {
     const order = [...this.currentOrder];
     const idx = order.indexOf(itemKey);
+    const item = this.registeredItems.get(itemKey);
+    const label = item?.ariaLabel || itemKey;
 
     if (idx <= 0) {
       return;
@@ -364,11 +376,16 @@ class BaseReorderableList extends Component<
     this.shouldAnimateNextReorder = true;
     this.setState({ itemOrder: order });
     this.props.onReorder(order);
+    this.announce(
+      this.props.announcements.movedToPosition(label, idx, order.length),
+    );
   };
 
   private moveDown = (itemKey: string) => {
     const order = [...this.currentOrder];
     const idx = order.indexOf(itemKey);
+    const item = this.registeredItems.get(itemKey);
+    const label = item?.ariaLabel || itemKey;
 
     if (idx >= order.length - 1) {
       return;
@@ -378,6 +395,9 @@ class BaseReorderableList extends Component<
     this.shouldAnimateNextReorder = true;
     this.setState({ itemOrder: order });
     this.props.onReorder(order);
+    this.announce(
+      this.props.announcements.movedToPosition(label, idx + 2, order.length),
+    );
   };
 
   private moveToTop = (itemKey: string) => {
