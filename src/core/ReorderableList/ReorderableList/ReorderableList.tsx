@@ -79,16 +79,6 @@ export interface ReorderableListProps
    * ReorderableListAnnouncements {
    *   editModeActivated: () => string;
    *   editModeCancelled: () => string;
-   *   movedUp: (
-   *     itemLabel: string,
-   *     newPosition: number,
-   *     totalItems: number,
-   *   ) => string;
-   *   movedDown: (
-   *     itemLabel: string,
-   *     newPosition: number,
-   *     totalItems: number,
-   *   ) => string;
    *   movedToPosition: (
    *     itemLabel: string,
    *     newPosition: number,
