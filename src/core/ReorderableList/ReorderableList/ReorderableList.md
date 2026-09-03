@@ -32,8 +32,7 @@ import {
   ReorderableList,
   ReorderableListItem,
   Paragraph,
-  Text,
-  SpacingProvider
+  Text
 } from 'suomifi-ui-components';
 
 const [items, setItems] = React.useState([
@@ -49,46 +48,37 @@ const handleReorder = (newOrder) => {
   );
   setItems(reordered);
 };
-<SpacingProvider margins={{ button: { margin: 'l' } }}>
-  <ReorderableList
-    aria-label="Priority list"
-    editButtonText="Edit order"
-    saveButtonText="Save order"
-    revertButtonText="Cancel"
-    editModeInstructionHeading="Order change instructions"
-    editModeInstructionText="Drag and drop or use the up/down buttons to move items."
-    announcements={{
-      editModeActivated: () => 'Edit mode activated',
-      editModeCancelled: () => 'Edit mode cancelled',
-      movedUp: (label, pos, total) =>
-        `${label} moved to position ${pos} of ${total}`,
-      movedDown: (label, pos, total) =>
-        `${label} moved to position ${pos} of ${total}`,
-      movedToPosition: (label, pos, total) =>
-        `${label} moved to position ${pos} of ${total}`,
-      cannotMoveUp: (label) => `${label} is already at the top`,
-      cannotMoveDown: (label) => `${label} is already at the bottom`,
-      itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
-      orderReverted: () => 'Order reverted to original'
-    }}
-    onReorder={handleReorder}
-  >
-    {items.map((item) => (
-      <ReorderableListItem
-        key={item.id}
-        itemKey={item.id}
-        ariaLabel={item.title}
-        moveUpButtonAriaLabel={`Move ${item.title} up`}
-        moveDownButtonAriaLabel={`Move ${item.title} down`}
-      >
-        <Block>
-          <Text variant="bold">{item.title}</Text>
-          <Paragraph>{item.description}</Paragraph>
-        </Block>
-      </ReorderableListItem>
-    ))}
-  </ReorderableList>
-</SpacingProvider>;
+<ReorderableList
+  aria-label="Priority list"
+  editButtonText="Edit order"
+  saveButtonText="Save order"
+  revertButtonText="Cancel"
+  editModeInstructionHeading="Order change instructions"
+  editModeInstructionText="Drag and drop or use the up/down buttons to move items."
+  announcements={{
+    editModeActivated: () => 'Edit mode activated',
+    editModeCancelled: () => 'Edit mode off',
+    movedToPosition: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`,
+    orderReverted: () => 'Order reverted to original'
+  }}
+  onReorder={handleReorder}
+>
+  {items.map((item) => (
+    <ReorderableListItem
+      key={item.id}
+      itemKey={item.id}
+      ariaLabel={item.title}
+      moveUpButtonAriaLabel={`Move ${item.title} up`}
+      moveDownButtonAriaLabel={`Move ${item.title} down`}
+    >
+      <Block>
+        <Text variant="bold">{item.title}</Text>
+        <Paragraph>{item.description}</Paragraph>
+      </Block>
+    </ReorderableListItem>
+  ))}
+</ReorderableList>;
 ```
 
 ### Inline move buttons
@@ -128,16 +118,9 @@ const handleReorder = (newOrder) => {
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated',
-    editModeCancelled: () => 'Edit mode cancelled',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already at the top`,
-    cannotMoveDown: (label) => `${label} is already at the bottom`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -214,16 +197,9 @@ const handleReorder = (newOrder) => {
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated.',
-    editModeCancelled: () => 'Edit mode cancelled.',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off.',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already first`,
-    cannotMoveDown: (label) => `${label} is already last`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -322,16 +298,9 @@ const handleReorder = (newOrder) => {
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
     editModeActivated: () => 'Edit mode activated.',
-    editModeCancelled: () => 'Edit mode cancelled.',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off.',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already first`,
-    cannotMoveDown: (label) => `${label} is already last`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -416,16 +385,9 @@ const handleReorder = (newOrder) => {
   moveButtonsPlacement="top"
   announcements={{
     editModeActivated: () => 'Edit mode activated',
-    editModeCancelled: () => 'Edit mode cancelled',
-    movedUp: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
-    movedDown: (label, pos, total) =>
-      `${label} moved to position ${pos} of ${total}`,
+    editModeCancelled: () => 'Edit mode off',
     movedToPosition: (label, pos, total) =>
       `${label} moved to position ${pos} of ${total}`,
-    cannotMoveUp: (label) => `${label} is already at the top`,
-    cannotMoveDown: (label) => `${label} is already at the bottom`,
-    itemsSwapped: (a, b) => `${a} and ${b} have swapped positions`,
     orderReverted: () => 'Order reverted to original'
   }}
   onReorder={handleReorder}
@@ -480,15 +442,10 @@ const handleReorder = (newOrder) => {
   editModeInstructionHeading="Order change instructions"
   editModeInstructionText="Drag and drop or use the up/down buttons to move items."
   announcements={{
-    editModeActivated: () => 'Edit mode on',
+    editModeActivated: () => 'Edit mode activated',
     editModeCancelled: () => 'Edit mode off',
-    movedUp: (label, pos) => `${label} is now at position ${pos}`,
-    movedDown: (label, pos) => `${label} is now at position ${pos}`,
-    movedToPosition: (label, pos) =>
-      `${label} is now at position ${pos}`,
-    cannotMoveUp: (label) => `${label} cannot move up`,
-    cannotMoveDown: (label) => `${label} cannot move down`,
-    itemsSwapped: (a, b) => `Swapped ${a} and ${b}`
+    movedToPosition: (label, pos, total) =>
+      `${label} moved to position ${pos} of ${total}`
   }}
   editMode={editMode}
   onEditModeChange={setEditMode}

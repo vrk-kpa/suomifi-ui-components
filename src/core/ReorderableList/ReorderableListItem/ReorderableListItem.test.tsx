@@ -14,8 +14,6 @@ const defaultAnnouncements = {
     `${label} moved to position ${pos} of ${total}`,
   movedToPosition: (label: string, pos: number, total: number) =>
     `${label} moved to position ${pos} of ${total}`,
-  cannotMoveUp: (label: string) => `${label} is already at the top`,
-  cannotMoveDown: (label: string) => `${label} is already at the bottom`,
   itemsSwapped: (a: string, b: string) => `${a} and ${b} swapped`,
 };
 
@@ -23,7 +21,8 @@ const TestItemInList = (
   <ReorderableList
     aria-label="Test list"
     editButtonText="Edit"
-    saveButtonText="Cancel"
+    saveButtonText="Save order"
+    revertButtonText="Cancel"
     editModeInstructionHeading="Instructions"
     editModeInstructionText="Use arrows."
     announcements={defaultAnnouncements}
@@ -80,7 +79,8 @@ describe('ReorderableListItem', () => {
       <ReorderableList
         aria-label="Test list"
         editButtonText="Edit"
-        saveButtonText="Done"
+        saveButtonText="Save order"
+        revertButtonText="Cancel"
         editModeInstructionHeading="Instructions"
         editModeInstructionText="Use arrows."
         announcements={defaultAnnouncements}
