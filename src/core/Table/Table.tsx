@@ -46,6 +46,8 @@ import { Block } from '../Block/Block';
 const baseClassName = 'fi-table';
 
 const tableClassNames = {
+  selectedTr: 'highlighted',
+  selectableTr: 'fi-table_tr--selectable',
   table: `${baseClassName}_table`,
   thead: `${baseClassName}_thead`,
   tbody: `${baseClassName}_tbody`,
@@ -146,6 +148,8 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   data: TableRow<TColumns>[];
   /** Condenses the padding of table cells */
   condensed?: boolean;
+  /** Used with enableRowSelection/enableSingleRowSelection to enable selection of row(s) by clicking anywhere on the row. */
+  wholeRowSelection?: boolean;
   /** Enables selection of rows via checkboxes
    * @default false
    */
@@ -202,6 +206,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     condensed,
     enableRowSelection,
     enableSingleRowSelection,
+    wholeRowSelection,
     onSelectedRowsChange,
     tableSortedAriaLiveText,
     tableSortCallback,
@@ -224,6 +229,9 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
 
   const [hasHorizontalScrollbar, setHasHorizontalScrollbar] = useState(false);
   const wrapperRef = React.createRef<HTMLDivElement>();
+
+  const isWholeRowSelectionAllowed =
+    wholeRowSelection && (enableRowSelection || enableSingleRowSelection);
 
   useEffect(() => {
     if (controlledSelectedRowIds !== undefined) {
@@ -327,6 +335,29 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     if (onSelectedRowsChange) {
       onSelectedRowsChange(newSelectedRowIds);
     }
+  };
+
+  const handleRowClick = (
+    event: React.MouseEvent<HTMLTableRowElement>,
+    row: TableRow<TColumns>,
+  ) => {
+    if (!isWholeRowSelectionAllowed || row.rowSelectionDisabled) {
+      return;
+    }
+    // Check if the click originated from checkbox/radio button within the row selection cell
+    // and let checkbox/radio button handle selection if it did
+    if (
+      event.target instanceof Element &&
+      event.target.closest('input, label') &&
+      event.target.closest('td[data-fi-table="selectable-cell"]')
+    ) {
+      return;
+    }
+
+    handleRowSelection(
+      row.id,
+      selectedRowIds.includes(row.id) ? 'remove' : 'add',
+    );
   };
 
   const getSortColumnLabel = () =>
@@ -465,8 +496,13 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                 <HtmlTableRow
                   key={row.id}
                   className={classnames(tableClassNames.tr, {
-                    highlighted: selectedRowIds.includes(row.id),
+                    [tableClassNames.selectedTr]: selectedRowIds.includes(
+                      row.id,
+                    ),
+                    [tableClassNames.selectableTr]:
+                      isWholeRowSelectionAllowed && !row.rowSelectionDisabled,
                   })}
+                  onClick={(event) => handleRowClick(event, row)}
                 >
                   {(enableRowSelection || enableSingleRowSelection) &&
                     row.rowSelectionDisabled === true && (
@@ -483,6 +519,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                         tableClassNames.td,
                         tableClassNames.selectionTd,
                       )}
+                      data-fi-table="selectable-cell"
                     >
                       <Checkbox
                         checked={selectedRowIds.includes(row.id)}
