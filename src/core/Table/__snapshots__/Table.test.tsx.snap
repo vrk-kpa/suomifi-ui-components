@@ -499,6 +499,10 @@ exports[`Table functionalities matches snapshot 1`] = `
   background-color: hsl(215, 100%, 95%);
 }
 
+.c1.fi-table .fi-table_table .fi-table_tr--selectable:hover {
+  background-color: hsl(215, 100%, 97%);
+}
+
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_th,
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_td {
   padding: 5px 20px;

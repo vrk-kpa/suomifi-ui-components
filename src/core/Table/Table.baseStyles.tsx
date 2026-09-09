@@ -180,6 +180,10 @@ export const baseStyles = (
         }
       }
 
+      .fi-table_tr--selectable:hover {
+        background-color: ${theme.colors.depthSecondary};
+      }
+
       &.fi-table--condensed {
         .fi-table_th,
         .fi-table_td {
