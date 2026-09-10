@@ -44,8 +44,23 @@ export interface ModalProps {
   onEscKeyDown?: () => void;
   /**
    * Id of the element that labels the modal. Most likely the `ModalTitle`.
+   * @deprecated Renamed, use the prop aria-labelledby instead
    */
   ariaLabelledBy?: string;
+  /**
+   * Id of the element that labels the modal. Most likely the `ModalTitle`.
+   */
+  'aria-labelledby'?: string;
+  /**
+   * aria-label for the modal. Prefer aria-labelledby for better accessibility. Use aria-label only if there is no visible title
+   * for the modal.
+   */
+  'aria-label'?: string;
+  /**
+   * aria-describedby for the modal. *NOTE:* Screen reader support is not reliable for this prop, when element(s) referenced by
+   * aria-describedby are inside modal.
+   */
+  'aria-describedby'?: string;
 }
 
 interface InternalModalProps extends ModalProps, SuomifiThemeProp {
@@ -146,7 +161,10 @@ class BaseModal extends Component<InternalModalProps> {
       focusOnOpenRef,
       focusOnCloseRef = null,
       onEscKeyDown,
-      ariaLabelledBy,
+      ariaLabelledBy: ariaLabelledByDeprecated,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
     } = this.props;
 
     if (!appElementId) {
@@ -162,7 +180,11 @@ class BaseModal extends Component<InternalModalProps> {
           [modalClassNames.noScroll]: scrollable === false,
         })}
         ariaHideApp={!!appElementId}
-        aria={{ labelledby: ariaLabelledBy }}
+        contentLabel={ariaLabel}
+        aria={{
+          labelledby: ariaLabelledBy || ariaLabelledByDeprecated,
+          describedby: ariaDescribedBy,
+        }}
         isOpen={visible}
         onAfterOpen={() => {
           this.toggleBodyScroll();
