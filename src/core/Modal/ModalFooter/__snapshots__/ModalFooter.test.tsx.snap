@@ -197,6 +197,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   width: 100%;
   top: -51px;
   border-bottom: 1px solid hsl(202, 7%, 80%);
+  pointer-events: none;
 }
 
 .c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
