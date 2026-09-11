@@ -12,7 +12,7 @@
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "removeComments": true,
+    "removeComments": false, /* Keep JSDoc comments */
     "lib": ["es2019", "dom"],
     "pretty": true,
     "skipLibCheck": false,

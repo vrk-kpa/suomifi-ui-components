@@ -91,7 +91,7 @@ export interface CheckboxProps
    */
   'aria-labelledby'?: string;
   /**
-   * aria-describedby for the HTML input element,
+   * aria-describedby for the HTML input element.
    */
   'aria-describedby'?: string;
   /**

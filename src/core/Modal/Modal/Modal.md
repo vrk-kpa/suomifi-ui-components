@@ -29,7 +29,7 @@ Hide the application root node from the keyboard focus order and assistive techn
 
 Visibility state of the Modal is controlled outside the component. Closing the Modal needs to be done explicitly on footer buttons and esc keypress.
 
-While the modal is made to be accessible without it, you might want to add an `ariaLabelledBy` prop referring to your `ModalTitle` element to appease automatic accessibility checkers and as a backup measure.
+For assistive technology, `aria-labelledby` prop referring to your `ModalTitle` element should be used to ensure accessibility validation.
 
 ```js
 import { useState } from 'react';
@@ -39,8 +39,7 @@ import {
   ModalTitle,
   ModalFooter,
   Button,
-  Paragraph,
-  Text
+  Paragraph
 } from 'suomifi-ui-components';
 
 const [visible, setVisible] = useState(false);
@@ -59,30 +58,21 @@ Quisque non sapien sem.`;
     appElementId="rsg-root"
     visible={visible}
     onEscKeyDown={() => setVisible(false)}
-    ariaLabelledBy="modal-title"
+    aria-labelledby="modal-title"
   >
     <ModalContent>
       <ModalTitle id="modal-title">Modal example</ModalTitle>
       <Paragraph>
         {Array.apply(null, { length: 10 }).map((e, i) => (
           <Paragraph mb="l" key={i}>
-            <Text>{text}</Text>
+            {text}
           </Paragraph>
         ))}
       </Paragraph>
     </ModalContent>
     <ModalFooter>
-      <Button
-        arial-label="Accept changes and close modal dialog"
-        onClick={() => setVisible(false)}
-      >
-        OK
-      </Button>
-      <Button
-        variant="secondary"
-        arial-label="Discard changes and close modal dialog"
-        onClick={() => setVisible(false)}
-      >
+      <Button onClick={() => setVisible(false)}>OK</Button>
+      <Button variant="secondary" onClick={() => setVisible(false)}>
         Cancel
       </Button>
     </ModalFooter>
@@ -131,23 +121,14 @@ Quisque non sapien sem.`;
       <Paragraph>
         {Array.apply(null, { length: 10 }).map((e, i) => (
           <Paragraph mb="l" key={i}>
-            <Text>{text}</Text>
+            {text}
           </Paragraph>
         ))}
       </Paragraph>
     </ModalContent>
     <ModalFooter>
-      <Button
-        arial-label="Accept changes and close modal dialog"
-        onClick={() => setVisible(false)}
-      >
-        OK
-      </Button>
-      <Button
-        variant="secondary"
-        arial-label="Discard changes and close modal dialog"
-        onClick={() => setVisible(false)}
-      >
+      <Button onClick={() => setVisible(false)}>OK</Button>
+      <Button variant="secondary" onClick={() => setVisible(false)}>
         Cancel
       </Button>
     </ModalFooter>
@@ -184,9 +165,7 @@ const [visible, setVisible] = useState(false);
     <ModalContent>
       <ModalTitle>Example dialog</ModalTitle>
       <Paragraph>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Paragraph>
     </ModalContent>
     <ModalFooter>
@@ -205,7 +184,7 @@ By default, initial focus will be in the modal title. When closed, focus will re
 
 The `focusOnOpenRef` and `focusOnCloseRef` props can be used to change this behaviour.
 
-**NOTE**: Use with caution as screen reader users may get confused if initial focus is not in the beginning of modal or if focus does not return to where it was before opening the modal. In modals with little content, initial focus could be set on the first interactive element, e.g. an "OK" button or a text input.
+**NOTE**: Use with caution as screen reader users may get confused if initial focus is not in the beginning of modal or if focus does not return to where it was before opening the modal. In modals with little content, initial focus could be set on the first interactive element, e.g. an "OK" button or a text input. In that case, it is especially important to have `aria-labelledby`/`aria-label` to announce the dialog context when it is opened.
 
 **NOTE 2:** The component is built with React-modal, which does not consider some inline elements to be focusable. To ensure focusability inside Modal, components must have non-zero size, be visible, have tabindex of 0 or greater, must be of node type input, select, textarea, button, object or a with either tabIndex or href attribute and cannot be disabled! ([source](https://github.com/reactjs/react-modal/blob/827796d48e7d4c74b4362cf90955e162082ee46d/src/helpers/tabbable.js))
 
@@ -218,7 +197,6 @@ import {
   ModalFooter,
   Button,
   Paragraph,
-  Text,
   TextInput,
   Block
 } from 'suomifi-ui-components';
@@ -256,15 +234,13 @@ const initialFocusRef = useRef(null);
         />
       </Block>
       <Paragraph>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus scelerisque elit a consectetur tempor. Morbi sit
-          amet lobortis ipsum. Nunc ac ante ligula. Mauris sem urna,
-          feugiat eu faucibus in, vehicula sit amet nibh. Duis non
-          egestas enim. Sed pharetra, eros a feugiat porttitor, nisi
-          eros dapibus mi, in semper augue erat sit amet nulla.
-          Quisque non sapien sem.
-        </Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Phasellus scelerisque elit a consectetur tempor. Morbi sit
+        amet lobortis ipsum. Nunc ac ante ligula. Mauris sem urna,
+        feugiat eu faucibus in, vehicula sit amet nibh. Duis non
+        egestas enim. Sed pharetra, eros a feugiat porttitor, nisi
+        eros dapibus mi, in semper augue erat sit amet nulla. Quisque
+        non sapien sem.
       </Paragraph>
     </ModalContent>
     <ModalFooter>
@@ -299,7 +275,6 @@ import {
   ExpanderContent,
   Icon,
   Paragraph,
-  Text,
   ToggleInput,
   InlineAlert
 } from 'suomifi-ui-components';
@@ -350,9 +325,7 @@ const [smallScreen, setSmallScreen] = useState(false);
               Test expander {index + 1}
             </ExpanderTitleButton>
             <ExpanderContent>
-              <Paragraph>
-                <Text>{text}</Text>
-              </Paragraph>
+              <Paragraph>{text}</Paragraph>
             </ExpanderContent>
           </Expander>
         ))}
