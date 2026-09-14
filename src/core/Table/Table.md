@@ -251,7 +251,7 @@ const dataArr = [
     data={dataArr}
     tableSortedAriaLiveText={(sortedColumn, direction) =>
       `Table is sorted by ${sortedColumn} ${
-        direction === 'asc' ? 'ascdencing' : 'descending'
+        direction === 'asc' ? 'ascending' : 'descending'
       }`
     }
   />
@@ -477,7 +477,7 @@ const customDataSort = (key, dir) => {
     data={data}
     tableSortedAriaLiveText={(sortedColumn, direction) =>
       `Table is sorted by ${sortedColumn} ${
-        direction === 'asc' ? 'ascdencing' : 'descending'
+        direction === 'asc' ? 'ascending' : 'descending'
       }`
     }
     tableSortCallback={customDataSort}
@@ -497,7 +497,7 @@ Individual rows can be disabled from selection by adding `rowSelectionDisabled: 
 
 #### Whole row selection
 
-Prop `wholeRowSelection` can be used with `enableRowSelection` or `enableSingleRowSelection` to allow user to select a row by clicking anywhere on the row. **NOTE:** This option should not be used when cells have interactive content, to prevent nested interactive controls.
+Prop `wholeRowSelection` can be used with `enableRowSelection` or `enableSingleRowSelection` to allow user to select a row by clicking anywhere on the row. **NOTE:** This option should not be used when cells have interactive content, to prevent nested interactive controls. If interactive content is inside whole row selection, ensure that the click event doesn't bubble up to the row.
 
 ```jsx
 import { Table, Button, Block } from 'suomifi-ui-components';
