@@ -46,7 +46,7 @@ import { Block } from '../Block/Block';
 const baseClassName = 'fi-table';
 
 const tableClassNames = {
-  selectedTr: 'highlighted',
+  selectedTr: 'fi-table_tr--highlighted',
   selectableTr: 'fi-table_tr--selectable',
   table: `${baseClassName}_table`,
   thead: `${baseClassName}_thead`,

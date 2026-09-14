@@ -487,7 +487,7 @@ exports[`Table functionalities matches snapshot 1`] = `
   justify-content: center;
 }
 
-.c1.fi-table .fi-table_table .fi-table_tr:nth-child(even) {
+.c1.fi-table .fi-table_table .fi-table_tr:nth-child(even):not(.fi-table_tr--highlighted) {
   background-color: rgba(199, 202, 204, 0.2);
 }
 
@@ -495,7 +495,7 @@ exports[`Table functionalities matches snapshot 1`] = `
   border-bottom: 1px solid hsl(202, 7%, 80%);
 }
 
-.c1.fi-table .fi-table_table .fi-table_tr.highlighted {
+.c1.fi-table .fi-table_table .fi-table_tr--highlighted {
   background-color: hsl(215, 100%, 95%);
 }
 

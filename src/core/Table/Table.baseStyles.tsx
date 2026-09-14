@@ -167,17 +167,17 @@ export const baseStyles = (
       }
 
       .fi-table_tr {
-        &:nth-child(even) {
+        &:nth-child(even):not(.fi-table_tr--highlighted) {
           /* We are not using theme color because transparency is needed for sadow scroll effect */
           background-color: rgba(199, 202, 204, 0.2);
         }
         &:not(:last-child) {
           border-bottom: 1px solid ${theme.colors.depthLight1};
         }
+      }
 
-        &.highlighted {
-          background-color: ${theme.colors.depthSecondaryDark1};
-        }
+      .fi-table_tr--highlighted {
+        background-color: ${theme.colors.depthSecondaryDark1};
       }
 
       .fi-table_tr--selectable:hover {
