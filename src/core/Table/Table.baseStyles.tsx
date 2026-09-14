@@ -208,39 +208,6 @@ export const baseStyles = (
         }
       }
     }
-    .fi-table_toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: ${theme.spacing.m};
-
-      .fi-table_row-count-text {
-        ${font(theme)('heading5')}
-        padding: 0 ${theme.spacing.m};
-      }
-
-      .fi-table_condense-buttons {
-        align-self: flex-end;
-
-        .fi-table_condense-button {
-          margin-right: 5px;
-        }
-
-        .toggled {
-          background: ${theme.colors.highlightBase};
-          cursor: default;
-          color: ${theme.colors.whiteBase};
-
-          &:hover {
-            background: ${theme.colors.highlightBase};
-          }
-        }
-      }
-    }
-
-    .fi-table_caption--alternative {
-      ${font(theme)('heading3')}
-    }
 
     .fi-table_skeleton {
       background-color: ${theme.colors.depthLight2};
