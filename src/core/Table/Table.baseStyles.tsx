@@ -167,17 +167,21 @@ export const baseStyles = (
       }
 
       .fi-table_tr {
-        &:nth-child(even) {
+        &:nth-child(even):not(.fi-table_tr--highlighted) {
           /* We are not using theme color because transparency is needed for sadow scroll effect */
           background-color: rgba(199, 202, 204, 0.2);
         }
         &:not(:last-child) {
           border-bottom: 1px solid ${theme.colors.depthLight1};
         }
+      }
 
-        &.highlighted {
-          background-color: ${theme.colors.depthSecondaryDark1};
-        }
+      .fi-table_tr--highlighted {
+        background-color: ${theme.colors.depthSecondaryDark1};
+      }
+
+      .fi-table_tr--selectable:hover {
+        background-color: ${theme.colors.depthSecondary};
       }
 
       &.fi-table--condensed {
@@ -203,39 +207,6 @@ export const baseStyles = (
           }
         }
       }
-    }
-    .fi-table_toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: ${theme.spacing.m};
-
-      .fi-table_row-count-text {
-        ${font(theme)('heading5')}
-        padding: 0 ${theme.spacing.m};
-      }
-
-      .fi-table_condense-buttons {
-        align-self: flex-end;
-
-        .fi-table_condense-button {
-          margin-right: 5px;
-        }
-
-        .toggled {
-          background: ${theme.colors.highlightBase};
-          cursor: default;
-          color: ${theme.colors.whiteBase};
-
-          &:hover {
-            background: ${theme.colors.highlightBase};
-          }
-        }
-      }
-    }
-
-    .fi-table_caption--alternative {
-      ${font(theme)('heading3')}
     }
 
     .fi-table_skeleton {

@@ -487,7 +487,7 @@ exports[`Table functionalities matches snapshot 1`] = `
   justify-content: center;
 }
 
-.c1.fi-table .fi-table_table .fi-table_tr:nth-child(even) {
+.c1.fi-table .fi-table_table .fi-table_tr:nth-child(even):not(.fi-table_tr--highlighted) {
   background-color: rgba(199, 202, 204, 0.2);
 }
 
@@ -495,8 +495,12 @@ exports[`Table functionalities matches snapshot 1`] = `
   border-bottom: 1px solid hsl(202, 7%, 80%);
 }
 
-.c1.fi-table .fi-table_table .fi-table_tr.highlighted {
+.c1.fi-table .fi-table_table .fi-table_tr--highlighted {
   background-color: hsl(215, 100%, 95%);
+}
+
+.c1.fi-table .fi-table_table .fi-table_tr--selectable:hover {
+  background-color: hsl(215, 100%, 97%);
 }
 
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_th,
@@ -517,56 +521,6 @@ exports[`Table functionalities matches snapshot 1`] = `
 .c1.fi-table .fi-table_table.fi-table--condensed .fi-table_skeleton-row .fi-table_selection-cell-skeleton {
   min-width: 45px;
   padding: 5px 12px 5px 20px;
-}
-
-.c1.fi-table .fi-table_toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 20px;
-}
-
-.c1.fi-table .fi-table_toolbar .fi-table_row-count-text {
-  letter-spacing: 0;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 600;
-  padding: 0 20px;
-}
-
-.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons {
-  align-self: flex-end;
-}
-
-.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons .fi-table_condense-button {
-  margin-right: 5px;
-}
-
-.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons .toggled {
-  background: hsl(212, 63%, 45%);
-  cursor: default;
-  color: hsl(0, 0%, 100%);
-}
-
-.c1.fi-table .fi-table_toolbar .fi-table_condense-buttons .toggled:hover {
-  background: hsl(212, 63%, 45%);
-}
-
-.c1.fi-table .fi-table_caption--alternative {
-  letter-spacing: 0;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans 3','Helvetica Neue','Arial',sans-serif;
-  font-size: 22px;
-  line-height: 28px;
-  font-weight: 600;
 }
 
 .c1.fi-table .fi-table_skeleton {
