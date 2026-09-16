@@ -126,7 +126,7 @@ export interface DropdownProps<T extends string = string>
    * Should not be used for instructions since assistive technologies don't reliably read a placeholder text */
   visualPlaceholder?: ReactNode;
   /** Always show the visual placeholder instead of the selected value. Makes the Dropdown act as an action menu.
-   * Deprecated - will be removed in future releases. Use action menu to trigger actions.
+   * @deprecated Will be removed in future releases. Use action menu to trigger actions.
    */
   alwaysShowVisualPlaceholder?: boolean;
   /** Hides or shows the label. Label element is always present, but can be visually hidden.
