@@ -28,7 +28,6 @@ export const baseStyles = (
     }
 
     .fi-status-text {
-      line-height: 1.1rem;
       &.fi-dropdown_statusText--has-content {
         margin-top: ${theme.spacing.xxs};
       }
@@ -36,11 +35,12 @@ export const baseStyles = (
 
     .fi-dropdown_button {
       ${input(theme)}
+      min-height: 40px;
       min-width: 160px;
       position: relative;
       display: inline-block;
       width: 100%;
-      padding: 7px 38px 7px 7px;
+      padding: 7px 38px 5px 7px;
       border-color: ${theme.colors.depthDark3};
       text-align: left;
       background-color: ${theme.colors.whiteBase};
@@ -111,10 +111,21 @@ export const baseStyles = (
 
     &--open {
       .fi-dropdown_button {
-        border-bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        padding-bottom: 8px;
+
+        &[data-floating-ui-placement^='bottom'] {
+          /* Position over bottom border to keep content from shifting */
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0px;
+            right: 0px;
+            height: 2px;
+            background: ${theme.colors.whiteBase};
+          }
+        }
 
         &[data-floating-ui-placement^='top'] {
           border-bottom: 1px solid ${theme.colors.depthDark3};
@@ -122,9 +133,18 @@ export const baseStyles = (
           border-top-right-radius: 0;
           border-bottom-left-radius: ${theme.radiuses.basic};
           border-bottom-right-radius: ${theme.radiuses.basic};
-          border-top: 0;
-          padding-top: 8px;
           box-shadow: none;
+
+          &::after {
+            /* Position over top border to keep content from shifting */
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0px;
+            right: 0px;
+            height: 2px;
+            background: ${theme.colors.whiteBase};
+          }
         }
       }
     }
