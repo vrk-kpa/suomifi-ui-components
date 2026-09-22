@@ -5,6 +5,7 @@ require('jest-axe/extend-expect');
 require('@testing-library/jest-dom');
 
 require('jest-styled-components');
+const { DataTransferMock } = require('../src/utils/test/dataTransferMock');
 
 /**
  * Replace useLayoutEffect with useEffect for jest to suppress unnecessary warnings "useLayoutEffect does nothing on server...".
@@ -28,4 +29,4 @@ const { TextEncoder, TextDecoder } = require('util');
 
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder;
-
+global.DataTransfer = DataTransferMock;
