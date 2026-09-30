@@ -8,7 +8,7 @@ beforeAll(() => {
   global.URL.createObjectURL = jest.fn(() => 'blob:preview-url');
 });
 
-/** File with a controllable size, since jsdom derives size from the content */
+/** Create a file with controllable size, since the pseudo file has no size by default */
 const createTestFile = (
   name: string,
   size: number,
@@ -29,9 +29,6 @@ const dropFiles = (view: RenderResult, files: File[]) => {
 
 /**
  * Simulates picking files from the file dialog.
- * NOTE: userEvent.upload() cannot be used here. It redefines input.files as a
- * getter-only property, which breaks the component's `inputRef.current.files = ...`
- * assignments.
  */
 const selectFiles = (view: RenderResult, files: File[]) => {
   fireEvent.change(view.getByTestId('file-input'), {
@@ -235,15 +232,15 @@ describe('drag and drop', () => {
     const dragArea = container.querySelector('.fi-file-input_drag-area');
     fireEvent.drop(dragArea as Element, { dataTransfer });
 
-    // The file is rendered as a file item
+    // The file is rendered as a visual file item
     expect(getByText('resume.pdf')).toBeInTheDocument();
 
-    // ...and written to the underlying input element
+    // File is written to the underlying input element
     const input = getByTestId('file-input') as HTMLInputElement;
     expect(input.files).toHaveLength(1);
     expect(input.files?.[0]).toBe(file);
 
-    // ...and reported to the consumer as a FileList
+    // onChange has been called with given file as a FileList
     expect(onChange).toHaveBeenCalledTimes(1);
     const changedFiles = onChange.mock.calls[0][0] as FileList;
     expect(changedFiles).toBeInstanceOf(FileList);
