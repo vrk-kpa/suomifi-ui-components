@@ -12,7 +12,6 @@ export const baseStyles = (
   ${font(theme)('bodyTextSmall')}
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)};
-  height: 1.5em;
 
   & .fi-breadcrumb {
     &_list {

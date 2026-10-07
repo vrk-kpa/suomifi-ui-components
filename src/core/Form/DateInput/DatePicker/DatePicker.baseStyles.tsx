@@ -47,10 +47,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  &.fi-date-picker--hidden {
-    visibility: hidden;
-  }
-
   &.fi-date-picker--small-screen-hidden {
     transform: translateZ(0) translateY(100%);
     transition:

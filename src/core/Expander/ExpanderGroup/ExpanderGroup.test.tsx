@@ -16,13 +16,14 @@ const TestExpanderWithProps = (
   props: Omit<ExpanderProps, 'children'>,
   titleProps: ExpanderTitleButtonProps & { 'data-testid': string },
   content: string,
+  contentProps: { 'data-testid': string } | undefined,
   key: number,
 ) => {
   const { children: title, ...titlePassProps } = titleProps;
   return (
     <Expander key={key} {...props}>
       <ExpanderTitleButton {...titlePassProps}>{title}</ExpanderTitleButton>
-      <ExpanderContent>{content}</ExpanderContent>
+      <ExpanderContent {...contentProps}>{content}</ExpanderContent>
     </Expander>
   );
 };
@@ -31,6 +32,7 @@ const TestExpanderGroup = (
   expanderData: {
     expanderProps: Omit<ExpanderProps, 'children'>;
     titleProps: ExpanderTitleButtonProps & { 'data-testid': string };
+    contentProps?: { 'data-testid': string };
     content: string;
   }[],
   expanderGroupProps?: Partial<ExpanderGroupProps>,
@@ -43,7 +45,13 @@ const TestExpanderGroup = (
     {...expanderGroupProps}
   >
     {expanderData.map((d, index) =>
-      TestExpanderWithProps(d.expanderProps, d.titleProps, d.content, index),
+      TestExpanderWithProps(
+        d.expanderProps,
+        d.titleProps,
+        d.content,
+        d.contentProps,
+        index,
+      ),
     )}
   </ExpanderGroup>
 );
@@ -111,6 +119,7 @@ describe('default behaviour', () => {
         },
         titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
         content: 'First content',
+        contentProps: { 'data-testid': 'expander-content-1' },
       },
       {
         expanderProps: {
@@ -122,11 +131,27 @@ describe('default behaviour', () => {
           toggleButtonProps: { 'data-testid': 'expander-title-2-button' },
         },
         content: 'Second content',
+        contentProps: { 'data-testid': 'expander-content-2' },
       },
     ],
     { toggleAllButtonProps: { 'data-testid': 'open-all-button' } },
   );
-  it('open/close all should open/close the Expanders', async () => {
+  it('should have Expander titles and contents closed by default', () => {
+    const { getByTestId } = render(DefaultGroup);
+    expect(getByTestId('expander-title-1')).not.toHaveClass(
+      'fi-expander_title-button--open',
+    );
+    expect(getByTestId('expander-title-2')).not.toHaveClass(
+      'fi-expander_title-button--open',
+    );
+    expect(getByTestId('expander-content-1')).not.toHaveClass(
+      'fi-expander_content--open',
+    );
+    expect(getByTestId('expander-content-2')).not.toHaveClass(
+      'fi-expander_content--open',
+    );
+  });
+  it('open/close all should open/close the Expanders titles', async () => {
     const { getByTestId } = render(DefaultGroup);
     const titleDiv = getByTestId('expander-title-2');
     const button = getByTestId('expander-title-2-button');
@@ -143,6 +168,35 @@ describe('default behaviour', () => {
     expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-button-icon--open',
+    );
+  });
+  it('open all should open the Expander contents', async () => {
+    const { getByTestId } = render(DefaultGroup);
+    const openAllButton = getByTestId('open-all-button');
+    await userEvent.click(openAllButton);
+    expect(getByTestId('expander-content-1')).toHaveClass(
+      'fi-expander_content--open',
+    );
+    expect(getByTestId('expander-content-2')).toHaveClass(
+      'fi-expander_content--open',
+    );
+  });
+  it('close all should close the Expander contents', async () => {
+    const { getByTestId } = render(DefaultGroup);
+    const toggleAllButton = getByTestId('open-all-button');
+    await userEvent.click(toggleAllButton);
+    expect(getByTestId('expander-content-1')).toHaveClass(
+      'fi-expander_content--open',
+    );
+    expect(getByTestId('expander-content-2')).toHaveClass(
+      'fi-expander_content--open',
+    );
+    await userEvent.click(toggleAllButton);
+    expect(getByTestId('expander-content-1')).not.toHaveClass(
+      'fi-expander_content--open',
+    );
+    expect(getByTestId('expander-content-2')).not.toHaveClass(
+      'fi-expander_content--open',
     );
   });
   it('open/close all should have providedTexts and screen reader texts', async () => {

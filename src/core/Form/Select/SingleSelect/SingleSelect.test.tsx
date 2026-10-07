@@ -104,7 +104,7 @@ it('should not have basic accessibility issues', async () => {
 it('has matching snapshot', async () => {
   const user = userEvent.setup();
   const { baseElement, getByRole } = render(BasicSingleSelect);
-  const textfield = getByRole('textbox') as HTMLInputElement;
+  const textfield = getByRole('combobox') as HTMLInputElement;
   await user.click(textfield);
   await waitForPosition();
   expect(baseElement).toMatchSnapshot();
@@ -139,8 +139,8 @@ describe('Controlled', () => {
     );
 
     const { getByRole, getByText, rerender } = render(singleSelect);
-    expect(getByRole('textbox')).toHaveValue('Powersaw');
-    const input = getByRole('textbox');
+    expect(getByRole('combobox')).toHaveValue('Powersaw');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const item = getByText('Powersaw');
@@ -159,7 +159,7 @@ describe('Controlled', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    const rerenderedInput = getByRole('textbox');
+    const rerenderedInput = getByRole('combobox');
     expect(rerenderedInput).toHaveValue('');
   });
 
@@ -203,7 +203,7 @@ describe('Controlled', () => {
     const { getByText, getByRole } = render(singleSelect);
     const clearButton = getByText('Clear selection');
     await user.click(clearButton);
-    expect(getByRole('textbox')).toHaveValue('Turtle');
+    expect(getByRole('combobox')).toHaveValue('Turtle');
   });
 });
 
@@ -230,7 +230,7 @@ describe('filter', () => {
   it('should be available with default selection', async () => {
     const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     expect(input).toHaveValue('Hammer');
     await user.clear(input);
     await user.type(input, 'h');
@@ -251,7 +251,7 @@ describe('filter', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.type(input, 'h');
     await waitForPosition();
     const items = getAllByRole('option');
@@ -261,7 +261,7 @@ describe('filter', () => {
   it('should be removed onBlur', async () => {
     const user = userEvent.setup();
     const { getByRole, getAllByRole } = render(BasicSingleSelect);
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     expect(input).toHaveValue('Hammer');
     await user.clear(input);
     await user.type(input, 'h');
@@ -276,12 +276,57 @@ describe('filter', () => {
     const options = getAllByRole('option');
     expect(options).toHaveLength(9);
   });
+
+  it('should restore selected value when closed with outside click', async () => {
+    const user = userEvent.setup();
+    const { getByRole, queryByRole } = render(BasicSingleSelect);
+    const input = getByRole('combobox');
+
+    expect(input).toHaveValue('Hammer');
+    await user.clear(input);
+    await user.type(input, 'not selected');
+    await waitForPosition();
+    expect(input).toHaveValue('not selected');
+
+    await user.click(document.body);
+
+    await waitFor(() => {
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
+      expect(input).toHaveValue('Hammer');
+    });
+  });
+
+  it('should clear value when closed with outside click and no selected value', async () => {
+    const user = userEvent.setup();
+    const { getByRole, queryByRole } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('combobox');
+
+    await user.type(input, 'not selected');
+    await waitForPosition();
+    expect(input).toHaveValue('not selected');
+
+    await user.click(document.body);
+
+    await waitFor(() => {
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
+      expect(input).toHaveValue('');
+    });
+  });
 });
 
 test('option: should be selected when clicked', async () => {
   const user = userEvent.setup();
   const { getByText, getByRole } = render(BasicSingleSelect);
-  const input = getByRole('textbox');
+  const input = getByRole('combobox');
   await user.click(input);
   await waitForPosition();
   const option = getByText('Rake');
@@ -315,7 +360,7 @@ test('visualPlaceholder: has the given text as placeholder attribute', async () 
       ariaOptionsAvailableText="Options available"
     />,
   );
-  const inputfield = getByRole('textbox') as HTMLInputElement;
+  const inputfield = getByRole('combobox') as HTMLInputElement;
   expect(inputfield).toHaveAttribute('placeholder', 'Select item');
 });
 
@@ -330,7 +375,7 @@ test('id: has the given id', async () => {
       ariaOptionsAvailableText="Options available"
     />,
   );
-  expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
+  expect(getByRole('combobox')).toHaveAttribute('id', 'cb-123');
 });
 
 describe('statusText', () => {
@@ -364,7 +409,7 @@ describe('statusText', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    expect(getByRole('textbox')).toHaveAttribute(
+    expect(getByRole('combobox')).toHaveAttribute(
       'aria-describedby',
       '123-statusText',
     );
@@ -420,7 +465,7 @@ describe('disabled', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     expect(() => getAllByRole('option')).toThrowError();
   });
@@ -428,8 +473,7 @@ describe('disabled', () => {
 
 describe('custom item addition mode', () => {
   it('should allow user to add & remove their own option as the selected value', async () => {
-    jest.useFakeTimers();
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup();
     const { getByRole, getAllByRole, getByText } = render(
       <SingleSelect
         allowItemAddition={true}
@@ -440,9 +484,8 @@ describe('custom item addition mode', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'hamm');
     const items = getAllByRole('option');
     expect(items).toHaveLength(4);
@@ -451,7 +494,7 @@ describe('custom item addition mode', () => {
     await user.click(extraItem);
     await user.tab();
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
+    await waitForPosition();
     const appendedItems = getAllByRole('option');
     expect(appendedItems).toHaveLength(10);
     const lastItem = appendedItems[9];
@@ -463,10 +506,9 @@ describe('custom item addition mode', () => {
     expect(input).toHaveValue('');
 
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
+    await waitForPosition();
     const resetItems = getAllByRole('option');
     expect(resetItems).toHaveLength(9);
-    jest.useRealTimers();
   });
 });
 
@@ -490,7 +532,7 @@ describe('ariaOptionsAvailable', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.type(input, 'M');
     await waitForPosition();
     const ariaText = getByText(`2 Options available`);
@@ -513,7 +555,7 @@ describe('ariaOptionsAvailable', () => {
         }
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.type(input, 'V');
     await waitForPosition();
     const ariaText = getByText(`There is 1 option available`);
@@ -562,7 +604,7 @@ describe('listProps', () => {
         }}
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const menu = getByRole('listbox');
@@ -590,7 +632,7 @@ describe('listItemProps', () => {
         ariaOptionsAvailableText="Options available"
       />,
     );
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     await user.click(input);
     await waitForPosition();
     const option = getByRole('option');
@@ -636,7 +678,7 @@ describe('External update to item array', () => {
   it('updated item array should be visible in input', async () => {
     const user = userEvent.setup();
     const { getByRole, getByTestId } = render(<ModalWithSiblings />);
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
     expect(input).toHaveDisplayValue('Mercury');
 
     const button = getByTestId('changeState');
@@ -678,11 +720,10 @@ describe('margin', () => {
 
 describe('keyboard interactions', () => {
   it('should reset input value to selected item when pressing Escape after typing', async () => {
-    jest.useFakeTimers();
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup();
     const { getByRole, getByText } = render(BasicSingleSelect);
 
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
 
     // First, select an item
     await user.click(input);
@@ -691,20 +732,16 @@ describe('keyboard interactions', () => {
     expect(input).toHaveValue('Rake');
 
     await user.click(input);
-    // Wait for the select timeout in the component to complete before typing
-    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'something else');
     expect(input).toHaveValue('something else');
 
     // Press Escape - should reset to selected item
     await user.keyboard('{Escape}');
     expect(input).toHaveValue('Rake');
-    jest.useRealTimers();
   });
 
   it('should clear input when pressing Escape with no selected item', async () => {
-    jest.useFakeTimers();
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup();
     const { getByRole } = render(
       <SingleSelect
         labelText="SingleSelect"
@@ -716,17 +753,15 @@ describe('keyboard interactions', () => {
       />,
     );
 
-    const input = getByRole('textbox');
+    const input = getByRole('combobox');
 
     // Type something in the input without selecting
     await user.click(input);
-    act(() => jest.advanceTimersByTime(150));
     await user.type(input, 'something');
     expect(input).toHaveValue('something');
 
     // Press Escape - should clear input since no item is selected
     await user.keyboard('{Escape}');
     expect(input).toHaveValue('');
-    jest.useRealTimers();
   });
 });

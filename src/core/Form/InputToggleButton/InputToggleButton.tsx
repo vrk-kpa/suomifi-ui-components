@@ -1,4 +1,4 @@
-import React, { Component, RefObject, forwardRef } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlButtonProps, HtmlButton } from '../../../reset';
@@ -18,7 +18,7 @@ export interface InputToggleButtonProps extends HtmlButtonProps {
 }
 
 interface InnerRef {
-  forwardedRef: React.RefObject<HTMLButtonElement>;
+  forwardedRef: React.Ref<HTMLButtonElement>;
 }
 
 const iconProps = {
@@ -63,7 +63,7 @@ const StyledInputToggleButton = styled(BaseInputToggleButton)`
 `;
 
 const InputToggleButton = forwardRef(
-  (props: InputToggleButtonProps, ref: RefObject<HTMLButtonElement>) => (
+  (props: InputToggleButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledInputToggleButton

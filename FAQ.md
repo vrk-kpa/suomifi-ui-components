@@ -22,17 +22,9 @@ to allow the use of dynamic inline styling.
 
 ### Strict content security policies
 
-Strict content security policy does not allow dynamic styling without extra safety measures. Styled-components uses `__webpack_nonce__` to provide these measures. Simply put, nonce is a single use identifier that gets sent with the changes, verifying that the changes are not coming from a malicious source. In practice, this should generally be a base64 hash.
+Strict content security policy does not allow dynamic styling without extra safety measures. Styled-components uses a `nonce` to provide these measures. Simply put, nonce is a single use identifier that gets sent with the changes, verifying that the changes are not coming from a malicious source. In practice, this should generally be a base64 hash.
 
-Add `__webpack_nonce__ = '<some generated nonce>'` in the beginning of your entry file. It must be defined before any other scripts. One way to do this is to introduce the nonce as above in a new file and import that in your entry file. More information can be found in [webpack documentation.](https://webpack.js.org/guides/csp/)
-
-Use [helmet](https://helmetjs.github.io/docs/csp/) or a similar tool to provide the generated nonce to the browser. See our [simplified example setup](https://github.com/ketsappi/strict-csp-expressed-with-suomifi-ui-components) for reference.
-
-Styled-components now has access to the compiled value of `__webpack_nonce__` through the window object, which allows styled-components to add nonce to dynamically inserted content/styles, ensuring the integrity of the changes and meeting strict content security policy rules.
-
-If you are using TypeScript, make sure you have the latest version of `@types/webpack-env` as it containts the `__webpack_nonce__`.
-
-Also notice that `__webpack_nonce__` does not work with hot reload in local development environment by default.
+Refer to the [styled-components documentation](https://styled-components.com/docs/faqs#csp-nonce-auto-detection) for instructions on how to provide a nonce.
 
 ## 3. Some components won't work on old browsers (e.g. IE) at all.
 

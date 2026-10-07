@@ -410,7 +410,7 @@ exports[`snapshot should have matching default structure 1`] = `
 .c1 .fi-search-input_input-element-container {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 13%);
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid hsl(201, 7%, 58%);
@@ -432,7 +432,8 @@ exports[`snapshot should have matching default structure 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 
@@ -453,7 +454,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -518,7 +519,8 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c1 .fi-search-input_button-clear {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0px;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -577,6 +579,10 @@ exports[`snapshot should have matching default structure 1`] = `
   max-width: none;
 }
 
+.c1.fi-search-input--no-search-button.fi-search-input--error .fi-search-input_input-element-container {
+  border-right: 1px solid hsl(3, 59%, 43%);
+}
+
 .c1.fi-search-input--error .fi-search-input_input-element-container {
   border: 1px solid hsl(3, 59%, 43%);
   border-right: 0;
@@ -600,7 +606,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: visible;
   height: 20px;
   width: 20px;
-  margin: 9px;
+  margin: 0 9px;
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-clear:hover {
@@ -703,7 +709,7 @@ exports[`snapshot should have matching default structure 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -720,7 +726,7 @@ exports[`snapshot should have matching default structure 1`] = `
           <path
             class="fi-icon-base-fill"
             d="M9 0c4.962 0 9 4.038 9 9.001a8.955 8.955 0 0 1-1.971 5.614l7.678 7.678a.999.999 0 1 1-1.414 1.414l-7.678-7.678A8.957 8.957 0 0 1 9 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0Zm0 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2Z"
-            fill="#222"
+            fill="#212121"
             fill-rule="evenodd"
           />
         </svg>
@@ -1159,6 +1165,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 }
 
 .c15 {
+  display: block;
   position: relative;
   padding: 8px 32px 8px 10px;
   letter-spacing: 0;
@@ -1187,7 +1194,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 
 .c15.fi-select-item .fi-select-item_icon {
   position: absolute;
-  top: 14px;
+  top: calc(50% - 6px);
   right: 10px;
   height: 12px;
   width: 12px;
@@ -1353,7 +1360,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 .c1 .fi-search-input_input-element-container {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 13%);
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid hsl(201, 7%, 58%);
@@ -1375,7 +1382,8 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 }
 
@@ -1396,7 +1404,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -1461,7 +1469,8 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
 
 .c1 .fi-search-input_button-clear {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0px;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1520,6 +1529,10 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   max-width: none;
 }
 
+.c1.fi-search-input--no-search-button.fi-search-input--error .fi-search-input_input-element-container {
+  border-right: 1px solid hsl(3, 59%, 43%);
+}
+
 .c1.fi-search-input--error .fi-search-input_input-element-container {
   border: 1px solid hsl(3, 59%, 43%);
   border-right: 0;
@@ -1543,7 +1556,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
   overflow: visible;
   height: 20px;
   width: 20px;
-  margin: 9px;
+  margin: 0 9px;
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-clear:hover {
@@ -1700,7 +1713,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
                 <path
                   class="fi-icon-base-fill"
                   d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -1717,7 +1730,7 @@ exports[`snapshot should have matching structure with suggestions open 1`] = `
               <path
                 class="fi-icon-base-fill"
                 d="M9 0c4.962 0 9 4.038 9 9.001a8.955 8.955 0 0 1-1.971 5.614l7.678 7.678a.999.999 0 1 1-1.414 1.414l-7.678-7.678A8.957 8.957 0 0 1 9 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0Zm0 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2Z"
-                fill="#222"
+                fill="#212121"
                 fill-rule="evenodd"
               />
             </svg>

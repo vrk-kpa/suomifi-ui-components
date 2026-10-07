@@ -36,7 +36,6 @@ const baseClassName = 'fi-date-picker';
 
 export const datePickerClassNames = {
   baseClassName,
-  hidden: `${baseClassName}--hidden`,
   smallScreen: `${baseClassName}--small-screen`,
   smallScreenHidden: `${baseClassName}--small-screen-hidden`,
   smallScreenContainer: `${baseClassName}_small-screen-container`,
@@ -52,8 +51,6 @@ export interface InternalDatePickerProps
   extends Omit<DatePickerProps, 'datePickerEnabled'> {
   /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
-  /** Boolean to open or close calendar dialog */
-  isOpen: boolean;
   /** Callback fired when closing calender */
   onClose: (focus?: boolean) => void;
   /** Callback fired when date is selected  */
@@ -74,12 +71,13 @@ export interface InternalDatePickerProps
     'onChange' | 'style' | 'aria-hidden' | 'ref'
   >;
   position: datePickerAlignment;
+  /** Initial date to focus when date picker is opened */
+  initialDate: Date;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const {
     openButtonRef,
-    isOpen,
     onClose,
     onChange,
     shouldDisableDate,
@@ -96,11 +94,13 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
-  const [focusableDate, setFocusableDate] = useState<Date>(new Date());
+  const [focusableDate, setFocusableDate] = useState<Date>(initialDate);
   const [focusedDate, setFocusedDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [yearSelectWidth, setYearSelectWidth] = useState<number>(0);
   const [monthSelectWidth, setMonthSelectWidth] = useState<number>(0);
+  const [dropdownWidthsCalculated, setDropdownWidthsCalculated] =
+    useState<boolean>(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
   const [dragOffsetY, setDragOffsetY] = useState<number>(0);
@@ -114,6 +114,29 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const dayButtonRef = useRef<HTMLButtonElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+
+  const {
+    refs: floatingUiRefs,
+    floatingStyles,
+    middlewareData,
+    isPositioned,
+  } = useFloating({
+    middleware: [
+      offset(10),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowRef,
+      }),
+    ],
+    whileElementsMounted: autoUpdate,
+    placement:
+      position === 'right'
+        ? 'bottom-start'
+        : position === 'left'
+        ? 'bottom-end'
+        : 'bottom',
+  });
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -137,15 +160,22 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   }, [initialDate]);
 
   useEffect(() => {
-    if (isOpen) {
+    const rafId = requestAnimationFrame(() => {
+      calculateDropdownWidths();
+    });
+    return () => {
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (dialogElement || smallScreen) {
       document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
       document.addEventListener('keydown', globalKeyDownHandler, {
         capture: true,
       });
-      focusDate();
-      calculateDropdownWidths();
       return () => {
         document.removeEventListener('click', globalClickHandler, {
           capture: true,
@@ -155,17 +185,23 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         });
       };
     }
-  }, [isOpen]);
+  }, [dialogElement, smallScreen]);
 
   useEffect(() => {
-    if (smallScreen && isOpen && smallScreenAppRef.current) {
+    if (isPositioned || smallScreen) {
+      focusDate();
+    }
+  }, [isPositioned, smallScreen]);
+
+  useEffect(() => {
+    if (smallScreen && smallScreenAppRef.current) {
       smallScreenAppRef.current.style.top = '';
       conditionalSmallScreenScroll();
       window.addEventListener('resize', conditionalSmallScreenScroll);
       return () =>
         window.removeEventListener('resize', conditionalSmallScreenScroll);
     }
-  }, [smallScreen, isOpen]);
+  }, [smallScreen]);
 
   const conditionalSmallScreenScroll = (): void => {
     if (smallScreenAppRef.current) {
@@ -201,6 +237,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     setMonthSelectWidth(
       monthSelectRef.current?.getBoundingClientRect().width || 0,
     );
+    setDropdownWidthsCalculated(true);
   };
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
@@ -308,29 +345,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     return null;
   };
 
-  const {
-    refs: floatingUiRefs,
-    floatingStyles,
-    middlewareData,
-  } = useFloating({
-    open: isOpen,
-    middleware: [
-      offset(10),
-      flip(),
-      shift(),
-      arrow({
-        element: arrowRef,
-      }),
-    ],
-    whileElementsMounted: autoUpdate,
-    placement:
-      position === 'right'
-        ? 'bottom-start'
-        : position === 'left'
-        ? 'bottom-end'
-        : 'bottom',
-  });
-
   useEffect(() => {
     if (openButtonRef.current) {
       floatingUiRefs.setReference(openButtonRef.current);
@@ -363,9 +377,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const handleDateSelect = (date: Date): void => {
-    handleClose(true);
     onChange(date);
     setFocusableDate(date);
+    handleClose(true);
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -477,21 +491,16 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const { className: customClassName, ...passProps } = userProps;
 
-  const dialogClasses = [
-    className,
-    baseClassName,
-    customClassName,
-    {
-      [datePickerClassNames.hidden]: !isOpen,
-    },
-  ];
+  const dialogClasses = [className, baseClassName, customClassName];
 
   const defaultDialog = (
     <HtmlDivWithRef
       role="dialog"
-      aria-hidden={!isOpen}
       className={classnames(...dialogClasses)}
-      style={floatingStyles}
+      style={{
+        ...floatingStyles,
+        visibility: isPositioned ? 'visible' : 'hidden',
+      }}
       forwardedRef={setDialogElement}
       {...passProps}
     >
@@ -512,11 +521,10 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const smallScreenDialog = (
     <HtmlDiv
-      aria-hidden={!isOpen}
       className={classnames(
         ...dialogClasses,
         datePickerClassNames.smallScreen,
-        { [datePickerClassNames.smallScreenHidden]: !isOpen },
+        { [datePickerClassNames.smallScreenHidden]: !dropdownWidthsCalculated },
       )}
     >
       <HtmlDivWithRef
@@ -525,6 +533,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         className={classnames(datePickerClassNames.smallScreenContainer, {
           [datePickerClassNames.smallScreenScroll]: smallScreenScroll,
         })}
+        style={{ visibility: dropdownWidthsCalculated ? 'visible' : 'hidden' }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}

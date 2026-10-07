@@ -3,6 +3,8 @@ import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
+  /* Display block instead of list-item to prevent iOS VoiceOver double announcement */
+  display: block;
   position: relative;
   padding: 8px 32px 8px 10px;
   ${font(theme)('actionElementInnerText')}
@@ -23,7 +25,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-select-item_icon {
       position: absolute;
-      top: 14px;
+      top: calc(50% - 6px);
       right: 10px;
       height: 12px;
       width: 12px;

@@ -11,6 +11,8 @@ export const selectItemAdditionStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-select-item-addition_item {
+    /* Display block instead of list-item to prevent iOS VoiceOver double announcement */
+    display: block;
     padding: 8px 32px 8px 10px;
     cursor: pointer;
     ${font(theme)('actionElementInnerText')}

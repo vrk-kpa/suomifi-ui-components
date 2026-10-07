@@ -2,6 +2,78 @@ import { font } from '../../../theme/reset';
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
 
+const currentHighlight = (theme: SuomifiTheme) => css`
+  background: ${theme.colors.highlightLight3};
+  border-left: 4px solid ${theme.colors.highlightBase};
+  padding-left: calc(${theme.spacing.m} - 4px);
+
+  &:after {
+    left: 29px;
+    height: 10px;
+  }
+`;
+
+const hoverHighlight = (theme: SuomifiTheme) => css`
+  &:hover {
+    border-left: 4px solid ${theme.colors.highlightBase};
+    padding-left: calc(${theme.spacing.m} - 4px);
+
+    &:after {
+      left: 29px;
+    }
+  }
+`;
+
+const defaultLink = (theme: SuomifiTheme) => css`
+  ${font(theme)('actionElementInnerText')}
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: ${theme.colors.highlightBase};
+  }
+`;
+
+const currentLink = (theme: SuomifiTheme) => css`
+  pointer-events: none;
+  color: ${theme.colors.blackBase};
+  ${font(theme)('actionElementInnerTextBold')}
+  &:hover,
+  &:focus,
+  &:visited {
+    text-decoration: none;
+    color: ${theme.colors.blackBase};
+  }
+`;
+
+const stepBase = (theme: SuomifiTheme) => css`
+  width: 26px;
+  height: 26px;
+  margin-right: ${theme.spacing.xs};
+`;
+
+const stepCircle = (theme: SuomifiTheme) => css`
+  ${stepBase(theme)};
+  border: 1px solid ${theme.colors.depthDark3};
+  background: ${theme.colors.whiteBase};
+  border-radius: 50%;
+`;
+
+const stepIcon = (theme: SuomifiTheme, color: string) => css`
+  .fi-wizard-navigation-item_left-icon {
+    display: flex;
+    margin-right: ${theme.spacing.xs};
+    .fi-icon {
+      color: ${color};
+      background: ${theme.colors.whiteBase};
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+    }
+  }
+`;
+
 export const baseStyles = (theme: SuomifiTheme) => css`
   /* stylelint-disable no-descending-specificity */
   /* Nested :hover etc selectors do not work well with this rule. */
@@ -47,7 +119,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         border: none;
         padding: 0;
         margin: 0;
-        margin-bottom: 1px; /* Compensate font size difference */
         &:focus {
           outline: 0;
           border: none;
@@ -57,170 +128,73 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &--default {
-      &:hover {
-        border-left: 4px solid ${theme.colors.highlightBase};
-        padding-left: calc(${theme.spacing.m} - 4px);
+      ${hoverHighlight(theme)};
 
-        &:after {
-          left: 29px;
-        }
-      }
       .fi-wizard-navigation-item_inner-wrapper {
         .fi-wizard-navigation-item_left-icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          border: 1px solid ${theme.colors.depthDark3};
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          font-size: 18px;
-          margin-right: ${theme.spacing.xs};
-          background: ${theme.colors.whiteBase};
+          ${stepCircle(theme)};
         }
         .fi-link--router {
-          ${font(theme)('actionElementInnerText')}
-          cursor: pointer;
-          &:hover {
-            text-decoration: underline;
-          }
-          &:visited {
-            color: ${theme.colors.highlightBase};
-          }
+          ${defaultLink(theme)};
         }
       }
     }
 
     &--current {
-      &:hover {
-        border-left: 4px solid ${theme.colors.highlightBase};
-        padding-left: calc(${theme.spacing.m} - 4px);
-      }
-      background: ${theme.colors.highlightLight3};
-      border-left: 4px solid ${theme.colors.highlightBase};
-      padding-left: calc(${theme.spacing.m} - 4px);
-
-      &:after {
-        left: 29px;
-        height: 10px;
-      }
+      ${currentHighlight(theme)};
 
       .fi-wizard-navigation-item_inner-wrapper {
         .fi-wizard-navigation-item_left-icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          border: 1px solid ${theme.colors.depthDark3};
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          font-size: 18px;
-          margin-right: ${theme.spacing.xs};
-          background: ${theme.colors.whiteBase};
+          ${stepCircle(theme)};
         }
         .fi-link--router {
-          pointer-events: none;
-          color: ${theme.colors.blackBase};
-          ${font(theme)('actionElementInnerTextBold')}
-          &:hover,
-          &:focus {
-            text-decoration: none;
-            color: ${theme.colors.blackBase};
-          }
-          margin-bottom: 1px; /* Compensate font size difference */
+          ${currentLink(theme)};
         }
       }
     }
 
     &--current-completed {
-      &:hover {
-        border-left: 4px solid ${theme.colors.highlightBase};
-        padding-left: calc(${theme.spacing.m} - 4px);
-      }
-
-      background: ${theme.colors.highlightLight3};
-      border-left: 4px solid ${theme.colors.highlightBase};
-      padding-left: calc(${theme.spacing.m} - 4px);
-
-      &:after {
-        left: 29px;
-        height: 10px;
-      }
+      ${currentHighlight(theme)};
 
       .fi-wizard-navigation-item_inner-wrapper {
-        .fi-wizard-navigation-item_left-icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          border: 1px solid ${theme.colors.successDark1};
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          font-size: 18px;
-          margin-right: ${theme.spacing.xs};
-          background: ${theme.colors.successDark1};
-          color: ${theme.colors.whiteBase};
+        ${stepIcon(theme, theme.colors.successDark1)};
 
-          .fi-icon {
-            width: 10px;
-            height: 10px;
-          }
-        }
         .fi-link--router {
-          pointer-events: none;
-          color: ${theme.colors.blackBase};
-          ${font(theme)('actionElementInnerTextBold')}
-          &:hover,
-          &:focus {
-            text-decoration: none;
-            color: ${theme.colors.blackBase};
-          }
-          margin-bottom: 1px; /* Compensate font size difference */
+          ${currentLink(theme)};
         }
       }
     }
 
     &--completed {
-      &:hover {
-        border-left: 4px solid ${theme.colors.highlightBase};
-        padding-left: calc(${theme.spacing.m} - 4px);
+      ${hoverHighlight(theme)};
 
-        &:after {
-          left: 29px;
+      .fi-wizard-navigation-item_inner-wrapper {
+        ${stepIcon(theme, theme.colors.successDark1)};
+
+        .fi-link--router {
+          ${defaultLink(theme)};
         }
       }
-      .fi-wizard-navigation-item_inner-wrapper {
-        .fi-wizard-navigation-item_left-icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          border: 1px solid ${theme.colors.successDark1};
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          font-size: 18px;
-          margin-right: ${theme.spacing.xs};
-          background: ${theme.colors.successDark1};
-          color: ${theme.colors.whiteBase};
+    }
 
-          .fi-icon {
-            width: 10px;
-            height: 10px;
-          }
-        }
+    &--error {
+      ${hoverHighlight(theme)};
+
+      .fi-wizard-navigation-item_inner-wrapper {
+        ${stepIcon(theme, theme.colors.alertBase)};
+
         .fi-link--router {
-          ${font(theme)('actionElementInnerText')}
-          cursor: pointer;
-          &:hover {
-            text-decoration: underline;
-          }
-          &:visited {
-            color: ${theme.colors.highlightBase};
-          }
+          ${defaultLink(theme)};
+        }
+      }
+    }
+
+    &--active {
+      ${currentHighlight(theme)};
+
+      .fi-wizard-navigation-item_inner-wrapper {
+        .fi-link--router {
+          ${currentLink(theme)};
         }
       }
     }
@@ -229,11 +203,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       .fi-wizard-navigation-item_inner-wrapper {
         .fi-wizard-navigation-item_left-icon {
           position: relative;
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          font-size: 18px;
-          margin-right: ${theme.spacing.xs};
+          ${stepBase(theme)};
           &:after {
             position: absolute;
             top: 10px;
@@ -267,11 +237,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       .fi-wizard-navigation-item_inner-wrapper {
         .fi-wizard-navigation-item_left-icon {
           position: relative;
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          font-size: 18px;
-          margin-right: ${theme.spacing.xs};
+          ${stepBase(theme)};
           &:after {
             position: absolute;
             top: -5px;

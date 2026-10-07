@@ -9,6 +9,7 @@ export const baseStyles = (
   propMargins?: MarginProps,
 ) => css`
   width: 290px;
+  min-width: 160px;
   ${buildSpacingCSS(globalMargins)}
   ${buildSpacingCSS(propMargins, true)}
   ${fixInternalMargins()}
@@ -27,7 +28,6 @@ export const baseStyles = (
     }
 
     .fi-status-text {
-      line-height: 1.1rem;
       &.fi-dropdown_statusText--has-content {
         margin-top: ${theme.spacing.xxs};
       }
@@ -35,21 +35,18 @@ export const baseStyles = (
 
     .fi-dropdown_button {
       ${input(theme)}
+      min-height: 40px;
+      min-width: 160px;
       position: relative;
       display: inline-block;
-      word-break: break-word;
       width: 100%;
-      overflow-wrap: break-word;
-      height: 40px;
-      padding: 7px 38px 7px 7px;
+      padding: 5px 38px 5px 7px;
       border-color: ${theme.colors.depthDark3};
       text-align: left;
-      line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
       box-shadow: ${theme.shadows.actionElementBoxShadow};
       cursor: pointer;
       user-select: none;
-      white-space: nowrap;
 
       /* stylelint-disable no-descending-specificity */
       &:focus-visible {
@@ -76,10 +73,13 @@ export const baseStyles = (
 
     .fi-dropdown_display-value {
       width: 100%;
-      height: 100%;
+      min-height: 1.5em;
       display: inline-block;
-      line-height: 1.5;
+      line-height: 1;
+      padding: ${theme.spacing.insetXs} 0;
       overflow: hidden;
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     .fi-dropdown_popover {
@@ -111,10 +111,21 @@ export const baseStyles = (
 
     &--open {
       .fi-dropdown_button {
-        border-bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        padding-bottom: 8px;
+
+        &[data-floating-ui-placement^='bottom'] {
+          /* Position over bottom border to keep content from shifting */
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0px;
+            right: 0px;
+            height: 2px;
+            background: ${theme.colors.whiteBase};
+          }
+        }
 
         &[data-floating-ui-placement^='top'] {
           border-bottom: 1px solid ${theme.colors.depthDark3};
@@ -122,9 +133,18 @@ export const baseStyles = (
           border-top-right-radius: 0;
           border-bottom-left-radius: ${theme.radiuses.basic};
           border-bottom-right-radius: ${theme.radiuses.basic};
-          border-top: 0;
-          padding-top: 8px;
           box-shadow: none;
+
+          &::after {
+            /* Position over top border to keep content from shifting */
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0px;
+            right: 0px;
+            height: 2px;
+            background: ${theme.colors.whiteBase};
+          }
         }
       }
     }

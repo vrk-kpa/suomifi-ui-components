@@ -191,6 +191,7 @@ exports[`snapshot matches 1`] = `
 .c1 .fi-filter-input_wrapper {
   display: inline-block;
   width: 100%;
+  min-width: 160px;
 }
 
 .c1 .fi-filter-input_wrapper .fi-filter-input_label--visible {
@@ -208,7 +209,7 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
   position: absolute;
-  height: 40px;
+  height: 100%;
   right: 0;
   top: 0;
   display: flex;
@@ -233,6 +234,10 @@ exports[`snapshot matches 1`] = `
   margin-top: 5px;
 }
 
+.c1 .fi-filter-input_input-element-container {
+  position: relative;
+}
+
 .c1 .fi-filter-input_input-element-container >input:focus {
   outline-color: hsl(196, 77%, 44%);
   outline-width: 2px;
@@ -242,10 +247,6 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input_input-element-container:focus-within >input:focus {
   outline: none;
-}
-
-.c1 .fi-filter-input_input-element-container:focus-within {
-  position: relative;
 }
 
 .c1 .fi-filter-input_input-element-container:focus-within::after {
@@ -277,12 +278,12 @@ exports[`snapshot matches 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0, 0%, 100%);
-  min-width: 40px;
+  min-width: 160px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;

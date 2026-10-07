@@ -17,7 +17,7 @@ const tooltipClassNames = {
 interface TooltipToggleButtonProps extends HtmlButtonProps, MarginProps {}
 
 interface InnerRef {
-  forwardedRef: React.RefObject<HTMLButtonElement>;
+  forwardedRef: React.Ref<HTMLButtonElement>;
 }
 
 class BaseTooltipToggleButton extends Component<
@@ -52,10 +52,7 @@ const StyledTooltipButton = styled(
 `;
 
 export const TooltipToggleButton = forwardRef(
-  (
-    props: TooltipToggleButtonProps,
-    ref: React.RefObject<HTMLButtonElement>,
-  ) => (
+  (props: TooltipToggleButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledTooltipButton

@@ -197,6 +197,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   width: 100%;
   top: -51px;
   border-bottom: 1px solid hsl(202, 7%, 80%);
+  pointer-events: none;
 }
 
 .c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
@@ -458,6 +459,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c6 .fi-button_icon {
+  display: inline-block;
+}
+
 .c6>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -539,7 +544,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
       class="ReactModal__Overlay fi-modal_overlay"
     >
       <div
-        aria-modal="false"
+        aria-modal="true"
         class="ReactModal__Content fi-modal"
         role="dialog"
         tabindex="-1"

@@ -370,7 +370,7 @@ exports[`snapshot should have matching default structure 1`] = `
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 13%);
   width: 100%;
-  height: 40px;
+  min-height: 40px;
   box-sizing: border-box;
   border: 1px solid hsl(201, 7%, 58%);
   border-radius: 2px;
@@ -430,7 +430,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border: 1px solid hsl(202, 7%, 80%);
   border-radius: 2px;
   line-height: 1;
@@ -463,7 +463,7 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: default;
   pointer-events: none;
   right: 0px;
-  height: 40px;
+  height: 100%;
   width: 40px;
   border-radius: 0 2px 2px 0;
   border: 0;
@@ -758,6 +758,10 @@ exports[`snapshot should have matching default structure 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c6 .fi-button_icon {
+  display: inline-block;
+}
+
 .c6>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -843,6 +847,11 @@ exports[`snapshot should have matching default structure 1`] = `
   padding-left: 0;
   padding-right: 0;
   margin: 0;
+}
+
+.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button .fi-button_icon {
+  display: flex;
+  margin-top: 2px;
 }
 
 .c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button>.fi-button_icon>.fi-icon {
@@ -951,7 +960,7 @@ exports[`snapshot should have matching default structure 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M22.999 11H3.413l4.293-4.293a.999.999 0 1 0-1.414-1.414l-6 6a1.001 1.001 0 0 0 0 1.416l6 5.998a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L3.413 13h19.586a1 1 0 0 0 0-2"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -989,7 +998,7 @@ exports[`snapshot should have matching default structure 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M23.923 11.617a.999.999 0 0 0-.216-.325l-6-6a1 1 0 0 0-1.414 1.415l4.293 4.292H1a1 1 0 0 0 0 2h19.586l-4.293 4.293a.999.999 0 1 0 1.414 1.414l6-5.998a1.004 1.004 0 0 0 .216-1.09"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -1056,7 +1065,7 @@ exports[`snapshot should have matching default structure 1`] = `
                 <path
                   class="fi-icon-base-fill"
                   d="M9 0c4.962 0 9 4.038 9 9.001a8.955 8.955 0 0 1-1.971 5.614l7.678 7.678a.999.999 0 1 1-1.414 1.414l-7.678-7.678A8.957 8.957 0 0 1 9 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0Zm0 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2Z"
-                  fill="#222"
+                  fill="#212121"
                   fill-rule="evenodd"
                 />
               </svg>

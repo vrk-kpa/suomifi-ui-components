@@ -3,8 +3,14 @@ Use the `<Table>` component to display large amounts of well-structured data
 Examples:
 
 - [Basic use](./#/Components/Table?id=basic-use)
+  - [Typescript type safety](./#/Components/Table?id=typescript-type-safety)
 - [Sorting](./#/Components/Table?id=sorting)
+  - [Sortable columns](./#/Components/Table?id=sortable-columns)
+  - [Default sort order](./#/Components/Table?id=default-sort-order)
+  - [Custom sort function](./#/Components/Table?id=custom-sort-function)
 - [Selecting rows](./#/Components/Table?id=selecting-rows)
+  - [Whole row selection](./#/Components/Table?id=whole-row-selection)
+  - [Controlled row selection](./#/Components/Table?id=controlled-row-selection)
 - [Condensed table](./#/Components/Table?id=condensed-table)
 - [Horizontal scroll (mobile)](./#/Components/Table?id=horizontal-scroll-mobile)
 - [Paginated data](./#/Components/Table?id=paginated-data)
@@ -70,7 +76,7 @@ const data: TableRow<typeof columns>[] = [
 This ensures TypeScript will show an error if you forget to include any column key in your data objects.
 
 ```jsx
-import { Table, Link } from 'suomifi-ui-components';
+import { Table, Link, Block } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -141,13 +147,13 @@ const data = [
   }
 ];
 
-<div style={{ width: '900px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
     data={data}
   />
-</div>;
+</Block>;
 ```
 
 ### Sorting
@@ -161,8 +167,10 @@ You can also apply a default sort order when the table first renders by using th
 
 Always use the `tableSortedAriaLiveText()` function as demonstrated below to give screen readers information about table sorting.
 
-```jsx
-import { Table, Link } from 'suomifi-ui-components';
+#### Sortable columns
+
+```jsx { "exampleMode": "collapse" }
+import { Table, Block } from 'suomifi-ui-components';
 import React, { useState } from 'react';
 
 const columns = [
@@ -224,7 +232,190 @@ const dataArr = [
     lastName: 'Ackermann',
     hours_worked: '',
     title: 'Security consultant',
-    country: <Link href="https://suomi.fi">Germany</Link>
+    country: 'Germany'
+  },
+  {
+    id: '5',
+    firstName: 'Alexander',
+    lastName: 'Stubb',
+    hours_worked: 2543,
+    title: 'President',
+    country: 'Finland'
+  }
+];
+
+<Block>
+  <Table
+    caption="People in the project"
+    columns={columns}
+    data={dataArr}
+    tableSortedAriaLiveText={(sortedColumn, direction) =>
+      `Table is sorted by ${sortedColumn} ${
+        direction === 'asc' ? 'ascending' : 'descending'
+      }`
+    }
+  />
+</Block>;
+```
+
+#### Default sort order
+
+```jsx
+import { Table, Block } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const columns = [
+  {
+    key: 'firstName',
+    labelText: 'First name',
+    sortable: true
+  },
+  {
+    key: 'lastName',
+    labelText: 'Last name'
+  },
+  {
+    key: 'hours_worked',
+    labelText: 'Number of hours worked',
+    textAlign: 'right',
+    sortable: true,
+    sortIcon: 'generic'
+  },
+  {
+    key: 'title',
+    labelText: 'Title'
+  },
+  {
+    key: 'country',
+    labelText: 'Country of Residence',
+    sortable: true
+  }
+];
+
+const dataArr = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    hours_worked: 125,
+    title: 'Developer',
+    country: 'United Kingdom'
+  },
+  {
+    id: '2',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    hours_worked: 150,
+    title: 'Architect',
+    country: 'Norway'
+  },
+  {
+    id: '3',
+    firstName: 'Bruce',
+    lastName: 'Willis',
+    hours_worked: 10,
+    title: 'Project manager',
+    country: 'United States of America'
+  },
+  {
+    id: '4',
+    firstName: 'Harriet',
+    lastName: 'Ackermann',
+    hours_worked: '',
+    title: 'Security consultant',
+    country: 'Germany'
+  },
+  {
+    id: '5',
+    firstName: 'Alexander',
+    lastName: 'Stubb',
+    hours_worked: 2543,
+    title: 'President',
+    country: 'Finland'
+  }
+];
+
+<Block>
+  <Table
+    caption="People in the project"
+    columns={columns}
+    data={dataArr}
+    defaultSort={{ columnKey: 'hours_worked', direction: 'desc' }}
+    tableSortedAriaLiveText={(sortedColumn, direction) =>
+      `Table is sorted by ${sortedColumn} ${
+        direction === 'asc' ? 'ascending' : 'descending'
+      }`
+    }
+  />
+</Block>;
+```
+
+#### Custom sort function
+
+```jsx
+import { Table, Block } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const columns = [
+  {
+    key: 'firstName',
+    labelText: 'First name',
+    sortable: true
+  },
+  {
+    key: 'lastName',
+    labelText: 'Last name'
+  },
+  {
+    key: 'hours_worked',
+    labelText: 'Number of hours worked',
+    textAlign: 'right',
+    sortable: true,
+    sortIcon: 'generic'
+  },
+  {
+    key: 'title',
+    labelText: 'Title'
+  },
+  {
+    key: 'country',
+    labelText: 'Country of Residence',
+    sortable: true
+  }
+];
+
+const dataArr = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    hours_worked: 125,
+    title: 'Developer',
+    country: 'United Kingdom'
+  },
+  {
+    id: '2',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    hours_worked: 150,
+    title: 'Architect',
+    country: 'Norway'
+  },
+  {
+    id: '3',
+    firstName: 'Bruce',
+    lastName: 'Willis',
+    hours_worked: 10,
+    title: 'Project manager',
+    country: 'United States of America'
+  },
+  {
+    id: '4',
+    firstName: 'Harriet',
+    lastName: 'Ackermann',
+    hours_worked: '',
+    title: 'Security consultant',
+    country: 'Germany'
   },
   {
     id: '5',
@@ -279,49 +470,24 @@ const customDataSort = (key, dir) => {
   setData(sortedData);
 };
 
-<div style={{ width: '920px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
     data={data}
-    tableSortedAriaLiveText={(sortedColumn, direction) =>
-      `Table is sorted by ${sortedColumn} ${
-        direction === 'asc' ? 'ascdencing' : 'descending'
-      }`
-    }
-    mb="xxl"
-  />
-  <Table
-    caption="People in the project"
-    columns={columns}
-    data={data}
-    tableSortedAriaLiveText={(sortedColumn, direction) =>
-      `Table is sorted by ${sortedColumn} ${
-        direction === 'asc' ? 'ascdencing' : 'descending'
-      }`
-    }
-    mb="xxl"
-    tableSortCallback={customDataSort}
-  />
-  <Table
-    caption="People in the project"
-    columns={columns}
-    data={data}
-    defaultSort={{ columnKey: 'hours_worked', direction: 'desc' }}
     tableSortedAriaLiveText={(sortedColumn, direction) =>
       `Table is sorted by ${sortedColumn} ${
         direction === 'asc' ? 'ascending' : 'descending'
       }`
     }
+    tableSortCallback={customDataSort}
   />
-</div>;
+</Block>;
 ```
 
 ### Selecting rows
 
-Use the `enableRowSelection` to allow row selection via Checkboxes on the left hand side. Use the `onSelectedRowsChange()` prop to detect selection changes. The function returns the `id`s of selected rows.
-
-Alternatively, you can use the `enableSingleRowSelection` prop to allow single row selection via RadioButton.
+Use the `enableRowSelection` to allow row selection with Checkboxes. Use the `onSelectedRowsChange()` prop to detect selection changes. The function returns the `id`s of selected rows. Alternatively, you can use the `enableSingleRowSelection` prop to allow single row selection via RadioButton.
 
 Also provide a `rowSelectionCheckboxLabel` to each row object to give an accessible label to the selection Checkbox/RadioButton.
 
@@ -329,10 +495,12 @@ You can pass additional props to the row selection Checkbox or RadioButton eleme
 
 Individual rows can be disabled from selection by adding `rowSelectionDisabled: true` to the row data object.
 
-You can control the selected rows programmatically by using the `controlledSelectedRowIds` prop as shown in the third example below.
+#### Whole row selection
+
+Prop `wholeRowSelection` can be used with `enableRowSelection` or `enableSingleRowSelection` to allow user to select a row by clicking anywhere on the row. **NOTE:** This option should not be used when cells have interactive content, to prevent nested interactive controls. If interactive content is inside whole row selection, ensure that the click event doesn't bubble up to the row.
 
 ```jsx
-import { Table, Link, Button } from 'suomifi-ui-components';
+import { Table, Button, Block } from 'suomifi-ui-components';
 import React, { useState } from 'react';
 
 const columns = [
@@ -404,7 +572,7 @@ const data = [
     lastName: 'Ackermann',
     hours_worked: '',
     title: 'Security consultant',
-    country: <Link href="https://suomi.fi">Germany</Link>,
+    country: 'Germany',
     rowSelectionCheckboxLabel: 'Select row Harriet Ackermann',
     rowSelectionLabelProps: {
       'data-testid': 'harriet-ackermann-selection'
@@ -424,15 +592,13 @@ const data = [
   }
 ];
 
-const [controlledSelectedRowIds, setControlledSelectedRowIds] =
-  useState([]);
-
-<div style={{ width: '1000px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
     data={data}
     enableRowSelection
+    wholeRowSelection
     onSelectedRowsChange={(rowIds) => console.log(rowIds)}
     mb="xxxl"
   />
@@ -442,13 +608,106 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
     columns={columns}
     data={data}
     enableSingleRowSelection
+    wholeRowSelection
     onSelectedRowsChange={(rowIds) => console.log(rowIds)}
     mb="xxxl"
   />
+</Block>;
+```
 
+#### Controlled row selection
+
+You can control the selected rows programmatically by using the `controlledSelectedRowIds`.
+
+```jsx
+import { Table, Button, Block, Link } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const columns = [
+  {
+    key: 'firstName',
+    labelText: 'First name'
+  },
+  {
+    key: 'lastName',
+    labelText: 'Last name'
+  },
+  {
+    key: 'hours_worked',
+    labelText: 'Number of hours worked',
+    textAlign: 'right'
+  },
+  {
+    key: 'title',
+    labelText: 'Title'
+  },
+  {
+    key: 'country',
+    labelText: 'Country of Residence'
+  }
+];
+
+const data = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    hours_worked: 125,
+    title: 'Developer',
+    country: 'United Kingdom',
+    rowSelectionCheckboxLabel: 'Select row John Doe'
+  },
+  {
+    id: '2',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    hours_worked: 150,
+    title: 'Architect',
+    country: 'Norway',
+    rowSelectionCheckboxLabel: 'Select row Jane Doe',
+    rowSelectionDisabled: true
+  },
+  {
+    id: '3',
+    firstName: 'Bruce',
+    lastName: 'Willis',
+    hours_worked: 10,
+    title: 'Project manager',
+    country: 'United States of America',
+    rowSelectionCheckboxLabel: 'Select row Bruce Willis',
+    rowSelectionDisabled: true
+  },
+  {
+    id: '4',
+    firstName: 'Harriet',
+    lastName: 'Ackermann',
+    hours_worked: '',
+    title: 'Security consultant',
+    country: <Link href="https://suomi.fi">Germany</Link>,
+    rowSelectionCheckboxLabel: 'Select row Harriet Ackermann'
+  },
+  {
+    id: '5',
+    firstName: 'Alexander',
+    lastName: 'Stubb',
+    hours_worked: 2543,
+    title: 'President',
+    country: 'Finland',
+    rowSelectionCheckboxLabel: 'Select row Alexander Stubb'
+  }
+];
+
+const [controlledSelectedRowIds, setControlledSelectedRowIds] =
+  useState([]);
+
+<Block>
   <Button
     mr="l"
-    onClick={() => setControlledSelectedRowIds(data.map((d) => d.id))}
+    onClick={() =>
+      setControlledSelectedRowIds(
+        data.filter((d) => !d.rowSelectionDisabled).map((d) => d.id)
+      )
+    }
   >
     Select all rows
   </Button>
@@ -466,7 +725,7 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
     }
     mt="xl"
   />
-</div>;
+</Block>;
 ```
 
 ### Condensed table
@@ -474,7 +733,7 @@ const [controlledSelectedRowIds, setControlledSelectedRowIds] =
 Use the `condensed` prop to decrease vertical padding in table cells
 
 ```jsx
-import { Table, Link } from 'suomifi-ui-components';
+import { Table, Link, Block } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -544,14 +803,14 @@ const data = [
   }
 ];
 
-<div style={{ width: '900px' }}>
+<Block>
   <Table
     caption="People in the project"
     columns={columns}
     data={data}
     condensed
   />
-</div>;
+</Block>;
 ```
 
 ### Horizontal scroll (mobile)
@@ -561,7 +820,7 @@ By default, the `<Table>` component does not wrap its content to multiple rows b
 It is important to set `overflow: auto` to the table's container element. On mobile screens it is also recommended to give the table's heading as a separate element instead of using the `caption` prop. This makes it so that only the table scrolls and the heading stays in place.
 
 ```jsx
-import { Table, Link, Heading } from 'suomifi-ui-components';
+import { Table, Link, Heading, Block } from 'suomifi-ui-components';
 import React from 'react';
 
 const columns = [
@@ -635,14 +894,14 @@ const data = [
   <Heading variant="h3" id="table-heading">
     People in the project
   </Heading>
-  <div style={{ width: '350px', overflowX: 'auto' }}>
+  <Block style={{ width: '350px', overflowX: 'auto' }}>
     <Table
       columns={columns}
       data={data}
       condensed
       aria-labelledby="table-heading"
     />
-  </div>
+  </Block>
 </>;
 ```
 
@@ -810,7 +1069,7 @@ const [data, setData] = useState(fullData.slice(0, 5));
 const [currentPage, setCurrentPage] = React.useState(1);
 
 <>
-  <div style={{ width: '900px' }}>
+  <Block>
     <Table
       caption="People in the project"
       columns={columns}
@@ -843,7 +1102,7 @@ const [currentPage, setCurrentPage] = React.useState(1);
         style={{ textAlign: 'center' }}
       />
     </Block>
-  </div>
+  </Block>
 </>;
 ```
 
@@ -943,7 +1202,7 @@ const simulateLoading = () => {
   setTimeout(() => setLoading(false), 3000);
 };
 
-<div style={{ width: '900px' }}>
+<div>
   <Button onClick={simulateLoading} disabled={loading} mb="l">
     Simulate loading
   </Button>

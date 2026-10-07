@@ -21,7 +21,7 @@ export interface ModalTitleProps
 
 interface InternalModalTitleProps extends ModalTitleProps, SuomifiThemeProp {
   focusTitleOnOpen: boolean;
-  titleRef: React.RefObject<HTMLHeadingElement>;
+  titleRef?: React.RefObject<HTMLHeadingElement>;
   modalVariant: ModalVariant;
   scrollable: boolean;
 }

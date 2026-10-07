@@ -38,7 +38,7 @@ const [current, setCurrent] = React.useState(2);
 const lastPage = 8;
 const headingRef = useRef();
 
-<Block style={{ width: '600px' }}>
+<Block style={{ width: '100%' }}>
   <Block
     padding="xl"
     mb="l"

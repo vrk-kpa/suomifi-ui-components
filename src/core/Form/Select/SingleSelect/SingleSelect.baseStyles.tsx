@@ -30,6 +30,12 @@ export const baseStyles = (
     }
   }
 
+  /* :where() pseudo-class lowers specificity allowing ".<styled-components-hash> :where(.fi-single-select_popover)"
+    to be overridden with popoverClassName prop, unlike ".<styled-components-hash> .fi-single-select_popover" */
+  & :where(.fi-single-select_popover) {
+    z-index: ${theme.zindexes.menu};
+  }
+
   &.fi-single-select--open {
     & .fi-filter-input_input {
       border-bottom: 0;

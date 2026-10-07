@@ -4,7 +4,7 @@ import { resets } from '../utils';
 import { asPropType } from '../../utils/typescript';
 
 export interface HtmlUlProps
-  extends Omit<HTMLProps<HTMLUListElement>, 'type' | 'as'> {
+  extends Omit<HTMLProps<HTMLUListElement>, 'ref' | 'type' | 'as'> {
   as?: asPropType;
 }
 
@@ -29,7 +29,7 @@ export const HtmlUl = styled(Ul)`
 const UlWithRef = ({
   forwardRef,
   ...passProps
-}: HtmlUlProps & { forwardRef: React.Ref<HTMLUListElement> }) => (
+}: HtmlUlProps & { forwardRef?: React.Ref<HTMLUListElement> }) => (
   <ul {...passProps} ref={forwardRef} />
 );
 

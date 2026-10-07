@@ -120,6 +120,7 @@ For screen readers, it is recommended to provide a more descriptive label for th
 
 ```jsx
 import {
+  Block,
   Expander,
   ExpanderGroup,
   ExpanderTitleButton,
@@ -142,18 +143,26 @@ import {
       <Paragraph mb="l">
         You can manage the devices you use:
       </Paragraph>
-      <Paragraph mb="l">
-        <Text variant="bold">In the Suomi.fi application</Text>
+      <Block mb="l">
         <ul>
-          <li>Settings: Login and Security</li>
+          <li>
+            <Text variant="bold">In the Suomi.fi application</Text>
+          </li>
+          <ul>
+            <li>Settings: Login and Security</li>
+          </ul>
         </ul>
-        <Text variant="bold">
-          In the Suomi.fi Web Service or mobile device browser{' '}
-        </Text>
         <ul>
-          <li>Messages section: Device Manager</li>
+          <li>
+            <Text variant="bold">
+              In the Suomi.fi Web Service or mobile device browser
+            </Text>
+          </li>
+          <ul>
+            <li>Messages section: Device Manager</li>
+          </ul>
         </ul>
-      </Paragraph>
+      </Block>
       <Paragraph>
         Device data will include the name of each device and the time
         at which the application has last been used. You can log out
@@ -169,9 +178,11 @@ import {
       Is the application secure?
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph mb="l">
-        Suomi.fi Messages is a secure way to communicate with
-        organisations that use the service.
+      <Block mb="l">
+        <Paragraph>
+          Suomi.fi Messages is a secure way to communicate with
+          organisations that use the service.
+        </Paragraph>
         <ul>
           <li>
             The messages and attachments shown in the application are
@@ -189,7 +200,7 @@ import {
             who can access your data.
           </li>
         </ul>
-      </Paragraph>
+      </Block>
       <Paragraph>
         If you break your mobile device or lose it, you can sign out
         of the Suomi.fi application either in the Suomi.fi web service
@@ -221,6 +232,7 @@ You can hide the open/close all button of the group with `showToggleAllButton={f
 
 ```jsx
 import {
+  Block,
   Expander,
   ExpanderGroup,
   ExpanderTitleButton,
@@ -244,18 +256,26 @@ import {
       <Paragraph mb="l">
         You can manage the devices you use:
       </Paragraph>
-      <Paragraph mb="l">
-        <Text variant="bold">In the Suomi.fi application</Text>
+      <Block mb="l">
         <ul>
-          <li>Settings: Login and Security</li>
+          <li>
+            <Text variant="bold">In the Suomi.fi application</Text>
+          </li>
+          <ul>
+            <li>Settings: Login and Security</li>
+          </ul>
         </ul>
-        <Text variant="bold">
-          In the Suomi.fi Web Service or mobile device browser{' '}
-        </Text>
         <ul>
-          <li>Messages section: Device Manager</li>
+          <li>
+            <Text variant="bold">
+              In the Suomi.fi Web Service or mobile device browser
+            </Text>
+          </li>
+          <ul>
+            <li>Messages section: Device Manager</li>
+          </ul>
         </ul>
-      </Paragraph>
+      </Block>
       <Paragraph>
         Device data will include the name of each device and the time
         at which the application has last been used. You can log out
@@ -271,9 +291,11 @@ import {
       Is the application secure?
     </ExpanderTitleButton>
     <ExpanderContent>
-      <Paragraph mb="l">
-        Suomi.fi Messages is a secure way to communicate with
-        organisations that use the service.
+      <Block mb="l">
+        <Paragraph>
+          Suomi.fi Messages is a secure way to communicate with
+          organisations that use the service.
+        </Paragraph>
         <ul>
           <li>
             The messages and attachments shown in the application are
@@ -291,7 +313,7 @@ import {
             who can access your data.
           </li>
         </ul>
-      </Paragraph>
+      </Block>
       <Paragraph>
         If you break your mobile device or lose it, you can sign out
         of the Suomi.fi application either in the Suomi.fi web service
@@ -323,6 +345,7 @@ You can control the state of an individual Expander programmatically with the `o
 
 ```jsx
 import {
+  Block,
   Expander,
   ExpanderGroup,
   ExpanderTitleButton,
@@ -383,9 +406,11 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
         Is the application secure?
       </ExpanderTitleButton>
       <ExpanderContent>
-        <Paragraph mb="l">
-          Suomi.fi Messages is a secure way to communicate with
-          organisations that use the service.
+        <Block mb="l">
+          <Paragraph>
+            Suomi.fi Messages is a secure way to communicate with
+            organisations that use the service.
+          </Paragraph>
           <ul>
             <li>
               The messages and attachments shown in the application
@@ -403,7 +428,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
               who can access your data.
             </li>
           </ul>
-        </Paragraph>
+        </Block>
         <Paragraph>
           If you break your mobile device or lose it, you can sign out
           of the Suomi.fi application either in the Suomi.fi web

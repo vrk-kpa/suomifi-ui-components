@@ -24,15 +24,13 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '900px' }}>
-    <Alert
-      closeText="Close"
-      onCloseButtonClick={() => setShowAlert(false)}
-    >
-      You are using a beta version of the service. It might contain
-      some bugs or glitches.
-    </Alert>
-  </Block>
+  <Alert
+    closeText="Close"
+    onCloseButtonClick={() => setShowAlert(false)}
+  >
+    You are using a beta version of the service. It might contain some
+    bugs or glitches.
+  </Alert>
 );
 ```
 
@@ -47,16 +45,14 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '900px' }}>
-    <Alert
-      status="warning"
-      closeText="Close"
-      onCloseButtonClick={() => setShowAlert(false)}
-    >
-      The service will be temporarily unavailable on 5.6.2021 at 21.00
-      – 23.59 due to maintenance.
-    </Alert>
-  </Block>
+  <Alert
+    status="warning"
+    closeText="Close"
+    onCloseButtonClick={() => setShowAlert(false)}
+  >
+    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
+    23.59 due to maintenance.
+  </Alert>
 );
 ```
 
@@ -71,16 +67,14 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '900px' }}>
-    <Alert
-      status="error"
-      closeText="Close"
-      onCloseButtonClick={() => setShowAlert(false)}
-    >
-      We are currently experiencing disruptions in the service.
-      Submitting applications is not possible.
-    </Alert>
-  </Block>
+  <Alert
+    status="error"
+    closeText="Close"
+    onCloseButtonClick={() => setShowAlert(false)}
+  >
+    We are currently experiencing disruptions in the service.
+    Submitting applications is not possible.
+  </Alert>
 );
 ```
 
@@ -95,16 +89,14 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '900px' }}>
-    <Alert
-      smallScreen
-      closeText="Close"
-      onCloseButtonClick={() => setShowAlert(false)}
-    >
-      You are using a beta version of the service. It might contain
-      some bugs or glitches.
-    </Alert>
-  </Block>
+  <Alert
+    smallScreen
+    closeText="Close"
+    onCloseButtonClick={() => setShowAlert(false)}
+  >
+    You are using a beta version of the service. It might contain some
+    bugs or glitches.
+  </Alert>
 );
 ```
 

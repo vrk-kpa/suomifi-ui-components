@@ -83,7 +83,7 @@ interface InternalButtonProps
   /** Callback fired on button click */
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLButtonElement>;
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 export type ButtonProps = InternalButtonProps &
@@ -166,18 +166,14 @@ class BaseButton extends Component<ButtonProps> {
 }
 
 const StyledButton = styled(
-  ({
-    theme,
-    globalMargins,
-    ...passProps
-  }: ButtonProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
+  ({ theme, globalMargins, ...passProps }: ButtonProps & SuomifiThemeProp) => (
     <BaseButton {...passProps} />
   ),
 )`
   ${({ theme, globalMargins, ...rest }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
-      globalMargins.button,
+      globalMargins?.button || {},
       marginProps,
     );
     return baseStyles(theme, cleanedGlobalMargins, marginProps);
@@ -185,7 +181,7 @@ const StyledButton = styled(
 `;
 
 const Button = forwardRef(
-  (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+  (props: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <SpacingConsumer>
       {({ margins }) => (
         <SuomifiThemeConsumer>
@@ -204,10 +200,15 @@ const Button = forwardRef(
 );
 
 export const InternalButton = forwardRef(
-  (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+  (props: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
-        <StyledButton theme={suomifiTheme} forwardedRef={ref} {...props} />
+        <StyledButton
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          globalMargins={{}}
+          {...props}
+        />
       )}
     </SuomifiThemeConsumer>
   ),

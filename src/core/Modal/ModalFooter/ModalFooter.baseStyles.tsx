@@ -24,6 +24,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       width: 100%;
       top: -51px;
       border-bottom: 1px solid ${theme.colors.depthLight1};
+      pointer-events: none;
+
       & .fi-modal_footer_content-gradient {
         height: 50px;
         margin: 0 ${theme.spacing.m} 0 ${theme.spacing.m};

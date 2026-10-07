@@ -33,6 +33,7 @@ import { SelectItemAddition } from '../BaseSelect/SelectItemAddition/SelectItemA
 
 const baseClassName = 'fi-single-select';
 const singleSelectClassNames = {
+  popover: `${baseClassName}_popover`,
   valueSelected: `${baseClassName}--value-selected`,
   clearButtonWrapper: `${baseClassName}_clear-button_wrapper`,
   open: `${baseClassName}--open`,
@@ -207,8 +208,6 @@ class BaseSingleSelect<T> extends Component<
 
   private clearButtonRef: React.RefObject<HTMLButtonElement>;
 
-  private preventShowPopoverOnInputFocus = false;
-
   constructor(
     props: SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp,
   ) {
@@ -318,20 +317,21 @@ class BaseSingleSelect<T> extends Component<
       const focusInPopover = this.popoverListRef.current?.contains(
         ownerDocument.activeElement,
       );
+      const focusInClearButton = this.clearButtonRef.current?.contains(
+        ownerDocument.activeElement,
+      );
       const focusInToggleButton = this.toggleButtonRef.current?.contains(
         ownerDocument.activeElement,
       );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
       const focusInSingleSelect =
-        focusInPopover || focusInInput || focusInToggleButton;
+        focusInPopover ||
+        focusInInput ||
+        focusInToggleButton ||
+        focusInClearButton;
       if (!focusInSingleSelect) {
-        this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
-          filterInputValue: prevState.selectedItem?.labelText || '',
-          filterMode: false,
-          showPopover: focusInSingleSelect,
-          focusedDescendantId: null,
-        }));
+        this.closeMenu();
       }
     });
   };
@@ -357,22 +357,35 @@ class BaseSingleSelect<T> extends Component<
     });
   };
 
-  private focusToInputAndSelectText = () => {
+  private focusToInput = () => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
       this.filterInputRef.current.focus();
-      setTimeout(() => this.filterInputRef.current?.select(), 100);
     }
   };
 
   private focusToInputAndCloseMenu = () => {
-    this.focusToInputAndSelectText();
+    this.focusToInput();
+    this.closeMenu();
+  };
+
+  private closeMenu = () => {
     this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
-      showPopover: false,
-      filterMode: false,
-      focusedDescendantId: null,
       filterInputValue: prevState.selectedItem?.labelText || '',
+      filterMode: false,
+      showPopover: false,
+      focusedDescendantId: null,
     }));
   };
+
+  private handleToggleButtonClick(event: React.MouseEvent<HTMLElement>) {
+    event.preventDefault();
+    if (this.state.showPopover) {
+      this.closeMenu();
+    } else {
+      this.setState(() => ({ showPopover: true }));
+    }
+    this.focusToInput();
+  }
 
   private handleItemSelection = (item: (T & SingleSelectData) | null) => {
     if (item !== null && item.disabled) return;
@@ -411,6 +424,24 @@ class BaseSingleSelect<T> extends Component<
     this.focusToInputAndCloseMenu();
   };
 
+  private setFocusedDescendantAfterPopoverIsVisible = (
+    item: SingleSelectData,
+  ) => {
+    /** Popover becomes visible after two requestAnimationFrames,
+     * defer setting focused descendant so that screen readers
+     * will read the list item when opening popover with keyboard
+     */
+    this.setState({ showPopover: true }, () => {
+      if (item) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            this.setState({ focusedDescendantId: item.uniqueItemId });
+          });
+        });
+      }
+    });
+  };
+
   private handleKeyDown = (event: React.KeyboardEvent) => {
     const { filteredItems, focusedDescendantId, filterMode, filterInputValue } =
       this.state;
@@ -442,9 +473,6 @@ class BaseSingleSelect<T> extends Component<
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        if (!this.state.showPopover) {
-          this.setState({ showPopover: true });
-        }
         const nextItem =
           this.props.allowItemAddition &&
           (index === popoverItems.length - 1 || popoverItems.length === 0) &&
@@ -455,7 +483,10 @@ class BaseSingleSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getNextItem();
-        if (nextItem) {
+
+        if (!this.state.showPopover) {
+          this.setFocusedDescendantAfterPopoverIsVisible(nextItem);
+        } else if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
         break;
@@ -463,9 +494,6 @@ class BaseSingleSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        if (!this.state.showPopover) {
-          this.setState({ showPopover: true });
-        }
         const previousItem =
           this.props.allowItemAddition &&
           (index === null || index === 0) &&
@@ -476,7 +504,10 @@ class BaseSingleSelect<T> extends Component<
                 labelText: filterInputValue,
               }
             : getPreviousItem();
-        if (previousItem) {
+
+        if (!this.state.showPopover) {
+          this.setFocusedDescendantAfterPopoverIsVisible(previousItem);
+        } else if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
         break;
@@ -507,6 +538,11 @@ class BaseSingleSelect<T> extends Component<
           event.stopPropagation();
         }
         this.focusToInputAndCloseMenu();
+        break;
+      }
+
+      case 'Tab': {
+        this.closeMenu();
         break;
       }
 
@@ -609,12 +645,9 @@ class BaseSingleSelect<T> extends Component<
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (
             <FilterInput
-              inputElementContainerProps={{
-                role: 'combobox',
-                'aria-haspopup': 'listbox',
-                'aria-owns': popoverItemListId,
-                'aria-expanded': showPopover,
-              }}
+              role="combobox"
+              aria-haspopup="listbox"
+              aria-expanded={showPopover}
               aria-activedescendant={ariaActiveDescendant}
               id={id}
               aria-controls={popoverItemListId}
@@ -645,14 +678,8 @@ class BaseSingleSelect<T> extends Component<
               }}
               filterFunc={this.filter}
               forwardedRef={this.filterInputRef}
-              onFocus={() => {
-                if (!this.preventShowPopoverOnInputFocus) {
-                  this.setState({ showPopover: true });
-                }
-                this.preventShowPopoverOnInputFocus = false;
-              }}
               onClick={() => {
-                this.focusToInputAndSelectText();
+                this.focusToInput();
                 this.setState({
                   showPopover: true,
                 });
@@ -690,17 +717,12 @@ class BaseSingleSelect<T> extends Component<
               <InputToggleButton
                 open={showPopover}
                 ref={this.toggleButtonRef}
+                aria-labelledby={`${id}-label`}
+                aria-expanded={showPopover}
+                aria-controls={popoverItemListId}
                 onClick={(event) => {
-                  event.preventDefault();
-                  this.setState(
-                    (prevState: SingleSelectState<T & SingleSelectData>) => ({
-                      showPopover: !prevState.showPopover,
-                    }),
-                  );
-                  this.preventShowPopoverOnInputFocus = true;
-                  this.focusToInputAndSelectText();
+                  this.handleToggleButtonClick(event);
                 }}
-                aria-hidden={true}
                 tabIndex={-1}
                 disabled={disabled}
               />
@@ -717,7 +739,11 @@ class BaseSingleSelect<T> extends Component<
                 this.setState({ showPopover: false });
               }
             }}
-            className={popoverClassName}
+            className={classnames(
+              singleSelectClassNames.popover,
+              popoverClassName,
+            )}
+            portal={false}
           >
             <PopoverConsumer>
               {(consumer) => {
@@ -728,6 +754,7 @@ class BaseSingleSelect<T> extends Component<
                     ref={this.popoverListRef}
                     focusedDescendantId={ariaActiveDescendant}
                     popoverPlacement={consumer?.popoverPlacement}
+                    aria-labelledby={`${id}-label`}
                     {...listProps}
                   >
                     <>

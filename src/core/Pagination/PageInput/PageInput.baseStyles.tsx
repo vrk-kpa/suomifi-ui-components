@@ -46,7 +46,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
       }
       width: 100%;
-      height: 40px;
+      min-height: 40px;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};
       border-radius: ${theme.radiuses.basic};
@@ -82,7 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: default;
       pointer-events: none;
       right: 0px;
-      height: 40px;
+      height: 100%;
       width: 40px;
       border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
       border: 0;

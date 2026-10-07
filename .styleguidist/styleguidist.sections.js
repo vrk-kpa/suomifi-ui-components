@@ -16,7 +16,6 @@ const singularComponents = [
   'Notification',
   'Toast',
   'Details',
-  'Table',
   ['Form', 'TextInput'],
   ['Form', 'TimeInput'],
   ['Form', 'SearchInput'],
@@ -279,6 +278,18 @@ module.exports = {
             'ActionMenuItem/ActionMenuItem',
             'ActionMenuDivider/ActionMenuDivider',
           ]),
+        },
+        {
+          name: 'ReorderableList',
+          components: getComponentWithVariants('ReorderableList')([
+            'ReorderableList/ReorderableList',
+            'ReorderableListItem/ReorderableListItem',
+          ]),
+        },
+        {
+          name: 'Table',
+          components: getComponent({ name: 'Table' }),
+          exampleMode: 'collapse',
         },
       ],
       sectionDepth: 1,

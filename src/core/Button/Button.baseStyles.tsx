@@ -184,7 +184,11 @@ export const baseStyles = (
   ${secondaryNoBorderStyles(theme)}
 
   ${secondaryLightStyles(theme)}
-  
+
+  & .fi-button_icon {
+    display: inline-block;
+  }
+
   & > .fi-button_icon > .fi-icon {
     width: 16px;
     height: 16px;

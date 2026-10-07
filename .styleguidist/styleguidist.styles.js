@@ -1,7 +1,7 @@
-const grid440px24px = {
+const grid900px24px = {
   display: 'grid',
   rowGap: '24px',
-  maxWidth: '440px',
+  maxWidth: '900px',
   justifyItems: 'start',
 };
 
@@ -85,9 +85,9 @@ module.exports = {
   Playground: {
     preview: {
       '&:not([data-preview="Text"]) > div': {
-        ...grid440px24px,
+        ...grid900px24px,
         '& [example="inverted"]': {
-          ...grid440px24px,
+          ...grid900px24px,
           padding: '24px',
           backgroundColor: '#2A6EBB',
         },

@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  display: inline;
+  display: inline-flex;
   height: 16px;
   width: 16px;
   margin-left: 5px;

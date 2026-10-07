@@ -55,10 +55,10 @@ npm install styled-components
 
 - If using TypeScript, version 3.8 or above is required.
 
-- In case TypeScript is used and skipLibCheck compiler option is set to false, also add typings for [styled-components](https://www.npmjs.com/package/@types/styled-components/) as well as [react](https://www.npmjs.com/package/@types/react) and [react-dom](https://www.npmjs.com/package/@types/react-dom) as required by the React version used.
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also add typings for [react](https://www.npmjs.com/package/@types/react) and [react-dom](https://www.npmjs.com/package/@types/react-dom) as required by the React version used.
 
 ```bash
-npm install @types/styled-components @types/react @types/react-dom
+npm install @types/react @types/react-dom
 ```
 
 ## 🔨 Usage

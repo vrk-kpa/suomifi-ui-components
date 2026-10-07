@@ -106,7 +106,7 @@ interface DropdownState<T> {
 export interface DropdownProps<T extends string = string>
   extends StatusTextCommonProps,
     MarginProps,
-    Omit<HtmlButtonProps, 'onChange' | 'value'> {
+    Omit<HtmlButtonProps, 'defaultValue' | 'onChange' | 'value'> {
   /**
    * HTML id attribute
    * If no id is specified, one will be generated automatically
@@ -125,7 +125,9 @@ export interface DropdownProps<T extends string = string>
   /** Visual hint to show if nothing is selected and no value or defaultValue is provided.
    * Should not be used for instructions since assistive technologies don't reliably read a placeholder text */
   visualPlaceholder?: ReactNode;
-  /** Always show the visual placeholder instead of the selected value. Makes the Dropdown act as an action menu. */
+  /** Always show the visual placeholder instead of the selected value. Makes the Dropdown act as an action menu.
+   * @deprecated Will be removed in future releases. Use action menu to trigger actions.
+   */
   alwaysShowVisualPlaceholder?: boolean;
   /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
@@ -565,6 +567,8 @@ class BaseDropdown<T extends string = string> extends Component<
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
       style,
+      value,
+      defaultValue,
       ...rest
     } = this.props;
     const [_marginProps, passProps] = separateMarginProps(rest);
@@ -657,6 +661,7 @@ class BaseDropdown<T extends string = string> extends Component<
             onKeyDown={this.handleKeyDown}
             onBlur={this.handleOnBlur}
             data-floating-ui-placement={this.state.popoverPlacement}
+            value={selectedValue ?? undefined}
             {...passProps}
           >
             <HtmlSpan
@@ -698,6 +703,7 @@ class BaseDropdown<T extends string = string> extends Component<
               onKeyDown={this.handleKeyDown}
               portal={portal}
               className={popoverClassName}
+              tabIndex={-1}
             >
               <PopoverConsumer>
                 {(consumer) => {

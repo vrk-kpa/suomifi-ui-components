@@ -489,6 +489,10 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -717,7 +721,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -1272,6 +1276,10 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -1500,7 +1508,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -2055,6 +2063,10 @@ exports[`No borders variant should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -2283,7 +2295,7 @@ exports[`No borders variant should match snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -2838,6 +2850,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -3066,7 +3082,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>
@@ -3622,6 +3638,10 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   fill: hsl(202, 7%, 67%);
 }
 
+.c5 .fi-button_icon {
+  display: inline-block;
+}
+
 .c5>.fi-button_icon>.fi-icon {
   width: 16px;
   height: 16px;
@@ -3850,7 +3870,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             <path
               class="fi-icon-base-fill"
               d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-              fill="#222"
+              fill="#212121"
               fill-rule="evenodd"
             />
           </svg>

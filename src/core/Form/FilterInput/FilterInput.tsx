@@ -87,7 +87,7 @@ interface InternalFilterInputProps<T>
 }
 
 interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
+  forwardedRef: React.Ref<HTMLInputElement>;
 }
 
 export interface FilterInputProps extends InternalFilterInputProps<any> {
@@ -215,18 +215,18 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 onChange={onChangeHandler}
                 aria-multiline={false}
               />
+              {React.Children.count(children) > 0 && (
+                <HtmlDiv
+                  className={filterInputClassNames.actionElementsContainer}
+                  onMouseDownCapture={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }}
+                >
+                  {children}
+                </HtmlDiv>
+              )}
             </HtmlDiv>
-            {React.Children.count(children) > 0 && (
-              <HtmlDiv
-                className={filterInputClassNames.actionElementsContainer}
-                onMouseDownCapture={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }}
-              >
-                {children}
-              </HtmlDiv>
-            )}
             <StatusText
               id={statusTextId}
               className={classnames({
@@ -263,7 +263,7 @@ const StyledFilterInput = styled(BaseFilterInputWrapper)`
  * Props other than specified explicitly are passed on to underlying input element.
  */
 const FilterInput = forwardRef(
-  (props: FilterInputProps, ref: React.RefObject<HTMLInputElement>) => {
+  (props: FilterInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>

@@ -16,13 +16,13 @@ const TestWizardNavigation = (
         2. Step
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="current">
-      <RouterLink aria-current="step" href="#">
+    <WizardNavigationItem status="error">
+      <RouterLink href="#" aria-label="Step 3. This step has an error">
         3. Step
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+    <WizardNavigationItem status="default" active>
+      <RouterLink aria-current="step" href="#">
         4. Step
       </RouterLink>
     </WizardNavigationItem>
@@ -31,14 +31,19 @@ const TestWizardNavigation = (
         5. Step
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem status="disabled">
+    <WizardNavigationItem status="coming">
       <RouterLink aria-disabled tabIndex={-1} href="#">
         6. Step
       </RouterLink>
     </WizardNavigationItem>
+    <WizardNavigationItem status="disabled">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        7. Step
+      </RouterLink>
+    </WizardNavigationItem>
     <WizardNavigationItem status="coming">
       <RouterLink asComponent="button" aria-disabled tabIndex={-1}>
-        7. Step
+        8. Step
       </RouterLink>
     </WizardNavigationItem>
   </WizardNavigation>

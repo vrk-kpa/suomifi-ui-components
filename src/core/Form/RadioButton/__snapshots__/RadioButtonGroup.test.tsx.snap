@@ -370,6 +370,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -388,7 +389,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -1041,6 +1042,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -1059,7 +1061,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -1712,6 +1714,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -1730,7 +1733,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -2419,6 +2422,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -2437,7 +2441,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -2733,7 +2737,7 @@ exports[`props groupStatus and statusText should match snapshot 1`] = `
         <path
           class="fi-icon-base-fill"
           d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm.71 17.29c-.38-.37-1.05-.37-1.42 0-.181.19-.29.44-.29.71 0 .26.109.52.29.71.189.18.45.29.71.29.26 0 .52-.11.71-.29.18-.19.29-.45.29-.71 0-.27-.11-.52-.29-.71ZM12 5a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1Z"
-          fill="#222"
+          fill="#212121"
           fill-rule="evenodd"
         />
       </svg>
@@ -3130,6 +3134,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -3148,7 +3153,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -3806,6 +3811,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -3824,7 +3830,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -4477,6 +4483,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -4495,7 +4502,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -5159,6 +5166,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -5177,7 +5185,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -5830,6 +5838,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -5848,7 +5857,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
@@ -6501,6 +6510,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
+  display: block;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -6519,7 +6529,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input +.fi-radio-button_icon_wrapper {
-  top: 3px;
+  top: 0.1em;
   left: 0;
   margin: 2px;
   height: 18px;
