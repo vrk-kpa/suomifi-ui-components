@@ -17,7 +17,7 @@ import { Heading } from '../Heading/Heading';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { filterDuplicateKeys } from '../../utils/common/common';
-import { Button, ButtonProps, LoadingProps } from '../Button/Button';
+import { ButtonProps, InternalButton, LoadingProps } from '../Button/Button';
 import { getConditionalAriaProp } from '../../utils/aria';
 
 export type InternalToastProps = MarginProps &
@@ -117,7 +117,7 @@ const BaseToast = (props: ToastProps) => {
           {children}
         </HtmlDiv>
         {showCloseButton && (
-          <Button
+          <InternalButton
             variant="secondaryNoBorder"
             className={classnames(
               toastClassNames.closeButton,
@@ -132,7 +132,7 @@ const BaseToast = (props: ToastProps) => {
             iconRight={<IconClose />}
           >
             {''}
-          </Button>
+          </InternalButton>
         )}
       </HtmlDiv>
     </HtmlDivWithRef>
