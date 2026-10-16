@@ -19,10 +19,10 @@ import {
   InitialActiveDescendant,
 } from './ActionMenuPopover';
 import {
-  Button,
   ButtonProps,
   ButtonVariant,
   ForcedAccessibleNameProps,
+  InternalButton,
   LoadingProps,
 } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
@@ -177,7 +177,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       })}
       style={style}
     >
-      <Button
+      <InternalButton
         id={buttonId}
         variant={buttonVariant}
         iconRight={<IconOptionsVertical />}
@@ -196,7 +196,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         {...passProps}
       >
         {buttonText}
-      </Button>
+      </InternalButton>
 
       <ActionMenuPopover
         menuId={menuId}

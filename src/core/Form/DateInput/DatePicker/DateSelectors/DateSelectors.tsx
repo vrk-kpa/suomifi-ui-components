@@ -7,7 +7,7 @@ import { HtmlDiv } from '../../../../../reset';
 import { Dropdown, DropdownItem } from '../../../Dropdown';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
 import { baseStyles } from './DateSelectors.baseStyles';
-import { Button } from '../../../../Button/Button';
+import { InternalButton } from '../../../../Button/Button';
 import {
   yearOptions,
   monthOptions,
@@ -146,7 +146,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         )}
       </Dropdown>
       <HtmlDiv className={selectorsClassNames.buttons}>
-        <Button
+        <InternalButton
           onClick={handlePrevMonthButton}
           variant="secondaryNoBorder"
           aria-label={getPrevMonthButtonLabel()}
@@ -154,8 +154,8 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           disabled={monthIsSame(focusableDate, minDate)}
         >
           <IconChevronLeft className={selectorsClassNames.monthButtonIcon} />
-        </Button>
-        <Button
+        </InternalButton>
+        <InternalButton
           onClick={handleNextMonthButton}
           variant="secondaryNoBorder"
           aria-label={getNextMonthButtonLabel()}
@@ -163,7 +163,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           disabled={monthIsSame(focusableDate, maxDate)}
         >
           <IconChevronRight className={selectorsClassNames.monthButtonIcon} />
-        </Button>
+        </InternalButton>
       </HtmlDiv>
     </HtmlDiv>
   );
