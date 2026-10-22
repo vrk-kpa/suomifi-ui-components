@@ -167,6 +167,8 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
     columnKey: string;
     direction: 'asc' | 'desc';
   };
+  /** Text to tell screen reader users the function of the sort buttons e.g. "sort" or "sort table by column" */
+  sortText?: string;
   /** Displays skeleton rows (default of 5) to indicate the table is waiting to receive data */
   loading?: boolean;
   /** Optional override of the default amount (5) of skeleton rows when `loading` is true */
@@ -212,6 +214,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     className,
     'aria-labelledby': ariaLabelledBy,
     globalMargins,
+    sortText,
     ...rest
   } = props;
   const [_marginProps, passProps] = separateMarginProps(rest);
@@ -368,6 +371,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
   }
 
   const tableCaptionId = `${id}-caption`;
+  const sortTextId = `${id}-sort-button-description`;
   const getTableCaptionId = () => (caption ? tableCaptionId : ariaLabelledBy);
 
   return (
@@ -383,6 +387,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
           tableSortedAriaLiveText &&
           tableSortedAriaLiveText(getSortColumnLabel(), getSortDirection())}
       </VisuallyHidden>
+      <VisuallyHidden id={sortTextId}>{sortText}</VisuallyHidden>
       <HtmlTable
         className={classnames(tableClassNames.table, {
           [tableClassNames.condensed]: condensed,
@@ -423,13 +428,14 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     ? 'ascending'
                     : sortColumn === `${col.key}-desc`
                     ? 'descending'
-                    : undefined
+                    : 'none'
                 }
               >
                 {col.sortable ? (
                   <HtmlButton
                     onClick={() => sortData(col.key)}
                     className={tableClassNames.sortButton}
+                    aria-describedby={sortTextId}
                   >
                     {col.labelText}
                     {!sortColumn.includes(col.key) && <IconSort />}

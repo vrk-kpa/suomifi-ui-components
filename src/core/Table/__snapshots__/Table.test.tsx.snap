@@ -553,6 +553,10 @@ exports[`Table functionalities matches snapshot 1`] = `
       aria-live="polite"
       class="c2 c3 fi-visually-hidden"
     />
+    <span
+      class="c2 c3 fi-visually-hidden"
+      id="1-sort-button-description"
+    />
     <table
       class="c4 fi-table_table"
       id="1"
@@ -570,10 +574,12 @@ exports[`Table functionalities matches snapshot 1`] = `
           class="c7"
         >
           <th
+            aria-sort="none"
             class="c8 fi-table_th"
             scope="col"
           >
             <button
+              aria-describedby="1-sort-button-description"
               class="c9 fi-table_sort-button"
               type="button"
             >
@@ -602,10 +608,12 @@ exports[`Table functionalities matches snapshot 1`] = `
             </button>
           </th>
           <th
+            aria-sort="none"
             class="c8 fi-table_th fi-table_td--align-right"
             scope="col"
           >
             <button
+              aria-describedby="1-sort-button-description"
               class="c9 fi-table_sort-button"
               type="button"
             >
