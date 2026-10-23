@@ -296,6 +296,13 @@ describe('Table functionalities', () => {
       expect(rows[1]).toHaveTextContent('John Doe');
       expect(rows[2]).toHaveTextContent('Jane Smith');
     });
+
+    it('has correct sort button description when column is sortable', () => {
+      renderTable({ sortText: 'sort', caption: 'People in project' });
+      const nameButton = screen.getByRole('button', { name: /Name/i });
+      expect(nameButton.textContent).toBe('Name');
+      expect(nameButton).toHaveAccessibleDescription('sort');
+    });
   });
 
   it('removes checkbox when rowSelectionDisabled is true', () => {
