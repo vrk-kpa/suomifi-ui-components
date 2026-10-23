@@ -7,7 +7,7 @@ import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { Button, ButtonProps, LoadingProps } from '../Button/Button';
+import { ButtonProps, InternalButton, LoadingProps } from '../Button/Button';
 import {
   SuomifiThemeProp,
   SuomifiThemeConsumer,
@@ -174,7 +174,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             </HtmlDiv>
           </HtmlDiv>
           {showCloseButton && (
-            <Button
+            <InternalButton
               variant="secondaryNoBorder"
               className={classnames(
                 notificationClassNames.closeButton,
@@ -192,7 +192,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               iconRight={<IconClose />}
             >
               {!smallScreen ? closeText : ''}
-            </Button>
+            </InternalButton>
           )}
         </HtmlDiv>
         {actionElements && (

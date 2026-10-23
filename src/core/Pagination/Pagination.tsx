@@ -15,7 +15,7 @@ import {
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv, HtmlNavProps } from '../../reset';
 import { PageInput, PageInputValue } from './PageInput/PageInput';
-import { Button } from '../Button/Button';
+import { InternalButton } from '../Button/Button';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { filterDuplicateKeys } from '../../utils/common/common';
@@ -227,7 +227,7 @@ class BasePagination extends Component<PaginationProps> {
             </VisuallyHidden>
 
             {customPreviousButton || (
-              <Button
+              <InternalButton
                 id={`${id}-previous-button`}
                 className={paginationClassNames.arrowButton}
                 variant="secondary"
@@ -243,7 +243,7 @@ class BasePagination extends Component<PaginationProps> {
               {pageIndicatorText(this.getCurrentPage(), lastPage)}
             </HtmlSpan>
             {customNextButton || (
-              <Button
+              <InternalButton
                 id={`${id}-next-button`}
                 className={paginationClassNames.arrowButton}
                 variant="secondary"

@@ -43,7 +43,7 @@ import {
 import { Popover, PopoverConsumer } from '../../Popover/Popover';
 import { SelectItem } from '../Select/BaseSelect/SelectItem/SelectItem';
 import { SuggestionList } from './SuggestionList/SuggestionList';
-import { Button } from '../../Button/Button';
+import { InternalButton } from '../../Button/Button';
 
 export type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
@@ -579,7 +579,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                   )}
                 </HtmlDiv>
                 {this.props.onSearch && (
-                  <Button
+                  <InternalButton
                     {...{
                       ...searchButtonDerivedProps,
                       forwardedRef: undefined,
@@ -588,7 +588,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     icon={<IconSearch />}
                   >
                     {showSearchButtonLabel && searchButtonLabel}
-                  </Button>
+                  </InternalButton>
                 )}
               </HtmlDivWithRef>
             )}

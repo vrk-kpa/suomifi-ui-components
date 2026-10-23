@@ -199,7 +199,7 @@ const Button = forwardRef(
   ),
 );
 
-export const InternalButton = forwardRef(
+const InternalButton = forwardRef(
   (props: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
@@ -215,4 +215,5 @@ export const InternalButton = forwardRef(
 );
 
 Button.displayName = 'Button';
-export { Button };
+InternalButton.displayName = 'InternalButton';
+export { Button, InternalButton };
