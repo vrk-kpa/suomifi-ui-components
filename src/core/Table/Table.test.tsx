@@ -12,6 +12,7 @@ const columns = [
     sortable: true,
     textAlign: 'right',
     sortIcon: 'generic',
+    sortText: 'sort',
   },
 ] as const;
 
@@ -34,7 +35,13 @@ const renderTable = (props?: Partial<TableProps<typeof columns>>) => {
   const { caption, 'aria-labelledby': ariaLabelledBy, ...rest } = props || {};
   if (caption) {
     return render(
-      <Table caption={caption} columns={columns} data={data} {...rest} />,
+      <Table
+        caption={caption}
+        columns={columns}
+        data={data}
+        {...rest}
+        sortText="sort"
+      />,
     );
   }
   if (ariaLabelledBy) {
@@ -44,6 +51,7 @@ const renderTable = (props?: Partial<TableProps<typeof columns>>) => {
         columns={columns}
         data={data}
         {...rest}
+        sortText="sort"
       />,
     );
   }
@@ -52,7 +60,12 @@ const renderTable = (props?: Partial<TableProps<typeof columns>>) => {
 test(
   'should not have basic accessibility issues',
   axeTest(
-    <Table caption="People in the project" columns={columns} data={data} />,
+    <Table
+      caption="People in the project"
+      columns={columns}
+      data={data}
+      sortText="sort"
+    />,
   ),
 );
 
@@ -166,6 +179,7 @@ describe('Table functionalities', () => {
         columns={columns}
         data={dataWithTestIds}
         enableRowSelection
+        sortText="sort"
       />,
     );
     expect(screen.getByTestId('checkbox-john')).toBeInTheDocument();
@@ -195,6 +209,7 @@ describe('Table functionalities', () => {
         columns={columns}
         data={dataWithTestIds}
         enableSingleRowSelection
+        sortText="sort"
       />,
     );
     expect(screen.getByTestId('radio-john')).toBeInTheDocument();
@@ -278,6 +293,7 @@ describe('Table functionalities', () => {
           columns={nonSortableColumns}
           data={data}
           defaultSort={{ columnKey: 'name', direction: 'asc' }}
+          sortText="sort"
         />,
       );
       // Data should remain in original order
@@ -298,7 +314,7 @@ describe('Table functionalities', () => {
     });
 
     it('has correct sort button description when column is sortable', () => {
-      renderTable({ sortText: 'sort', caption: 'People in project' });
+      renderTable({ caption: 'People in project' });
       const nameButton = screen.getByRole('button', { name: /Name/i });
       expect(nameButton.textContent).toBe('Name');
       expect(nameButton).toHaveAccessibleDescription('sort');
@@ -327,6 +343,7 @@ describe('Table functionalities', () => {
         columns={columns}
         data={dataWithDisabled}
         enableRowSelection
+        sortText="sort"
       />,
     );
     const checkboxes = screen.getAllByRole('checkbox');
@@ -355,6 +372,7 @@ describe('Table functionalities', () => {
         columns={columns}
         data={dataWithDisabled}
         enableSingleRowSelection
+        sortText="sort"
       />,
     );
     const radioButtons = screen.getAllByRole('radio');

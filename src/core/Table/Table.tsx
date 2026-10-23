@@ -168,7 +168,7 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
     direction: 'asc' | 'desc';
   };
   /** Text to tell screen reader users the function of the sort buttons e.g. "sort" or "sort table by column" */
-  sortText?: string;
+  sortText: string;
   /** Displays skeleton rows (default of 5) to indicate the table is waiting to receive data */
   loading?: boolean;
   /** Optional override of the default amount (5) of skeleton rows when `loading` is true */

@@ -556,7 +556,9 @@ exports[`Table functionalities matches snapshot 1`] = `
     <span
       class="c2 c3 fi-visually-hidden"
       id="1-sort-button-description"
-    />
+    >
+      sort
+    </span>
     <table
       class="c4 fi-table_table"
       id="1"
