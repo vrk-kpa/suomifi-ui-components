@@ -10,10 +10,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     background-color: ${theme.colors.whiteBase};
     box-shadow: ${theme.shadows.wideBoxShadow};
     border: 1px solid ${theme.colors.depthDark3};
-
-    & .fi-button {
-      margin: 0;
-    }
   }
 
   & .fi-date-picker_bottom-container {
