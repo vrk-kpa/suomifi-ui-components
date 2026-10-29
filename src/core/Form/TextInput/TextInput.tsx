@@ -115,18 +115,7 @@ type InternalTextInputProps = TextInputProps & {
 const BaseTextInput = (props: InternalTextInputProps) => {
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
-  const [typingTimer, setTypingTimer] = useState<ReturnType<
-    typeof setTimeout
-  > | null>(null);
-
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-    return () => {
-      setIsMounted(false);
-    };
-  }, []);
+  const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const {
     className,
@@ -158,6 +147,16 @@ const BaseTextInput = (props: InternalTextInputProps) => {
   } = props;
   const [_marginProps, passProps] = separateMarginProps(rest);
 
+  useEffect(
+    () => () => {
+      if (typingTimer.current) {
+        clearTimeout(typingTimer.current);
+        typingTimer.current = null;
+      }
+    },
+    [],
+  );
+
   useEffect(() => {
     if (
       characterLimit !== undefined &&
@@ -173,8 +172,9 @@ const BaseTextInput = (props: InternalTextInputProps) => {
     event: ChangeEvent<HTMLInputElement>,
     debouncer: Function,
   ) => {
-    if (typingTimer) {
-      clearTimeout(typingTimer);
+    if (typingTimer.current) {
+      clearTimeout(typingTimer.current);
+      typingTimer.current = null;
     }
     if (
       characterLimit !== undefined &&
@@ -183,16 +183,14 @@ const BaseTextInput = (props: InternalTextInputProps) => {
     ) {
       const charCountInInput = event.target.value.length;
       setCharCount(charCountInInput);
-      const newTypingTimer = setTimeout(() => {
-        if (isMounted) {
-          setCharacterCounterAriaText(
-            charCountInInput <= characterLimit
-              ? ariaCharactersRemainingText(characterLimit - charCountInInput)
-              : ariaCharactersExceededText(charCountInInput - characterLimit),
-          );
-        }
+      typingTimer.current = setTimeout(() => {
+        typingTimer.current = null;
+        setCharacterCounterAriaText(
+          charCountInInput <= characterLimit
+            ? ariaCharactersRemainingText(characterLimit - charCountInInput)
+            : ariaCharactersExceededText(charCountInInput - characterLimit),
+        );
       }, 1500);
-      setTypingTimer(newTypingTimer);
     }
 
     if (!!propOnChange) {

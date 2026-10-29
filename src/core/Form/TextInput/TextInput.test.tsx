@@ -428,4 +428,28 @@ describe('Character counter', () => {
       container.getElementsByClassName('fi-status-text')[0].firstChild,
     ).toHaveTextContent('You have 6 characters too many');
   });
+
+  it('should not leave a pending character counter timer after unmount', async () => {
+    const user = userEvent.setup({ delay: null });
+    const { getByTestId, unmount } = render(
+      <TextInput
+        labelText="label"
+        data-testid="cc-input-unmount"
+        characterLimit={20}
+        ariaCharactersRemainingText={(amount) =>
+          `You have ${amount} characters remaining`
+        }
+        ariaCharactersExceededText={(amount) =>
+          `You have ${amount} characters too many`
+        }
+      />,
+    );
+
+    await user.type(getByTestId('cc-input-unmount'), 'Lorem');
+    expect(jest.getTimerCount()).toBeGreaterThan(0);
+
+    unmount();
+
+    expect(jest.getTimerCount()).toBe(0);
+  });
 });
