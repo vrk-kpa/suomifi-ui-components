@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ControlledFileItem, FileItemRefs } from './FileInput';
-import { Button } from '../../Button/Button';
+import { InternalButton } from '../../Button/Button';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset/HtmlDiv/HtmlDiv';
 import {
   IconErrorFilled,
@@ -154,7 +154,7 @@ const BaseFileItem = (props: FileItemProps) => {
             {getFileSizeText()}
           </HtmlDiv>
         </HtmlDiv>
-        <Button
+        <InternalButton
           variant={
             smallScreen && !multiFile ? 'secondary' : 'secondaryNoBorder'
           }
@@ -181,7 +181,7 @@ const BaseFileItem = (props: FileItemProps) => {
           ref={fileItemRefs.removeButtonRef}
         >
           {getButtonText()}
-        </Button>
+        </InternalButton>
       </HtmlDiv>
       {fileItemDetails?.errorText && (
         <HtmlDiv className={fileItemClassNames.fileItemErrorText}>

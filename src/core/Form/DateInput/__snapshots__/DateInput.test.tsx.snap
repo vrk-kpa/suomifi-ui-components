@@ -3688,10 +3688,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: 1px solid hsl(201, 7%, 58%);
 }
 
-.c10.fi-date-picker .fi-button {
-  margin: 0;
-}
-
 .c10 .fi-date-picker_bottom-container {
   display: flex;
   justify-content: flex-end;
@@ -5858,10 +5854,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 4px 8px 0px hsla(0, 0%, 13%, 0.14);
   border: 1px solid hsl(201, 7%, 58%);
-}
-
-.c10.fi-date-picker .fi-button {
-  margin: 0;
 }
 
 .c10 .fi-date-picker_bottom-container {

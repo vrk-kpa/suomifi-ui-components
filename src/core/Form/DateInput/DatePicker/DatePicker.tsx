@@ -8,7 +8,7 @@ import { HtmlDiv, HtmlDivWithRef } from '../../../../reset';
 import { DatePickerProps, datePickerAlignment } from '../DateInput';
 import { InternalDatePickerTextProps } from '../datePickerTexts';
 import { baseStyles } from './DatePicker.baseStyles';
-import { Button } from '../../../Button/Button';
+import { InternalButton } from '../../../Button/Button';
 import { MonthTable } from './MonthTable/MonthTable';
 import { DateSelectors } from './DateSelectors/DateSelectors';
 import {
@@ -478,13 +478,13 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         texts={texts}
       />
       <HtmlDiv className={datePickerClassNames.bottomContainer}>
-        <Button
+        <InternalButton
           variant="secondaryNoBorder"
           onClick={() => handleClose(true)}
           forwardedRef={closeButtonRef}
         >
           {texts.closeButtonText}
-        </Button>
+        </InternalButton>
       </HtmlDiv>
     </HtmlDiv>
   );
