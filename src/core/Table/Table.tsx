@@ -12,7 +12,7 @@ import {
   GlobalMarginProps,
   GlobalMargins,
 } from '../theme/utils/spacing';
-import { baseStyles } from './Table.baseStyles';
+import { baseStyles, Overflow, ColumnWidthProps } from './Table.baseStyles';
 import {
   filterDuplicateKeys,
   HTMLAttributesIncludingDataAttributes,
@@ -46,8 +46,8 @@ import { Block } from '../Block/Block';
 const baseClassName = 'fi-table';
 
 const tableClassNames = {
-  selectedTr: 'fi-table_tr--highlighted',
-  selectableTr: 'fi-table_tr--selectable',
+  selectedTr: `${baseClassName}_tr--highlighted`,
+  selectableTr: `${baseClassName}_tr--selectable`,
   table: `${baseClassName}_table`,
   thead: `${baseClassName}_thead`,
   tbody: `${baseClassName}_tbody`,
@@ -57,10 +57,14 @@ const tableClassNames = {
   selectionTd: `${baseClassName}_td--selection`,
   tdAlignRight: `${baseClassName}_td--align-right`,
   tdAlignCenter: `${baseClassName}_td--align-center`,
+  overflowBreakWord: `${baseClassName}_cell--overflow-break-word`,
+  overflowNowrap: `${baseClassName}_cell--overflow-nowrap`,
+  overflowWrap: `${baseClassName}_cell--overflow-wrap`,
   caption: `${baseClassName}_caption`,
   condensed: `${baseClassName}--condensed`,
-  sortIcons: `${baseClassName}_sort-icons`,
+  sortIcon: `${baseClassName}_sort-icon`,
   sortButton: `${baseClassName}_sort-button`,
+  sortButtonLabel: `${baseClassName}_sort-button_label`,
   skeleton: `${baseClassName}_skeleton`,
   skeletonRow: `${baseClassName}_skeleton-row`,
   skeletonCell: `${baseClassName}_skeleton-cell`,
@@ -68,13 +72,28 @@ const tableClassNames = {
   selectionCellSkeleton: `${baseClassName}_selection-cell-skeleton`,
 };
 
-export interface TableColumn {
+const getOverflowClassName = (overflow: Overflow): string => {
+  switch (overflow) {
+    case 'break-word':
+      return tableClassNames.overflowBreakWord;
+
+    case 'wrap':
+      return tableClassNames.overflowWrap;
+
+    case 'nowrap':
+    default:
+      return tableClassNames.overflowNowrap;
+  }
+};
+
+export interface TableColumn extends ColumnWidthProps {
   key: string;
   labelText: string;
   textAlign?: 'left' | 'center' | 'right';
   sortable?: boolean;
   sortIcon?: 'alphabetical' | 'generic';
   className?: string;
+  overflow?: Overflow;
 }
 
 /**
@@ -173,6 +192,26 @@ export interface BaseTableProps<TColumns extends readonly TableColumn[]>
   loadingRowAmount?: number;
   /** Ref object is placed to the main table element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTableElement>;
+  /**
+   * Controls how column widths are calculated.
+   *
+   * - `auto`: Column widths are determined by their content.
+   * - `fixed`: Column widths are determined primarily by configured widths and available table space.
+   *
+   * @default 'auto'
+   */
+  tableLayout?: 'auto' | 'fixed';
+  /**
+   * Default content overflow behavior for all table cells. Individual columns may override this setting.
+   *
+   * - `nowrap`: Prevent wrapping and keep content on a single line.
+   * - `wrap`: Wrap content at normal word boundaries.
+   * - `break-word`: Allow long unbroken strings to wrap when necessary.
+   *   space.
+   *
+   * @default 'nowrap'
+   */
+  overflow?: 'nowrap' | 'wrap' | 'break-word';
 }
 
 type TableHeadingProps =
@@ -211,6 +250,8 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
     controlledSelectedRowIds,
     className,
     'aria-labelledby': ariaLabelledBy,
+    tableLayout,
+    overflow,
     globalMargins,
     ...rest
   } = props;
@@ -402,6 +443,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
         )}
         <HtmlTableHeader className={tableClassNames.thead}>
           <HtmlTableRow>
+            {/* Empty header cell for row selection */}
             {(enableRowSelection || enableSingleRowSelection) && (
               <HtmlTableCell
                 className={classnames(
@@ -414,10 +456,15 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
               <HtmlTableHeaderCell
                 scope="col"
                 key={col.key}
-                className={classnames(tableClassNames.th, col.className, {
-                  [tableClassNames.tdAlignRight]: col.textAlign === 'right',
-                  [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
-                })}
+                className={classnames(
+                  tableClassNames.th,
+                  col.className,
+                  col.overflow && getOverflowClassName(col.overflow),
+                  {
+                    [tableClassNames.tdAlignRight]: col.textAlign === 'right',
+                    [tableClassNames.tdAlignCenter]: col.textAlign === 'center',
+                  },
+                )}
                 aria-sort={
                   sortColumn === `${col.key}-asc`
                     ? 'ascending'
@@ -425,22 +472,39 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     ? 'descending'
                     : undefined
                 }
+                width={col.width}
+                minWidth={col.minWidth}
+                maxWidth={col.maxWidth}
               >
                 {col.sortable ? (
                   <HtmlButton
                     onClick={() => sortData(col.key)}
                     className={tableClassNames.sortButton}
                   >
-                    {col.labelText}
-                    {!sortColumn.includes(col.key) && <IconSort />}
+                    <span className={tableClassNames.sortButtonLabel}>
+                      {col.labelText}
+                    </span>
+                    {!sortColumn.includes(col.key) && (
+                      <IconSort className={tableClassNames.sortIcon} />
+                    )}
                     {sortColumn === `${col.key}-asc` &&
-                      col.sortIcon !== 'generic' && <IconSortDownAlph />}
+                      col.sortIcon !== 'generic' && (
+                        <IconSortDownAlph
+                          className={tableClassNames.sortIcon}
+                        />
+                      )}
                     {sortColumn === `${col.key}-desc` &&
-                      col.sortIcon !== 'generic' && <IconSortUpAlph />}
+                      col.sortIcon !== 'generic' && (
+                        <IconSortUpAlph className={tableClassNames.sortIcon} />
+                      )}
                     {sortColumn === `${col.key}-asc` &&
-                      col.sortIcon === 'generic' && <IconSortDown />}
+                      col.sortIcon === 'generic' && (
+                        <IconSortDown className={tableClassNames.sortIcon} />
+                      )}
                     {sortColumn === `${col.key}-desc` &&
-                      col.sortIcon === 'generic' && <IconSortUp />}
+                      col.sortIcon === 'generic' && (
+                        <IconSortUp className={tableClassNames.sortIcon} />
+                      )}
                   </HtmlButton>
                 ) : (
                   col.labelText
@@ -457,6 +521,7 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                   className={tableClassNames.skeletonRow}
                   aria-hidden="true"
                 >
+                  {/* Empty header cell for row selection */}
                   {(enableRowSelection || enableSingleRowSelection) && (
                     <HtmlTableCell
                       className={classnames(
@@ -476,6 +541,9 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                     <HtmlTableCell
                       key={`loading-cell-${col.key}`}
                       className={tableClassNames.skeletonCell}
+                      width={col.width}
+                      minWidth={col.minWidth}
+                      maxWidth={col.maxWidth}
                     >
                       <Block
                         className={classnames(
@@ -560,12 +628,17 @@ const BaseTable = <TColumns extends readonly TableColumn[]>(
                   {columns.map((col) => (
                     <HtmlTableCell
                       key={`${row.id}-${col.key}`}
-                      className={classnames(tableClassNames.td, col.className, {
-                        [tableClassNames.tdAlignRight]:
-                          col.textAlign === 'right',
-                        [tableClassNames.tdAlignCenter]:
-                          col.textAlign === 'center',
-                      })}
+                      className={classnames(
+                        tableClassNames.td,
+                        col.className,
+                        col.overflow && getOverflowClassName(col.overflow),
+                        {
+                          [tableClassNames.tdAlignRight]:
+                            col.textAlign === 'right',
+                          [tableClassNames.tdAlignCenter]:
+                            col.textAlign === 'center',
+                        },
+                      )}
                     >
                       {
                         row[
@@ -591,13 +664,25 @@ const StyledTable = styled(
     <BaseTable {...passProps} />
   ),
 )`
-  ${({ theme, globalMargins, ...rest }) => {
+  ${({
+    theme,
+    tableLayout = 'auto',
+    overflow = 'nowrap',
+    globalMargins,
+    ...rest
+  }) => {
     const [marginProps, _passProps] = separateMarginProps(rest);
     const cleanedGlobalMargins = filterDuplicateKeys(
       globalMargins.table,
       marginProps,
     );
-    return baseStyles(theme, cleanedGlobalMargins, marginProps);
+    return baseStyles(
+      theme,
+      tableLayout,
+      overflow,
+      cleanedGlobalMargins,
+      marginProps,
+    );
   }}
 `;
 

@@ -3,8 +3,72 @@ import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { MarginProps, buildSpacingCSS } from '../theme/utils/spacing';
 
+export type Overflow = 'nowrap' | 'wrap' | 'break-word';
+
+export type ColumnWidthProps = {
+  width?: string | number;
+  minWidth?: string | number;
+  maxWidth?: string | number;
+};
+
+export const getOverflowStyles = (overflow: Overflow) => {
+  switch (overflow) {
+    case 'break-word':
+      return css`
+        white-space: normal;
+        overflow-wrap: anywhere;
+      `;
+
+    case 'wrap':
+      return css`
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+
+        /* Override font style which brings break-word */
+        a,
+        button {
+          white-space: inherit;
+          word-break: inherit;
+          overflow-wrap: inherit;
+        }
+      `;
+
+    case 'nowrap':
+    default:
+      return css`
+        white-space: nowrap;
+        overflow: unset;
+        text-overflow: unset;
+
+        /* Override font style which brings break-word */
+        a,
+        button {
+          white-space: inherit;
+          word-break: inherit;
+          overflow-wrap: inherit;
+        }
+      `;
+  }
+};
+
+const toCssSize = (value?: string | number) =>
+  typeof value === 'number' ? `${value}px` : value;
+
+export const getColumnWidthStyles = ({
+  width,
+  minWidth,
+  maxWidth,
+}: ColumnWidthProps) => css`
+  width: ${toCssSize(width)};
+  min-width: ${toCssSize(minWidth)};
+  max-width: ${toCssSize(maxWidth)};
+`;
+
 export const baseStyles = (
   theme: SuomifiTheme,
+  tableLayout: 'auto' | 'fixed',
+  overflow: Overflow,
   globalMargins?: MarginProps,
   propMargins?: MarginProps,
 ) => css`
@@ -12,8 +76,6 @@ export const baseStyles = (
   &.fi-table {
     ${font(theme)('bodyText')}
     overflow: auto;
-    /* Prevents text in cells from wrapping */
-    white-space: nowrap;
 
     background-image: 
       /* Shadows */
@@ -53,6 +115,7 @@ export const baseStyles = (
       ${buildSpacingCSS(propMargins, true)}
       font-size: 16px;
       width: 100%;
+      table-layout: ${tableLayout};
 
       .fi-table_caption {
         ${font(theme)('heading3')}
@@ -120,13 +183,15 @@ export const baseStyles = (
         .fi-table_sort-button {
           display: flex;
           justify-content: flex-start;
-          align-items: center;
+          align-items: flex-start;
           cursor: pointer;
           user-select: none;
           width: 100%;
           ${element(theme)}
           color: ${theme.colors.whiteBase};
           ${font(theme)('bodySemiBold')}
+          word-break: inherit; /* Override font style which brings break-word */
+          overflow-wrap: inherit; /* Override font style which brings break-word */
           font-size: 16px;
 
           .fi-icon {
@@ -207,6 +272,27 @@ export const baseStyles = (
           }
         }
       }
+    }
+
+    .fi-table_sort-icon {
+      flex: 0 0 auto;
+    }
+
+    .fi-table_th,
+    .fi-table_td {
+      ${getOverflowStyles(overflow)};
+    }
+
+    .fi-table_cell--overflow-nowrap {
+      ${getOverflowStyles('nowrap')};
+    }
+
+    .fi-table_cell--overflow-wrap {
+      ${getOverflowStyles('wrap')};
+    }
+
+    .fi-table_cell--overflow-break-word {
+      ${getOverflowStyles('break-word')};
     }
 
     .fi-table_skeleton {
