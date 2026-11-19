@@ -319,7 +319,6 @@ exports[`Table functionalities matches snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   overflow: auto;
-  white-space: nowrap;
   background-image: linear-gradient(to right, white, white),linear-gradient(to right, white, white), linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0)),linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
   background-position: left center,right center,left center,right center;
   background-repeat: no-repeat;
@@ -339,6 +338,7 @@ exports[`Table functionalities matches snapshot 1`] = `
   color: hsl(0, 0%, 13%);
   font-size: 16px;
   width: 100%;
+  table-layout: auto;
 }
 
 .c1.fi-table .fi-table_table .fi-table_caption {
@@ -425,7 +425,7 @@ exports[`Table functionalities matches snapshot 1`] = `
 .c1.fi-table .fi-table_table .fi-table_th .fi-table_sort-button {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
   user-select: none;
   width: 100%;
@@ -440,6 +440,8 @@ exports[`Table functionalities matches snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
+  word-break: inherit;
+  overflow-wrap: inherit;
   font-size: 16px;
 }
 
@@ -523,6 +525,57 @@ exports[`Table functionalities matches snapshot 1`] = `
   padding: 5px 12px 5px 20px;
 }
 
+.c1.fi-table .fi-table_sort-icon {
+  flex: 0 0 auto;
+}
+
+.c1.fi-table .fi-table_th,
+.c1.fi-table .fi-table_td {
+  white-space: nowrap;
+  overflow: unset;
+  text-overflow: unset;
+}
+
+.c1.fi-table .fi-table_th a,
+.c1.fi-table .fi-table_td a,
+.c1.fi-table .fi-table_th button,
+.c1.fi-table .fi-table_td button {
+  white-space: inherit;
+  word-break: inherit;
+  overflow-wrap: inherit;
+}
+
+.c1.fi-table .fi-table_cell--overflow-nowrap {
+  white-space: nowrap;
+  overflow: unset;
+  text-overflow: unset;
+}
+
+.c1.fi-table .fi-table_cell--overflow-nowrap a,
+.c1.fi-table .fi-table_cell--overflow-nowrap button {
+  white-space: inherit;
+  word-break: inherit;
+  overflow-wrap: inherit;
+}
+
+.c1.fi-table .fi-table_cell--overflow-wrap {
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.c1.fi-table .fi-table_cell--overflow-wrap a,
+.c1.fi-table .fi-table_cell--overflow-wrap button {
+  white-space: inherit;
+  word-break: inherit;
+  overflow-wrap: inherit;
+}
+
+.c1.fi-table .fi-table_cell--overflow-break-word {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .c1.fi-table .fi-table_skeleton {
   background-color: hsl(202, 7%, 93%);
   border-radius: 4px;
@@ -577,10 +630,14 @@ exports[`Table functionalities matches snapshot 1`] = `
               class="c9 fi-table_sort-button"
               type="button"
             >
-              Name
+              <span
+                class="fi-table_sort-button_label"
+              >
+                Name
+              </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c10"
+                class="fi-icon c10 fi-table_sort-icon"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -609,10 +666,14 @@ exports[`Table functionalities matches snapshot 1`] = `
               class="c9 fi-table_sort-button"
               type="button"
             >
-              Age
+              <span
+                class="fi-table_sort-button_label"
+              >
+                Age
+              </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c10"
+                class="fi-icon c10 fi-table_sort-icon"
                 fill="none"
                 focusable="false"
                 height="1em"

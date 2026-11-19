@@ -13,6 +13,7 @@ Examples:
   - [Controlled row selection](./#/Components/Table?id=controlled-row-selection)
 - [Condensed table](./#/Components/Table?id=condensed-table)
 - [Horizontal scroll (mobile)](./#/Components/Table?id=horizontal-scroll-mobile)
+- [Word wrapping and table layout](./#/Components/Table?id=word-wrapping-and-table-layout)
 - [Paginated data](./#/Components/Table?id=paginated-data)
 - [Loading state](./#/Components/Table?id=loading-state)
 
@@ -903,6 +904,95 @@ const data = [
     />
   </Block>
 </>;
+```
+
+### Word wrapping and table layout
+
+Word wrapping can be adjusted for the whole Table and for individual columns with prop `overflow`. By default the value is `nowrap`, and it can be adjusted to `wrap` or `word-break`.
+
+Table's layout can be adjusted with prop `tableLayout` that accepts values auto (default) or fixed.
+
+```jsx
+import { Table, Link } from 'suomifi-ui-components';
+import React from 'react';
+
+const columns = [
+  {
+    key: 'firstName',
+    labelText: 'First name'
+  },
+  {
+    key: 'lastName',
+    labelText: 'Last name'
+  },
+  {
+    key: 'hours_worked',
+    labelText: 'Number of hours worked',
+    textAlign: 'right',
+    width: '120px',
+    overflow: 'wrap'
+  },
+  {
+    key: 'title',
+    labelText: 'Title'
+  },
+  {
+    key: 'country',
+    labelText: 'Country of Residence',
+    className: 'my-custom-class'
+  }
+];
+
+const data = [
+  {
+    id: '1',
+    firstName: 'John',
+    lastName: 'Doe',
+    hours_worked: 125,
+    title: 'Developer',
+    country: 'United Kingdom'
+  },
+  {
+    id: '2',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    hours_worked: 150,
+    title: 'Architect',
+    country: 'Norway'
+  },
+  {
+    id: '3',
+    firstName: 'Bruce',
+    lastName: 'Willis',
+    hours_worked: 10,
+    title: 'Project manager',
+    country: 'United States of America'
+  },
+  {
+    id: '4',
+    firstName: 'Harriet',
+    lastName: 'Ackermann',
+    hours_worked: '',
+    title: 'Security consultant',
+    country: <Link href="https://suomi.fi">Germany</Link>
+  },
+  {
+    id: '5',
+    firstName: 'Alexander',
+    lastName: 'Stubb',
+    hours_worked: 2543,
+    title: 'President',
+    country: 'Finland'
+  }
+];
+
+<Table
+  caption="People in the project"
+  columns={columns}
+  data={data}
+  tableLayout="fixed"
+  overflow="nowrap"
+/>;
 ```
 
 ### Paginated data
