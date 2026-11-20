@@ -72,6 +72,45 @@ const [showToast, setShowToast] = useState(false);
 </>;
 ```
 
+### useToast hook
+
+Use the `useToast` hook to handle the lifecycle of the toast element. It takes care of the timing, focus and some accessibility features of the toast. Animation and position needs to be configured separately. See [the pattern example](https://designsystem.suomi.fi/patterns/toast) for reference.
+
+```js
+import {
+  Toast,
+  Button,
+  Block,
+  useToast
+} from 'suomifi-ui-components';
+import { useState, useRef } from 'react';
+
+const triggerRef = useRef();
+const toast = useToast({ returnFocusRef: triggerRef });
+
+<>
+  <Block aria-live="polite" style={{ width: '100%' }}>
+    {toast.isVisible && (
+      <Toast
+        {...toast.toastProps}
+        showCloseButton
+        closeText="close notification"
+        onCloseButtonClick={toast.close}
+      >
+        Your information was sent successfully
+      </Toast>
+    )}
+  </Block>
+  <Button ref={triggerRef} onClick={toast.open}>
+    Show toast
+  </Button>
+</>;
+```
+
 ### Props & methods
 
 Toast component supports [margin props](./#/Spacing/Margin%20props) for spacing.
+
+```
+
+```

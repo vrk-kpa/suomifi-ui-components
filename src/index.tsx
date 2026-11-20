@@ -22,7 +22,14 @@ export {
   type NotificationProps,
   type CloseButtonProps,
 } from './core/Notification/Notification';
-export { Toast, type ToastProps } from './core/Toast/Toast';
+export {
+  Toast,
+  useToast,
+  TOAST_CLOSING_CLASS_NAME,
+  type ToastProps,
+  type UseToastOptions,
+  type ToastState,
+} from './core/Toast';
 export { Block, type BlockProps } from './core/Block/Block';
 export {
   Button,
